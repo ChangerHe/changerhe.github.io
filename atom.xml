@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/ChangerHe/"/>
-  <updated>2017-06-15T00:06:11.587Z</updated>
+  <updated>2017-06-15T03:54:29.123Z</updated>
   <id>https://github.com/ChangerHe/</id>
   
   <author>
@@ -14,6 +14,25 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>HEXO使用小结</title>
+    <link href="https://github.com/ChangerHe/2017/06/15/hexo/"/>
+    <id>https://github.com/ChangerHe/2017/06/15/hexo/</id>
+    <published>2017-06-15T03:30:32.000Z</published>
+    <updated>2017-06-15T03:54:29.123Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="http://upload-images.jianshu.io/upload_images/1864475-ea777a9585853764.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="images"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1864475-ea777a9585853764.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; 
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>article title</title>
@@ -40,7 +59,7 @@
     <link href="https://github.com/ChangerHe/2017/06/14/hello-world/"/>
     <id>https://github.com/ChangerHe/2017/06/14/hello-world/</id>
     <published>2017-06-14T15:21:01.766Z</published>
-    <updated>2017-06-14T15:21:01.766Z</updated>
+    <updated>2017-06-15T03:50:25.831Z</updated>
     
     <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
@@ -51,6 +70,7 @@
 <p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1060239-4e51b06cdfcaf40e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="PIC"></p>
 ]]></content>
     
     <summary type="html">
