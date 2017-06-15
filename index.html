@@ -686,7 +686,7 @@ github: git@github.com:changerhe/changerhe.github.io.git,master
 
   <span class="post-letters-count">
     &nbsp; | &nbsp;
-    <span>802 字</span>
+    <span>799 字</span>
     &nbsp; | &nbsp;
     <span>3 min</span>
   </span>
@@ -715,7 +715,7 @@ github: git@github.com:changerhe/changerhe.github.io.git,master
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  802字
+                  799字
                 </span>
               
 
@@ -759,9 +759,9 @@ github: git@github.com:changerhe/changerhe.github.io.git,master
 <h1 id="3-absolute："><a href="#3-absolute：" class="headerlink" title="3.absolute："></a>3.absolute：</h1><p>绝对定位，设置了absolute属性后，该元素会向其父节点去寻找它的“根源”，有一点要特别注意的是（对比第二条的特别注意看）：设置了absolute属性后的的元素其display属性（不管你是inline还是inline-block还是block）将会统一全部变成block且width自动成为auto，也就是会受到父元素的影响。</p>
 <p>##（1）其父节点无position属性，父n个节点都没有position属性，那么其relative的“根     源”将以body为参照，也就是屏幕的0,0点。</p>
 <p>##（2）其父节点有position属性且该属性设置为relative，那么好，这个节点就会以此父节     点为“根源”去做自己的定位了。定位top、bottom、left、right属性值为都是相对于父节点的0,0位置。</p>
-<p>##（3）其父节点有position属性且该属性设置为absolute，我们很惊奇地会看到，握草这      两个元素居然重叠了而且重叠的毫无缝隙，什么鬼！，事实发现原来是这样的：设置为absolute后div自动变为width：auto；也就是说A-1和A-2都是width：auto；从而导致了它们的重叠，但是为何其“根源”变成了A-1，这是令我不解的地方。<br><a href="http://jns.img.bucket.ks3-cn-beijing.ksyun.com/skill/daily/59b881e4-a5a5-478d-86eb-e12bb585e202.png" target="_blank" rel="external">PIC</a></p>
-<p>##（4）其父节点有position属性该属性设置为absolute，而且其父父节点有position属性<br><a href="http://jns.img.bucket.ks3-cn-beijing.ksyun.com/skill/daily/79eb57d5-01f7-4086-8889-2db097042d25.png" target="_blank" rel="external">PIC</a><br>该属性设置为relative，那么这个结果应该大家都猜得到，该元素及其父节点都会以其父父节点作为“根源”。</p>
-<p>#（5）其父节点有position属性该属性设置为absolute，而且其父父节点有position属性该属性设置为absolute，情况和（3）类似，我就直接上图了。<br><a href="http://jns.img.bucket.ks3-cn-beijing.ksyun.com/skill/daily/1ce6acfa-cdf6-4cf0-af0d-d11005f58f6d.png" target="_blank" rel="external">PIC</a></p>
+<p>##（3）其父节点有position属性且该属性设置为absolute，我们很惊奇地会看到，握草这      两个元素居然重叠了而且重叠的毫无缝隙，什么鬼！，事实发现原来是这样的：设置为absolute后div自动变为width：auto；也就是说A-1和A-2都是width：auto；从而导致了它们的重叠，但是为何其“根源”变成了A-1，这是令我不解的地方。<br><img src="http://jns.img.bucket.ks3-cn-beijing.ksyun.com/skill/daily/59b881e4-a5a5-478d-86eb-e12bb585e202.png" alt="PIC"></p>
+<p>##（4）其父节点有position属性该属性设置为absolute，而且其父父节点有position属性<br><img src="http://jns.img.bucket.ks3-cn-beijing.ksyun.com/skill/daily/79eb57d5-01f7-4086-8889-2db097042d25.png" alt="PIC"><br>该属性设置为relative，那么这个结果应该大家都猜得到，该元素及其父节点都会以其父父节点作为“根源”。</p>
+<p>#（5）其父节点有position属性该属性设置为absolute，而且其父父节点有position属性该属性设置为absolute，情况和（3）类似，我就直接上图了。<br><img src="http://jns.img.bucket.ks3-cn-beijing.ksyun.com/skill/daily/1ce6acfa-cdf6-4cf0-af0d-d11005f58f6d.png" alt="PIC"></p>
 <h1 id="4-fixed："><a href="#4-fixed：" class="headerlink" title="4.fixed："></a>4.fixed：</h1><p>该属性之前一直因为与IE6的兼容性问题，而被打入“冷宫”，fixed和absolute有许多共同点：</p>
 <p>##（1）改变呈现样式，设置后元素将直接变为block。</p>
 <p>##（2）会让元素脱离普通流，不会像relative一样，在页面的原来位置留下“真身”。</p>
