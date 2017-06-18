@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/ChangerHe/"/>
-  <updated>2017-06-18T14:43:33.659Z</updated>
+  <updated>2017-06-18T16:02:34.133Z</updated>
   <id>https://github.com/ChangerHe/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://github.com/ChangerHe/2017/06/18/The-Usages-Of-Iconfont/"/>
     <id>https://github.com/ChangerHe/2017/06/18/The-Usages-Of-Iconfont/</id>
     <published>2017-06-18T14:30:39.000Z</published>
-    <updated>2017-06-18T14:43:33.659Z</updated>
+    <updated>2017-06-18T16:02:34.133Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Iconfont是什么？"><a href="#Iconfont是什么？" class="headerlink" title="Iconfont是什么？"></a>Iconfont是什么？</h1><p>iconfont是由阿里妈妈出品，国内射鸡师妹妹和前端小哥哥/小姐姐们常去的学（gao）习（ji）网站，网站上面都是一些“高清无码”的矢量图标，相比于使用单一的小png和使用spirit来说大大减少了与服务器握手次数，可以提升网页打开效率。</p>
 <h1 id="Iconfont使用方法"><a href="#Iconfont使用方法" class="headerlink" title="Iconfont使用方法"></a>Iconfont使用方法</h1><p>1.我们先一起打开这个国内打大型同性交友网站<a href="http://www.iconfont.cn" target="_blank" rel="external">http://www.iconfont.cn</a> ，然后点击“图标库”，可以使用自己的github登陆，登陆后就可以根据自己的需要进行查找图标，海量图标等你约哟。<br><img src="http://jns.img.bucket.ks3-cn-beijing.ksyun.com/skill/daily/08d77494-c969-4ba1-a915-e59a8f2f4786.png" alt="PIC"><br>2.将需要的图标添加到购物车形状里面，也就是放到自己的库里，没有库的自己可以随便创建一个项目库。<br><img src="http://jns.img.bucket.ks3-cn-beijing.ksyun.com/skill/daily/e1ffdb7b-f305-4906-9e9d-e0930274e6cc.png" alt="PIC"><br>3.添加好之后，会出现下面这个样子，此时选好之后，就可以下载至本地，不建议直接使用在线使用的办法，亲测没有效，而且浏览器请求时间太长。<br><img src="http://jns.img.bucket.ks3-cn-beijing.ksyun.com/skill/daily/2ef3063c-d5b5-41e4-97fc-0bce6255e4b5.png" alt="PIC"><br>4.下好之后，需要将一行代码放到css文件中，也就是下下来的iconfont.css这个文件，或者直接在自己的项目html中引用这个css，但不建议这样做，会增加服务器请求次数。<br><img src="http://jns.img.bucket.ks3-cn-beijing.ksyun.com/skill/daily/197598ad-e3c9-4fd4-9eb5-7644276ef584.png" alt="PIC"><br>5.大胆的使用这些图标吧，使用方法就是直接自己的标签中加class=“iconfont”再加上对应图标的class就可以啦（对应的图标class在iconfont.css中，参考上图）。</p>
@@ -33,6 +33,8 @@
     
     </summary>
     
+      <category term="HTML &amp; CSS 学习笔记" scheme="https://github.com/ChangerHe/categories/HTML-CSS-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
     
   </entry>
   
@@ -41,7 +43,7 @@
     <link href="https://github.com/ChangerHe/2017/06/17/What-is-Flex/"/>
     <id>https://github.com/ChangerHe/2017/06/17/What-is-Flex/</id>
     <published>2017-06-17T13:58:19.000Z</published>
-    <updated>2017-06-18T14:41:35.988Z</updated>
+    <updated>2017-06-18T16:02:27.003Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Flex布局是什么？"><a href="#Flex布局是什么？" class="headerlink" title="Flex布局是什么？"></a>Flex布局是什么？</h1><p>Flex是Fllexible Box的缩写，也就是“弹性布局”，用来为盒子模型提供最大的灵活性。<br>任何一个容器都可以指定为Flex布局。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.box</span>&#123;</div><div class="line">	<span class="attribute">display</span>:flex;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>当然，对于行内元素，也可以使用Flex布局。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.box</span>&#123;</div><div class="line">	<span class="attribute">display</span>:inline-flex;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
@@ -79,6 +81,10 @@
     
     </summary>
     
+      <category term="HTML &amp; CSS 学习笔记" scheme="https://github.com/ChangerHe/categories/HTML-CSS-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="What is Flex?" scheme="https://github.com/ChangerHe/tags/What-is-Flex/"/>
     
   </entry>
   
@@ -87,7 +93,7 @@
     <link href="https://github.com/ChangerHe/2017/06/15/nine-block-mission/"/>
     <id>https://github.com/ChangerHe/2017/06/15/nine-block-mission/</id>
     <published>2017-06-15T12:11:54.000Z</published>
-    <updated>2017-06-15T12:39:01.889Z</updated>
+    <updated>2017-06-18T16:02:42.996Z</updated>
     
     <content type="html"><![CDATA[<h1 id="为什么要这么“作死”"><a href="#为什么要这么“作死”" class="headerlink" title="为什么要这么“作死”"></a>为什么要这么“作死”</h1><p>本文使用JS方法，对之前本来比较简单的九宫格布局方法，进行了“暴力”重构<br>代码主要的构思<br>1.毋庸置疑，第一步，在meta中设定显示宽度为设备的宽度，缩放比例为1:1。<br>2.要想实现页面的高为100%,因页面存在继承属性，html继承了浏览器的高度，因此需要在设置盒子的高度为100%之前，设置html和body的高度为100%，才能实现子盒子的高度为100%。<br>3.最开始我的考虑是实现宽高为100%，然后子盒子再继续以百分比进行设置，虽然实现了九宫格，但是页面实在是太吃藕了，所以思考着添加JS方法，对页面进行重构。</p>
 <h1 id="使用JS方法的重构思路"><a href="#使用JS方法的重构思路" class="headerlink" title="使用JS方法的重构思路"></a>使用JS方法的重构思路</h1><p>1.获取浏览器的宽度<br>2.比较大盒子的宽高，并取出宽高中较小的值，并将较小值赋值给大盒子的宽和高，这就实现了大盒子是个正方形且刚刚好接近覆盖整个页面。<br>3.此时的页面靠左，因此需考虑一个办法将页面居中，这里面再次使用了“暴力”方法进行了居中，居中方式如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">con.style.marginLeft=cWidth/2-con.offsetWidth/2+<span class="string">'px'</span>;</div></pre></td></tr></table></figure></p>
@@ -100,6 +106,8 @@
     
     </summary>
     
+      <category term="HTML &amp; CSS 学习笔记" scheme="https://github.com/ChangerHe/categories/HTML-CSS-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
     
   </entry>
   
@@ -108,7 +116,7 @@
     <link href="https://github.com/ChangerHe/2017/06/15/hexo/"/>
     <id>https://github.com/ChangerHe/2017/06/15/hexo/</id>
     <published>2017-06-15T03:30:32.386Z</published>
-    <updated>2017-06-15T05:50:55.266Z</updated>
+    <updated>2017-06-18T16:01:01.555Z</updated>
     
     <content type="html"><![CDATA[<p>本文是我从自学前端开发以来，自己写的第一篇博客，为什么要写这一篇博客呢，原因有二，一是给自己没写过博客的hexo开个光，二是记录一下自己的每日所学所感。</p>
 <h1 id="关于hexo的基础配置"><a href="#关于hexo的基础配置" class="headerlink" title="关于hexo的基础配置"></a>关于hexo的基础配置</h1><p>hexo的配置其实在网上已经有许多的大佬已经讲的一清二楚了，这里贴几个DALAO的链接，我在构建自己的博客的时候，就是以他们为参照的：</p>
@@ -174,6 +182,8 @@ github: git@github.com:changerhe/changerhe.github.io.git,master
     
     </summary>
     
+      <category term="Hexo-NexT搭建个人博客" scheme="https://github.com/ChangerHe/categories/Hexo-NexT%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
+    
     
   </entry>
   
@@ -202,7 +212,7 @@ github: git@github.com:changerhe/changerhe.github.io.git,master
     <link href="https://github.com/ChangerHe/2017/06/14/hello-world/"/>
     <id>https://github.com/ChangerHe/2017/06/14/hello-world/</id>
     <published>2017-06-14T15:21:01.766Z</published>
-    <updated>2017-06-15T07:30:07.753Z</updated>
+    <updated>2017-06-18T16:02:53.796Z</updated>
     
     <content type="html"><![CDATA[<p>本篇文章关于Position属性值，等于对position这个属性中的值：static，relative,absolute,fixed进行一次总结，回忆一下学到的内容，加深一下理解。</p>
 <h1 id="1-static："><a href="#1-static：" class="headerlink" title="1.static："></a>1.static：</h1><p>所有元素在默认情况之下的属性，在布局中的属性top、bottom、left、right在position为static的情况下是无效的。</p>
@@ -226,6 +236,8 @@ github: git@github.com:changerhe/changerhe.github.io.git,master
 &lt;h1 id=&quot;1-static：&quot;&gt;&lt;a href=&quot;#1-static：&quot; c
     
     </summary>
+    
+      <category term="HTML &amp; CSS 学习笔记" scheme="https://github.com/ChangerHe/categories/HTML-CSS-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
   </entry>
