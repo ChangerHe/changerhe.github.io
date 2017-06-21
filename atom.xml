@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/ChangerHe/"/>
-  <updated>2017-06-20T16:34:05.141Z</updated>
+  <updated>2017-06-21T15:22:44.658Z</updated>
   <id>https://github.com/ChangerHe/</id>
   
   <author>
@@ -16,13 +16,40 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>The Data Type Differences of JavaScript and Java</title>
+    <title>斐波那契数列和九九乘法表在JAVA中的实现</title>
+    <link href="https://github.com/ChangerHe/2017/06/21/Java-Learning/"/>
+    <id>https://github.com/ChangerHe/2017/06/21/Java-Learning/</id>
+    <published>2017-06-21T15:05:45.000Z</published>
+    <updated>2017-06-21T15:22:44.658Z</updated>
+    
+    <content type="html"><![CDATA[<p>今日成功完成斐波那契数列及九九乘法表在JAVA中的实现，哈哈哈哈没看教程就了解了一下语法然后自己撸出来的，有点儿小自豪。</p>
+<h1 id="斐波那契数列（Fibonacci-sequence）"><a href="#斐波那契数列（Fibonacci-sequence）" class="headerlink" title="斐波那契数列（Fibonacci sequence）"></a>斐波那契数列（Fibonacci sequence）</h1><p>斐波那契数列又称黄金分割数列、因数学家列昂纳多·斐波那契（Leonardoda Fibonacci）以兔子繁殖为例子而引入，故又称为“兔子数列”，指的是这样一个数列：1、1、2、3、5、8、13、21、34、……在数学上，斐波纳契数列以如下被以递归的方法定义：F(0)=0，F(1)=1, F(n)=F(n-1)+F(n-2)（n&gt;=2，n∈N*）在现代物理、准晶体结构、化学等领域，斐波纳契数列都有直接的应用，为此，美国数学会从1963起出版了以《斐波纳契数列季刊》为名的一份数学杂志，用于专门刊载这方面的研究成果。<br>解决该问题JAVA实现的主要思路是：先确定斐波那契数列第一项和第二项值，然后使用递归方式，将方法进行嵌套，通过函数执行，就可以实现斐波那契数列啦！<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">//求斐波那契数列的第n项值</div><div class="line">public class FebNachi</div><div class="line">&#123;</div><div class="line">	</div><div class="line">	static int FebNachi(int i)&#123;</div><div class="line">		switch ( i )</div><div class="line">		&#123;</div><div class="line">		case 1 : return 0;</div><div class="line">		case 2 : return 1;</div><div class="line">		default : return FebNachi(i -1) + FebNachi(i - 2);</div><div class="line">		</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	public static void main(String[] args)&#123;</div><div class="line">		System.out.println(FebNachi(4));</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h1 id="九九乘法表（MultiplicationTable）"><a href="#九九乘法表（MultiplicationTable）" class="headerlink" title="九九乘法表（MultiplicationTable）"></a>九九乘法表（MultiplicationTable）</h1><p>这个就不多说了，小学都背过，主要实现方式是通过循环的嵌套，结合if判断语句，进行输出即可。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">//使用Java输出九九乘法表</div><div class="line">public class  MultiplicationTable</div><div class="line">&#123;</div><div class="line"></div><div class="line">	public static void main(String[] args) </div><div class="line">	&#123;</div><div class="line">		int i;</div><div class="line">		int j;</div><div class="line">		for ( i = 1; i &lt;= 9 ; i++ )</div><div class="line">		&#123;</div><div class="line">			</div><div class="line">			for ( j = 1; j &lt;= 9 ; j++)</div><div class="line">			&#123;</div><div class="line">				if ( i == j)</div><div class="line">			&#123;</div><div class="line">				break;</div><div class="line">			&#125;</div><div class="line">				System. out. print(i+&quot; + &quot;+j+&quot; = &quot;+(i + j)+&quot;\t&quot;);</div><div class="line">			&#125;</div><div class="line">			</div><div class="line">			System. out. println();</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>另外，今天是学习JAVA的第二天，感觉这个和JS真的很像啊，再奉上今天学到的“锚”方法，在return或break时，对return或break的对象进行定向：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">public static void main(String[] args)</div><div class="line">&#123;</div><div class="line">	outter: for( int line = 1; line &lt;= 9; i++)</div><div class="line">	&#123;</div><div class="line">		for( int i = 1; i &lt;= line; i++)</div><div class="line">		&#123;</div><div class="line">			if( line == 5)</div><div class="line">			&#123;</div><div class="line">				break outter;     //此时并非结束此次i的for循环，而是直接跳出所有循环</div><div class="line">			&#125;</div><div class="line">			System. out. print( i + &quot;*&quot; + line + &quot;=&quot; + ( i + line ) + &quot;\t&quot;);  //输出九九乘法表</div><div class="line">		&#125;</div><div class="line">		System. out. println(); //输出换行符</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;今日成功完成斐波那契数列及九九乘法表在JAVA中的实现，哈哈哈哈没看教程就了解了一下语法然后自己撸出来的，有点儿小自豪。&lt;/p&gt;
+&lt;h1 id=&quot;斐波那契数列（Fibonacci-sequence）&quot;&gt;&lt;a href=&quot;#斐波那契数列（Fibonacci-sequence）
+    
+    </summary>
+    
+      <category term="JAVA 学习笔记" scheme="https://github.com/ChangerHe/categories/JAVA-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="JAVA" scheme="https://github.com/ChangerHe/tags/JAVA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JavaScript 和 JAVA 在数据类型方面的异同</title>
     <link href="https://github.com/ChangerHe/2017/06/21/The-Data-Type-Differences-of-JavaScript-and-Java/"/>
     <id>https://github.com/ChangerHe/2017/06/21/The-Data-Type-Differences-of-JavaScript-and-Java/</id>
     <published>2017-06-20T16:30:42.000Z</published>
-    <updated>2017-06-20T16:34:05.141Z</updated>
+    <updated>2017-06-21T15:08:28.559Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="JavaScript-和-JAVA-在数据类型方面的异同"><a href="#JavaScript-和-JAVA-在数据类型方面的异同" class="headerlink" title="JavaScript 和 JAVA 在数据类型方面的异同"></a>JavaScript 和 JAVA 在数据类型方面的异同</h1><p>今天是开始学习JAVA的第一天，对照着教程敲了一遍代码，配置了一下JAVA的运行环境，不知不觉一天就这样过去了，反倒是真正花在了解JAVA这门语言上面的时间却少了些。<br>初了解了JAVA数据类型的知识，发现确实是和之前学习的C++,JavaScript（之后统一称JS）有异曲同工之妙，但是相比于JS来说，个人认为Java的数据结构及类型配置是更加严谨的，毕竟James）有异曲同工之妙，但是相比于JS来说，个人认为Java的数据结构及类型配置是更加严谨的，毕竟James Gosling 大大花了几年时间开发出了这门语言。而JavaScript这门语言由 Brendan Eich 花了十天就设计出来了，哈哈哈哈哈哈哈不得不佩服这些大大大佬们。</p>
+    <content type="html"><![CDATA[<p>今天是开始学习JAVA的第一天，对照着教程敲了一遍代码，配置了一下JAVA的运行环境，不知不觉一天就这样过去了，反倒是真正花在了解JAVA这门语言上面的时间却少了些。<br>初了解了JAVA数据类型的知识，发现确实是和之前学习的C++,JavaScript（之后统一称JS）有异曲同工之妙，但是相比于JS来说，个人认为Java的数据结构及类型配置是更加严谨的，毕竟James Gosling 大大花了几年时间开发出了这门语言。而JavaScript这门语言由 Brendan Eich 花了十天就设计出来了，哈哈哈哈哈哈哈不得不佩服这些大大大佬们。</p>
 <h2 id="变量初始化问题"><a href="#变量初始化问题" class="headerlink" title="变量初始化问题"></a>变量初始化问题</h2><p>当我使用JS时，定义变量但不给其赋值，可输出undefined<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">	var a;</div><div class="line">	console.log(a);      //a</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
 <p>但是当我使用Java时，未给其定义时，将会在编译时直接报错，无法正常完成编译操作。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">public class example</div><div class="line">&#123;</div><div class="line">	public static void main(String[] args)</div><div class="line">	&#123;</div><div class="line">		int a;</div><div class="line">		System. out. println(a);     //错误</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h2 id="变量的定义"><a href="#变量的定义" class="headerlink" title="变量的定义"></a>变量的定义</h2><p>JS中，如果对变量定义的话，会有全局变量和局部变量之分。Java中也是一样，这是他们的相同之处。但是我们来看这样一个例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">	var a = 2;</div><div class="line">	var a = 3;</div><div class="line">	console.log(a);    //3</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
@@ -44,12 +71,14 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;JavaScript-和-JAVA-在数据类型方面的异同&quot;&gt;&lt;a href=&quot;#JavaScript-和-JAVA-在数据类型方面的异同&quot; class=&quot;headerlink&quot; title=&quot;JavaScript 和 JAVA 在数据类型方面的异同&quot;&gt;&lt;/a&gt;Ja
+      &lt;p&gt;今天是开始学习JAVA的第一天，对照着教程敲了一遍代码，配置了一下JAVA的运行环境，不知不觉一天就这样过去了，反倒是真正花在了解JAVA这门语言上面的时间却少了些。&lt;br&gt;初了解了JAVA数据类型的知识，发现确实是和之前学习的C++,JavaScript（之后统一称JS）
     
     </summary>
     
       <category term="JAVA 学习笔记" scheme="https://github.com/ChangerHe/categories/JAVA-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
+    
+      <category term="JAVA" scheme="https://github.com/ChangerHe/tags/JAVA/"/>
     
   </entry>
   
