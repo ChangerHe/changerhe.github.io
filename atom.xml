@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/ChangerHe/"/>
-  <updated>2017-06-21T15:22:44.658Z</updated>
+  <updated>2017-06-22T15:41:00.010Z</updated>
   <id>https://github.com/ChangerHe/</id>
   
   <author>
@@ -16,11 +16,62 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>不同排序算法的JAVA实现及性能比较</title>
+    <link href="https://github.com/ChangerHe/2017/06/22/%E4%B8%8D%E5%90%8C%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E7%9A%84JAVA%E5%AE%9E%E7%8E%B0%E5%8F%8A%E6%80%A7%E8%83%BD%E6%AF%94%E8%BE%83/"/>
+    <id>https://github.com/ChangerHe/2017/06/22/不同排序算法的JAVA实现及性能比较/</id>
+    <published>2017-06-22T13:56:51.000Z</published>
+    <updated>2017-06-22T15:41:00.010Z</updated>
+    
+    <content type="html"><![CDATA[<p>排序现在已学的有两种，冒泡排序（BubbleSort）和选择排序（SelectionSort），两种方法各有不同；</p>
+<h1 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h1><p>冒泡排序是将数组中的元素进行逐一比较，并将两者比较之后的较大值与后面第三位元素进行比较。进行循环后，第一次可得到数组中的最大值，且最大值在数组的最后一个位置上。<br>通过JAVA进行实现的大概思路是：将第一位元素与第二位进行比较，将较大值赋给第二位元素，较小值赋给第一位元素，然后再将第二位元素与第三位元素进行比较，照此进行循环，最终可将最大数移至数组最后一位。<br>进行第二次运算，则使用相同的计算方式，得到第二大的元素，并赋予给倒数第二个元素。<br>进行运算后，可得到顺序排列的数组。<br>因此，冒泡排序要实现排序，如果有一个数组有N个元素，需要经过N！次，才能得到顺序排列的数组，且每次循环都要进行数组调换，大大影响了排序性能。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">//冒泡排序的算法</div><div class="line">class BubbleSort </div><div class="line">&#123;</div><div class="line">	public static void main(String[] args) </div><div class="line">	&#123;</div><div class="line">		int[] arr = &#123;2 ,6 ,9 ,1 ,4 ,7&#125;;</div><div class="line">		int a;</div><div class="line">		for ( int i = 0; i &lt; arr.length-1 ; i++ )</div><div class="line">		&#123;</div><div class="line">			for ( int j = 0 ; j &lt; arr.length-1-i ; j++ )</div><div class="line">			&#123;</div><div class="line">				if ( arr[j] &gt; arr[j+1])</div><div class="line">				&#123;</div><div class="line">					a = arr[j];</div><div class="line">					arr[j] = arr[j+1];</div><div class="line">					arr[j+1] = a;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		String PrintArr = &quot;[&quot;;    //打包成字符输出</div><div class="line">		for ( int i = 0; i &lt; arr.length ; i++ )   </div><div class="line">		&#123;</div><div class="line">			PrintArr = PrintArr + arr[i];</div><div class="line">			if ( i == arr.length-1 )</div><div class="line">			&#123;</div><div class="line">				break;</div><div class="line">			&#125;</div><div class="line">			PrintArr = PrintArr + &quot;,&quot;;</div><div class="line">		&#125;</div><div class="line">		PrintArr = PrintArr + &quot;]&quot;;</div><div class="line">		System.out.println(PrintArr);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h1 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h1><p>选择排序的方法是将数组中的第一个元素和数组的其他元素逐一进行比较，将比较之后的较小值赋予给第一个元素。遍历一次后，数组的第一个元素可获得数组中的最小值。<br>第二次遍历从第三个元素开始，将其与第二个元素进行比较，较小值赋予给第二个元素。<br>以此类推，可知选择排序的比较次数依旧为N！次。但选择排序时不需将元素进行多次的调换，因此性能方面较冒泡排序有些许提升。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">//选择排序的算法</div><div class="line">class SelectionSort</div><div class="line">&#123;</div><div class="line">	public static void main(String[] args) </div><div class="line">	&#123;</div><div class="line">		int[] arr = &#123;2 ,6 ,9 ,1 ,4 ,7&#125;;</div><div class="line">		int a;</div><div class="line">		for ( int i = 0; i&lt; arr.length ; i++ )</div><div class="line">		&#123;</div><div class="line">			for ( int j = i; j &lt; arr.length ; j++ )</div><div class="line">			&#123;</div><div class="line">				if ( arr[i] &gt; arr[j] )</div><div class="line">				&#123;</div><div class="line">					a = arr[i];</div><div class="line">					arr[i] = arr[j];</div><div class="line">					arr[j] = a;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		String PrintArr = &quot;[&quot;;    //打包成字符输出</div><div class="line">		for ( int i = 0; i &lt; arr.length ; i++ )   </div><div class="line">		&#123;</div><div class="line">			PrintArr = PrintArr + arr[i];</div><div class="line">			if ( i == arr.length-1 )</div><div class="line">			&#123;</div><div class="line">				break;</div><div class="line">			&#125;</div><div class="line">			PrintArr = PrintArr + &quot;,&quot;;</div><div class="line">		&#125;</div><div class="line">		PrintArr = PrintArr + &quot;]&quot;;</div><div class="line">		System.out.println(PrintArr);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>选择排序还可进行算法优化，每次遍历只与便利到的最小值进行交换，这样可以再减少一些数值交换次数，但笔者尚未实现，待实现完毕再更新。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;排序现在已学的有两种，冒泡排序（BubbleSort）和选择排序（SelectionSort），两种方法各有不同；&lt;/p&gt;
+&lt;h1 id=&quot;冒泡排序&quot;&gt;&lt;a href=&quot;#冒泡排序&quot; class=&quot;headerlink&quot; title=&quot;冒泡排序&quot;&gt;&lt;/a&gt;冒泡排序&lt;/h1&gt;
+    
+    </summary>
+    
+      <category term="JAVA 学习笔记" scheme="https://github.com/ChangerHe/categories/JAVA-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="JAVA" scheme="https://github.com/ChangerHe/tags/JAVA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>杨辉三角的JAVA实现</title>
+    <link href="https://github.com/ChangerHe/2017/06/22/%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92%E7%9A%84JAVA%E5%AE%9E%E7%8E%B0/"/>
+    <id>https://github.com/ChangerHe/2017/06/22/杨辉三角的JAVA实现/</id>
+    <published>2017-06-22T13:56:17.000Z</published>
+    <updated>2017-06-22T15:41:09.527Z</updated>
+    
+    <content type="html"><![CDATA[<p>杨辉三角，是二项式系数在三角形中的一种几何排列。在欧洲，这个表叫做帕斯卡三角形。帕斯卡（1623—-1662）是在1654年发现这一规律的，比杨辉要迟393年，比贾宪迟600年。<br>没有参考网上的代码，自己手撸了一遍杨辉三角。主要依据是根据杨辉三角的特性，行数等于列数乘二加一。输入想要得到的杨辉三角层数，即可得到相应的杨辉三角数字列表。中间的空格直接使用0来表示了，所以感觉我的代码比网上的很多代码简洁了很多：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">//杨辉三角的JAVA实现</div><div class="line">class  YangHuiSanJiao</div><div class="line">&#123;</div><div class="line">	static void putIn(int m)&#123;</div><div class="line">		int n  = m*2-1;     //根据杨辉三角特性，行数等于列数乘二加一</div><div class="line">		int[][] arr = new int[m][n];  //新建数组</div><div class="line">		arr[0][m-1] = 1;</div><div class="line">		for ( int i = 0; i &lt; m-2 ; i++ )</div><div class="line">		&#123;</div><div class="line">			for ( int j = 0; j &lt; n-2 ; j++ )</div><div class="line">			&#123;</div><div class="line">				arr[i+1][j+1] = arr[i][j] + arr[i][j+2]; //将当列的第J个数和第J+2个数，赋值给下一列的J+1个数（因为i和j初始为0）</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		for (int i = 0; i &lt; m-1 ; i++ )</div><div class="line">		&#123;</div><div class="line">			for (int j = 0; j &lt; n ; j++ )</div><div class="line">			&#123;</div><div class="line">				System.out.print(arr[i][j]+ &quot;\t&quot;);  //遍历数组，将值逐一打印</div><div class="line">			&#125;</div><div class="line">			System.out.println();  //打印换行</div><div class="line">		&#125;</div><div class="line"></div><div class="line">	&#125;</div><div class="line"></div><div class="line">	</div><div class="line">	public static void main(String[] args) </div><div class="line">	&#123;</div><div class="line">		putIn(10);    //输入想要得到的杨辉三角层数</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>因为其实可以把整个数组进行遍历，然后通过强制类型转换将0转为空格的，这个还没转。代码以上。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;杨辉三角，是二项式系数在三角形中的一种几何排列。在欧洲，这个表叫做帕斯卡三角形。帕斯卡（1623—-1662）是在1654年发现这一规律的，比杨辉要迟393年，比贾宪迟600年。&lt;br&gt;没有参考网上的代码，自己手撸了一遍杨辉三角。主要依据是根据杨辉三角的特性，行数等于列数乘
+    
+    </summary>
+    
+      <category term="JAVA 学习笔记" scheme="https://github.com/ChangerHe/categories/JAVA-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="JAVA" scheme="https://github.com/ChangerHe/tags/JAVA/"/>
+    
+  </entry>
+  
+  <entry>
     <title>斐波那契数列和九九乘法表在JAVA中的实现</title>
     <link href="https://github.com/ChangerHe/2017/06/21/Java-Learning/"/>
     <id>https://github.com/ChangerHe/2017/06/21/Java-Learning/</id>
     <published>2017-06-21T15:05:45.000Z</published>
-    <updated>2017-06-21T15:22:44.658Z</updated>
+    <updated>2017-06-22T15:38:01.767Z</updated>
     
     <content type="html"><![CDATA[<p>今日成功完成斐波那契数列及九九乘法表在JAVA中的实现，哈哈哈哈没看教程就了解了一下语法然后自己撸出来的，有点儿小自豪。</p>
 <h1 id="斐波那契数列（Fibonacci-sequence）"><a href="#斐波那契数列（Fibonacci-sequence）" class="headerlink" title="斐波那契数列（Fibonacci sequence）"></a>斐波那契数列（Fibonacci sequence）</h1><p>斐波那契数列又称黄金分割数列、因数学家列昂纳多·斐波那契（Leonardoda Fibonacci）以兔子繁殖为例子而引入，故又称为“兔子数列”，指的是这样一个数列：1、1、2、3、5、8、13、21、34、……在数学上，斐波纳契数列以如下被以递归的方法定义：F(0)=0，F(1)=1, F(n)=F(n-1)+F(n-2)（n&gt;=2，n∈N*）在现代物理、准晶体结构、化学等领域，斐波纳契数列都有直接的应用，为此，美国数学会从1963起出版了以《斐波纳契数列季刊》为名的一份数学杂志，用于专门刊载这方面的研究成果。<br>解决该问题JAVA实现的主要思路是：先确定斐波那契数列第一项和第二项值，然后使用递归方式，将方法进行嵌套，通过函数执行，就可以实现斐波那契数列啦！<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">//求斐波那契数列的第n项值</div><div class="line">public class FebNachi</div><div class="line">&#123;</div><div class="line">	</div><div class="line">	static int FebNachi(int i)&#123;</div><div class="line">		switch ( i )</div><div class="line">		&#123;</div><div class="line">		case 1 : return 0;</div><div class="line">		case 2 : return 1;</div><div class="line">		default : return FebNachi(i -1) + FebNachi(i - 2);</div><div class="line">		</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	public static void main(String[] args)&#123;</div><div class="line">		System.out.println(FebNachi(4));</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
@@ -38,8 +89,6 @@
       <category term="JAVA 学习笔记" scheme="https://github.com/ChangerHe/categories/JAVA-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="JAVA" scheme="https://github.com/ChangerHe/tags/JAVA/"/>
-    
   </entry>
   
   <entry>
@@ -47,7 +96,7 @@
     <link href="https://github.com/ChangerHe/2017/06/21/The-Data-Type-Differences-of-JavaScript-and-Java/"/>
     <id>https://github.com/ChangerHe/2017/06/21/The-Data-Type-Differences-of-JavaScript-and-Java/</id>
     <published>2017-06-20T16:30:42.000Z</published>
-    <updated>2017-06-21T15:08:28.559Z</updated>
+    <updated>2017-06-22T15:39:54.000Z</updated>
     
     <content type="html"><![CDATA[<p>今天是开始学习JAVA的第一天，对照着教程敲了一遍代码，配置了一下JAVA的运行环境，不知不觉一天就这样过去了，反倒是真正花在了解JAVA这门语言上面的时间却少了些。<br>初了解了JAVA数据类型的知识，发现确实是和之前学习的C++,JavaScript（之后统一称JS）有异曲同工之妙，但是相比于JS来说，个人认为Java的数据结构及类型配置是更加严谨的，毕竟James Gosling 大大花了几年时间开发出了这门语言。而JavaScript这门语言由 Brendan Eich 花了十天就设计出来了，哈哈哈哈哈哈哈不得不佩服这些大大大佬们。</p>
 <h2 id="变量初始化问题"><a href="#变量初始化问题" class="headerlink" title="变量初始化问题"></a>变量初始化问题</h2><p>当我使用JS时，定义变量但不给其赋值，可输出undefined<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">	var a;</div><div class="line">	console.log(a);      //a</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
@@ -78,16 +127,16 @@
       <category term="JAVA 学习笔记" scheme="https://github.com/ChangerHe/categories/JAVA-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="JAVA" scheme="https://github.com/ChangerHe/tags/JAVA/"/>
+      <category term="JAVA &amp; JavaScript" scheme="https://github.com/ChangerHe/tags/JAVA-JavaScript/"/>
     
   </entry>
   
   <entry>
-    <title>The Usages Of Iconfont</title>
+    <title>阿里妈妈iconfont矢量图标字体的用法</title>
     <link href="https://github.com/ChangerHe/2017/06/18/The-Usages-Of-Iconfont/"/>
     <id>https://github.com/ChangerHe/2017/06/18/The-Usages-Of-Iconfont/</id>
     <published>2017-06-18T14:30:39.000Z</published>
-    <updated>2017-06-18T16:02:34.133Z</updated>
+    <updated>2017-06-22T15:40:42.777Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Iconfont是什么？"><a href="#Iconfont是什么？" class="headerlink" title="Iconfont是什么？"></a>Iconfont是什么？</h1><p>iconfont是由阿里妈妈出品，国内射鸡师妹妹和前端小哥哥/小姐姐们常去的学（gao）习（ji）网站，网站上面都是一些“高清无码”的矢量图标，相比于使用单一的小png和使用spirit来说大大减少了与服务器握手次数，可以提升网页打开效率。</p>
 <h1 id="Iconfont使用方法"><a href="#Iconfont使用方法" class="headerlink" title="Iconfont使用方法"></a>Iconfont使用方法</h1><p>1.我们先一起打开这个国内打大型同性交友网站<a href="http://www.iconfont.cn" target="_blank" rel="external">http://www.iconfont.cn</a> ，然后点击“图标库”，可以使用自己的github登陆，登陆后就可以根据自己的需要进行查找图标，海量图标等你约哟。<br><img src="http://jns.img.bucket.ks3-cn-beijing.ksyun.com/skill/daily/08d77494-c969-4ba1-a915-e59a8f2f4786.png" alt="PIC"><br>2.将需要的图标添加到购物车形状里面，也就是放到自己的库里，没有库的自己可以随便创建一个项目库。<br><img src="http://jns.img.bucket.ks3-cn-beijing.ksyun.com/skill/daily/e1ffdb7b-f305-4906-9e9d-e0930274e6cc.png" alt="PIC"><br>3.添加好之后，会出现下面这个样子，此时选好之后，就可以下载至本地，不建议直接使用在线使用的办法，亲测没有效，而且浏览器请求时间太长。<br><img src="http://jns.img.bucket.ks3-cn-beijing.ksyun.com/skill/daily/2ef3063c-d5b5-41e4-97fc-0bce6255e4b5.png" alt="PIC"><br>4.下好之后，需要将一行代码放到css文件中，也就是下下来的iconfont.css这个文件，或者直接在自己的项目html中引用这个css，但不建议这样做，会增加服务器请求次数。<br><img src="http://jns.img.bucket.ks3-cn-beijing.ksyun.com/skill/daily/197598ad-e3c9-4fd4-9eb5-7644276ef584.png" alt="PIC"><br>5.大胆的使用这些图标吧，使用方法就是直接自己的标签中加class=“iconfont”再加上对应图标的class就可以啦（对应的图标class在iconfont.css中，参考上图）。</p>
@@ -102,6 +151,8 @@
     
       <category term="HTML &amp; CSS 学习笔记" scheme="https://github.com/ChangerHe/categories/HTML-CSS-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
+    
+      <category term="HTML &amp; CSS" scheme="https://github.com/ChangerHe/tags/HTML-CSS/"/>
     
   </entry>
   
@@ -160,7 +211,7 @@
     <link href="https://github.com/ChangerHe/2017/06/15/nine-block-mission/"/>
     <id>https://github.com/ChangerHe/2017/06/15/nine-block-mission/</id>
     <published>2017-06-15T12:11:54.000Z</published>
-    <updated>2017-06-18T16:02:42.996Z</updated>
+    <updated>2017-06-22T15:38:26.914Z</updated>
     
     <content type="html"><![CDATA[<h1 id="为什么要这么“作死”"><a href="#为什么要这么“作死”" class="headerlink" title="为什么要这么“作死”"></a>为什么要这么“作死”</h1><p>本文使用JS方法，对之前本来比较简单的九宫格布局方法，进行了“暴力”重构<br>代码主要的构思<br>1.毋庸置疑，第一步，在meta中设定显示宽度为设备的宽度，缩放比例为1:1。<br>2.要想实现页面的高为100%,因页面存在继承属性，html继承了浏览器的高度，因此需要在设置盒子的高度为100%之前，设置html和body的高度为100%，才能实现子盒子的高度为100%。<br>3.最开始我的考虑是实现宽高为100%，然后子盒子再继续以百分比进行设置，虽然实现了九宫格，但是页面实在是太吃藕了，所以思考着添加JS方法，对页面进行重构。</p>
 <h1 id="使用JS方法的重构思路"><a href="#使用JS方法的重构思路" class="headerlink" title="使用JS方法的重构思路"></a>使用JS方法的重构思路</h1><p>1.获取浏览器的宽度<br>2.比较大盒子的宽高，并取出宽高中较小的值，并将较小值赋值给大盒子的宽和高，这就实现了大盒子是个正方形且刚刚好接近覆盖整个页面。<br>3.此时的页面靠左，因此需考虑一个办法将页面居中，这里面再次使用了“暴力”方法进行了居中，居中方式如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">con.style.marginLeft=cWidth/2-con.offsetWidth/2+<span class="string">'px'</span>;</div></pre></td></tr></table></figure></p>
@@ -176,6 +227,8 @@
       <category term="HTML &amp; CSS 学习笔记" scheme="https://github.com/ChangerHe/categories/HTML-CSS-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
+      <category term="HTML &amp; CSS" scheme="https://github.com/ChangerHe/tags/HTML-CSS/"/>
+    
   </entry>
   
   <entry>
@@ -183,7 +236,7 @@
     <link href="https://github.com/ChangerHe/2017/06/15/hexo/"/>
     <id>https://github.com/ChangerHe/2017/06/15/hexo/</id>
     <published>2017-06-15T03:30:32.386Z</published>
-    <updated>2017-06-18T16:01:01.555Z</updated>
+    <updated>2017-06-22T15:38:59.431Z</updated>
     
     <content type="html"><![CDATA[<p>本文是我从自学前端开发以来，自己写的第一篇博客，为什么要写这一篇博客呢，原因有二，一是给自己没写过博客的hexo开个光，二是记录一下自己的每日所学所感。</p>
 <h1 id="关于hexo的基础配置"><a href="#关于hexo的基础配置" class="headerlink" title="关于hexo的基础配置"></a>关于hexo的基础配置</h1><p>hexo的配置其实在网上已经有许多的大佬已经讲的一清二楚了，这里贴几个DALAO的链接，我在构建自己的博客的时候，就是以他们为参照的：</p>
@@ -252,6 +305,8 @@ github: git@github.com:changerhe/changerhe.github.io.git,master
       <category term="Hexo-NexT搭建个人博客" scheme="https://github.com/ChangerHe/categories/Hexo-NexT%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
     
     
+      <category term="HEXO" scheme="https://github.com/ChangerHe/tags/HEXO/"/>
+    
   </entry>
   
   <entry>
@@ -259,7 +314,7 @@ github: git@github.com:changerhe/changerhe.github.io.git,master
     <link href="https://github.com/ChangerHe/2017/06/15/article-title/"/>
     <id>https://github.com/ChangerHe/2017/06/15/article-title/</id>
     <published>2017-06-14T23:39:08.000Z</published>
-    <updated>2017-06-15T00:06:11.587Z</updated>
+    <updated>2017-06-22T15:39:16.127Z</updated>
     
     <content type="html"><![CDATA[<p>Hello World!</p>
 ]]></content>
@@ -279,7 +334,7 @@ github: git@github.com:changerhe/changerhe.github.io.git,master
     <link href="https://github.com/ChangerHe/2017/06/14/hello-world/"/>
     <id>https://github.com/ChangerHe/2017/06/14/hello-world/</id>
     <published>2017-06-14T15:21:01.766Z</published>
-    <updated>2017-06-18T16:02:53.796Z</updated>
+    <updated>2017-06-22T15:39:07.332Z</updated>
     
     <content type="html"><![CDATA[<p>本篇文章关于Position属性值，等于对position这个属性中的值：static，relative,absolute,fixed进行一次总结，回忆一下学到的内容，加深一下理解。</p>
 <h1 id="1-static："><a href="#1-static：" class="headerlink" title="1.static："></a>1.static：</h1><p>所有元素在默认情况之下的属性，在布局中的属性top、bottom、left、right在position为static的情况下是无效的。</p>
@@ -306,6 +361,8 @@ github: git@github.com:changerhe/changerhe.github.io.git,master
     
       <category term="HTML &amp; CSS 学习笔记" scheme="https://github.com/ChangerHe/categories/HTML-CSS-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
+    
+      <category term="HTML &amp; CSS" scheme="https://github.com/ChangerHe/tags/HTML-CSS/"/>
     
   </entry>
   
