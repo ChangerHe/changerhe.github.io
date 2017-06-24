@@ -283,6 +283,192 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://github.com/ChangerHe/2017/06/24/代码执行顺序解析/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Changer He">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Changer He's Home Page">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/06/24/代码执行顺序解析/" itemprop="url">
+                  JAVA代码执行顺序解析
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-24T22:58:57+08:00">
+                2017-06-24
+              </time>
+            
+
+            
+
+  <span class="post-letters-count">
+    &nbsp; | &nbsp;
+    <span>610 字</span>
+    &nbsp; | &nbsp;
+    <span>2 min</span>
+  </span>
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JAVA-学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">JAVA 学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  610字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  2分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>今天的博客记录一道题目，求出以下代码，所打印出的顺序，代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">public class App</div><div class="line">&#123;</div><div class="line">	private static App d = new App();</div><div class="line">	private SubClass t = new SubClass();</div><div class="line">	static</div><div class="line">	&#123;</div><div class="line">		System.out.println(3);</div><div class="line">	&#125;</div><div class="line">	public App()</div><div class="line">	&#123;</div><div class="line">		System.out.println(4);</div><div class="line">	&#125;</div><div class="line">	public static void main(String[] args) </div><div class="line">	&#123;</div><div class="line">		System.out.println(&quot;Hello World!&quot;);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line">class SuperClass</div><div class="line">&#123;</div><div class="line">	SuperClass()</div><div class="line">	&#123;</div><div class="line">		System.out.println(&quot;SuperClass 构造器&quot;);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">class SubClass extends SuperClass</div><div class="line">&#123;</div><div class="line">	static</div><div class="line">	&#123;</div><div class="line">		System.out.println(1);</div><div class="line">	&#125;</div><div class="line">	public SubClass()</div><div class="line">	&#123;</div><div class="line">		System.out.println(2);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>此题主要考察构造器，类及静态变量、非静态变量，父类，子类在JVM中的调用顺序。<br>答案在我第一次做的时候确实是意想不到：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">1</div><div class="line">SuperClass 构造器</div><div class="line">2</div><div class="line">4</div><div class="line">3</div><div class="line">Hello World!</div></pre></td></tr></table></figure></p>
+<h2 id="JVM代码块加载原则"><a href="#JVM代码块加载原则" class="headerlink" title="JVM代码块加载原则"></a>JVM代码块加载原则</h2><p>1.优先加载主类以外，与主类相关的其他类，方便主类进行调用。<br>2.如果代码块有static修饰，则优先加载进JVM进行执行。<br>3.子类中的构造器自带一个super（）；方法，且在构造器的第一行代码中，因此当父类的构造器为无参数构造器时，子类将优先调用父类的无参数构造器的内容。</p>
+<h2 id="题目中的加载顺序分析"><a href="#题目中的加载顺序分析" class="headerlink" title="题目中的加载顺序分析"></a>题目中的加载顺序分析</h2><p>1.第一个为什么是1，因为主类中的main方法会在其他相关的父类和子类优先调用之后，再进行调用，因此优先进行调用SuperClass和SubClass，在这两个类中，SubClass又是SuperClass的子类，理论上应先行调用父类，但子类中包含静态代码块，因此优先调用static修饰的静态字码快中的内容，从而优先输出“1”；<br>2.为什么第二个是“SuperClass 构造器”，上面优先打印1的原理讲明白了，第二个也就好理解了，子代码块中的构造器自带一个super();的方法，会优先进行调用父类中的无变量构造器。因此打印出“SuperClass 构造器”。<br>3.为什么第三个是数字2，构造器的运行顺序是自顶向下的，因此执行完super();后，就开始执行下一字段，也就是2；<br>4.为什么第四个是数字4？非主类中的其他类已经加载完毕，那么现在开始加载主类，主类中又有一个static修饰的代码块，因此主类优先执行了App();中的打印4，操作<br>5.同样，根据自顶向下原色，执行了打印3的操作。<br>6.也就是最后，打印了main方法中的“Hello World!”。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">共7.8k字</span>
+</div>
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="https://github.com/ChangerHe/2017/06/22/不同排序算法的JAVA实现及性能比较/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -456,7 +642,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共7.2k字</span>
+  <span class="post-count">共7.8k字</span>
 </div>
 
     
@@ -640,7 +826,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共7.2k字</span>
+  <span class="post-count">共7.8k字</span>
 </div>
 
     
@@ -826,7 +1012,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共7.2k字</span>
+  <span class="post-count">共7.8k字</span>
 </div>
 
     
@@ -1026,7 +1212,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共7.2k字</span>
+  <span class="post-count">共7.8k字</span>
 </div>
 
     
@@ -1211,7 +1397,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共7.2k字</span>
+  <span class="post-count">共7.8k字</span>
 </div>
 
     
@@ -1421,7 +1607,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共7.2k字</span>
+  <span class="post-count">共7.8k字</span>
 </div>
 
     
@@ -1606,7 +1792,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共7.2k字</span>
+  <span class="post-count">共7.8k字</span>
 </div>
 
     
@@ -1843,7 +2029,7 @@ github: git@github.com:changerhe/changerhe.github.io.git,master
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共7.2k字</span>
+  <span class="post-count">共7.8k字</span>
 </div>
 
     
@@ -2004,209 +2190,17 @@ github: git@github.com:changerhe/changerhe.github.io.git,master
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共7.2k字</span>
-</div>
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://github.com/ChangerHe/2017/06/14/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Changer He">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Changer He's Home Page">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/06/14/hello-world/" itemprop="url">
-                  Position属性知多少
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-14T23:21:01+08:00">
-                2017-06-14
-              </time>
-            
-
-            
-
-  <span class="post-letters-count">
-    &nbsp; | &nbsp;
-    <span>799 字</span>
-    &nbsp; | &nbsp;
-    <span>3 min</span>
-  </span>
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/HTML-CSS-学习笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">HTML & CSS 学习笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计</span>
-                
-                <span title="字数统计">
-                  799字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长</span>
-                
-                <span title="阅读时长">
-                  3分钟
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>本篇文章关于Position属性值，等于对position这个属性中的值：static，relative,absolute,fixed进行一次总结，回忆一下学到的内容，加深一下理解。</p>
-<h1 id="1-static："><a href="#1-static：" class="headerlink" title="1.static："></a>1.static：</h1><p>所有元素在默认情况之下的属性，在布局中的属性top、bottom、left、right在position为static的情况下是无效的。</p>
-<h1 id="2-relative："><a href="#2-relative：" class="headerlink" title="2.relative："></a>2.relative：</h1><p>相对定位，可以设置性top、bottom、left、right属性值，但是请注意！虽然元素的位置会随着top、bottom、left、right属性值的改变而改变，但是其“真身”是留在之前的位置的，也就是说下方的元素不会因为其设置了relative属性，并改变其位置后而上移或下移。</p>
-<p>有一点要特别注意的是：设置了relative属性后的的元素其display属性（不管你是inline还是inline-block还是block）之前是怎样现在还是怎样，这个是不变得。<br></p>
-<h1 id="3-absolute："><a href="#3-absolute：" class="headerlink" title="3.absolute："></a>3.absolute：</h1><p>绝对定位，设置了absolute属性后，该元素会向其父节点去寻找它的“根源”，有一点要特别注意的是（对比第二条的特别注意看）：设置了absolute属性后的的元素其display属性（不管你是inline还是inline-block还是block）将会统一全部变成block且width自动成为auto，也就是会受到父元素的影响。</p>
-<p>##（1）其父节点无position属性，父n个节点都没有position属性，那么其relative的“根     源”将以body为参照，也就是屏幕的0,0点。</p>
-<p>##（2）其父节点有position属性且该属性设置为relative，那么好，这个节点就会以此父节     点为“根源”去做自己的定位了。定位top、bottom、left、right属性值为都是相对于父节点的0,0位置。</p>
-<p>##（3）其父节点有position属性且该属性设置为absolute，我们很惊奇地会看到，握草这      两个元素居然重叠了而且重叠的毫无缝隙，什么鬼！，事实发现原来是这样的：设置为absolute后div自动变为width：auto；也就是说A-1和A-2都是width：auto；从而导致了它们的重叠，但是为何其“根源”变成了A-1，这是令我不解的地方。<br><img src="http://jns.img.bucket.ks3-cn-beijing.ksyun.com/skill/daily/59b881e4-a5a5-478d-86eb-e12bb585e202.png" alt="PIC"></p>
-<p>##（4）其父节点有position属性该属性设置为absolute，而且其父父节点有position属性<br><img src="http://jns.img.bucket.ks3-cn-beijing.ksyun.com/skill/daily/79eb57d5-01f7-4086-8889-2db097042d25.png" alt="PIC"><br>该属性设置为relative，那么这个结果应该大家都猜得到，该元素及其父节点都会以其父父节点作为“根源”。</p>
-<p>#（5）其父节点有position属性该属性设置为absolute，而且其父父节点有position属性该属性设置为absolute，情况和（3）类似，我就直接上图了。<br><img src="http://jns.img.bucket.ks3-cn-beijing.ksyun.com/skill/daily/1ce6acfa-cdf6-4cf0-af0d-d11005f58f6d.png" alt="PIC"></p>
-<h1 id="4-fixed："><a href="#4-fixed：" class="headerlink" title="4.fixed："></a>4.fixed：</h1><p>该属性之前一直因为与IE6的兼容性问题，而被打入“冷宫”，fixed和absolute有许多共同点：</p>
-<p>##（1）改变呈现样式，设置后元素将直接变为block。</p>
-<p>##（2）会让元素脱离普通流，不会像relative一样，在页面的原来位置留下“真身”。</p>
-<p>那么问题来了，他和absolute的区别在哪里？他们的区别就是，fixed属性永远会跟着body爸爸走，body爸爸去哪儿，它也去哪儿。而absolute属性可就要看情况了，具体看3里面我对absolute的介绍。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-<div class="theme-info">
-  <div class="powered-by"></div>
-  <span class="post-count">共7.2k字</span>
+  <span class="post-count">共7.8k字</span>
 </div>
 
     
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -2249,7 +2243,7 @@ github: git@github.com:changerhe/changerhe.github.io.git,master
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
