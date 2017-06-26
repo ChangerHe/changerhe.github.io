@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/ChangerHe/"/>
-  <updated>2017-06-24T15:35:29.339Z</updated>
+  <updated>2017-06-26T15:38:11.498Z</updated>
   <id>https://github.com/ChangerHe/</id>
   
   <author>
@@ -14,6 +14,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>接口和抽象类的区别</title>
+    <link href="https://github.com/ChangerHe/2017/06/26/%E6%8E%A5%E5%8F%A3%E5%92%8C%E6%8A%BD%E8%B1%A1%E7%B1%BB%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
+    <id>https://github.com/ChangerHe/2017/06/26/接口和抽象类的区别/</id>
+    <published>2017-06-26T15:29:53.000Z</published>
+    <updated>2017-06-26T15:38:11.498Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="接口（interface）和抽象类（abstract）的区别"><a href="#接口（interface）和抽象类（abstract）的区别" class="headerlink" title="接口（interface）和抽象类（abstract）的区别"></a>接口（interface）和抽象类（abstract）的区别</h1><h2 id="相同点"><a href="#相同点" class="headerlink" title="相同点"></a>相同点</h2><p>1.都位于继承的顶端用于被其他类实现或继承。<br>2.都不能实例化。<br>3.都可以定义抽象方法，其子类都必须参与这些方法。</p>
+<h2 id="不同点"><a href="#不同点" class="headerlink" title="不同点"></a>不同点</h2><p>1.接口没有构造方法，抽象有构造方法。<br>2.抽象类可包含抽象方法和普通方法，接口只能包含抽象方法。<br>3.一个类只能继承一个直接父类，却可以实现多个接口。<br>4.接口里默认是public static final,抽象类型默认是包访问。<br>5.方法：接口里默认是public abstract,抽象类型是包访问。<br>6.内部类：接口里默认是public static,抽象类型是包访问。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;接口（interface）和抽象类（abstract）的区别&quot;&gt;&lt;a href=&quot;#接口（interface）和抽象类（abstract）的区别&quot; class=&quot;headerlink&quot; title=&quot;接口（interface）和抽象类（abstract）的区别&quot;&gt;
+    
+    </summary>
+    
+      <category term="JAVA 学习笔记" scheme="https://github.com/ChangerHe/categories/JAVA-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="JAVA" scheme="https://github.com/ChangerHe/tags/JAVA/"/>
+    
+  </entry>
   
   <entry>
     <title>JAVA代码执行顺序解析</title>
