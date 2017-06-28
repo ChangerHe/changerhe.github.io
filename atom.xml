@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/ChangerHe/"/>
-  <updated>2017-06-27T15:45:45.196Z</updated>
+  <updated>2017-06-28T15:10:32.923Z</updated>
   <id>https://github.com/ChangerHe/</id>
   
   <author>
@@ -14,6 +14,68 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>GIT配置不需密码即可push的方法</title>
+    <link href="https://github.com/ChangerHe/2017/06/28/GIT%E9%85%8D%E7%BD%AE%E4%B8%8D%E9%9C%80%E5%AF%86%E7%A0%81%E5%8D%B3%E5%8F%AFpush%E7%9A%84%E6%96%B9%E6%B3%95/"/>
+    <id>https://github.com/ChangerHe/2017/06/28/GIT配置不需密码即可push的方法/</id>
+    <published>2017-06-28T14:36:16.000Z</published>
+    <updated>2017-06-28T15:10:32.923Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="为什么要写这篇博客？"><a href="#为什么要写这篇博客？" class="headerlink" title="为什么要写这篇博客？"></a>为什么要写这篇博客？</h1><p>今天学了点node.js，被慕课网狂拽酷炫的操作所折服，故决定投身sublime的怀抱。安装了package control以及各大插件后，最后安装git插件测试时，使用git：push命令始终没办法将代码push到我的github，想想也真是日了Justin Beiber了。<br>没办法，谁叫我天生丽质爱学习呢，然后我在网上找了各种办法，发现百度上的方法真的是水平太低，标准不一，基本雷同，更坑爹的是错都是差不多错一样的。我一个用github用了好几个月的人，你还叫我配置公钥？真是想说：<br><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1498671155922&amp;di=b3e1084de0148f1b484388639a6c86a1&amp;imgtype=0&amp;src=http%3A%2F%2Fwanzao2.b0.upaiyun.com%2Fsystem%2Fpictures%2F34182985%2Foriginal%2F1458040253_640x646.png" alt="PIC"></p>
+<h1 id="真正的解决办法"><a href="#真正的解决办法" class="headerlink" title="真正的解决办法"></a>真正的解决办法</h1><p>网上有很多办法，其实已经快说到点子上了，但是都是隔着被子瘙痒——没什么卵用，配置的时候看到那些博客，始终是摸不着头脑。<br>注：以下的配置方法，默认你已经安装好了git客户端，且熟悉基本的git操作命令，在远程代码库拥有了自己的仓库，且使用密码提交代码是成功的。</p>
+<h2 id="好，那么话不多说，开干"><a href="#好，那么话不多说，开干" class="headerlink" title="好，那么话不多说，开干"></a>好，那么话不多说，开干</h2><p>我们最主要的目的，是将提交时的http协议地址，直接改成类似于<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git@github.com:ChangerHe/My-code.git</div></pre></td></tr></table></figure></p>
+<p>这样的地址，当然，ChanerHe是我的github名，My-code是我想要push到的远程仓库名。更改之后，push的时候就会自动push到自己的仓库，不需要输入代码了，同时可以开心地在sublime上进行使用git插件了！<br>那么，现在我们现在打开我们我的git bash，在gitbash中输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote -v</div></pre></td></tr></table></figure></p>
+<p>输入之后可查看到自己的输出的branch，此时默认是origin。<br>此时如果未设置成功，bash中的输出是这样子的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">origin https://github.com/ChangerHe/My-code (fetch)</div><div class="line">origin https://github.com/ChangerHe/My-code (push)</div></pre></td></tr></table></figure></p>
+<p>这个时候你的push地址是https路径，所以会导致此时需要输入账号密码，我们现在再执行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote set-url origin git@github.com:ChangerHe/My-code.git</div></pre></td></tr></table></figure></p>
+<p>上面这段代码的意思就是，把git的默认push和fetch地址，改为以上相应地址。</p>
+<h2 id="同样的，ChangerHe是我的ID，My-code是我要提交的远程仓库名称，这段代码中，这两处需要改为你自己的。"><a href="#同样的，ChangerHe是我的ID，My-code是我要提交的远程仓库名称，这段代码中，这两处需要改为你自己的。" class="headerlink" title="同样的，ChangerHe是我的ID，My-code是我要提交的远程仓库名称，这段代码中，这两处需要改为你自己的。"></a>同样的，ChangerHe是我的ID，My-code是我要提交的远程仓库名称，这段代码中，这两处需要改为你自己的。</h2><p>以上是我查到的很多资料，没有提到的地方，导致我白白浪费掉了一个小时的时间，哎~自学最大的难处就在这里。<br>以上，设置好之后，会发现你的路径方式变了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">origin https://github.com/ChangerHe/My-code (fetch)</div><div class="line">origin https://github.com/ChangerHe/My-code (push)</div></pre></td></tr></table></figure></p>
+<p>此时即配置成功，现在就可以开心地不用密码进行push啦。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;为什么要写这篇博客？&quot;&gt;&lt;a href=&quot;#为什么要写这篇博客？&quot; class=&quot;headerlink&quot; title=&quot;为什么要写这篇博客？&quot;&gt;&lt;/a&gt;为什么要写这篇博客？&lt;/h1&gt;&lt;p&gt;今天学了点node.js，被慕课网狂拽酷炫的操作所折服，故决定投身subli
+    
+    </summary>
+    
+      <category term="GITHUB 优化" scheme="https://github.com/ChangerHe/categories/GITHUB-%E4%BC%98%E5%8C%96/"/>
+    
+    
+      <category term="GITHUB" scheme="https://github.com/ChangerHe/tags/GITHUB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JavaScript深入浅出-表达式和运算符</title>
+    <link href="https://github.com/ChangerHe/2017/06/28/JavaScript%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BA-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%92%8C%E8%BF%90%E7%AE%97%E7%AC%A6/"/>
+    <id>https://github.com/ChangerHe/2017/06/28/JavaScript深入浅出-表达式和运算符/</id>
+    <published>2017-06-28T06:10:18.000Z</published>
+    <updated>2017-06-28T07:28:43.890Z</updated>
+    
+    <content type="html"><![CDATA[<p>表达式是能计算出值的任何业务单元。<br>原始表达式：常量，直接量、关键字、变量<br>原始表达式和原始表达式可以通过运算符链接成符合表达式<br>函数表达式：<br>属性访问表达式：对定义好的表达式的属性进行访问<br>调用表达式：调用函数，等<br>堆箱创建表达式：</p>
+<h1 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h1><p>常用于表达式之间进行运算<br>三元运算符<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var a = c ? a : b;</div></pre></td></tr></table></figure></p>
+<p>delete运算符，删除对象。但是当定了了对象的configurable时，是无法删除的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var obj = &#123;&#125;&apos;</div><div class="line">Object.defineProperty(obj,&quot;x&quot;,&#123;</div><div class="line">configurable: false,value: 1&#125;</div><div class="line">);</div><div class="line">delete obj.x;   //false</div><div class="line">obj.x;   //1</div></pre></td></tr></table></figure></p>
+<p>in 运算符<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">window.x = 1;</div><div class="line">&quot;x&quot; in window;  //true;</div></pre></td></tr></table></figure></p>
+<p>instanceof tyoeof运算符<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&#123;&#125; instanceof Object；  //true</div><div class="line">typeof 100 === &apos;number&apos;;   //true</div></pre></td></tr></table></figure></p>
+<p>new 运算符<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function Foo()&#123;</div><div class="line">	Foo.prototype.x = 1;</div><div class="line">	var obj = new Foo();</div><div class="line">	obj.x;</div><div class="line">	obj.hasOwnProperty(&quot;x&quot;);  //判断x是不是属于自己的对象</div><div class="line">	obj._proto_.hasOwnProperty(&quot;x&quot;);  //判断是不是原型中的对象</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>this 运算符<br>void 运算符<br>var 语句<br>当使用循环时，循环使用的变量i在循环结束后仍然可以调用，即它为全局变量。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">for (var i = 0; i &lt; 5; i++) &#123;</div><div class="line">    console.log(i);   //0 1 2 3 4</div><div class="line">&#125;</div><div class="line">console.log(&quot;-------------&quot;)  //-------------</div><div class="line">console.log(i);  //5</div></pre></td></tr></table></figure></p>
+<p>当我们使用<code>var a = b = 0</code>来进行变量定义时，如果在局部变量中进行这样的定义，请注意，定义出的<code>b = 0</code>是全局变量。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function() &#123;</div><div class="line">	var a = b = 0;</div><div class="line">	console.log(a + &quot;,&quot; + b);  //0,0</div><div class="line">&#125;</div><div class="line">console.log(b);  //0</div></pre></td></tr></table></figure></p>
+<p>try-catch 语句<br>对方不想和你说话，并想向你抛出一段异常。<br>```<br>try{<br>    try{<br>        throw new Error(“oops”);<br>    }<br>    finally{<br>        console.log(“finally”);<br>    }<br>}<br>catch(ex){<br>    console.error(“outer”,ex.message);<br>}</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;表达式是能计算出值的任何业务单元。&lt;br&gt;原始表达式：常量，直接量、关键字、变量&lt;br&gt;原始表达式和原始表达式可以通过运算符链接成符合表达式&lt;br&gt;函数表达式：&lt;br&gt;属性访问表达式：对定义好的表达式的属性进行访问&lt;br&gt;调用表达式：调用函数，等&lt;br&gt;堆箱创建表达式：&lt;/
+    
+    </summary>
+    
+      <category term="JavaScript 学习笔记" scheme="https://github.com/ChangerHe/categories/JavaScript-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="JavaScript" scheme="https://github.com/ChangerHe/tags/JavaScript/"/>
+    
+  </entry>
   
   <entry>
     <title>SASS学习进阶</title>
