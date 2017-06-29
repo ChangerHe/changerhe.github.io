@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/ChangerHe/"/>
-  <updated>2017-06-28T15:10:32.923Z</updated>
+  <updated>2017-06-29T14:57:34.009Z</updated>
   <id>https://github.com/ChangerHe/</id>
   
   <author>
@@ -14,6 +14,90 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>HTTP相关知识</title>
+    <link href="https://github.com/ChangerHe/2017/06/29/HTTP%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/"/>
+    <id>https://github.com/ChangerHe/2017/06/29/HTTP相关知识/</id>
+    <published>2017-06-29T13:19:37.000Z</published>
+    <updated>2017-06-29T14:57:34.009Z</updated>
+    
+    <content type="html"><![CDATA[<p>URL，英文名为（Uniform Resource Locator)，统一资源定位符。<br>统一资源定位符是对可以从互联网上得到的资源的位置和访问方法的一种简洁的表示，是互联网上标准资源的地址。互联网上的每个文件都有一个唯一的URL，它包含的信息支出文件的位置及浏览器该怎么处理它。</p>
+<p>基本URL包含模式（或称协议），服务器名称（或IP地址），路径和文件名。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">协议://授权/路径?查询</div></pre></td></tr></table></figure></p>
+<p>完整的，带有授权部分的普通统一资源定位符语法看上去如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">协议://用户名:密码@子域名.域名.顶级域名:端口号/目录/文件名.文件后缀?参数=值#标志</div></pre></td></tr></table></figure></p>
+<h2 id="HTTP状态码"><a href="#HTTP状态码" class="headerlink" title="HTTP状态码"></a>HTTP状态码</h2><p>HTTP状态码现在在记录的的种类就达40多种，再加上各类拓展，数量可达六十余种。但实际上真正频繁使用的，也就14中。</p>
+<h3 id="状态码的不同类别"><a href="#状态码的不同类别" class="headerlink" title="状态码的不同类别"></a>状态码的不同类别</h3><table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">类别</th>
+<th style="text-align:center">原因短语</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1XX</td>
+<td style="text-align:center">Informational(信息性状态码)</td>
+<td style="text-align:center">接收的请求正在处理</td>
+</tr>
+<tr>
+<td style="text-align:center">2XX</td>
+<td style="text-align:center">Success(成功状态码)</td>
+<td style="text-align:center">请求正常处理完毕</td>
+</tr>
+<tr>
+<td style="text-align:center">3XX</td>
+<td style="text-align:center">Redirection(重定向状态码)</td>
+<td style="text-align:center">需要进行附加操作以完成请求</td>
+</tr>
+<tr>
+<td style="text-align:center">4XX</td>
+<td style="text-align:center">Client Error(客户端错误状态码)</td>
+<td style="text-align:center">服务器无法处理请求</td>
+</tr>
+<tr>
+<td style="text-align:center">5XX</td>
+<td style="text-align:center">Sever Error(服务器错误状态码)</td>
+<td style="text-align:center">服务器处理请求出错</td>
+</tr>
+</tbody>
+</table>
+<h2 id="1XX类状态码——正在处理中"><a href="#1XX类状态码——正在处理中" class="headerlink" title="1XX类状态码——正在处理中"></a>1XX类状态码——正在处理中</h2><p>以上列表，主要表示请求的状态或者接收的请求正在处理。这个没什么可说的。</p>
+<h2 id="2XX类状态码——处理成功"><a href="#2XX类状态码——处理成功" class="headerlink" title="2XX类状态码——处理成功"></a>2XX类状态码——处理成功</h2><p>看到2XX，你就可以开心啦，2XX类状态码基本为处理成功的状态，具体情况如下：</p>
+<ol>
+<li>200 OK<br>表示从客户端发来的请求在服务器端被正常处理了。</li>
+<li>204 No Content<br>表示状态码代表服务器接收的请求已经成功处理，但在返回的响应报文中不含实体的主体部分。另外，也不允许返回任何实体的主体。<br>一般只需要从客户端往服务器发送信息，而对客户端不需要发送新信息内容的情况下使用。</li>
+<li>206 Partical Content<br>该状态码表示客户端进行了范围请求，而服务器成功执行了这部分的GET请求。响应报文中包含由Content-Range指定范围的实体内容。<h2 id="3XX类状态码——重定向"><a href="#3XX类状态码——重定向" class="headerlink" title="3XX类状态码——重定向"></a>3XX类状态码——重定向</h2>3XX响应结果表示浏览器需要执行某些特殊的处理以正确处理请求。</li>
+<li><p>301 Moved Permanently<br>永久性重定向，改状态码请求的资源已经被分配了新的URI，以后应使用资源现在所指的URI。<br>还有一种情况，当你的输入路径最后忘记添加斜杠 <code>/</code>时，也会产生301状态码。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://example.com/sample</div></pre></td></tr></table></figure>
+</li>
+<li><p>302 Found<br>临时性重定向。该状态码表示请求的资源已经被分配了新的URI，希望用户能使用新的URI访问。<br>和状态码301类似，但是302状态码表示的资源不是永久移动，只是临时的。</p>
+</li>
+<li>303 See Other<br>该状态码表示由于请求对应的资源存在着另一个URI，应使用GET方法进行定向获取请求的资源。<br>303状态码和302状态码有着相同的功能，但303状态码明确表示客户端应当次用GET方法获取资源，这点与302状态码有区别。</li>
+<li>304 Not Modefied<br>该状态码表示客户端发送附带条件的请求时，服务器端允许请求访问资源，但因发生请求未满足条件的情况后，直接返回304.该状态码返回时不包含任何响应的主题部分。也就是虽然304被划分在3XX系列，但是似乎和重定向没有关系，反倒和接下来介绍的4XX系列有些类似了。</li>
+<li>307 Temporary Redirect<br>临时重定向。该状态码与302有着类似的含义。<h2 id="4XX类状态码——客户端错误"><a href="#4XX类状态码——客户端错误" class="headerlink" title="4XX类状态码——客户端错误"></a>4XX类状态码——客户端错误</h2>这也许是所有程序猿和媛们最讨厌的一个系列了，该返回表明客户端是发生错误的原因所在。</li>
+<li>400 Bad Request<br>该状态码表示请求报文中存在语法错误。当错误发生时，需要修改请求的内容之后再次发送。而且，浏览器会像200 ok那样子对待该状态码。</li>
+<li>401 Unauthorized<br>该状态码表示发送的请求需要有通过HTTP认证的认证信息。如果之前已经做过一次请求的话，则表示用户校验失败。<br>返回含有401的响应必须包含一个适用于被请求资源的 <code>WWW-Authenticate</code> 首部用以质询用户信息。当用户初次接收到401，会弹出认证用的对话窗口。</li>
+<li>403 Forbidden<br>表明请求资源的访问被浏览器拒绝了。<br>未获得文件系统的访问授权，访问权限出现问题，都会返回403状态码。</li>
+<li>404 Not Found<br>该状态码绝对是4XX系列中我们最常见的了。表示服务器上无法找到请求的资源。除此之外，也可以在服务器端拒绝请求且不想说明理由时使用。<h2 id="5XX类状态码——服务器错误"><a href="#5XX类状态码——服务器错误" class="headerlink" title="5XX类状态码——服务器错误"></a>5XX类状态码——服务器错误</h2></li>
+<li>500 Internal Server Error<br>该状态码表示服务器端在执行请求时发生了错误，也有可能是web应用存在的BUG或某些临时的故障。</li>
+<li>503 Service Unavailable<br>该状态码表示服务器暂时处于超负载或正在进行停机维护，现在无法处理处理请求。如果事先得知解除以上状况需要的时间，最好写入 <code>Retry-After</code> 首部字段再返回给客户端。</li>
+</ol>
+<h2 id="知识拓展：URI"><a href="#知识拓展：URI" class="headerlink" title="知识拓展：URI"></a>知识拓展：URI</h2><p>URI（Uniform Resource Identifier）,统一资源标识符。URI是有某个协议方案表示的资源的定位标识符。协议方案是指访问资源所使用的协议类型名称。<br>采用HTTP协议时，协议方案就是HTTP。标准的URI协议方案有30种左右。<br>URI用字符串标识某一互联网资源，而URL标识资源的地点，可见，URL是URI的子集。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;URL，英文名为（Uniform Resource Locator)，统一资源定位符。&lt;br&gt;统一资源定位符是对可以从互联网上得到的资源的位置和访问方法的一种简洁的表示，是互联网上标准资源的地址。互联网上的每个文件都有一个唯一的URL，它包含的信息支出文件的位置及浏览器该怎
+    
+    </summary>
+    
+      <category term="HTTP 相关知识（一）" scheme="https://github.com/ChangerHe/categories/HTTP-%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%EF%BC%88%E4%B8%80%EF%BC%89/"/>
+    
+    
+      <category term="HTTP相关知识" scheme="https://github.com/ChangerHe/tags/HTTP%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/"/>
+    
+  </entry>
   
   <entry>
     <title>GIT配置不需密码即可push的方法</title>

@@ -283,6 +283,250 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://github.com/ChangerHe/2017/06/29/HTTP相关知识/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Changer He">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Changer He's Home Page">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/06/29/HTTP相关知识/" itemprop="url">
+                  HTTP相关知识
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-29T21:19:37+08:00">
+                2017-06-29
+              </time>
+            
+
+            
+
+  <span class="post-letters-count">
+    &nbsp; | &nbsp;
+    <span>1,583 字</span>
+    &nbsp; | &nbsp;
+    <span>6 min</span>
+  </span>
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/HTTP-相关知识（一）/" itemprop="url" rel="index">
+                    <span itemprop="name">HTTP 相关知识（一）</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  1,583字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  6分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>URL，英文名为（Uniform Resource Locator)，统一资源定位符。<br>统一资源定位符是对可以从互联网上得到的资源的位置和访问方法的一种简洁的表示，是互联网上标准资源的地址。互联网上的每个文件都有一个唯一的URL，它包含的信息支出文件的位置及浏览器该怎么处理它。</p>
+<p>基本URL包含模式（或称协议），服务器名称（或IP地址），路径和文件名。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">协议://授权/路径?查询</div></pre></td></tr></table></figure></p>
+<p>完整的，带有授权部分的普通统一资源定位符语法看上去如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">协议://用户名:密码@子域名.域名.顶级域名:端口号/目录/文件名.文件后缀?参数=值#标志</div></pre></td></tr></table></figure></p>
+<h2 id="HTTP状态码"><a href="#HTTP状态码" class="headerlink" title="HTTP状态码"></a>HTTP状态码</h2><p>HTTP状态码现在在记录的的种类就达40多种，再加上各类拓展，数量可达六十余种。但实际上真正频繁使用的，也就14中。</p>
+<h3 id="状态码的不同类别"><a href="#状态码的不同类别" class="headerlink" title="状态码的不同类别"></a>状态码的不同类别</h3><table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">类别</th>
+<th style="text-align:center">原因短语</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1XX</td>
+<td style="text-align:center">Informational(信息性状态码)</td>
+<td style="text-align:center">接收的请求正在处理</td>
+</tr>
+<tr>
+<td style="text-align:center">2XX</td>
+<td style="text-align:center">Success(成功状态码)</td>
+<td style="text-align:center">请求正常处理完毕</td>
+</tr>
+<tr>
+<td style="text-align:center">3XX</td>
+<td style="text-align:center">Redirection(重定向状态码)</td>
+<td style="text-align:center">需要进行附加操作以完成请求</td>
+</tr>
+<tr>
+<td style="text-align:center">4XX</td>
+<td style="text-align:center">Client Error(客户端错误状态码)</td>
+<td style="text-align:center">服务器无法处理请求</td>
+</tr>
+<tr>
+<td style="text-align:center">5XX</td>
+<td style="text-align:center">Sever Error(服务器错误状态码)</td>
+<td style="text-align:center">服务器处理请求出错</td>
+</tr>
+</tbody>
+</table>
+<h2 id="1XX类状态码——正在处理中"><a href="#1XX类状态码——正在处理中" class="headerlink" title="1XX类状态码——正在处理中"></a>1XX类状态码——正在处理中</h2><p>以上列表，主要表示请求的状态或者接收的请求正在处理。这个没什么可说的。</p>
+<h2 id="2XX类状态码——处理成功"><a href="#2XX类状态码——处理成功" class="headerlink" title="2XX类状态码——处理成功"></a>2XX类状态码——处理成功</h2><p>看到2XX，你就可以开心啦，2XX类状态码基本为处理成功的状态，具体情况如下：</p>
+<ol>
+<li>200 OK<br>表示从客户端发来的请求在服务器端被正常处理了。</li>
+<li>204 No Content<br>表示状态码代表服务器接收的请求已经成功处理，但在返回的响应报文中不含实体的主体部分。另外，也不允许返回任何实体的主体。<br>一般只需要从客户端往服务器发送信息，而对客户端不需要发送新信息内容的情况下使用。</li>
+<li>206 Partical Content<br>该状态码表示客户端进行了范围请求，而服务器成功执行了这部分的GET请求。响应报文中包含由Content-Range指定范围的实体内容。<h2 id="3XX类状态码——重定向"><a href="#3XX类状态码——重定向" class="headerlink" title="3XX类状态码——重定向"></a>3XX类状态码——重定向</h2>3XX响应结果表示浏览器需要执行某些特殊的处理以正确处理请求。</li>
+<li><p>301 Moved Permanently<br>永久性重定向，改状态码请求的资源已经被分配了新的URI，以后应使用资源现在所指的URI。<br>还有一种情况，当你的输入路径最后忘记添加斜杠 <code>/</code>时，也会产生301状态码。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://example.com/sample</div></pre></td></tr></table></figure>
+</li>
+<li><p>302 Found<br>临时性重定向。该状态码表示请求的资源已经被分配了新的URI，希望用户能使用新的URI访问。<br>和状态码301类似，但是302状态码表示的资源不是永久移动，只是临时的。</p>
+</li>
+<li>303 See Other<br>该状态码表示由于请求对应的资源存在着另一个URI，应使用GET方法进行定向获取请求的资源。<br>303状态码和302状态码有着相同的功能，但303状态码明确表示客户端应当次用GET方法获取资源，这点与302状态码有区别。</li>
+<li>304 Not Modefied<br>该状态码表示客户端发送附带条件的请求时，服务器端允许请求访问资源，但因发生请求未满足条件的情况后，直接返回304.该状态码返回时不包含任何响应的主题部分。也就是虽然304被划分在3XX系列，但是似乎和重定向没有关系，反倒和接下来介绍的4XX系列有些类似了。</li>
+<li>307 Temporary Redirect<br>临时重定向。该状态码与302有着类似的含义。<h2 id="4XX类状态码——客户端错误"><a href="#4XX类状态码——客户端错误" class="headerlink" title="4XX类状态码——客户端错误"></a>4XX类状态码——客户端错误</h2>这也许是所有程序猿和媛们最讨厌的一个系列了，该返回表明客户端是发生错误的原因所在。</li>
+<li>400 Bad Request<br>该状态码表示请求报文中存在语法错误。当错误发生时，需要修改请求的内容之后再次发送。而且，浏览器会像200 ok那样子对待该状态码。</li>
+<li>401 Unauthorized<br>该状态码表示发送的请求需要有通过HTTP认证的认证信息。如果之前已经做过一次请求的话，则表示用户校验失败。<br>返回含有401的响应必须包含一个适用于被请求资源的 <code>WWW-Authenticate</code> 首部用以质询用户信息。当用户初次接收到401，会弹出认证用的对话窗口。</li>
+<li>403 Forbidden<br>表明请求资源的访问被浏览器拒绝了。<br>未获得文件系统的访问授权，访问权限出现问题，都会返回403状态码。</li>
+<li>404 Not Found<br>该状态码绝对是4XX系列中我们最常见的了。表示服务器上无法找到请求的资源。除此之外，也可以在服务器端拒绝请求且不想说明理由时使用。<h2 id="5XX类状态码——服务器错误"><a href="#5XX类状态码——服务器错误" class="headerlink" title="5XX类状态码——服务器错误"></a>5XX类状态码——服务器错误</h2></li>
+<li>500 Internal Server Error<br>该状态码表示服务器端在执行请求时发生了错误，也有可能是web应用存在的BUG或某些临时的故障。</li>
+<li>503 Service Unavailable<br>该状态码表示服务器暂时处于超负载或正在进行停机维护，现在无法处理处理请求。如果事先得知解除以上状况需要的时间，最好写入 <code>Retry-After</code> 首部字段再返回给客户端。</li>
+</ol>
+<h2 id="知识拓展：URI"><a href="#知识拓展：URI" class="headerlink" title="知识拓展：URI"></a>知识拓展：URI</h2><p>URI（Uniform Resource Identifier）,统一资源标识符。URI是有某个协议方案表示的资源的定位标识符。协议方案是指访问资源所使用的协议类型名称。<br>采用HTTP协议时，协议方案就是HTTP。标准的URI协议方案有30种左右。<br>URI用字符串标识某一互联网资源，而URL标识资源的地点，可见，URL是URI的子集。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">共14.2k字</span>
+</div>
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="https://github.com/ChangerHe/2017/06/28/GIT配置不需密码即可push的方法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -461,7 +705,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共12.6k字</span>
+  <span class="post-count">共14.2k字</span>
 </div>
 
     
@@ -652,7 +896,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共12.6k字</span>
+  <span class="post-count">共14.2k字</span>
 </div>
 
     
@@ -858,7 +1102,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共12.6k字</span>
+  <span class="post-count">共14.2k字</span>
 </div>
 
     
@@ -1073,7 +1317,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共12.6k字</span>
+  <span class="post-count">共14.2k字</span>
 </div>
 
     
@@ -1257,7 +1501,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共12.6k字</span>
+  <span class="post-count">共14.2k字</span>
 </div>
 
     
@@ -1443,7 +1687,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共12.6k字</span>
+  <span class="post-count">共14.2k字</span>
 </div>
 
     
@@ -1629,7 +1873,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共12.6k字</span>
+  <span class="post-count">共14.2k字</span>
 </div>
 
     
@@ -1813,7 +2057,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共12.6k字</span>
+  <span class="post-count">共14.2k字</span>
 </div>
 
     
@@ -1999,207 +2243,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共12.6k字</span>
-</div>
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://github.com/ChangerHe/2017/06/21/The-Data-Type-Differences-of-JavaScript-and-Java/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Changer He">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Changer He's Home Page">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/06/21/The-Data-Type-Differences-of-JavaScript-and-Java/" itemprop="url">
-                  JavaScript 和 JAVA 在数据类型方面的异同
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-21T00:30:42+08:00">
-                2017-06-21
-              </time>
-            
-
-            
-
-  <span class="post-letters-count">
-    &nbsp; | &nbsp;
-    <span>1,107 字</span>
-    &nbsp; | &nbsp;
-    <span>4 min</span>
-  </span>
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JAVA-学习笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">JAVA 学习笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计</span>
-                
-                <span title="字数统计">
-                  1,107字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长</span>
-                
-                <span title="阅读时长">
-                  4分钟
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>今天是开始学习JAVA的第一天，对照着教程敲了一遍代码，配置了一下JAVA的运行环境，不知不觉一天就这样过去了，反倒是真正花在了解JAVA这门语言上面的时间却少了些。<br>初了解了JAVA数据类型的知识，发现确实是和之前学习的C++,JavaScript（之后统一称JS）有异曲同工之妙，但是相比于JS来说，个人认为Java的数据结构及类型配置是更加严谨的，毕竟James Gosling 大大花了几年时间开发出了这门语言。而JavaScript这门语言由 Brendan Eich 花了十天就设计出来了，哈哈哈哈哈哈哈不得不佩服这些大大大佬们。</p>
-<h2 id="变量初始化问题"><a href="#变量初始化问题" class="headerlink" title="变量初始化问题"></a>变量初始化问题</h2><p>当我使用JS时，定义变量但不给其赋值，可输出undefined<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">	var a;</div><div class="line">	console.log(a);      //a</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
-<p>但是当我使用Java时，未给其定义时，将会在编译时直接报错，无法正常完成编译操作。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">public class example</div><div class="line">&#123;</div><div class="line">	public static void main(String[] args)</div><div class="line">	&#123;</div><div class="line">		int a;</div><div class="line">		System. out. println(a);     //错误</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="变量的定义"><a href="#变量的定义" class="headerlink" title="变量的定义"></a>变量的定义</h2><p>JS中，如果对变量定义的话，会有全局变量和局部变量之分。Java中也是一样，这是他们的相同之处。但是我们来看这样一个例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">	var a = 2;</div><div class="line">	var a = 3;</div><div class="line">	console.log(a);    //3</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
-<p>这是使用JS进行输出的结果，JS正常输出3，我们再看在Java中的输出结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">public class example</div><div class="line">&#123;</div><div class="line">	public static void main(String[] args)</div><div class="line">	&#123;</div><div class="line">		int a = 2;</div><div class="line">		int a = 3;</div><div class="line">		System. out. println(a);  //错误</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>在重复定义了其局部变量的情况下，JAVA仍旧会报错。不仅仅是这样，还有：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">public class example</div><div class="line">&#123;</div><div class="line">	int a = 2;</div><div class="line">	public static void main(String[] args)</div><div class="line">	&#123;</div><div class="line">		</div><div class="line">		System. out. println(a);   //错误</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>这是个什么鬼，作为一个学了JS的小朋友不淡定了，我明明在全局中定义了a的值了呀，为什么还会报错，原来是少了样东西：需要在对a进行定义时加上static，具体个中原因，查了资料，资料是这样写的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">产生此现象的原因是无法从静态上下文中引用非静态变量，因为main方法是static的,如果想用main方法直接去调用方法或者属性的话必须是static的。当然,如果实例化出一个对象的话,那么定义的变量就可以不是static的。</div></pre></td></tr></table></figure></p>
-<p>也就是说，对于这种情况，有两种解决方案：</p>
-<h3 id="方案1"><a href="#方案1" class="headerlink" title="方案1"></a>方案1</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">public class Test&#123;</div><div class="line">        static int i;</div><div class="line">        public static void main(String[] args)&#123;</div><div class="line">                System.out.println(i);</div><div class="line">        &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="方案2"><a href="#方案2" class="headerlink" title="方案2"></a>方案2</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">public class Test&#123;</div><div class="line">        int i;</div><div class="line">        public static void main(String[] args)&#123;</div><div class="line">                System.out.println(new Test().i);</div><div class="line">        &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>因为new了一个Test类的实例,所以可以直接去调用Test的属性跟方法。</p>
-<h2 id="数据运算"><a href="#数据运算" class="headerlink" title="数据运算"></a>数据运算</h2><p>JS中的加法有一个很好玩的地方，我们来看一下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">	var a = 0.1;</div><div class="line">	var b = 0.2;</div><div class="line">	console.log(a + b);     //0.30000000000000004</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
-<p>但是笔者在JAVA中亲测，也是一模一样啊有木有（当然，这个时候JAVA就要改一下数据类型了，这个在JS中是不需要的）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">public class example</div><div class="line">&#123;</div><div class="line">	static double a = 0.1D;</div><div class="line">	static double b = 0.2D;</div><div class="line">	public static void main(String[] args)</div><div class="line">	&#123;</div><div class="line">		</div><div class="line">		System. out. println(a + b);    //0.30000000000000004</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>对于这种现象，网上的大神们的解释是这样子的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">十进制0.1</div><div class="line">=&gt; 二进制0.00011001100110011…(循环0011) </div><div class="line">=&gt;尾数为1.1001100110011001100…1100（共52位，除了小数点左边的1），指数为-4（二进制移码为00000000010）,符号位为0</div><div class="line">=&gt; 计算机存储为：0 00000000100 10011001100110011…11001</div><div class="line">=&gt; 因为尾数最多52位，所以实际存储的值为0.00011001100110011001100110011001100110011001100110011001</div><div class="line">而十进制0.2</div><div class="line">=&gt; 二进制0.0011001100110011…(循环0011)</div><div class="line">=&gt;尾数为1.1001100110011001100…1100（共52位，除了小数点左边的1），指数为-3（二进制移码为00000000011）,符号位为0</div><div class="line">=&gt; 存储为：0 00000000011 10011001100110011…11001</div><div class="line">因为尾数最多52位，所以实际存储的值为0.00110011001100110011001100110011001100110011001100110011</div><div class="line"> 　　　那么两者相加得：    </div><div class="line">0.00011001100110011001100110011001100110011001100110011001</div><div class="line">+  0.00110011001100110011001100110011001100110011001100110011　</div><div class="line">=  0.01001100110011001100110011001100110011001100110011001100</div><div class="line">转换成10进制之后得到:0.30000000000000004”</div></pre></td></tr></table></figure></p>
-<p>简单来讲，还是单精度和双精度浮点运算时的误差了，不过当我把两数据设置为单精度float数时，此现象就没有了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">public class example</div><div class="line">&#123;</div><div class="line">	static float a = 0.1f;</div><div class="line">	static float b = 0.2f;</div><div class="line">	public static void main(String[] args)</div><div class="line">	&#123;</div><div class="line">		</div><div class="line">		System. out. println(a + b);     //0.3</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>充分证明了</p>
-<p>卧槽我想说证明了什么？</p>
-<p>反正不懂，先记着吧，反正是菜鸟~<br><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1498578247&amp;di=6d2ed02b13e4a711c1765b55065567c8&amp;imgtype=jpg&amp;er=1&amp;src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20160429%2F82de753dbb0d4de6b061fbbbe08eb6b8_th.jpg" alt=""></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-<div class="theme-info">
-  <div class="powered-by"></div>
-  <span class="post-count">共12.6k字</span>
+  <span class="post-count">共14.2k字</span>
 </div>
 
     
@@ -2252,7 +2296,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-count">17</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2263,7 +2307,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -2274,7 +2318,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
