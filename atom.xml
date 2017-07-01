@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/ChangerHe/"/>
-  <updated>2017-07-01T16:16:05.895Z</updated>
+  <updated>2017-07-01T16:18:26.034Z</updated>
   <id>https://github.com/ChangerHe/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://github.com/ChangerHe/2017/07/02/%E5%9C%A8GitHub%E8%B4%A6%E6%88%B7%E4%B8%AD%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%90%8C%E6%97%B6%E5%8F%A6%E5%BC%80%E4%B8%80%E4%B8%AA%E4%BB%A3%E7%A0%81%E5%B1%95%E7%A4%BA%E9%A1%B5%E9%9D%A2%E7%9A%84%E6%96%B9%E6%B3%95/"/>
     <id>https://github.com/ChangerHe/2017/07/02/在GitHub账户中搭建静态博客的同时另开一个代码展示页面的方法/</id>
     <published>2017-07-01T16:08:02.000Z</published>
-    <updated>2017-07-01T16:16:05.895Z</updated>
+    <updated>2017-07-01T16:18:26.034Z</updated>
     
     <content type="html"><![CDATA[<p>无意间想尝试了一下GitHub在我创建了hexo博客之后，使用另一个仓库进行搭建自己的代码展示页面的事情，凑巧，被我还试成功了，操作的方式很简单。拿出来分享一下：</p>
 <h2 id="1-和之前一样，新建一个仓库"><a href="#1-和之前一样，新建一个仓库" class="headerlink" title="1.和之前一样，新建一个仓库"></a>1.和之前一样，新建一个仓库</h2><p><img src="http://jns.img.bucket.ks3-cn-beijing.ksyun.com/skill/daily/b927d758-4ed6-4af5-b9b9-2d48425fd79b.png" alt=""></p>
@@ -41,7 +41,7 @@
     
     </summary>
     
-      <category term="GitHub 学习笔记" scheme="https://github.com/ChangerHe/categories/GitHub-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <category term="GitHub 优化" scheme="https://github.com/ChangerHe/categories/GitHub-%E4%BC%98%E5%8C%96/"/>
     
     
       <category term="GitHub" scheme="https://github.com/ChangerHe/tags/GitHub/"/>
@@ -49,11 +49,11 @@
   </entry>
   
   <entry>
-    <title>HTTP相关知识</title>
+    <title>HTTP相关知识（一）</title>
     <link href="https://github.com/ChangerHe/2017/06/29/HTTP%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/"/>
     <id>https://github.com/ChangerHe/2017/06/29/HTTP相关知识/</id>
     <published>2017-06-29T13:19:37.000Z</published>
-    <updated>2017-06-29T14:57:34.009Z</updated>
+    <updated>2017-07-01T16:18:53.195Z</updated>
     
     <content type="html"><![CDATA[<p>URL，英文名为（Uniform Resource Locator)，统一资源定位符。<br>统一资源定位符是对可以从互联网上得到的资源的位置和访问方法的一种简洁的表示，是互联网上标准资源的地址。互联网上的每个文件都有一个唯一的URL，它包含的信息支出文件的位置及浏览器该怎么处理它。</p>
 <p>基本URL包含模式（或称协议），服务器名称（或IP地址），路径和文件名。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">协议://授权/路径?查询</div></pre></td></tr></table></figure></p>
@@ -125,7 +125,7 @@
     
     </summary>
     
-      <category term="HTTP 相关知识（一）" scheme="https://github.com/ChangerHe/categories/HTTP-%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%EF%BC%88%E4%B8%80%EF%BC%89/"/>
+      <category term="HTTP 相关知识" scheme="https://github.com/ChangerHe/categories/HTTP-%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/"/>
     
     
       <category term="HTTP相关知识" scheme="https://github.com/ChangerHe/tags/HTTP%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/"/>
