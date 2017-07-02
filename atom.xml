@@ -137,7 +137,7 @@
     <link href="https://github.com/ChangerHe/2017/06/28/GIT%E9%85%8D%E7%BD%AE%E4%B8%8D%E9%9C%80%E5%AF%86%E7%A0%81%E5%8D%B3%E5%8F%AFpush%E7%9A%84%E6%96%B9%E6%B3%95/"/>
     <id>https://github.com/ChangerHe/2017/06/28/GIT配置不需密码即可push的方法/</id>
     <published>2017-06-28T14:36:16.000Z</published>
-    <updated>2017-07-01T16:21:22.925Z</updated>
+    <updated>2017-07-02T02:57:23.096Z</updated>
     
     <content type="html"><![CDATA[<h1 id="为什么要写这篇博客？"><a href="#为什么要写这篇博客？" class="headerlink" title="为什么要写这篇博客？"></a>为什么要写这篇博客？</h1><p>今天学了点node.js，被慕课网狂拽酷炫的操作所折服，故决定投身sublime的怀抱。安装了package control以及各大插件后，最后安装git插件测试时，使用git：push命令始终没办法将代码push到我的github，想想也真是日了Justin Beiber了。<br>没办法，谁叫我天生丽质爱学习呢，然后我在网上找了各种办法，发现百度上的方法真的是水平太低，标准不一，基本雷同，更坑爹的是错都是差不多错一样的。我一个用github用了好几个月的人，你还叫我配置公钥？真是想说：<br><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1498671155922&amp;di=b3e1084de0148f1b484388639a6c86a1&amp;imgtype=0&amp;src=http%3A%2F%2Fwanzao2.b0.upaiyun.com%2Fsystem%2Fpictures%2F34182985%2Foriginal%2F1458040253_640x646.png" alt="PIC"></p>
 <h1 id="真正的解决办法"><a href="#真正的解决办法" class="headerlink" title="真正的解决办法"></a>真正的解决办法</h1><p>网上有很多办法，其实已经快说到点子上了，但是都是隔着被子瘙痒——没什么卵用，配置的时候看到那些博客，始终是摸不着头脑。<br>注：以下的配置方法，默认你已经安装好了git客户端，且熟悉基本的git操作命令，在远程代码库拥有了自己的仓库，且使用密码提交代码是成功的。</p>
@@ -159,7 +159,7 @@
       <category term="GitHub 优化" scheme="https://github.com/ChangerHe/categories/GitHub-%E4%BC%98%E5%8C%96/"/>
     
     
-      <category term="GITHUB" scheme="https://github.com/ChangerHe/tags/GITHUB/"/>
+      <category term="GitHub" scheme="https://github.com/ChangerHe/tags/GitHub/"/>
     
   </entry>
   
