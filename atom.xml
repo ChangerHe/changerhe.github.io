@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/ChangerHe/"/>
-  <updated>2017-07-01T16:18:26.034Z</updated>
+  <updated>2017-07-05T14:00:23.311Z</updated>
   <id>https://github.com/ChangerHe/</id>
   
   <author>
@@ -14,6 +14,116 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>jQuery 学习笔记——Review</title>
+    <link href="https://github.com/ChangerHe/2017/07/05/jQuery%E6%9F%A5%E6%BC%8F%E8%A1%A5%E7%BC%BA/"/>
+    <id>https://github.com/ChangerHe/2017/07/05/jQuery查漏补缺/</id>
+    <published>2017-07-05T11:51:24.000Z</published>
+    <updated>2017-07-05T14:00:23.311Z</updated>
+    
+    <content type="html"><![CDATA[<p>整体地看了一遍《锋利的jQuery》这本书，老师对jQuery这个脚本库进行了非常详细的解答，通俗易懂，但是感觉对AJAX我还是云里雾里，过两天有网了还是要撸一下AJAX。同时，我对里面的API还是不够熟悉，过一段时间，还要再看一遍！再对着上面的代码再敲一遍才好。等JS高程全部搞懂了，一定要把JQ的源码撸一遍！<br>今天看了张鑫旭大神的《我对知乎前端问题的十问十答》狠狠地抽醒了我，作为一个大学的时候玩HTML、css、JS玩的飞起的人，在毕业后做了九个月切图仔，又去自己闭关自学了九个月才能到现在的大神水平，而且他还是计算机专业的985院校毕业生，所以我一个二流野鸡大学的非科班毕业生，凭什么不努力呢？虽然是碗毒鸡汤，但我干了，大家随意。<br>回到正文，对今天学到的一些自己的易忘点，易错点进行回顾：</p>
+<h3 id="jQuery对象和DOM对象的相互转换："><a href="#jQuery对象和DOM对象的相互转换：" class="headerlink" title="jQuery对象和DOM对象的相互转换："></a>jQuery对象和DOM对象的相互转换：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var variable1 = jQuery对象；  //新定义一个jQuery对象</div><div class="line">var variable2 = DOM对象； //新定义一个DOM对象</div><div class="line">//将jQuery对象转为DOM对象</div><div class="line">var cr = $(&quot;#cr&quot;);</div><div class="line">var cr = $cr[0];  //或使用 var cr = $cr.get[0];</div></pre></td></tr></table></figure>
+<h3 id="多个JS库争夺符号“-”控制权的解决办法"><a href="#多个JS库争夺符号“-”控制权的解决办法" class="headerlink" title="多个JS库争夺符号“$”控制权的解决办法"></a>多个JS库争夺符号“$”控制权的解决办法</h3><p>在其他库加载完毕后，可以在任何时候调用jQuery.noConflict()方法来将变量”$”的控制权移交给其他的JS库，同时，当需要使用jQuery库中的方法时，可直接调用jquery()方法即可。<br>当然，此时也可使用变量对其进行替代，需要调用时，直接使用变量就好了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var $j = jquery.noConflict();</div></pre></td></tr></table></figure></p>
+<h3 id="jQuery的对象检查方式"><a href="#jQuery的对象检查方式" class="headerlink" title="jQuery的对象检查方式"></a>jQuery的对象检查方式</h3><p>jQuery在搜索对象时，即使该对象不存在，jQuery也不会报错，因此当直接使用调用的对象进行布尔运算时，会一直显示为true，因此，在判断该对象是否存在时，应当使用如下方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">if( $content.length)&#123;</div><div class="line">	//Do something</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>注：当jQuery的id对象有多个时，调用$(“#id”);永远显示的是第一个id对象。</p>
+<h3 id="子元素和后代元素的区别"><a href="#子元素和后代元素的区别" class="headerlink" title="子元素和后代元素的区别"></a>子元素和后代元素的区别</h3><p>子元素 <code>Ex: $(&quot;parent &gt; child&quot;);</code><br>后代元素：<code>Ex: $(&quot;parent dessemdant&quot;);</code><br>区别： 子元素选择的是parent元素的儿子辈，而后代元素选择的是parent元素的子、孙、曾孙加上以后的辈。</p>
+<h3 id="选取规则"><a href="#选取规则" class="headerlink" title="选取规则"></a>选取规则</h3><p>选取紧接在prev元素后的next元素（仅选择一个元素）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&quot;prev + next&quot;);  //等价于 $(&quot;prev&quot;).next(&quot;next&quot;);</div></pre></td></tr></table></figure></p>
+<p>选取prev元素后的所有sibling元素<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&quot;prev ~ siblings&quot;);   //等价于  $(&quot;prev&quot;).nextAll(&quot;siblings&quot;)</div></pre></td></tr></table></figure></p>
+<p>选取含有文本内容为“我”的元素<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&quot;div:contains(&quot;我&quot;)&quot;)；</div></pre></td></tr></table></figure></p>
+<p>选取含有选择器所匹配的元素的元素<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&quot;div:has(p)&quot;)</div></pre></td></tr></table></figure></p>
+<h3 id="remove-方法的特殊属性"><a href="#remove-方法的特殊属性" class="headerlink" title="remove()方法的特殊属性"></a>remove()方法的特殊属性</h3><p>当节点使用remove()方法被删除后，该节点包含的所有后代节点都将同时被删除，这个方法的返回值是一个指向已被删除的节点的引用，因此可以在之后再次使用。</p>
+<h3 id="css-方法的命名规则"><a href="#css-方法的命名规则" class="headerlink" title="css()方法的命名规则"></a>css()方法的命名规则</h3><p>在css()方法中，若属性带有“-”连接符，则此时官方建议使用驼峰命名法进行代替，否则直接引用带”-“的属性时，需要加上引号。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&quot;p&quot;).css(&#123;fontSize: &quot;30px&quot;,&quot;background-color&quot;: &quot;#888&quot;&#125;)</div></pre></td></tr></table></figure></p>
+<h3 id="关于height-方法和css-中的css-“height”-方法"><a href="#关于height-方法和css-中的css-“height”-方法" class="headerlink" title="关于height()方法和css()中的css(“height”)方法"></a>关于height()方法和css()中的css(“height”)方法</h3><p>两者无较大区别，但是当给height()方法设置值时，默认的单位为px，若使用其他单位，则需要加上引号。<br>height()方法获得的是页面的实际高度，而css()获取的高度根据设置的值的单位决定，也有可能为auto。</p>
+<h3 id="判断当前元素是否处于动画状态"><a href="#判断当前元素是否处于动画状态" class="headerlink" title="判断当前元素是否处于动画状态"></a>判断当前元素是否处于动画状态</h3><p>判断当前元素是否处于动画状态，是写动画时常常需要的一个判断方法，可以防止在多次点击按钮后，页面不停跳转的问题。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">if(!$(&quot;element&quot;).is(&quot;:animated&quot;))&#123;</div><div class="line">	//若当前无动画，则进行新动画</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;整体地看了一遍《锋利的jQuery》这本书，老师对jQuery这个脚本库进行了非常详细的解答，通俗易懂，但是感觉对AJAX我还是云里雾里，过两天有网了还是要撸一下AJAX。同时，我对里面的API还是不够熟悉，过一段时间，还要再看一遍！再对着上面的代码再敲一遍才好。等JS高程
+    
+    </summary>
+    
+      <category term="jQuery 学习笔记" scheme="https://github.com/ChangerHe/categories/jQuery-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="jQuery" scheme="https://github.com/ChangerHe/tags/jQuery/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>jQuery 学习笔记——属性与样式</title>
+    <link href="https://github.com/ChangerHe/2017/07/03/jQuery%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94%E5%B1%9E%E6%80%A7%E4%B8%8E%E6%A0%B7%E5%BC%8F/"/>
+    <id>https://github.com/ChangerHe/2017/07/03/jQuery学习笔记——属性与样式/</id>
+    <published>2017-07-03T08:29:56.000Z</published>
+    <updated>2017-07-03T10:25:21.739Z</updated>
+    
+    <content type="html"><![CDATA[<p>第二篇的jQuery笔记记录jQuery的属性和样式。<br>每个元素都有一个或者多个特性,这些特性的用途就是给出相应元素或者其内容的附加信息。如：在img元素中，src就是元素的特性，用来标记图片的地址。</p>
+<h1 id="attr-和removeAttr"><a href="#attr-和removeAttr" class="headerlink" title="attr()和removeAttr()"></a>attr()和removeAttr()</h1><p>操作特性的DOM方法主要有三个：getAttribute（）、setAttribute（）、removeAttribute（）。而且就算在实际操作中还是会存在很多问题，而jQuery中用一个attr（）和removeAttribute（）就可以搞定以上，而且能实现兼容。</p>
+<h3 id="attr（）有4个表达式："><a href="#attr（）有4个表达式：" class="headerlink" title="attr（）有4个表达式："></a>attr（）有4个表达式：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">1.attr(传入属性名)：获取属性的值</div><div class="line">2.attr(属性名，属性值)：设置属性的值</div><div class="line">3.attr(属性名，函数值)：设置属性的函数值</div><div class="line">4.attr(attributes)：给指定元素设置多个属性值</div></pre></td></tr></table></figure>
+<h3 id="removeAttr-删除方法"><a href="#removeAttr-删除方法" class="headerlink" title="removeAttr()删除方法"></a>removeAttr()删除方法</h3><p>```<br>.removeAttr(attributeName):为匹配的元素集合中的每个元素中移除一个属性（attribute）</p>
+<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><p>attr、removeAttr都是jQuery为了属性操作封装的，直接在一个jQuery对象上调用该方法，很容易对属性进行操作，也不需要去特意理解浏览器的属性名不同的问题。<br>注：dom中有个概念的区分：Attribute和Property翻译出来都是“属性”，《js高级程序设计》书中翻译为“特性”和“属性”。简单理解，Attribute就是dom节点自带的属性。也就是说：获取Attribute就要用attr，获取Property就要用prop。</p>
+<h1 id="html-和text"><a href="#html-和text" class="headerlink" title="html()和text()"></a>html()和text()</h1><p>读取。修改元素的HTML结构或者元素的文本内容是常见的DOM操作。这方面jQuery提供了两种方法：html()和text()。</p>
+<h3 id="html-方法"><a href="#html-方法" class="headerlink" title="html()方法"></a>html()方法</h3><p>获取集合中第一个匹配元素的HTML内容或设置每一个匹配元素的HTML内容。具体用法如下：<br>1.html()不传入值，就是获取集合中第一个匹配元素的HTML内容。<br>2.html(htmlString)设置每一个匹配元素的HTML内容。<br>3.html(function(index,oldhtml))用来返回设置HTML内容的一个函数。<br>注：.html()方法内部使用的是DOM的innerHTML属性来处理的，所以在设置与获取上需要注意的一个最重要的问题，这个操作是针对整个HTML内容（不仅仅只是文本内容）</p>
+<h3 id="text-方法"><a href="#text-方法" class="headerlink" title="text()方法"></a>text()方法</h3><p>得到匹配匀速集合中每个元素的文本内容集合，包括他们的后代。或者设置匹配元素集合中每个元素的文本内容为指定的文本内容。具体用法如下：<br>1.text()得到匹配元素集合中每个元素的合并文本，包括其后代。<br>2.text(textString)用于设置匹配元素内容的文本。<br>3.text(function(index,text))用来返回设置文本内容的一个函数。<br>注：text()结果返回一个字符串，包含所有匹配元素的合并文本。</p>
+<h3 id="html与-text的异同"><a href="#html与-text的异同" class="headerlink" title=".html与.text的异同:"></a>.html与.text的异同:</h3><p>1..html与.text的方法操作是一样，只是在具体针对处理对象不同<br>2..html处理的是元素内容，.text处理的是文本内容<br>3..html只能使用在HTML文档中，.text 在XML 和 HTML 文档中都能使用<br>4.如果处理的对象只有一个子文本节点，那么html处理的结果与text是一样的<br>5.火狐不支持innerText属性，用了类似的textContent属性，.text()方法综合了2个属性的支持，所以可以兼容所有浏览器</p>
+<h1 id="val"><a href="#val" class="headerlink" title="val()"></a>val()</h1><p>该方法主要用于处理表单元素的值，具体用法如下：<br>1.val()无参数，获取匹配的元素集合中第一个元素的当前值<br>2.val( value )，设置匹配的元素集合中每个元素的值<br>3.val( function ) ，一个用来返回设置值的函数</p>
+<h1 id="html-text-和val-的差异总结："><a href="#html-text-和val-的差异总结：" class="headerlink" title="html(),text()和val()的差异总结："></a>html(),text()和val()的差异总结：</h1><p>1.html(),text(),val()三种方法都是用来读取选定元素的内容；只不过html()是用来读取元素的html内容（包括html标签），text()用来读取元素的纯文本内容，包括其后代元素，val()是用来读取表单元素的”value”值。其中.html()和.text()方法不能使用在表单元素上,而.val()只能使用在表单元素上；另外.html()方法使用在多个元素上时，只读取第一个元素；.val()方法和.html()相同，如果其应用在多个元素上时，只能读取第一个表单元素的”value”值，但是.text()和他们不一样，如果.text()应用在多个元素上时，将会读取所有选中元素的文本内容。<br>2.html(htmlString),text(textString)和val(value)三种方法都是用来替换选中元素的内容，如果三个方法同时运用在多个元素上时，那么将会替换所有选中元素的内容。<br>3.html(),text(),val()都可以使用回调函数的返回值来动态的改变多个元素的内容。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;第二篇的jQuery笔记记录jQuery的属性和样式。&lt;br&gt;每个元素都有一个或者多个特性,这些特性的用途就是给出相应元素或者其内容的附加信息。如：在img元素中，src就是元素的特性，用来标记图片的地址。&lt;/p&gt;
+&lt;h1 id=&quot;attr-和removeAttr&quot;&gt;&lt;a 
+    
+    </summary>
+    
+      <category term="jQuery 学习笔记" scheme="https://github.com/ChangerHe/categories/jQuery-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="jQuery" scheme="https://github.com/ChangerHe/tags/jQuery/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>jQuery 学习笔记——选择器</title>
+    <link href="https://github.com/ChangerHe/2017/07/03/jQuery-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>https://github.com/ChangerHe/2017/07/03/jQuery-学习笔记/</id>
+    <published>2017-07-03T04:59:57.000Z</published>
+    <updated>2017-07-03T08:28:50.077Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="JQuery基本介绍"><a href="#JQuery基本介绍" class="headerlink" title="JQuery基本介绍"></a>JQuery基本介绍</h1><p>jQuery是一个前端必备的js脚本库，使用时只许进行引用即可，网上有大量的cdn可直接引用。</p>
+<h1 id="jQuery的版本问题"><a href="#jQuery的版本问题" class="headerlink" title="jQuery的版本问题"></a>jQuery的版本问题</h1><p>jQuery主要的版本为1.x版和2.x版，主要的区别在于2.x版放弃了对IE老版本浏览器的支持，减少了大量代码，因此2.x版本比jQuery的1.x版本更小。<br>如果比较在意老版本IE的话，可以使用jQuery在1.9的版本。<br>jQuery的系列分为开发版和压缩版，压缩版是直接拿来引用的，开发版用于开发者进行代码调试等。</p>
+<h1 id="jQuery的使用笔记"><a href="#jQuery的使用笔记" class="headerlink" title="jQuery的使用笔记"></a>jQuery的使用笔记</h1><p>1.类比于window.onload，jQuery有一个<br>$(document).ready(function(){}<br>2.类比于var p = document.getElementById(“imooc”);p.innerHTML = “aaa”;<br>p.style.color = ‘red’;<br>原生的写法具有过多的代码量，但是使用jQuery，只需要一行代码即可。<br>var $p = $(‘#imooc’);<br>$p.html(‘aaa’).css(‘color’,’red’);</p>
+<h2 id="jquery对象转化为DOM对象"><a href="#jquery对象转化为DOM对象" class="headerlink" title="jquery对象转化为DOM对象"></a>jquery对象转化为DOM对象</h2><p>以下面的例子进行示范，将三个div中第一个div的文字换位红色<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">//HTML 代码</div><div class="line">&lt;div&gt;111&lt;/div&gt;</div><div class="line">&lt;div&gt;222&lt;/div&gt;</div><div class="line">&lt;div&gt;333&lt;/div&gt;</div><div class="line">// JS原生获取写法</div><div class="line">var Div = document.getElementsByClassName(&apos;div&apos;);</div><div class="line">var div1 = Div[0]</div><div class="line">Div[0].style.color = &apos;red&apos;;</div><div class="line">//jQuery写法1</div><div class="line">var $div = $(&apos;div&apos;);</div><div class="line">var div = $div[0];</div><div class="line">div.style.color = &apos;red&apos;;</div><div class="line">//jQuery写法2</div><div class="line">var $div = $(&apos;div&apos;);</div><div class="line">var div = $div.get(0);  //通过get方法转化为dom对象</div><div class="line">div.style.color = &apos;red&apos;;</div></pre></td></tr></table></figure></p>
+<h2 id="jquery的ID选择器"><a href="#jquery的ID选择器" class="headerlink" title="jquery的ID选择器"></a>jquery的ID选择器</h2><p>$(“#id”)<br>注： id是唯一的，每个id值在一个页面中只能使用一次。如果多个元素分配了相同的id，将只匹配该id选择集合的第一个DOM元素。但这种行为不应该发生;有超过一个元素的页面使用相同的id是无效的</p>
+<h2 id="jQuery的class选择器"><a href="#jQuery的class选择器" class="headerlink" title="jQuery的class选择器"></a>jQuery的class选择器</h2><p>$(“.class”)<br>注： 该方法进行了隐式循环处理，因此在调用时不需要进行循环操作。</p>
+<h2 id="元素选择器"><a href="#元素选择器" class="headerlink" title="元素选择器"></a>元素选择器</h2><p>$(“element”)<br>注： 该方法进行了隐式循环处理，因此在调用时不需要进行循环操作。</p>
+<h2 id="全选择器“-”"><a href="#全选择器“-”" class="headerlink" title="全选择器“*”"></a>全选择器“*”</h2><p>$(“*”)</p>
+<h2 id="层级选择器"><a href="#层级选择器" class="headerlink" title="层级选择器"></a>层级选择器</h2><p><img src="http://img.mukewang.com/5590e98b0001f60d06130229.jpg" alt=""></p>
+<h2 id="基本筛选选择器"><a href="#基本筛选选择器" class="headerlink" title="基本筛选选择器"></a>基本筛选选择器</h2><p><img src="http://img.mukewang.com/57cd1df2000146de06020498.jpg" alt=""></p>
+<h2 id="内容筛选选择器"><a href="#内容筛选选择器" class="headerlink" title="内容筛选选择器"></a>内容筛选选择器</h2><p><img src="http://img.mukewang.com/57cd20bf0001a97f05290214.jpg" alt=""><br>注：<br>1.contains和has都有查找的意思，但是contains查找包含指定文本的元素，has查找包含指定元素的元素。<br>2.如果contains匹配的文本包含在元素的子元素中，同样认为是符合条件的。<br>3.parent与empty是相反的，两者设计的子元素包括文本节点。</p>
+<h2 id="可见性筛选选择器"><a href="#可见性筛选选择器" class="headerlink" title="可见性筛选选择器"></a>可见性筛选选择器</h2><p><img src="http://img.mukewang.com/5590f6de0001e2b204460106.jpg" alt=""></p>
+<h2 id="属性筛选选择器"><a href="#属性筛选选择器" class="headerlink" title="属性筛选选择器"></a>属性筛选选择器</h2><p><img src="http://img.mukewang.com/57d654200001c46507360560.jpg" alt=""></p>
+<h2 id="子元素筛选选择器"><a href="#子元素筛选选择器" class="headerlink" title="子元素筛选选择器"></a>子元素筛选选择器</h2><p><img src="http://img.mukewang.com/559105da0001301105960331.jpg" alt=""><br>注：jQuery实现:nth-child(n)是严格来自CSS规范，所以n值是“索引”，也就是说，从1开始计数，:nth-child(index)从1开始的，而eq(index)是从0开始的。</p>
+<h2 id="表单元素选择器"><a href="#表单元素选择器" class="headerlink" title="表单元素选择器"></a>表单元素选择器</h2><p><img src="http://img.mukewang.com/5592040d0001f8eb04940441.jpg" alt=""></p>
+<h2 id="对象属性筛选选择器"><a href="#对象属性筛选选择器" class="headerlink" title="对象属性筛选选择器"></a>对象属性筛选选择器</h2><p><img src="http://img.mukewang.com/55920c2f0001198b04940201.jpg" alt=""></p>
+<h2 id="特殊选择器this"><a href="#特殊选择器this" class="headerlink" title="特殊选择器this"></a>特殊选择器this</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(&apos;p&apos;).click(function()&#123;</div><div class="line">    //把p元素转化成jQuery的对象</div><div class="line">    var $this= $(this) </div><div class="line">    $this.css(&apos;color&apos;,&apos;red&apos;)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>通过$()方法传入当前元素对象的引用this，然后把这个this加工成jQuery对象，我们就可以用jQuery提供的快捷方法处理样式了。<br>注：<br>this，表示当前的上下文对象是一个html对象，可以调用html对象所拥有的属性和方法。<br>$(this),代表的上下文对象是一个jquery的上下文对象，可以调用jQuery的方法和属性值。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;JQuery基本介绍&quot;&gt;&lt;a href=&quot;#JQuery基本介绍&quot; class=&quot;headerlink&quot; title=&quot;JQuery基本介绍&quot;&gt;&lt;/a&gt;JQuery基本介绍&lt;/h1&gt;&lt;p&gt;jQuery是一个前端必备的js脚本库，使用时只许进行引用即可，网上有大量的
+    
+    </summary>
+    
+      <category term="jQuery 学习笔记" scheme="https://github.com/ChangerHe/categories/jQuery-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="jQuery" scheme="https://github.com/ChangerHe/tags/jQuery/"/>
+    
+  </entry>
   
   <entry>
     <title>在GitHub账户中搭建静态博客的同时另开一个代码展示页面的方法</title>
@@ -656,43 +766,6 @@ github: git@github.com:changerhe/changerhe.github.io.git,master
     
     </summary>
     
-    
-  </entry>
-  
-  <entry>
-    <title>Position属性知多少</title>
-    <link href="https://github.com/ChangerHe/2017/06/14/hello-world/"/>
-    <id>https://github.com/ChangerHe/2017/06/14/hello-world/</id>
-    <published>2017-06-14T15:21:01.766Z</published>
-    <updated>2017-06-22T15:39:07.332Z</updated>
-    
-    <content type="html"><![CDATA[<p>本篇文章关于Position属性值，等于对position这个属性中的值：static，relative,absolute,fixed进行一次总结，回忆一下学到的内容，加深一下理解。</p>
-<h1 id="1-static："><a href="#1-static：" class="headerlink" title="1.static："></a>1.static：</h1><p>所有元素在默认情况之下的属性，在布局中的属性top、bottom、left、right在position为static的情况下是无效的。</p>
-<h1 id="2-relative："><a href="#2-relative：" class="headerlink" title="2.relative："></a>2.relative：</h1><p>相对定位，可以设置性top、bottom、left、right属性值，但是请注意！虽然元素的位置会随着top、bottom、left、right属性值的改变而改变，但是其“真身”是留在之前的位置的，也就是说下方的元素不会因为其设置了relative属性，并改变其位置后而上移或下移。</p>
-<p>有一点要特别注意的是：设置了relative属性后的的元素其display属性（不管你是inline还是inline-block还是block）之前是怎样现在还是怎样，这个是不变得。<br></p>
-<h1 id="3-absolute："><a href="#3-absolute：" class="headerlink" title="3.absolute："></a>3.absolute：</h1><p>绝对定位，设置了absolute属性后，该元素会向其父节点去寻找它的“根源”，有一点要特别注意的是（对比第二条的特别注意看）：设置了absolute属性后的的元素其display属性（不管你是inline还是inline-block还是block）将会统一全部变成block且width自动成为auto，也就是会受到父元素的影响。</p>
-<p>##（1）其父节点无position属性，父n个节点都没有position属性，那么其relative的“根     源”将以body为参照，也就是屏幕的0,0点。</p>
-<p>##（2）其父节点有position属性且该属性设置为relative，那么好，这个节点就会以此父节     点为“根源”去做自己的定位了。定位top、bottom、left、right属性值为都是相对于父节点的0,0位置。</p>
-<p>##（3）其父节点有position属性且该属性设置为absolute，我们很惊奇地会看到，握草这      两个元素居然重叠了而且重叠的毫无缝隙，什么鬼！，事实发现原来是这样的：设置为absolute后div自动变为width：auto；也就是说A-1和A-2都是width：auto；从而导致了它们的重叠，但是为何其“根源”变成了A-1，这是令我不解的地方。<br><img src="http://jns.img.bucket.ks3-cn-beijing.ksyun.com/skill/daily/59b881e4-a5a5-478d-86eb-e12bb585e202.png" alt="PIC"></p>
-<p>##（4）其父节点有position属性该属性设置为absolute，而且其父父节点有position属性<br><img src="http://jns.img.bucket.ks3-cn-beijing.ksyun.com/skill/daily/79eb57d5-01f7-4086-8889-2db097042d25.png" alt="PIC"><br>该属性设置为relative，那么这个结果应该大家都猜得到，该元素及其父节点都会以其父父节点作为“根源”。</p>
-<p>#（5）其父节点有position属性该属性设置为absolute，而且其父父节点有position属性该属性设置为absolute，情况和（3）类似，我就直接上图了。<br><img src="http://jns.img.bucket.ks3-cn-beijing.ksyun.com/skill/daily/1ce6acfa-cdf6-4cf0-af0d-d11005f58f6d.png" alt="PIC"></p>
-<h1 id="4-fixed："><a href="#4-fixed：" class="headerlink" title="4.fixed："></a>4.fixed：</h1><p>该属性之前一直因为与IE6的兼容性问题，而被打入“冷宫”，fixed和absolute有许多共同点：</p>
-<p>##（1）改变呈现样式，设置后元素将直接变为block。</p>
-<p>##（2）会让元素脱离普通流，不会像relative一样，在页面的原来位置留下“真身”。</p>
-<p>那么问题来了，他和absolute的区别在哪里？他们的区别就是，fixed属性永远会跟着body爸爸走，body爸爸去哪儿，它也去哪儿。而absolute属性可就要看情况了，具体看3里面我对absolute的介绍。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;本篇文章关于Position属性值，等于对position这个属性中的值：static，relative,absolute,fixed进行一次总结，回忆一下学到的内容，加深一下理解。&lt;/p&gt;
-&lt;h1 id=&quot;1-static：&quot;&gt;&lt;a href=&quot;#1-static：&quot; c
-    
-    </summary>
-    
-      <category term="HTML &amp; CSS 学习笔记" scheme="https://github.com/ChangerHe/categories/HTML-CSS-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="HTML &amp; CSS" scheme="https://github.com/ChangerHe/tags/HTML-CSS/"/>
     
   </entry>
   
