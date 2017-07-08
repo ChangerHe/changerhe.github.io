@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="jQuery," />
+  <meta name="keywords" content="JavaScript," />
 
 
 
@@ -89,17 +89,17 @@
 
 
 
-<meta name="description" content="第二篇的jQuery笔记记录jQuery的属性和样式。每个元素都有一个或者多个特性,这些特性的用途就是给出相应元素或者其内容的附加信息。如：在img元素中，src就是元素的特性，用来标记图片的地址。 attr()和removeAttr()操作特性的DOM方法主要有三个：getAttribute（）、setAttribute（）、removeAttribute（）。而且就算在实际操作中还是会存在很多">
-<meta name="keywords" content="jQuery">
+<meta name="description" content="昨天看了一遍javascript的面向对象，感觉javascript的面向对象比java难懂很多啊，主要还是原型链继承这块的东西。本篇内容主要讲在学习javascript中很容易搞不清楚的call()方法和apply()方法。 apply和call的区别在哪里apply:方法能劫持另外一个对象的方法，继承另外一个对象的属性.Function.apply(obj,args)方法能接收两个参数obj：">
+<meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="jQuery 学习笔记——属性与样式">
-<meta property="og:url" content="https://github.com/ChangerHe/2017/07/03/jQuery学习笔记——属性与样式/index.html">
+<meta property="og:title" content="JavaScript高级程序设计复习笔记（三）">
+<meta property="og:url" content="https://github.com/ChangerHe/2017/07/08/JavaScript高级程序设计复习笔记（三）/index.html">
 <meta property="og:site_name" content="Changer He&#39;s Home Page">
-<meta property="og:description" content="第二篇的jQuery笔记记录jQuery的属性和样式。每个元素都有一个或者多个特性,这些特性的用途就是给出相应元素或者其内容的附加信息。如：在img元素中，src就是元素的特性，用来标记图片的地址。 attr()和removeAttr()操作特性的DOM方法主要有三个：getAttribute（）、setAttribute（）、removeAttribute（）。而且就算在实际操作中还是会存在很多">
-<meta property="og:updated_time" content="2017-07-03T10:25:21.739Z">
+<meta property="og:description" content="昨天看了一遍javascript的面向对象，感觉javascript的面向对象比java难懂很多啊，主要还是原型链继承这块的东西。本篇内容主要讲在学习javascript中很容易搞不清楚的call()方法和apply()方法。 apply和call的区别在哪里apply:方法能劫持另外一个对象的方法，继承另外一个对象的属性.Function.apply(obj,args)方法能接收两个参数obj：">
+<meta property="og:updated_time" content="2017-07-08T12:41:30.925Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="jQuery 学习笔记——属性与样式">
-<meta name="twitter:description" content="第二篇的jQuery笔记记录jQuery的属性和样式。每个元素都有一个或者多个特性,这些特性的用途就是给出相应元素或者其内容的附加信息。如：在img元素中，src就是元素的特性，用来标记图片的地址。 attr()和removeAttr()操作特性的DOM方法主要有三个：getAttribute（）、setAttribute（）、removeAttribute（）。而且就算在实际操作中还是会存在很多">
+<meta name="twitter:title" content="JavaScript高级程序设计复习笔记（三）">
+<meta name="twitter:description" content="昨天看了一遍javascript的面向对象，感觉javascript的面向对象比java难懂很多啊，主要还是原型链继承这块的东西。本篇内容主要讲在学习javascript中很容易搞不清楚的call()方法和apply()方法。 apply和call的区别在哪里apply:方法能劫持另外一个对象的方法，继承另外一个对象的属性.Function.apply(obj,args)方法能接收两个参数obj：">
 
 
 
@@ -127,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="https://github.com/ChangerHe/2017/07/03/jQuery学习笔记——属性与样式/"/>
+  <link rel="canonical" href="https://github.com/ChangerHe/2017/07/08/JavaScript高级程序设计复习笔记（三）/"/>
 
 
 
 
 
-  <title> jQuery 学习笔记——属性与样式 | Changer He's Home Page </title>
+  <title> JavaScript高级程序设计复习笔记（三） | Changer He's Home Page </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -283,7 +283,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://github.com/ChangerHe/2017/07/03/jQuery学习笔记——属性与样式/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/ChangerHe/2017/07/08/JavaScript高级程序设计复习笔记（三）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Changer He">
@@ -304,7 +304,7 @@
             
             
               
-                jQuery 学习笔记——属性与样式
+                JavaScript高级程序设计复习笔记（三）
               
             
           </h1>
@@ -319,8 +319,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-03T16:29:56+08:00">
-                2017-07-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-08T20:20:09+08:00">
+                2017-07-08
               </time>
             
 
@@ -328,7 +328,7 @@
 
   <span class="post-letters-count">
     &nbsp; | &nbsp;
-    <span>1,221 字</span>
+    <span>1,059 字</span>
     &nbsp; | &nbsp;
     <span>4 min</span>
   </span>
@@ -349,8 +349,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/jQuery-学习笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">jQuery 学习笔记</span>
+                  <a href="/categories/JavaScript-学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript 学习笔记</span>
                   </a>
                 </span>
 
@@ -379,7 +379,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  1,221字
+                  1,059字
                 </span>
               
 
@@ -414,17 +414,19 @@
       
 
       
-        <p>第二篇的jQuery笔记记录jQuery的属性和样式。<br>每个元素都有一个或者多个特性,这些特性的用途就是给出相应元素或者其内容的附加信息。如：在img元素中，src就是元素的特性，用来标记图片的地址。</p>
-<h1 id="attr-和removeAttr"><a href="#attr-和removeAttr" class="headerlink" title="attr()和removeAttr()"></a>attr()和removeAttr()</h1><p>操作特性的DOM方法主要有三个：getAttribute（）、setAttribute（）、removeAttribute（）。而且就算在实际操作中还是会存在很多问题，而jQuery中用一个attr（）和removeAttribute（）就可以搞定以上，而且能实现兼容。</p>
-<h3 id="attr（）有4个表达式："><a href="#attr（）有4个表达式：" class="headerlink" title="attr（）有4个表达式："></a>attr（）有4个表达式：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">1.attr(传入属性名)：获取属性的值</div><div class="line">2.attr(属性名，属性值)：设置属性的值</div><div class="line">3.attr(属性名，函数值)：设置属性的函数值</div><div class="line">4.attr(attributes)：给指定元素设置多个属性值</div></pre></td></tr></table></figure>
-<h3 id="removeAttr-删除方法"><a href="#removeAttr-删除方法" class="headerlink" title="removeAttr()删除方法"></a>removeAttr()删除方法</h3><p>```<br>.removeAttr(attributeName):为匹配的元素集合中的每个元素中移除一个属性（attribute）</p>
-<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><p>attr、removeAttr都是jQuery为了属性操作封装的，直接在一个jQuery对象上调用该方法，很容易对属性进行操作，也不需要去特意理解浏览器的属性名不同的问题。<br>注：dom中有个概念的区分：Attribute和Property翻译出来都是“属性”，《js高级程序设计》书中翻译为“特性”和“属性”。简单理解，Attribute就是dom节点自带的属性。也就是说：获取Attribute就要用attr，获取Property就要用prop。</p>
-<h1 id="html-和text"><a href="#html-和text" class="headerlink" title="html()和text()"></a>html()和text()</h1><p>读取。修改元素的HTML结构或者元素的文本内容是常见的DOM操作。这方面jQuery提供了两种方法：html()和text()。</p>
-<h3 id="html-方法"><a href="#html-方法" class="headerlink" title="html()方法"></a>html()方法</h3><p>获取集合中第一个匹配元素的HTML内容或设置每一个匹配元素的HTML内容。具体用法如下：<br>1.html()不传入值，就是获取集合中第一个匹配元素的HTML内容。<br>2.html(htmlString)设置每一个匹配元素的HTML内容。<br>3.html(function(index,oldhtml))用来返回设置HTML内容的一个函数。<br>注：.html()方法内部使用的是DOM的innerHTML属性来处理的，所以在设置与获取上需要注意的一个最重要的问题，这个操作是针对整个HTML内容（不仅仅只是文本内容）</p>
-<h3 id="text-方法"><a href="#text-方法" class="headerlink" title="text()方法"></a>text()方法</h3><p>得到匹配匀速集合中每个元素的文本内容集合，包括他们的后代。或者设置匹配元素集合中每个元素的文本内容为指定的文本内容。具体用法如下：<br>1.text()得到匹配元素集合中每个元素的合并文本，包括其后代。<br>2.text(textString)用于设置匹配元素内容的文本。<br>3.text(function(index,text))用来返回设置文本内容的一个函数。<br>注：text()结果返回一个字符串，包含所有匹配元素的合并文本。</p>
-<h3 id="html与-text的异同"><a href="#html与-text的异同" class="headerlink" title=".html与.text的异同:"></a>.html与.text的异同:</h3><p>1..html与.text的方法操作是一样，只是在具体针对处理对象不同<br>2..html处理的是元素内容，.text处理的是文本内容<br>3..html只能使用在HTML文档中，.text 在XML 和 HTML 文档中都能使用<br>4.如果处理的对象只有一个子文本节点，那么html处理的结果与text是一样的<br>5.火狐不支持innerText属性，用了类似的textContent属性，.text()方法综合了2个属性的支持，所以可以兼容所有浏览器</p>
-<h1 id="val"><a href="#val" class="headerlink" title="val()"></a>val()</h1><p>该方法主要用于处理表单元素的值，具体用法如下：<br>1.val()无参数，获取匹配的元素集合中第一个元素的当前值<br>2.val( value )，设置匹配的元素集合中每个元素的值<br>3.val( function ) ，一个用来返回设置值的函数</p>
-<h1 id="html-text-和val-的差异总结："><a href="#html-text-和val-的差异总结：" class="headerlink" title="html(),text()和val()的差异总结："></a>html(),text()和val()的差异总结：</h1><p>1.html(),text(),val()三种方法都是用来读取选定元素的内容；只不过html()是用来读取元素的html内容（包括html标签），text()用来读取元素的纯文本内容，包括其后代元素，val()是用来读取表单元素的”value”值。其中.html()和.text()方法不能使用在表单元素上,而.val()只能使用在表单元素上；另外.html()方法使用在多个元素上时，只读取第一个元素；.val()方法和.html()相同，如果其应用在多个元素上时，只能读取第一个表单元素的”value”值，但是.text()和他们不一样，如果.text()应用在多个元素上时，将会读取所有选中元素的文本内容。<br>2.html(htmlString),text(textString)和val(value)三种方法都是用来替换选中元素的内容，如果三个方法同时运用在多个元素上时，那么将会替换所有选中元素的内容。<br>3.html(),text(),val()都可以使用回调函数的返回值来动态的改变多个元素的内容。</p>
+        <p>昨天看了一遍javascript的面向对象，感觉javascript的面向对象比java难懂很多啊，主要还是原型链继承这块的东西。<br>本篇内容主要讲在学习javascript中很容易搞不清楚的call()方法和apply()方法。</p>
+<h1 id="apply和call的区别在哪里"><a href="#apply和call的区别在哪里" class="headerlink" title="apply和call的区别在哪里"></a>apply和call的区别在哪里</h1><p>apply:方法能劫持另外一个对象的方法，继承另外一个对象的属性.<br>Function.apply(obj,args)方法能接收两个参数<br>obj：这个对象将代替Function类里this对象<br>args：这个是数组，它将作为参数传给Function（args–&gt;arguments）<br>call:和apply的意思一样,只不过是参数列表不一样.<br>Function.call(obj,[param1[,param2[,…[,paramN]]]])<br>obj：这个对象将代替Function类里this对象<br>params：这个是一个参数列表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">/*定义一个人类*/  </div><div class="line">function Person(name,age)  </div><div class="line">    &#123;  </div><div class="line">        this.name=name;  </div><div class="line">        this.age=age;  </div><div class="line">    &#125;  </div><div class="line">/*定义一个学生类*/  </div><div class="line">functionStudent(name,age,grade)  </div><div class="line">    &#123;  </div><div class="line">        Person.apply(this,arguments);  </div><div class="line">        this.grade=grade;  </div><div class="line">    &#125;  </div><div class="line">//创建一个学生类  </div><div class="line">var student=new Student(&quot;zhangsan&quot;,21,&quot;一年级&quot;);  </div><div class="line">//测试  </div><div class="line">alert(&quot;name:&quot;+student.name+&quot;\n&quot;+&quot;age:&quot;+student.age+&quot;\n&quot;+&quot;grade:&quot;+student.grade);</div></pre></td></tr></table></figure></p>
+<p>大家可以看到测试结果name:zhangsan age:21  grade:一年级<br>学生类里面我没有给name和age属性赋值啊,为什么又存在这两个属性的值呢,这个就是apply的神奇之处.<br>分析: Person.apply(this,arguments);<br>this:在创建对象在这个时候代表的是student<br>arguments:是一个数组,也就是[“zhangsan”,”21”,”一年级”];<br>也就是通俗一点讲就是:用student去执行Person这个类里面的内容,在Person这个类里面存在this.name等之类的语句,这样就将属性创建到了student对象里面。</p>
+<h1 id="什么情况下用apply-什么情况下用call"><a href="#什么情况下用apply-什么情况下用call" class="headerlink" title="什么情况下用apply,什么情况下用call"></a>什么情况下用apply,什么情况下用call</h1><p>在给对象参数的情况下,如果参数的形式是数组的时候,比如apply示例里面传递了参数arguments,这个参数是数组类型,并且在调用Person的时候参数的列表是对应一致的(也就是Person和Student的参数列表前两位是一致的) 就可以采用 apply , 如果我的Person的参数列表是这样的(age,name),而Student的参数列表是(name,age,grade),这样就可以用call来实现了,也就是直接指定参数列表对应值的位置(Person.call(this,age,name,grade));</p>
+<h1 id="Function-apply-在提升程序性能方面的技巧"><a href="#Function-apply-在提升程序性能方面的技巧" class="headerlink" title="Function.apply()在提升程序性能方面的技巧"></a>Function.apply()在提升程序性能方面的技巧</h1><p>我们先从 Math.max() 函数说起，  Math.max后面可以接任意个参数，最后返回所有参数中的最大值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">alert(Math.max(5,8))   //8</div><div class="line">alert(Math.max(5,7,9,3,1,6))   //9</div></pre></td></tr></table></figure></p>
+<p>但是在很多情况下，我们需要找出数组中最大的元素。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var arr=[5,7,9,1]</div><div class="line">alert(Math.max(arr))</div></pre></td></tr></table></figure></p>
+<p>这样却是不行的。一定要这样写<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function getMax(arr)&#123;</div><div class="line">    var arrLen=arr.length;</div><div class="line">    for(var i=0,ret=arr[0];i&lt;arrLen;i++)&#123;</div><div class="line">        ret=Math.max(ret,arr[i]);        </div><div class="line">    &#125;</div><div class="line">    return ret;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这样写麻烦而且低效。如果用 apply呢，看代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function getMax2(arr)&#123;</div><div class="line">    return Math.max.apply(null,arr)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>两段代码达到了同样的目的，但是getMax2却优雅，高效，简洁得多。</p>
+<p>看性能测试:<br>getMax性能测试<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">var myArr=new Array()</div><div class="line"></div><div class="line">function fillRnd(arrLen)&#123;  //填入 arrLen个1-10的随机数字到数组</div><div class="line">    for(var i=0,arr=[];i&lt;arrLen;i++)&#123;</div><div class="line">        arr[i]=Math.ceil(Math.random()*10)</div><div class="line">    &#125;</div><div class="line">    return arr</div><div class="line">&#125;</div><div class="line"></div><div class="line">function getMax(arr)&#123;</div><div class="line">    var arrLen=arr.length;</div><div class="line">    for(var i=0,ret=arr[0];i&lt;arrLen;i++)&#123;</div><div class="line">        ret=Math.max(ret,arr[i]);        </div><div class="line">    &#125;</div><div class="line">    return ret;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function getMax2(arr)&#123;</div><div class="line">    return Math.max.apply(null,arr)</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">myArr=fillRnd(20*10000)  //生成20万个随机数填到数组</div><div class="line"></div><div class="line">var t1=new Date()</div><div class="line">var max1=getMax(myArr)</div><div class="line">var t2=new Date()</div><div class="line">var max2=getMax2(myArr)</div><div class="line">var t3=new Date()</div><div class="line"></div><div class="line">if (max1!==max2) alert(&quot;error&quot;)</div><div class="line">alert([t3-t2,t2-t1])   //在我机器上 96,464 .不同的机器,结果可能有差异</div><div class="line"></div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<p>通过20万个数据的比较， getMax2 时间为 96ms 而 getmax时间为464。 两者相差5倍</p>
+<p> 再比如数组的push方法。<br><code>var arr1=[1,3,4];</code><br><code>var arr2=[3,4,5];</code><br>如果我们要把 arr2展开，然后一个一个追加到 <code>arr1</code>中去，最后让  <code>arr1=[1,3,4,3,4,5]</code><br><code>arr1.push(arr2)</code>  显然是不行的。 因为这样做会得到  <code>[1,3,4, [3,4,5] ]</code></p>
+<p>我们只能用一个循环去一个一个的<code>push</code>当然也可以用 <code>arr1.concat(arr2)</code> 但是<code>concat</code>方法并不改变 arr1本身<br>自从有了 Apply    ,事情就变得如此简单<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Array.prototype.push.apply(arr1,arr2)</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -454,7 +456,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/jQuery/" rel="tag"># jQuery</a>
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
           
         </div>
       
@@ -467,8 +469,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/03/jQuery-学习笔记/" rel="next" title="jQuery 学习笔记——选择器">
-                <i class="fa fa-chevron-left"></i> jQuery 学习笔记——选择器
+              <a href="/2017/07/07/JavaScript高级程序设计复习笔记（二）/" rel="next" title="JavaScript高级程序设计复习笔记（二）">
+                <i class="fa fa-chevron-left"></i> JavaScript高级程序设计复习笔记（二）
               </a>
             
           </div>
@@ -476,10 +478,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/07/05/jQuery查漏补缺/" rel="prev" title="jQuery 学习笔记——Review">
-                jQuery 学习笔记——Review <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -679,7 +677,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#attr-和removeAttr"><span class="nav-number">1.</span> <span class="nav-text">attr()和removeAttr()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#attr（）有4个表达式："><span class="nav-number">1.0.1.</span> <span class="nav-text">attr（）有4个表达式：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#removeAttr-删除方法"><span class="nav-number">1.0.2.</span> <span class="nav-text">removeAttr()删除方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优点"><span class="nav-number">1.0.3.</span> <span class="nav-text">优点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#html-和text"><span class="nav-number">2.</span> <span class="nav-text">html()和text()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#html-方法"><span class="nav-number">2.0.1.</span> <span class="nav-text">html()方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#text-方法"><span class="nav-number">2.0.2.</span> <span class="nav-text">text()方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#html与-text的异同"><span class="nav-number">2.0.3.</span> <span class="nav-text">.html与.text的异同:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#val"><span class="nav-number">3.</span> <span class="nav-text">val()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#html-text-和val-的差异总结："><span class="nav-number">4.</span> <span class="nav-text">html(),text()和val()的差异总结：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#apply和call的区别在哪里"><span class="nav-number">1.</span> <span class="nav-text">apply和call的区别在哪里</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#什么情况下用apply-什么情况下用call"><span class="nav-number">2.</span> <span class="nav-text">什么情况下用apply,什么情况下用call</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Function-apply-在提升程序性能方面的技巧"><span class="nav-number">3.</span> <span class="nav-text">Function.apply()在提升程序性能方面的技巧</span></a></li></ol></div>
             
 
           </div>
