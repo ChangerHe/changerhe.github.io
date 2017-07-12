@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/ChangerHe/"/>
-  <updated>2017-07-09T18:06:27.099Z</updated>
+  <updated>2017-07-12T10:45:59.923Z</updated>
   <id>https://github.com/ChangerHe/</id>
   
   <author>
@@ -14,6 +14,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JavaScipt中sort()方法的底层原理及妙用</title>
+    <link href="https://github.com/ChangerHe/2017/07/12/JavaScipt%E4%B8%ADsort-%E6%96%B9%E6%B3%95%E7%9A%84%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%E5%8F%8A%E5%A6%99%E7%94%A8/"/>
+    <id>https://github.com/ChangerHe/2017/07/12/JavaScipt中sort-方法的底层原理及妙用/</id>
+    <published>2017-07-12T09:58:29.000Z</published>
+    <updated>2017-07-12T10:45:59.923Z</updated>
+    
+    <content type="html"><![CDATA[<p>众所周知，JavaScript中的sort()方法可对数组进行排序。<br>平时我们使用就是简单的执行一个sort()方法，但是其实这个方法是带有参数的。<br>语法为：<code>arrayObject.sort(sortby);</code><br>其中，参数sortby，必须为函数！这点要注意，之前试过传值的方法一直都不奏效，后面才发现，只能传递一个参数。</p>
+<h1 id="未传参情况下的排序"><a href="#未传参情况下的排序" class="headerlink" title="未传参情况下的排序"></a>未传参情况下的排序</h1><p>当没有为该方法传参时，则默认对数组进行从大到小排序，排序的依据是数组中每个元素的首个字符的ASCII码，因此当你想要对数组<code>[2,10,3]</code>排序时，直接排序的结果为<code>[10,2,3]</code>，因为在sort()的底层，比较时会自动为数组中的值进行toString()方法的转换，比较时比较的是字符。</p>
+<h1 id="传参情况下的排序"><a href="#传参情况下的排序" class="headerlink" title="传参情况下的排序"></a>传参情况下的排序</h1><p>JS高程中介绍了传递比较函数的方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var a = [10,3,12];</div><div class="line">  var line = function(a,b)&#123;</div><div class="line">    return b -a;</div><div class="line">  &#125;</div><div class="line"> a.sort(line)</div><div class="line"> console.log(a)   //3,10,12</div></pre></td></tr></table></figure></p>
+<p> 但是有个问题，这个数东西就只能针对数组额，但是如果我想要对数组对象进行排序呢？<br> 其实方法类似，万变不离其宗。如下：<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"> var arr = [</div><div class="line">	&#123;name: &quot;aaa&quot;, age: 0&#125;,</div><div class="line">	&#123;name: &quot;bbb&quot;, age: 18&#125;,</div><div class="line">	&#123;name: &quot;ccc&quot;, age: 8&#125;</div><div class="line"> ];</div><div class="line">function compare(property)&#123;</div><div class="line">	return function(a,b)&#123;</div><div class="line">		var value1 = a[property];  //获取a的</div><div class="line">		var value2 = b[property];</div><div class="line">		return value1 - value2;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">console.log(arr.sort(compare(&apos;age&apos;)));</div></pre></td></tr></table></figure></p>
+<h1 id="逆向排序"><a href="#逆向排序" class="headerlink" title="逆向排序"></a>逆向排序</h1><p>那么问题来了，如果都是从小到大排序，那就不好玩了，能不能有办法在不使用reverse()方法的情况下，实现增加一个参数，来决定他们是从大到小排序，还是从小到大排序呢？<br>当然问题还是有解决方案的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">sortBy:function(attr,rev)&#123;</div><div class="line">	if(rev == undefined)&#123;</div><div class="line">		rev = 1;    //当未传递参数时，默认为从小到大排序，即undefined时，为1</div><div class="line">	&#125;else&#123;</div><div class="line">		rev = (rev)? 1 : -1;</div><div class="line">	&#125;</div><div class="line">	return function(a,b)&#123;</div><div class="line">		a = a[attr]</div><div class="line">		b = b[attr]</div><div class="line">		if(a &lt; b)&#123;</div><div class="line">			return rev * -1;</div><div class="line">		&#125; else if(a = b)&#123;</div><div class="line">			return 0;</div><div class="line">		&#125; else &#123;</div><div class="line">			return 1;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">someArray.sort(sortBy(&quot;number&quot;,false));</div></pre></td></tr></table></figure></p>
+<h1 id="底层原理"><a href="#底层原理" class="headerlink" title="底层原理"></a>底层原理</h1><p>以上是研究出的部分结果，但是对sort()的底层排序机制，还是不太理解，到底是用的冒泡排序，还是堆排序，还是更牛逼的高级算法？这就不得而知了，这里引用一下segmenfault上大神们的解释：<br>不同的浏览器，对sort()方法的实现机制是不同的。<br>Mozilla、Firefox这两个浏览器是使用的<code>归并排序</code>方法。使用V8引擎，对数组长度小于等于22的用插入排序，其他的使用快速排序。<br>webkit这个浏览器底层使用了C++库中的qsort()方法。<br>```</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;众所周知，JavaScript中的sort()方法可对数组进行排序。&lt;br&gt;平时我们使用就是简单的执行一个sort()方法，但是其实这个方法是带有参数的。&lt;br&gt;语法为：&lt;code&gt;arrayObject.sort(sortby);&lt;/code&gt;&lt;br&gt;其中，参数sortb
+    
+    </summary>
+    
+      <category term="JavaScript 学习笔记" scheme="https://github.com/ChangerHe/categories/JavaScript-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="JavaScript" scheme="https://github.com/ChangerHe/tags/JavaScript/"/>
+    
+  </entry>
   
   <entry>
     <title>XML学习笔记</title>
@@ -815,31 +843,6 @@ reduceRight():迭代数组所有项，从最后一个数开始。
     
     
       <category term="JAVA &amp; JavaScript" scheme="https://github.com/ChangerHe/tags/JAVA-JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>阿里妈妈iconfont矢量图标字体的用法</title>
-    <link href="https://github.com/ChangerHe/2017/06/18/The-Usages-Of-Iconfont/"/>
-    <id>https://github.com/ChangerHe/2017/06/18/The-Usages-Of-Iconfont/</id>
-    <published>2017-06-18T14:30:39.000Z</published>
-    <updated>2017-06-22T15:40:42.777Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Iconfont是什么？"><a href="#Iconfont是什么？" class="headerlink" title="Iconfont是什么？"></a>Iconfont是什么？</h1><p>iconfont是由阿里妈妈出品，国内射鸡师妹妹和前端小哥哥/小姐姐们常去的学（gao）习（ji）网站，网站上面都是一些“高清无码”的矢量图标，相比于使用单一的小png和使用spirit来说大大减少了与服务器握手次数，可以提升网页打开效率。</p>
-<h1 id="Iconfont使用方法"><a href="#Iconfont使用方法" class="headerlink" title="Iconfont使用方法"></a>Iconfont使用方法</h1><p>1.我们先一起打开这个国内打大型同性交友网站<a href="http://www.iconfont.cn" target="_blank" rel="external">http://www.iconfont.cn</a> ，然后点击“图标库”，可以使用自己的github登陆，登陆后就可以根据自己的需要进行查找图标，海量图标等你约哟。<br><img src="http://jns.img.bucket.ks3-cn-beijing.ksyun.com/skill/daily/08d77494-c969-4ba1-a915-e59a8f2f4786.png" alt="PIC"><br>2.将需要的图标添加到购物车形状里面，也就是放到自己的库里，没有库的自己可以随便创建一个项目库。<br><img src="http://jns.img.bucket.ks3-cn-beijing.ksyun.com/skill/daily/e1ffdb7b-f305-4906-9e9d-e0930274e6cc.png" alt="PIC"><br>3.添加好之后，会出现下面这个样子，此时选好之后，就可以下载至本地，不建议直接使用在线使用的办法，亲测没有效，而且浏览器请求时间太长。<br><img src="http://jns.img.bucket.ks3-cn-beijing.ksyun.com/skill/daily/2ef3063c-d5b5-41e4-97fc-0bce6255e4b5.png" alt="PIC"><br>4.下好之后，需要将一行代码放到css文件中，也就是下下来的iconfont.css这个文件，或者直接在自己的项目html中引用这个css，但不建议这样做，会增加服务器请求次数。<br><img src="http://jns.img.bucket.ks3-cn-beijing.ksyun.com/skill/daily/197598ad-e3c9-4fd4-9eb5-7644276ef584.png" alt="PIC"><br>5.大胆的使用这些图标吧，使用方法就是直接自己的标签中加class=“iconfont”再加上对应图标的class就可以啦（对应的图标class在iconfont.css中，参考上图）。</p>
-<h2 id="有一点要切记！图标的文件要放在与自己的css文件一起的文件夹中！否则图标显示不成功！"><a href="#有一点要切记！图标的文件要放在与自己的css文件一起的文件夹中！否则图标显示不成功！" class="headerlink" title="有一点要切记！图标的文件要放在与自己的css文件一起的文件夹中！否则图标显示不成功！"></a>有一点要切记！图标的文件要放在与自己的css文件一起的文件夹中！否则图标显示不成功！</h2><p>6.具体上面的iconfont.css代码干嘛用的，请参考慕课网，我这里就不详细讲了。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Iconfont是什么？&quot;&gt;&lt;a href=&quot;#Iconfont是什么？&quot; class=&quot;headerlink&quot; title=&quot;Iconfont是什么？&quot;&gt;&lt;/a&gt;Iconfont是什么？&lt;/h1&gt;&lt;p&gt;iconfont是由阿里妈妈出品，国内射鸡师妹妹和前端小哥哥
-    
-    </summary>
-    
-      <category term="HTML &amp; CSS 学习笔记" scheme="https://github.com/ChangerHe/categories/HTML-CSS-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="HTML &amp; CSS" scheme="https://github.com/ChangerHe/tags/HTML-CSS/"/>
     
   </entry>
   

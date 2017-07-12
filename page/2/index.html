@@ -283,6 +283,197 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://github.com/ChangerHe/2017/06/28/GIT配置不需密码即可push的方法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Changer He">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Changer He's Home Page">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/06/28/GIT配置不需密码即可push的方法/" itemprop="url">
+                  GIT配置不需密码即可push的方法
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-28T22:36:16+08:00">
+                2017-06-28
+              </time>
+            
+
+            
+
+  <span class="post-letters-count">
+    &nbsp; | &nbsp;
+    <span>703 字</span>
+    &nbsp; | &nbsp;
+    <span>3 min</span>
+  </span>
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/GitHub-优化/" itemprop="url" rel="index">
+                    <span itemprop="name">GitHub 优化</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  703字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  3分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="为什么要写这篇博客？"><a href="#为什么要写这篇博客？" class="headerlink" title="为什么要写这篇博客？"></a>为什么要写这篇博客？</h1><p>今天学了点node.js，被慕课网狂拽酷炫的操作所折服，故决定投身sublime的怀抱。安装了package control以及各大插件后，最后安装git插件测试时，使用git：push命令始终没办法将代码push到我的github，想想也真是日了Justin Beiber了。<br>没办法，谁叫我天生丽质爱学习呢，然后我在网上找了各种办法，发现百度上的方法真的是水平太低，标准不一，基本雷同，更坑爹的是错都是差不多错一样的。我一个用github用了好几个月的人，你还叫我配置公钥？真是想说：<br><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1498671155922&amp;di=b3e1084de0148f1b484388639a6c86a1&amp;imgtype=0&amp;src=http%3A%2F%2Fwanzao2.b0.upaiyun.com%2Fsystem%2Fpictures%2F34182985%2Foriginal%2F1458040253_640x646.png" alt="PIC"></p>
+<h1 id="真正的解决办法"><a href="#真正的解决办法" class="headerlink" title="真正的解决办法"></a>真正的解决办法</h1><p>网上有很多办法，其实已经快说到点子上了，但是都是隔着被子瘙痒——没什么卵用，配置的时候看到那些博客，始终是摸不着头脑。<br>注：以下的配置方法，默认你已经安装好了git客户端，且熟悉基本的git操作命令，在远程代码库拥有了自己的仓库，且使用密码提交代码是成功的。</p>
+<h2 id="好，那么话不多说，开干"><a href="#好，那么话不多说，开干" class="headerlink" title="好，那么话不多说，开干"></a>好，那么话不多说，开干</h2><p>我们最主要的目的，是将提交时的http协议地址，直接改成类似于<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git@github.com:ChangerHe/My-code.git</div></pre></td></tr></table></figure></p>
+<p>这样的地址，当然，ChanerHe是我的github名，My-code是我想要push到的远程仓库名。更改之后，push的时候就会自动push到自己的仓库，不需要输入代码了，同时可以开心地在sublime上进行使用git插件了！<br>那么，现在我们现在打开我们我的git bash，在gitbash中输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote -v</div></pre></td></tr></table></figure></p>
+<p>输入之后可查看到自己的输出的branch，此时默认是origin。<br>此时如果未设置成功，bash中的输出是这样子的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">origin https://github.com/ChangerHe/My-code (fetch)</div><div class="line">origin https://github.com/ChangerHe/My-code (push)</div></pre></td></tr></table></figure></p>
+<p>这个时候你的push地址是https路径，所以会导致此时需要输入账号密码，我们现在再执行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote set-url origin git@github.com:ChangerHe/My-code.git</div></pre></td></tr></table></figure></p>
+<p>上面这段代码的意思就是，把git的默认push和fetch地址，改为以上相应地址。</p>
+<h2 id="同样的，ChangerHe是我的ID，My-code是我要提交的远程仓库名称，这段代码中，这两处需要改为你自己的。"><a href="#同样的，ChangerHe是我的ID，My-code是我要提交的远程仓库名称，这段代码中，这两处需要改为你自己的。" class="headerlink" title="同样的，ChangerHe是我的ID，My-code是我要提交的远程仓库名称，这段代码中，这两处需要改为你自己的。"></a>同样的，ChangerHe是我的ID，My-code是我要提交的远程仓库名称，这段代码中，这两处需要改为你自己的。</h2><p>以上是我查到的很多资料，没有提到的地方，导致我白白浪费掉了一个小时的时间，哎~自学最大的难处就在这里。<br>以上，设置好之后，会发现你的路径方式变了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">origin https://github.com/ChangerHe/My-code (fetch)</div><div class="line">origin https://github.com/ChangerHe/My-code (push)</div></pre></td></tr></table></figure></p>
+<p>此时即配置成功，现在就可以开心地不用密码进行push啦。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">共24.2k字</span>
+</div>
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="https://github.com/ChangerHe/2017/06/28/JavaScript深入浅出-表达式和运算符/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -461,7 +652,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共23.5k字</span>
+  <span class="post-count">共24.2k字</span>
 </div>
 
     
@@ -667,7 +858,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共23.5k字</span>
+  <span class="post-count">共24.2k字</span>
 </div>
 
     
@@ -882,7 +1073,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共23.5k字</span>
+  <span class="post-count">共24.2k字</span>
 </div>
 
     
@@ -1066,7 +1257,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共23.5k字</span>
+  <span class="post-count">共24.2k字</span>
 </div>
 
     
@@ -1252,7 +1443,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共23.5k字</span>
+  <span class="post-count">共24.2k字</span>
 </div>
 
     
@@ -1438,7 +1629,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共23.5k字</span>
+  <span class="post-count">共24.2k字</span>
 </div>
 
     
@@ -1622,7 +1813,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共23.5k字</span>
+  <span class="post-count">共24.2k字</span>
 </div>
 
     
@@ -1808,7 +1999,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共23.5k字</span>
+  <span class="post-count">共24.2k字</span>
 </div>
 
     
@@ -2008,192 +2199,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共23.5k字</span>
-</div>
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://github.com/ChangerHe/2017/06/18/The-Usages-Of-Iconfont/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Changer He">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Changer He's Home Page">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/06/18/The-Usages-Of-Iconfont/" itemprop="url">
-                  阿里妈妈iconfont矢量图标字体的用法
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-18T22:30:39+08:00">
-                2017-06-18
-              </time>
-            
-
-            
-
-  <span class="post-letters-count">
-    &nbsp; | &nbsp;
-    <span>455 字</span>
-    &nbsp; | &nbsp;
-    <span>2 min</span>
-  </span>
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/HTML-CSS-学习笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">HTML & CSS 学习笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计</span>
-                
-                <span title="字数统计">
-                  455字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长</span>
-                
-                <span title="阅读时长">
-                  2分钟
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Iconfont是什么？"><a href="#Iconfont是什么？" class="headerlink" title="Iconfont是什么？"></a>Iconfont是什么？</h1><p>iconfont是由阿里妈妈出品，国内射鸡师妹妹和前端小哥哥/小姐姐们常去的学（gao）习（ji）网站，网站上面都是一些“高清无码”的矢量图标，相比于使用单一的小png和使用spirit来说大大减少了与服务器握手次数，可以提升网页打开效率。</p>
-<h1 id="Iconfont使用方法"><a href="#Iconfont使用方法" class="headerlink" title="Iconfont使用方法"></a>Iconfont使用方法</h1><p>1.我们先一起打开这个国内打大型同性交友网站<a href="http://www.iconfont.cn" target="_blank" rel="external">http://www.iconfont.cn</a> ，然后点击“图标库”，可以使用自己的github登陆，登陆后就可以根据自己的需要进行查找图标，海量图标等你约哟。<br><img src="http://jns.img.bucket.ks3-cn-beijing.ksyun.com/skill/daily/08d77494-c969-4ba1-a915-e59a8f2f4786.png" alt="PIC"><br>2.将需要的图标添加到购物车形状里面，也就是放到自己的库里，没有库的自己可以随便创建一个项目库。<br><img src="http://jns.img.bucket.ks3-cn-beijing.ksyun.com/skill/daily/e1ffdb7b-f305-4906-9e9d-e0930274e6cc.png" alt="PIC"><br>3.添加好之后，会出现下面这个样子，此时选好之后，就可以下载至本地，不建议直接使用在线使用的办法，亲测没有效，而且浏览器请求时间太长。<br><img src="http://jns.img.bucket.ks3-cn-beijing.ksyun.com/skill/daily/2ef3063c-d5b5-41e4-97fc-0bce6255e4b5.png" alt="PIC"><br>4.下好之后，需要将一行代码放到css文件中，也就是下下来的iconfont.css这个文件，或者直接在自己的项目html中引用这个css，但不建议这样做，会增加服务器请求次数。<br><img src="http://jns.img.bucket.ks3-cn-beijing.ksyun.com/skill/daily/197598ad-e3c9-4fd4-9eb5-7644276ef584.png" alt="PIC"><br>5.大胆的使用这些图标吧，使用方法就是直接自己的标签中加class=“iconfont”再加上对应图标的class就可以啦（对应的图标class在iconfont.css中，参考上图）。</p>
-<h2 id="有一点要切记！图标的文件要放在与自己的css文件一起的文件夹中！否则图标显示不成功！"><a href="#有一点要切记！图标的文件要放在与自己的css文件一起的文件夹中！否则图标显示不成功！" class="headerlink" title="有一点要切记！图标的文件要放在与自己的css文件一起的文件夹中！否则图标显示不成功！"></a>有一点要切记！图标的文件要放在与自己的css文件一起的文件夹中！否则图标显示不成功！</h2><p>6.具体上面的iconfont.css代码干嘛用的，请参考慕课网，我这里就不详细讲了。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-<div class="theme-info">
-  <div class="powered-by"></div>
-  <span class="post-count">共23.5k字</span>
+  <span class="post-count">共24.2k字</span>
 </div>
 
     
@@ -2246,7 +2252,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-count">26</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
