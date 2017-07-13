@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/ChangerHe/"/>
-  <updated>2017-07-13T14:05:35.316Z</updated>
+  <updated>2017-07-13T14:52:37.015Z</updated>
   <id>https://github.com/ChangerHe/</id>
   
   <author>
@@ -20,12 +20,22 @@
     <link href="https://github.com/ChangerHe/2017/07/13/PHP%E8%8F%9C%E9%B8%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/"/>
     <id>https://github.com/ChangerHe/2017/07/13/PHP菜鸟入门笔记/</id>
     <published>2017-07-13T14:05:35.000Z</published>
-    <updated>2017-07-13T14:05:35.316Z</updated>
+    <updated>2017-07-13T14:52:37.015Z</updated>
+    
+    <content type="html"><![CDATA[<p>PHP是作用于服务器端的语言，偏前端的朋友们会称他为后端语言。而专门做后端的朋友们则会说，PHP是一种前端的弱类型语言。<br>当然，这个语言的定位不是最重要的，重要的是，PHP到底是不是最好的语言？</p>
+<h1 id="PHP的适用范围"><a href="#PHP的适用范围" class="headerlink" title="PHP的适用范围"></a>PHP的适用范围</h1><h2 id="生成动态页面内容"><a href="#生成动态页面内容" class="headerlink" title="生成动态页面内容"></a>生成动态页面内容</h2><h2 id="创建，打开，读取，写入，删除及关闭服务器上的文件。"><a href="#创建，打开，读取，写入，删除及关闭服务器上的文件。" class="headerlink" title="创建，打开，读取，写入，删除及关闭服务器上的文件。"></a>创建，打开，读取，写入，删除及关闭服务器上的文件。</h2><h2 id="接收表单数据，发送并取回cookies"><a href="#接收表单数据，发送并取回cookies" class="headerlink" title="接收表单数据，发送并取回cookies"></a>接收表单数据，发送并取回cookies</h2><h2 id="添加，删除，修改数据库中的数据"><a href="#添加，删除，修改数据库中的数据" class="headerlink" title="添加，删除，修改数据库中的数据"></a>添加，删除，修改数据库中的数据</h2><h2 id="限制用户访问网站中的某个页面"><a href="#限制用户访问网站中的某个页面" class="headerlink" title="限制用户访问网站中的某个页面"></a>限制用户访问网站中的某个页面</h2><h1 id="PHP结构"><a href="#PHP结构" class="headerlink" title="PHP结构"></a>PHP结构</h1>]]></content>
     
     <summary type="html">
     
+      &lt;p&gt;PHP是作用于服务器端的语言，偏前端的朋友们会称他为后端语言。而专门做后端的朋友们则会说，PHP是一种前端的弱类型语言。&lt;br&gt;当然，这个语言的定位不是最重要的，重要的是，PHP到底是不是最好的语言？&lt;/p&gt;
+&lt;h1 id=&quot;PHP的适用范围&quot;&gt;&lt;a href=&quot;#PHP的
+    
     </summary>
     
+      <category term="PHP 学习笔记" scheme="https://github.com/ChangerHe/categories/PHP-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="PHP" scheme="https://github.com/ChangerHe/tags/PHP/"/>
     
   </entry>
   
