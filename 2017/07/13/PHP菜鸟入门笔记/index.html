@@ -96,7 +96,7 @@
 <meta property="og:url" content="https://github.com/ChangerHe/2017/07/13/PHP菜鸟入门笔记/index.html">
 <meta property="og:site_name" content="Changer He&#39;s Home Page">
 <meta property="og:description" content="PHP是作用于服务器端的语言，偏前端的朋友们会称他为后端语言。而专门做后端的朋友们则会说，PHP是一种前端的弱类型语言。当然，这个语言的定位不是最重要的，重要的是，PHP到底是不是最好的语言？ PHP的适用范围生成动态页面内容创建，打开，读取，写入，删除及关闭服务器上的文件。接收表单数据，发送并取回cookies添加，删除，修改数据库中的数据限制用户访问网站中的某个页面PHP结构以&amp;lt;?php">
-<meta property="og:updated_time" content="2017-07-14T04:44:49.124Z">
+<meta property="og:updated_time" content="2017-07-15T23:20:07.654Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PHP菜鸟入门不完全指南">
 <meta name="twitter:description" content="PHP是作用于服务器端的语言，偏前端的朋友们会称他为后端语言。而专门做后端的朋友们则会说，PHP是一种前端的弱类型语言。当然，这个语言的定位不是最重要的，重要的是，PHP到底是不是最好的语言？ PHP的适用范围生成动态页面内容创建，打开，读取，写入，删除及关闭服务器上的文件。接收表单数据，发送并取回cookies添加，删除，修改数据库中的数据限制用户访问网站中的某个页面PHP结构以&amp;lt;?php">
@@ -328,7 +328,7 @@
 
   <span class="post-letters-count">
     &nbsp; | &nbsp;
-    <span>922 字</span>
+    <span>923 字</span>
     &nbsp; | &nbsp;
     <span>3 min</span>
   </span>
@@ -379,7 +379,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  922字
+                  923字
                 </span>
               
 
@@ -424,8 +424,10 @@
 <h1 id="PHP标量类型"><a href="#PHP标量类型" class="headerlink" title="PHP标量类型"></a>PHP标量类型</h1><p>布尔类型<br>整型<br>浮点型<br>字符串</p>
 <p>smallTips: 当双引号包含变量时，变量会引入，单引号包含变量时，变量不引入。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$love = &quot;I love you!&quot;;</div><div class="line">$string1 = &quot;Changer , $love&quot;;</div><div class="line">$string2 = &apos;Changer , $love&apos;;</div><div class="line">echo $string1;     //Changer, I love you!</div><div class="line">echo $string2;     //Changer, $love</div></pre></td></tr></table></figure></p>
 <p>smallTips: 当字符串很长时，可使用定界符进行表示<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$string = &lt;&lt;&lt;GOD  </div><div class="line">	//中间放大量内容</div><div class="line">GOD;</div></pre></td></tr></table></figure></p>
-<h1 id="PHP特殊类型"><a href="#PHP特殊类型" class="headerlink" title="PHP特殊类型"></a>PHP特殊类型</h1><h2 id="资源"><a href="#资源" class="headerlink" title="资源"></a>资源</h2><p>由专门函数来建立和使用，我们可对资源进行操作（创建，使用，释放），任何资源在不使用时应被及时释放。如果我们忘记释放资源，系统会自动启动垃圾回收机制，在页面执行完毕后回收资源。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line">	$file = fopen(&quot;f.txt&quot;,&quot;r&quot;);  //打开文件</div><div class="line">	$con = mysql_connect(&quot;localhost&quot;,&quot;root&quot;,&quot;root&quot;);  //链接数据库</div><div class="line">	$img = imagecreate(100,100);   //图形画布</div><div class="line">?&gt;</div><div class="line"></div><div class="line"># 空类型</div><div class="line">对大小写不敏感，null类型只有一个取值，表示一个变量没有值，当被赋值NULL或未被赋值或被unset()时，变量为NULL。</div><div class="line"></div><div class="line">smalltips: error_reporting(0);    //禁止显示PHP警告提示</div><div class="line"></div><div class="line"># PHP常量</div></pre></td></tr></table></figure></p>
-<p>bool define(string $constant_name, mixed $value[,$case_sensitive = true])<br>//参数 constant_name: 常量名称，常量命名规则与变量一致，可不带$符号。<br>//     value        :常量的值<br>//     case_sensitive: (可选项）表示是否对大小写敏感，默认为false，敏感。<br>//     string       ：表示字符串类型，mixed表示参数类型可接受为多种不同类型。<br>```</p>
+<h1 id="PHP特殊类型"><a href="#PHP特殊类型" class="headerlink" title="PHP特殊类型"></a>PHP特殊类型</h1><h2 id="资源"><a href="#资源" class="headerlink" title="资源"></a>资源</h2><p>由专门函数来建立和使用，我们可对资源进行操作（创建，使用，释放），任何资源在不使用时应被及时释放。如果我们忘记释放资源，系统会自动启动垃圾回收机制，在页面执行完毕后回收资源。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line">	$file = fopen(&quot;f.txt&quot;,&quot;r&quot;);  //打开文件</div><div class="line">	$con = mysql_connect(&quot;localhost&quot;,&quot;root&quot;,&quot;root&quot;);  //链接数据库</div><div class="line">	$img = imagecreate(100,100);   //图形画布</div><div class="line">?&gt;</div></pre></td></tr></table></figure></p>
+<h1 id="空类型"><a href="#空类型" class="headerlink" title="空类型"></a>空类型</h1><p>对大小写不敏感，null类型只有一个取值，表示一个变量没有值，当被赋值NULL或未被赋值或被unset()时，变量为NULL。</p>
+<p>smalltips: error_reporting(0);    //禁止显示PHP警告提示</p>
+<h1 id="PHP常量"><a href="#PHP常量" class="headerlink" title="PHP常量"></a>PHP常量</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">bool define(string $constant_name, mixed $value[,$case_sensitive = true])</div><div class="line">//参数 constant_name: 常量名称，常量命名规则与变量一致，可不带$符号。</div><div class="line">//     value        :常量的值</div><div class="line">//     case_sensitive: (可选项）表示是否对大小写敏感，默认为false，敏感。</div><div class="line">//     string       ：表示字符串类型，mixed表示参数类型可接受为多种不同类型。</div></pre></td></tr></table></figure>
 <h1 id="PHP系统常量"><a href="#PHP系统常量" class="headerlink" title="PHP系统常量"></a>PHP系统常量</h1><p>1.<strong>FILE</strong>:指PHP程序文件名，可帮助我们获取当前文静在服务器的物理位置。<br>2.<strong>LINE</strong>:指PHP程序文件行数，可告诉我们当前代码在第几行。<br>3.PHP_VERSION:当前PHP解析器的版本号。<br>4.PHP_OS:执行当前PHP版本的操作系统名称。</p>
 <p>smallTips:判断常量是否被定义<br><code>bool defined(string constants_name)</code></p>
 <h1 id="PHP赋值运算符"><a href="#PHP赋值运算符" class="headerlink" title="PHP赋值运算符"></a>PHP赋值运算符</h1><p>等号 “=” ：表示把右边表达式的值赋值给左边的运算数，两者为不同内存空间。<br>和符号 “&amp;” : 表示引用赋值，两者相等，引用的是同一块内存空间。</p>
@@ -459,10 +461,8 @@
 <td style="text-align:center">与</td>
 </tr>
 <tr>
-<td style="text-align:center">$a</td>
-<td style="text-align:center"></td>
-<td>$b</td>
-<td>或</td>
+<td style="text-align:center">$a &#124;&#124; $b</td>
+<td style="text-align:center">或</td>
 </tr>
 </tbody>
 </table>
@@ -717,7 +717,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#PHP的适用范围"><span class="nav-number">1.</span> <span class="nav-text">PHP的适用范围</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#生成动态页面内容"><span class="nav-number">1.0.1.</span> <span class="nav-text">生成动态页面内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建，打开，读取，写入，删除及关闭服务器上的文件。"><span class="nav-number">1.0.2.</span> <span class="nav-text">创建，打开，读取，写入，删除及关闭服务器上的文件。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#接收表单数据，发送并取回cookies"><span class="nav-number">1.0.3.</span> <span class="nav-text">接收表单数据，发送并取回cookies</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加，删除，修改数据库中的数据"><span class="nav-number">1.0.4.</span> <span class="nav-text">添加，删除，修改数据库中的数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#限制用户访问网站中的某个页面"><span class="nav-number">1.0.5.</span> <span class="nav-text">限制用户访问网站中的某个页面</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PHP结构"><span class="nav-number">2.</span> <span class="nav-text">PHP结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PHP基本语法"><span class="nav-number">3.</span> <span class="nav-text">PHP基本语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#变量的定义"><span class="nav-number">3.1.</span> <span class="nav-text">变量的定义</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PHP标量类型"><span class="nav-number">4.</span> <span class="nav-text">PHP标量类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PHP特殊类型"><span class="nav-number">5.</span> <span class="nav-text">PHP特殊类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#资源"><span class="nav-number">5.1.</span> <span class="nav-text">资源</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PHP系统常量"><span class="nav-number">6.</span> <span class="nav-text">PHP系统常量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PHP赋值运算符"><span class="nav-number">7.</span> <span class="nav-text">PHP赋值运算符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PHP逻辑运算符"><span class="nav-number">8.</span> <span class="nav-text">PHP逻辑运算符</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#PHP的适用范围"><span class="nav-number">1.</span> <span class="nav-text">PHP的适用范围</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#生成动态页面内容"><span class="nav-number">1.0.1.</span> <span class="nav-text">生成动态页面内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建，打开，读取，写入，删除及关闭服务器上的文件。"><span class="nav-number">1.0.2.</span> <span class="nav-text">创建，打开，读取，写入，删除及关闭服务器上的文件。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#接收表单数据，发送并取回cookies"><span class="nav-number">1.0.3.</span> <span class="nav-text">接收表单数据，发送并取回cookies</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加，删除，修改数据库中的数据"><span class="nav-number">1.0.4.</span> <span class="nav-text">添加，删除，修改数据库中的数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#限制用户访问网站中的某个页面"><span class="nav-number">1.0.5.</span> <span class="nav-text">限制用户访问网站中的某个页面</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PHP结构"><span class="nav-number">2.</span> <span class="nav-text">PHP结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PHP基本语法"><span class="nav-number">3.</span> <span class="nav-text">PHP基本语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#变量的定义"><span class="nav-number">3.1.</span> <span class="nav-text">变量的定义</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PHP标量类型"><span class="nav-number">4.</span> <span class="nav-text">PHP标量类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PHP特殊类型"><span class="nav-number">5.</span> <span class="nav-text">PHP特殊类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#资源"><span class="nav-number">5.1.</span> <span class="nav-text">资源</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#空类型"><span class="nav-number">6.</span> <span class="nav-text">空类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PHP常量"><span class="nav-number">7.</span> <span class="nav-text">PHP常量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PHP系统常量"><span class="nav-number">8.</span> <span class="nav-text">PHP系统常量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PHP赋值运算符"><span class="nav-number">9.</span> <span class="nav-text">PHP赋值运算符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PHP逻辑运算符"><span class="nav-number">10.</span> <span class="nav-text">PHP逻辑运算符</span></a></li></ol></div>
             
 
           </div>
