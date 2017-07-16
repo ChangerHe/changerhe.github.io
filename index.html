@@ -283,6 +283,196 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://github.com/ChangerHe/2017/07/16/基本算法的JavaScript实现/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Changer He">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Changer He's Home Page">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/07/16/基本算法的JavaScript实现/" itemprop="url">
+                  基本算法的JavaScript实现
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-16T21:47:22+08:00">
+                2017-07-16
+              </time>
+            
+
+            
+
+  <span class="post-letters-count">
+    &nbsp; | &nbsp;
+    <span>1,186 字</span>
+    &nbsp; | &nbsp;
+    <span>5 min</span>
+  </span>
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript-学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript 学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  1,186字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  5分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>也算是一时兴起，对着手机拾掇了一早上，实现了一些简单的排序算法。</p>
+<h1 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h1><p>这个不必多说，最经典的排序算法之一，下面我也是用的最经典的解决方案，同时对算法进行了优化，减少了不必要的比较次数。<br>冒泡排序在嵌套循环都为数组长度的话，这个时候的循环最多次数是N的平方，但是用以下的算法，比较的次数可以减少一半。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">function bubbleSort(arr)&#123;   </div><div class="line">	console.time(&apos;冒泡排序耗时&apos;)</div><div class="line">	var len = arr.length;  //定义冒泡排序的数组长度</div><div class="line">	var n;           //定义n用于在冒泡排序时进行位置调换</div><div class="line">	for (var i = 0; i &lt; len-1; i++) &#123;  //外层循环，使冒泡排序循环数组长度</div><div class="line">		for (var j = 0; j &lt; len-i-1; j++) &#123;</div><div class="line">			if (arr[j] &gt; arr[j+1]) &#123;</div><div class="line">				n = arr[j];</div><div class="line">				arr[j] = arr[j+1];</div><div class="line">				arr[j+1] = n;</div><div class="line">			&#125; </div><div class="line"></div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	console.timeEnd(&apos;冒泡排序耗时&apos;)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>冒泡排序的经典算法经过我自己思考优化后，其实还存在一个多次比较的问题，在网上查了些资料，大佬们给出了另一种算法，主要的优化点在于，记录上要调换的位置，然后从要调换的位置开始进行调换，调换之后，再对剩余的地方进行调换。无疑减少了在一个不需要调换的位置进行多次比较的次数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">function betterBubbleSort(arr)&#123;</div><div class="line">	console.time(&apos;改进后冒泡排序耗时&apos;)</div><div class="line">	var i = arr.length-1;  //定义i为数组的最后一位数</div><div class="line">	var n;      //n作为中间值，用于进行数组调换</div><div class="line">	while(i &gt; 0)&#123;     </div><div class="line">		var pos = 0;   //记录需要调换的位置</div><div class="line">		for(var j = 0; j &lt; i; j++)&#123;   //</div><div class="line">			if (arr[j] &gt; arr[j+1]) &#123;</div><div class="line">				pos = j;</div><div class="line">				n = arr[j];</div><div class="line">				arr[j] = arr[j+1];</div><div class="line">				arr[j+1] = n;</div><div class="line">			&#125; </div><div class="line">		&#125;</div><div class="line">		i = pos;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	console.timeEnd(&apos;改进后冒泡排序耗时&apos;)</div><div class="line">	return arr;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>以上算法对于计算次数已经有了较多的优化了，计算次数显然已经不能再往下优化，但是还有一点就是，我们能否进行多线程的计算，从而缩短整体的计算时间呢？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">function bestBubbleSort(arr)&#123;</div><div class="line">	console.time(&apos;改进后冒泡排序耗时&apos;)</div><div class="line">	var low = 0;</div><div class="line">	var high = arr.length -1;</div><div class="line">	var tmp,j;</div><div class="line">	while(low &lt; high)&#123;</div><div class="line">		for(j = low; j &lt; high; ++j)&#123;</div><div class="line">			if( arr[j] &gt; arr[j+1])&#123;</div><div class="line">				tmp = arr[j];</div><div class="line">				arr[j] = arr[j+1];</div><div class="line">				arr[j+1] = tmp;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		--high;</div><div class="line">		for(j = high; j &gt; low; --j)&#123;</div><div class="line">			if( arr[j] &lt; arr[j-1])&#123;</div><div class="line">				tmp = arr[j];</div><div class="line">				arr[j] = arr[j-1];</div><div class="line">				arr[j-1] = tmp;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		++low;</div><div class="line">	&#125;</div><div class="line">	console.timeEnd(&apos;改进后冒泡排序耗时&apos;)</div><div class="line">	return arr;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h1 id="选择排序的算法"><a href="#选择排序的算法" class="headerlink" title="选择排序的算法"></a>选择排序的算法</h1><p>选择排序是先在数组中进行查找而不调换位置，找到数组中最小数之后，将最小数放到数组的第一个位置，然后再次寻找第二个数。这样做的好处就是，相比于冒泡排序，大大减少了两个数组元素调换位置所产生的内存消耗和计算量。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">function selectionSort(arr)&#123;</div><div class="line">	var len = arr.length-1; //定义数组的长度，并赋值给len</div><div class="line">	console.time(&apos;选择排序耗时&apos;);   //设置计时开始</div><div class="line">	var minindex,temp;</div><div class="line">	for (var i = 0; i &lt; len; i++) &#123;</div><div class="line">		minindex = i;    </div><div class="line">		//设置最小数组下标为minindex，将i赋值给minindex</div><div class="line">		for( var j = i; j &lt; len; j++)&#123;</div><div class="line">		//设置循环，循环区间为最小值到最后一位数</div><div class="line">			if (arr[j] &lt; arr[minindex]) &#123;</div><div class="line">			//若某数小于第minindex个数组的值，就把它赋值给minindex</div><div class="line">				minindex = j;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		//进行最小值与需要调换值的数组下标调换</div><div class="line">		temp = arr[i];</div><div class="line">		arr[i] = arr[minindex];</div><div class="line">		arr[minindex] = temp;</div><div class="line">	&#125;</div><div class="line">	console.timeEnd(&apos;选择排序耗时&apos;);</div><div class="line">	return arr;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h1 id="插入排序算法"><a href="#插入排序算法" class="headerlink" title="插入排序算法"></a>插入排序算法</h1><p>插入排序即是将需要排序的数组中的元素，逐次插入，以达到排序的效果，亲测此方法比上面的两个方法所耗时间都要短。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">function insertionSort(arr)&#123;</div><div class="line">	console.time(&apos;插入排序耗时&apos;);   //设置计时开始</div><div class="line">	for( var i = 1; i &lt; arr.length; i++)&#123;</div><div class="line">		var key = arr[i];</div><div class="line">		var j = i - 1;</div><div class="line">		while(j &gt;= 0 &amp;&amp; arr[j] &gt; key)&#123;</div><div class="line">			arr[j+1] = arr[j];</div><div class="line">			j--;</div><div class="line">		&#125;</div><div class="line">		arr[j+1] = key;</div><div class="line">	&#125;</div><div class="line">	console.timeEnd(&apos;插入排序耗时&apos;);   //设置计时开始</div><div class="line">	return arr;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h1 id="排序算法耗时汇总"><a href="#排序算法耗时汇总" class="headerlink" title="排序算法耗时汇总"></a>排序算法耗时汇总</h1><p>冒泡排序三个方法在随机生成10000个数并对其进行排序的计算中，均耗时约300ms，选择排序和插入排序则耗时较短些，选择排序耗时约200ms左右，插入排序可达到低于200ms。</p>
+<h1 id="JS内核的自带排序算法"><a href="#JS内核的自带排序算法" class="headerlink" title="JS内核的自带排序算法"></a>JS内核的自带排序算法</h1><p>不多说了，就是这个sort()方法，简直想给它跪舔！同样用10000个随机生成的0-100的数，对其进行排序，其计算时间竟然能缩短到逆天的15ms！但是并没有办法详细了解其深层次的原因，听说是因为V8引擎的优化，和基于C++的算法优化所产生的效果。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">共28.1k字</span>
+</div>
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="https://github.com/ChangerHe/2017/07/16/深入理解JavaScript构造函数和原型对象/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -467,7 +657,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共26.9k字</span>
+  <span class="post-count">共28.1k字</span>
 </div>
 
     
@@ -702,7 +892,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共26.9k字</span>
+  <span class="post-count">共28.1k字</span>
 </div>
 
     
@@ -890,7 +1080,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共26.9k字</span>
+  <span class="post-count">共28.1k字</span>
 </div>
 
     
@@ -1129,7 +1319,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共26.9k字</span>
+  <span class="post-count">共28.1k字</span>
 </div>
 
     
@@ -1324,7 +1514,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共26.9k字</span>
+  <span class="post-count">共28.1k字</span>
 </div>
 
     
@@ -1572,7 +1762,7 @@ reduceRight():迭代数组所有项，从最后一个数开始。
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共26.9k字</span>
+  <span class="post-count">共28.1k字</span>
 </div>
 
     
@@ -1775,7 +1965,7 @@ reduceRight():迭代数组所有项，从最后一个数开始。
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共26.9k字</span>
+  <span class="post-count">共28.1k字</span>
 </div>
 
     
@@ -1971,7 +2161,7 @@ reduceRight():迭代数组所有项，从最后一个数开始。
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共26.9k字</span>
+  <span class="post-count">共28.1k字</span>
 </div>
 
     
@@ -2164,207 +2354,7 @@ reduceRight():迭代数组所有项，从最后一个数开始。
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共26.9k字</span>
-</div>
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://github.com/ChangerHe/2017/07/03/jQuery-学习笔记/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Changer He">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Changer He's Home Page">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/07/03/jQuery-学习笔记/" itemprop="url">
-                  jQuery 学习笔记——选择器
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-03T12:59:57+08:00">
-                2017-07-03
-              </time>
-            
-
-            
-
-  <span class="post-letters-count">
-    &nbsp; | &nbsp;
-    <span>826 字</span>
-    &nbsp; | &nbsp;
-    <span>3 min</span>
-  </span>
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/jQuery-学习笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">jQuery 学习笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计</span>
-                
-                <span title="字数统计">
-                  826字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长</span>
-                
-                <span title="阅读时长">
-                  3分钟
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="JQuery基本介绍"><a href="#JQuery基本介绍" class="headerlink" title="JQuery基本介绍"></a>JQuery基本介绍</h1><p>jQuery是一个前端必备的js脚本库，使用时只许进行引用即可，网上有大量的cdn可直接引用。</p>
-<h1 id="jQuery的版本问题"><a href="#jQuery的版本问题" class="headerlink" title="jQuery的版本问题"></a>jQuery的版本问题</h1><p>jQuery主要的版本为1.x版和2.x版，主要的区别在于2.x版放弃了对IE老版本浏览器的支持，减少了大量代码，因此2.x版本比jQuery的1.x版本更小。<br>如果比较在意老版本IE的话，可以使用jQuery在1.9的版本。<br>jQuery的系列分为开发版和压缩版，压缩版是直接拿来引用的，开发版用于开发者进行代码调试等。</p>
-<h1 id="jQuery的使用笔记"><a href="#jQuery的使用笔记" class="headerlink" title="jQuery的使用笔记"></a>jQuery的使用笔记</h1><p>1.类比于window.onload，jQuery有一个<br>$(document).ready(function(){}<br>2.类比于var p = document.getElementById(“imooc”);p.innerHTML = “aaa”;<br>p.style.color = ‘red’;<br>原生的写法具有过多的代码量，但是使用jQuery，只需要一行代码即可。<br>var $p = $(‘#imooc’);<br>$p.html(‘aaa’).css(‘color’,’red’);</p>
-<h2 id="jquery对象转化为DOM对象"><a href="#jquery对象转化为DOM对象" class="headerlink" title="jquery对象转化为DOM对象"></a>jquery对象转化为DOM对象</h2><p>以下面的例子进行示范，将三个div中第一个div的文字换位红色<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">//HTML 代码</div><div class="line">&lt;div&gt;111&lt;/div&gt;</div><div class="line">&lt;div&gt;222&lt;/div&gt;</div><div class="line">&lt;div&gt;333&lt;/div&gt;</div><div class="line">// JS原生获取写法</div><div class="line">var Div = document.getElementsByClassName(&apos;div&apos;);</div><div class="line">var div1 = Div[0]</div><div class="line">Div[0].style.color = &apos;red&apos;;</div><div class="line">//jQuery写法1</div><div class="line">var $div = $(&apos;div&apos;);</div><div class="line">var div = $div[0];</div><div class="line">div.style.color = &apos;red&apos;;</div><div class="line">//jQuery写法2</div><div class="line">var $div = $(&apos;div&apos;);</div><div class="line">var div = $div.get(0);  //通过get方法转化为dom对象</div><div class="line">div.style.color = &apos;red&apos;;</div></pre></td></tr></table></figure></p>
-<h2 id="jquery的ID选择器"><a href="#jquery的ID选择器" class="headerlink" title="jquery的ID选择器"></a>jquery的ID选择器</h2><p>$(“#id”)<br>注： id是唯一的，每个id值在一个页面中只能使用一次。如果多个元素分配了相同的id，将只匹配该id选择集合的第一个DOM元素。但这种行为不应该发生;有超过一个元素的页面使用相同的id是无效的</p>
-<h2 id="jQuery的class选择器"><a href="#jQuery的class选择器" class="headerlink" title="jQuery的class选择器"></a>jQuery的class选择器</h2><p>$(“.class”)<br>注： 该方法进行了隐式循环处理，因此在调用时不需要进行循环操作。</p>
-<h2 id="元素选择器"><a href="#元素选择器" class="headerlink" title="元素选择器"></a>元素选择器</h2><p>$(“element”)<br>注： 该方法进行了隐式循环处理，因此在调用时不需要进行循环操作。</p>
-<h2 id="全选择器“-”"><a href="#全选择器“-”" class="headerlink" title="全选择器“*”"></a>全选择器“*”</h2><p>$(“*”)</p>
-<h2 id="层级选择器"><a href="#层级选择器" class="headerlink" title="层级选择器"></a>层级选择器</h2><p><img src="http://img.mukewang.com/5590e98b0001f60d06130229.jpg" alt=""></p>
-<h2 id="基本筛选选择器"><a href="#基本筛选选择器" class="headerlink" title="基本筛选选择器"></a>基本筛选选择器</h2><p><img src="http://img.mukewang.com/57cd1df2000146de06020498.jpg" alt=""></p>
-<h2 id="内容筛选选择器"><a href="#内容筛选选择器" class="headerlink" title="内容筛选选择器"></a>内容筛选选择器</h2><p><img src="http://img.mukewang.com/57cd20bf0001a97f05290214.jpg" alt=""><br>注：<br>1.contains和has都有查找的意思，但是contains查找包含指定文本的元素，has查找包含指定元素的元素。<br>2.如果contains匹配的文本包含在元素的子元素中，同样认为是符合条件的。<br>3.parent与empty是相反的，两者设计的子元素包括文本节点。</p>
-<h2 id="可见性筛选选择器"><a href="#可见性筛选选择器" class="headerlink" title="可见性筛选选择器"></a>可见性筛选选择器</h2><p><img src="http://img.mukewang.com/5590f6de0001e2b204460106.jpg" alt=""></p>
-<h2 id="属性筛选选择器"><a href="#属性筛选选择器" class="headerlink" title="属性筛选选择器"></a>属性筛选选择器</h2><p><img src="http://img.mukewang.com/57d654200001c46507360560.jpg" alt=""></p>
-<h2 id="子元素筛选选择器"><a href="#子元素筛选选择器" class="headerlink" title="子元素筛选选择器"></a>子元素筛选选择器</h2><p><img src="http://img.mukewang.com/559105da0001301105960331.jpg" alt=""><br>注：jQuery实现:nth-child(n)是严格来自CSS规范，所以n值是“索引”，也就是说，从1开始计数，:nth-child(index)从1开始的，而eq(index)是从0开始的。</p>
-<h2 id="表单元素选择器"><a href="#表单元素选择器" class="headerlink" title="表单元素选择器"></a>表单元素选择器</h2><p><img src="http://img.mukewang.com/5592040d0001f8eb04940441.jpg" alt=""></p>
-<h2 id="对象属性筛选选择器"><a href="#对象属性筛选选择器" class="headerlink" title="对象属性筛选选择器"></a>对象属性筛选选择器</h2><p><img src="http://img.mukewang.com/55920c2f0001198b04940201.jpg" alt=""></p>
-<h2 id="特殊选择器this"><a href="#特殊选择器this" class="headerlink" title="特殊选择器this"></a>特殊选择器this</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(&apos;p&apos;).click(function()&#123;</div><div class="line">    //把p元素转化成jQuery的对象</div><div class="line">    var $this= $(this) </div><div class="line">    $this.css(&apos;color&apos;,&apos;red&apos;)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>通过$()方法传入当前元素对象的引用this，然后把这个this加工成jQuery对象，我们就可以用jQuery提供的快捷方法处理样式了。<br>注：<br>this，表示当前的上下文对象是一个html对象，可以调用html对象所拥有的属性和方法。<br>$(this),代表的上下文对象是一个jquery的上下文对象，可以调用jQuery的方法和属性值。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-<div class="theme-info">
-  <div class="powered-by"></div>
-  <span class="post-count">共26.9k字</span>
+  <span class="post-count">共28.1k字</span>
 </div>
 
     
@@ -2417,7 +2407,7 @@ reduceRight():迭代数组所有项，从最后一个数开始。
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-count">29</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

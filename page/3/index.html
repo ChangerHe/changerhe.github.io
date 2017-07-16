@@ -283,6 +283,190 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://github.com/ChangerHe/2017/06/22/杨辉三角的JAVA实现/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Changer He">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Changer He's Home Page">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/06/22/杨辉三角的JAVA实现/" itemprop="url">
+                  杨辉三角的JAVA实现
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-22T21:56:17+08:00">
+                2017-06-22
+              </time>
+            
+
+            
+
+  <span class="post-letters-count">
+    &nbsp; | &nbsp;
+    <span>385 字</span>
+    &nbsp; | &nbsp;
+    <span>2 min</span>
+  </span>
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JAVA-学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">JAVA 学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  385字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  2分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>杨辉三角，是二项式系数在三角形中的一种几何排列。在欧洲，这个表叫做帕斯卡三角形。帕斯卡（1623—-1662）是在1654年发现这一规律的，比杨辉要迟393年，比贾宪迟600年。<br>没有参考网上的代码，自己手撸了一遍杨辉三角。主要依据是根据杨辉三角的特性，行数等于列数乘二加一。输入想要得到的杨辉三角层数，即可得到相应的杨辉三角数字列表。中间的空格直接使用0来表示了，所以感觉我的代码比网上的很多代码简洁了很多：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">//杨辉三角的JAVA实现</div><div class="line">class  YangHuiSanJiao</div><div class="line">&#123;</div><div class="line">	static void putIn(int m)&#123;</div><div class="line">		int n  = m*2-1;     //根据杨辉三角特性，行数等于列数乘二加一</div><div class="line">		int[][] arr = new int[m][n];  //新建数组</div><div class="line">		arr[0][m-1] = 1;</div><div class="line">		for ( int i = 0; i &lt; m-2 ; i++ )</div><div class="line">		&#123;</div><div class="line">			for ( int j = 0; j &lt; n-2 ; j++ )</div><div class="line">			&#123;</div><div class="line">				arr[i+1][j+1] = arr[i][j] + arr[i][j+2]; //将当列的第J个数和第J+2个数，赋值给下一列的J+1个数（因为i和j初始为0）</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		for (int i = 0; i &lt; m-1 ; i++ )</div><div class="line">		&#123;</div><div class="line">			for (int j = 0; j &lt; n ; j++ )</div><div class="line">			&#123;</div><div class="line">				System.out.print(arr[i][j]+ &quot;\t&quot;);  //遍历数组，将值逐一打印</div><div class="line">			&#125;</div><div class="line">			System.out.println();  //打印换行</div><div class="line">		&#125;</div><div class="line"></div><div class="line">	&#125;</div><div class="line"></div><div class="line">	</div><div class="line">	public static void main(String[] args) </div><div class="line">	&#123;</div><div class="line">		putIn(10);    //输入想要得到的杨辉三角层数</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>因为其实可以把整个数组进行遍历，然后通过强制类型转换将0转为空格的，这个还没转。代码以上。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">共28.1k字</span>
+</div>
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="https://github.com/ChangerHe/2017/06/21/Java-Learning/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -456,7 +640,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共26.9k字</span>
+  <span class="post-count">共28.1k字</span>
 </div>
 
     
@@ -656,7 +840,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共26.9k字</span>
+  <span class="post-count">共28.1k字</span>
 </div>
 
     
@@ -841,7 +1025,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共26.9k字</span>
+  <span class="post-count">共28.1k字</span>
 </div>
 
     
@@ -1051,7 +1235,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共26.9k字</span>
+  <span class="post-count">共28.1k字</span>
 </div>
 
     
@@ -1236,7 +1420,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共26.9k字</span>
+  <span class="post-count">共28.1k字</span>
 </div>
 
     
@@ -1473,7 +1657,7 @@ github: git@github.com:changerhe/changerhe.github.io.git,master
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共26.9k字</span>
+  <span class="post-count">共28.1k字</span>
 </div>
 
     
@@ -1634,7 +1818,7 @@ github: git@github.com:changerhe/changerhe.github.io.git,master
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共26.9k字</span>
+  <span class="post-count">共28.1k字</span>
 </div>
 
     
@@ -1830,7 +2014,7 @@ github: git@github.com:changerhe/changerhe.github.io.git,master
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共26.9k字</span>
+  <span class="post-count">共28.1k字</span>
 </div>
 
     
@@ -1883,7 +2067,7 @@ github: git@github.com:changerhe/changerhe.github.io.git,master
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-count">29</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

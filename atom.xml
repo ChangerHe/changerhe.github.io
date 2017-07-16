@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/ChangerHe/"/>
-  <updated>2017-07-15T23:34:29.730Z</updated>
+  <updated>2017-07-16T14:15:44.449Z</updated>
   <id>https://github.com/ChangerHe/</id>
   
   <author>
@@ -14,6 +14,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>基本算法的JavaScript实现</title>
+    <link href="https://github.com/ChangerHe/2017/07/16/%E5%9F%BA%E6%9C%AC%E7%AE%97%E6%B3%95%E7%9A%84JavaScript%E5%AE%9E%E7%8E%B0/"/>
+    <id>https://github.com/ChangerHe/2017/07/16/基本算法的JavaScript实现/</id>
+    <published>2017-07-16T13:47:22.000Z</published>
+    <updated>2017-07-16T14:15:44.449Z</updated>
+    
+    <content type="html"><![CDATA[<p>也算是一时兴起，对着手机拾掇了一早上，实现了一些简单的排序算法。</p>
+<h1 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h1><p>这个不必多说，最经典的排序算法之一，下面我也是用的最经典的解决方案，同时对算法进行了优化，减少了不必要的比较次数。<br>冒泡排序在嵌套循环都为数组长度的话，这个时候的循环最多次数是N的平方，但是用以下的算法，比较的次数可以减少一半。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">function bubbleSort(arr)&#123;   </div><div class="line">	console.time(&apos;冒泡排序耗时&apos;)</div><div class="line">	var len = arr.length;  //定义冒泡排序的数组长度</div><div class="line">	var n;           //定义n用于在冒泡排序时进行位置调换</div><div class="line">	for (var i = 0; i &lt; len-1; i++) &#123;  //外层循环，使冒泡排序循环数组长度</div><div class="line">		for (var j = 0; j &lt; len-i-1; j++) &#123;</div><div class="line">			if (arr[j] &gt; arr[j+1]) &#123;</div><div class="line">				n = arr[j];</div><div class="line">				arr[j] = arr[j+1];</div><div class="line">				arr[j+1] = n;</div><div class="line">			&#125; </div><div class="line"></div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	console.timeEnd(&apos;冒泡排序耗时&apos;)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>冒泡排序的经典算法经过我自己思考优化后，其实还存在一个多次比较的问题，在网上查了些资料，大佬们给出了另一种算法，主要的优化点在于，记录上要调换的位置，然后从要调换的位置开始进行调换，调换之后，再对剩余的地方进行调换。无疑减少了在一个不需要调换的位置进行多次比较的次数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">function betterBubbleSort(arr)&#123;</div><div class="line">	console.time(&apos;改进后冒泡排序耗时&apos;)</div><div class="line">	var i = arr.length-1;  //定义i为数组的最后一位数</div><div class="line">	var n;      //n作为中间值，用于进行数组调换</div><div class="line">	while(i &gt; 0)&#123;     </div><div class="line">		var pos = 0;   //记录需要调换的位置</div><div class="line">		for(var j = 0; j &lt; i; j++)&#123;   //</div><div class="line">			if (arr[j] &gt; arr[j+1]) &#123;</div><div class="line">				pos = j;</div><div class="line">				n = arr[j];</div><div class="line">				arr[j] = arr[j+1];</div><div class="line">				arr[j+1] = n;</div><div class="line">			&#125; </div><div class="line">		&#125;</div><div class="line">		i = pos;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	console.timeEnd(&apos;改进后冒泡排序耗时&apos;)</div><div class="line">	return arr;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>以上算法对于计算次数已经有了较多的优化了，计算次数显然已经不能再往下优化，但是还有一点就是，我们能否进行多线程的计算，从而缩短整体的计算时间呢？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">function bestBubbleSort(arr)&#123;</div><div class="line">	console.time(&apos;改进后冒泡排序耗时&apos;)</div><div class="line">	var low = 0;</div><div class="line">	var high = arr.length -1;</div><div class="line">	var tmp,j;</div><div class="line">	while(low &lt; high)&#123;</div><div class="line">		for(j = low; j &lt; high; ++j)&#123;</div><div class="line">			if( arr[j] &gt; arr[j+1])&#123;</div><div class="line">				tmp = arr[j];</div><div class="line">				arr[j] = arr[j+1];</div><div class="line">				arr[j+1] = tmp;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		--high;</div><div class="line">		for(j = high; j &gt; low; --j)&#123;</div><div class="line">			if( arr[j] &lt; arr[j-1])&#123;</div><div class="line">				tmp = arr[j];</div><div class="line">				arr[j] = arr[j-1];</div><div class="line">				arr[j-1] = tmp;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		++low;</div><div class="line">	&#125;</div><div class="line">	console.timeEnd(&apos;改进后冒泡排序耗时&apos;)</div><div class="line">	return arr;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h1 id="选择排序的算法"><a href="#选择排序的算法" class="headerlink" title="选择排序的算法"></a>选择排序的算法</h1><p>选择排序是先在数组中进行查找而不调换位置，找到数组中最小数之后，将最小数放到数组的第一个位置，然后再次寻找第二个数。这样做的好处就是，相比于冒泡排序，大大减少了两个数组元素调换位置所产生的内存消耗和计算量。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">function selectionSort(arr)&#123;</div><div class="line">	var len = arr.length-1; //定义数组的长度，并赋值给len</div><div class="line">	console.time(&apos;选择排序耗时&apos;);   //设置计时开始</div><div class="line">	var minindex,temp;</div><div class="line">	for (var i = 0; i &lt; len; i++) &#123;</div><div class="line">		minindex = i;    </div><div class="line">		//设置最小数组下标为minindex，将i赋值给minindex</div><div class="line">		for( var j = i; j &lt; len; j++)&#123;</div><div class="line">		//设置循环，循环区间为最小值到最后一位数</div><div class="line">			if (arr[j] &lt; arr[minindex]) &#123;</div><div class="line">			//若某数小于第minindex个数组的值，就把它赋值给minindex</div><div class="line">				minindex = j;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		//进行最小值与需要调换值的数组下标调换</div><div class="line">		temp = arr[i];</div><div class="line">		arr[i] = arr[minindex];</div><div class="line">		arr[minindex] = temp;</div><div class="line">	&#125;</div><div class="line">	console.timeEnd(&apos;选择排序耗时&apos;);</div><div class="line">	return arr;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h1 id="插入排序算法"><a href="#插入排序算法" class="headerlink" title="插入排序算法"></a>插入排序算法</h1><p>插入排序即是将需要排序的数组中的元素，逐次插入，以达到排序的效果，亲测此方法比上面的两个方法所耗时间都要短。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">function insertionSort(arr)&#123;</div><div class="line">	console.time(&apos;插入排序耗时&apos;);   //设置计时开始</div><div class="line">	for( var i = 1; i &lt; arr.length; i++)&#123;</div><div class="line">		var key = arr[i];</div><div class="line">		var j = i - 1;</div><div class="line">		while(j &gt;= 0 &amp;&amp; arr[j] &gt; key)&#123;</div><div class="line">			arr[j+1] = arr[j];</div><div class="line">			j--;</div><div class="line">		&#125;</div><div class="line">		arr[j+1] = key;</div><div class="line">	&#125;</div><div class="line">	console.timeEnd(&apos;插入排序耗时&apos;);   //设置计时开始</div><div class="line">	return arr;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h1 id="排序算法耗时汇总"><a href="#排序算法耗时汇总" class="headerlink" title="排序算法耗时汇总"></a>排序算法耗时汇总</h1><p>冒泡排序三个方法在随机生成10000个数并对其进行排序的计算中，均耗时约300ms，选择排序和插入排序则耗时较短些，选择排序耗时约200ms左右，插入排序可达到低于200ms。</p>
+<h1 id="JS内核的自带排序算法"><a href="#JS内核的自带排序算法" class="headerlink" title="JS内核的自带排序算法"></a>JS内核的自带排序算法</h1><p>不多说了，就是这个sort()方法，简直想给它跪舔！同样用10000个随机生成的0-100的数，对其进行排序，其计算时间竟然能缩短到逆天的15ms！但是并没有办法详细了解其深层次的原因，听说是因为V8引擎的优化，和基于C++的算法优化所产生的效果。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;也算是一时兴起，对着手机拾掇了一早上，实现了一些简单的排序算法。&lt;/p&gt;
+&lt;h1 id=&quot;冒泡排序&quot;&gt;&lt;a href=&quot;#冒泡排序&quot; class=&quot;headerlink&quot; title=&quot;冒泡排序&quot;&gt;&lt;/a&gt;冒泡排序&lt;/h1&gt;&lt;p&gt;这个不必多说，最经典的排序算法之一，下面我也
+    
+    </summary>
+    
+      <category term="JavaScript 学习笔记" scheme="https://github.com/ChangerHe/categories/JavaScript-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="JavaScript" scheme="https://github.com/ChangerHe/tags/JavaScript/"/>
+    
+  </entry>
   
   <entry>
     <title>深入理解JavaScript构造函数和原型对象</title>
@@ -860,30 +891,6 @@ reduceRight():迭代数组所有项，从最后一个数开始。
     
       &lt;p&gt;排序现在已学的有两种，冒泡排序（BubbleSort）和选择排序（SelectionSort），两种方法各有不同；&lt;/p&gt;
 &lt;h1 id=&quot;冒泡排序&quot;&gt;&lt;a href=&quot;#冒泡排序&quot; class=&quot;headerlink&quot; title=&quot;冒泡排序&quot;&gt;&lt;/a&gt;冒泡排序&lt;/h1&gt;
-    
-    </summary>
-    
-      <category term="JAVA 学习笔记" scheme="https://github.com/ChangerHe/categories/JAVA-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="JAVA" scheme="https://github.com/ChangerHe/tags/JAVA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>杨辉三角的JAVA实现</title>
-    <link href="https://github.com/ChangerHe/2017/06/22/%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92%E7%9A%84JAVA%E5%AE%9E%E7%8E%B0/"/>
-    <id>https://github.com/ChangerHe/2017/06/22/杨辉三角的JAVA实现/</id>
-    <published>2017-06-22T13:56:17.000Z</published>
-    <updated>2017-06-22T15:41:09.527Z</updated>
-    
-    <content type="html"><![CDATA[<p>杨辉三角，是二项式系数在三角形中的一种几何排列。在欧洲，这个表叫做帕斯卡三角形。帕斯卡（1623—-1662）是在1654年发现这一规律的，比杨辉要迟393年，比贾宪迟600年。<br>没有参考网上的代码，自己手撸了一遍杨辉三角。主要依据是根据杨辉三角的特性，行数等于列数乘二加一。输入想要得到的杨辉三角层数，即可得到相应的杨辉三角数字列表。中间的空格直接使用0来表示了，所以感觉我的代码比网上的很多代码简洁了很多：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">//杨辉三角的JAVA实现</div><div class="line">class  YangHuiSanJiao</div><div class="line">&#123;</div><div class="line">	static void putIn(int m)&#123;</div><div class="line">		int n  = m*2-1;     //根据杨辉三角特性，行数等于列数乘二加一</div><div class="line">		int[][] arr = new int[m][n];  //新建数组</div><div class="line">		arr[0][m-1] = 1;</div><div class="line">		for ( int i = 0; i &lt; m-2 ; i++ )</div><div class="line">		&#123;</div><div class="line">			for ( int j = 0; j &lt; n-2 ; j++ )</div><div class="line">			&#123;</div><div class="line">				arr[i+1][j+1] = arr[i][j] + arr[i][j+2]; //将当列的第J个数和第J+2个数，赋值给下一列的J+1个数（因为i和j初始为0）</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		for (int i = 0; i &lt; m-1 ; i++ )</div><div class="line">		&#123;</div><div class="line">			for (int j = 0; j &lt; n ; j++ )</div><div class="line">			&#123;</div><div class="line">				System.out.print(arr[i][j]+ &quot;\t&quot;);  //遍历数组，将值逐一打印</div><div class="line">			&#125;</div><div class="line">			System.out.println();  //打印换行</div><div class="line">		&#125;</div><div class="line"></div><div class="line">	&#125;</div><div class="line"></div><div class="line">	</div><div class="line">	public static void main(String[] args) </div><div class="line">	&#123;</div><div class="line">		putIn(10);    //输入想要得到的杨辉三角层数</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>因为其实可以把整个数组进行遍历，然后通过强制类型转换将0转为空格的，这个还没转。代码以上。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;杨辉三角，是二项式系数在三角形中的一种几何排列。在欧洲，这个表叫做帕斯卡三角形。帕斯卡（1623—-1662）是在1654年发现这一规律的，比杨辉要迟393年，比贾宪迟600年。&lt;br&gt;没有参考网上的代码，自己手撸了一遍杨辉三角。主要依据是根据杨辉三角的特性，行数等于列数乘
     
     </summary>
     
