@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT，Changer He's Home Page, Bolg" />
+  <meta name="keywords" content="何庆畅的个人博客，Changer He's Home Page, Bolg" />
 
 
 
@@ -184,7 +184,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">What doesn't kill you make you stronger.</p>
+        <h1 class="site-subtitle" itemprop="description">What doesn't kill you make you stronger.</h1>
       
   </div>
 
@@ -283,6 +283,192 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://github.com/ChangerHe/2017/06/22/不同排序算法的JAVA实现及性能比较/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Changer He">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Changer He's Home Page">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/06/22/不同排序算法的JAVA实现及性能比较/" itemprop="url">
+                  不同排序算法的JAVA实现及性能比较
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-22T21:56:51+08:00">
+                2017-06-22
+              </time>
+            
+
+            
+
+  <span class="post-letters-count">
+    &nbsp; | &nbsp;
+    <span>724 字</span>
+    &nbsp; | &nbsp;
+    <span>3 min</span>
+  </span>
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JAVA-学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">JAVA 学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  724字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  3分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>排序现在已学的有两种，冒泡排序（BubbleSort）和选择排序（SelectionSort），两种方法各有不同；</p>
+<h1 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h1><p>冒泡排序是将数组中的元素进行逐一比较，并将两者比较之后的较大值与后面第三位元素进行比较。进行循环后，第一次可得到数组中的最大值，且最大值在数组的最后一个位置上。<br>通过JAVA进行实现的大概思路是：将第一位元素与第二位进行比较，将较大值赋给第二位元素，较小值赋给第一位元素，然后再将第二位元素与第三位元素进行比较，照此进行循环，最终可将最大数移至数组最后一位。<br>进行第二次运算，则使用相同的计算方式，得到第二大的元素，并赋予给倒数第二个元素。<br>进行运算后，可得到顺序排列的数组。<br>因此，冒泡排序要实现排序，如果有一个数组有N个元素，需要经过N！次，才能得到顺序排列的数组，且每次循环都要进行数组调换，大大影响了排序性能。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">//冒泡排序的算法</div><div class="line">class BubbleSort </div><div class="line">&#123;</div><div class="line">	public static void main(String[] args) </div><div class="line">	&#123;</div><div class="line">		int[] arr = &#123;2 ,6 ,9 ,1 ,4 ,7&#125;;</div><div class="line">		int a;</div><div class="line">		for ( int i = 0; i &lt; arr.length-1 ; i++ )</div><div class="line">		&#123;</div><div class="line">			for ( int j = 0 ; j &lt; arr.length-1-i ; j++ )</div><div class="line">			&#123;</div><div class="line">				if ( arr[j] &gt; arr[j+1])</div><div class="line">				&#123;</div><div class="line">					a = arr[j];</div><div class="line">					arr[j] = arr[j+1];</div><div class="line">					arr[j+1] = a;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		String PrintArr = &quot;[&quot;;    //打包成字符输出</div><div class="line">		for ( int i = 0; i &lt; arr.length ; i++ )   </div><div class="line">		&#123;</div><div class="line">			PrintArr = PrintArr + arr[i];</div><div class="line">			if ( i == arr.length-1 )</div><div class="line">			&#123;</div><div class="line">				break;</div><div class="line">			&#125;</div><div class="line">			PrintArr = PrintArr + &quot;,&quot;;</div><div class="line">		&#125;</div><div class="line">		PrintArr = PrintArr + &quot;]&quot;;</div><div class="line">		System.out.println(PrintArr);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h1 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h1><p>选择排序的方法是将数组中的第一个元素和数组的其他元素逐一进行比较，将比较之后的较小值赋予给第一个元素。遍历一次后，数组的第一个元素可获得数组中的最小值。<br>第二次遍历从第三个元素开始，将其与第二个元素进行比较，较小值赋予给第二个元素。<br>以此类推，可知选择排序的比较次数依旧为N！次。但选择排序时不需将元素进行多次的调换，因此性能方面较冒泡排序有些许提升。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">//选择排序的算法</div><div class="line">class SelectionSort</div><div class="line">&#123;</div><div class="line">	public static void main(String[] args) </div><div class="line">	&#123;</div><div class="line">		int[] arr = &#123;2 ,6 ,9 ,1 ,4 ,7&#125;;</div><div class="line">		int a;</div><div class="line">		for ( int i = 0; i&lt; arr.length ; i++ )</div><div class="line">		&#123;</div><div class="line">			for ( int j = i; j &lt; arr.length ; j++ )</div><div class="line">			&#123;</div><div class="line">				if ( arr[i] &gt; arr[j] )</div><div class="line">				&#123;</div><div class="line">					a = arr[i];</div><div class="line">					arr[i] = arr[j];</div><div class="line">					arr[j] = a;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		String PrintArr = &quot;[&quot;;    //打包成字符输出</div><div class="line">		for ( int i = 0; i &lt; arr.length ; i++ )   </div><div class="line">		&#123;</div><div class="line">			PrintArr = PrintArr + arr[i];</div><div class="line">			if ( i == arr.length-1 )</div><div class="line">			&#123;</div><div class="line">				break;</div><div class="line">			&#125;</div><div class="line">			PrintArr = PrintArr + &quot;,&quot;;</div><div class="line">		&#125;</div><div class="line">		PrintArr = PrintArr + &quot;]&quot;;</div><div class="line">		System.out.println(PrintArr);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>选择排序还可进行算法优化，每次遍历只与便利到的最小值进行交换，这样可以再减少一些数值交换次数，但笔者尚未实现，待实现完毕再更新。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">共28.3k字</span>
+</div>
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="https://github.com/ChangerHe/2017/06/22/杨辉三角的JAVA实现/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -300,7 +486,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
             
             
               
@@ -310,7 +496,7 @@
                 </a>
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -454,7 +640,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共28.1k字</span>
+  <span class="post-count">共28.3k字</span>
 </div>
 
     
@@ -484,7 +670,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
             
             
               
@@ -494,7 +680,7 @@
                 </a>
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -640,7 +826,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共28.1k字</span>
+  <span class="post-count">共28.3k字</span>
 </div>
 
     
@@ -670,7 +856,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
             
             
               
@@ -680,7 +866,7 @@
                 </a>
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -840,7 +1026,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共28.1k字</span>
+  <span class="post-count">共28.3k字</span>
 </div>
 
     
@@ -870,7 +1056,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
             
             
               
@@ -880,7 +1066,7 @@
                 </a>
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -1025,7 +1211,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共28.1k字</span>
+  <span class="post-count">共28.3k字</span>
 </div>
 
     
@@ -1055,7 +1241,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
             
             
               
@@ -1065,7 +1251,7 @@
                 </a>
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -1235,7 +1421,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共28.1k字</span>
+  <span class="post-count">共28.3k字</span>
 </div>
 
     
@@ -1265,7 +1451,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
             
             
               
@@ -1275,7 +1461,7 @@
                 </a>
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -1420,7 +1606,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共28.1k字</span>
+  <span class="post-count">共28.3k字</span>
 </div>
 
     
@@ -1450,7 +1636,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
             
             
               
@@ -1460,7 +1646,7 @@
                 </a>
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -1657,7 +1843,7 @@ github: git@github.com:changerhe/changerhe.github.io.git,master
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共28.1k字</span>
+  <span class="post-count">共28.3k字</span>
 </div>
 
     
@@ -1687,7 +1873,7 @@ github: git@github.com:changerhe/changerhe.github.io.git,master
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
             
             
               
@@ -1697,7 +1883,7 @@ github: git@github.com:changerhe/changerhe.github.io.git,master
                 </a>
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -1818,7 +2004,7 @@ github: git@github.com:changerhe/changerhe.github.io.git,master
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共28.1k字</span>
+  <span class="post-count">共28.3k字</span>
 </div>
 
     
@@ -1848,7 +2034,7 @@ github: git@github.com:changerhe/changerhe.github.io.git,master
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
             
             
               
@@ -1858,7 +2044,7 @@ github: git@github.com:changerhe/changerhe.github.io.git,master
                 </a>
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -2014,7 +2200,7 @@ github: git@github.com:changerhe/changerhe.github.io.git,master
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共28.1k字</span>
+  <span class="post-count">共28.3k字</span>
 </div>
 
     
@@ -2059,15 +2245,15 @@ github: git@github.com:changerhe/changerhe.github.io.git,master
                alt="Changer He" />
           <p class="site-author-name" itemprop="name">Changer He</p>
            
-              <p class="site-description motion-element" itemprop="description">此网站用于日常学习的记录</p>
-          
+              <p class="site-description motion-element" itemprop="description"></p>
+           
         </div>
         <nav class="site-state motion-element">
 
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-count">30</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2078,7 +2264,7 @@ github: git@github.com:changerhe/changerhe.github.io.git,master
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -2089,7 +2275,7 @@ github: git@github.com:changerhe/changerhe.github.io.git,master
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

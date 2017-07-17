@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT，Changer He's Home Page, Bolg" />
+  <meta name="keywords" content="何庆畅的个人博客，Changer He's Home Page, Bolg" />
 
 
 
@@ -184,7 +184,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">What doesn't kill you make you stronger.</p>
+        <h1 class="site-subtitle" itemprop="description">What doesn't kill you make you stronger.</h1>
       
   </div>
 
@@ -283,6 +283,199 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://github.com/ChangerHe/2017/07/03/jQuery学习笔记——属性与样式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Changer He">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Changer He's Home Page">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/07/03/jQuery学习笔记——属性与样式/" itemprop="url">
+                  jQuery 学习笔记——属性与样式
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-03T16:29:56+08:00">
+                2017-07-03
+              </time>
+            
+
+            
+
+  <span class="post-letters-count">
+    &nbsp; | &nbsp;
+    <span>1,221 字</span>
+    &nbsp; | &nbsp;
+    <span>4 min</span>
+  </span>
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/jQuery-学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">jQuery 学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  1,221字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  4分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>第二篇的jQuery笔记记录jQuery的属性和样式。<br>每个元素都有一个或者多个特性,这些特性的用途就是给出相应元素或者其内容的附加信息。如：在img元素中，src就是元素的特性，用来标记图片的地址。</p>
+<h1 id="attr-和removeAttr"><a href="#attr-和removeAttr" class="headerlink" title="attr()和removeAttr()"></a>attr()和removeAttr()</h1><p>操作特性的DOM方法主要有三个：getAttribute（）、setAttribute（）、removeAttribute（）。而且就算在实际操作中还是会存在很多问题，而jQuery中用一个attr（）和removeAttribute（）就可以搞定以上，而且能实现兼容。</p>
+<h3 id="attr（）有4个表达式："><a href="#attr（）有4个表达式：" class="headerlink" title="attr（）有4个表达式："></a>attr（）有4个表达式：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">1.attr(传入属性名)：获取属性的值</div><div class="line">2.attr(属性名，属性值)：设置属性的值</div><div class="line">3.attr(属性名，函数值)：设置属性的函数值</div><div class="line">4.attr(attributes)：给指定元素设置多个属性值</div></pre></td></tr></table></figure>
+<h3 id="removeAttr-删除方法"><a href="#removeAttr-删除方法" class="headerlink" title="removeAttr()删除方法"></a>removeAttr()删除方法</h3><p>```<br>.removeAttr(attributeName):为匹配的元素集合中的每个元素中移除一个属性（attribute）</p>
+<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><p>attr、removeAttr都是jQuery为了属性操作封装的，直接在一个jQuery对象上调用该方法，很容易对属性进行操作，也不需要去特意理解浏览器的属性名不同的问题。<br>注：dom中有个概念的区分：Attribute和Property翻译出来都是“属性”，《js高级程序设计》书中翻译为“特性”和“属性”。简单理解，Attribute就是dom节点自带的属性。也就是说：获取Attribute就要用attr，获取Property就要用prop。</p>
+<h1 id="html-和text"><a href="#html-和text" class="headerlink" title="html()和text()"></a>html()和text()</h1><p>读取。修改元素的HTML结构或者元素的文本内容是常见的DOM操作。这方面jQuery提供了两种方法：html()和text()。</p>
+<h3 id="html-方法"><a href="#html-方法" class="headerlink" title="html()方法"></a>html()方法</h3><p>获取集合中第一个匹配元素的HTML内容或设置每一个匹配元素的HTML内容。具体用法如下：<br>1.html()不传入值，就是获取集合中第一个匹配元素的HTML内容。<br>2.html(htmlString)设置每一个匹配元素的HTML内容。<br>3.html(function(index,oldhtml))用来返回设置HTML内容的一个函数。<br>注：.html()方法内部使用的是DOM的innerHTML属性来处理的，所以在设置与获取上需要注意的一个最重要的问题，这个操作是针对整个HTML内容（不仅仅只是文本内容）</p>
+<h3 id="text-方法"><a href="#text-方法" class="headerlink" title="text()方法"></a>text()方法</h3><p>得到匹配匀速集合中每个元素的文本内容集合，包括他们的后代。或者设置匹配元素集合中每个元素的文本内容为指定的文本内容。具体用法如下：<br>1.text()得到匹配元素集合中每个元素的合并文本，包括其后代。<br>2.text(textString)用于设置匹配元素内容的文本。<br>3.text(function(index,text))用来返回设置文本内容的一个函数。<br>注：text()结果返回一个字符串，包含所有匹配元素的合并文本。</p>
+<h3 id="html与-text的异同"><a href="#html与-text的异同" class="headerlink" title=".html与.text的异同:"></a>.html与.text的异同:</h3><p>1..html与.text的方法操作是一样，只是在具体针对处理对象不同<br>2..html处理的是元素内容，.text处理的是文本内容<br>3..html只能使用在HTML文档中，.text 在XML 和 HTML 文档中都能使用<br>4.如果处理的对象只有一个子文本节点，那么html处理的结果与text是一样的<br>5.火狐不支持innerText属性，用了类似的textContent属性，.text()方法综合了2个属性的支持，所以可以兼容所有浏览器</p>
+<h1 id="val"><a href="#val" class="headerlink" title="val()"></a>val()</h1><p>该方法主要用于处理表单元素的值，具体用法如下：<br>1.val()无参数，获取匹配的元素集合中第一个元素的当前值<br>2.val( value )，设置匹配的元素集合中每个元素的值<br>3.val( function ) ，一个用来返回设置值的函数</p>
+<h1 id="html-text-和val-的差异总结："><a href="#html-text-和val-的差异总结：" class="headerlink" title="html(),text()和val()的差异总结："></a>html(),text()和val()的差异总结：</h1><p>1.html(),text(),val()三种方法都是用来读取选定元素的内容；只不过html()是用来读取元素的html内容（包括html标签），text()用来读取元素的纯文本内容，包括其后代元素，val()是用来读取表单元素的”value”值。其中.html()和.text()方法不能使用在表单元素上,而.val()只能使用在表单元素上；另外.html()方法使用在多个元素上时，只读取第一个元素；.val()方法和.html()相同，如果其应用在多个元素上时，只能读取第一个表单元素的”value”值，但是.text()和他们不一样，如果.text()应用在多个元素上时，将会读取所有选中元素的文本内容。<br>2.html(htmlString),text(textString)和val(value)三种方法都是用来替换选中元素的内容，如果三个方法同时运用在多个元素上时，那么将会替换所有选中元素的内容。<br>3.html(),text(),val()都可以使用回调函数的返回值来动态的改变多个元素的内容。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">共28.3k字</span>
+</div>
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="https://github.com/ChangerHe/2017/07/03/jQuery-学习笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -300,7 +493,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
             
             
               
@@ -310,7 +503,7 @@
                 </a>
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -470,7 +663,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共28.1k字</span>
+  <span class="post-count">共28.3k字</span>
 </div>
 
     
@@ -500,7 +693,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
             
             
               
@@ -510,7 +703,7 @@
                 </a>
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -662,7 +855,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共28.1k字</span>
+  <span class="post-count">共28.3k字</span>
 </div>
 
     
@@ -692,7 +885,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
             
             
               
@@ -702,7 +895,7 @@
                 </a>
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -906,7 +1099,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共28.1k字</span>
+  <span class="post-count">共28.3k字</span>
 </div>
 
     
@@ -936,7 +1129,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
             
             
               
@@ -946,7 +1139,7 @@
                 </a>
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -1097,7 +1290,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共28.1k字</span>
+  <span class="post-count">共28.3k字</span>
 </div>
 
     
@@ -1127,7 +1320,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
             
             
               
@@ -1137,7 +1330,7 @@
                 </a>
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -1288,7 +1481,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共28.1k字</span>
+  <span class="post-count">共28.3k字</span>
 </div>
 
     
@@ -1318,7 +1511,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
             
             
               
@@ -1328,7 +1521,7 @@
                 </a>
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -1494,7 +1687,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共28.1k字</span>
+  <span class="post-count">共28.3k字</span>
 </div>
 
     
@@ -1524,7 +1717,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
             
             
               
@@ -1534,7 +1727,7 @@
                 </a>
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -1709,7 +1902,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共28.1k字</span>
+  <span class="post-count">共28.3k字</span>
 </div>
 
     
@@ -1739,7 +1932,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
             
             
               
@@ -1749,7 +1942,7 @@
                 </a>
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -1893,7 +2086,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共28.1k字</span>
+  <span class="post-count">共28.3k字</span>
 </div>
 
     
@@ -1923,7 +2116,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
             
             
               
@@ -1933,7 +2126,7 @@
                 </a>
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -2079,193 +2272,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共28.1k字</span>
-</div>
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://github.com/ChangerHe/2017/06/22/不同排序算法的JAVA实现及性能比较/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Changer He">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Changer He's Home Page">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/06/22/不同排序算法的JAVA实现及性能比较/" itemprop="url">
-                  不同排序算法的JAVA实现及性能比较
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-22T21:56:51+08:00">
-                2017-06-22
-              </time>
-            
-
-            
-
-  <span class="post-letters-count">
-    &nbsp; | &nbsp;
-    <span>724 字</span>
-    &nbsp; | &nbsp;
-    <span>3 min</span>
-  </span>
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JAVA-学习笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">JAVA 学习笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计</span>
-                
-                <span title="字数统计">
-                  724字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长</span>
-                
-                <span title="阅读时长">
-                  3分钟
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>排序现在已学的有两种，冒泡排序（BubbleSort）和选择排序（SelectionSort），两种方法各有不同；</p>
-<h1 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h1><p>冒泡排序是将数组中的元素进行逐一比较，并将两者比较之后的较大值与后面第三位元素进行比较。进行循环后，第一次可得到数组中的最大值，且最大值在数组的最后一个位置上。<br>通过JAVA进行实现的大概思路是：将第一位元素与第二位进行比较，将较大值赋给第二位元素，较小值赋给第一位元素，然后再将第二位元素与第三位元素进行比较，照此进行循环，最终可将最大数移至数组最后一位。<br>进行第二次运算，则使用相同的计算方式，得到第二大的元素，并赋予给倒数第二个元素。<br>进行运算后，可得到顺序排列的数组。<br>因此，冒泡排序要实现排序，如果有一个数组有N个元素，需要经过N！次，才能得到顺序排列的数组，且每次循环都要进行数组调换，大大影响了排序性能。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">//冒泡排序的算法</div><div class="line">class BubbleSort </div><div class="line">&#123;</div><div class="line">	public static void main(String[] args) </div><div class="line">	&#123;</div><div class="line">		int[] arr = &#123;2 ,6 ,9 ,1 ,4 ,7&#125;;</div><div class="line">		int a;</div><div class="line">		for ( int i = 0; i &lt; arr.length-1 ; i++ )</div><div class="line">		&#123;</div><div class="line">			for ( int j = 0 ; j &lt; arr.length-1-i ; j++ )</div><div class="line">			&#123;</div><div class="line">				if ( arr[j] &gt; arr[j+1])</div><div class="line">				&#123;</div><div class="line">					a = arr[j];</div><div class="line">					arr[j] = arr[j+1];</div><div class="line">					arr[j+1] = a;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		String PrintArr = &quot;[&quot;;    //打包成字符输出</div><div class="line">		for ( int i = 0; i &lt; arr.length ; i++ )   </div><div class="line">		&#123;</div><div class="line">			PrintArr = PrintArr + arr[i];</div><div class="line">			if ( i == arr.length-1 )</div><div class="line">			&#123;</div><div class="line">				break;</div><div class="line">			&#125;</div><div class="line">			PrintArr = PrintArr + &quot;,&quot;;</div><div class="line">		&#125;</div><div class="line">		PrintArr = PrintArr + &quot;]&quot;;</div><div class="line">		System.out.println(PrintArr);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h1 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h1><p>选择排序的方法是将数组中的第一个元素和数组的其他元素逐一进行比较，将比较之后的较小值赋予给第一个元素。遍历一次后，数组的第一个元素可获得数组中的最小值。<br>第二次遍历从第三个元素开始，将其与第二个元素进行比较，较小值赋予给第二个元素。<br>以此类推，可知选择排序的比较次数依旧为N！次。但选择排序时不需将元素进行多次的调换，因此性能方面较冒泡排序有些许提升。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">//选择排序的算法</div><div class="line">class SelectionSort</div><div class="line">&#123;</div><div class="line">	public static void main(String[] args) </div><div class="line">	&#123;</div><div class="line">		int[] arr = &#123;2 ,6 ,9 ,1 ,4 ,7&#125;;</div><div class="line">		int a;</div><div class="line">		for ( int i = 0; i&lt; arr.length ; i++ )</div><div class="line">		&#123;</div><div class="line">			for ( int j = i; j &lt; arr.length ; j++ )</div><div class="line">			&#123;</div><div class="line">				if ( arr[i] &gt; arr[j] )</div><div class="line">				&#123;</div><div class="line">					a = arr[i];</div><div class="line">					arr[i] = arr[j];</div><div class="line">					arr[j] = a;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		String PrintArr = &quot;[&quot;;    //打包成字符输出</div><div class="line">		for ( int i = 0; i &lt; arr.length ; i++ )   </div><div class="line">		&#123;</div><div class="line">			PrintArr = PrintArr + arr[i];</div><div class="line">			if ( i == arr.length-1 )</div><div class="line">			&#123;</div><div class="line">				break;</div><div class="line">			&#125;</div><div class="line">			PrintArr = PrintArr + &quot;,&quot;;</div><div class="line">		&#125;</div><div class="line">		PrintArr = PrintArr + &quot;]&quot;;</div><div class="line">		System.out.println(PrintArr);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>选择排序还可进行算法优化，每次遍历只与便利到的最小值进行交换，这样可以再减少一些数值交换次数，但笔者尚未实现，待实现完毕再更新。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-<div class="theme-info">
-  <div class="powered-by"></div>
-  <span class="post-count">共28.1k字</span>
+  <span class="post-count">共28.3k字</span>
 </div>
 
     
@@ -2310,15 +2317,15 @@
                alt="Changer He" />
           <p class="site-author-name" itemprop="name">Changer He</p>
            
-              <p class="site-description motion-element" itemprop="description">此网站用于日常学习的记录</p>
-          
+              <p class="site-description motion-element" itemprop="description"></p>
+           
         </div>
         <nav class="site-state motion-element">
 
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-count">30</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2329,7 +2336,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -2340,7 +2347,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/ChangerHe/"/>
-  <updated>2017-07-16T14:15:44.449Z</updated>
+  <updated>2017-07-17T13:39:06.050Z</updated>
   <id>https://github.com/ChangerHe/</id>
   
   <author>
@@ -14,6 +14,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JavaScript笔试面试题收集（一）</title>
+    <link href="https://github.com/ChangerHe/2017/07/17/JavaScript%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98%E6%94%B6%E9%9B%86%EF%BC%88%E4%B8%80%EF%BC%89/"/>
+    <id>https://github.com/ChangerHe/2017/07/17/JavaScript笔试面试题收集（一）/</id>
+    <published>2017-07-17T13:34:18.000Z</published>
+    <updated>2017-07-17T13:39:06.050Z</updated>
+    
+    <content type="html"><![CDATA[<p>出题的大师兄，草粉吗？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">function Foo() &#123;</div><div class="line">	getName = function () &#123;</div><div class="line">		console.log(1);</div><div class="line">	&#125;;</div><div class="line">	return this;</div><div class="line">&#125;</div><div class="line">Foo.getName = function () &#123;</div><div class="line">	console.log(2);</div><div class="line">&#125;;</div><div class="line">Foo.prototype.getName = function () &#123;</div><div class="line">	console.log(3);</div><div class="line">&#125;;</div><div class="line">var getName = function () &#123;</div><div class="line">	console.log(4);</div><div class="line">&#125;;</div><div class="line">function getName() &#123;</div><div class="line">	console.log(5);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">// 请写出以下输出结果：</div><div class="line">Foo.getName();</div><div class="line">getName();</div><div class="line">Foo().getName();</div><div class="line">getName();</div><div class="line">new Foo.getName();</div><div class="line">new Foo().getName();</div><div class="line">new new Foo().getName();</div></pre></td></tr></table></figure></p>
+<p>题目只答对一半的宝宝表示很想哭啊。<br>以下是解题思路：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">Foo.getName();              // 2</div><div class="line">getName();                     // 4</div><div class="line">Foo().getName();           // 1</div><div class="line">getName();                     // 1</div><div class="line"></div><div class="line">new Foo.getName();          // 2</div><div class="line">// var a = new Foo.getName();  </div><div class="line">// var a = &#123;&#125;;</div><div class="line">// a.__proto = Foo.getName.prototype;</div><div class="line">// Foo.getName.call(a);</div><div class="line"></div><div class="line">new Foo().getName();        // 3</div><div class="line">// var b = new Foo().getName();</div><div class="line">// var b = &#123;&#125;;</div><div class="line">// b.__proto__ = Foo.prototype;</div><div class="line">// Foo.call(b);</div><div class="line">// b.getName();</div><div class="line"></div><div class="line">new new Foo().getName();    // 3</div><div class="line">// var c = new Foo().getName();</div><div class="line">// var c = &#123;&#125;;</div><div class="line">// c.__proto__ = Foo.prototype;</div><div class="line">// Foo.call(c);</div><div class="line">// var d = new c.getName();</div><div class="line">// var d = &#123;&#125;;</div><div class="line">// d.__proto__ = c.getName.prototype;</div><div class="line">// c.getName.call(d);</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;出题的大师兄，草粉吗？&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div 
+    
+    </summary>
+    
+      <category term="JavaScript笔试面试题" scheme="https://github.com/ChangerHe/categories/JavaScript%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    
+      <category term="JavaScript笔试面试题" scheme="https://github.com/ChangerHe/tags/JavaScript%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+  </entry>
   
   <entry>
     <title>基本算法的JavaScript实现</title>
@@ -864,33 +888,6 @@ reduceRight():迭代数组所有项，从最后一个数开始。
     <summary type="html">
     
       &lt;p&gt;今天的博客记录一道题目，求出以下代码，所打印出的顺序，代码如下：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div clas
-    
-    </summary>
-    
-      <category term="JAVA 学习笔记" scheme="https://github.com/ChangerHe/categories/JAVA-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="JAVA" scheme="https://github.com/ChangerHe/tags/JAVA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>不同排序算法的JAVA实现及性能比较</title>
-    <link href="https://github.com/ChangerHe/2017/06/22/%E4%B8%8D%E5%90%8C%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E7%9A%84JAVA%E5%AE%9E%E7%8E%B0%E5%8F%8A%E6%80%A7%E8%83%BD%E6%AF%94%E8%BE%83/"/>
-    <id>https://github.com/ChangerHe/2017/06/22/不同排序算法的JAVA实现及性能比较/</id>
-    <published>2017-06-22T13:56:51.000Z</published>
-    <updated>2017-06-22T15:41:00.010Z</updated>
-    
-    <content type="html"><![CDATA[<p>排序现在已学的有两种，冒泡排序（BubbleSort）和选择排序（SelectionSort），两种方法各有不同；</p>
-<h1 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h1><p>冒泡排序是将数组中的元素进行逐一比较，并将两者比较之后的较大值与后面第三位元素进行比较。进行循环后，第一次可得到数组中的最大值，且最大值在数组的最后一个位置上。<br>通过JAVA进行实现的大概思路是：将第一位元素与第二位进行比较，将较大值赋给第二位元素，较小值赋给第一位元素，然后再将第二位元素与第三位元素进行比较，照此进行循环，最终可将最大数移至数组最后一位。<br>进行第二次运算，则使用相同的计算方式，得到第二大的元素，并赋予给倒数第二个元素。<br>进行运算后，可得到顺序排列的数组。<br>因此，冒泡排序要实现排序，如果有一个数组有N个元素，需要经过N！次，才能得到顺序排列的数组，且每次循环都要进行数组调换，大大影响了排序性能。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">//冒泡排序的算法</div><div class="line">class BubbleSort </div><div class="line">&#123;</div><div class="line">	public static void main(String[] args) </div><div class="line">	&#123;</div><div class="line">		int[] arr = &#123;2 ,6 ,9 ,1 ,4 ,7&#125;;</div><div class="line">		int a;</div><div class="line">		for ( int i = 0; i &lt; arr.length-1 ; i++ )</div><div class="line">		&#123;</div><div class="line">			for ( int j = 0 ; j &lt; arr.length-1-i ; j++ )</div><div class="line">			&#123;</div><div class="line">				if ( arr[j] &gt; arr[j+1])</div><div class="line">				&#123;</div><div class="line">					a = arr[j];</div><div class="line">					arr[j] = arr[j+1];</div><div class="line">					arr[j+1] = a;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		String PrintArr = &quot;[&quot;;    //打包成字符输出</div><div class="line">		for ( int i = 0; i &lt; arr.length ; i++ )   </div><div class="line">		&#123;</div><div class="line">			PrintArr = PrintArr + arr[i];</div><div class="line">			if ( i == arr.length-1 )</div><div class="line">			&#123;</div><div class="line">				break;</div><div class="line">			&#125;</div><div class="line">			PrintArr = PrintArr + &quot;,&quot;;</div><div class="line">		&#125;</div><div class="line">		PrintArr = PrintArr + &quot;]&quot;;</div><div class="line">		System.out.println(PrintArr);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h1 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h1><p>选择排序的方法是将数组中的第一个元素和数组的其他元素逐一进行比较，将比较之后的较小值赋予给第一个元素。遍历一次后，数组的第一个元素可获得数组中的最小值。<br>第二次遍历从第三个元素开始，将其与第二个元素进行比较，较小值赋予给第二个元素。<br>以此类推，可知选择排序的比较次数依旧为N！次。但选择排序时不需将元素进行多次的调换，因此性能方面较冒泡排序有些许提升。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">//选择排序的算法</div><div class="line">class SelectionSort</div><div class="line">&#123;</div><div class="line">	public static void main(String[] args) </div><div class="line">	&#123;</div><div class="line">		int[] arr = &#123;2 ,6 ,9 ,1 ,4 ,7&#125;;</div><div class="line">		int a;</div><div class="line">		for ( int i = 0; i&lt; arr.length ; i++ )</div><div class="line">		&#123;</div><div class="line">			for ( int j = i; j &lt; arr.length ; j++ )</div><div class="line">			&#123;</div><div class="line">				if ( arr[i] &gt; arr[j] )</div><div class="line">				&#123;</div><div class="line">					a = arr[i];</div><div class="line">					arr[i] = arr[j];</div><div class="line">					arr[j] = a;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		String PrintArr = &quot;[&quot;;    //打包成字符输出</div><div class="line">		for ( int i = 0; i &lt; arr.length ; i++ )   </div><div class="line">		&#123;</div><div class="line">			PrintArr = PrintArr + arr[i];</div><div class="line">			if ( i == arr.length-1 )</div><div class="line">			&#123;</div><div class="line">				break;</div><div class="line">			&#125;</div><div class="line">			PrintArr = PrintArr + &quot;,&quot;;</div><div class="line">		&#125;</div><div class="line">		PrintArr = PrintArr + &quot;]&quot;;</div><div class="line">		System.out.println(PrintArr);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>选择排序还可进行算法优化，每次遍历只与便利到的最小值进行交换，这样可以再减少一些数值交换次数，但笔者尚未实现，待实现完毕再更新。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;排序现在已学的有两种，冒泡排序（BubbleSort）和选择排序（SelectionSort），两种方法各有不同；&lt;/p&gt;
-&lt;h1 id=&quot;冒泡排序&quot;&gt;&lt;a href=&quot;#冒泡排序&quot; class=&quot;headerlink&quot; title=&quot;冒泡排序&quot;&gt;&lt;/a&gt;冒泡排序&lt;/h1&gt;
     
     </summary>
     
