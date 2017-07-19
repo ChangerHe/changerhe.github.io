@@ -283,6 +283,209 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://github.com/ChangerHe/2017/07/06/JavaScript高级程序设计复习笔记（一）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Changer He">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Changer He's Home Page">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/07/06/JavaScript高级程序设计复习笔记（一）/" itemprop="url">
+                  JavaScript高级程序设计复习笔记（一）
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-06T20:31:19+08:00">
+                2017-07-06
+              </time>
+            
+
+            
+
+  <span class="post-letters-count">
+    &nbsp; | &nbsp;
+    <span>1,157 字</span>
+    &nbsp; | &nbsp;
+    <span>5 min</span>
+  </span>
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript-学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript 学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  1,157字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  5分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>今天重新看了一遍JS高程的第一到四章，查漏补缺记录了一些容易出错的地方，做笔记如下：</p>
+<h3 id="变量的作用域问题"><a href="#变量的作用域问题" class="headerlink" title="变量的作用域问题"></a>变量的作用域问题</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function test()&#123;</div><div class="line">	message = &quot;Hi&quot;;  </div><div class="line">	//此时因为未进行变量声明，message默认为全局变量</div><div class="line">&#125;</div><div class="line">test();       //调用函数</div><div class="line">console.log(message);  //Hi</div></pre></td></tr></table></figure>
+<p>变量未声明，且循环定义的循环变量，都是在全局的作用域中。</p>
+<h3 id="typeof-方法"><a href="#typeof-方法" class="headerlink" title="typeof()方法"></a>typeof()方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var message;</div><div class="line">console.log(message);  //undefined</div><div class="line">console.log(age);       //undefined</div></pre></td></tr></table></figure>
+<p>注：Null类型表示一个空对象指针，因此使用typeof检测时会返回object。（undefined派生自Null，因此二者相等）<br>NaN与任何值都不相等，包括NaN本身</p>
+<h3 id="Number-方法进行数值转换"><a href="#Number-方法进行数值转换" class="headerlink" title="Number()方法进行数值转换"></a>Number()方法进行数值转换</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var num3 = Number(0xa);   //10</div><div class="line">var num2 = Number(011);   //11（不会判定为八进制）</div><div class="line">var num1 = Number(11);    //11</div><div class="line">var num6 = parseInt(011); //9(判断为八进制,ES5以上不适用，返回11)</div><div class="line">var num5 = parseInt(011,8)；//9</div><div class="line">var num4 = parseInt(&quot;AF&quot;,16);//175(转换为16进制)</div></pre></td></tr></table></figure>
+<h3 id="按位操作-根据数值的二进制进行操作"><a href="#按位操作-根据数值的二进制进行操作" class="headerlink" title="按位操作(根据数值的二进制进行操作)"></a>按位操作(根据数值的二进制进行操作)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var result1 = 3 &amp; 1;</div><div class="line">console.log(result1); //1(按位与)</div><div class="line">var result2 = 1 | 3;</div><div class="line">console.log(result2); //3(按位或)</div><div class="line">var result3 = ~result2;</div><div class="line">console.log(result3); //-4(按位非，求反码)</div><div class="line">var result4 = 4 ^ 3;</div><div class="line">console.log(result4); //7(按位异或)</div></pre></td></tr></table></figure>
+<h3 id="变量的赋值技巧"><a href="#变量的赋值技巧" class="headerlink" title="变量的赋值技巧"></a>变量的赋值技巧</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var num = num1 || num2;</div></pre></td></tr></table></figure>
+<p>当num1有值是，num被赋值为num1，否则被赋值为num2.</p>
+<h3 id="switch操作符"><a href="#switch操作符" class="headerlink" title="switch操作符"></a>switch操作符</h3><p>switch的语句中可以使用任何数据类型，这在其他的很多语言中是没有的，且switch支持表达式。<br>注：switch使用的是全等操作符，因此“10”和10 是不相等的。</p>
+<h3 id="arguments-对象"><a href="#arguments-对象" class="headerlink" title="arguments[]对象"></a>arguments[]对象</h3><p>arguments[]对象可在函数调用时使用，arguments[0]表示第一个参数，arguments[1]表示第二个参数，以此类推。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function anyArgs()&#123;</div><div class="line">	console.log(arguments.length);</div><div class="line">&#125;</div><div class="line">anyArgs(&quot;string&quot;,1); //2</div><div class="line">anyArgs();           //0</div></pre></td></tr></table></figure></p>
+<h3 id="JS方法不存在重载，因此不可同时var两个相同函数名的函数"><a href="#JS方法不存在重载，因此不可同时var两个相同函数名的函数" class="headerlink" title="JS方法不存在重载，因此不可同时var两个相同函数名的函数"></a>JS方法不存在重载，因此不可同时var两个相同函数名的函数</h3><h3 id="基本类型和引用类型的变量赋值"><a href="#基本类型和引用类型的变量赋值" class="headerlink" title="基本类型和引用类型的变量赋值"></a>基本类型和引用类型的变量赋值</h3><p>基本类型：相当于在堆中创建了一个新空间，并在该空间中为新变量赋予相同的值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var num1 = 5;</div><div class="line">var num2 = num1;</div><div class="line">num1 = 4;</div><div class="line">console.log(num2);  //5</div></pre></td></tr></table></figure></p>
+<p>引用类型：在堆中的引用空间是不变的，新的变量值与老的变量值指向同一个堆空间。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var obj1 = new Object();</div><div class="line">var obj2 = new Object();</div><div class="line">obj1.name = &quot;Changer&quot;;</div><div class="line">console.log(obj2.name); //Changer</div></pre></td></tr></table></figure></p>
+<h3 id="传参问题"><a href="#传参问题" class="headerlink" title="传参问题"></a>传参问题</h3><p>向参数传递基本类型值时，被传递的值会被复制给一个局部变量，其本身的值及属性不会改变。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var num1 = 1;</div><div class="line">function count(num)&#123;</div><div class="line">	num++;</div><div class="line">	return num;</div><div class="line">&#125;</div><div class="line">count(num1);</div><div class="line">cinsole.log(num1);   //1</div><div class="line">console.log(count(num1));  //2</div></pre></td></tr></table></figure></p>
+<p>当给引用类型传参时，引用类型变量传递到函数中会复制到变量中，在函数内部，变量和引用类型常量实际上引用的是同一个对象，因此在函数内部为常量添加属性后，在外也可调用。（这句话，我有点儿没看懂）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">function setName(obj)&#123;</div><div class="line">	obj.name = &quot;Nicholas&quot;;</div><div class="line">&#125;</div><div class="line">var person = new Object();</div><div class="line">setName(person);</div><div class="line">console.log(person.name);  //Nicholas</div><div class="line">//另有一例，用于说明局部变量的传参问题</div><div class="line">function setName(obj)&#123;</div><div class="line">	obj.name = &quot;Nicholas&quot;;</div><div class="line">	obj = new Object();</div><div class="line">	obj.name = &quot;Greg&quot;;</div><div class="line">&#125;</div><div class="line">setName(person);</div><div class="line">console.log(person.name);  //Nicholas</div><div class="line">//原因：局部变量作用域仅在函数中，使用后即被销毁。</div></pre></td></tr></table></figure></p>
+<h3 id="延长作用域链"><a href="#延长作用域链" class="headerlink" title="延长作用域链"></a>延长作用域链</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function buildUrl()&#123;</div><div class="line">	var qs = &quot;?debug=true&quot;;</div><div class="line">	with(location)&#123;</div><div class="line">		var url = href + qs;</div><div class="line">	&#125;</div><div class="line">	return url;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>此函数有效，原因（个人认为）S函数无块级作用域，因此可在with外调用。</p>
+<h2 id="JS的垃圾回收机制"><a href="#JS的垃圾回收机制" class="headerlink" title="JS的垃圾回收机制"></a>JS的垃圾回收机制</h2><h3 id="标记清除"><a href="#标记清除" class="headerlink" title="标记清除"></a>标记清除</h3><p>当变量进入环境时，就将这个变量标记为“进入环境”状态，当变量离开环境时，则将其标记为“离开环境”状态，它会去掉环境中的变量及被环境中变量引用的变量的标记。大部分浏览器采用此策略。</p>
+<h3 id="引用计数"><a href="#引用计数" class="headerlink" title="引用计数"></a>引用计数</h3><p>跟踪记录每个值被引用的次数，当声明了一个变量并将一个引用类型值赋值给该变量时，该值的引用次数则为1，当再次被引用时加一，相反，当引用的变量取消引用时，减一，减为0后将被回收。<br>但是该方法存在一个很严重的性能问题：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function problem()&#123;</div><div class="line">	var objectA = new Object();</div><div class="line">	var objectB = new Object();</div><div class="line">	objectA.otherObject = objectB;</div><div class="line">	objectB.anotherObject = objectA;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>运行上例时，其引用次数将永远不为0，若此函数被大量调用，则其垃圾将永远不会回收。<br>解决方案（这也是采用标记清除方法的垃圾回收最佳方案）：当不需要使用该变量时，为其设置值为null。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">objectA.otherObject = null;</div><div class="line">objectB.anotherObject = null;</div></pre></td></tr></table></figure></p>
+<p>另：在IE中，可食用window.CollectGarbage()方法立即执行垃圾回收。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">共30.8k字</span>
+</div>
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="https://github.com/ChangerHe/2017/07/05/jQuery查漏补缺/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -466,7 +669,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共28.5k字</span>
+  <span class="post-count">共30.8k字</span>
 </div>
 
     
@@ -659,7 +862,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共28.5k字</span>
+  <span class="post-count">共30.8k字</span>
 </div>
 
     
@@ -859,7 +1062,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共28.5k字</span>
+  <span class="post-count">共30.8k字</span>
 </div>
 
     
@@ -1051,7 +1254,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共28.5k字</span>
+  <span class="post-count">共30.8k字</span>
 </div>
 
     
@@ -1295,7 +1498,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共28.5k字</span>
+  <span class="post-count">共30.8k字</span>
 </div>
 
     
@@ -1486,7 +1689,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共28.5k字</span>
+  <span class="post-count">共30.8k字</span>
 </div>
 
     
@@ -1677,7 +1880,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共28.5k字</span>
+  <span class="post-count">共30.8k字</span>
 </div>
 
     
@@ -1883,7 +2086,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共28.5k字</span>
+  <span class="post-count">共30.8k字</span>
 </div>
 
     
@@ -2098,191 +2301,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共28.5k字</span>
-</div>
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://github.com/ChangerHe/2017/06/26/接口和抽象类的区别/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Changer He">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Changer He's Home Page">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/06/26/接口和抽象类的区别/" itemprop="url">
-                  接口和抽象类的区别
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-26T23:29:53+08:00">
-                2017-06-26
-              </time>
-            
-
-            
-
-  <span class="post-letters-count">
-    &nbsp; | &nbsp;
-    <span>190 字</span>
-    &nbsp; | &nbsp;
-    <span>1 min</span>
-  </span>
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JAVA-学习笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">JAVA 学习笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计</span>
-                
-                <span title="字数统计">
-                  190字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长</span>
-                
-                <span title="阅读时长">
-                  1分钟
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="接口（interface）和抽象类（abstract）的区别"><a href="#接口（interface）和抽象类（abstract）的区别" class="headerlink" title="接口（interface）和抽象类（abstract）的区别"></a>接口（interface）和抽象类（abstract）的区别</h1><h2 id="相同点"><a href="#相同点" class="headerlink" title="相同点"></a>相同点</h2><p>1.都位于继承的顶端用于被其他类实现或继承。<br>2.都不能实例化。<br>3.都可以定义抽象方法，其子类都必须参与这些方法。</p>
-<h2 id="不同点"><a href="#不同点" class="headerlink" title="不同点"></a>不同点</h2><p>1.接口没有构造方法，抽象有构造方法。<br>2.抽象类可包含抽象方法和普通方法，接口只能包含抽象方法。<br>3.一个类只能继承一个直接父类，却可以实现多个接口。<br>4.接口里默认是public static final,抽象类型默认是包访问。<br>5.方法：接口里默认是public abstract,抽象类型是包访问。<br>6.内部类：接口里默认是public static,抽象类型是包访问。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-<div class="theme-info">
-  <div class="powered-by"></div>
-  <span class="post-count">共28.5k字</span>
+  <span class="post-count">共30.8k字</span>
 </div>
 
     
@@ -2335,7 +2354,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">31</span>
+                <span class="site-state-item-count">32</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2357,7 +2376,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

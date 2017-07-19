@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/ChangerHe/"/>
-  <updated>2017-07-19T02:14:31.578Z</updated>
+  <updated>2017-07-19T13:40:49.913Z</updated>
   <id>https://github.com/ChangerHe/</id>
   
   <author>
@@ -14,6 +14,125 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CSS样式书写规范</title>
+    <link href="https://github.com/ChangerHe/2017/07/19/CSS%E6%A0%B7%E5%BC%8F%E4%B9%A6%E5%86%99%E8%A7%84%E8%8C%83/"/>
+    <id>https://github.com/ChangerHe/2017/07/19/CSS样式书写规范/</id>
+    <published>2017-07-19T13:16:09.000Z</published>
+    <updated>2017-07-19T13:40:49.913Z</updated>
+    
+    <content type="html"><![CDATA[<p>(以下文章转载自伯乐在线,仅供以后方便查阅使用)<br>可能不同团队都有各自的规范，又或者很多人在写 CSS 的时候还是想到什么就写什么，不存在太多的约束。</p>
+<p>我觉得 CSS 代码规范还是有存在的必要的，尤其是在团队配合，多人协作下，规范就显得尤为重要。</p>
+<p>本文的所列是实践当中得出的一套比较不错的 CSS 书写规范，并不希望大家完全采用，而是希望可以结合自己的团队需要，发展出一套适合自己的 CSS 代码规范。</p>
+<p>不同的规范都有各自的长处与缺陷，对待所谓的规范最好的方式不是人云亦云，拿来就用，而是应该结合实际情况及需求，取长补短，取其精华去其糟粕。</p>
+<h1 id="编码设置"><a href="#编码设置" class="headerlink" title="编码设置"></a>编码设置</h1><p>采用 UTF-8 编码，在 CSS 代码头部使用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">@charset &quot;utf-8&quot;;</div></pre></td></tr></table></figure>
+<p>注意，必须要定义在 CSS 文件所有字符的前面（包括编码注释），@charset 才会生效。</p>
+<p>例如，下面的例子都会使得 @charset 失效：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">/* 字符编码 */</div><div class="line">@charset &quot;utf-8&quot;;</div><div class="line">html,</div><div class="line">body &#123;</div><div class="line">  height: 100%;</div><div class="line">&#125;</div><div class="line"> </div><div class="line">@charset &quot;utf-8&quot;;</div></pre></td></tr></table></figure>
+<h1 id="命名空间规范"><a href="#命名空间规范" class="headerlink" title="命名空间规范"></a>命名空间规范</h1><ul>
+<li>布局：以 g 为命名空间，例如：.g-wrap 、.g-header、.g-content。<br>状态：以 s 为命名空间，表示动态的、具有交互性质的状态，例如：.s-current、s-selected。</li>
+<li>工具：以 u 为命名空间，表示不耦合业务逻辑的、可复用的的工具，例如：u-clearfix、u-ellipsis。</li>
+<li>组件：以 m 为命名空间，表示可复用、移植的组件模块，例如：m-slider、m-dropMenu。</li>
+<li>钩子：以 j 为命名空间，表示特定给 JavaScript 调用的类名，例如：j-request、j-open。</li>
+</ul>
+<h1 id="命名空间思想"><a href="#命名空间思想" class="headerlink" title="命名空间思想"></a>命名空间思想</h1><p>没有选择 BEM 这种命名过于严苛及样式名过长过丑的规则，采取了一种比较折中的方案。</p>
+<p>不建议使用下划线 _ 进行连接</p>
+<ul>
+<li>节省操作，输入的时候少按一个 shift 键</li>
+<li>能良好区分 JavaScript 变量命名</li>
+</ul>
+<h1 id="字符小写"><a href="#字符小写" class="headerlink" title="字符小写"></a>字符小写</h1><p>定义的选择器名，属性及属性值的书写皆为小写。</p>
+<h1 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h1><p>当一个规则包含多个选择器时，每个选择器独占一行。</p>
+<blockquote>
+<p>、+、~、&gt; 选择器的两边各保留一个空格。</p>
+<p>.g-header &gt; .g-header-des,<br>.g-content ~ .g-footer {</p>
+<p>}</p>
+</blockquote>
+<p>命名短且语义化良好</p>
+<p>对于选择器的命名，尽量简洁且具有语义化，不应该出现 g-abc 这种语义模糊的命名。</p>
+<h1 id="规则声明块"><a href="#规则声明块" class="headerlink" title="规则声明块"></a>规则声明块</h1><ul>
+<li>当规则声明块中有多个样式声明时，每条样式独占一行。</li>
+<li>在规则声明块的左大括号 { 前加一个空格。</li>
+<li>在样式属性的冒号 : 后面加上一个空格，前面不加空格。</li>
+<li>在每条样式后面都以分号 ; 结尾。</li>
+<li>规则声明块的右大括号 } 独占一行。</li>
+<li>每个规则声明间用空行分隔。</li>
+<li>所有最外层引号使用单引号 ‘ 。</li>
+<li>当一个属性有多个属性值时，以逗号 , 分隔属性值，每个逗号后添加一个空格，当单个属性值过长时，每个属性值独占一行。</li>
+</ul>
+<p>完整示例如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">.g-footer,</div><div class="line">.g-header &#123;</div><div class="line">  position: relative;</div><div class="line">&#125;</div><div class="line"> </div><div class="line">.g-content &#123;</div><div class="line">  background:</div><div class="line">    linear-gradient(135deg, deeppink 25%, transparent 25%) -50px 0,</div><div class="line">    linear-gradient(225deg, deeppink 25%, transparent 25%) -50px 0,</div><div class="line">    linear-gradient(315deg, deeppink 25%, transparent 25%),</div><div class="line">    linear-gradient(45deg, deeppink 25%, transparent 25%);</div><div class="line">  &#125;</div><div class="line"> </div><div class="line">.g-content::before &#123;</div><div class="line">  content: &apos;&apos;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="数值与单位"><a href="#数值与单位" class="headerlink" title="数值与单位"></a>数值与单位</h1><ul>
+<li>当属性值或颜色参数为 0 – 1 之间的数时，省略小数点前的 0 。color: rgba(255, 255, 255, 0.5)color: rgba(255, 255, 255, .5);</li>
+<li>当长度值为 0 时省略单位。margin: 0px automargin: 0 auto</li>
+<li>十六进制的颜色属性值使用小写和尽量简写。color: #ffcc00color: #fc0</li>
+</ul>
+<h1 id="样式属性顺序"><a href="#样式属性顺序" class="headerlink" title="样式属性顺序"></a>样式属性顺序</h1><p>单个样式规则下的属性在书写时，应按功能进行分组，并以 Positioning Model &gt; Box Model &gt; Typographic &gt; Visual 的顺序书写，提高代码的可读性。</p>
+<ul>
+<li>如果包含 content 属性，应放在最前面；<br>Positioning Model 布局方式、位置，相关属性包括：position / top / right / bottom / left / z-index / display / float / …</li>
+<li>Box Model 盒模型，相关属性包括：width / height / padding / margin / border / overflow / …</li>
+<li>Typographic 文本排版，相关属性包括：font / line-height / text-align / word-wrap / …</li>
+<li>Visual 视觉外观，相关属性包括：color / background / list-style / transform / animation / transition / …</li>
+</ul>
+<p>Positioning 处在第一位，因为他可以使一个元素脱离正常文本流，并且覆盖盒模型相关的样式。盒模型紧跟其后，因为他决定了一个组件的大小和位置。其他属性只在组件内部起作用或者不会对前面两种情况的结果产生影响，所以他们排在后面。</p>
+<h1 id="合理使用使用引号"><a href="#合理使用使用引号" class="headerlink" title="合理使用使用引号"></a>合理使用使用引号</h1><p>在某些样式中，会出现一些含有空格的关键字或者中文关键字。</p>
+<p>font-family 内使用引号</p>
+<p>当字体名字中间有空格，中文名字体及 Unicode 字符编码表示的中文字体，为了保证兼容性，都建议在字体两端添加单引号或者双引号：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">body &#123;</div><div class="line">  font-family: &apos;Microsoft YaHei&apos;, &apos;黑体-简&apos;, &apos;\5b8b\4f53&apos;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>background-image 的 url 内使用引号</p>
+<p>如果路径里面有空格，旧版 IE 是无法识别的，会导致路径失效，建议不管是否存在空格，都添加上单引号或者双引号：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">div &#123;</div><div class="line">  background-image: url(&apos;...&apos;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="避免使用-important"><a href="#避免使用-important" class="headerlink" title="避免使用 !important"></a>避免使用 !important</h1><p>除去某些极特殊的情况，尽量不要不要使用 !important。</p>
+<p>!important 的存在会给后期维护以及多人协作带来噩梦般的影响。</p>
+<p>当存在样式覆盖层叠时，如果你发现新定义的一个样式无法覆盖一个旧的样式，只有加上 !important 才能生效时，是因为你新定义的选择器的优先级不够旧样式选择器的优先级高。所以，合理的书写新样式选择器，是完全可以规避一些看似需要使用 !important 的情况的。</p>
+<h1 id="代码注释"><a href="#代码注释" class="headerlink" title="代码注释"></a>代码注释</h1><h2 id="单行注释"><a href="#单行注释" class="headerlink" title="单行注释"></a>单行注释</h2><p>星号与内容之间必须保留一个空格。</p>
+<h2 id="多行注释"><a href="#多行注释" class="headerlink" title="多行注释"></a>多行注释</h2><p>星号要一列对齐，星号与内容之间必须保留一个空格。</p>
+<h2 id="规则声明块内注释"><a href="#规则声明块内注释" class="headerlink" title="规则声明块内注释"></a>规则声明块内注释</h2><p>使用 // 注释，// 后面加上一个空格，注释独立一行。</p>
+<h2 id="文件注释"><a href="#文件注释" class="headerlink" title="文件注释"></a>文件注释</h2><p>文件顶部必须包含文件注释，用 @name 标识文件说明。星号要一列对齐，星号与内容之间必须保留一个空格，标识符冒号与内容之间必须保留一个空格。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line">* @name: 文件名或模块名</div><div class="line">* @description: 文件或模块描述</div><div class="line">* @author: author-name(mail-name@domain.com)</div><div class="line">*          author-name2(mail-name2@domain.com)</div><div class="line">* @update: 2015-04-29 00:02</div><div class="line">*/</div><div class="line">//@description为文件或模块描述。</div><div class="line">//@update为可选项，建议每次改动都更新一下。</div></pre></td></tr></table></figure>
+<p>当该业务项目主要由固定的一个或多个人负责时，需要添加@author标识，一方面是尊重劳动成果，另一方面方便在需要时快速定位责任人。</p>
+<h1 id="SASS-使用建议"><a href="#SASS-使用建议" class="headerlink" title="SASS 使用建议"></a>SASS 使用建议</h1><h2 id="嵌套层级规定"><a href="#嵌套层级规定" class="headerlink" title="嵌套层级规定"></a>嵌套层级规定</h2><p>使用 SASS 、 LESS 等预处理器时，建议嵌套层级不超过 3 层。</p>
+<h2 id="组件-公用类的使用方法"><a href="#组件-公用类的使用方法" class="headerlink" title="组件/公用类的使用方法"></a>组件/公用类的使用方法</h2><p>组件/公用类使用 %placeholders 定义，使用 @extend 引用。如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">%clearfix &#123;</div><div class="line"> </div><div class="line">  overflow: auto;</div><div class="line">  zoom: 1;</div><div class="line">&#125;</div><div class="line"> </div><div class="line">.g-header &#123;</div><div class="line">  @extend %clearfix;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="组件类的思考"><a href="#组件类的思考" class="headerlink" title="组件类的思考"></a>组件类的思考</h2><p>使用 SASS ，经常会预先定义好一些常用公用组件类，譬如清除浮动，水平垂直居中，文字 ellipsis。又或者多个元素具有同样的样式，我们希望能够少写这部分代码，公共部分抽离出来只写一次，达到复用。</p>
+<p>但是复用的方式在 SASS 中有多种，那么是使用单独使用一个类定义，给需要的标签添加，还是使用 @include 或者 @extend在定义的类中引入一个 @mixin，或者一个 @function 呢？</p>
+<p>基于让 CSS 更简洁以及代码的复用考虑，采用上面的使用 %placeholders 定义，使用 @extend 引用的方案。</p>
+<ul>
+<li>%placeholders，只是一个占位符，只要不通过 @extend 调用，编译后不会产生任何代码量</li>
+<li>使用 @extend 引用，则是因为每次调用相同的 %placeholders 时，编译出来相同的 CSS 样式会进行合并（反之，如果使用 @include 调用定义好的 @mixin，编译出来相同的 CSS 样式不会进行合并）</li>
+<li>这里的组件类特指那些不会动态改变的 CSS 样式，注意与那些可以通过传参生成不同数值样式的 @mixin 方法进行区分</li>
+</ul>
+<h2 id="尽量避免使用标签名"><a href="#尽量避免使用标签名" class="headerlink" title="尽量避免使用标签名"></a>尽量避免使用标签名</h2><p>使用 SASS ，或者说在 CSS 里也有这种困惑。</p>
+<p>假设我们有如下 html 结构：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;span&gt;</div><div class="line">  &lt;div class=&quot;g-content&quot;&gt;</div><div class="line">    &lt;ul class=&quot;g-content-list&quot;&gt;&lt;li class=&quot;item&quot;/&gt;</div><div class="line">        &lt;li class=&quot;item&quot;/&gt;</div><div class="line">        &lt;li class=&quot;item&quot;/&gt;</div><div class="line">        &lt;li class=&quot;item&quot;/&gt;</div><div class="line">    &lt;/ul&gt;&lt;/div&gt;</div><div class="line">&lt;/span&gt;</div></pre></td></tr></table></figure>
+<p>在给最里层的标签命名书写样式的时候，我们有两种选择：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">.g-content &#123;</div><div class="line">  .g-content-list &#123;</div><div class="line">    li &#123;</div><div class="line">      ...</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>或者是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">.g-content &#123;</div><div class="line">  .g-content-list &#123;</div><div class="line">    .item &#123;</div><div class="line">      ...</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>也就是，编译之后生成了下面这两个，到底使用哪个好呢？</p>
+<ul>
+<li>.g-content .g-content-list li { }</li>
+<li>.g-content .g-content-list .item { }</li>
+</ul>
+<p>基于 CSS 选择器的解析规则（从右向左），建议使用上述第二种 .g-content .g-content-list .item { } ，避免使用通用标签名作为选择器的一环可以提高 CSS 匹配性能。</p>
+<p>浏览器的排版引擎解析 CSS 是基于从右向左（right-to-left）的规则，这么做是为了使样式规则能够更快地与渲染树上的节点匹配。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;(以下文章转载自伯乐在线,仅供以后方便查阅使用)&lt;br&gt;可能不同团队都有各自的规范，又或者很多人在写 CSS 的时候还是想到什么就写什么，不存在太多的约束。&lt;/p&gt;
+&lt;p&gt;我觉得 CSS 代码规范还是有存在的必要的，尤其是在团队配合，多人协作下，规范就显得尤为重要。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="HTML &amp; CSS 学习笔记" scheme="https://github.com/ChangerHe/categories/HTML-CSS-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="CSS样式书写规范" scheme="https://github.com/ChangerHe/tags/CSS%E6%A0%B7%E5%BC%8F%E4%B9%A6%E5%86%99%E8%A7%84%E8%8C%83/"/>
+    
+  </entry>
   
   <entry>
     <title>JavaScript计时器的优化</title>
@@ -876,30 +995,6 @@ reduceRight():迭代数组所有项，从最后一个数开始。
     
     
       <category term="SASS" scheme="https://github.com/ChangerHe/tags/SASS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>接口和抽象类的区别</title>
-    <link href="https://github.com/ChangerHe/2017/06/26/%E6%8E%A5%E5%8F%A3%E5%92%8C%E6%8A%BD%E8%B1%A1%E7%B1%BB%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
-    <id>https://github.com/ChangerHe/2017/06/26/接口和抽象类的区别/</id>
-    <published>2017-06-26T15:29:53.000Z</published>
-    <updated>2017-06-26T15:38:11.498Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="接口（interface）和抽象类（abstract）的区别"><a href="#接口（interface）和抽象类（abstract）的区别" class="headerlink" title="接口（interface）和抽象类（abstract）的区别"></a>接口（interface）和抽象类（abstract）的区别</h1><h2 id="相同点"><a href="#相同点" class="headerlink" title="相同点"></a>相同点</h2><p>1.都位于继承的顶端用于被其他类实现或继承。<br>2.都不能实例化。<br>3.都可以定义抽象方法，其子类都必须参与这些方法。</p>
-<h2 id="不同点"><a href="#不同点" class="headerlink" title="不同点"></a>不同点</h2><p>1.接口没有构造方法，抽象有构造方法。<br>2.抽象类可包含抽象方法和普通方法，接口只能包含抽象方法。<br>3.一个类只能继承一个直接父类，却可以实现多个接口。<br>4.接口里默认是public static final,抽象类型默认是包访问。<br>5.方法：接口里默认是public abstract,抽象类型是包访问。<br>6.内部类：接口里默认是public static,抽象类型是包访问。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;接口（interface）和抽象类（abstract）的区别&quot;&gt;&lt;a href=&quot;#接口（interface）和抽象类（abstract）的区别&quot; class=&quot;headerlink&quot; title=&quot;接口（interface）和抽象类（abstract）的区别&quot;&gt;
-    
-    </summary>
-    
-      <category term="JAVA 学习笔记" scheme="https://github.com/ChangerHe/categories/JAVA-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="JAVA" scheme="https://github.com/ChangerHe/tags/JAVA/"/>
     
   </entry>
   
