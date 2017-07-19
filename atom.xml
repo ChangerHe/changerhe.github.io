@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/ChangerHe/"/>
-  <updated>2017-07-17T13:39:06.050Z</updated>
+  <updated>2017-07-19T02:14:31.578Z</updated>
   <id>https://github.com/ChangerHe/</id>
   
   <author>
@@ -14,6 +14,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JavaScript计时器的优化</title>
+    <link href="https://github.com/ChangerHe/2017/07/19/JavaScript%E8%AE%A1%E6%97%B6%E5%99%A8%E7%9A%84%E4%BC%98%E5%8C%96/"/>
+    <id>https://github.com/ChangerHe/2017/07/19/JavaScript计时器的优化/</id>
+    <published>2017-07-19T01:51:42.000Z</published>
+    <updated>2017-07-19T02:14:31.578Z</updated>
+    
+    <content type="html"><![CDATA[<p>首先，要对我的脑子进行严格而深刻的批判，写个简单的计时器，花了一个小时的时间才写完。</p>
+<blockquote>
+<p>“脑子是个好东西，我希望我自己也能有一个。”   ——某位将要成为前端大佬的菜鸟如是说</p>
+</blockquote>
+<p>情况分析：在HTML文件中写入相应的代码，实现计时效果，因此需要用到定时器，代码如下，我是将代码直接写在timer中了：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">setInterval(function timtSetter()&#123;</div><div class="line">	s++;</div><div class="line">	var S,m,M,h,H;</div><div class="line">	S = s % 60;</div><div class="line">	m = Math.floor(s/60);</div><div class="line">	M = m % 60;</div><div class="line">	h = Math.floor(m/60);</div><div class="line">	H = h % 24;</div><div class="line">	if( S &lt; 10)&#123;</div><div class="line">		S = &quot;0&quot; + S;</div><div class="line">	&#125;</div><div class="line">	if( M &lt; 10)&#123;</div><div class="line">		M = &quot;0&quot; + M;</div><div class="line">	&#125;</div><div class="line">	if( H &lt; 10)&#123;</div><div class="line">		H = &quot;0&quot; + H;</div><div class="line">	&#125;</div><div class="line">	timer.innerHTML = H + &quot;:&quot; + M + &quot;:&quot; + S;</div><div class="line">&#125;,1000);</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;首先，要对我的脑子进行严格而深刻的批判，写个简单的计时器，花了一个小时的时间才写完。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“脑子是个好东西，我希望我自己也能有一个。”   ——某位将要成为前端大佬的菜鸟如是说&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;情况分析：在HTM
+    
+    </summary>
+    
+      <category term="JavaScript 学习笔记" scheme="https://github.com/ChangerHe/categories/JavaScript-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="JavaScript" scheme="https://github.com/ChangerHe/tags/JavaScript/"/>
+    
+  </entry>
   
   <entry>
     <title>JavaScript笔试面试题收集（一）</title>
@@ -862,32 +893,6 @@ reduceRight():迭代数组所有项，从最后一个数开始。
     <summary type="html">
     
       &lt;h1 id=&quot;接口（interface）和抽象类（abstract）的区别&quot;&gt;&lt;a href=&quot;#接口（interface）和抽象类（abstract）的区别&quot; class=&quot;headerlink&quot; title=&quot;接口（interface）和抽象类（abstract）的区别&quot;&gt;
-    
-    </summary>
-    
-      <category term="JAVA 学习笔记" scheme="https://github.com/ChangerHe/categories/JAVA-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="JAVA" scheme="https://github.com/ChangerHe/tags/JAVA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JAVA代码执行顺序解析</title>
-    <link href="https://github.com/ChangerHe/2017/06/24/%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F%E8%A7%A3%E6%9E%90/"/>
-    <id>https://github.com/ChangerHe/2017/06/24/代码执行顺序解析/</id>
-    <published>2017-06-24T14:58:57.000Z</published>
-    <updated>2017-06-24T15:35:29.339Z</updated>
-    
-    <content type="html"><![CDATA[<p>今天的博客记录一道题目，求出以下代码，所打印出的顺序，代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">public class App</div><div class="line">&#123;</div><div class="line">	private static App d = new App();</div><div class="line">	private SubClass t = new SubClass();</div><div class="line">	static</div><div class="line">	&#123;</div><div class="line">		System.out.println(3);</div><div class="line">	&#125;</div><div class="line">	public App()</div><div class="line">	&#123;</div><div class="line">		System.out.println(4);</div><div class="line">	&#125;</div><div class="line">	public static void main(String[] args) </div><div class="line">	&#123;</div><div class="line">		System.out.println(&quot;Hello World!&quot;);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line">class SuperClass</div><div class="line">&#123;</div><div class="line">	SuperClass()</div><div class="line">	&#123;</div><div class="line">		System.out.println(&quot;SuperClass 构造器&quot;);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">class SubClass extends SuperClass</div><div class="line">&#123;</div><div class="line">	static</div><div class="line">	&#123;</div><div class="line">		System.out.println(1);</div><div class="line">	&#125;</div><div class="line">	public SubClass()</div><div class="line">	&#123;</div><div class="line">		System.out.println(2);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>此题主要考察构造器，类及静态变量、非静态变量，父类，子类在JVM中的调用顺序。<br>答案在我第一次做的时候确实是意想不到：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">1</div><div class="line">SuperClass 构造器</div><div class="line">2</div><div class="line">4</div><div class="line">3</div><div class="line">Hello World!</div></pre></td></tr></table></figure></p>
-<h2 id="JVM代码块加载原则"><a href="#JVM代码块加载原则" class="headerlink" title="JVM代码块加载原则"></a>JVM代码块加载原则</h2><p>1.优先加载主类以外，与主类相关的其他类，方便主类进行调用。<br>2.如果代码块有static修饰，则优先加载进JVM进行执行。<br>3.子类中的构造器自带一个super（）；方法，且在构造器的第一行代码中，因此当父类的构造器为无参数构造器时，子类将优先调用父类的无参数构造器的内容。</p>
-<h2 id="题目中的加载顺序分析"><a href="#题目中的加载顺序分析" class="headerlink" title="题目中的加载顺序分析"></a>题目中的加载顺序分析</h2><p>1.第一个为什么是1，因为主类中的main方法会在其他相关的父类和子类优先调用之后，再进行调用，因此优先进行调用SuperClass和SubClass，在这两个类中，SubClass又是SuperClass的子类，理论上应先行调用父类，但子类中包含静态代码块，因此优先调用static修饰的静态字码快中的内容，从而优先输出“1”；<br>2.为什么第二个是“SuperClass 构造器”，上面优先打印1的原理讲明白了，第二个也就好理解了，子代码块中的构造器自带一个super();的方法，会优先进行调用父类中的无变量构造器。因此打印出“SuperClass 构造器”。<br>3.为什么第三个是数字2，构造器的运行顺序是自顶向下的，因此执行完super();后，就开始执行下一字段，也就是2；<br>4.为什么第四个是数字4？非主类中的其他类已经加载完毕，那么现在开始加载主类，主类中又有一个static修饰的代码块，因此主类优先执行了App();中的打印4，操作<br>5.同样，根据自顶向下原色，执行了打印3的操作。<br>6.也就是最后，打印了main方法中的“Hello World!”。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;今天的博客记录一道题目，求出以下代码，所打印出的顺序，代码如下：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div clas
     
     </summary>
     
