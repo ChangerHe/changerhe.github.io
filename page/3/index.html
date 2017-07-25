@@ -283,6 +283,221 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://github.com/ChangerHe/2017/06/27/SASS学习笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Changer He">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Changer He's Home Page">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/06/27/SASS学习笔记/" itemprop="url">
+                  SASS学习笔记
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-27T15:37:18+08:00">
+                2017-06-27
+              </time>
+            
+
+            
+
+  <span class="post-letters-count">
+    &nbsp; | &nbsp;
+    <span>1,593 字</span>
+    &nbsp; | &nbsp;
+    <span>7 min</span>
+  </span>
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/SASS-学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">SASS 学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  1,593字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  7分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Sass语法"><a href="#Sass语法" class="headerlink" title="Sass语法"></a>Sass语法</h1><p>Sass 有两种语法。 第一种被称为 SCSS (Sassy CSS)，是一个 CSS3 语法的扩充版本。也就是说，所有符合CSS3语法的样式表也都是具有相同语法意义的SCSS文件。另外，SCSS理解大多数CSShacks以及浏览器专属语法，例如IE古老的filter 语法。这种语种语法的样式表文件需要以.scss扩展名。<br>第二种比较老的语法成为缩排语法（或者就称为 “Sass”），提供了一种更简洁的CSS书写方式。它不使用花括号，而是通过缩排的方式来表达选择符的嵌套层级，而且也不使用分号，而是用换行符来分隔属性。很多人认为这种格式比SCSS更容易阅读，书写也更快速。缩排语法具有Sass的所有特色功能,虽然有些语法上稍有差异；这些差异在{file:INDENTED_SYNTAX.md所排语法参考手册}中都有描述。使用此种语法的样式表文件需要以.sass作为扩展名。</p>
+<h2 id="sass的转换"><a href="#sass的转换" class="headerlink" title="sass的转换"></a>sass的转换</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># 将 Sass 转换为 SCSS</div><div class="line">$ sass-convert style.sass style.scss</div><div class="line"></div><div class="line"># 将 SCSS 转换为 Sass</div><div class="line">$ sass-convert style.scss style.sass</div></pre></td></tr></table></figure>
+<p>Sass 有三种使用方式： 命令行工具、独立的 Ruby 模块，以及包含 Ruby on Rails 和 Merb 作为支持 Rack 的框架的插件。 所有这些方式的第一步都是安装 Sass gem：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gem install sass</div></pre></td></tr></table></figure></p>
+<p>如果你使用的是 Windows， 就需要先安装 Ruby。</p>
+<p>如果要在命令行中运行 Sass ,只要输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sass input.scss output.css</div></pre></td></tr></table></figure></p>
+<p>你还可以命令 Sass 监视文件的改动并更新 CSS ：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sass --watch input.scss:output.css</div></pre></td></tr></table></figure></p>
+<p>如果你的目录里有很多 Sass 文件，你还可以命令 Sass 监视整个目录：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sass --watch app/sass:public/stylesheets</div></pre></td></tr></table></figure></p>
+<h1 id="sass编译"><a href="#sass编译" class="headerlink" title="sass编译"></a>sass编译</h1><h2 id="命令行编译"><a href="#命令行编译" class="headerlink" title="命令行编译"></a>命令行编译</h2><p>单文件转换命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sass style.scss style.css</div></pre></td></tr></table></figure></p>
+<p>单文件监听命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sass --watch style.scss:style.css</div></pre></td></tr></table></figure></p>
+<p>文件夹监听命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sass --watch sassFileDirectory:cssFileDirectory</div></pre></td></tr></table></figure></p>
+<p>css文件转成sass/scss文件（在线转换工具css2sass）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sass-convert style.css style.sass   </div><div class="line">sass-convert style.css style.scss</div></pre></td></tr></table></figure></p>
+<h2 id="编译格式"><a href="#编译格式" class="headerlink" title="编译格式"></a>编译格式</h2><p>我们一般常用的有–style，–sourcemap，–debug-info等。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sass --watch style.scss:style.css --style compact</div><div class="line">sass --watch style.scss:style.css --sourcemap</div><div class="line">sass --watch style.scss:style.css --style expanded --sourcemap</div><div class="line">sass --watch style.scss:style.css --debug-info</div></pre></td></tr></table></figure></p>
+<p>–style表示解析后的css是什么格式，有四种取值分别为：nested，expanded，compact，compressed。<br>–sourcemap表示开启sourcemap调试。开启sourcemap调试后，会生成一个后缀名为.css.map文件。<br>–debug-info表示开启debug信息，升级到3.3.0之后因为sourcemap更高级，这个debug-info就不太用了。</p>
+<h1 id="sass混合宏"><a href="#sass混合宏" class="headerlink" title="sass混合宏"></a>sass混合宏</h1><h2 id="混合宏的关键词"><a href="#混合宏的关键词" class="headerlink" title="混合宏的关键词"></a>混合宏的关键词</h2><p>在sass中通过@mixin关键词声明一个混合宏，那么在实际调用中，其匹配了一个关键词@include来调用声明好的混合宏。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">@mixin border-radius&#123;   //对混合宏进行声明</div><div class="line">	-webkit-border-radius: 3px;</div><div class="line">	border-radius: 3px;</div><div class="line">&#125;</div><div class="line">button&#123;</div><div class="line">	@include border-radius: 3px;  //对声明出的混合宏进行使用关键字@include调用</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>此时编译出的css为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">button&#123;</div><div class="line">	-webkit-border-radius: 3px;</div><div class="line">	border: 3px;</div><div class="line">&#125;</div><div class="line"></div><div class="line">## 混合宏的传参</div><div class="line">sass有一个强大的混合宏功能：传参。混合宏传参有以下几种情形：</div><div class="line">### 1.传一个不带值的参数</div></pre></td></tr></table></figure></p>
+<p>@mixin border-radius($radius){<br>    -webkit-border-radius: $radius;<br>    border-radius: $radius;<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">在调用是，给这个混合宏进行参数传递，即可。如，当我想传递给radius传参3px时。代码如下：</div></pre></td></tr></table></figure></p>
+<p>.box{<br>    @include border-radius(3px);<br>}<br>此时编译出的结果为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.box&#123;</div><div class="line">	-webkit-border-radius: 3px;</div><div class="line">	border-radius: 3px;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="2-传一个带值的参数"><a href="#2-传一个带值的参数" class="headerlink" title="2.传一个带值的参数"></a>2.传一个带值的参数</h3><p>在sass中可以给参数带一个默认的值，在调用时，就可以直接使用此默认值进行编译，这种情况适用于比较多地方使用默认值的时候，此时可设置一个默认值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">@mixin border-radius($radius: 3px)&#123;</div><div class="line">	-webkit-border-radius: $radius;</div><div class="line">	border-radius: $radius;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="3-传递多个参数"><a href="#3-传递多个参数" class="headerlink" title="3.传递多个参数"></a>3.传递多个参数</h3><p>sass中不仅可以传递一个参数，还可传递多个参数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">@mixin size($width,$height)&#123;</div><div class="line">	width: $width;</div><div class="line">	height: $height;</div><div class="line">&#125;</div><div class="line">.box-center&#123;</div><div class="line">	@include size(500px,300px);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h1 id="sass扩展"><a href="#sass扩展" class="headerlink" title="sass扩展"></a>sass扩展</h1><h3 id="sass继承"><a href="#sass继承" class="headerlink" title="sass继承"></a>sass继承</h3><p>sass可以继承类中的样式代码块，在sass中是通过关键字@extend来继承已经存在的类样式块的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">.btn&#123;</div><div class="line">	border: 1px solid #ccc;</div><div class="line">	padding: 6px 10px;</div><div class="line">	font-size: 14px;</div><div class="line">&#125;</div><div class="line">.btn-primary&#123;</div><div class="line">	background: #f36;</div><div class="line">	color: #fff;</div><div class="line">	@extend: .btn;</div><div class="line">&#125;</div><div class="line">.btn-second&#123;</div><div class="line">	background: orange;</div><div class="line">	color: #fff;</div><div class="line">	@extend .btn;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>编译出的结果是精简的写法，不想之前通过@include进行编译的一样，通过@include编译出来的是没有简化写法的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">.btn,.btn-primary,.btn-second&#123;</div><div class="line">	border: 1px solid #ccc;</div><div class="line">	padding: 6px 10px;</div><div class="line">	font-size: 14px;</div><div class="line">&#125;</div><div class="line">.btn-primary&#123;</div><div class="line">	background: #f36;</div><div class="line">	color: #fff;</div><div class="line">&#125;</div><div class="line">.btn-second&#123;</div><div class="line">	background: orange;</div><div class="line">	color: #fff;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="sass占位符（-placeholder）"><a href="#sass占位符（-placeholder）" class="headerlink" title="sass占位符（%placeholder）"></a>sass占位符（%placeholder）</h3><p>占位符（%placeholder）声明的代码，如果不被@extend调用的话，不会产生任何代码。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">%mt5&#123;</div><div class="line">	margin-top: 5px;</div><div class="line">&#125;</div><div class="line">%pt5&#123;</div><div class="line">	padding-top: 5px;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>以上代码若不被@extend调用，则不会产生任何代码块，但是当调用的时候，该代码块才会生效。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.btn&#123;</div><div class="line">	@extend %mt5;</div><div class="line">	@extend %pt5;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>此时解析出的结果为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.btn&#123;</div><div class="line">	margin-top: 5px;</div><div class="line">	padding-top: 5px;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="使用混合宏，继承，占位符的方式和使用对象比较"><a href="#使用混合宏，继承，占位符的方式和使用对象比较" class="headerlink" title="使用混合宏，继承，占位符的方式和使用对象比较"></a>使用混合宏，继承，占位符的方式和使用对象比较</h2><p>!(PIC)[<a href="http://img.mukewang.com/55263aa30001913307940364.jpg" target="_blank" rel="external">http://img.mukewang.com/55263aa30001913307940364.jpg</a>]</p>
+<h3 id="sass插值"><a href="#sass插值" class="headerlink" title="sass插值#{}"></a>sass插值#{}</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">@mixin firefox-message($selector)&#123;</div><div class="line">	body.firefox #&#123;$selector&#125;:before&#123;</div><div class="line">		content : &quot;Hi, firefox users!&quot;;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">@include firefox-message(&quot;.header&quot;);</div><div class="line">//编译结果为</div><div class="line">body.forefox .header:before&#123;</div><div class="line">	content: &quot;Hi,firefox users!&quot;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="sass运算"><a href="#sass运算" class="headerlink" title="sass运算"></a>sass运算</h1><h2 id="加法"><a href="#加法" class="headerlink" title="加法"></a>加法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.box&#123;</div><div class="line">	width: 20px + 8in;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="减法"><a href="#减法" class="headerlink" title="减法"></a>减法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$full-width: 960px;</div><div class="line">$sidebar-width: 200px;</div><div class="line">.content&#123;</div><div class="line">	width: $full-width - $sidebar-width;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="乘法"><a href="#乘法" class="headerlink" title="乘法"></a>乘法</h2><p>乘法只能乘以一个数字，不能乘以一个数字加上单位，否则会报错<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.box&#123;</div><div class="line">	width: 10px *2px;  //报错“20px*px isn&apos;t a valid CSS value.”</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="除法"><a href="#除法" class="headerlink" title="除法"></a>除法</h2><p>除法在应用时，需要加上括号<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">.box&#123;</div><div class="line">	width: (100px / 2);</div><div class="line">&#125;</div><div class="line">//编译后等价于</div><div class="line">.box&#123;</div><div class="line">	width: 50px;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>当使用变量或者其他运算常亮进行计算时，可以不加括号。</p>
+<h2 id="字符运算"><a href="#字符运算" class="headerlink" title="字符运算"></a>字符运算</h2><p>在sass中可以使用符号+来实现字符串的链接。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$content: &quot;hello&quot; + &quot; &quot; + &quot;sass!&quot;;</div><div class="line">.box: before&#123;</div><div class="line">	ontent: &quot;#&#123;$content&#125;&quot;;</div><div class="line">&#125;</div><div class="line">//编译后等价于</div><div class="line">.box: before&#123;</div><div class="line">	content: &quot;hello sass!&quot;;</div><div class="line">&#125;</div><div class="line">除了在变量中做字符连接运算以外，还可以直接通过加号把字符连在一起</div></pre></td></tr></table></figure></p>
+<p>div{<br>    cursor: e + -resize;<br>}<br>//编译后等价于<br>div{<br>    cursor: e-resize;<br>}<br>```<br>注意，如果有引号的字符串被添加了一个没有引号的字符串，结果会是一个有引号的字符串。<br>同样的，如果一个没有引号的字符串被添加了一个有引号的字符串，结果将是一个没有引号的字符串。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">共33.4k字</span>
+</div>
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="https://github.com/ChangerHe/2017/06/26/接口和抽象类的区别/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -454,7 +669,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共30.8k字</span>
+  <span class="post-count">共33.4k字</span>
 </div>
 
     
@@ -640,7 +855,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共30.8k字</span>
+  <span class="post-count">共33.4k字</span>
 </div>
 
     
@@ -826,7 +1041,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共30.8k字</span>
+  <span class="post-count">共33.4k字</span>
 </div>
 
     
@@ -1010,7 +1225,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共30.8k字</span>
+  <span class="post-count">共33.4k字</span>
 </div>
 
     
@@ -1196,7 +1411,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共30.8k字</span>
+  <span class="post-count">共33.4k字</span>
 </div>
 
     
@@ -1396,7 +1611,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共30.8k字</span>
+  <span class="post-count">共33.4k字</span>
 </div>
 
     
@@ -1581,7 +1796,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共30.8k字</span>
+  <span class="post-count">共33.4k字</span>
 </div>
 
     
@@ -1791,7 +2006,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共30.8k字</span>
+  <span class="post-count">共33.4k字</span>
 </div>
 
     
@@ -1976,244 +2191,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共30.8k字</span>
-</div>
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://github.com/ChangerHe/2017/06/15/hexo/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Changer He">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Changer He's Home Page">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/06/15/hexo/" itemprop="url">
-                  HEXO使用小结
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-15T11:30:32+08:00">
-                2017-06-15
-              </time>
-            
-
-            
-
-  <span class="post-letters-count">
-    &nbsp; | &nbsp;
-    <span>1,118 字</span>
-    &nbsp; | &nbsp;
-    <span>5 min</span>
-  </span>
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo-NexT搭建个人博客/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo-NexT搭建个人博客</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计</span>
-                
-                <span title="字数统计">
-                  1,118字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长</span>
-                
-                <span title="阅读时长">
-                  5分钟
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>本文是我从自学前端开发以来，自己写的第一篇博客，为什么要写这一篇博客呢，原因有二，一是给自己没写过博客的hexo开个光，二是记录一下自己的每日所学所感。</p>
-<h1 id="关于hexo的基础配置"><a href="#关于hexo的基础配置" class="headerlink" title="关于hexo的基础配置"></a>关于hexo的基础配置</h1><p>hexo的配置其实在网上已经有许多的大佬已经讲的一清二楚了，这里贴几个DALAO的链接，我在构建自己的博客的时候，就是以他们为参照的：</p>
-<h4 id="1-holaOla-Hexo安装和配置"><a href="#1-holaOla-Hexo安装和配置" class="headerlink" title="1. holaOla :Hexo安装和配置"></a>1.<a href="http://www.jianshu.com/p/b7886271e21a" target="_blank" rel="external"> holaOla :Hexo安装和配置</a></h4><h4 id="2-Raspberry-Hexo-搭建博客-基础配置篇"><a href="#2-Raspberry-Hexo-搭建博客-基础配置篇" class="headerlink" title="2. Raspberry :Hexo 搭建博客-基础配置篇"></a>2.<a href="http://www.jianshu.com/p/df3edc4286d2" target="_blank" rel="external"> Raspberry :Hexo 搭建博客-基础配置篇</a></h4><p>以上基本可以在看完之后基本实现自己的bolg上线了，主要工作无非有四：<br>1.git的安装<br>2.GitHub的注册，本地SSHkey的设置<br>3.hexo的安装<br>4.node.js的环境搭建<br>实现了以上四项，自己的bolg基本上可以搭建成功。</p>
-<h1 id="关于hexo的设置和配置"><a href="#关于hexo的设置和配置" class="headerlink" title="关于hexo的设置和配置"></a>关于hexo的设置和配置</h1><p>以下为hexo在\Hexo\themes\next_config.yml下的配置文件（笔者使用的是next作为主题）</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">title:</div></pre></td></tr></table></figure>
-<h3 id="副标题"><a href="#副标题" class="headerlink" title="副标题"></a>副标题</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">subtitle:</div></pre></td></tr></table></figure>
-<h3 id="网站描述"><a href="#网站描述" class="headerlink" title="网站描述"></a>网站描述</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">description:</div></pre></td></tr></table></figure>
-<h3 id="作者昵称"><a href="#作者昵称" class="headerlink" title="作者昵称"></a>作者昵称</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">author:</div></pre></td></tr></table></figure>
-<h3 id="网站语言，默认英语，设置简体汉语"><a href="#网站语言，默认英语，设置简体汉语" class="headerlink" title="网站语言，默认英语，设置简体汉语"></a>网站语言，默认英语，设置简体汉语</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">language: zh-Hans</div></pre></td></tr></table></figure>
-<h3 id="时区，默认电脑时区"><a href="#时区，默认电脑时区" class="headerlink" title="时区，默认电脑时区"></a>时区，默认电脑时区</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">### timezone: </span></div><div class="line">timezone: Asia/Shanghai</div></pre></td></tr></table></figure>
-<h3 id="网址设置"><a href="#网址设置" class="headerlink" title="网址设置"></a>网址设置</h3><h3 id="如果网站是放在子目录中，将url设置成’"><a href="#如果网站是放在子目录中，将url设置成’" class="headerlink" title="如果网站是放在子目录中，将url设置成’"></a>如果网站是放在子目录中，将url设置成’</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://yoursite.com/child<span class="string">'</span></div></pre></td></tr></table></figure>
-<p>将root设置成’/child/‘</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">If your site is put <span class="keyword">in</span> a subdirectory, <span class="built_in">set</span> url as <span class="string">'http://yoursite.com/child'</span> and root as <span class="string">'/child/'</span></div></pre></td></tr></table></figure>
-<p>###网址<br>url: </p>
-<h3 id="网站根目录。如果网站是放在子目录中，将root设置成’子目录名’"><a href="#网站根目录。如果网站是放在子目录中，将root设置成’子目录名’" class="headerlink" title="网站根目录。如果网站是放在子目录中，将root设置成’子目录名’"></a>网站根目录。如果网站是放在子目录中，将root设置成’子目录名’</h3><p>root: /</p>
-<h3 id="文章链接地址格式-。即文章存放的目录。"><a href="#文章链接地址格式-。即文章存放的目录。" class="headerlink" title="文章链接地址格式 。即文章存放的目录。"></a>文章链接地址格式 。即文章存放的目录。</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">permalink: :year/:month/:day/:title/</div><div class="line">permalink_defaults:</div></pre></td></tr></table></figure>
-<h3 id="目录设置"><a href="#目录设置" class="headerlink" title="目录设置"></a>目录设置</h3><h3 id="资源文件夹，放在里面的文件会上传到github中"><a href="#资源文件夹，放在里面的文件会上传到github中" class="headerlink" title="资源文件夹，放在里面的文件会上传到github中"></a>资源文件夹，放在里面的文件会上传到github中</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">source_dir: <span class="built_in">source</span></div></pre></td></tr></table></figure>
-<h3 id="公共文件夹，存放生成的静态文件"><a href="#公共文件夹，存放生成的静态文件" class="headerlink" title="公共文件夹，存放生成的静态文件"></a>公共文件夹，存放生成的静态文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">public_dir: public</div></pre></td></tr></table></figure>
-<h3 id="标签文件夹，默认是tags。实际存放在source-tags中。"><a href="#标签文件夹，默认是tags。实际存放在source-tags中。" class="headerlink" title="标签文件夹，默认是tags。实际存放在source/tags中。"></a>标签文件夹，默认是tags。实际存放在source/tags中。</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">tag_dir: tags</div><div class="line">rss_dir: rss</div></pre></td></tr></table></figure>
-<h3 id="档案文件夹，默认是archives。"><a href="#档案文件夹，默认是archives。" class="headerlink" title="档案文件夹，默认是archives。"></a>档案文件夹，默认是archives。</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">archive_dir: archives</div></pre></td></tr></table></figure>
-<h3 id="分类文件夹，默认是categories。实际存放在source-categories中。"><a href="#分类文件夹，默认是categories。实际存放在source-categories中。" class="headerlink" title="分类文件夹，默认是categories。实际存放在source/categories中。"></a>分类文件夹，默认是categories。实际存放在source/categories中。</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">category_dir: categories</div></pre></td></tr></table></figure>
-<h3 id="代码文件夹，默认是downloads-code"><a href="#代码文件夹，默认是downloads-code" class="headerlink" title="代码文件夹，默认是downloads/code"></a>代码文件夹，默认是downloads/code</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">code_dir: downloads/code</div></pre></td></tr></table></figure>
-<h3 id="国际化文件夹，默认跟language相同"><a href="#国际化文件夹，默认跟language相同" class="headerlink" title="国际化文件夹，默认跟language相同"></a>国际化文件夹，默认跟language相同</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">i18n_dir: :lang</div></pre></td></tr></table></figure>
-<h3 id="不需要渲染的文件夹或文件夹-放在-中"><a href="#不需要渲染的文件夹或文件夹-放在-中" class="headerlink" title="不需要渲染的文件夹或文件夹,放在[]中"></a>不需要渲染的文件夹或文件夹,放在[]中</h3><h3 id="这两个文件是百度和google的站长验证文件，不能渲染，否则会改变内容，不能验证过"><a href="#这两个文件是百度和google的站长验证文件，不能渲染，否则会改变内容，不能验证过" class="headerlink" title="这两个文件是百度和google的站长验证文件，不能渲染，否则会改变内容，不能验证过"></a>这两个文件是百度和google的站长验证文件，不能渲染，否则会改变内容，不能验证过</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">skip_render: [baidu_verify_R9MZjdMkXT.html, google0f8fac7da2b48ef8.html, README.md, 模板.md]</div></pre></td></tr></table></figure>
-<h3 id="写作选项"><a href="#写作选项" class="headerlink" title="写作选项"></a>写作选项</h3><h3 id="新建博文（帖子）的默认名称"><a href="#新建博文（帖子）的默认名称" class="headerlink" title="新建博文（帖子）的默认名称"></a>新建博文（帖子）的默认名称</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#File name of new posts</span></div><div class="line">new_post_name: :title.md</div></pre></td></tr></table></figure>
-<h3 id="默认布局模板是post，而不是draft和page"><a href="#默认布局模板是post，而不是draft和page" class="headerlink" title="默认布局模板是post，而不是draft和page"></a>默认布局模板是post，而不是draft和page</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">default_layout: post</div></pre></td></tr></table></figure>
-<h3 id="是否将标题转换成标题形式（首字母大写）"><a href="#是否将标题转换成标题形式（首字母大写）" class="headerlink" title="是否将标题转换成标题形式（首字母大写）"></a>是否将标题转换成标题形式（首字母大写）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">titlecase: <span class="literal">false</span> <span class="comment"># Transform title into titlecase</span></div></pre></td></tr></table></figure>
-<h3 id="在新标签页面中打开网页"><a href="#在新标签页面中打开网页" class="headerlink" title="在新标签页面中打开网页"></a>在新标签页面中打开网页</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">external_link: <span class="literal">true</span> <span class="comment"># Open external links in new tab</span></div><div class="line">filename_case: 0</div></pre></td></tr></table></figure>
-<h3 id="是否渲染草稿"><a href="#是否渲染草稿" class="headerlink" title="是否渲染草稿"></a>是否渲染草稿</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">render_drafts: <span class="literal">false</span></div></pre></td></tr></table></figure>
-<h3 id="启动-Asset-文件夹"><a href="#启动-Asset-文件夹" class="headerlink" title="启动 Asset 文件夹"></a>启动 Asset 文件夹</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">post_asset_folder: <span class="literal">false</span></div></pre></td></tr></table></figure>
-<h3 id="把链接改为与根目录的相对位址"><a href="#把链接改为与根目录的相对位址" class="headerlink" title="把链接改为与根目录的相对位址"></a>把链接改为与根目录的相对位址</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">relative_link: <span class="literal">false</span></div></pre></td></tr></table></figure>
-<h3 id="显示未来的文章"><a href="#显示未来的文章" class="headerlink" title="显示未来的文章"></a>显示未来的文章</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">future: <span class="literal">true</span></div></pre></td></tr></table></figure>
-<h3 id="代码块的设置"><a href="#代码块的设置" class="headerlink" title="代码块的设置"></a>代码块的设置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">highlight:</div><div class="line">  <span class="built_in">enable</span>: <span class="literal">true</span>         <span class="comment">#使用代码高亮</span></div><div class="line">  line_number: <span class="literal">true</span> <span class="comment">#显示行号</span></div><div class="line">  auto_detect: <span class="literal">true</span>  <span class="comment">#自动检测语言</span></div><div class="line">  tab_replace:</div></pre></td></tr></table></figure>
-<h3 id="分类和标签"><a href="#分类和标签" class="headerlink" title="分类和标签"></a>分类和标签</h3><h3 id="默认分类"><a href="#默认分类" class="headerlink" title="默认分类"></a>默认分类</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">default_category: uncategorized</div></pre></td></tr></table></figure>
-<h3 id="分类别名"><a href="#分类别名" class="headerlink" title="分类别名"></a>分类别名</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">category_map:</div></pre></td></tr></table></figure>
-<h3 id="标签别名"><a href="#标签别名" class="headerlink" title="标签别名"></a>标签别名</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tag_map:</div></pre></td></tr></table></figure>
-<h3 id="日期和时间格式"><a href="#日期和时间格式" class="headerlink" title="日期和时间格式"></a>日期和时间格式</h3><h3 id="Hexo-使用-Moment-js-来解析和显示时间。"><a href="#Hexo-使用-Moment-js-来解析和显示时间。" class="headerlink" title="Hexo 使用 Moment.js 来解析和显示时间。"></a>Hexo 使用 Moment.js 来解析和显示时间。</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#You can customize the date format as defined in</span></div><div class="line"><span class="comment">#http://momentjs.com/docs/#/displaying/format/</span></div><div class="line">date_format: YYYY-MM-DD</div><div class="line">time_format: HH:mm:ss</div></pre></td></tr></table></figure>
-<h3 id="分页配置"><a href="#分页配置" class="headerlink" title="分页配置"></a>分页配置</h3><h3 id="—————下面选项需要对应插件的支持—————"><a href="#—————下面选项需要对应插件的支持—————" class="headerlink" title="—————下面选项需要对应插件的支持—————"></a>—————下面选项需要对应插件的支持—————</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#npm install hexo-generator-index --save</span></div><div class="line"><span class="comment">#npm install hexo-generator-archive --save</span></div><div class="line"><span class="comment">#npm install hexo-generator-category --save</span></div><div class="line"><span class="comment">#npm install hexo-generator-tag --save</span></div><div class="line"><span class="comment">#Set per_page to 0 to disable pagination</span></div></pre></td></tr></table></figure>
-<h3 id="每页显示的文章量"><a href="#每页显示的文章量" class="headerlink" title="每页显示的文章量"></a>每页显示的文章量</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#per_page: 20</span></div></pre></td></tr></table></figure>
-<h3 id="首页的分页设置"><a href="#首页的分页设置" class="headerlink" title="首页的分页设置"></a>首页的分页设置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">index_generator:</div><div class="line">  per_page: 5</div></pre></td></tr></table></figure>
-<h3 id="归档页的分页设置"><a href="#归档页的分页设置" class="headerlink" title="归档页的分页设置"></a>归档页的分页设置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">archive_generator:</div><div class="line">  per_page: 30</div><div class="line">  yearly: <span class="literal">true</span></div><div class="line">  monthly: <span class="literal">true</span></div></pre></td></tr></table></figure>
-<h3 id="标签页的分页设置"><a href="#标签页的分页设置" class="headerlink" title="标签页的分页设置"></a>标签页的分页设置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">tag_generator:</div><div class="line">  per_page: 20</div></pre></td></tr></table></figure>
-<h3 id="分页路径，在public中可以看到"><a href="#分页路径，在public中可以看到" class="headerlink" title="分页路径，在public中可以看到"></a>分页路径，在public中可以看到</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#pagination_dir: page</span></div></pre></td></tr></table></figure>
-<h3 id="Extensions-拓展插件配置"><a href="#Extensions-拓展插件配置" class="headerlink" title="Extensions 拓展插件配置"></a>Extensions 拓展插件配置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#Plugins: https://hexo.io/plugins/</span></div><div class="line">plugins: </div><div class="line">baidusitemap: </div><div class="line">  path: baidusitemap.xml</div></pre></td></tr></table></figure>
-<h3 id="配置RSS"><a href="#配置RSS" class="headerlink" title="配置RSS"></a>配置RSS</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">feed: </div><div class="line">  <span class="comment">#feed 类型 (atom/rss2)</span></div><div class="line">  <span class="built_in">type</span>: atom   </div><div class="line">  <span class="comment">#rss 路径</span></div><div class="line">  path: atom.xml  </div><div class="line">  <span class="comment">### 在 rss 中最多生成的文章数(0显示所有)</span></div><div class="line">  <span class="built_in">limit</span>: 0</div></pre></td></tr></table></figure>
-<h3 id="自定义站点内容搜索"><a href="#自定义站点内容搜索" class="headerlink" title="自定义站点内容搜索"></a>自定义站点内容搜索</h3><h3 id="需要先安装插件："><a href="#需要先安装插件：" class="headerlink" title="需要先安装插件："></a>需要先安装插件：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#npm install hexo-generator-search --save</span></div><div class="line">search:</div><div class="line">  path: search.xml</div></pre></td></tr></table></figure>
-<h3 id="如只想索引文章，可设置为post"><a href="#如只想索引文章，可设置为post" class="headerlink" title="如只想索引文章，可设置为post"></a>如只想索引文章，可设置为post</h3><p>  field: all </p>
-<h3 id="主题配置"><a href="#主题配置" class="headerlink" title="主题配置"></a>主题配置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#Themes: https://hexo.io/themes/</span></div><div class="line"><span class="comment">#theme: false #禁用主题</span></div><div class="line"><span class="comment">#theme: landscape</span></div><div class="line">theme: next</div></pre></td></tr></table></figure>
-<h3 id="部署配置"><a href="#部署配置" class="headerlink" title="部署配置"></a>部署配置</h3><p>#Docs: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">https://hexo.io/docs/deployment.html</a><br>deploy:<br>  type: git</p>
-<p>  #repo: <a href="https://github.com/changerhe.github.io.git">https://github.com/changerhe.github.io.git</a><br>  repo: </p>
-<pre><code>#部署到github
-github: git@github.com:changerhe/changerhe.github.io.git,master
-#部署到coding.net。取消注释，可同时部署
-#coding: git@git.coding.net:chngerhe/blog.git,coding-pages
-</code></pre><p>  #type: baidu_url_submitter</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-<div class="theme-info">
-  <div class="powered-by"></div>
-  <span class="post-count">共30.8k字</span>
+  <span class="post-count">共33.4k字</span>
 </div>
 
     
@@ -2266,7 +2244,7 @@ github: git@github.com:changerhe/changerhe.github.io.git,master
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">32</span>
+                <span class="site-state-item-count">33</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2277,7 +2255,7 @@ github: git@github.com:changerhe/changerhe.github.io.git,master
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -2288,7 +2266,7 @@ github: git@github.com:changerhe/changerhe.github.io.git,master
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

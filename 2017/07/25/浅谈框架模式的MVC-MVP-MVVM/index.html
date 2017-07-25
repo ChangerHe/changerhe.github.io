@@ -1,0 +1,927 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JavaScript框架模式," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Changer He's Home Page" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="框架模式不是一门写代码的学问，而是一门管理与组织代码的学问。其本质是一种软件开发的模型。与设计模式不同，设计模式是在解决一类问题时总结抽象出的公共方法，如（工厂模式、单例模式。。等等），他们与某种具体的技术栈无关。一种框架模式往往使用了多种设计模式。下面来说一下框架设计的诞生原因及演化。 第一代：脚本式设计（无架构设计）下面这样的代码，就是没有任何设计模式的产物：123456789const a">
+<meta name="keywords" content="JavaScript框架模式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浅谈框架模式的MVC&#x2F;MVP&#x2F;MVVM">
+<meta property="og:url" content="https://github.com/ChangerHe/2017/07/25/浅谈框架模式的MVC-MVP-MVVM/index.html">
+<meta property="og:site_name" content="Changer He&#39;s Home Page">
+<meta property="og:description" content="框架模式不是一门写代码的学问，而是一门管理与组织代码的学问。其本质是一种软件开发的模型。与设计模式不同，设计模式是在解决一类问题时总结抽象出的公共方法，如（工厂模式、单例模式。。等等），他们与某种具体的技术栈无关。一种框架模式往往使用了多种设计模式。下面来说一下框架设计的诞生原因及演化。 第一代：脚本式设计（无架构设计）下面这样的代码，就是没有任何设计模式的产物：123456789const a">
+<meta property="og:updated_time" content="2017-07-25T02:45:14.136Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="浅谈框架模式的MVC&#x2F;MVP&#x2F;MVVM">
+<meta name="twitter:description" content="框架模式不是一门写代码的学问，而是一门管理与组织代码的学问。其本质是一种软件开发的模型。与设计模式不同，设计模式是在解决一类问题时总结抽象出的公共方法，如（工厂模式、单例模式。。等等），他们与某种具体的技术栈无关。一种框架模式往往使用了多种设计模式。下面来说一下框架设计的诞生原因及演化。 第一代：脚本式设计（无架构设计）下面这样的代码，就是没有任何设计模式的产物：123456789const a">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://github.com/ChangerHe/2017/07/25/浅谈框架模式的MVC-MVP-MVVM/"/>
+
+
+
+
+
+  <title> 浅谈框架模式的MVC/MVP/MVVM | Changer He's Home Page </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?dfac40c3a2e8f0af4127ebbb645d4a78";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Changer He's Home Page</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">What doesn't kill you make you stronger.</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://github.com/ChangerHe/2017/07/25/浅谈框架模式的MVC-MVP-MVVM/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Changer He">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Changer He's Home Page">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                浅谈框架模式的MVC/MVP/MVVM
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-25T10:24:22+08:00">
+                2017-07-25
+              </time>
+            
+
+            
+
+  <span class="post-letters-count">
+    &nbsp; | &nbsp;
+    <span>2,535 字</span>
+    &nbsp; | &nbsp;
+    <span>9 min</span>
+  </span>
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript框架模式/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript框架模式</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  2,535字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  9分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>框架模式不是一门写代码的学问，而是一门管理与组织代码的学问。其本质是一种软件开发的模型。与设计模式不同，设计模式是在解决一类问题时总结抽象出的公共方法，如（工厂模式、单例模式。。等等），他们与某种具体的技术栈无关。一种框架模式往往使用了多种设计模式。<br>下面来说一下框架设计的诞生原因及演化。</p>
+<h1 id="第一代：脚本式设计（无架构设计）"><a href="#第一代：脚本式设计（无架构设计）" class="headerlink" title="第一代：脚本式设计（无架构设计）"></a>第一代：脚本式设计（无架构设计）</h1><p>下面这样的代码，就是没有任何设计模式的产物：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">const a = document.createElement(&quot;a&quot;);</div><div class="line">a.innerHTML = &quot;www.google.com&quot;;</div><div class="line">a.href = &quot;//www.google.com&quot;;</div><div class="line">a.style.position = &quot;absolute&quot;;</div><div class="line">a.style.top = 100;</div><div class="line">a.onclick = function()&#123;</div><div class="line">    console.log(&quot;google&quot;);</div><div class="line">&#125;</div><div class="line"> document.body.appendChild(a);</div></pre></td></tr></table></figure></p>
+<p>这种搞法虽有不少缺点，但麻雀虽小五脏俱全，所有功能一应俱全。早些年由于UI程序还处在一个懵懂期， 逻辑不算太复杂，代码量也不会太多。这样的搞法似乎也没有什么问题。 毕竟到达A B两点最短的距离就是直线，上述代码可以说是实现某功能的最短路径。 典型的例子就是 ASM (虽然汇编语言不是用来写UI的)，他们共有的缺点是 :入口单一 功能简单 不可维护。</p>
+<p>我们来修改一下上面的逻辑：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">function doCss(a) &#123;</div><div class="line">    a.style.position = &quot;absolute&quot;;</div><div class="line">    a.style.top = 100;</div><div class="line">&#125;</div><div class="line">function doEvent(a) &#123;</div><div class="line">    a.onclick = function()&#123;</div><div class="line">        alert(&quot;google&quot;);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">function doAttribute(a)&#123;</div><div class="line">    a.innerHTML = &quot;www.google.com&quot;;</div><div class="line">    a.href = &quot;//www.google.com&quot;;</div><div class="line">&#125;</div><div class="line">const a = document.createElement(&quot;a&quot;);</div><div class="line">doCss(a);</div><div class="line">doEvent(a);</div><div class="line">doAttribute(a)</div><div class="line">document.body.appendChild(a);</div></pre></td></tr></table></figure></p>
+<p>这里我们将一个功能拆分成了3个部分，即 外观 事件 和属性。</p>
+<p>函数将他们重新分离成一个个独立的逻辑块，这样一定程度上达到了分离复用的目的，比如你想修改外观，就去doCss函数里去找。。。</p>
+<p>就像有钱人追求更多的财富，权贵追求更多权利一样。</p>
+<p>人类总在思考同一个问题， 我们能不能做得更好。。</p>
+<p>直到有一天。。。</p>
+<h1 id="第二代：代码文件分离-CodeBehind"><a href="#第二代：代码文件分离-CodeBehind" class="headerlink" title="第二代：代码文件分离(CodeBehind)"></a>第二代：代码文件分离(CodeBehind)</h1><p>HTML是视图文件，而对应的。csS文件是他的相关逻辑处理文件 事件驱动模式下，框架帮我们完成了基本的事件类型，我们要做的是在事件下完成相关业务逻辑。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;link href=&quot;style.css&quot; rel=&quot;stylesheet&quot; /&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">    &lt;script src=&quot;bundle.js&quot; &gt;&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+<p>各文件各司其职，编写的时候分离，在运行的时候合并。这样进一步降低了功能之间的耦合度。 视图看起来非常”清爽”，对应的逻辑也被分离成一个个文件， 交由相应的开发人员处理。</p>
+<p>如果你涉猎的技术范围很广，你会发现其实这种技术已经出现在诸多成熟的技术栈中。。。。</p>
+<p>但是，没过多久伊甸园欢乐的笑声被下面这个需求打破。。。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">`购买苹果按钮`绑定事件如下:</div><div class="line">1.int 苹果数变量 + 1;</div><div class="line">2.显示苹果数控件的值 = 苹果数变量;</div><div class="line"> </div><div class="line">`购买梨按钮`绑定事件如下:</div><div class="line">1.int 梨数变量 + 1;</div><div class="line">2.显示梨数控件的值 = 梨数变量;</div><div class="line"> </div><div class="line">...`吃苹果`</div><div class="line"> </div><div class="line">...`吃梨`</div></pre></td></tr></table></figure></p>
+<p>这里比较困难的是 第2步</p>
+<p>就是如果显示苹果数的控件是另一个程序员开发的黑盒， 如何修改其值?</p>
+<p>于是程序员A 去找 程序员B 寻求是否存在对应的 get/set 方法。</p>
+<p>程序员B说有， “有” 字还没落地， 开发买梨的程序员C 又踹门进来了，问了同样的问题， 后来才知道 开发吃苹果功能的程序员D正在路上。。。</p>
+<p>于是程序员B 不得不把接口的详细信息写到 wiki中， 于是 程序员CDEFGHIJKMLN 都看了wiki 懂了。</p>
+<p>完成这件事 程序员B 写wiki 花了 10分钟， 程序员CDEFGHIJKMLN 看wiki每人花 1分钟，一共团队成本 20分钟。</p>
+<p>于是 wiki中这个 get/set 接口函数出现在了每一个被绑定的函数里。一共4个button 出现4次</p>
+<p>ps: 这个get/set接口本质上就是一个view刷新接口</p>
+<p>事情仍在在酝酿:</p>
+<p>产品大爷发话了，需求改了！</p>
+<p>多了一个求和。</p>
+<p>于是伪代码变成了这样:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">`购买苹果按钮`绑定事件如下:</div><div class="line">1.int 苹果数变量 + 1;</div><div class="line">2.int 总和变量 = 苹果数变量 + 梨数变量;</div><div class="line">2.显示苹果数控件的值 = 苹果数变量;</div><div class="line">3.显示总和控件的值 = 总和变量;</div></pre></td></tr></table></figure></p>
+<p>这次 程序员B为了人身安全，提前把 get/set 接口发布到了 wiki上。。</p>
+<p>于是 总和控件的值 = 总和变量 这行代码出现了 4次。</p>
+<p>产品存在的意义，就是将程序狗虐到极致:qq</p>
+<p>于是需求改成了这样:</p>
+<p>q2</p>
+<p>只是删了一行。</p>
+<p>于是 4个函数中 所有相关代码都被删除。。。 共影响 4行代码。。</p>
+<p>段子讲完了，其核心问题在于，按照事件进行的业务模块划分，有时候是不合理的，事件是用户行为的入口，但不是程序逻辑的入口。 一个button的click就可能横跨N个领域， 需要N个人来进行协作， 这部分逻辑到最后还是会耦合在一起，通过各种函数封装进行解耦，无疑是扬汤止沸，而我们需要的是釜底抽薪</p>
+<h1 id="M-V-C-模型，视图，控制器"><a href="#M-V-C-模型，视图，控制器" class="headerlink" title="M-V-C:(模型，视图，控制器)"></a>M-V-C:(模型，视图，控制器)</h1><p>现在网上有很多关于mvc的介绍，让人纠结的是他们各不相同，而且有的根本就说的不对， 对于框架模式这东西，没有一个严格的规定说这样搞是 mvc 那样就不是。 甚至连mvc本身也有很多变种，我们只要从根源上理解这个东西就行。</p>
+<p>我就不扒祖坟了，咱们只需要知道它已经存在了 30多年就行了。</p>
+<p>我们思考一下 UI(图形化用户界面) 的本质:</p>
+<p>为什么要有UI， 在计算机眼中 一切即数据，其实要是深挖这个问题，数据与操作其实都是 0 1 组成的机器码，只不过 CPU运行的时候用指定寄存器的数据当做指令罢了，也就是说 决定一个数据到底是数据还是指令 只取决于他所在的寄存器位置。(好了好了 扯远了，往回跑。。) 数据的操作是抽象的，是专业人士干的事情， 计算机为了走进千家万户， 必须提供一种傻瓜式的操作方式，于是UI诞生了。。。 用一句话解释UI就是:他是数据到图像的一种映射程序;</p>
+<p>刚才说了它是一种映射程序，用户通过操作图像上的按钮，来达到操作数据的目的，数据被用户改变后，肯定需要从新生成映射。</p>
+<h2 id="Model-View-Controller-是干什么的"><a href="#Model-View-Controller-是干什么的" class="headerlink" title="Model View Controller 是干什么的:"></a>Model View Controller 是干什么的:</h2><p>1.View: 放置视图相关的代码，原则上里面不应该有任何业务逻辑。</p>
+<p>2.Controller: 放置视图与模型之间的映射，原则上这里应该很薄，他只放一些事件绑定相关的代码(router)，但并不实现真正的功能，他只是一个桥梁。</p>
+<p>3.Model: 这里的model不是说 实体类， 他是主要实现逻辑的地方。</p>
+<p>那还是上面 买水果的例子，那么在MVC下该如何设计呢:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">概念</th>
+<th style="text-align:center">解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">view层</td>
+<td style="text-align:center">放置界面代码，以及一些刷新逻辑 如数据中的 0 1 转成 男 女</td>
+</tr>
+<tr>
+<td style="text-align:center">controller层</td>
+<td style="text-align:center">放置一些绑定逻辑。完成router，不实现函数体。</td>
+</tr>
+<tr>
+<td style="text-align:center">model层</td>
+<td style="text-align:center">接收view的注册，当自身数据变化时，执行view的刷新函数。 业务逻辑都在这里</td>
+</tr>
+</tbody>
+</table>
+<p>他是这样一个流程:</p>
+<p>1.创建显示苹果数量的控件。</p>
+<p>2.将上面控件注册到model中。(设置关联的数据，–苹果数变量)</p>
+<p>3.修改model中 苹果数变量 。</p>
+<p>4.由于苹果数变量被修改，触发所有绑定在上面的控件(view)从新执行刷新函数。</p>
+<p>5.显示苹果数量的控件被更新。</p>
+<p>这样便解决了大部分界面与逻辑耦合的问题，但是它并不完美:</p>
+<p>View 和 Model 并不是完全脱离的，还是有一些逻辑耦合，因为需要根据修改后的model从新刷新view。 难免view里面沾染一点model的结构。</p>
+<p>代码量膨胀。</p>
+<p>不方便进行更精细的颗粒化控制。(因为view只知道 model被改了，但不知道谁改的!)</p>
+<p>model在对应多个view的时候，很难都伺候到位。<br>于是。。。</p>
+<h1 id="M-V-P-模型，视图，派发器"><a href="#M-V-P-模型，视图，派发器" class="headerlink" title="M-V-P:(模型，视图，派发器)"></a>M-V-P:(模型，视图，派发器)</h1><p>针对mvc的一些问题，在mvp模式下， 斩断了 view 与 model的关系， 当m 改变时，m 通知 p 去改变v， 所以v变得更纯洁(刷新逻辑被移动到了p层)， 为了保证m可以最大程度的复用 一部分业务逻辑也从 m 转移到了p所以 mvp下 p 非常厚实。</p>
+<p>mvp中最后改变v的是p那么在 v与p 之间会有一个接口，解决怎么转换以及传值的问题。</p>
+<h1 id="M-V-VM-模型，视图，抽象视图"><a href="#M-V-VM-模型，视图，抽象视图" class="headerlink" title="M-V-VM:(模型，视图，抽象视图)"></a>M-V-VM:(模型，视图，抽象视图)</h1><p>mvvm 与 mvp 的最大区别就是它使用 数据绑定(Data Binding)、依赖属性(Dependency Property)、命令(Command)、路由事件(Routed Event) 来搞定与view层的交互， 但是这种绑定是与某种具体技术栈相关的， ViewModel从Model中抽象而来，但更贴近于业务模型， 比如你Model中某字段是 true false， ViewModel中可能就是 “黑”，”白”等 这种更贴近业务场景的描述。 ViewModel中的属性直接与某具体控件的属性相绑定。 也就是说当某具体控件发生变化，ViewModel中的 某个字段就会跟着变化，然后Model中的字段也会进一步变化。</p>
+<p>(以上文章摘自网络)</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript框架模式/" rel="tag"># JavaScript框架模式</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/19/CSS样式书写规范/" rel="next" title="CSS样式书写规范">
+                <i class="fa fa-chevron-left"></i> CSS样式书写规范
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">共33.4k字</span>
+</div>
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Changer He" />
+          <p class="site-author-name" itemprop="name">Changer He</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/ChangerHe" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://wpa.qq.com/msgrd?v=3&uin=244737162&site=qq&menu=yes" target="_blank" title="QQ">
+                  
+                    <i class="fa fa-fw fa-qq"></i>
+                  
+                  QQ
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/ChangerHeee" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/changerhe-51/activities" target="_blank" title="ZhiHu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  ZhiHu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第一代：脚本式设计（无架构设计）"><span class="nav-number">1.</span> <span class="nav-text">第一代：脚本式设计（无架构设计）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第二代：代码文件分离-CodeBehind"><span class="nav-number">2.</span> <span class="nav-text">第二代：代码文件分离(CodeBehind)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#M-V-C-模型，视图，控制器"><span class="nav-number">3.</span> <span class="nav-text">M-V-C:(模型，视图，控制器)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Model-View-Controller-是干什么的"><span class="nav-number">3.1.</span> <span class="nav-text">Model View Controller 是干什么的:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#M-V-P-模型，视图，派发器"><span class="nav-number">4.</span> <span class="nav-text">M-V-P:(模型，视图，派发器)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#M-V-VM-模型，视图，抽象视图"><span class="nav-number">5.</span> <span class="nav-text">M-V-VM:(模型，视图，抽象视图)</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Changer He</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+ 
+</body>
+</html>

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/ChangerHe/"/>
-  <updated>2017-07-19T13:40:49.913Z</updated>
+  <updated>2017-07-25T02:45:14.136Z</updated>
   <id>https://github.com/ChangerHe/</id>
   
   <author>
@@ -14,6 +14,107 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>浅谈框架模式的MVC/MVP/MVVM</title>
+    <link href="https://github.com/ChangerHe/2017/07/25/%E6%B5%85%E8%B0%88%E6%A1%86%E6%9E%B6%E6%A8%A1%E5%BC%8F%E7%9A%84MVC-MVP-MVVM/"/>
+    <id>https://github.com/ChangerHe/2017/07/25/浅谈框架模式的MVC-MVP-MVVM/</id>
+    <published>2017-07-25T02:24:22.000Z</published>
+    <updated>2017-07-25T02:45:14.136Z</updated>
+    
+    <content type="html"><![CDATA[<p>框架模式不是一门写代码的学问，而是一门管理与组织代码的学问。其本质是一种软件开发的模型。与设计模式不同，设计模式是在解决一类问题时总结抽象出的公共方法，如（工厂模式、单例模式。。等等），他们与某种具体的技术栈无关。一种框架模式往往使用了多种设计模式。<br>下面来说一下框架设计的诞生原因及演化。</p>
+<h1 id="第一代：脚本式设计（无架构设计）"><a href="#第一代：脚本式设计（无架构设计）" class="headerlink" title="第一代：脚本式设计（无架构设计）"></a>第一代：脚本式设计（无架构设计）</h1><p>下面这样的代码，就是没有任何设计模式的产物：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">const a = document.createElement(&quot;a&quot;);</div><div class="line">a.innerHTML = &quot;www.google.com&quot;;</div><div class="line">a.href = &quot;//www.google.com&quot;;</div><div class="line">a.style.position = &quot;absolute&quot;;</div><div class="line">a.style.top = 100;</div><div class="line">a.onclick = function()&#123;</div><div class="line">    console.log(&quot;google&quot;);</div><div class="line">&#125;</div><div class="line"> document.body.appendChild(a);</div></pre></td></tr></table></figure></p>
+<p>这种搞法虽有不少缺点，但麻雀虽小五脏俱全，所有功能一应俱全。早些年由于UI程序还处在一个懵懂期， 逻辑不算太复杂，代码量也不会太多。这样的搞法似乎也没有什么问题。 毕竟到达A B两点最短的距离就是直线，上述代码可以说是实现某功能的最短路径。 典型的例子就是 ASM (虽然汇编语言不是用来写UI的)，他们共有的缺点是 :入口单一 功能简单 不可维护。</p>
+<p>我们来修改一下上面的逻辑：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">function doCss(a) &#123;</div><div class="line">    a.style.position = &quot;absolute&quot;;</div><div class="line">    a.style.top = 100;</div><div class="line">&#125;</div><div class="line">function doEvent(a) &#123;</div><div class="line">    a.onclick = function()&#123;</div><div class="line">        alert(&quot;google&quot;);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">function doAttribute(a)&#123;</div><div class="line">    a.innerHTML = &quot;www.google.com&quot;;</div><div class="line">    a.href = &quot;//www.google.com&quot;;</div><div class="line">&#125;</div><div class="line">const a = document.createElement(&quot;a&quot;);</div><div class="line">doCss(a);</div><div class="line">doEvent(a);</div><div class="line">doAttribute(a)</div><div class="line">document.body.appendChild(a);</div></pre></td></tr></table></figure></p>
+<p>这里我们将一个功能拆分成了3个部分，即 外观 事件 和属性。</p>
+<p>函数将他们重新分离成一个个独立的逻辑块，这样一定程度上达到了分离复用的目的，比如你想修改外观，就去doCss函数里去找。。。</p>
+<p>就像有钱人追求更多的财富，权贵追求更多权利一样。</p>
+<p>人类总在思考同一个问题， 我们能不能做得更好。。</p>
+<p>直到有一天。。。</p>
+<h1 id="第二代：代码文件分离-CodeBehind"><a href="#第二代：代码文件分离-CodeBehind" class="headerlink" title="第二代：代码文件分离(CodeBehind)"></a>第二代：代码文件分离(CodeBehind)</h1><p>HTML是视图文件，而对应的。csS文件是他的相关逻辑处理文件 事件驱动模式下，框架帮我们完成了基本的事件类型，我们要做的是在事件下完成相关业务逻辑。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;link href=&quot;style.css&quot; rel=&quot;stylesheet&quot; /&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">    &lt;script src=&quot;bundle.js&quot; &gt;&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+<p>各文件各司其职，编写的时候分离，在运行的时候合并。这样进一步降低了功能之间的耦合度。 视图看起来非常”清爽”，对应的逻辑也被分离成一个个文件， 交由相应的开发人员处理。</p>
+<p>如果你涉猎的技术范围很广，你会发现其实这种技术已经出现在诸多成熟的技术栈中。。。。</p>
+<p>但是，没过多久伊甸园欢乐的笑声被下面这个需求打破。。。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">`购买苹果按钮`绑定事件如下:</div><div class="line">1.int 苹果数变量 + 1;</div><div class="line">2.显示苹果数控件的值 = 苹果数变量;</div><div class="line"> </div><div class="line">`购买梨按钮`绑定事件如下:</div><div class="line">1.int 梨数变量 + 1;</div><div class="line">2.显示梨数控件的值 = 梨数变量;</div><div class="line"> </div><div class="line">...`吃苹果`</div><div class="line"> </div><div class="line">...`吃梨`</div></pre></td></tr></table></figure></p>
+<p>这里比较困难的是 第2步</p>
+<p>就是如果显示苹果数的控件是另一个程序员开发的黑盒， 如何修改其值?</p>
+<p>于是程序员A 去找 程序员B 寻求是否存在对应的 get/set 方法。</p>
+<p>程序员B说有， “有” 字还没落地， 开发买梨的程序员C 又踹门进来了，问了同样的问题， 后来才知道 开发吃苹果功能的程序员D正在路上。。。</p>
+<p>于是程序员B 不得不把接口的详细信息写到 wiki中， 于是 程序员CDEFGHIJKMLN 都看了wiki 懂了。</p>
+<p>完成这件事 程序员B 写wiki 花了 10分钟， 程序员CDEFGHIJKMLN 看wiki每人花 1分钟，一共团队成本 20分钟。</p>
+<p>于是 wiki中这个 get/set 接口函数出现在了每一个被绑定的函数里。一共4个button 出现4次</p>
+<p>ps: 这个get/set接口本质上就是一个view刷新接口</p>
+<p>事情仍在在酝酿:</p>
+<p>产品大爷发话了，需求改了！</p>
+<p>多了一个求和。</p>
+<p>于是伪代码变成了这样:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">`购买苹果按钮`绑定事件如下:</div><div class="line">1.int 苹果数变量 + 1;</div><div class="line">2.int 总和变量 = 苹果数变量 + 梨数变量;</div><div class="line">2.显示苹果数控件的值 = 苹果数变量;</div><div class="line">3.显示总和控件的值 = 总和变量;</div></pre></td></tr></table></figure></p>
+<p>这次 程序员B为了人身安全，提前把 get/set 接口发布到了 wiki上。。</p>
+<p>于是 总和控件的值 = 总和变量 这行代码出现了 4次。</p>
+<p>产品存在的意义，就是将程序狗虐到极致:qq</p>
+<p>于是需求改成了这样:</p>
+<p>q2</p>
+<p>只是删了一行。</p>
+<p>于是 4个函数中 所有相关代码都被删除。。。 共影响 4行代码。。</p>
+<p>段子讲完了，其核心问题在于，按照事件进行的业务模块划分，有时候是不合理的，事件是用户行为的入口，但不是程序逻辑的入口。 一个button的click就可能横跨N个领域， 需要N个人来进行协作， 这部分逻辑到最后还是会耦合在一起，通过各种函数封装进行解耦，无疑是扬汤止沸，而我们需要的是釜底抽薪</p>
+<h1 id="M-V-C-模型，视图，控制器"><a href="#M-V-C-模型，视图，控制器" class="headerlink" title="M-V-C:(模型，视图，控制器)"></a>M-V-C:(模型，视图，控制器)</h1><p>现在网上有很多关于mvc的介绍，让人纠结的是他们各不相同，而且有的根本就说的不对， 对于框架模式这东西，没有一个严格的规定说这样搞是 mvc 那样就不是。 甚至连mvc本身也有很多变种，我们只要从根源上理解这个东西就行。</p>
+<p>我就不扒祖坟了，咱们只需要知道它已经存在了 30多年就行了。</p>
+<p>我们思考一下 UI(图形化用户界面) 的本质:</p>
+<p>为什么要有UI， 在计算机眼中 一切即数据，其实要是深挖这个问题，数据与操作其实都是 0 1 组成的机器码，只不过 CPU运行的时候用指定寄存器的数据当做指令罢了，也就是说 决定一个数据到底是数据还是指令 只取决于他所在的寄存器位置。(好了好了 扯远了，往回跑。。) 数据的操作是抽象的，是专业人士干的事情， 计算机为了走进千家万户， 必须提供一种傻瓜式的操作方式，于是UI诞生了。。。 用一句话解释UI就是:他是数据到图像的一种映射程序;</p>
+<p>刚才说了它是一种映射程序，用户通过操作图像上的按钮，来达到操作数据的目的，数据被用户改变后，肯定需要从新生成映射。</p>
+<h2 id="Model-View-Controller-是干什么的"><a href="#Model-View-Controller-是干什么的" class="headerlink" title="Model View Controller 是干什么的:"></a>Model View Controller 是干什么的:</h2><p>1.View: 放置视图相关的代码，原则上里面不应该有任何业务逻辑。</p>
+<p>2.Controller: 放置视图与模型之间的映射，原则上这里应该很薄，他只放一些事件绑定相关的代码(router)，但并不实现真正的功能，他只是一个桥梁。</p>
+<p>3.Model: 这里的model不是说 实体类， 他是主要实现逻辑的地方。</p>
+<p>那还是上面 买水果的例子，那么在MVC下该如何设计呢:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">概念</th>
+<th style="text-align:center">解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">view层</td>
+<td style="text-align:center">放置界面代码，以及一些刷新逻辑 如数据中的 0 1 转成 男 女</td>
+</tr>
+<tr>
+<td style="text-align:center">controller层</td>
+<td style="text-align:center">放置一些绑定逻辑。完成router，不实现函数体。</td>
+</tr>
+<tr>
+<td style="text-align:center">model层</td>
+<td style="text-align:center">接收view的注册，当自身数据变化时，执行view的刷新函数。 业务逻辑都在这里</td>
+</tr>
+</tbody>
+</table>
+<p>他是这样一个流程:</p>
+<p>1.创建显示苹果数量的控件。</p>
+<p>2.将上面控件注册到model中。(设置关联的数据，–苹果数变量)</p>
+<p>3.修改model中 苹果数变量 。</p>
+<p>4.由于苹果数变量被修改，触发所有绑定在上面的控件(view)从新执行刷新函数。</p>
+<p>5.显示苹果数量的控件被更新。</p>
+<p>这样便解决了大部分界面与逻辑耦合的问题，但是它并不完美:</p>
+<p>View 和 Model 并不是完全脱离的，还是有一些逻辑耦合，因为需要根据修改后的model从新刷新view。 难免view里面沾染一点model的结构。</p>
+<p>代码量膨胀。</p>
+<p>不方便进行更精细的颗粒化控制。(因为view只知道 model被改了，但不知道谁改的!)</p>
+<p>model在对应多个view的时候，很难都伺候到位。<br>于是。。。</p>
+<h1 id="M-V-P-模型，视图，派发器"><a href="#M-V-P-模型，视图，派发器" class="headerlink" title="M-V-P:(模型，视图，派发器)"></a>M-V-P:(模型，视图，派发器)</h1><p>针对mvc的一些问题，在mvp模式下， 斩断了 view 与 model的关系， 当m 改变时，m 通知 p 去改变v， 所以v变得更纯洁(刷新逻辑被移动到了p层)， 为了保证m可以最大程度的复用 一部分业务逻辑也从 m 转移到了p所以 mvp下 p 非常厚实。</p>
+<p>mvp中最后改变v的是p那么在 v与p 之间会有一个接口，解决怎么转换以及传值的问题。</p>
+<h1 id="M-V-VM-模型，视图，抽象视图"><a href="#M-V-VM-模型，视图，抽象视图" class="headerlink" title="M-V-VM:(模型，视图，抽象视图)"></a>M-V-VM:(模型，视图，抽象视图)</h1><p>mvvm 与 mvp 的最大区别就是它使用 数据绑定(Data Binding)、依赖属性(Dependency Property)、命令(Command)、路由事件(Routed Event) 来搞定与view层的交互， 但是这种绑定是与某种具体技术栈相关的， ViewModel从Model中抽象而来，但更贴近于业务模型， 比如你Model中某字段是 true false， ViewModel中可能就是 “黑”，”白”等 这种更贴近业务场景的描述。 ViewModel中的属性直接与某具体控件的属性相绑定。 也就是说当某具体控件发生变化，ViewModel中的 某个字段就会跟着变化，然后Model中的字段也会进一步变化。</p>
+<p>(以上文章摘自网络)</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;框架模式不是一门写代码的学问，而是一门管理与组织代码的学问。其本质是一种软件开发的模型。与设计模式不同，设计模式是在解决一类问题时总结抽象出的公共方法，如（工厂模式、单例模式。。等等），他们与某种具体的技术栈无关。一种框架模式往往使用了多种设计模式。&lt;br&gt;下面来说一下框架
+    
+    </summary>
+    
+      <category term="JavaScript框架模式" scheme="https://github.com/ChangerHe/categories/JavaScript%E6%A1%86%E6%9E%B6%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+      <category term="JavaScript框架模式" scheme="https://github.com/ChangerHe/tags/JavaScript%E6%A1%86%E6%9E%B6%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>CSS样式书写规范</title>
@@ -933,61 +1034,6 @@ reduceRight():迭代数组所有项，从最后一个数开始。
     <summary type="html">
     
       &lt;h1 id=&quot;sass学习进阶&quot;&gt;&lt;a href=&quot;#sass学习进阶&quot; class=&quot;headerlink&quot; title=&quot;sass学习进阶&quot;&gt;&lt;/a&gt;sass学习进阶&lt;/h1&gt;&lt;h2 id=&quot;if语句&quot;&gt;&lt;a href=&quot;#if语句&quot; class=&quot;headerlink&quot; 
-    
-    </summary>
-    
-      <category term="SASS 学习笔记" scheme="https://github.com/ChangerHe/categories/SASS-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="SASS" scheme="https://github.com/ChangerHe/tags/SASS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SASS学习笔记</title>
-    <link href="https://github.com/ChangerHe/2017/06/27/SASS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    <id>https://github.com/ChangerHe/2017/06/27/SASS学习笔记/</id>
-    <published>2017-06-27T07:37:18.000Z</published>
-    <updated>2017-06-27T11:35:43.662Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Sass语法"><a href="#Sass语法" class="headerlink" title="Sass语法"></a>Sass语法</h1><p>Sass 有两种语法。 第一种被称为 SCSS (Sassy CSS)，是一个 CSS3 语法的扩充版本。也就是说，所有符合CSS3语法的样式表也都是具有相同语法意义的SCSS文件。另外，SCSS理解大多数CSShacks以及浏览器专属语法，例如IE古老的filter 语法。这种语种语法的样式表文件需要以.scss扩展名。<br>第二种比较老的语法成为缩排语法（或者就称为 “Sass”），提供了一种更简洁的CSS书写方式。它不使用花括号，而是通过缩排的方式来表达选择符的嵌套层级，而且也不使用分号，而是用换行符来分隔属性。很多人认为这种格式比SCSS更容易阅读，书写也更快速。缩排语法具有Sass的所有特色功能,虽然有些语法上稍有差异；这些差异在{file:INDENTED_SYNTAX.md所排语法参考手册}中都有描述。使用此种语法的样式表文件需要以.sass作为扩展名。</p>
-<h2 id="sass的转换"><a href="#sass的转换" class="headerlink" title="sass的转换"></a>sass的转换</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># 将 Sass 转换为 SCSS</div><div class="line">$ sass-convert style.sass style.scss</div><div class="line"></div><div class="line"># 将 SCSS 转换为 Sass</div><div class="line">$ sass-convert style.scss style.sass</div></pre></td></tr></table></figure>
-<p>Sass 有三种使用方式： 命令行工具、独立的 Ruby 模块，以及包含 Ruby on Rails 和 Merb 作为支持 Rack 的框架的插件。 所有这些方式的第一步都是安装 Sass gem：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gem install sass</div></pre></td></tr></table></figure></p>
-<p>如果你使用的是 Windows， 就需要先安装 Ruby。</p>
-<p>如果要在命令行中运行 Sass ,只要输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sass input.scss output.css</div></pre></td></tr></table></figure></p>
-<p>你还可以命令 Sass 监视文件的改动并更新 CSS ：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sass --watch input.scss:output.css</div></pre></td></tr></table></figure></p>
-<p>如果你的目录里有很多 Sass 文件，你还可以命令 Sass 监视整个目录：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sass --watch app/sass:public/stylesheets</div></pre></td></tr></table></figure></p>
-<h1 id="sass编译"><a href="#sass编译" class="headerlink" title="sass编译"></a>sass编译</h1><h2 id="命令行编译"><a href="#命令行编译" class="headerlink" title="命令行编译"></a>命令行编译</h2><p>单文件转换命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sass style.scss style.css</div></pre></td></tr></table></figure></p>
-<p>单文件监听命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sass --watch style.scss:style.css</div></pre></td></tr></table></figure></p>
-<p>文件夹监听命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sass --watch sassFileDirectory:cssFileDirectory</div></pre></td></tr></table></figure></p>
-<p>css文件转成sass/scss文件（在线转换工具css2sass）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sass-convert style.css style.sass   </div><div class="line">sass-convert style.css style.scss</div></pre></td></tr></table></figure></p>
-<h2 id="编译格式"><a href="#编译格式" class="headerlink" title="编译格式"></a>编译格式</h2><p>我们一般常用的有–style，–sourcemap，–debug-info等。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sass --watch style.scss:style.css --style compact</div><div class="line">sass --watch style.scss:style.css --sourcemap</div><div class="line">sass --watch style.scss:style.css --style expanded --sourcemap</div><div class="line">sass --watch style.scss:style.css --debug-info</div></pre></td></tr></table></figure></p>
-<p>–style表示解析后的css是什么格式，有四种取值分别为：nested，expanded，compact，compressed。<br>–sourcemap表示开启sourcemap调试。开启sourcemap调试后，会生成一个后缀名为.css.map文件。<br>–debug-info表示开启debug信息，升级到3.3.0之后因为sourcemap更高级，这个debug-info就不太用了。</p>
-<h1 id="sass混合宏"><a href="#sass混合宏" class="headerlink" title="sass混合宏"></a>sass混合宏</h1><h2 id="混合宏的关键词"><a href="#混合宏的关键词" class="headerlink" title="混合宏的关键词"></a>混合宏的关键词</h2><p>在sass中通过@mixin关键词声明一个混合宏，那么在实际调用中，其匹配了一个关键词@include来调用声明好的混合宏。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">@mixin border-radius&#123;   //对混合宏进行声明</div><div class="line">	-webkit-border-radius: 3px;</div><div class="line">	border-radius: 3px;</div><div class="line">&#125;</div><div class="line">button&#123;</div><div class="line">	@include border-radius: 3px;  //对声明出的混合宏进行使用关键字@include调用</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>此时编译出的css为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">button&#123;</div><div class="line">	-webkit-border-radius: 3px;</div><div class="line">	border: 3px;</div><div class="line">&#125;</div><div class="line"></div><div class="line">## 混合宏的传参</div><div class="line">sass有一个强大的混合宏功能：传参。混合宏传参有以下几种情形：</div><div class="line">### 1.传一个不带值的参数</div></pre></td></tr></table></figure></p>
-<p>@mixin border-radius($radius){<br>    -webkit-border-radius: $radius;<br>    border-radius: $radius;<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">在调用是，给这个混合宏进行参数传递，即可。如，当我想传递给radius传参3px时。代码如下：</div></pre></td></tr></table></figure></p>
-<p>.box{<br>    @include border-radius(3px);<br>}<br>此时编译出的结果为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.box&#123;</div><div class="line">	-webkit-border-radius: 3px;</div><div class="line">	border-radius: 3px;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="2-传一个带值的参数"><a href="#2-传一个带值的参数" class="headerlink" title="2.传一个带值的参数"></a>2.传一个带值的参数</h3><p>在sass中可以给参数带一个默认的值，在调用时，就可以直接使用此默认值进行编译，这种情况适用于比较多地方使用默认值的时候，此时可设置一个默认值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">@mixin border-radius($radius: 3px)&#123;</div><div class="line">	-webkit-border-radius: $radius;</div><div class="line">	border-radius: $radius;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="3-传递多个参数"><a href="#3-传递多个参数" class="headerlink" title="3.传递多个参数"></a>3.传递多个参数</h3><p>sass中不仅可以传递一个参数，还可传递多个参数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">@mixin size($width,$height)&#123;</div><div class="line">	width: $width;</div><div class="line">	height: $height;</div><div class="line">&#125;</div><div class="line">.box-center&#123;</div><div class="line">	@include size(500px,300px);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h1 id="sass扩展"><a href="#sass扩展" class="headerlink" title="sass扩展"></a>sass扩展</h1><h3 id="sass继承"><a href="#sass继承" class="headerlink" title="sass继承"></a>sass继承</h3><p>sass可以继承类中的样式代码块，在sass中是通过关键字@extend来继承已经存在的类样式块的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">.btn&#123;</div><div class="line">	border: 1px solid #ccc;</div><div class="line">	padding: 6px 10px;</div><div class="line">	font-size: 14px;</div><div class="line">&#125;</div><div class="line">.btn-primary&#123;</div><div class="line">	background: #f36;</div><div class="line">	color: #fff;</div><div class="line">	@extend: .btn;</div><div class="line">&#125;</div><div class="line">.btn-second&#123;</div><div class="line">	background: orange;</div><div class="line">	color: #fff;</div><div class="line">	@extend .btn;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>编译出的结果是精简的写法，不想之前通过@include进行编译的一样，通过@include编译出来的是没有简化写法的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">.btn,.btn-primary,.btn-second&#123;</div><div class="line">	border: 1px solid #ccc;</div><div class="line">	padding: 6px 10px;</div><div class="line">	font-size: 14px;</div><div class="line">&#125;</div><div class="line">.btn-primary&#123;</div><div class="line">	background: #f36;</div><div class="line">	color: #fff;</div><div class="line">&#125;</div><div class="line">.btn-second&#123;</div><div class="line">	background: orange;</div><div class="line">	color: #fff;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="sass占位符（-placeholder）"><a href="#sass占位符（-placeholder）" class="headerlink" title="sass占位符（%placeholder）"></a>sass占位符（%placeholder）</h3><p>占位符（%placeholder）声明的代码，如果不被@extend调用的话，不会产生任何代码。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">%mt5&#123;</div><div class="line">	margin-top: 5px;</div><div class="line">&#125;</div><div class="line">%pt5&#123;</div><div class="line">	padding-top: 5px;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>以上代码若不被@extend调用，则不会产生任何代码块，但是当调用的时候，该代码块才会生效。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.btn&#123;</div><div class="line">	@extend %mt5;</div><div class="line">	@extend %pt5;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>此时解析出的结果为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.btn&#123;</div><div class="line">	margin-top: 5px;</div><div class="line">	padding-top: 5px;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="使用混合宏，继承，占位符的方式和使用对象比较"><a href="#使用混合宏，继承，占位符的方式和使用对象比较" class="headerlink" title="使用混合宏，继承，占位符的方式和使用对象比较"></a>使用混合宏，继承，占位符的方式和使用对象比较</h2><p>!(PIC)[<a href="http://img.mukewang.com/55263aa30001913307940364.jpg" target="_blank" rel="external">http://img.mukewang.com/55263aa30001913307940364.jpg</a>]</p>
-<h3 id="sass插值"><a href="#sass插值" class="headerlink" title="sass插值#{}"></a>sass插值#{}</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">@mixin firefox-message($selector)&#123;</div><div class="line">	body.firefox #&#123;$selector&#125;:before&#123;</div><div class="line">		content : &quot;Hi, firefox users!&quot;;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">@include firefox-message(&quot;.header&quot;);</div><div class="line">//编译结果为</div><div class="line">body.forefox .header:before&#123;</div><div class="line">	content: &quot;Hi,firefox users!&quot;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h1 id="sass运算"><a href="#sass运算" class="headerlink" title="sass运算"></a>sass运算</h1><h2 id="加法"><a href="#加法" class="headerlink" title="加法"></a>加法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.box&#123;</div><div class="line">	width: 20px + 8in;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="减法"><a href="#减法" class="headerlink" title="减法"></a>减法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$full-width: 960px;</div><div class="line">$sidebar-width: 200px;</div><div class="line">.content&#123;</div><div class="line">	width: $full-width - $sidebar-width;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="乘法"><a href="#乘法" class="headerlink" title="乘法"></a>乘法</h2><p>乘法只能乘以一个数字，不能乘以一个数字加上单位，否则会报错<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.box&#123;</div><div class="line">	width: 10px *2px;  //报错“20px*px isn&apos;t a valid CSS value.”</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="除法"><a href="#除法" class="headerlink" title="除法"></a>除法</h2><p>除法在应用时，需要加上括号<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">.box&#123;</div><div class="line">	width: (100px / 2);</div><div class="line">&#125;</div><div class="line">//编译后等价于</div><div class="line">.box&#123;</div><div class="line">	width: 50px;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>当使用变量或者其他运算常亮进行计算时，可以不加括号。</p>
-<h2 id="字符运算"><a href="#字符运算" class="headerlink" title="字符运算"></a>字符运算</h2><p>在sass中可以使用符号+来实现字符串的链接。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$content: &quot;hello&quot; + &quot; &quot; + &quot;sass!&quot;;</div><div class="line">.box: before&#123;</div><div class="line">	ontent: &quot;#&#123;$content&#125;&quot;;</div><div class="line">&#125;</div><div class="line">//编译后等价于</div><div class="line">.box: before&#123;</div><div class="line">	content: &quot;hello sass!&quot;;</div><div class="line">&#125;</div><div class="line">除了在变量中做字符连接运算以外，还可以直接通过加号把字符连在一起</div></pre></td></tr></table></figure></p>
-<p>div{<br>    cursor: e + -resize;<br>}<br>//编译后等价于<br>div{<br>    cursor: e-resize;<br>}<br>```<br>注意，如果有引号的字符串被添加了一个没有引号的字符串，结果会是一个有引号的字符串。<br>同样的，如果一个没有引号的字符串被添加了一个有引号的字符串，结果将是一个没有引号的字符串。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Sass语法&quot;&gt;&lt;a href=&quot;#Sass语法&quot; class=&quot;headerlink&quot; title=&quot;Sass语法&quot;&gt;&lt;/a&gt;Sass语法&lt;/h1&gt;&lt;p&gt;Sass 有两种语法。 第一种被称为 SCSS (Sassy CSS)，是一个 CSS3 语法的扩充版本。也
     
     </summary>
     
