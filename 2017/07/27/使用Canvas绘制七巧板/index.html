@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="jQuery," />
+  <meta name="keywords" content="Canvas学习笔记," />
 
 
 
@@ -89,17 +89,17 @@
 
 
 
-<meta name="description" content="整体地看了一遍《锋利的jQuery》这本书，老师对jQuery这个脚本库进行了非常详细的解答，通俗易懂，但是感觉对AJAX我还是云里雾里，过两天有网了还是要撸一下AJAX。同时，我对里面的API还是不够熟悉，过一段时间，还要再看一遍！再对着上面的代码再敲一遍才好。等JS高程全部搞懂了，一定要把JQ的源码撸一遍！今天看了张鑫旭大神的《我对知乎前端问题的十问十答》狠狠地抽醒了我，作为一个大学的时候玩H">
-<meta name="keywords" content="jQuery">
+<meta name="description" content="中午登上慕课网，偶然发现慕课网改版了，这倒是其次，惊奇的是页面居然出现了不显示我的观看记录和观看百分比的BUG！还准备说要给慕课网反馈一下来着，晚上一登，居然修复了，不得不佩服慕课网工程师们惊人的处突能力啊。 回到正题，相信大家都见到过七巧板，本文使用简单的HTML5新特性Canvas的2d图形绘制功能，绘制了一个简单的七巧板。 Canvas是HTML5的新特性，相比于其他的HTML标签来说，Ca">
+<meta name="keywords" content="Canvas学习笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="jQuery 学习笔记——Review">
-<meta property="og:url" content="https://github.com/ChangerHe/2017/07/05/jQuery查漏补缺/index.html">
+<meta property="og:title" content="使用Canvas绘制七巧板">
+<meta property="og:url" content="https://github.com/ChangerHe/2017/07/27/使用Canvas绘制七巧板/index.html">
 <meta property="og:site_name" content="Changer He&#39;s Home Page">
-<meta property="og:description" content="整体地看了一遍《锋利的jQuery》这本书，老师对jQuery这个脚本库进行了非常详细的解答，通俗易懂，但是感觉对AJAX我还是云里雾里，过两天有网了还是要撸一下AJAX。同时，我对里面的API还是不够熟悉，过一段时间，还要再看一遍！再对着上面的代码再敲一遍才好。等JS高程全部搞懂了，一定要把JQ的源码撸一遍！今天看了张鑫旭大神的《我对知乎前端问题的十问十答》狠狠地抽醒了我，作为一个大学的时候玩H">
-<meta property="og:updated_time" content="2017-07-05T14:00:23.311Z">
+<meta property="og:description" content="中午登上慕课网，偶然发现慕课网改版了，这倒是其次，惊奇的是页面居然出现了不显示我的观看记录和观看百分比的BUG！还准备说要给慕课网反馈一下来着，晚上一登，居然修复了，不得不佩服慕课网工程师们惊人的处突能力啊。 回到正题，相信大家都见到过七巧板，本文使用简单的HTML5新特性Canvas的2d图形绘制功能，绘制了一个简单的七巧板。 Canvas是HTML5的新特性，相比于其他的HTML标签来说，Ca">
+<meta property="og:updated_time" content="2017-07-27T15:00:38.011Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="jQuery 学习笔记——Review">
-<meta name="twitter:description" content="整体地看了一遍《锋利的jQuery》这本书，老师对jQuery这个脚本库进行了非常详细的解答，通俗易懂，但是感觉对AJAX我还是云里雾里，过两天有网了还是要撸一下AJAX。同时，我对里面的API还是不够熟悉，过一段时间，还要再看一遍！再对着上面的代码再敲一遍才好。等JS高程全部搞懂了，一定要把JQ的源码撸一遍！今天看了张鑫旭大神的《我对知乎前端问题的十问十答》狠狠地抽醒了我，作为一个大学的时候玩H">
+<meta name="twitter:title" content="使用Canvas绘制七巧板">
+<meta name="twitter:description" content="中午登上慕课网，偶然发现慕课网改版了，这倒是其次，惊奇的是页面居然出现了不显示我的观看记录和观看百分比的BUG！还准备说要给慕课网反馈一下来着，晚上一登，居然修复了，不得不佩服慕课网工程师们惊人的处突能力啊。 回到正题，相信大家都见到过七巧板，本文使用简单的HTML5新特性Canvas的2d图形绘制功能，绘制了一个简单的七巧板。 Canvas是HTML5的新特性，相比于其他的HTML标签来说，Ca">
 
 
 
@@ -127,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="https://github.com/ChangerHe/2017/07/05/jQuery查漏补缺/"/>
+  <link rel="canonical" href="https://github.com/ChangerHe/2017/07/27/使用Canvas绘制七巧板/"/>
 
 
 
 
 
-  <title> jQuery 学习笔记——Review | Changer He's Home Page </title>
+  <title> 使用Canvas绘制七巧板 | Changer He's Home Page </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -283,7 +283,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://github.com/ChangerHe/2017/07/05/jQuery查漏补缺/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/ChangerHe/2017/07/27/使用Canvas绘制七巧板/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Changer He">
@@ -304,7 +304,7 @@
             
             
               
-                jQuery 学习笔记——Review
+                使用Canvas绘制七巧板
               
             
           </h2>
@@ -319,8 +319,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-05T19:51:24+08:00">
-                2017-07-05
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-27T20:59:49+08:00">
+                2017-07-27
               </time>
             
 
@@ -328,9 +328,9 @@
 
   <span class="post-letters-count">
     &nbsp; | &nbsp;
-    <span>1,027 字</span>
+    <span>712 字</span>
     &nbsp; | &nbsp;
-    <span>4 min</span>
+    <span>3 min</span>
   </span>
 
             
@@ -349,8 +349,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/jQuery-学习笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">jQuery 学习笔记</span>
+                  <a href="/categories/Canvas学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">Canvas学习笔记</span>
                   </a>
                 </span>
 
@@ -379,7 +379,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  1,027字
+                  712字
                 </span>
               
 
@@ -395,7 +395,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  4分钟
+                  3分钟
                 </span>
               
             </div>
@@ -414,20 +414,15 @@
       
 
       
-        <p>整体地看了一遍《锋利的jQuery》这本书，老师对jQuery这个脚本库进行了非常详细的解答，通俗易懂，但是感觉对AJAX我还是云里雾里，过两天有网了还是要撸一下AJAX。同时，我对里面的API还是不够熟悉，过一段时间，还要再看一遍！再对着上面的代码再敲一遍才好。等JS高程全部搞懂了，一定要把JQ的源码撸一遍！<br>今天看了张鑫旭大神的《我对知乎前端问题的十问十答》狠狠地抽醒了我，作为一个大学的时候玩HTML、css、JS玩的飞起的人，在毕业后做了九个月切图仔，又去自己闭关自学了九个月才能到现在的大神水平，而且他还是计算机专业的985院校毕业生，所以我一个二流野鸡大学的非科班毕业生，凭什么不努力呢？虽然是碗毒鸡汤，但我干了，大家随意。<br>回到正文，对今天学到的一些自己的易忘点，易错点进行回顾：</p>
-<h3 id="jQuery对象和DOM对象的相互转换："><a href="#jQuery对象和DOM对象的相互转换：" class="headerlink" title="jQuery对象和DOM对象的相互转换："></a>jQuery对象和DOM对象的相互转换：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var variable1 = jQuery对象；  //新定义一个jQuery对象</div><div class="line">var variable2 = DOM对象； //新定义一个DOM对象</div><div class="line">//将jQuery对象转为DOM对象</div><div class="line">var cr = $(&quot;#cr&quot;);</div><div class="line">var cr = $cr[0];  //或使用 var cr = $cr.get[0];</div></pre></td></tr></table></figure>
-<h3 id="多个JS库争夺符号“-”控制权的解决办法"><a href="#多个JS库争夺符号“-”控制权的解决办法" class="headerlink" title="多个JS库争夺符号“$”控制权的解决办法"></a>多个JS库争夺符号“$”控制权的解决办法</h3><p>在其他库加载完毕后，可以在任何时候调用jQuery.noConflict()方法来将变量”$”的控制权移交给其他的JS库，同时，当需要使用jQuery库中的方法时，可直接调用jquery()方法即可。<br>当然，此时也可使用变量对其进行替代，需要调用时，直接使用变量就好了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var $j = jquery.noConflict();</div></pre></td></tr></table></figure></p>
-<h3 id="jQuery的对象检查方式"><a href="#jQuery的对象检查方式" class="headerlink" title="jQuery的对象检查方式"></a>jQuery的对象检查方式</h3><p>jQuery在搜索对象时，即使该对象不存在，jQuery也不会报错，因此当直接使用调用的对象进行布尔运算时，会一直显示为true，因此，在判断该对象是否存在时，应当使用如下方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">if( $content.length)&#123;</div><div class="line">	//Do something</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>注：当jQuery的id对象有多个时，调用$(“#id”);永远显示的是第一个id对象。</p>
-<h3 id="子元素和后代元素的区别"><a href="#子元素和后代元素的区别" class="headerlink" title="子元素和后代元素的区别"></a>子元素和后代元素的区别</h3><p>子元素 <code>Ex: $(&quot;parent &gt; child&quot;);</code><br>后代元素：<code>Ex: $(&quot;parent dessemdant&quot;);</code><br>区别： 子元素选择的是parent元素的儿子辈，而后代元素选择的是parent元素的子、孙、曾孙加上以后的辈。</p>
-<h3 id="选取规则"><a href="#选取规则" class="headerlink" title="选取规则"></a>选取规则</h3><p>选取紧接在prev元素后的next元素（仅选择一个元素）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&quot;prev + next&quot;);  //等价于 $(&quot;prev&quot;).next(&quot;next&quot;);</div></pre></td></tr></table></figure></p>
-<p>选取prev元素后的所有sibling元素<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&quot;prev ~ siblings&quot;);   //等价于  $(&quot;prev&quot;).nextAll(&quot;siblings&quot;)</div></pre></td></tr></table></figure></p>
-<p>选取含有文本内容为“我”的元素<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&quot;div:contains(&quot;我&quot;)&quot;)；</div></pre></td></tr></table></figure></p>
-<p>选取含有选择器所匹配的元素的元素<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&quot;div:has(p)&quot;)</div></pre></td></tr></table></figure></p>
-<h3 id="remove-方法的特殊属性"><a href="#remove-方法的特殊属性" class="headerlink" title="remove()方法的特殊属性"></a>remove()方法的特殊属性</h3><p>当节点使用remove()方法被删除后，该节点包含的所有后代节点都将同时被删除，这个方法的返回值是一个指向已被删除的节点的引用，因此可以在之后再次使用。</p>
-<h3 id="css-方法的命名规则"><a href="#css-方法的命名规则" class="headerlink" title="css()方法的命名规则"></a>css()方法的命名规则</h3><p>在css()方法中，若属性带有“-”连接符，则此时官方建议使用驼峰命名法进行代替，否则直接引用带”-“的属性时，需要加上引号。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&quot;p&quot;).css(&#123;fontSize: &quot;30px&quot;,&quot;background-color&quot;: &quot;#888&quot;&#125;)</div></pre></td></tr></table></figure></p>
-<h3 id="关于height-方法和css-中的css-“height”-方法"><a href="#关于height-方法和css-中的css-“height”-方法" class="headerlink" title="关于height()方法和css()中的css(“height”)方法"></a>关于height()方法和css()中的css(“height”)方法</h3><p>两者无较大区别，但是当给height()方法设置值时，默认的单位为px，若使用其他单位，则需要加上引号。<br>height()方法获得的是页面的实际高度，而css()获取的高度根据设置的值的单位决定，也有可能为auto。</p>
-<h3 id="判断当前元素是否处于动画状态"><a href="#判断当前元素是否处于动画状态" class="headerlink" title="判断当前元素是否处于动画状态"></a>判断当前元素是否处于动画状态</h3><p>判断当前元素是否处于动画状态，是写动画时常常需要的一个判断方法，可以防止在多次点击按钮后，页面不停跳转的问题。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">if(!$(&quot;element&quot;).is(&quot;:animated&quot;))&#123;</div><div class="line">	//若当前无动画，则进行新动画</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+        <p>中午登上慕课网，偶然发现慕课网改版了，这倒是其次，惊奇的是页面居然出现了不显示我的观看记录和观看百分比的BUG！还准备说要给慕课网反馈一下来着，晚上一登，居然修复了，不得不佩服慕课网工程师们惊人的处突能力啊。</p>
+<p>回到正题，相信大家都见到过七巧板，本文使用简单的HTML5新特性Canvas的2d图形绘制功能，绘制了一个简单的七巧板。</p>
+<p>Canvas是HTML5的新特性，相比于其他的HTML标签来说，Canvas给前端工程师们提供了更多的操作可能性，也为页面的生动化效果做出了不菲的贡献。canvas的3d绘图的出现，加上JS对HTML页面的强大动态渲染能力，加上各大浏览器厂商对于Flash的抛弃，相信日后canvas将在HTML页面展示，HTML游戏，HTML动画上大有可为。</p>
+<p>canvas的2d绘图非常简单，整体的操作感觉非常的人性化，主要是要区分，移动到点位（moveTo）和划线到点位（lineTo）的区别，canvas对于页面的色彩和轮廓方面也加入了相应的边框（stroke）和填充（fill）功能，下面让我们一起来看一下七巧板的canvas实现吧。</p>
+<h1 id="HTML方面"><a href="#HTML方面" class="headerlink" title="HTML方面"></a>HTML方面</h1><p>这块我就写了一个canvas的标签，同时制定它的宽高等属性，有一点要注意，其宽高最好不要使用px作为单位，而是使用默认值作为单位（简单点说就是不要写宽高的单位），否则在后期绘图会出现绘图区的一些问题。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;canvas id=&quot;canvas&quot; width=&quot;800&quot; height=&quot;800&quot; style=&quot;border: 1px solid #eee&quot;&gt;Your broser can&apos;t support canvas&lt;/canvas&gt;</div></pre></td></tr></table></figure>
+<h1 id="JS方面"><a href="#JS方面" class="headerlink" title="JS方面"></a>JS方面</h1><p>学过canvas的同学肯定知道，2d绘图简直就是小儿科，用来用去也就那么几个API，照本宣科就是了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">var canvas = document.getElementById(&quot;canvas&quot;);</div><div class="line">var context = canvas.getContext(&quot;2d&quot;);</div><div class="line">var arr = [</div><div class="line">	&#123;position: [&#123;x: 0,y: 0&#125;,&#123;x: 400,y: 400&#125;,&#123;x: 800,y: 0&#125;,&#123;x: 0,y: 0&#125;],color: &quot;#caff67&quot;&#125;,</div><div class="line">	&#123;position: [&#123;x: 0,y: 0&#125;,&#123;x: 400,y: 400&#125;,&#123;x: 0,y: 800&#125;,&#123;x: 0,y: 0&#125;],color: &quot;#67becf&quot;&#125;,</div><div class="line">	&#123;position: [&#123;x: 0,y: 800&#125;,&#123;x: 400,y: 400&#125;,&#123;x: 800,y: 800&#125;,&#123;x: 0,y: 800&#125;],color: &quot;#ef3d61&quot;&#125;,</div><div class="line">	&#123;position: [&#123;x: 400,y: 400&#125;,&#123;x: 800,y: 400&#125;,&#123;x: 600,y: 600&#125;,&#123;x: 400,y: 400&#125;],color: &quot;#f9f51a&quot;&#125;,</div><div class="line">	&#123;position: [&#123;x: 400,y: 400&#125;,&#123;x: 800,y: 400&#125;,&#123;x: 800,y: 0&#125;,&#123;x: 400,y: 400&#125;],color: &quot;#a594c0&quot;&#125;,</div><div class="line">	&#123;position: [&#123;x: 600,y: 600&#125;,&#123;x: 800,y: 600&#125;,&#123;x: 800,y: 400&#125;,&#123;x: 600,y: 600&#125;],color: &quot;#fa8ecc&quot;&#125;,</div><div class="line">	&#123;position: [&#123;x: 600,y: 600&#125;,&#123;x: 800,y: 600&#125;,&#123;x: 800,y: 800&#125;,&#123;x: 600,y: 600&#125;],color: &quot;#caff67&quot;&#125;</div><div class="line">];</div><div class="line">console.log(arr[0].color)</div><div class="line">for( var i = 0; i &lt; arr.length; i++) &#123;</div><div class="line">	context.beginPath();</div><div class="line">	context.moveTo(arr[i].position[0].x,arr[i].position[0].y);</div><div class="line">	for( var j = 1; j &lt; arr[i].position.length; j++) &#123;</div><div class="line">		context.lineTo(arr[i].position[j].x,arr[i].position[j].y);</div><div class="line">	&#125;</div><div class="line">	context.closePath();</div><div class="line">	context.lineWidth = &quot;2&quot;;</div><div class="line">	context.stroke();</div><div class="line">	context.fillStyle = arr[i].color;</div><div class="line">	context.fill();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>代码为以上，欢迎批评指正。</p>
 
       
     </div>
@@ -457,7 +452,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/jQuery/" rel="tag"># jQuery</a>
+            <a href="/tags/Canvas学习笔记/" rel="tag"># Canvas学习笔记</a>
           
         </div>
       
@@ -470,8 +465,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/03/jQuery学习笔记——属性与样式/" rel="next" title="jQuery 学习笔记——属性与样式">
-                <i class="fa fa-chevron-left"></i> jQuery 学习笔记——属性与样式
+              <a href="/2017/07/25/浅谈框架模式的MVC-MVP-MVVM/" rel="next" title="浅谈框架模式的MVC/MVP/MVVM">
+                <i class="fa fa-chevron-left"></i> 浅谈框架模式的MVC/MVP/MVVM
               </a>
             
           </div>
@@ -479,10 +474,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/07/06/JavaScript高级程序设计复习笔记（一）/" rel="prev" title="JavaScript高级程序设计复习笔记（一）">
-                JavaScript高级程序设计复习笔记（一） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -682,7 +673,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#jQuery对象和DOM对象的相互转换："><span class="nav-number">1.</span> <span class="nav-text">jQuery对象和DOM对象的相互转换：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多个JS库争夺符号“-”控制权的解决办法"><span class="nav-number">2.</span> <span class="nav-text">多个JS库争夺符号“$”控制权的解决办法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jQuery的对象检查方式"><span class="nav-number">3.</span> <span class="nav-text">jQuery的对象检查方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#子元素和后代元素的区别"><span class="nav-number">4.</span> <span class="nav-text">子元素和后代元素的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选取规则"><span class="nav-number">5.</span> <span class="nav-text">选取规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#remove-方法的特殊属性"><span class="nav-number">6.</span> <span class="nav-text">remove()方法的特殊属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#css-方法的命名规则"><span class="nav-number">7.</span> <span class="nav-text">css()方法的命名规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于height-方法和css-中的css-“height”-方法"><span class="nav-number">8.</span> <span class="nav-text">关于height()方法和css()中的css(“height”)方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#判断当前元素是否处于动画状态"><span class="nav-number">9.</span> <span class="nav-text">判断当前元素是否处于动画状态</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HTML方面"><span class="nav-number">1.</span> <span class="nav-text">HTML方面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JS方面"><span class="nav-number">2.</span> <span class="nav-text">JS方面</span></a></li></ol></div>
             
 
           </div>
