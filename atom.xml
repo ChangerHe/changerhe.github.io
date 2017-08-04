@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/ChangerHe/"/>
-  <updated>2017-07-27T15:00:38.011Z</updated>
+  <updated>2017-08-04T14:48:02.448Z</updated>
   <id>https://github.com/ChangerHe/</id>
   
   <author>
@@ -14,6 +14,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title> JavaScript笔试面试题收集（二）</title>
+    <link href="https://github.com/ChangerHe/2017/08/04/JavaScript%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98%E6%94%B6%E9%9B%86%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
+    <id>https://github.com/ChangerHe/2017/08/04/JavaScript笔试面试题收集（二）/</id>
+    <published>2017-08-04T14:37:45.000Z</published>
+    <updated>2017-08-04T14:48:02.448Z</updated>
+    
+    <content type="html"><![CDATA[<p>话不多说，直接撸题吧：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">function Parent() &#123;</div><div class="line">    this.a = 1;</div><div class="line">    this.b = [1,2,this.a];</div><div class="line">    this.c = &#123;demo: 5&#125;;</div><div class="line">    this.show = function() &#123;</div><div class="line">        console.log(this.a, this.b, this.c.demo)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">function Child() &#123;</div><div class="line">    this.a = 2;</div><div class="line">    this.change = function() &#123;</div><div class="line">        this.b.push(this.a);</div><div class="line">        this.a = this.b.length;</div><div class="line">        this.c.demo = this.a++;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">Child.prototype = new Parent();</div><div class="line">var parent = new Parent();</div><div class="line">var child1 = new Child();</div><div class="line">var child2 = new Child();</div><div class="line">child1.a = 11;</div><div class="line">child2.a = 12;</div><div class="line">parent.show();  //1,[1,2,1],5</div><div class="line">child1.show(); //11,[1,2,11],5</div><div class="line">child2.show();   //12,[1,2,11],5</div><div class="line">child1.change(); </div><div class="line">child2.change();  </div><div class="line">parent.show();  // 1,[1,2,1],5</div><div class="line">child1.show(); //5,[1,2,1,11,12],5</div><div class="line">child2.show();   //6,[1,2,1,11,12],5</div></pre></td></tr></table></figure></p>
+<p>其实要解出上面的问题，了解以下几句话就好了：</p>
+<blockquote>
+<p>1.每个构造函数，都有一个原型，指向构造函数的原型对象。<br>2.每一个实例生成的时候，都会在内存中产生一块新的堆内存。<br>3.每一个实例都有一个隐式原型指向构造函数的原型对象。<br>4.this的指向，取决于this调用的位置，在这道题中，也可以理解为，谁调用这个方法，this就指向哪个对象。<br>5.数组和字面量对象都是引用。<br>6.原型链的查找原则： 就近原则。也就是说：当实例上存在属性时，用实例上的，如果实例不存在，则顺着原型链往上查找，如果存在，则使用原型链上的对象，如果不存在，则查找Object原型对象上的，如果都不存在，则为undefined。</p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;话不多说，直接撸题吧：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div 
+    
+    </summary>
+    
+      <category term="JavaScript笔试面试题" scheme="https://github.com/ChangerHe/categories/JavaScript%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    
+      <category term="JavaScript笔试面试题" scheme="https://github.com/ChangerHe/tags/JavaScript%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+  </entry>
   
   <entry>
     <title>使用Canvas绘制七巧板</title>
@@ -996,37 +1023,6 @@ reduceRight():迭代数组所有项，从最后一个数开始。
     
     
       <category term="GitHub" scheme="https://github.com/ChangerHe/tags/GitHub/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JavaScript深入浅出-表达式和运算符</title>
-    <link href="https://github.com/ChangerHe/2017/06/28/JavaScript%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BA-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%92%8C%E8%BF%90%E7%AE%97%E7%AC%A6/"/>
-    <id>https://github.com/ChangerHe/2017/06/28/JavaScript深入浅出-表达式和运算符/</id>
-    <published>2017-06-28T06:10:18.000Z</published>
-    <updated>2017-06-28T07:28:43.890Z</updated>
-    
-    <content type="html"><![CDATA[<p>表达式是能计算出值的任何业务单元。<br>原始表达式：常量，直接量、关键字、变量<br>原始表达式和原始表达式可以通过运算符链接成符合表达式<br>函数表达式：<br>属性访问表达式：对定义好的表达式的属性进行访问<br>调用表达式：调用函数，等<br>堆箱创建表达式：</p>
-<h1 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h1><p>常用于表达式之间进行运算<br>三元运算符<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var a = c ? a : b;</div></pre></td></tr></table></figure></p>
-<p>delete运算符，删除对象。但是当定了了对象的configurable时，是无法删除的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var obj = &#123;&#125;&apos;</div><div class="line">Object.defineProperty(obj,&quot;x&quot;,&#123;</div><div class="line">configurable: false,value: 1&#125;</div><div class="line">);</div><div class="line">delete obj.x;   //false</div><div class="line">obj.x;   //1</div></pre></td></tr></table></figure></p>
-<p>in 运算符<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">window.x = 1;</div><div class="line">&quot;x&quot; in window;  //true;</div></pre></td></tr></table></figure></p>
-<p>instanceof tyoeof运算符<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&#123;&#125; instanceof Object；  //true</div><div class="line">typeof 100 === &apos;number&apos;;   //true</div></pre></td></tr></table></figure></p>
-<p>new 运算符<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function Foo()&#123;</div><div class="line">	Foo.prototype.x = 1;</div><div class="line">	var obj = new Foo();</div><div class="line">	obj.x;</div><div class="line">	obj.hasOwnProperty(&quot;x&quot;);  //判断x是不是属于自己的对象</div><div class="line">	obj._proto_.hasOwnProperty(&quot;x&quot;);  //判断是不是原型中的对象</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>this 运算符<br>void 运算符<br>var 语句<br>当使用循环时，循环使用的变量i在循环结束后仍然可以调用，即它为全局变量。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">for (var i = 0; i &lt; 5; i++) &#123;</div><div class="line">    console.log(i);   //0 1 2 3 4</div><div class="line">&#125;</div><div class="line">console.log(&quot;-------------&quot;)  //-------------</div><div class="line">console.log(i);  //5</div></pre></td></tr></table></figure></p>
-<p>当我们使用<code>var a = b = 0</code>来进行变量定义时，如果在局部变量中进行这样的定义，请注意，定义出的<code>b = 0</code>是全局变量。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function() &#123;</div><div class="line">	var a = b = 0;</div><div class="line">	console.log(a + &quot;,&quot; + b);  //0,0</div><div class="line">&#125;</div><div class="line">console.log(b);  //0</div></pre></td></tr></table></figure></p>
-<p>try-catch 语句<br>对方不想和你说话，并想向你抛出一段异常。<br>```<br>try{<br>    try{<br>        throw new Error(“oops”);<br>    }<br>    finally{<br>        console.log(“finally”);<br>    }<br>}<br>catch(ex){<br>    console.error(“outer”,ex.message);<br>}</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;表达式是能计算出值的任何业务单元。&lt;br&gt;原始表达式：常量，直接量、关键字、变量&lt;br&gt;原始表达式和原始表达式可以通过运算符链接成符合表达式&lt;br&gt;函数表达式：&lt;br&gt;属性访问表达式：对定义好的表达式的属性进行访问&lt;br&gt;调用表达式：调用函数，等&lt;br&gt;堆箱创建表达式：&lt;/
-    
-    </summary>
-    
-      <category term="JavaScript 学习笔记" scheme="https://github.com/ChangerHe/categories/JavaScript-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="JavaScript" scheme="https://github.com/ChangerHe/tags/JavaScript/"/>
     
   </entry>
   
