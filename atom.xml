@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/ChangerHe/"/>
-  <updated>2017-08-04T14:48:02.448Z</updated>
+  <updated>2017-08-07T14:56:17.125Z</updated>
   <id>https://github.com/ChangerHe/</id>
   
   <author>
@@ -14,6 +14,43 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JavaScript深入浅出-call/apply</title>
+    <link href="https://github.com/ChangerHe/2017/08/07/JavaScript%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BA-call-apply/"/>
+    <id>https://github.com/ChangerHe/2017/08/07/JavaScript深入浅出-call-apply/</id>
+    <published>2017-08-07T14:51:48.000Z</published>
+    <updated>2017-08-07T14:56:17.125Z</updated>
+    
+    <content type="html"><![CDATA[<p>本文中call和apply仅占小部分,主要还是关于自己在学习过程中踩到的坑的记录.</p>
+<h1 id="使用call方法将变量产生的数组进行转换"><a href="#使用call方法将变量产生的数组进行转换" class="headerlink" title="使用call方法将变量产生的数组进行转换"></a>使用call方法将变量产生的数组进行转换</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function foo(a, b, c) &#123;</div><div class="line">    var arr1 = [].reverse.call(arguments);</div><div class="line">    console.log(arr1);</div><div class="line">    var arr2 = [].slice.call(arguments);</div><div class="line">    console.log(arr2.reverse());</div><div class="line">&#125;</div><div class="line">foo(1,2,3)</div></pre></td></tr></table></figure>
+<p>以上使用了两种方法，arr1使用了数组的reverse方法，并将数组的reverse方法借用给arguments，也就是说arguments使用了数组中的方法，之前的arguments是没有这个方法的。其最终产生的效果是，arr1还是数组的集合。</p>
+<p>第二种方法其实是首先将数组的slice方法的作用域赋予给arguments，那么arguments其实是使用了slice的方法进行了数组的序列化，最终产生的效果其实是arr2最终变成了一个数组，然后使用数组，也就是arr2的作用域链中的reverse方法进行了调换。</p>
+<h1 id="arrow函数"><a href="#arrow函数" class="headerlink" title="arrow函数"></a>arrow函数</h1><p> 箭头函数其实是对于单调乏味且冗长的function关键词的简写，如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var foo = a =&gt; &#123;</div><div class="line">    console.log(a)</div><div class="line">&#125;</div><div class="line">foo(2);   //2</div></pre></td></tr></table></figure>
+<p>其实在这个情况下，以上的程序是等价于以下的程序的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var foo = function(a) &#123;</div><div class="line">	console.log(a);</div><div class="line">&#125;</div><div class="line">foo(2);</div></pre></td></tr></table></figure>
+<p>那么问题来了，这个箭头函数到底表示的是函数表达式还是函数声明呢？，经过一个简单的测试，发现其实这个箭头函数就是一个简单的函数表达式，我们来测试以下它的函数提升过程：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">foo(2);</div><div class="line">var foo = a =&gt; &#123;</div><div class="line">	console.log(a);    //TypeError: foo is not a function</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="严格模式下必报的this指向问题"><a href="#严格模式下必报的this指向问题" class="headerlink" title="严格模式下必报的this指向问题"></a>严格模式下必报的this指向问题</h1><p>严格模式下，全局对象无法绑定到未进行修饰的函数声明，因此在全局作用域下，在函数内调用this时会造成报错： Cannot read property ‘a’ of undefined；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">(function foo() &#123;</div><div class="line">	&quot;use strict&quot;;</div><div class="line">	var a = 2;</div><div class="line">	console.log(this.a);   //Cannot read property &apos;a&apos; of undefined；</div><div class="line">&#125;)()</div></pre></td></tr></table></figure></p>
+<h1 id="关于this的作用层级问题"><a href="#关于this的作用层级问题" class="headerlink" title="关于this的作用层级问题"></a>关于this的作用层级问题</h1><p>对象中只有引用链的最顶层或者说是作用者的最后一层会影响其调用位置，来看一下下面的这个代码，很奇怪的事情是this居然指向的是obj1 而不是obj2，原因就是因为作用者的最后一层就是obj1.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function foo() &#123;</div><div class="line">	console.log(this.a);</div><div class="line">&#125;</div><div class="line">var obj1 = &#123;</div><div class="line">	a: 1,</div><div class="line">	foo: foo</div><div class="line">&#125;</div><div class="line">var obj2 = &#123;</div><div class="line">	a: 2,</div><div class="line">	obj1: obj1</div><div class="line">&#125;</div><div class="line">obj2.obj1.foo();    //输出的是1，也就是代表this其实指向的是obj1</div></pre></td></tr></table></figure></p>
+<h1 id="引用类型常量的赋值问题"><a href="#引用类型常量的赋值问题" class="headerlink" title="引用类型常量的赋值问题"></a>引用类型常量的赋值问题</h1><p>当函数内部制定了变量值后,输出的值是不一样的,我们来看一下例子:<br>function foo(x) {<br>    x.push(4);<br>    console.log(x);   //输出的是[1,2,3,4],没毛病<br>    x = [4,5,6];<br>    x.push(7);<br>    console.log(x);   //输出[4,5,6,7]这个没毛病<br>}<br>var a = [1,2,3];<br>foo(a);<br>console.log(a);     //这个情况下,a的值其实是[1,2,3,4];<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">其实主要的原因是这样的,当我们的a作为参数传到foo函数中的时候,foo中的参数x其实是获得了一个到a数组的指针,当x进行相应的数值处理操作的时候,会直接作用到a上面,但是当x的指针改变了,也就是x被重新赋值的时候,x的指针就指向新的[4,5,6]数组了,这个时候其实后面的push(7)的操作已经是对于新的数组,并没有对a数组进行相应的操作,故最后返回的a的值只是[1,2,3,4]</div><div class="line"></div><div class="line"># 引用类型常量的赋值问题再探讨</div><div class="line"></div><div class="line">一个很小的问题(其实涉及到的知识点和第五条是类似的),当我为一个变量赋予了一个常量值,但通过函数对这个常量值进行更改,那么更改会不会体现到这个常量值中呢?</div></pre></td></tr></table></figure></p>
+<p>function foo(x) {<br>    x = x + 1;<br>    console.log(x);<br>}<br>var a = 2;<br>foo(a);<br>console.log(a);  //此时a还是为2<br>```</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文中call和apply仅占小部分,主要还是关于自己在学习过程中踩到的坑的记录.&lt;/p&gt;
+&lt;h1 id=&quot;使用call方法将变量产生的数组进行转换&quot;&gt;&lt;a href=&quot;#使用call方法将变量产生的数组进行转换&quot; class=&quot;headerlink&quot; title=&quot;使用c
+    
+    </summary>
+    
+      <category term="JavaScript 学习笔记" scheme="https://github.com/ChangerHe/categories/JavaScript-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="JavaScript" scheme="https://github.com/ChangerHe/tags/JavaScript/"/>
+    
+  </entry>
   
   <entry>
     <title> JavaScript笔试面试题收集（二）</title>
@@ -992,37 +1029,6 @@ reduceRight():迭代数组所有项，从最后一个数开始。
     
     
       <category term="HTTP相关知识" scheme="https://github.com/ChangerHe/tags/HTTP%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>GIT配置不需密码即可push的方法</title>
-    <link href="https://github.com/ChangerHe/2017/06/28/GIT%E9%85%8D%E7%BD%AE%E4%B8%8D%E9%9C%80%E5%AF%86%E7%A0%81%E5%8D%B3%E5%8F%AFpush%E7%9A%84%E6%96%B9%E6%B3%95/"/>
-    <id>https://github.com/ChangerHe/2017/06/28/GIT配置不需密码即可push的方法/</id>
-    <published>2017-06-28T14:36:16.000Z</published>
-    <updated>2017-07-02T03:50:51.004Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="为什么要写这篇博客？"><a href="#为什么要写这篇博客？" class="headerlink" title="为什么要写这篇博客？"></a>为什么要写这篇博客？</h1><p>今天学了点node.js，被慕课网狂拽酷炫的操作所折服，故决定投身sublime的怀抱。安装了package control以及各大插件后，最后安装git插件测试时，使用git：push命令始终没办法将代码push到我的github，想想也真是日了Justin Beiber了。<br>没办法，谁叫我天生丽质爱学习呢，然后我在网上找了各种办法，发现百度上的方法真的是水平太低，标准不一，基本雷同，更坑爹的是错都是差不多错一样的。我一个用github用了好几个月的人，你还叫我配置公钥？真是想说：<br><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1498671155922&amp;di=b3e1084de0148f1b484388639a6c86a1&amp;imgtype=0&amp;src=http%3A%2F%2Fwanzao2.b0.upaiyun.com%2Fsystem%2Fpictures%2F34182985%2Foriginal%2F1458040253_640x646.png" alt="PIC"></p>
-<h1 id="真正的解决办法"><a href="#真正的解决办法" class="headerlink" title="真正的解决办法"></a>真正的解决办法</h1><p>网上有很多办法，其实已经快说到点子上了，但是都是隔着被子瘙痒——没什么卵用，配置的时候看到那些博客，始终是摸不着头脑。<br>注：以下的配置方法，默认你已经安装好了git客户端，且熟悉基本的git操作命令，在远程代码库拥有了自己的仓库，且使用密码提交代码是成功的。</p>
-<h2 id="好，那么话不多说，开干"><a href="#好，那么话不多说，开干" class="headerlink" title="好，那么话不多说，开干"></a>好，那么话不多说，开干</h2><p>我们最主要的目的，是将提交时的http协议地址，直接改成类似于<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git@github.com:ChangerHe/My-code.git</div></pre></td></tr></table></figure></p>
-<p>这样的地址，当然，ChanerHe是我的github名，My-code是我想要push到的远程仓库名。更改之后，push的时候就会自动push到自己的仓库，不需要输入代码了，同时可以开心地在sublime上进行使用git插件了！<br>那么，现在我们现在打开我们我的git bash，在gitbash中输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote -v</div></pre></td></tr></table></figure></p>
-<p>输入之后可查看到自己的输出的branch，此时默认是origin。<br>此时如果未设置成功，bash中的输出是这样子的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">origin https://github.com/ChangerHe/My-code (fetch)</div><div class="line">origin https://github.com/ChangerHe/My-code (push)</div></pre></td></tr></table></figure></p>
-<p>这个时候你的push地址是https路径，所以会导致此时需要输入账号密码，我们现在再执行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote set-url origin git@github.com:ChangerHe/My-code.git</div></pre></td></tr></table></figure></p>
-<p>上面这段代码的意思就是，把git的默认push和fetch地址，改为以上相应地址。</p>
-<h2 id="同样的，ChangerHe是我的ID，My-code是我要提交的远程仓库名称，这段代码中，这两处需要改为你自己的。"><a href="#同样的，ChangerHe是我的ID，My-code是我要提交的远程仓库名称，这段代码中，这两处需要改为你自己的。" class="headerlink" title="同样的，ChangerHe是我的ID，My-code是我要提交的远程仓库名称，这段代码中，这两处需要改为你自己的。"></a>同样的，ChangerHe是我的ID，My-code是我要提交的远程仓库名称，这段代码中，这两处需要改为你自己的。</h2><p>以上是我查到的很多资料，没有提到的地方，导致我白白浪费掉了一个小时的时间，哎~自学最大的难处就在这里。<br>以上，设置好之后，会发现你的路径方式变了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">origin https://github.com/ChangerHe/My-code (fetch)</div><div class="line">origin https://github.com/ChangerHe/My-code (push)</div></pre></td></tr></table></figure></p>
-<p>此时即配置成功，现在就可以开心地不用密码进行push啦。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;为什么要写这篇博客？&quot;&gt;&lt;a href=&quot;#为什么要写这篇博客？&quot; class=&quot;headerlink&quot; title=&quot;为什么要写这篇博客？&quot;&gt;&lt;/a&gt;为什么要写这篇博客？&lt;/h1&gt;&lt;p&gt;今天学了点node.js，被慕课网狂拽酷炫的操作所折服，故决定投身subli
-    
-    </summary>
-    
-      <category term="GitHub 优化" scheme="https://github.com/ChangerHe/categories/GitHub-%E4%BC%98%E5%8C%96/"/>
-    
-    
-      <category term="GitHub" scheme="https://github.com/ChangerHe/tags/GitHub/"/>
     
   </entry>
   

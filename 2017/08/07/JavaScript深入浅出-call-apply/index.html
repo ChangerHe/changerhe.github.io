@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="jQuery," />
+  <meta name="keywords" content="JavaScript," />
 
 
 
@@ -89,17 +89,17 @@
 
 
 
-<meta name="description" content="第二篇的jQuery笔记记录jQuery的属性和样式。每个元素都有一个或者多个特性,这些特性的用途就是给出相应元素或者其内容的附加信息。如：在img元素中，src就是元素的特性，用来标记图片的地址。 attr()和removeAttr()操作特性的DOM方法主要有三个：getAttribute（）、setAttribute（）、removeAttribute（）。而且就算在实际操作中还是会存在很多">
-<meta name="keywords" content="jQuery">
+<meta name="description" content="本文中call和apply仅占小部分,主要还是关于自己在学习过程中踩到的坑的记录. 使用call方法将变量产生的数组进行转换1234567function foo(a, b, c) &amp;#123;    var arr1 = [].reverse.call(arguments);    console.log(arr1);    var arr2 = [].slice.call(arguments)">
+<meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="jQuery 学习笔记——属性与样式">
-<meta property="og:url" content="https://github.com/ChangerHe/2017/07/03/jQuery学习笔记——属性与样式/index.html">
+<meta property="og:title" content="JavaScript深入浅出-call&#x2F;apply">
+<meta property="og:url" content="https://github.com/ChangerHe/2017/08/07/JavaScript深入浅出-call-apply/index.html">
 <meta property="og:site_name" content="Changer He&#39;s Home Page">
-<meta property="og:description" content="第二篇的jQuery笔记记录jQuery的属性和样式。每个元素都有一个或者多个特性,这些特性的用途就是给出相应元素或者其内容的附加信息。如：在img元素中，src就是元素的特性，用来标记图片的地址。 attr()和removeAttr()操作特性的DOM方法主要有三个：getAttribute（）、setAttribute（）、removeAttribute（）。而且就算在实际操作中还是会存在很多">
-<meta property="og:updated_time" content="2017-07-03T10:25:21.739Z">
+<meta property="og:description" content="本文中call和apply仅占小部分,主要还是关于自己在学习过程中踩到的坑的记录. 使用call方法将变量产生的数组进行转换1234567function foo(a, b, c) &amp;#123;    var arr1 = [].reverse.call(arguments);    console.log(arr1);    var arr2 = [].slice.call(arguments)">
+<meta property="og:updated_time" content="2017-08-07T14:56:17.125Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="jQuery 学习笔记——属性与样式">
-<meta name="twitter:description" content="第二篇的jQuery笔记记录jQuery的属性和样式。每个元素都有一个或者多个特性,这些特性的用途就是给出相应元素或者其内容的附加信息。如：在img元素中，src就是元素的特性，用来标记图片的地址。 attr()和removeAttr()操作特性的DOM方法主要有三个：getAttribute（）、setAttribute（）、removeAttribute（）。而且就算在实际操作中还是会存在很多">
+<meta name="twitter:title" content="JavaScript深入浅出-call&#x2F;apply">
+<meta name="twitter:description" content="本文中call和apply仅占小部分,主要还是关于自己在学习过程中踩到的坑的记录. 使用call方法将变量产生的数组进行转换1234567function foo(a, b, c) &amp;#123;    var arr1 = [].reverse.call(arguments);    console.log(arr1);    var arr2 = [].slice.call(arguments)">
 
 
 
@@ -127,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="https://github.com/ChangerHe/2017/07/03/jQuery学习笔记——属性与样式/"/>
+  <link rel="canonical" href="https://github.com/ChangerHe/2017/08/07/JavaScript深入浅出-call-apply/"/>
 
 
 
 
 
-  <title> jQuery 学习笔记——属性与样式 | Changer He's Home Page </title>
+  <title> JavaScript深入浅出-call/apply | Changer He's Home Page </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -283,7 +283,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://github.com/ChangerHe/2017/07/03/jQuery学习笔记——属性与样式/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/ChangerHe/2017/08/07/JavaScript深入浅出-call-apply/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Changer He">
@@ -304,7 +304,7 @@
             
             
               
-                jQuery 学习笔记——属性与样式
+                JavaScript深入浅出-call/apply
               
             
           </h2>
@@ -319,8 +319,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-03T16:29:56+08:00">
-                2017-07-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-07T22:51:48+08:00">
+                2017-08-07
               </time>
             
 
@@ -328,7 +328,7 @@
 
   <span class="post-letters-count">
     &nbsp; | &nbsp;
-    <span>1,221 字</span>
+    <span>984 字</span>
     &nbsp; | &nbsp;
     <span>4 min</span>
   </span>
@@ -349,8 +349,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/jQuery-学习笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">jQuery 学习笔记</span>
+                  <a href="/categories/JavaScript-学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript 学习笔记</span>
                   </a>
                 </span>
 
@@ -379,7 +379,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  1,221字
+                  984字
                 </span>
               
 
@@ -414,17 +414,20 @@
       
 
       
-        <p>第二篇的jQuery笔记记录jQuery的属性和样式。<br>每个元素都有一个或者多个特性,这些特性的用途就是给出相应元素或者其内容的附加信息。如：在img元素中，src就是元素的特性，用来标记图片的地址。</p>
-<h1 id="attr-和removeAttr"><a href="#attr-和removeAttr" class="headerlink" title="attr()和removeAttr()"></a>attr()和removeAttr()</h1><p>操作特性的DOM方法主要有三个：getAttribute（）、setAttribute（）、removeAttribute（）。而且就算在实际操作中还是会存在很多问题，而jQuery中用一个attr（）和removeAttribute（）就可以搞定以上，而且能实现兼容。</p>
-<h3 id="attr（）有4个表达式："><a href="#attr（）有4个表达式：" class="headerlink" title="attr（）有4个表达式："></a>attr（）有4个表达式：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">1.attr(传入属性名)：获取属性的值</div><div class="line">2.attr(属性名，属性值)：设置属性的值</div><div class="line">3.attr(属性名，函数值)：设置属性的函数值</div><div class="line">4.attr(attributes)：给指定元素设置多个属性值</div></pre></td></tr></table></figure>
-<h3 id="removeAttr-删除方法"><a href="#removeAttr-删除方法" class="headerlink" title="removeAttr()删除方法"></a>removeAttr()删除方法</h3><p>```<br>.removeAttr(attributeName):为匹配的元素集合中的每个元素中移除一个属性（attribute）</p>
-<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><p>attr、removeAttr都是jQuery为了属性操作封装的，直接在一个jQuery对象上调用该方法，很容易对属性进行操作，也不需要去特意理解浏览器的属性名不同的问题。<br>注：dom中有个概念的区分：Attribute和Property翻译出来都是“属性”，《js高级程序设计》书中翻译为“特性”和“属性”。简单理解，Attribute就是dom节点自带的属性。也就是说：获取Attribute就要用attr，获取Property就要用prop。</p>
-<h1 id="html-和text"><a href="#html-和text" class="headerlink" title="html()和text()"></a>html()和text()</h1><p>读取。修改元素的HTML结构或者元素的文本内容是常见的DOM操作。这方面jQuery提供了两种方法：html()和text()。</p>
-<h3 id="html-方法"><a href="#html-方法" class="headerlink" title="html()方法"></a>html()方法</h3><p>获取集合中第一个匹配元素的HTML内容或设置每一个匹配元素的HTML内容。具体用法如下：<br>1.html()不传入值，就是获取集合中第一个匹配元素的HTML内容。<br>2.html(htmlString)设置每一个匹配元素的HTML内容。<br>3.html(function(index,oldhtml))用来返回设置HTML内容的一个函数。<br>注：.html()方法内部使用的是DOM的innerHTML属性来处理的，所以在设置与获取上需要注意的一个最重要的问题，这个操作是针对整个HTML内容（不仅仅只是文本内容）</p>
-<h3 id="text-方法"><a href="#text-方法" class="headerlink" title="text()方法"></a>text()方法</h3><p>得到匹配匀速集合中每个元素的文本内容集合，包括他们的后代。或者设置匹配元素集合中每个元素的文本内容为指定的文本内容。具体用法如下：<br>1.text()得到匹配元素集合中每个元素的合并文本，包括其后代。<br>2.text(textString)用于设置匹配元素内容的文本。<br>3.text(function(index,text))用来返回设置文本内容的一个函数。<br>注：text()结果返回一个字符串，包含所有匹配元素的合并文本。</p>
-<h3 id="html与-text的异同"><a href="#html与-text的异同" class="headerlink" title=".html与.text的异同:"></a>.html与.text的异同:</h3><p>1..html与.text的方法操作是一样，只是在具体针对处理对象不同<br>2..html处理的是元素内容，.text处理的是文本内容<br>3..html只能使用在HTML文档中，.text 在XML 和 HTML 文档中都能使用<br>4.如果处理的对象只有一个子文本节点，那么html处理的结果与text是一样的<br>5.火狐不支持innerText属性，用了类似的textContent属性，.text()方法综合了2个属性的支持，所以可以兼容所有浏览器</p>
-<h1 id="val"><a href="#val" class="headerlink" title="val()"></a>val()</h1><p>该方法主要用于处理表单元素的值，具体用法如下：<br>1.val()无参数，获取匹配的元素集合中第一个元素的当前值<br>2.val( value )，设置匹配的元素集合中每个元素的值<br>3.val( function ) ，一个用来返回设置值的函数</p>
-<h1 id="html-text-和val-的差异总结："><a href="#html-text-和val-的差异总结：" class="headerlink" title="html(),text()和val()的差异总结："></a>html(),text()和val()的差异总结：</h1><p>1.html(),text(),val()三种方法都是用来读取选定元素的内容；只不过html()是用来读取元素的html内容（包括html标签），text()用来读取元素的纯文本内容，包括其后代元素，val()是用来读取表单元素的”value”值。其中.html()和.text()方法不能使用在表单元素上,而.val()只能使用在表单元素上；另外.html()方法使用在多个元素上时，只读取第一个元素；.val()方法和.html()相同，如果其应用在多个元素上时，只能读取第一个表单元素的”value”值，但是.text()和他们不一样，如果.text()应用在多个元素上时，将会读取所有选中元素的文本内容。<br>2.html(htmlString),text(textString)和val(value)三种方法都是用来替换选中元素的内容，如果三个方法同时运用在多个元素上时，那么将会替换所有选中元素的内容。<br>3.html(),text(),val()都可以使用回调函数的返回值来动态的改变多个元素的内容。</p>
+        <p>本文中call和apply仅占小部分,主要还是关于自己在学习过程中踩到的坑的记录.</p>
+<h1 id="使用call方法将变量产生的数组进行转换"><a href="#使用call方法将变量产生的数组进行转换" class="headerlink" title="使用call方法将变量产生的数组进行转换"></a>使用call方法将变量产生的数组进行转换</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function foo(a, b, c) &#123;</div><div class="line">    var arr1 = [].reverse.call(arguments);</div><div class="line">    console.log(arr1);</div><div class="line">    var arr2 = [].slice.call(arguments);</div><div class="line">    console.log(arr2.reverse());</div><div class="line">&#125;</div><div class="line">foo(1,2,3)</div></pre></td></tr></table></figure>
+<p>以上使用了两种方法，arr1使用了数组的reverse方法，并将数组的reverse方法借用给arguments，也就是说arguments使用了数组中的方法，之前的arguments是没有这个方法的。其最终产生的效果是，arr1还是数组的集合。</p>
+<p>第二种方法其实是首先将数组的slice方法的作用域赋予给arguments，那么arguments其实是使用了slice的方法进行了数组的序列化，最终产生的效果其实是arr2最终变成了一个数组，然后使用数组，也就是arr2的作用域链中的reverse方法进行了调换。</p>
+<h1 id="arrow函数"><a href="#arrow函数" class="headerlink" title="arrow函数"></a>arrow函数</h1><p> 箭头函数其实是对于单调乏味且冗长的function关键词的简写，如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var foo = a =&gt; &#123;</div><div class="line">    console.log(a)</div><div class="line">&#125;</div><div class="line">foo(2);   //2</div></pre></td></tr></table></figure>
+<p>其实在这个情况下，以上的程序是等价于以下的程序的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var foo = function(a) &#123;</div><div class="line">	console.log(a);</div><div class="line">&#125;</div><div class="line">foo(2);</div></pre></td></tr></table></figure>
+<p>那么问题来了，这个箭头函数到底表示的是函数表达式还是函数声明呢？，经过一个简单的测试，发现其实这个箭头函数就是一个简单的函数表达式，我们来测试以下它的函数提升过程：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">foo(2);</div><div class="line">var foo = a =&gt; &#123;</div><div class="line">	console.log(a);    //TypeError: foo is not a function</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="严格模式下必报的this指向问题"><a href="#严格模式下必报的this指向问题" class="headerlink" title="严格模式下必报的this指向问题"></a>严格模式下必报的this指向问题</h1><p>严格模式下，全局对象无法绑定到未进行修饰的函数声明，因此在全局作用域下，在函数内调用this时会造成报错： Cannot read property ‘a’ of undefined；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">(function foo() &#123;</div><div class="line">	&quot;use strict&quot;;</div><div class="line">	var a = 2;</div><div class="line">	console.log(this.a);   //Cannot read property &apos;a&apos; of undefined；</div><div class="line">&#125;)()</div></pre></td></tr></table></figure></p>
+<h1 id="关于this的作用层级问题"><a href="#关于this的作用层级问题" class="headerlink" title="关于this的作用层级问题"></a>关于this的作用层级问题</h1><p>对象中只有引用链的最顶层或者说是作用者的最后一层会影响其调用位置，来看一下下面的这个代码，很奇怪的事情是this居然指向的是obj1 而不是obj2，原因就是因为作用者的最后一层就是obj1.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function foo() &#123;</div><div class="line">	console.log(this.a);</div><div class="line">&#125;</div><div class="line">var obj1 = &#123;</div><div class="line">	a: 1,</div><div class="line">	foo: foo</div><div class="line">&#125;</div><div class="line">var obj2 = &#123;</div><div class="line">	a: 2,</div><div class="line">	obj1: obj1</div><div class="line">&#125;</div><div class="line">obj2.obj1.foo();    //输出的是1，也就是代表this其实指向的是obj1</div></pre></td></tr></table></figure></p>
+<h1 id="引用类型常量的赋值问题"><a href="#引用类型常量的赋值问题" class="headerlink" title="引用类型常量的赋值问题"></a>引用类型常量的赋值问题</h1><p>当函数内部制定了变量值后,输出的值是不一样的,我们来看一下例子:<br>function foo(x) {<br>    x.push(4);<br>    console.log(x);   //输出的是[1,2,3,4],没毛病<br>    x = [4,5,6];<br>    x.push(7);<br>    console.log(x);   //输出[4,5,6,7]这个没毛病<br>}<br>var a = [1,2,3];<br>foo(a);<br>console.log(a);     //这个情况下,a的值其实是[1,2,3,4];<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">其实主要的原因是这样的,当我们的a作为参数传到foo函数中的时候,foo中的参数x其实是获得了一个到a数组的指针,当x进行相应的数值处理操作的时候,会直接作用到a上面,但是当x的指针改变了,也就是x被重新赋值的时候,x的指针就指向新的[4,5,6]数组了,这个时候其实后面的push(7)的操作已经是对于新的数组,并没有对a数组进行相应的操作,故最后返回的a的值只是[1,2,3,4]</div><div class="line"></div><div class="line"># 引用类型常量的赋值问题再探讨</div><div class="line"></div><div class="line">一个很小的问题(其实涉及到的知识点和第五条是类似的),当我为一个变量赋予了一个常量值,但通过函数对这个常量值进行更改,那么更改会不会体现到这个常量值中呢?</div></pre></td></tr></table></figure></p>
+<p>function foo(x) {<br>    x = x + 1;<br>    console.log(x);<br>}<br>var a = 2;<br>foo(a);<br>console.log(a);  //此时a还是为2<br>```</p>
 
       
     </div>
@@ -454,7 +457,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/jQuery/" rel="tag"># jQuery</a>
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
           
         </div>
       
@@ -467,8 +470,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/03/jQuery-学习笔记/" rel="next" title="jQuery 学习笔记——选择器">
-                <i class="fa fa-chevron-left"></i> jQuery 学习笔记——选择器
+              <a href="/2017/08/04/JavaScript笔试面试题收集（二）/" rel="next" title=" JavaScript笔试面试题收集（二）">
+                <i class="fa fa-chevron-left"></i>  JavaScript笔试面试题收集（二）
               </a>
             
           </div>
@@ -476,10 +479,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/07/05/jQuery查漏补缺/" rel="prev" title="jQuery 学习笔记——Review">
-                jQuery 学习笔记——Review <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -679,7 +678,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#attr-和removeAttr"><span class="nav-number">1.</span> <span class="nav-text">attr()和removeAttr()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#attr（）有4个表达式："><span class="nav-number">1.0.1.</span> <span class="nav-text">attr（）有4个表达式：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#removeAttr-删除方法"><span class="nav-number">1.0.2.</span> <span class="nav-text">removeAttr()删除方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优点"><span class="nav-number">1.0.3.</span> <span class="nav-text">优点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#html-和text"><span class="nav-number">2.</span> <span class="nav-text">html()和text()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#html-方法"><span class="nav-number">2.0.1.</span> <span class="nav-text">html()方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#text-方法"><span class="nav-number">2.0.2.</span> <span class="nav-text">text()方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#html与-text的异同"><span class="nav-number">2.0.3.</span> <span class="nav-text">.html与.text的异同:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#val"><span class="nav-number">3.</span> <span class="nav-text">val()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#html-text-和val-的差异总结："><span class="nav-number">4.</span> <span class="nav-text">html(),text()和val()的差异总结：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#使用call方法将变量产生的数组进行转换"><span class="nav-number">1.</span> <span class="nav-text">使用call方法将变量产生的数组进行转换</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#arrow函数"><span class="nav-number">2.</span> <span class="nav-text">arrow函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#严格模式下必报的this指向问题"><span class="nav-number">3.</span> <span class="nav-text">严格模式下必报的this指向问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关于this的作用层级问题"><span class="nav-number">4.</span> <span class="nav-text">关于this的作用层级问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#引用类型常量的赋值问题"><span class="nav-number">5.</span> <span class="nav-text">引用类型常量的赋值问题</span></a></li></ol></div>
             
 
           </div>
