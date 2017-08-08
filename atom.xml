@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/ChangerHe/"/>
-  <updated>2017-08-07T14:56:17.125Z</updated>
+  <updated>2017-08-08T15:18:28.784Z</updated>
   <id>https://github.com/ChangerHe/</id>
   
   <author>
@@ -14,6 +14,54 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JavaScript躲坑指南（一）</title>
+    <link href="https://github.com/ChangerHe/2017/08/08/JavaScript%E8%BA%B2%E5%9D%91%E6%8C%87%E5%8D%97%EF%BC%88%E4%B8%80%EF%BC%89/"/>
+    <id>https://github.com/ChangerHe/2017/08/08/JavaScript躲坑指南（一）/</id>
+    <published>2017-08-08T15:03:29.000Z</published>
+    <updated>2017-08-08T15:18:28.784Z</updated>
+    
+    <content type="html"><![CDATA[<p>本系列将会写一些在正常工作中会遇到的一些坑,然后分析它们的产生原因及解决办法.本文的内容主要来自&lt;you don’t know JS&gt;及日常工作的问题的一些总结.</p>
+<h1 id="坑一-关于parseInt-方法转换字符串的问题-神坑"><a href="#坑一-关于parseInt-方法转换字符串的问题-神坑" class="headerlink" title="坑一: 关于parseInt()方法转换字符串的问题,神坑!"></a>坑一: 关于parseInt()方法转换字符串的问题,神坑!</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">console.log(parseInt(1/0, 19));  //18</div><div class="line">//原因:1/0得到的结果是Infinity,而得到的Infinity本身其实也是一个字符串,所以parseInt会以19进制对其进行类型转换,首字母为I,则其结果则为18了.</div><div class="line">console.log(parseInt(.000009))    //0</div><div class="line">console.log(parseInt(.0000009))   //9</div><div class="line">console.log(parseInt(false, 16))  //250,判定&apos;false&apos;的字符串的&apos;fa&apos;为十六进制了</div><div class="line">console.log(parseInt(parseInt, 16))  //15</div><div class="line">//结果为15的原因是因为parseInt为函数,所以会被typeof为function,</div></pre></td></tr></table></figure>
+<h1 id="坑二-位运算符-的妙用"><a href="#坑二-位运算符-的妙用" class="headerlink" title="坑二: 位运算符~的妙用:"></a>坑二: 位运算符~的妙用:</h1><p>在许多编程语言中,查找值或函数执行过程中,大于等于0的值表示查找或执行成功,返回-1则表示查找或执行失败.因此当失败时,可以直接使用位运算符~进行判定,当为-1时, -(-1 + 1) 即为零,因此就可以直接进行布尔运算了.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var a = &quot;hello world&quot;;</div><div class="line">if(~a.indexof(&quot;lo&quot;))&#123;</div><div class="line">	//查找不到值,则执行函数体中的内容</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>位运算的另一个巧妙用法:将值截除为一个32位整数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">console.log(Math.floor(-.1))  //-1</div><div class="line">console.log(Math.floor(.1))  //0</div><div class="line">console.log(~~-.1)   // 0</div><div class="line">console.log(~~.1)    //0</div></pre></td></tr></table></figure>
+<h1 id="坑三-对于稀疏数组的输出差异"><a href="#坑三-对于稀疏数组的输出差异" class="headerlink" title="坑三: 对于稀疏数组的输出差异"></a>坑三: 对于稀疏数组的输出差异</h1><p>稀疏数组的输出差异:</p>
+<p>在谷歌浏览器中,对于长度为三,无内容的稀疏数组显示为undefined*3,对于长度为三,但内容都赋值为undefined的数组,显示为[undefined, undefined, undefined].但是此情况在IE浏览器中显示的内容都是两个等号!不过在火狐中相对比较正常,输出的是文字”三个空的数组”和[undefined, undefined, undefined]</p>
+<h1 id="坑四-JSON-stringify的妙用"><a href="#坑四-JSON-stringify的妙用" class="headerlink" title="坑四: JSON.stringify的妙用:"></a>坑四: JSON.stringify的妙用:</h1><p>在序列化为JSON对象时,将该对象选择性输出,以得到想要的值;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var a = &#123;</div><div class="line">    b: 42,</div><div class="line">    c: &apos;41&apos;,</div><div class="line">    d: [1,2,3]</div><div class="line">&#125;</div><div class="line">console.log(JSON.stringify(a, [&apos;b&apos;,&apos;d&apos;]))   //&#123;&quot;b&quot;:42,&quot;d&quot;:[1,2,3]&#125;</div></pre></td></tr></table></figure>
+<p>当然,这个时候stringify还可以传递一个函数进去进行判断.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var a = &#123;</div><div class="line">    b: 42,</div><div class="line">    c: &apos;41&apos;,</div><div class="line">    d: [1,2,3]</div><div class="line">&#125;</div><div class="line">console.log(JSON.stringify(a, function(k, v)&#123;</div><div class="line">	if(k !== &apos;c&apos;) return v;</div><div class="line">&#125;))   //&#123;&quot;b&quot;:42,&quot;d&quot;:[1,2,3]&#125;</div></pre></td></tr></table></figure>
+<p>JSON.stringify()还有一个参数space,用来指定输出的缩进格式,space为数值时表示缩进的字符数,还可以是字符串,为字符串时最前面的十个字符用于每一级的缩进:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">var a = &#123;</div><div class="line">    b: 42,</div><div class="line">    c: &apos;41&apos;,</div><div class="line">    d: [1,2,3]</div><div class="line">&#125;</div><div class="line">console.log(JSON.stringify(a, null, &quot;------------------&quot;));</div><div class="line">//&#123;</div><div class="line">//----------&quot;b&quot;: 42,</div><div class="line">//----------&quot;c&quot;: &quot;41&quot;,</div><div class="line">//----------&quot;d&quot;: [</div><div class="line">//--------------------1,</div><div class="line">//--------------------2,</div><div class="line">//--------------------3</div><div class="line">//----------]</div><div class="line">//&#125;</div></pre></td></tr></table></figure>
+<p>从上面来看,使用位运算得到的值和Math.floor() 的值不尽相同,使用位运算相当于直接去掉了数字的小数点.</p>
+<h1 id="坑五-当在函数内部为变量指定新值后-并不影响传参的值"><a href="#坑五-当在函数内部为变量指定新值后-并不影响传参的值" class="headerlink" title="坑五: 当在函数内部为变量指定新值后,并不影响传参的值."></a>坑五: 当在函数内部为变量指定新值后,并不影响传参的值.</h1><p>当函数内部制定了变量值后,输出的值是不一样的,我们来看一下例子:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function foo(x) &#123;</div><div class="line">	x.push(4);</div><div class="line">	console.log(x);   //输出的是[1,2,3,4],没毛病</div><div class="line">	x = [4,5,6];</div><div class="line">	x.push(7);</div><div class="line">	console.log(x);   //输出[4,5,6,7]这个没毛病</div><div class="line">&#125;</div><div class="line">var a = [1,2,3];</div><div class="line">foo(a);</div><div class="line">console.log(a);     //这个情况下,a的值其实是[1,2,3,4];</div></pre></td></tr></table></figure>
+<p>其实主要的原因是这样的,当我们的a作为参数传到foo函数中的时候,foo中的参数x其实是获得了一个到a数组的指针,当x进行相应的数值处理操作的时候,会直接作用到a上面,但是当x的指针改变了,也就是x被重新赋值的时候,x的指针就指向新的[4,5,6]数组了,这个时候其实后面的push(7)的操作已经是对于新的数组,并没有对a数组进行相应的操作,故最后返回的a的值只是[1,2,3,4]</p>
+<h1 id="坑六-为变量赋予常量值的问题"><a href="#坑六-为变量赋予常量值的问题" class="headerlink" title="坑六: 为变量赋予常量值的问题"></a>坑六: 为变量赋予常量值的问题</h1><p>一个很小的问题(其实涉及到的知识点和上面是类似的),当我为一个变量赋予了一个常量值,但通过函数对这个常量值进行更改,那么更改会不会体现到这个常量值中呢?<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function foo(x) &#123;</div><div class="line">	x = x + 1;</div><div class="line">	console.log(x);</div><div class="line">&#125;</div><div class="line">var a = 2;</div><div class="line">foo(a);</div><div class="line">console.log(a);  //此时a还是为2</div></pre></td></tr></table></figure></p>
+<h1 id="坑七-关于浅复制的一些小技巧-也是对上面问题的另一种出理方案"><a href="#坑七-关于浅复制的一些小技巧-也是对上面问题的另一种出理方案" class="headerlink" title="坑七: 关于浅复制的一些小技巧(也是对上面问题的另一种出理方案)"></a>坑七: 关于浅复制的一些小技巧(也是对上面问题的另一种出理方案)</h1><p>使用slice()方法对变量进行浅复制,达到不影响变量原来的值的目的.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">foo(slice() )</div></pre></td></tr></table></figure>
+<h1 id="坑八-new出的对象"><a href="#坑八-new出的对象" class="headerlink" title="坑八: new出的对象"></a>坑八: new出的对象</h1><p>使用new方法new出来的变量都是属于对象,因此进行类型检测时都会显示为object型.</p>
+<h1 id="坑九-关于隐式类型转换"><a href="#坑九-关于隐式类型转换" class="headerlink" title="坑九: 关于隐式类型转换"></a>坑九: 关于隐式类型转换</h1><p>对new出来的对象来讲,对其进行判断会有一个自动的隐式类型转换过程,自动调用数组中的valueof()方法,因此就有了以下这样的奇葩现象:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var a = 2;</div><div class="line">Number.prototype.valueOf = function() &#123;</div><div class="line">    return a++;</div><div class="line">&#125;</div><div class="line">var b = new Number(2);</div><div class="line">if(b == 2 &amp;&amp; b ==3) &#123;</div><div class="line">    console.log(&apos;WTF?&apos;)   //WTF?</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>其实这个问题很好解释,每次对b进行判断都是会调用其valueof方法,而valueof方法中a会自增1,因此会有b又等于2,又等于3的情况.</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本系列将会写一些在正常工作中会遇到的一些坑,然后分析它们的产生原因及解决办法.本文的内容主要来自&amp;lt;you don’t know JS&amp;gt;及日常工作的问题的一些总结.&lt;/p&gt;
+&lt;h1 id=&quot;坑一-关于parseInt-方法转换字符串的问题-神坑&quot;&gt;&lt;a href=
+    
+    </summary>
+    
+      <category term="JavaScript躲坑指南" scheme="https://github.com/ChangerHe/categories/JavaScript%E8%BA%B2%E5%9D%91%E6%8C%87%E5%8D%97/"/>
+    
+    
+      <category term="JavaScript躲坑指南" scheme="https://github.com/ChangerHe/tags/JavaScript%E8%BA%B2%E5%9D%91%E6%8C%87%E5%8D%97/"/>
+    
+  </entry>
   
   <entry>
     <title>JavaScript深入浅出-call/apply</title>
@@ -945,90 +993,6 @@ reduceRight():迭代数组所有项，从最后一个数开始。
     
     
       <category term="GitHub" scheme="https://github.com/ChangerHe/tags/GitHub/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HTTP相关知识（一）</title>
-    <link href="https://github.com/ChangerHe/2017/06/29/HTTP%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/"/>
-    <id>https://github.com/ChangerHe/2017/06/29/HTTP相关知识/</id>
-    <published>2017-06-29T13:19:37.000Z</published>
-    <updated>2017-07-01T16:18:53.195Z</updated>
-    
-    <content type="html"><![CDATA[<p>URL，英文名为（Uniform Resource Locator)，统一资源定位符。<br>统一资源定位符是对可以从互联网上得到的资源的位置和访问方法的一种简洁的表示，是互联网上标准资源的地址。互联网上的每个文件都有一个唯一的URL，它包含的信息支出文件的位置及浏览器该怎么处理它。</p>
-<p>基本URL包含模式（或称协议），服务器名称（或IP地址），路径和文件名。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">协议://授权/路径?查询</div></pre></td></tr></table></figure></p>
-<p>完整的，带有授权部分的普通统一资源定位符语法看上去如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">协议://用户名:密码@子域名.域名.顶级域名:端口号/目录/文件名.文件后缀?参数=值#标志</div></pre></td></tr></table></figure></p>
-<h2 id="HTTP状态码"><a href="#HTTP状态码" class="headerlink" title="HTTP状态码"></a>HTTP状态码</h2><p>HTTP状态码现在在记录的的种类就达40多种，再加上各类拓展，数量可达六十余种。但实际上真正频繁使用的，也就14中。</p>
-<h3 id="状态码的不同类别"><a href="#状态码的不同类别" class="headerlink" title="状态码的不同类别"></a>状态码的不同类别</h3><table>
-<thead>
-<tr>
-<th style="text-align:center"></th>
-<th style="text-align:center">类别</th>
-<th style="text-align:center">原因短语</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">1XX</td>
-<td style="text-align:center">Informational(信息性状态码)</td>
-<td style="text-align:center">接收的请求正在处理</td>
-</tr>
-<tr>
-<td style="text-align:center">2XX</td>
-<td style="text-align:center">Success(成功状态码)</td>
-<td style="text-align:center">请求正常处理完毕</td>
-</tr>
-<tr>
-<td style="text-align:center">3XX</td>
-<td style="text-align:center">Redirection(重定向状态码)</td>
-<td style="text-align:center">需要进行附加操作以完成请求</td>
-</tr>
-<tr>
-<td style="text-align:center">4XX</td>
-<td style="text-align:center">Client Error(客户端错误状态码)</td>
-<td style="text-align:center">服务器无法处理请求</td>
-</tr>
-<tr>
-<td style="text-align:center">5XX</td>
-<td style="text-align:center">Sever Error(服务器错误状态码)</td>
-<td style="text-align:center">服务器处理请求出错</td>
-</tr>
-</tbody>
-</table>
-<h2 id="1XX类状态码——正在处理中"><a href="#1XX类状态码——正在处理中" class="headerlink" title="1XX类状态码——正在处理中"></a>1XX类状态码——正在处理中</h2><p>以上列表，主要表示请求的状态或者接收的请求正在处理。这个没什么可说的。</p>
-<h2 id="2XX类状态码——处理成功"><a href="#2XX类状态码——处理成功" class="headerlink" title="2XX类状态码——处理成功"></a>2XX类状态码——处理成功</h2><p>看到2XX，你就可以开心啦，2XX类状态码基本为处理成功的状态，具体情况如下：</p>
-<ol>
-<li>200 OK<br>表示从客户端发来的请求在服务器端被正常处理了。</li>
-<li>204 No Content<br>表示状态码代表服务器接收的请求已经成功处理，但在返回的响应报文中不含实体的主体部分。另外，也不允许返回任何实体的主体。<br>一般只需要从客户端往服务器发送信息，而对客户端不需要发送新信息内容的情况下使用。</li>
-<li>206 Partical Content<br>该状态码表示客户端进行了范围请求，而服务器成功执行了这部分的GET请求。响应报文中包含由Content-Range指定范围的实体内容。<h2 id="3XX类状态码——重定向"><a href="#3XX类状态码——重定向" class="headerlink" title="3XX类状态码——重定向"></a>3XX类状态码——重定向</h2>3XX响应结果表示浏览器需要执行某些特殊的处理以正确处理请求。</li>
-<li><p>301 Moved Permanently<br>永久性重定向，改状态码请求的资源已经被分配了新的URI，以后应使用资源现在所指的URI。<br>还有一种情况，当你的输入路径最后忘记添加斜杠 <code>/</code>时，也会产生301状态码。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://example.com/sample</div></pre></td></tr></table></figure>
-</li>
-<li><p>302 Found<br>临时性重定向。该状态码表示请求的资源已经被分配了新的URI，希望用户能使用新的URI访问。<br>和状态码301类似，但是302状态码表示的资源不是永久移动，只是临时的。</p>
-</li>
-<li>303 See Other<br>该状态码表示由于请求对应的资源存在着另一个URI，应使用GET方法进行定向获取请求的资源。<br>303状态码和302状态码有着相同的功能，但303状态码明确表示客户端应当次用GET方法获取资源，这点与302状态码有区别。</li>
-<li>304 Not Modefied<br>该状态码表示客户端发送附带条件的请求时，服务器端允许请求访问资源，但因发生请求未满足条件的情况后，直接返回304.该状态码返回时不包含任何响应的主题部分。也就是虽然304被划分在3XX系列，但是似乎和重定向没有关系，反倒和接下来介绍的4XX系列有些类似了。</li>
-<li>307 Temporary Redirect<br>临时重定向。该状态码与302有着类似的含义。<h2 id="4XX类状态码——客户端错误"><a href="#4XX类状态码——客户端错误" class="headerlink" title="4XX类状态码——客户端错误"></a>4XX类状态码——客户端错误</h2>这也许是所有程序猿和媛们最讨厌的一个系列了，该返回表明客户端是发生错误的原因所在。</li>
-<li>400 Bad Request<br>该状态码表示请求报文中存在语法错误。当错误发生时，需要修改请求的内容之后再次发送。而且，浏览器会像200 ok那样子对待该状态码。</li>
-<li>401 Unauthorized<br>该状态码表示发送的请求需要有通过HTTP认证的认证信息。如果之前已经做过一次请求的话，则表示用户校验失败。<br>返回含有401的响应必须包含一个适用于被请求资源的 <code>WWW-Authenticate</code> 首部用以质询用户信息。当用户初次接收到401，会弹出认证用的对话窗口。</li>
-<li>403 Forbidden<br>表明请求资源的访问被浏览器拒绝了。<br>未获得文件系统的访问授权，访问权限出现问题，都会返回403状态码。</li>
-<li>404 Not Found<br>该状态码绝对是4XX系列中我们最常见的了。表示服务器上无法找到请求的资源。除此之外，也可以在服务器端拒绝请求且不想说明理由时使用。<h2 id="5XX类状态码——服务器错误"><a href="#5XX类状态码——服务器错误" class="headerlink" title="5XX类状态码——服务器错误"></a>5XX类状态码——服务器错误</h2></li>
-<li>500 Internal Server Error<br>该状态码表示服务器端在执行请求时发生了错误，也有可能是web应用存在的BUG或某些临时的故障。</li>
-<li>503 Service Unavailable<br>该状态码表示服务器暂时处于超负载或正在进行停机维护，现在无法处理处理请求。如果事先得知解除以上状况需要的时间，最好写入 <code>Retry-After</code> 首部字段再返回给客户端。</li>
-</ol>
-<h2 id="知识拓展：URI"><a href="#知识拓展：URI" class="headerlink" title="知识拓展：URI"></a>知识拓展：URI</h2><p>URI（Uniform Resource Identifier）,统一资源标识符。URI是有某个协议方案表示的资源的定位标识符。协议方案是指访问资源所使用的协议类型名称。<br>采用HTTP协议时，协议方案就是HTTP。标准的URI协议方案有30种左右。<br>URI用字符串标识某一互联网资源，而URL标识资源的地点，可见，URL是URI的子集。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;URL，英文名为（Uniform Resource Locator)，统一资源定位符。&lt;br&gt;统一资源定位符是对可以从互联网上得到的资源的位置和访问方法的一种简洁的表示，是互联网上标准资源的地址。互联网上的每个文件都有一个唯一的URL，它包含的信息支出文件的位置及浏览器该怎
-    
-    </summary>
-    
-      <category term="HTTP 相关知识" scheme="https://github.com/ChangerHe/categories/HTTP-%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/"/>
-    
-    
-      <category term="HTTP相关知识" scheme="https://github.com/ChangerHe/tags/HTTP%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/"/>
     
   </entry>
   

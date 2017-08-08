@@ -283,6 +283,213 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://github.com/ChangerHe/2017/08/08/JavaScript躲坑指南（一）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Changer He">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Changer He's Home Page">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/08/08/JavaScript躲坑指南（一）/" itemprop="url">
+                  JavaScript躲坑指南（一）
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-08T23:03:29+08:00">
+                2017-08-08
+              </time>
+            
+
+            
+
+  <span class="post-letters-count">
+    &nbsp; | &nbsp;
+    <span>1,341 字</span>
+    &nbsp; | &nbsp;
+    <span>5 min</span>
+  </span>
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript躲坑指南/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript躲坑指南</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  1,341字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  5分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>本系列将会写一些在正常工作中会遇到的一些坑,然后分析它们的产生原因及解决办法.本文的内容主要来自&lt;you don’t know JS&gt;及日常工作的问题的一些总结.</p>
+<h1 id="坑一-关于parseInt-方法转换字符串的问题-神坑"><a href="#坑一-关于parseInt-方法转换字符串的问题-神坑" class="headerlink" title="坑一: 关于parseInt()方法转换字符串的问题,神坑!"></a>坑一: 关于parseInt()方法转换字符串的问题,神坑!</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">console.log(parseInt(1/0, 19));  //18</div><div class="line">//原因:1/0得到的结果是Infinity,而得到的Infinity本身其实也是一个字符串,所以parseInt会以19进制对其进行类型转换,首字母为I,则其结果则为18了.</div><div class="line">console.log(parseInt(.000009))    //0</div><div class="line">console.log(parseInt(.0000009))   //9</div><div class="line">console.log(parseInt(false, 16))  //250,判定&apos;false&apos;的字符串的&apos;fa&apos;为十六进制了</div><div class="line">console.log(parseInt(parseInt, 16))  //15</div><div class="line">//结果为15的原因是因为parseInt为函数,所以会被typeof为function,</div></pre></td></tr></table></figure>
+<h1 id="坑二-位运算符-的妙用"><a href="#坑二-位运算符-的妙用" class="headerlink" title="坑二: 位运算符~的妙用:"></a>坑二: 位运算符~的妙用:</h1><p>在许多编程语言中,查找值或函数执行过程中,大于等于0的值表示查找或执行成功,返回-1则表示查找或执行失败.因此当失败时,可以直接使用位运算符~进行判定,当为-1时, -(-1 + 1) 即为零,因此就可以直接进行布尔运算了.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var a = &quot;hello world&quot;;</div><div class="line">if(~a.indexof(&quot;lo&quot;))&#123;</div><div class="line">	//查找不到值,则执行函数体中的内容</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>位运算的另一个巧妙用法:将值截除为一个32位整数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">console.log(Math.floor(-.1))  //-1</div><div class="line">console.log(Math.floor(.1))  //0</div><div class="line">console.log(~~-.1)   // 0</div><div class="line">console.log(~~.1)    //0</div></pre></td></tr></table></figure>
+<h1 id="坑三-对于稀疏数组的输出差异"><a href="#坑三-对于稀疏数组的输出差异" class="headerlink" title="坑三: 对于稀疏数组的输出差异"></a>坑三: 对于稀疏数组的输出差异</h1><p>稀疏数组的输出差异:</p>
+<p>在谷歌浏览器中,对于长度为三,无内容的稀疏数组显示为undefined*3,对于长度为三,但内容都赋值为undefined的数组,显示为[undefined, undefined, undefined].但是此情况在IE浏览器中显示的内容都是两个等号!不过在火狐中相对比较正常,输出的是文字”三个空的数组”和[undefined, undefined, undefined]</p>
+<h1 id="坑四-JSON-stringify的妙用"><a href="#坑四-JSON-stringify的妙用" class="headerlink" title="坑四: JSON.stringify的妙用:"></a>坑四: JSON.stringify的妙用:</h1><p>在序列化为JSON对象时,将该对象选择性输出,以得到想要的值;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var a = &#123;</div><div class="line">    b: 42,</div><div class="line">    c: &apos;41&apos;,</div><div class="line">    d: [1,2,3]</div><div class="line">&#125;</div><div class="line">console.log(JSON.stringify(a, [&apos;b&apos;,&apos;d&apos;]))   //&#123;&quot;b&quot;:42,&quot;d&quot;:[1,2,3]&#125;</div></pre></td></tr></table></figure>
+<p>当然,这个时候stringify还可以传递一个函数进去进行判断.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var a = &#123;</div><div class="line">    b: 42,</div><div class="line">    c: &apos;41&apos;,</div><div class="line">    d: [1,2,3]</div><div class="line">&#125;</div><div class="line">console.log(JSON.stringify(a, function(k, v)&#123;</div><div class="line">	if(k !== &apos;c&apos;) return v;</div><div class="line">&#125;))   //&#123;&quot;b&quot;:42,&quot;d&quot;:[1,2,3]&#125;</div></pre></td></tr></table></figure>
+<p>JSON.stringify()还有一个参数space,用来指定输出的缩进格式,space为数值时表示缩进的字符数,还可以是字符串,为字符串时最前面的十个字符用于每一级的缩进:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">var a = &#123;</div><div class="line">    b: 42,</div><div class="line">    c: &apos;41&apos;,</div><div class="line">    d: [1,2,3]</div><div class="line">&#125;</div><div class="line">console.log(JSON.stringify(a, null, &quot;------------------&quot;));</div><div class="line">//&#123;</div><div class="line">//----------&quot;b&quot;: 42,</div><div class="line">//----------&quot;c&quot;: &quot;41&quot;,</div><div class="line">//----------&quot;d&quot;: [</div><div class="line">//--------------------1,</div><div class="line">//--------------------2,</div><div class="line">//--------------------3</div><div class="line">//----------]</div><div class="line">//&#125;</div></pre></td></tr></table></figure>
+<p>从上面来看,使用位运算得到的值和Math.floor() 的值不尽相同,使用位运算相当于直接去掉了数字的小数点.</p>
+<h1 id="坑五-当在函数内部为变量指定新值后-并不影响传参的值"><a href="#坑五-当在函数内部为变量指定新值后-并不影响传参的值" class="headerlink" title="坑五: 当在函数内部为变量指定新值后,并不影响传参的值."></a>坑五: 当在函数内部为变量指定新值后,并不影响传参的值.</h1><p>当函数内部制定了变量值后,输出的值是不一样的,我们来看一下例子:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function foo(x) &#123;</div><div class="line">	x.push(4);</div><div class="line">	console.log(x);   //输出的是[1,2,3,4],没毛病</div><div class="line">	x = [4,5,6];</div><div class="line">	x.push(7);</div><div class="line">	console.log(x);   //输出[4,5,6,7]这个没毛病</div><div class="line">&#125;</div><div class="line">var a = [1,2,3];</div><div class="line">foo(a);</div><div class="line">console.log(a);     //这个情况下,a的值其实是[1,2,3,4];</div></pre></td></tr></table></figure>
+<p>其实主要的原因是这样的,当我们的a作为参数传到foo函数中的时候,foo中的参数x其实是获得了一个到a数组的指针,当x进行相应的数值处理操作的时候,会直接作用到a上面,但是当x的指针改变了,也就是x被重新赋值的时候,x的指针就指向新的[4,5,6]数组了,这个时候其实后面的push(7)的操作已经是对于新的数组,并没有对a数组进行相应的操作,故最后返回的a的值只是[1,2,3,4]</p>
+<h1 id="坑六-为变量赋予常量值的问题"><a href="#坑六-为变量赋予常量值的问题" class="headerlink" title="坑六: 为变量赋予常量值的问题"></a>坑六: 为变量赋予常量值的问题</h1><p>一个很小的问题(其实涉及到的知识点和上面是类似的),当我为一个变量赋予了一个常量值,但通过函数对这个常量值进行更改,那么更改会不会体现到这个常量值中呢?<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function foo(x) &#123;</div><div class="line">	x = x + 1;</div><div class="line">	console.log(x);</div><div class="line">&#125;</div><div class="line">var a = 2;</div><div class="line">foo(a);</div><div class="line">console.log(a);  //此时a还是为2</div></pre></td></tr></table></figure></p>
+<h1 id="坑七-关于浅复制的一些小技巧-也是对上面问题的另一种出理方案"><a href="#坑七-关于浅复制的一些小技巧-也是对上面问题的另一种出理方案" class="headerlink" title="坑七: 关于浅复制的一些小技巧(也是对上面问题的另一种出理方案)"></a>坑七: 关于浅复制的一些小技巧(也是对上面问题的另一种出理方案)</h1><p>使用slice()方法对变量进行浅复制,达到不影响变量原来的值的目的.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">foo(slice() )</div></pre></td></tr></table></figure>
+<h1 id="坑八-new出的对象"><a href="#坑八-new出的对象" class="headerlink" title="坑八: new出的对象"></a>坑八: new出的对象</h1><p>使用new方法new出来的变量都是属于对象,因此进行类型检测时都会显示为object型.</p>
+<h1 id="坑九-关于隐式类型转换"><a href="#坑九-关于隐式类型转换" class="headerlink" title="坑九: 关于隐式类型转换"></a>坑九: 关于隐式类型转换</h1><p>对new出来的对象来讲,对其进行判断会有一个自动的隐式类型转换过程,自动调用数组中的valueof()方法,因此就有了以下这样的奇葩现象:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var a = 2;</div><div class="line">Number.prototype.valueOf = function() &#123;</div><div class="line">    return a++;</div><div class="line">&#125;</div><div class="line">var b = new Number(2);</div><div class="line">if(b == 2 &amp;&amp; b ==3) &#123;</div><div class="line">    console.log(&apos;WTF?&apos;)   //WTF?</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>其实这个问题很好解释,每次对b进行判断都是会调用其valueof方法,而valueof方法中a会自增1,因此会有b又等于2,又等于3的情况.</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">共36.8k字</span>
+</div>
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="https://github.com/ChangerHe/2017/08/07/JavaScript深入浅出-call-apply/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -466,7 +673,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共35.4k字</span>
+  <span class="post-count">共36.8k字</span>
 </div>
 
     
@@ -653,7 +860,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共35.4k字</span>
+  <span class="post-count">共36.8k字</span>
 </div>
 
     
@@ -844,7 +1051,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共35.4k字</span>
+  <span class="post-count">共36.8k字</span>
 </div>
 
     
@@ -1105,7 +1312,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共35.4k字</span>
+  <span class="post-count">共36.8k字</span>
 </div>
 
     
@@ -1383,7 +1590,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共35.4k字</span>
+  <span class="post-count">共36.8k字</span>
 </div>
 
     
@@ -1570,7 +1777,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共35.4k字</span>
+  <span class="post-count">共36.8k字</span>
 </div>
 
     
@@ -1754,7 +1961,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共35.4k字</span>
+  <span class="post-count">共36.8k字</span>
 </div>
 
     
@@ -1944,7 +2151,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共35.4k字</span>
+  <span class="post-count">共36.8k字</span>
 </div>
 
     
@@ -2141,242 +2348,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共35.4k字</span>
-</div>
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://github.com/ChangerHe/2017/07/13/PHP菜鸟入门笔记/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Changer He">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Changer He's Home Page">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/07/13/PHP菜鸟入门笔记/" itemprop="url">
-                  PHP菜鸟入门不完全指南
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-13T22:05:35+08:00">
-                2017-07-13
-              </time>
-            
-
-            
-
-  <span class="post-letters-count">
-    &nbsp; | &nbsp;
-    <span>923 字</span>
-    &nbsp; | &nbsp;
-    <span>3 min</span>
-  </span>
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PHP-学习笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">PHP 学习笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计</span>
-                
-                <span title="字数统计">
-                  923字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长</span>
-                
-                <span title="阅读时长">
-                  3分钟
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>PHP是作用于服务器端的语言，偏前端的朋友们会称他为后端语言。而专门做后端的朋友们则会说，PHP是一种前端的弱类型语言。<br>当然，这个语言的定位不是最重要的，重要的是，PHP到底是不是最好的语言？</p>
-<h1 id="PHP的适用范围"><a href="#PHP的适用范围" class="headerlink" title="PHP的适用范围"></a>PHP的适用范围</h1><h3 id="生成动态页面内容"><a href="#生成动态页面内容" class="headerlink" title="生成动态页面内容"></a>生成动态页面内容</h3><h3 id="创建，打开，读取，写入，删除及关闭服务器上的文件。"><a href="#创建，打开，读取，写入，删除及关闭服务器上的文件。" class="headerlink" title="创建，打开，读取，写入，删除及关闭服务器上的文件。"></a>创建，打开，读取，写入，删除及关闭服务器上的文件。</h3><h3 id="接收表单数据，发送并取回cookies"><a href="#接收表单数据，发送并取回cookies" class="headerlink" title="接收表单数据，发送并取回cookies"></a>接收表单数据，发送并取回cookies</h3><h3 id="添加，删除，修改数据库中的数据"><a href="#添加，删除，修改数据库中的数据" class="headerlink" title="添加，删除，修改数据库中的数据"></a>添加，删除，修改数据库中的数据</h3><h3 id="限制用户访问网站中的某个页面"><a href="#限制用户访问网站中的某个页面" class="headerlink" title="限制用户访问网站中的某个页面"></a>限制用户访问网站中的某个页面</h3><h1 id="PHP结构"><a href="#PHP结构" class="headerlink" title="PHP结构"></a>PHP结构</h1><p>以<code>&lt;?php</code>开头，以 <code>?&gt;</code> 结尾，默认文件扩展名是 <code>.php</code> ,语句不同于javascript，必须要以分号结尾。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;?php echo &quot;hi&quot;.&quot;changer&quot;; ?&gt;     //hichanger</div><div class="line">//PHP不同于其他语言的以“+”链接两字符串的方式，而是以“.”进行连接。</div></pre></td></tr></table></figure>
-<h1 id="PHP基本语法"><a href="#PHP基本语法" class="headerlink" title="PHP基本语法"></a>PHP基本语法</h1><h2 id="变量的定义"><a href="#变量的定义" class="headerlink" title="变量的定义"></a>变量的定义</h2><pre><code>必须以字母或下划线开头，如&quot;$_name&quot;/&quot;$name&quot;/&quot;$name2&quot;等。
-变量名只能由字母数字及下划线组成，可以包含汉字，但不推荐这样做。
-变量名不允许包含空格，因此当变量名由多个单词组成，建议使用下划线分隔，或者使用驼峰命名法。变量名严格区分大小写。
-</code></pre><p>smallTips: 使用memory_get_usage获取当前PHP消耗的内存</p>
-<h1 id="PHP标量类型"><a href="#PHP标量类型" class="headerlink" title="PHP标量类型"></a>PHP标量类型</h1><p>布尔类型<br>整型<br>浮点型<br>字符串</p>
-<p>smallTips: 当双引号包含变量时，变量会引入，单引号包含变量时，变量不引入。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$love = &quot;I love you!&quot;;</div><div class="line">$string1 = &quot;Changer , $love&quot;;</div><div class="line">$string2 = &apos;Changer , $love&apos;;</div><div class="line">echo $string1;     //Changer, I love you!</div><div class="line">echo $string2;     //Changer, $love</div></pre></td></tr></table></figure></p>
-<p>smallTips: 当字符串很长时，可使用定界符进行表示<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$string = &lt;&lt;&lt;GOD  </div><div class="line">	//中间放大量内容</div><div class="line">GOD;</div></pre></td></tr></table></figure></p>
-<h1 id="PHP特殊类型"><a href="#PHP特殊类型" class="headerlink" title="PHP特殊类型"></a>PHP特殊类型</h1><h2 id="资源"><a href="#资源" class="headerlink" title="资源"></a>资源</h2><p>由专门函数来建立和使用，我们可对资源进行操作（创建，使用，释放），任何资源在不使用时应被及时释放。如果我们忘记释放资源，系统会自动启动垃圾回收机制，在页面执行完毕后回收资源。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line">	$file = fopen(&quot;f.txt&quot;,&quot;r&quot;);  //打开文件</div><div class="line">	$con = mysql_connect(&quot;localhost&quot;,&quot;root&quot;,&quot;root&quot;);  //链接数据库</div><div class="line">	$img = imagecreate(100,100);   //图形画布</div><div class="line">?&gt;</div></pre></td></tr></table></figure></p>
-<h1 id="空类型"><a href="#空类型" class="headerlink" title="空类型"></a>空类型</h1><p>对大小写不敏感，null类型只有一个取值，表示一个变量没有值，当被赋值NULL或未被赋值或被unset()时，变量为NULL。</p>
-<p>smalltips: error_reporting(0);    //禁止显示PHP警告提示</p>
-<h1 id="PHP常量"><a href="#PHP常量" class="headerlink" title="PHP常量"></a>PHP常量</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">bool define(string $constant_name, mixed $value[,$case_sensitive = true])</div><div class="line">//参数 constant_name: 常量名称，常量命名规则与变量一致，可不带$符号。</div><div class="line">//     value        :常量的值</div><div class="line">//     case_sensitive: (可选项）表示是否对大小写敏感，默认为false，敏感。</div><div class="line">//     string       ：表示字符串类型，mixed表示参数类型可接受为多种不同类型。</div></pre></td></tr></table></figure>
-<h1 id="PHP系统常量"><a href="#PHP系统常量" class="headerlink" title="PHP系统常量"></a>PHP系统常量</h1><p>1.<strong>FILE</strong>:指PHP程序文件名，可帮助我们获取当前文静在服务器的物理位置。<br>2.<strong>LINE</strong>:指PHP程序文件行数，可告诉我们当前代码在第几行。<br>3.PHP_VERSION:当前PHP解析器的版本号。<br>4.PHP_OS:执行当前PHP版本的操作系统名称。</p>
-<p>smallTips:判断常量是否被定义<br><code>bool defined(string constants_name)</code></p>
-<h1 id="PHP赋值运算符"><a href="#PHP赋值运算符" class="headerlink" title="PHP赋值运算符"></a>PHP赋值运算符</h1><p>等号 “=” ：表示把右边表达式的值赋值给左边的运算数，两者为不同内存空间。<br>和符号 “&amp;” : 表示引用赋值，两者相等，引用的是同一块内存空间。</p>
-<p>smallTips：在PHP比较时，“！=”和“&lt;&gt;”是等价的，但用数据库时，后者的兼容性更好。</p>
-<h1 id="PHP逻辑运算符"><a href="#PHP逻辑运算符" class="headerlink" title="PHP逻辑运算符"></a>PHP逻辑运算符</h1><table>
-<thead>
-<tr>
-<th style="text-align:center">逻辑运算符</th>
-<th style="text-align:center">表示的含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">$a and $b</td>
-<td style="text-align:center">与</td>
-</tr>
-<tr>
-<td style="text-align:center">$a or $b</td>
-<td style="text-align:center">或</td>
-</tr>
-<tr>
-<td style="text-align:center">$a xor $b</td>
-<td style="text-align:center">异或</td>
-</tr>
-<tr>
-<td style="text-align:center">!$a</td>
-<td style="text-align:center">非</td>
-</tr>
-<tr>
-<td style="text-align:center">$a &amp;&amp; $b</td>
-<td style="text-align:center">与</td>
-</tr>
-<tr>
-<td style="text-align:center">$a &#124;&#124; $b</td>
-<td style="text-align:center">或</td>
-</tr>
-</tbody>
-</table>
-<p>smallTips: <code>.rand(1,50);</code>  表示1-50之间的随机数</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-<div class="theme-info">
-  <div class="powered-by"></div>
-  <span class="post-count">共35.4k字</span>
+  <span class="post-count">共36.8k字</span>
 </div>
 
     
@@ -2429,7 +2401,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-count">37</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2440,7 +2412,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -2451,7 +2423,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-count">17</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
