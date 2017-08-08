@@ -331,7 +331,7 @@
 
   <span class="post-letters-count">
     &nbsp; | &nbsp;
-    <span>1,341 字</span>
+    <span>1,332 字</span>
     &nbsp; | &nbsp;
     <span>5 min</span>
   </span>
@@ -382,7 +382,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  1,341字
+                  1,332字
                 </span>
               
 
@@ -425,8 +425,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var a = &quot;hello world&quot;;</div><div class="line">if(~a.indexof(&quot;lo&quot;))&#123;</div><div class="line">	//查找不到值,则执行函数体中的内容</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>位运算的另一个巧妙用法:将值截除为一个32位整数</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">console.log(Math.floor(-.1))  //-1</div><div class="line">console.log(Math.floor(.1))  //0</div><div class="line">console.log(~~-.1)   // 0</div><div class="line">console.log(~~.1)    //0</div></pre></td></tr></table></figure>
-<h1 id="坑三-对于稀疏数组的输出差异"><a href="#坑三-对于稀疏数组的输出差异" class="headerlink" title="坑三: 对于稀疏数组的输出差异"></a>坑三: 对于稀疏数组的输出差异</h1><p>稀疏数组的输出差异:</p>
-<p>在谷歌浏览器中,对于长度为三,无内容的稀疏数组显示为undefined*3,对于长度为三,但内容都赋值为undefined的数组,显示为[undefined, undefined, undefined].但是此情况在IE浏览器中显示的内容都是两个等号!不过在火狐中相对比较正常,输出的是文字”三个空的数组”和[undefined, undefined, undefined]</p>
+<h1 id="坑三-对于稀疏数组的输出差异"><a href="#坑三-对于稀疏数组的输出差异" class="headerlink" title="坑三: 对于稀疏数组的输出差异"></a>坑三: 对于稀疏数组的输出差异</h1><p>在谷歌浏览器中,对于长度为三,无内容的稀疏数组显示为undefined*3,对于长度为三,但内容都赋值为undefined的数组,显示为[undefined, undefined, undefined].但是此情况在IE浏览器中显示的内容都是两个等号!不过在火狐中相对比较正常,输出的是文字”三个空的数组”和[undefined, undefined, undefined]</p>
 <h1 id="坑四-JSON-stringify的妙用"><a href="#坑四-JSON-stringify的妙用" class="headerlink" title="坑四: JSON.stringify的妙用:"></a>坑四: JSON.stringify的妙用:</h1><p>在序列化为JSON对象时,将该对象选择性输出,以得到想要的值;</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var a = &#123;</div><div class="line">    b: 42,</div><div class="line">    c: &apos;41&apos;,</div><div class="line">    d: [1,2,3]</div><div class="line">&#125;</div><div class="line">console.log(JSON.stringify(a, [&apos;b&apos;,&apos;d&apos;]))   //&#123;&quot;b&quot;:42,&quot;d&quot;:[1,2,3]&#125;</div></pre></td></tr></table></figure>
 <p>当然,这个时候stringify还可以传递一个函数进去进行判断.</p>
