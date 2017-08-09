@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/ChangerHe/"/>
-  <updated>2017-08-08T15:27:21.200Z</updated>
+  <updated>2017-08-09T15:08:51.857Z</updated>
   <id>https://github.com/ChangerHe/</id>
   
   <author>
@@ -14,6 +14,50 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JavaScript躲坑指南（二）</title>
+    <link href="https://github.com/ChangerHe/2017/08/09/JavaScript%E8%BA%B2%E5%9D%91%E6%8C%87%E5%8D%97%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
+    <id>https://github.com/ChangerHe/2017/08/09/JavaScript躲坑指南（二）/</id>
+    <published>2017-08-09T15:02:38.000Z</published>
+    <updated>2017-08-09T15:08:51.857Z</updated>
+    
+    <content type="html"><![CDATA[<p>本系列将会写一些在正常工作中会遇到的一些坑,然后分析它们的产生原因及解决办法.本文的内容主要来自&lt;you don’t know JS&gt;及日常工作的问题的一些总结.</p>
+<h1 id="关于arguments的使用"><a href="#关于arguments的使用" class="headerlink" title="关于arguments的使用:"></a>关于arguments的使用:</h1><p>arguments在ES6之前简直就是福音,因为在ES6之前是没有办法取到函数的参数组成的数组的.</p>
+<p>但是arguments在使用的过程中还是有一些坑的,我们来看一下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function foo(a) &#123;</div><div class="line">    a = 42;</div><div class="line">    console.log(arguments[0])</div><div class="line">&#125;</div><div class="line">foo(2);   //42</div><div class="line">foo();    //undefined</div></pre></td></tr></table></figure>
+<p>在向函数传递参数的时候,arguments数组中的对应单元会和命名参数建立关联,以得到相同的值,但是当函数在调用的时候没有传递参数时,因为没有参数,自然arguments就无法和函数建立关联了,自然就是undefined.</p>
+<h1 id="try-catch-finally的内容执行先后的问题"><a href="#try-catch-finally的内容执行先后的问题" class="headerlink" title="try/catch/finally的内容执行先后的问题"></a>try/catch/finally的内容执行先后的问题</h1><p>finally中的代码总是会在try之后执行,如果有catch的话会在catch之后执行.其实也可以把finally中的代码当做一个回调函数.无论出现什么情况,最后一定会被调用.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function foo() &#123;</div><div class="line">    try &#123;</div><div class="line">        return 42;</div><div class="line">    &#125; finally &#123;</div><div class="line">        console.log(&apos;hello&apos;)</div><div class="line">    &#125;</div><div class="line">    console.log(&apos;never runs&apos;);</div><div class="line">&#125;</div><div class="line">console.log(foo());</div><div class="line">//输出结果: 先输出 hello  再输出返回的值hello</div></pre></td></tr></table></figure>
+<p>在这里return42先执行,并将foo()函数的返回值设置为42.try执行完毕后执行finally.console.log()显示的是函数的返回值.</p>
+<p>对于这个问题还有一个很好玩的东西,就是当你在finally中进行抛出异常时,其实try中的返回值就不生效了.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function foo() &#123;</div><div class="line">    try &#123;</div><div class="line">        return  42;</div><div class="line">    &#125; finally &#123;</div><div class="line">        throw &quot;oops!&quot;</div><div class="line">    &#125;</div><div class="line">    console.log(&apos;never runs&apos;);</div><div class="line">&#125;</div><div class="line">console.log(foo()); // Uncaught oops!</div></pre></td></tr></table></figure>
+<p>其实综上而言,不论try中执行的是什么东西,即使是<code>return</code>或者<code>throw</code>等让函数立即结束的语句,最后finally也会成功执行.但是当<code>finally</code>中抛出异常时,<code>try</code>中的代码其实就相当于无效了.也就是finally中的值会最终覆盖掉try中的值.</p>
+<h1 id="关于全局的DOM变量"><a href="#关于全局的DOM变量" class="headerlink" title="关于全局的DOM变量"></a>关于全局的DOM变量</h1><p>当我们在文档流中加入 <code>&lt;div id=&quot;foo&quot;&gt;&lt;/div&gt;</code> 时,我们在其下面的js文档中能否找到foo这个变量呢?答案是可以!</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//我们直接在文档的下面进行类型判定</div><div class="line">console.log(typeof foo);   //输出结果是object,   WTF?</div></pre></td></tr></table></figure>
+<h1 id="关于属性的屏蔽"><a href="#关于属性的屏蔽" class="headerlink" title="关于属性的屏蔽"></a>关于属性的屏蔽</h1><p>当我们在原型链中为底层函数操作原型链中的属性进行算术运算时,属性被被底层函数给屏蔽掉.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var anotherObject = &#123;</div><div class="line">    a: 2</div><div class="line">&#125;</div><div class="line">var myObject = Object.create(anotherObject);</div><div class="line">console.log(myObject.a);</div><div class="line">myObject.a++;</div><div class="line">console.log(myObject.a,anotherObject.a);</div></pre></td></tr></table></figure>
+<p>其实想到原理就很简单,因为当我们把<code>myObject</code>中的a,也就是<code>anotherObject</code>中的a调用之后,相应的<code>myObject.a</code>会得到<code>anotherObject</code>中的a的值,也就是2.但是当我们对<code>myObject</code>执行其属性的自加操作之后,它的底层其实是这样的:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">myObject.__proto__.a = 2;</div><div class="line">myObject= &#123;a:myObject.__proto__.a&#125;;</div><div class="line">myObject.a = myObject.a + 1;</div></pre></td></tr></table></figure>
+<h1 id="关于concat-方法连接数组和push-方法连接数组的区别"><a href="#关于concat-方法连接数组和push-方法连接数组的区别" class="headerlink" title="关于concat()方法连接数组和push()方法连接数组的区别"></a>关于concat()方法连接数组和push()方法连接数组的区别</h1><p>首先我们看一个例子:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var nums = [2, 3, 4, 5];</div><div class="line">console.log(nums.concat([1, 2]))</div><div class="line">//[2, 3, 4, 5, 1, 2]</div><div class="line">console.log(nums)</div><div class="line">//[2, 3, 4, 5]</div><div class="line">nums.push([1, 2])</div><div class="line">console.log(nums)</div><div class="line">[2, 3, 4, 5, [1, 2]]</div></pre></td></tr></table></figure>
+<p>其实看了这个例子大家应该都懂了,首先,<code>concat</code>的作用是链接两个数组,会将两个数组拼合成一个数组,并且不会改变之前的数组的值,而是返回一个新数组.</p>
+<p>而<code>push()</code>则直接改变了数组的值,而且是直接将<code>push()</code>中传的参数直接接到了数组的后面,也就是当我们在<code>push()</code>中传参数组时,最后会得到一个嵌套的数组.</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本系列将会写一些在正常工作中会遇到的一些坑,然后分析它们的产生原因及解决办法.本文的内容主要来自&amp;lt;you don’t know JS&amp;gt;及日常工作的问题的一些总结.&lt;/p&gt;
+&lt;h1 id=&quot;关于arguments的使用&quot;&gt;&lt;a href=&quot;#关于arguments
+    
+    </summary>
+    
+      <category term="JavaScript躲坑指南" scheme="https://github.com/ChangerHe/categories/JavaScript%E8%BA%B2%E5%9D%91%E6%8C%87%E5%8D%97/"/>
+    
+    
+      <category term="JavaScript躲坑指南" scheme="https://github.com/ChangerHe/tags/JavaScript%E8%BA%B2%E5%9D%91%E6%8C%87%E5%8D%97/"/>
+    
+  </entry>
   
   <entry>
     <title>JavaScript躲坑指南（一）</title>
@@ -959,39 +1003,6 @@ reduceRight():迭代数组所有项，从最后一个数开始。
     
     
       <category term="jQuery" scheme="https://github.com/ChangerHe/tags/jQuery/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>在GitHub账户中搭建静态博客的同时另开一个代码展示页面的方法</title>
-    <link href="https://github.com/ChangerHe/2017/07/02/%E5%9C%A8GitHub%E8%B4%A6%E6%88%B7%E4%B8%AD%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%90%8C%E6%97%B6%E5%8F%A6%E5%BC%80%E4%B8%80%E4%B8%AA%E4%BB%A3%E7%A0%81%E5%B1%95%E7%A4%BA%E9%A1%B5%E9%9D%A2%E7%9A%84%E6%96%B9%E6%B3%95/"/>
-    <id>https://github.com/ChangerHe/2017/07/02/在GitHub账户中搭建静态博客的同时另开一个代码展示页面的方法/</id>
-    <published>2017-07-01T16:08:02.000Z</published>
-    <updated>2017-07-01T16:18:26.034Z</updated>
-    
-    <content type="html"><![CDATA[<p>无意间想尝试了一下GitHub在我创建了hexo博客之后，使用另一个仓库进行搭建自己的代码展示页面的事情，凑巧，被我还试成功了，操作的方式很简单。拿出来分享一下：</p>
-<h2 id="1-和之前一样，新建一个仓库"><a href="#1-和之前一样，新建一个仓库" class="headerlink" title="1.和之前一样，新建一个仓库"></a>1.和之前一样，新建一个仓库</h2><p><img src="http://jns.img.bucket.ks3-cn-beijing.ksyun.com/skill/daily/b927d758-4ed6-4af5-b9b9-2d48425fd79b.png" alt=""></p>
-<h2 id="2-为自己的仓库命名，并确定"><a href="#2-为自己的仓库命名，并确定" class="headerlink" title="2.为自己的仓库命名，并确定"></a>2.为自己的仓库命名，并确定</h2><p><img src="http://jns.img.bucket.ks3-cn-beijing.ksyun.com/skill/daily/afa94d9f-f005-4bdc-87a0-15ac572ea165.png" alt=""></p>
-<h2 id="3-回到你的个人情况页，并进入到你新建的仓库中"><a href="#3-回到你的个人情况页，并进入到你新建的仓库中" class="headerlink" title="3.回到你的个人情况页，并进入到你新建的仓库中"></a>3.回到你的个人情况页，并进入到你新建的仓库中</h2><p><img src="http://jns.img.bucket.ks3-cn-beijing.ksyun.com/skill/daily/480eec0e-7b39-4bb0-9b80-d84d843022ad.png" alt=""></p>
-<h2 id="4-点击该仓库的设置setings，然后往下拉，找到github-pages"><a href="#4-点击该仓库的设置setings，然后往下拉，找到github-pages" class="headerlink" title="4.点击该仓库的设置setings，然后往下拉，找到github pages"></a>4.点击该仓库的设置setings，然后往下拉，找到github pages</h2><p><img src="http://jns.img.bucket.ks3-cn-beijing.ksyun.com/skill/daily/bf1d432d-6570-4a3f-ae9e-b702ae376a15.png" alt=""></p>
-<h2 id="5-进行如下设定：select-branch，设置为你的第一个，当然，如果你刚设置好这个仓库，还没有往里放东西的话，这个选项是灰色的，这个时候你可以使用gitbash或者github客户端把这个页面git-clone下来到自己的本地仓库。提交一些东西上去就可以显示了。"><a href="#5-进行如下设定：select-branch，设置为你的第一个，当然，如果你刚设置好这个仓库，还没有往里放东西的话，这个选项是灰色的，这个时候你可以使用gitbash或者github客户端把这个页面git-clone下来到自己的本地仓库。提交一些东西上去就可以显示了。" class="headerlink" title="5.进行如下设定：select branch，设置为你的第一个，当然，如果你刚设置好这个仓库，还没有往里放东西的话，这个选项是灰色的，这个时候你可以使用gitbash或者github客户端把这个页面git clone下来到自己的本地仓库。提交一些东西上去就可以显示了。"></a>5.进行如下设定：select branch，设置为你的第一个，当然，如果你刚设置好这个仓库，还没有往里放东西的话，这个选项是灰色的，这个时候你可以使用gitbash或者github客户端把这个页面git clone下来到自己的本地仓库。提交一些东西上去就可以显示了。</h2><p><img src="http://jns.img.bucket.ks3-cn-beijing.ksyun.com/skill/daily/c2c5ebeb-3b56-43b3-a376-e61dab13c82a.png" alt=""></p>
-<h2 id="6-选择好之后，有没有看到一个小提示：Your-site-is-published-at-XXX"><a href="#6-选择好之后，有没有看到一个小提示：Your-site-is-published-at-XXX" class="headerlink" title="6.选择好之后，有没有看到一个小提示：Your site is published at XXX?"></a>6.选择好之后，有没有看到一个小提示：<code>Your site is published at XXX?</code></h2><p>那么好，你的代码展示页面就做好啦，那么现在就可以开心的上传自己做的东西了，当然，我在自己操作的时候遇到了一个坑，就是自己网页域名的坑，是这样子的，比如，我的网站<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Your site is published at https://changerhe.github.io/demo-show/</div></pre></td></tr></table></figure></p>
-<p>那么你要进入到自己的代码页面的话，就要在后面加上你传的文件的路径，就可以正常浏览这个代码了，比如我上传了修真院的任务七文件夹，文件夹中有一个index.html是我的demo页面，那么我的网页路径应该是这样的：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">https://changerhe.github.io/demo-show/ITxiuzhenyuan-Mission7/index.html</div></pre></td></tr></table></figure>
-<p>好，大功告成！</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;无意间想尝试了一下GitHub在我创建了hexo博客之后，使用另一个仓库进行搭建自己的代码展示页面的事情，凑巧，被我还试成功了，操作的方式很简单。拿出来分享一下：&lt;/p&gt;
-&lt;h2 id=&quot;1-和之前一样，新建一个仓库&quot;&gt;&lt;a href=&quot;#1-和之前一样，新建一个仓库&quot; c
-    
-    </summary>
-    
-      <category term="GitHub 优化" scheme="https://github.com/ChangerHe/categories/GitHub-%E4%BC%98%E5%8C%96/"/>
-    
-    
-      <category term="GitHub" scheme="https://github.com/ChangerHe/tags/GitHub/"/>
     
   </entry>
   

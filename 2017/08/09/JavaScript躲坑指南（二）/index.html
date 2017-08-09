@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Canvas学习笔记," />
+  <meta name="keywords" content="JavaScript躲坑指南," />
 
 
 
@@ -89,17 +89,17 @@
 
 
 
-<meta name="description" content="中午登上慕课网，偶然发现慕课网改版了，这倒是其次，惊奇的是页面居然出现了不显示我的观看记录和观看百分比的BUG！还准备说要给慕课网反馈一下来着，晚上一登，居然修复了，不得不佩服慕课网工程师们惊人的处突能力啊。 回到正题，相信大家都见到过七巧板，本文使用简单的HTML5新特性Canvas的2d图形绘制功能，绘制了一个简单的七巧板。 Canvas是HTML5的新特性，相比于其他的HTML标签来说，Ca">
-<meta name="keywords" content="Canvas学习笔记">
+<meta name="description" content="本系列将会写一些在正常工作中会遇到的一些坑,然后分析它们的产生原因及解决办法.本文的内容主要来自&amp;lt;you don’t know JS&amp;gt;及日常工作的问题的一些总结. 关于arguments的使用:arguments在ES6之前简直就是福音,因为在ES6之前是没有办法取到函数的参数组成的数组的. 但是arguments在使用的过程中还是有一些坑的,我们来看一下: 123456functio">
+<meta name="keywords" content="JavaScript躲坑指南">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用Canvas绘制七巧板">
-<meta property="og:url" content="https://github.com/ChangerHe/2017/07/27/使用Canvas绘制七巧板/index.html">
+<meta property="og:title" content="JavaScript躲坑指南（二）">
+<meta property="og:url" content="https://github.com/ChangerHe/2017/08/09/JavaScript躲坑指南（二）/index.html">
 <meta property="og:site_name" content="Changer He&#39;s Home Page">
-<meta property="og:description" content="中午登上慕课网，偶然发现慕课网改版了，这倒是其次，惊奇的是页面居然出现了不显示我的观看记录和观看百分比的BUG！还准备说要给慕课网反馈一下来着，晚上一登，居然修复了，不得不佩服慕课网工程师们惊人的处突能力啊。 回到正题，相信大家都见到过七巧板，本文使用简单的HTML5新特性Canvas的2d图形绘制功能，绘制了一个简单的七巧板。 Canvas是HTML5的新特性，相比于其他的HTML标签来说，Ca">
-<meta property="og:updated_time" content="2017-07-27T15:00:38.011Z">
+<meta property="og:description" content="本系列将会写一些在正常工作中会遇到的一些坑,然后分析它们的产生原因及解决办法.本文的内容主要来自&amp;lt;you don’t know JS&amp;gt;及日常工作的问题的一些总结. 关于arguments的使用:arguments在ES6之前简直就是福音,因为在ES6之前是没有办法取到函数的参数组成的数组的. 但是arguments在使用的过程中还是有一些坑的,我们来看一下: 123456functio">
+<meta property="og:updated_time" content="2017-08-09T15:08:51.857Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用Canvas绘制七巧板">
-<meta name="twitter:description" content="中午登上慕课网，偶然发现慕课网改版了，这倒是其次，惊奇的是页面居然出现了不显示我的观看记录和观看百分比的BUG！还准备说要给慕课网反馈一下来着，晚上一登，居然修复了，不得不佩服慕课网工程师们惊人的处突能力啊。 回到正题，相信大家都见到过七巧板，本文使用简单的HTML5新特性Canvas的2d图形绘制功能，绘制了一个简单的七巧板。 Canvas是HTML5的新特性，相比于其他的HTML标签来说，Ca">
+<meta name="twitter:title" content="JavaScript躲坑指南（二）">
+<meta name="twitter:description" content="本系列将会写一些在正常工作中会遇到的一些坑,然后分析它们的产生原因及解决办法.本文的内容主要来自&amp;lt;you don’t know JS&amp;gt;及日常工作的问题的一些总结. 关于arguments的使用:arguments在ES6之前简直就是福音,因为在ES6之前是没有办法取到函数的参数组成的数组的. 但是arguments在使用的过程中还是有一些坑的,我们来看一下: 123456functio">
 
 
 
@@ -127,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="https://github.com/ChangerHe/2017/07/27/使用Canvas绘制七巧板/"/>
+  <link rel="canonical" href="https://github.com/ChangerHe/2017/08/09/JavaScript躲坑指南（二）/"/>
 
 
 
 
 
-  <title> 使用Canvas绘制七巧板 | Changer He's Home Page </title>
+  <title> JavaScript躲坑指南（二） | Changer He's Home Page </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -283,7 +283,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://github.com/ChangerHe/2017/07/27/使用Canvas绘制七巧板/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/ChangerHe/2017/08/09/JavaScript躲坑指南（二）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Changer He">
@@ -304,7 +304,7 @@
             
             
               
-                使用Canvas绘制七巧板
+                JavaScript躲坑指南（二）
               
             
           </h2>
@@ -319,8 +319,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-27T20:59:49+08:00">
-                2017-07-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-09T23:02:38+08:00">
+                2017-08-09
               </time>
             
 
@@ -328,9 +328,9 @@
 
   <span class="post-letters-count">
     &nbsp; | &nbsp;
-    <span>712 字</span>
+    <span>938 字</span>
     &nbsp; | &nbsp;
-    <span>3 min</span>
+    <span>4 min</span>
   </span>
 
             
@@ -349,8 +349,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Canvas学习笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">Canvas学习笔记</span>
+                  <a href="/categories/JavaScript躲坑指南/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript躲坑指南</span>
                   </a>
                 </span>
 
@@ -379,7 +379,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  712字
+                  938字
                 </span>
               
 
@@ -395,7 +395,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  3分钟
+                  4分钟
                 </span>
               
             </div>
@@ -414,15 +414,27 @@
       
 
       
-        <p>中午登上慕课网，偶然发现慕课网改版了，这倒是其次，惊奇的是页面居然出现了不显示我的观看记录和观看百分比的BUG！还准备说要给慕课网反馈一下来着，晚上一登，居然修复了，不得不佩服慕课网工程师们惊人的处突能力啊。</p>
-<p>回到正题，相信大家都见到过七巧板，本文使用简单的HTML5新特性Canvas的2d图形绘制功能，绘制了一个简单的七巧板。</p>
-<p>Canvas是HTML5的新特性，相比于其他的HTML标签来说，Canvas给前端工程师们提供了更多的操作可能性，也为页面的生动化效果做出了不菲的贡献。canvas的3d绘图的出现，加上JS对HTML页面的强大动态渲染能力，加上各大浏览器厂商对于Flash的抛弃，相信日后canvas将在HTML页面展示，HTML游戏，HTML动画上大有可为。</p>
-<p>canvas的2d绘图非常简单，整体的操作感觉非常的人性化，主要是要区分，移动到点位（moveTo）和划线到点位（lineTo）的区别，canvas对于页面的色彩和轮廓方面也加入了相应的边框（stroke）和填充（fill）功能，下面让我们一起来看一下七巧板的canvas实现吧。</p>
-<h1 id="HTML方面"><a href="#HTML方面" class="headerlink" title="HTML方面"></a>HTML方面</h1><p>这块我就写了一个canvas的标签，同时制定它的宽高等属性，有一点要注意，其宽高最好不要使用px作为单位，而是使用默认值作为单位（简单点说就是不要写宽高的单位），否则在后期绘图会出现绘图区的一些问题。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;canvas id=&quot;canvas&quot; width=&quot;800&quot; height=&quot;800&quot; style=&quot;border: 1px solid #eee&quot;&gt;Your broser can&apos;t support canvas&lt;/canvas&gt;</div></pre></td></tr></table></figure>
-<h1 id="JS方面"><a href="#JS方面" class="headerlink" title="JS方面"></a>JS方面</h1><p>学过canvas的同学肯定知道，2d绘图简直就是小儿科，用来用去也就那么几个API，照本宣科就是了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">var canvas = document.getElementById(&quot;canvas&quot;);</div><div class="line">var context = canvas.getContext(&quot;2d&quot;);</div><div class="line">var arr = [</div><div class="line">	&#123;position: [&#123;x: 0,y: 0&#125;,&#123;x: 400,y: 400&#125;,&#123;x: 800,y: 0&#125;,&#123;x: 0,y: 0&#125;],color: &quot;#caff67&quot;&#125;,</div><div class="line">	&#123;position: [&#123;x: 0,y: 0&#125;,&#123;x: 400,y: 400&#125;,&#123;x: 0,y: 800&#125;,&#123;x: 0,y: 0&#125;],color: &quot;#67becf&quot;&#125;,</div><div class="line">	&#123;position: [&#123;x: 0,y: 800&#125;,&#123;x: 400,y: 400&#125;,&#123;x: 800,y: 800&#125;,&#123;x: 0,y: 800&#125;],color: &quot;#ef3d61&quot;&#125;,</div><div class="line">	&#123;position: [&#123;x: 400,y: 400&#125;,&#123;x: 800,y: 400&#125;,&#123;x: 600,y: 600&#125;,&#123;x: 400,y: 400&#125;],color: &quot;#f9f51a&quot;&#125;,</div><div class="line">	&#123;position: [&#123;x: 400,y: 400&#125;,&#123;x: 800,y: 400&#125;,&#123;x: 800,y: 0&#125;,&#123;x: 400,y: 400&#125;],color: &quot;#a594c0&quot;&#125;,</div><div class="line">	&#123;position: [&#123;x: 600,y: 600&#125;,&#123;x: 800,y: 600&#125;,&#123;x: 800,y: 400&#125;,&#123;x: 600,y: 600&#125;],color: &quot;#fa8ecc&quot;&#125;,</div><div class="line">	&#123;position: [&#123;x: 600,y: 600&#125;,&#123;x: 800,y: 600&#125;,&#123;x: 800,y: 800&#125;,&#123;x: 600,y: 600&#125;],color: &quot;#caff67&quot;&#125;</div><div class="line">];</div><div class="line">console.log(arr[0].color)</div><div class="line">for( var i = 0; i &lt; arr.length; i++) &#123;</div><div class="line">	context.beginPath();</div><div class="line">	context.moveTo(arr[i].position[0].x,arr[i].position[0].y);</div><div class="line">	for( var j = 1; j &lt; arr[i].position.length; j++) &#123;</div><div class="line">		context.lineTo(arr[i].position[j].x,arr[i].position[j].y);</div><div class="line">	&#125;</div><div class="line">	context.closePath();</div><div class="line">	context.lineWidth = &quot;2&quot;;</div><div class="line">	context.stroke();</div><div class="line">	context.fillStyle = arr[i].color;</div><div class="line">	context.fill();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>代码为以上，欢迎批评指正。</p>
+        <p>本系列将会写一些在正常工作中会遇到的一些坑,然后分析它们的产生原因及解决办法.本文的内容主要来自&lt;you don’t know JS&gt;及日常工作的问题的一些总结.</p>
+<h1 id="关于arguments的使用"><a href="#关于arguments的使用" class="headerlink" title="关于arguments的使用:"></a>关于arguments的使用:</h1><p>arguments在ES6之前简直就是福音,因为在ES6之前是没有办法取到函数的参数组成的数组的.</p>
+<p>但是arguments在使用的过程中还是有一些坑的,我们来看一下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function foo(a) &#123;</div><div class="line">    a = 42;</div><div class="line">    console.log(arguments[0])</div><div class="line">&#125;</div><div class="line">foo(2);   //42</div><div class="line">foo();    //undefined</div></pre></td></tr></table></figure>
+<p>在向函数传递参数的时候,arguments数组中的对应单元会和命名参数建立关联,以得到相同的值,但是当函数在调用的时候没有传递参数时,因为没有参数,自然arguments就无法和函数建立关联了,自然就是undefined.</p>
+<h1 id="try-catch-finally的内容执行先后的问题"><a href="#try-catch-finally的内容执行先后的问题" class="headerlink" title="try/catch/finally的内容执行先后的问题"></a>try/catch/finally的内容执行先后的问题</h1><p>finally中的代码总是会在try之后执行,如果有catch的话会在catch之后执行.其实也可以把finally中的代码当做一个回调函数.无论出现什么情况,最后一定会被调用.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function foo() &#123;</div><div class="line">    try &#123;</div><div class="line">        return 42;</div><div class="line">    &#125; finally &#123;</div><div class="line">        console.log(&apos;hello&apos;)</div><div class="line">    &#125;</div><div class="line">    console.log(&apos;never runs&apos;);</div><div class="line">&#125;</div><div class="line">console.log(foo());</div><div class="line">//输出结果: 先输出 hello  再输出返回的值hello</div></pre></td></tr></table></figure>
+<p>在这里return42先执行,并将foo()函数的返回值设置为42.try执行完毕后执行finally.console.log()显示的是函数的返回值.</p>
+<p>对于这个问题还有一个很好玩的东西,就是当你在finally中进行抛出异常时,其实try中的返回值就不生效了.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function foo() &#123;</div><div class="line">    try &#123;</div><div class="line">        return  42;</div><div class="line">    &#125; finally &#123;</div><div class="line">        throw &quot;oops!&quot;</div><div class="line">    &#125;</div><div class="line">    console.log(&apos;never runs&apos;);</div><div class="line">&#125;</div><div class="line">console.log(foo()); // Uncaught oops!</div></pre></td></tr></table></figure>
+<p>其实综上而言,不论try中执行的是什么东西,即使是<code>return</code>或者<code>throw</code>等让函数立即结束的语句,最后finally也会成功执行.但是当<code>finally</code>中抛出异常时,<code>try</code>中的代码其实就相当于无效了.也就是finally中的值会最终覆盖掉try中的值.</p>
+<h1 id="关于全局的DOM变量"><a href="#关于全局的DOM变量" class="headerlink" title="关于全局的DOM变量"></a>关于全局的DOM变量</h1><p>当我们在文档流中加入 <code>&lt;div id=&quot;foo&quot;&gt;&lt;/div&gt;</code> 时,我们在其下面的js文档中能否找到foo这个变量呢?答案是可以!</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//我们直接在文档的下面进行类型判定</div><div class="line">console.log(typeof foo);   //输出结果是object,   WTF?</div></pre></td></tr></table></figure>
+<h1 id="关于属性的屏蔽"><a href="#关于属性的屏蔽" class="headerlink" title="关于属性的屏蔽"></a>关于属性的屏蔽</h1><p>当我们在原型链中为底层函数操作原型链中的属性进行算术运算时,属性被被底层函数给屏蔽掉.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var anotherObject = &#123;</div><div class="line">    a: 2</div><div class="line">&#125;</div><div class="line">var myObject = Object.create(anotherObject);</div><div class="line">console.log(myObject.a);</div><div class="line">myObject.a++;</div><div class="line">console.log(myObject.a,anotherObject.a);</div></pre></td></tr></table></figure>
+<p>其实想到原理就很简单,因为当我们把<code>myObject</code>中的a,也就是<code>anotherObject</code>中的a调用之后,相应的<code>myObject.a</code>会得到<code>anotherObject</code>中的a的值,也就是2.但是当我们对<code>myObject</code>执行其属性的自加操作之后,它的底层其实是这样的:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">myObject.__proto__.a = 2;</div><div class="line">myObject= &#123;a:myObject.__proto__.a&#125;;</div><div class="line">myObject.a = myObject.a + 1;</div></pre></td></tr></table></figure>
+<h1 id="关于concat-方法连接数组和push-方法连接数组的区别"><a href="#关于concat-方法连接数组和push-方法连接数组的区别" class="headerlink" title="关于concat()方法连接数组和push()方法连接数组的区别"></a>关于concat()方法连接数组和push()方法连接数组的区别</h1><p>首先我们看一个例子:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var nums = [2, 3, 4, 5];</div><div class="line">console.log(nums.concat([1, 2]))</div><div class="line">//[2, 3, 4, 5, 1, 2]</div><div class="line">console.log(nums)</div><div class="line">//[2, 3, 4, 5]</div><div class="line">nums.push([1, 2])</div><div class="line">console.log(nums)</div><div class="line">[2, 3, 4, 5, [1, 2]]</div></pre></td></tr></table></figure>
+<p>其实看了这个例子大家应该都懂了,首先,<code>concat</code>的作用是链接两个数组,会将两个数组拼合成一个数组,并且不会改变之前的数组的值,而是返回一个新数组.</p>
+<p>而<code>push()</code>则直接改变了数组的值,而且是直接将<code>push()</code>中传的参数直接接到了数组的后面,也就是当我们在<code>push()</code>中传参数组时,最后会得到一个嵌套的数组.</p>
 
       
     </div>
@@ -452,7 +464,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Canvas学习笔记/" rel="tag"># Canvas学习笔记</a>
+            <a href="/tags/JavaScript躲坑指南/" rel="tag"># JavaScript躲坑指南</a>
           
         </div>
       
@@ -465,8 +477,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/25/浅谈框架模式的MVC-MVP-MVVM/" rel="next" title="浅谈框架模式的MVC/MVP/MVVM">
-                <i class="fa fa-chevron-left"></i> 浅谈框架模式的MVC/MVP/MVVM
+              <a href="/2017/08/08/JavaScript躲坑指南（一）/" rel="next" title="JavaScript躲坑指南（一）">
+                <i class="fa fa-chevron-left"></i> JavaScript躲坑指南（一）
               </a>
             
           </div>
@@ -474,10 +486,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/08/04/JavaScript笔试面试题收集（二）/" rel="prev" title=" JavaScript笔试面试题收集（二）">
-                 JavaScript笔试面试题收集（二） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -677,7 +685,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HTML方面"><span class="nav-number">1.</span> <span class="nav-text">HTML方面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JS方面"><span class="nav-number">2.</span> <span class="nav-text">JS方面</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#关于arguments的使用"><span class="nav-number">1.</span> <span class="nav-text">关于arguments的使用:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#try-catch-finally的内容执行先后的问题"><span class="nav-number">2.</span> <span class="nav-text">try/catch/finally的内容执行先后的问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关于全局的DOM变量"><span class="nav-number">3.</span> <span class="nav-text">关于全局的DOM变量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关于属性的屏蔽"><span class="nav-number">4.</span> <span class="nav-text">关于属性的屏蔽</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关于concat-方法连接数组和push-方法连接数组的区别"><span class="nav-number">5.</span> <span class="nav-text">关于concat()方法连接数组和push()方法连接数组的区别</span></a></li></ol></div>
             
 
           </div>
