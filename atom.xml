@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/ChangerHe/"/>
-  <updated>2017-08-09T15:08:51.857Z</updated>
+  <updated>2017-08-10T15:01:34.524Z</updated>
   <id>https://github.com/ChangerHe/</id>
   
   <author>
@@ -14,6 +14,61 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JavaScript模块化编程-commonjs和AMD及CMD</title>
+    <link href="https://github.com/ChangerHe/2017/08/10/JavaScript%E6%A8%A1%E5%9D%97%E5%8C%96%E7%BC%96%E7%A8%8B-commonjs%E5%92%8CAMD%E5%8F%8ACMD/"/>
+    <id>https://github.com/ChangerHe/2017/08/10/JavaScript模块化编程-commonjs和AMD及CMD/</id>
+    <published>2017-08-10T15:00:36.000Z</published>
+    <updated>2017-08-10T15:01:34.524Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="commonjs"><a href="#commonjs" class="headerlink" title="commonjs"></a>commonjs</h1><p>2009年，美国程序员Ryan Dahl创造了node.js项目，将javascript语言用于服务器端编程。</p>
+<p>这标志”Javascript模块化编程”正式诞生。因为老实说，在浏览器环境下，没有模块也不是特别大的问题，毕竟网页程序的复杂性有限；但是在服务器端，一定要有模块，与操作系统和其他应用程序互动，否则根本没法编程。</p>
+<p>node.js的模块系统，就是参照CommonJS规范实现的。在CommonJS中，有一个全局性方法require()，用于加载模块。假定有一个数学模块math.js，就可以像下面这样加载。</p>
+<p><code>var math = require(&#39;math&#39;);</code></p>
+<p>然后就可以调用math.js中提供的各种接口API,在自己的程序中直接使用.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var math = require(&apos;math&apos;);</div><div class="line">math.add(2, 3);   //5</div></pre></td></tr></table></figure>
+<h1 id="AMD和CMD"><a href="#AMD和CMD" class="headerlink" title="AMD和CMD"></a>AMD和CMD</h1><p>有了服务器端模块以后，很自然地，大家就想要客户端模块。而且最好两者能够兼容，一个模块不用修改，在服务器和浏览器都可以运行。</p>
+<p>但是，由于一个重大的局限，使得CommonJS规范不适用于浏览器环境。还是上一节的代码，如果在浏览器中运行，会有一个很大异步加载的问题.</p>
+<p>还是刚刚的代码,当我的程序在使用commonjs规范的时候,因为整个require的请求是异步的,所以当我们使用require进行请求math.js时,必须要等math.js完全加载完毕后,才能够进行下一步的操作.</p>
+<p>这对服务器端不是一个问题，因为所有的模块都存放在本地硬盘，可以同步加载完成，等待时间就是硬盘的读取时间。但是，对于浏览器，这却是一个大问题，因为模块都放在服务器端，等待时间取决于网速的快慢，可能要等很长时间，浏览器处于”假死”状态。</p>
+<p>因此，浏览器端的模块，不能采用”同步加载”（synchronous），只能采用”异步加载”（asynchronous）。这就是AMD规范诞生的背景。</p>
+<h2 id="AMD"><a href="#AMD" class="headerlink" title="AMD"></a>AMD</h2><p>AMD是”Asynchronous Module Definition”的缩写，意思就是”异步模块定义”。它采用异步方式加载模块，模块的加载不影响它后面语句的运行。所有依赖这个模块的语句，都定义在一个回调函数中，等到加载完成之后，这个回调函数才会运行。</p>
+<p>AMD也采用require()语句加载模块，但是不同于CommonJS，它要求两个参数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">require([module], callback);</div></pre></td></tr></table></figure>
+<p>第一个参数[module]，是一个数组，里面的成员就是要加载的模块；第二个参数callback，则是加载成功之后的回调函数。如果将前面的代码改写成AMD形式，就是下面这样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">require([&apos;math&apos;], function (math) &#123;</div><div class="line">　　math.add(2, 3);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>math.add()与math模块加载不是同步的，浏览器不会发生假死。所以很显然，AMD比较适合浏览器环境。</p>
+<p>目前，主要有两个Javascript库实现了AMD规范：require.js和curl.js。</p>
+<h2 id="require-js"><a href="#require-js" class="headerlink" title="require.js"></a>require.js</h2><p>最早的时候，所有Javascript代码都写在一个文件里面，只要加载这一个文件就够了。后来，代码越来越多，一个文件不够了，必须分成多个文件，依次加载。</p>
+<p>这样的写法有很大的缺点。首先，加载的时候，浏览器会停止网页渲染，加载文件越多，网页失去响应的时间就会越长；其次，由于js文件之间存在依赖关系，因此必须严格保证加载顺序（比如上例的1.js要在2.js的前面），依赖性最大的模块一定要放到最后加载，当依赖关系很复杂的时候，代码的编写和维护都会变得困难。</p>
+<p>!()[<a href="http://image.beekka.com/blog/201211/bg2012110701.png" target="_blank" rel="external">http://image.beekka.com/blog/201211/bg2012110701.png</a>]</p>
+<p>使用require.js的第一步，是先去官方网站下载最新版本。下载后，假定把它放在js子目录下面，就可以加载了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script src=&quot;js/require.js&quot;&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>有人可能会想到，加载这个文件，也可能造成网页失去响应。解决办法有两个，一个是把它放在网页底部加载，另一个是写成下面这样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script src=&quot;js/require.js&quot; defer async=&quot;true&quot; &gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>async属性表明这个文件需要异步加载，避免网页失去响应。IE不支持这个属性，只支持defer，所以把defer也写上。</p>
+<p>加载require.js以后，下一步就要加载我们自己的代码了。假定我们自己的代码文件是main.js，也放在js目录下面。那么，只需要写成下面这样就行了：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script src=&quot;js/require.js&quot; data-main=&quot;js/main&quot;&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>data-main属性的作用是，指定网页程序的主模块。在上例中，就是js目录下面的main.js，这个文件会第一个被require.js加载。由于require.js默认的文件后缀名是js，所以可以把main.js简写成main。</p>
+<h3 id="require-js主模块的写法"><a href="#require-js主模块的写法" class="headerlink" title="require.js主模块的写法"></a>require.js主模块的写法</h3><p>上一节的main.js，我把它称为”主模块”，意思是整个网页的入口代码。它有点像C语言的main()函数，所有代码都从这儿开始运行。主模块依赖于其他模块，这时就要使用AMD规范定义的的require()函数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// main.js</div><div class="line">require([&apos;moduleA&apos;, &apos;moduleB&apos;, &apos;moduleC&apos;], function (moduleA, moduleB, moduleC)&#123;</div><div class="line">　　　　// some code here</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>require()函数接受两个参数。第一个参数是一个数组，表示所依赖的模块，上例就是[‘moduleA’, ‘moduleB’, ‘moduleC’]，即主模块依赖这三个模块；第二个参数是一个回调函数，当前面指定的模块都加载成功后，它将被调用。加载的模块会以参数形式传入该函数，从而在回调函数内部就可以使用这些模块。</p>
+<p>require()异步加载moduleA，moduleB和moduleC，浏览器不会失去响应；它指定的回调函数，只有前面的模块都加载成功后，才会运行，解决了依赖性的问题。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;commonjs&quot;&gt;&lt;a href=&quot;#commonjs&quot; class=&quot;headerlink&quot; title=&quot;commonjs&quot;&gt;&lt;/a&gt;commonjs&lt;/h1&gt;&lt;p&gt;2009年，美国程序员Ryan Dahl创造了node.js项目，将javascript语言
+    
+    </summary>
+    
+      <category term="JavaScript模块化编程" scheme="https://github.com/ChangerHe/categories/JavaScript%E6%A8%A1%E5%9D%97%E5%8C%96%E7%BC%96%E7%A8%8B/"/>
+    
+    
+      <category term="JavaScript模块化编程" scheme="https://github.com/ChangerHe/tags/JavaScript%E6%A8%A1%E5%9D%97%E5%8C%96%E7%BC%96%E7%A8%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>JavaScript躲坑指南（二）</title>
@@ -956,46 +1011,6 @@ reduceRight():迭代数组所有项，从最后一个数开始。
     
       &lt;p&gt;第二篇的jQuery笔记记录jQuery的属性和样式。&lt;br&gt;每个元素都有一个或者多个特性,这些特性的用途就是给出相应元素或者其内容的附加信息。如：在img元素中，src就是元素的特性，用来标记图片的地址。&lt;/p&gt;
 &lt;h1 id=&quot;attr-和removeAttr&quot;&gt;&lt;a 
-    
-    </summary>
-    
-      <category term="jQuery 学习笔记" scheme="https://github.com/ChangerHe/categories/jQuery-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="jQuery" scheme="https://github.com/ChangerHe/tags/jQuery/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>jQuery 学习笔记——选择器</title>
-    <link href="https://github.com/ChangerHe/2017/07/03/jQuery-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    <id>https://github.com/ChangerHe/2017/07/03/jQuery-学习笔记/</id>
-    <published>2017-07-03T04:59:57.000Z</published>
-    <updated>2017-07-03T08:28:50.077Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="JQuery基本介绍"><a href="#JQuery基本介绍" class="headerlink" title="JQuery基本介绍"></a>JQuery基本介绍</h1><p>jQuery是一个前端必备的js脚本库，使用时只许进行引用即可，网上有大量的cdn可直接引用。</p>
-<h1 id="jQuery的版本问题"><a href="#jQuery的版本问题" class="headerlink" title="jQuery的版本问题"></a>jQuery的版本问题</h1><p>jQuery主要的版本为1.x版和2.x版，主要的区别在于2.x版放弃了对IE老版本浏览器的支持，减少了大量代码，因此2.x版本比jQuery的1.x版本更小。<br>如果比较在意老版本IE的话，可以使用jQuery在1.9的版本。<br>jQuery的系列分为开发版和压缩版，压缩版是直接拿来引用的，开发版用于开发者进行代码调试等。</p>
-<h1 id="jQuery的使用笔记"><a href="#jQuery的使用笔记" class="headerlink" title="jQuery的使用笔记"></a>jQuery的使用笔记</h1><p>1.类比于window.onload，jQuery有一个<br>$(document).ready(function(){}<br>2.类比于var p = document.getElementById(“imooc”);p.innerHTML = “aaa”;<br>p.style.color = ‘red’;<br>原生的写法具有过多的代码量，但是使用jQuery，只需要一行代码即可。<br>var $p = $(‘#imooc’);<br>$p.html(‘aaa’).css(‘color’,’red’);</p>
-<h2 id="jquery对象转化为DOM对象"><a href="#jquery对象转化为DOM对象" class="headerlink" title="jquery对象转化为DOM对象"></a>jquery对象转化为DOM对象</h2><p>以下面的例子进行示范，将三个div中第一个div的文字换位红色<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">//HTML 代码</div><div class="line">&lt;div&gt;111&lt;/div&gt;</div><div class="line">&lt;div&gt;222&lt;/div&gt;</div><div class="line">&lt;div&gt;333&lt;/div&gt;</div><div class="line">// JS原生获取写法</div><div class="line">var Div = document.getElementsByClassName(&apos;div&apos;);</div><div class="line">var div1 = Div[0]</div><div class="line">Div[0].style.color = &apos;red&apos;;</div><div class="line">//jQuery写法1</div><div class="line">var $div = $(&apos;div&apos;);</div><div class="line">var div = $div[0];</div><div class="line">div.style.color = &apos;red&apos;;</div><div class="line">//jQuery写法2</div><div class="line">var $div = $(&apos;div&apos;);</div><div class="line">var div = $div.get(0);  //通过get方法转化为dom对象</div><div class="line">div.style.color = &apos;red&apos;;</div></pre></td></tr></table></figure></p>
-<h2 id="jquery的ID选择器"><a href="#jquery的ID选择器" class="headerlink" title="jquery的ID选择器"></a>jquery的ID选择器</h2><p>$(“#id”)<br>注： id是唯一的，每个id值在一个页面中只能使用一次。如果多个元素分配了相同的id，将只匹配该id选择集合的第一个DOM元素。但这种行为不应该发生;有超过一个元素的页面使用相同的id是无效的</p>
-<h2 id="jQuery的class选择器"><a href="#jQuery的class选择器" class="headerlink" title="jQuery的class选择器"></a>jQuery的class选择器</h2><p>$(“.class”)<br>注： 该方法进行了隐式循环处理，因此在调用时不需要进行循环操作。</p>
-<h2 id="元素选择器"><a href="#元素选择器" class="headerlink" title="元素选择器"></a>元素选择器</h2><p>$(“element”)<br>注： 该方法进行了隐式循环处理，因此在调用时不需要进行循环操作。</p>
-<h2 id="全选择器“-”"><a href="#全选择器“-”" class="headerlink" title="全选择器“*”"></a>全选择器“*”</h2><p>$(“*”)</p>
-<h2 id="层级选择器"><a href="#层级选择器" class="headerlink" title="层级选择器"></a>层级选择器</h2><p><img src="http://img.mukewang.com/5590e98b0001f60d06130229.jpg" alt=""></p>
-<h2 id="基本筛选选择器"><a href="#基本筛选选择器" class="headerlink" title="基本筛选选择器"></a>基本筛选选择器</h2><p><img src="http://img.mukewang.com/57cd1df2000146de06020498.jpg" alt=""></p>
-<h2 id="内容筛选选择器"><a href="#内容筛选选择器" class="headerlink" title="内容筛选选择器"></a>内容筛选选择器</h2><p><img src="http://img.mukewang.com/57cd20bf0001a97f05290214.jpg" alt=""><br>注：<br>1.contains和has都有查找的意思，但是contains查找包含指定文本的元素，has查找包含指定元素的元素。<br>2.如果contains匹配的文本包含在元素的子元素中，同样认为是符合条件的。<br>3.parent与empty是相反的，两者设计的子元素包括文本节点。</p>
-<h2 id="可见性筛选选择器"><a href="#可见性筛选选择器" class="headerlink" title="可见性筛选选择器"></a>可见性筛选选择器</h2><p><img src="http://img.mukewang.com/5590f6de0001e2b204460106.jpg" alt=""></p>
-<h2 id="属性筛选选择器"><a href="#属性筛选选择器" class="headerlink" title="属性筛选选择器"></a>属性筛选选择器</h2><p><img src="http://img.mukewang.com/57d654200001c46507360560.jpg" alt=""></p>
-<h2 id="子元素筛选选择器"><a href="#子元素筛选选择器" class="headerlink" title="子元素筛选选择器"></a>子元素筛选选择器</h2><p><img src="http://img.mukewang.com/559105da0001301105960331.jpg" alt=""><br>注：jQuery实现:nth-child(n)是严格来自CSS规范，所以n值是“索引”，也就是说，从1开始计数，:nth-child(index)从1开始的，而eq(index)是从0开始的。</p>
-<h2 id="表单元素选择器"><a href="#表单元素选择器" class="headerlink" title="表单元素选择器"></a>表单元素选择器</h2><p><img src="http://img.mukewang.com/5592040d0001f8eb04940441.jpg" alt=""></p>
-<h2 id="对象属性筛选选择器"><a href="#对象属性筛选选择器" class="headerlink" title="对象属性筛选选择器"></a>对象属性筛选选择器</h2><p><img src="http://img.mukewang.com/55920c2f0001198b04940201.jpg" alt=""></p>
-<h2 id="特殊选择器this"><a href="#特殊选择器this" class="headerlink" title="特殊选择器this"></a>特殊选择器this</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(&apos;p&apos;).click(function()&#123;</div><div class="line">    //把p元素转化成jQuery的对象</div><div class="line">    var $this= $(this) </div><div class="line">    $this.css(&apos;color&apos;,&apos;red&apos;)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>通过$()方法传入当前元素对象的引用this，然后把这个this加工成jQuery对象，我们就可以用jQuery提供的快捷方法处理样式了。<br>注：<br>this，表示当前的上下文对象是一个html对象，可以调用html对象所拥有的属性和方法。<br>$(this),代表的上下文对象是一个jquery的上下文对象，可以调用jQuery的方法和属性值。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;JQuery基本介绍&quot;&gt;&lt;a href=&quot;#JQuery基本介绍&quot; class=&quot;headerlink&quot; title=&quot;JQuery基本介绍&quot;&gt;&lt;/a&gt;JQuery基本介绍&lt;/h1&gt;&lt;p&gt;jQuery是一个前端必备的js脚本库，使用时只许进行引用即可，网上有大量的
     
     </summary>
     
