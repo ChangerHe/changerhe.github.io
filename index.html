@@ -283,6 +283,214 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://github.com/ChangerHe/2017/08/11/JavaScript深入浅出-闭包及解决办法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Changer He">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Changer He's Home Page">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/08/11/JavaScript深入浅出-闭包及解决办法/" itemprop="url">
+                  JavaScript深入浅出-闭包及闭包问题的解决办法
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-11T15:15:34+08:00">
+                2017-08-11
+              </time>
+            
+
+            
+
+  <span class="post-letters-count">
+    &nbsp; | &nbsp;
+    <span>1,304 字</span>
+    &nbsp; | &nbsp;
+    <span>5 min</span>
+  </span>
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript-学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript 学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  1,304字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  5分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="闭包是什么"><a href="#闭包是什么" class="headerlink" title="闭包是什么?"></a>闭包是什么?</h1><p>在JS中可谓处处是闭包,也许你不知道这个概念,但是你一定自己手写过闭包,而且还碰到了闭包的问题.</p>
+<p>闭包的最大作用还是解决了全局作用域中的变量被污染的问题.</p>
+<p>但是闭包虽有好处,但是也不能滥用,因为闭包的调用机制使得垃圾回收机制(GC)在闭包使用完毕后,无法对其进行回收,使用过多的话会影响到性能.特别是在IE浏览器中,因为IE浏览器在IE8及之前的GC机制使用的是引用计数方式,所以使用闭包会产生内存泄露.万幸在IE9中更正了这个问题,现在绝大部分浏览器实现的是标记清除式的GC机制.</p>
+<p>如果必须使用闭包的时候,笔者建议可在闭包使用完之后,可以将其引用变量设置为null,以便清除其占用的内存空间.</p>
+<h1 id="一个很简单的闭包例子"><a href="#一个很简单的闭包例子" class="headerlink" title="一个很简单的闭包例子"></a>一个很简单的闭包例子</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function add() &#123;</div><div class="line">     var a = 100;</div><div class="line">     return function() &#123;</div><div class="line">        return a++;</div><div class="line">     &#125;</div><div class="line">&#125;</div><div class="line">var a = add();</div><div class="line">console.log(a());   //100</div><div class="line">console.log(a());   //101</div></pre></td></tr></table></figure>
+<p>看,这就是闭包了,闭包的调用也很方便,直接执行函数中的函数,就可以了.</p>
+<h1 id="闭包产生的问题和解决方法"><a href="#闭包产生的问题和解决方法" class="headerlink" title="闭包产生的问题和解决方法"></a>闭包产生的问题和解决方法</h1><p>其实闭包最大的危害就是在函数进行循环调用的时候以及使用回调函数的时候了,之前没懂闭包,做这类问题的时候是相当的头痛啊,这里我就简单介绍一下如何解决这类问题.下面以循环调用为例.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">function returnArr() &#123;</div><div class="line">	var arr = [];</div><div class="line">	for (var i = 0; i &lt; 5; i++) &#123;</div><div class="line">		arr[i] = function() &#123;</div><div class="line">			return i</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	return arr;</div><div class="line">&#125;</div><div class="line">var a = returnArr();</div><div class="line"></div><div class="line">for (var i = 0; i &lt; 5; i++) &#123;</div><div class="line">	console.log(a[i]())   //5 5 5 5 5</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>可能这个时候很多人会觉得很奇怪,这是什么情况啊,我明明是想要输出0 1 2 3 4的啊!这个时候,你其实已经写了一个闭包了.</p>
+<h2 id="闭包问题的产生原因"><a href="#闭包问题的产生原因" class="headerlink" title="闭包问题的产生原因"></a>闭包问题的产生原因</h2><p>在循环体中,当我们像平常一样调用函数中的函数的时候,其实这个时候循环体早就执行完毕了,所以这个时候输出的值是一个固定的值,在本题中输出的是5,因为循环一直到4时跳转,在循环到四之后最后还有一个4++的操作,最终输出的是5 </p>
+<h2 id="解决闭包问题的方案"><a href="#解决闭包问题的方案" class="headerlink" title="解决闭包问题的方案"></a>解决闭包问题的方案</h2><p>1.将函数体转换为自执行函数,这个时候就可以在循环的同时将函数一起执行了,所以i的值可以正确地传入,但是因为自执行函数是一个封闭的作用域,所以在这个时候应该将i的值作为参数传递到这个封闭作用域中,最后可以得到想要的输出结果.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function returnArr() &#123;</div><div class="line">	var arr = [];</div><div class="line">	for (var i = 0; i &lt; 5; i++) &#123;</div><div class="line">		arr[i] = function(a) &#123;</div><div class="line">			return a</div><div class="line">		&#125;(i)</div><div class="line">	&#125;</div><div class="line">	return arr;</div><div class="line">&#125;</div><div class="line">var a = returnArr();</div><div class="line">console.log(a);   //0 1 2 3 4</div></pre></td></tr></table></figure>
+<p>2.将函数中再嵌套一个函数,然后再执行以下函数中的函数,这样也可以解决闭包问题,但是为什么我在里面又嵌套了一个匿名函数,却没有再次产生闭包的问题呢?这是因为当我们传参给自执行函数时,其参数时直接驻留在自执行函数的内存中的.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">function returnArr() &#123;</div><div class="line">	var arr = [];</div><div class="line">	for (var i = 0; i &lt; 5; i++) &#123;</div><div class="line">		arr[i] = function(a) &#123;</div><div class="line">			return function() &#123;</div><div class="line">				return a;</div><div class="line">			&#125;</div><div class="line">		&#125;(i)</div><div class="line">	&#125;</div><div class="line">	return arr;</div><div class="line">&#125;</div><div class="line">var a = returnArr();</div><div class="line">for (var i = 0; i &lt; 5; i++) &#123;</div><div class="line">	console.log(a[i]())</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="闭包的时候的this指向问题"><a href="#闭包的时候的this指向问题" class="headerlink" title="闭包的时候的this指向问题"></a>闭包的时候的this指向问题</h1><p>产生闭包的时候,闭包里的this其实是指向window的.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var box = &#123;</div><div class="line">    getThis: function() &#123;</div><div class="line">        return function() &#123;</div><div class="line">            return this;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">console.log(box.getThis()()) //window</div></pre></td></tr></table></figure>
+<p>那么当我在使用闭包的时候,想让这个this再指回我们的调用对象怎么办呢?这个时候我们的call方法就派上用场了.</p>
+<p>很多时候,call和apply的用法是类似的,只是传参不同而已,大部分情况下使用call也意味着可以使用apply.apply就不演示了.其实两者都是一样的.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var box = &#123;</div><div class="line">	getThis: function() &#123;</div><div class="line">		return function() &#123;</div><div class="line">			return this;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">console.log(box.getThis().call(box)) //box</div></pre></td></tr></table></figure>
+<p>当我们不想用call或者apply方法怎么办呢?ES5中新增了一种方法就是bind(),可以将函数的this硬绑定到一个对象上.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var box = &#123;</div><div class="line">	getThis: function() &#123;</div><div class="line">		return function() &#123;</div><div class="line">			return this;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">var a = box.getThis();</div><div class="line">console.log(a.bind(box)())   //box</div></pre></td></tr></table></figure>
+<p>觉得上面的方法复杂,不想用?别急还有一种暴力方法解决这个问题,就是直接在函数体中动刀.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var box = &#123;</div><div class="line">	getThis: function() &#123;</div><div class="line">		var that = this;</div><div class="line">		return function() &#123;</div><div class="line">			return that;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">console.log(box.getThis()()) //box</div></pre></td></tr></table></figure>
+<h1 id="利用闭包来模仿块级作用域"><a href="#利用闭包来模仿块级作用域" class="headerlink" title="利用闭包来模仿块级作用域"></a>利用闭包来模仿块级作用域</h1><p>包含自我执行的匿名函数,就可以创建私有作用域</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">(function() &#123;</div><div class="line">	(function() &#123;</div><div class="line">		for (var i = 0; i &lt; 5; i++) &#123;</div><div class="line"></div><div class="line">		&#125;</div><div class="line">	&#125;)()</div><div class="line">	console.log(i) //ReferenceError: i is not defined</div><div class="line">&#125;)()</div></pre></td></tr></table></figure>
+<p>那么根据以上,就可以引申出各种设计模式了.比如说单例模式啊,工厂模式啊.构造函数模式啊巴拉巴拉.这个在我的<code>JavaScript高级程序设计复习笔记（三）</code>这一篇博客里面有详细讲解.</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">共40.5k字</span>
+</div>
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="https://github.com/ChangerHe/2017/08/10/JavaScript模块化编程-commonjs和AMD及CMD/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -485,7 +693,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共39.2k字</span>
+  <span class="post-count">共40.5k字</span>
 </div>
 
     
@@ -688,7 +896,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共39.2k字</span>
+  <span class="post-count">共40.5k字</span>
 </div>
 
     
@@ -894,7 +1102,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共39.2k字</span>
+  <span class="post-count">共40.5k字</span>
 </div>
 
     
@@ -1090,7 +1298,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共39.2k字</span>
+  <span class="post-count">共40.5k字</span>
 </div>
 
     
@@ -1277,7 +1485,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共39.2k字</span>
+  <span class="post-count">共40.5k字</span>
 </div>
 
     
@@ -1468,7 +1676,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共39.2k字</span>
+  <span class="post-count">共40.5k字</span>
 </div>
 
     
@@ -1729,7 +1937,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共39.2k字</span>
+  <span class="post-count">共40.5k字</span>
 </div>
 
     
@@ -2007,7 +2215,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共39.2k字</span>
+  <span class="post-count">共40.5k字</span>
 </div>
 
     
@@ -2194,191 +2402,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共39.2k字</span>
-</div>
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://github.com/ChangerHe/2017/07/17/JavaScript笔试面试题收集（一）/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Changer He">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Changer He's Home Page">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/07/17/JavaScript笔试面试题收集（一）/" itemprop="url">
-                  JavaScript笔试面试题收集（一）
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-17T21:34:18+08:00">
-                2017-07-17
-              </time>
-            
-
-            
-
-  <span class="post-letters-count">
-    &nbsp; | &nbsp;
-    <span>173 字</span>
-    &nbsp; | &nbsp;
-    <span>1 min</span>
-  </span>
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript笔试面试题/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript笔试面试题</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计</span>
-                
-                <span title="字数统计">
-                  173字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长</span>
-                
-                <span title="阅读时长">
-                  1分钟
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>出题的大师兄，草粉吗？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">function Foo() &#123;</div><div class="line">	getName = function () &#123;</div><div class="line">		console.log(1);</div><div class="line">	&#125;;</div><div class="line">	return this;</div><div class="line">&#125;</div><div class="line">Foo.getName = function () &#123;</div><div class="line">	console.log(2);</div><div class="line">&#125;;</div><div class="line">Foo.prototype.getName = function () &#123;</div><div class="line">	console.log(3);</div><div class="line">&#125;;</div><div class="line">var getName = function () &#123;</div><div class="line">	console.log(4);</div><div class="line">&#125;;</div><div class="line">function getName() &#123;</div><div class="line">	console.log(5);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">// 请写出以下输出结果：</div><div class="line">Foo.getName();</div><div class="line">getName();</div><div class="line">Foo().getName();</div><div class="line">getName();</div><div class="line">new Foo.getName();</div><div class="line">new Foo().getName();</div><div class="line">new new Foo().getName();</div></pre></td></tr></table></figure></p>
-<p>题目只答对一半的宝宝表示很想哭啊。<br>以下是解题思路：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">Foo.getName();              // 2</div><div class="line">getName();                     // 4</div><div class="line">Foo().getName();           // 1</div><div class="line">getName();                     // 1</div><div class="line"></div><div class="line">new Foo.getName();          // 2</div><div class="line">// var a = new Foo.getName();  </div><div class="line">// var a = &#123;&#125;;</div><div class="line">// a.__proto = Foo.getName.prototype;</div><div class="line">// Foo.getName.call(a);</div><div class="line"></div><div class="line">new Foo().getName();        // 3</div><div class="line">// var b = new Foo().getName();</div><div class="line">// var b = &#123;&#125;;</div><div class="line">// b.__proto__ = Foo.prototype;</div><div class="line">// Foo.call(b);</div><div class="line">// b.getName();</div><div class="line"></div><div class="line">new new Foo().getName();    // 3</div><div class="line">// var c = new Foo().getName();</div><div class="line">// var c = &#123;&#125;;</div><div class="line">// c.__proto__ = Foo.prototype;</div><div class="line">// Foo.call(c);</div><div class="line">// var d = new c.getName();</div><div class="line">// var d = &#123;&#125;;</div><div class="line">// d.__proto__ = c.getName.prototype;</div><div class="line">// c.getName.call(d);</div></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-<div class="theme-info">
-  <div class="powered-by"></div>
-  <span class="post-count">共39.2k字</span>
+  <span class="post-count">共40.5k字</span>
 </div>
 
     
@@ -2431,7 +2455,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">39</span>
+                <span class="site-state-item-count">40</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
