@@ -283,6 +283,193 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://github.com/ChangerHe/2017/07/19/JavaScript计时器的优化/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Changer He">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Changer He's Home Page">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/07/19/JavaScript计时器的优化/" itemprop="url">
+                  JavaScript计时器的优化
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-19T09:51:42+08:00">
+                2017-07-19
+              </time>
+            
+
+            
+
+  <span class="post-letters-count">
+    &nbsp; | &nbsp;
+    <span>173 字</span>
+    &nbsp; | &nbsp;
+    <span>1 min</span>
+  </span>
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript-学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript 学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  173字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  1分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>首先，要对我的脑子进行严格而深刻的批判，写个简单的计时器，花了一个小时的时间才写完。</p>
+<blockquote>
+<p>“脑子是个好东西，我希望我自己也能有一个。”   ——某位将要成为前端大佬的菜鸟如是说</p>
+</blockquote>
+<p>情况分析：在HTML文件中写入相应的代码，实现计时效果，因此需要用到定时器，代码如下，我是将代码直接写在timer中了：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">setInterval(function timtSetter()&#123;</div><div class="line">	s++;</div><div class="line">	var S,m,M,h,H;</div><div class="line">	S = s % 60;</div><div class="line">	m = Math.floor(s/60);</div><div class="line">	M = m % 60;</div><div class="line">	h = Math.floor(m/60);</div><div class="line">	H = h % 24;</div><div class="line">	if( S &lt; 10)&#123;</div><div class="line">		S = &quot;0&quot; + S;</div><div class="line">	&#125;</div><div class="line">	if( M &lt; 10)&#123;</div><div class="line">		M = &quot;0&quot; + M;</div><div class="line">	&#125;</div><div class="line">	if( H &lt; 10)&#123;</div><div class="line">		H = &quot;0&quot; + H;</div><div class="line">	&#125;</div><div class="line">	timer.innerHTML = H + &quot;:&quot; + M + &quot;:&quot; + S;</div><div class="line">&#125;,1000);</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">共41.3k字</span>
+</div>
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="https://github.com/ChangerHe/2017/07/17/JavaScript笔试面试题收集（一）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -454,7 +641,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共40.5k字</span>
+  <span class="post-count">共41.3k字</span>
 </div>
 
     
@@ -644,7 +831,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共40.5k字</span>
+  <span class="post-count">共41.3k字</span>
 </div>
 
     
@@ -841,7 +1028,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共40.5k字</span>
+  <span class="post-count">共41.3k字</span>
 </div>
 
     
@@ -1076,7 +1263,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共40.5k字</span>
+  <span class="post-count">共41.3k字</span>
 </div>
 
     
@@ -1264,7 +1451,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共40.5k字</span>
+  <span class="post-count">共41.3k字</span>
 </div>
 
     
@@ -1503,7 +1690,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共40.5k字</span>
+  <span class="post-count">共41.3k字</span>
 </div>
 
     
@@ -1698,7 +1885,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共40.5k字</span>
+  <span class="post-count">共41.3k字</span>
 </div>
 
     
@@ -1946,7 +2133,7 @@ reduceRight():迭代数组所有项，从最后一个数开始。
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共40.5k字</span>
+  <span class="post-count">共41.3k字</span>
 </div>
 
     
@@ -2149,203 +2336,7 @@ reduceRight():迭代数组所有项，从最后一个数开始。
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共40.5k字</span>
-</div>
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://github.com/ChangerHe/2017/07/05/jQuery查漏补缺/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Changer He">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Changer He's Home Page">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/07/05/jQuery查漏补缺/" itemprop="url">
-                  jQuery 学习笔记——Review
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-05T19:51:24+08:00">
-                2017-07-05
-              </time>
-            
-
-            
-
-  <span class="post-letters-count">
-    &nbsp; | &nbsp;
-    <span>1,027 字</span>
-    &nbsp; | &nbsp;
-    <span>4 min</span>
-  </span>
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/jQuery-学习笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">jQuery 学习笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计</span>
-                
-                <span title="字数统计">
-                  1,027字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长</span>
-                
-                <span title="阅读时长">
-                  4分钟
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>整体地看了一遍《锋利的jQuery》这本书，老师对jQuery这个脚本库进行了非常详细的解答，通俗易懂，但是感觉对AJAX我还是云里雾里，过两天有网了还是要撸一下AJAX。同时，我对里面的API还是不够熟悉，过一段时间，还要再看一遍！再对着上面的代码再敲一遍才好。等JS高程全部搞懂了，一定要把JQ的源码撸一遍！<br>今天看了张鑫旭大神的《我对知乎前端问题的十问十答》狠狠地抽醒了我，作为一个大学的时候玩HTML、css、JS玩的飞起的人，在毕业后做了九个月切图仔，又去自己闭关自学了九个月才能到现在的大神水平，而且他还是计算机专业的985院校毕业生，所以我一个二流野鸡大学的非科班毕业生，凭什么不努力呢？虽然是碗毒鸡汤，但我干了，大家随意。<br>回到正文，对今天学到的一些自己的易忘点，易错点进行回顾：</p>
-<h3 id="jQuery对象和DOM对象的相互转换："><a href="#jQuery对象和DOM对象的相互转换：" class="headerlink" title="jQuery对象和DOM对象的相互转换："></a>jQuery对象和DOM对象的相互转换：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var variable1 = jQuery对象；  //新定义一个jQuery对象</div><div class="line">var variable2 = DOM对象； //新定义一个DOM对象</div><div class="line">//将jQuery对象转为DOM对象</div><div class="line">var cr = $(&quot;#cr&quot;);</div><div class="line">var cr = $cr[0];  //或使用 var cr = $cr.get[0];</div></pre></td></tr></table></figure>
-<h3 id="多个JS库争夺符号“-”控制权的解决办法"><a href="#多个JS库争夺符号“-”控制权的解决办法" class="headerlink" title="多个JS库争夺符号“$”控制权的解决办法"></a>多个JS库争夺符号“$”控制权的解决办法</h3><p>在其他库加载完毕后，可以在任何时候调用jQuery.noConflict()方法来将变量”$”的控制权移交给其他的JS库，同时，当需要使用jQuery库中的方法时，可直接调用jquery()方法即可。<br>当然，此时也可使用变量对其进行替代，需要调用时，直接使用变量就好了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var $j = jquery.noConflict();</div></pre></td></tr></table></figure></p>
-<h3 id="jQuery的对象检查方式"><a href="#jQuery的对象检查方式" class="headerlink" title="jQuery的对象检查方式"></a>jQuery的对象检查方式</h3><p>jQuery在搜索对象时，即使该对象不存在，jQuery也不会报错，因此当直接使用调用的对象进行布尔运算时，会一直显示为true，因此，在判断该对象是否存在时，应当使用如下方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">if( $content.length)&#123;</div><div class="line">	//Do something</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>注：当jQuery的id对象有多个时，调用$(“#id”);永远显示的是第一个id对象。</p>
-<h3 id="子元素和后代元素的区别"><a href="#子元素和后代元素的区别" class="headerlink" title="子元素和后代元素的区别"></a>子元素和后代元素的区别</h3><p>子元素 <code>Ex: $(&quot;parent &gt; child&quot;);</code><br>后代元素：<code>Ex: $(&quot;parent dessemdant&quot;);</code><br>区别： 子元素选择的是parent元素的儿子辈，而后代元素选择的是parent元素的子、孙、曾孙加上以后的辈。</p>
-<h3 id="选取规则"><a href="#选取规则" class="headerlink" title="选取规则"></a>选取规则</h3><p>选取紧接在prev元素后的next元素（仅选择一个元素）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&quot;prev + next&quot;);  //等价于 $(&quot;prev&quot;).next(&quot;next&quot;);</div></pre></td></tr></table></figure></p>
-<p>选取prev元素后的所有sibling元素<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&quot;prev ~ siblings&quot;);   //等价于  $(&quot;prev&quot;).nextAll(&quot;siblings&quot;)</div></pre></td></tr></table></figure></p>
-<p>选取含有文本内容为“我”的元素<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&quot;div:contains(&quot;我&quot;)&quot;)；</div></pre></td></tr></table></figure></p>
-<p>选取含有选择器所匹配的元素的元素<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&quot;div:has(p)&quot;)</div></pre></td></tr></table></figure></p>
-<h3 id="remove-方法的特殊属性"><a href="#remove-方法的特殊属性" class="headerlink" title="remove()方法的特殊属性"></a>remove()方法的特殊属性</h3><p>当节点使用remove()方法被删除后，该节点包含的所有后代节点都将同时被删除，这个方法的返回值是一个指向已被删除的节点的引用，因此可以在之后再次使用。</p>
-<h3 id="css-方法的命名规则"><a href="#css-方法的命名规则" class="headerlink" title="css()方法的命名规则"></a>css()方法的命名规则</h3><p>在css()方法中，若属性带有“-”连接符，则此时官方建议使用驼峰命名法进行代替，否则直接引用带”-“的属性时，需要加上引号。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&quot;p&quot;).css(&#123;fontSize: &quot;30px&quot;,&quot;background-color&quot;: &quot;#888&quot;&#125;)</div></pre></td></tr></table></figure></p>
-<h3 id="关于height-方法和css-中的css-“height”-方法"><a href="#关于height-方法和css-中的css-“height”-方法" class="headerlink" title="关于height()方法和css()中的css(“height”)方法"></a>关于height()方法和css()中的css(“height”)方法</h3><p>两者无较大区别，但是当给height()方法设置值时，默认的单位为px，若使用其他单位，则需要加上引号。<br>height()方法获得的是页面的实际高度，而css()获取的高度根据设置的值的单位决定，也有可能为auto。</p>
-<h3 id="判断当前元素是否处于动画状态"><a href="#判断当前元素是否处于动画状态" class="headerlink" title="判断当前元素是否处于动画状态"></a>判断当前元素是否处于动画状态</h3><p>判断当前元素是否处于动画状态，是写动画时常常需要的一个判断方法，可以防止在多次点击按钮后，页面不停跳转的问题。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">if(!$(&quot;element&quot;).is(&quot;:animated&quot;))&#123;</div><div class="line">	//若当前无动画，则进行新动画</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-<div class="theme-info">
-  <div class="powered-by"></div>
-  <span class="post-count">共40.5k字</span>
+  <span class="post-count">共41.3k字</span>
 </div>
 
     
@@ -2353,7 +2344,7 @@ reduceRight():迭代数组所有项，从最后一个数开始。
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2398,7 +2389,7 @@ reduceRight():迭代数组所有项，从最后一个数开始。
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">40</span>
+                <span class="site-state-item-count">41</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

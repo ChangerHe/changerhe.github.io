@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/ChangerHe/"/>
-  <updated>2017-08-11T08:13:44.360Z</updated>
+  <updated>2017-08-16T02:35:00.241Z</updated>
   <id>https://github.com/ChangerHe/</id>
   
   <author>
@@ -14,6 +14,43 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>实现某节点子节点的倒序排列</title>
+    <link href="https://github.com/ChangerHe/2017/08/16/%E5%AE%9E%E7%8E%B0%E6%9F%90%E8%8A%82%E7%82%B9%E5%AD%90%E8%8A%82%E7%82%B9%E7%9A%84%E5%80%92%E5%BA%8F%E6%8E%92%E5%88%97/"/>
+    <id>https://github.com/ChangerHe/2017/08/16/实现某节点子节点的倒序排列/</id>
+    <published>2017-08-16T02:03:10.000Z</published>
+    <updated>2017-08-16T02:35:00.241Z</updated>
+    
+    <content type="html"><![CDATA[<p>文章主要是对于一个很容易被忽略的知识点:createDocumentFragment()方法的一个复习,并给大家解锁一个解决给某个标签动态改变其子节点顺序的新姿势.</p>
+<p>首先,documentFragment是一个很早之前就被广泛支持的方法,所以犀牛书上面所提供的为element对象增加一个原型方法insertAdjacentHTML()的兼容性写法,大家可以无视了,因为IE7-IE9都亲测完美支持.当然,如果你想碰IE6,就当我没说.</p>
+<h1 id="关于性能"><a href="#关于性能" class="headerlink" title="关于性能"></a>关于性能</h1><p>其实createDocumentFragment()这个方法创建的目的,就是把它当做一个特殊的node,作为其他节点的一个临时的容器.</p>
+<p>也就是说,当我们需要使用JS为某标签动态插入较多的子节点的时候,我们可以将需要插入的节点组成一个节点树.然后在插入的时候直接把这个节点树一次性插入到文档流中.</p>
+<p>相比于每生成一次节点之后马上插入文档流的做法来说,使用createDocumentFragment()方法可以大大减少浏览器的重绘次数,从而能够提升性能.(每当我们进行动态插入节点的时候,都会引起浏览器的一次重绘操作)</p>
+<p>有一点要特别注意的是,IE浏览器是例外的,因为IE浏览器的特殊性,导致当我们使用createDocumentFragment()方法进行动态插入时,反倒会降低浏览器的性能.</p>
+<h1 id="某节点子节点的倒序排列的JS实现"><a href="#某节点子节点的倒序排列的JS实现" class="headerlink" title="某节点子节点的倒序排列的JS实现"></a>某节点子节点的倒序排列的JS实现</h1><p>了解到createDocumentFragment()这个方法其实这个问题就很简单了.先将源文档的lastChild逐个插入到createDocumentFragment()的节点树中即可.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function reverse(n)&#123;</div><div class="line">	var f = document.createDocumentFragment();</div><div class="line">	var a = n.childNodes.length</div><div class="line">	for (var i = 0; i &lt; a; i++) &#123;</div><div class="line">		f.appendChild(n.lastChild)</div><div class="line">	&#125;</div><div class="line">	console.log(f)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>有一点需要大家特别注意的是,当我们不使用a这个局部变量而是直接使用n.childNodes.length,每次for循环都进行重新判定的时候,会发生神奇的现象.n.childNodes.length会离奇般的消失了一半.</p>
+<p>其实了解现代浏览器的childNodes.length判定机制的同学都会知道,当我们对文档流进行childNodes判定的时候,其实其子标签两边的空格和回车也是会作为文本节点被算进childNodes.length里面的.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;ul id=&quot;aUl&quot;&gt;</div><div class="line">	&lt;li&gt;1111&lt;/li&gt;</div><div class="line">	&lt;li&gt;2222&lt;/li&gt;</div><div class="line">	&lt;li&gt;3333&lt;/li&gt;</div><div class="line">	&lt;li&gt;4444&lt;/li&gt;</div><div class="line">	&lt;li&gt;5555&lt;/li&gt;	</div><div class="line">&lt;/ul&gt;</div><div class="line">//当我们打印aUl中的子节点的长度时候,判定结果是11.(IE老版本会出现仅显示长度为5的问题,后面已经更正)</div></pre></td></tr></table></figure>
+<p>说到这里其实刚刚说的神奇的现象就很好解释了,因为我们从后面开始进行移动元素”空白文本节点”及li标签的时候,它们的空白节点会动态消失.所以我们使用for循环每次进行判定该文档的长度的时候,以上面的文档结构为例,判定长度为11,但实际上循环次数仅5次.</p>
+<p>这个坑很好的教了我们,要将长度判定等拿到for循环外面的重要性啊,不仅能提升性能,还能避免踩坑…</p>
+<p>以上.</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;文章主要是对于一个很容易被忽略的知识点:createDocumentFragment()方法的一个复习,并给大家解锁一个解决给某个标签动态改变其子节点顺序的新姿势.&lt;/p&gt;
+&lt;p&gt;首先,documentFragment是一个很早之前就被广泛支持的方法,所以犀牛书上面所提供的
+    
+    </summary>
+    
+      <category term="JavaScript 学习笔记" scheme="https://github.com/ChangerHe/categories/JavaScript-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="JavaScript" scheme="https://github.com/ChangerHe/tags/JavaScript/"/>
+    
+  </entry>
   
   <entry>
     <title>JavaScript深入浅出-闭包及闭包问题的解决办法</title>
@@ -997,42 +1034,6 @@ reduceRight():迭代数组所有项，从最后一个数开始。
     
     
       <category term="JavaScript" scheme="https://github.com/ChangerHe/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>jQuery 学习笔记——Review</title>
-    <link href="https://github.com/ChangerHe/2017/07/05/jQuery%E6%9F%A5%E6%BC%8F%E8%A1%A5%E7%BC%BA/"/>
-    <id>https://github.com/ChangerHe/2017/07/05/jQuery查漏补缺/</id>
-    <published>2017-07-05T11:51:24.000Z</published>
-    <updated>2017-07-05T14:00:23.311Z</updated>
-    
-    <content type="html"><![CDATA[<p>整体地看了一遍《锋利的jQuery》这本书，老师对jQuery这个脚本库进行了非常详细的解答，通俗易懂，但是感觉对AJAX我还是云里雾里，过两天有网了还是要撸一下AJAX。同时，我对里面的API还是不够熟悉，过一段时间，还要再看一遍！再对着上面的代码再敲一遍才好。等JS高程全部搞懂了，一定要把JQ的源码撸一遍！<br>今天看了张鑫旭大神的《我对知乎前端问题的十问十答》狠狠地抽醒了我，作为一个大学的时候玩HTML、css、JS玩的飞起的人，在毕业后做了九个月切图仔，又去自己闭关自学了九个月才能到现在的大神水平，而且他还是计算机专业的985院校毕业生，所以我一个二流野鸡大学的非科班毕业生，凭什么不努力呢？虽然是碗毒鸡汤，但我干了，大家随意。<br>回到正文，对今天学到的一些自己的易忘点，易错点进行回顾：</p>
-<h3 id="jQuery对象和DOM对象的相互转换："><a href="#jQuery对象和DOM对象的相互转换：" class="headerlink" title="jQuery对象和DOM对象的相互转换："></a>jQuery对象和DOM对象的相互转换：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var variable1 = jQuery对象；  //新定义一个jQuery对象</div><div class="line">var variable2 = DOM对象； //新定义一个DOM对象</div><div class="line">//将jQuery对象转为DOM对象</div><div class="line">var cr = $(&quot;#cr&quot;);</div><div class="line">var cr = $cr[0];  //或使用 var cr = $cr.get[0];</div></pre></td></tr></table></figure>
-<h3 id="多个JS库争夺符号“-”控制权的解决办法"><a href="#多个JS库争夺符号“-”控制权的解决办法" class="headerlink" title="多个JS库争夺符号“$”控制权的解决办法"></a>多个JS库争夺符号“$”控制权的解决办法</h3><p>在其他库加载完毕后，可以在任何时候调用jQuery.noConflict()方法来将变量”$”的控制权移交给其他的JS库，同时，当需要使用jQuery库中的方法时，可直接调用jquery()方法即可。<br>当然，此时也可使用变量对其进行替代，需要调用时，直接使用变量就好了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var $j = jquery.noConflict();</div></pre></td></tr></table></figure></p>
-<h3 id="jQuery的对象检查方式"><a href="#jQuery的对象检查方式" class="headerlink" title="jQuery的对象检查方式"></a>jQuery的对象检查方式</h3><p>jQuery在搜索对象时，即使该对象不存在，jQuery也不会报错，因此当直接使用调用的对象进行布尔运算时，会一直显示为true，因此，在判断该对象是否存在时，应当使用如下方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">if( $content.length)&#123;</div><div class="line">	//Do something</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>注：当jQuery的id对象有多个时，调用$(“#id”);永远显示的是第一个id对象。</p>
-<h3 id="子元素和后代元素的区别"><a href="#子元素和后代元素的区别" class="headerlink" title="子元素和后代元素的区别"></a>子元素和后代元素的区别</h3><p>子元素 <code>Ex: $(&quot;parent &gt; child&quot;);</code><br>后代元素：<code>Ex: $(&quot;parent dessemdant&quot;);</code><br>区别： 子元素选择的是parent元素的儿子辈，而后代元素选择的是parent元素的子、孙、曾孙加上以后的辈。</p>
-<h3 id="选取规则"><a href="#选取规则" class="headerlink" title="选取规则"></a>选取规则</h3><p>选取紧接在prev元素后的next元素（仅选择一个元素）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&quot;prev + next&quot;);  //等价于 $(&quot;prev&quot;).next(&quot;next&quot;);</div></pre></td></tr></table></figure></p>
-<p>选取prev元素后的所有sibling元素<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&quot;prev ~ siblings&quot;);   //等价于  $(&quot;prev&quot;).nextAll(&quot;siblings&quot;)</div></pre></td></tr></table></figure></p>
-<p>选取含有文本内容为“我”的元素<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&quot;div:contains(&quot;我&quot;)&quot;)；</div></pre></td></tr></table></figure></p>
-<p>选取含有选择器所匹配的元素的元素<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&quot;div:has(p)&quot;)</div></pre></td></tr></table></figure></p>
-<h3 id="remove-方法的特殊属性"><a href="#remove-方法的特殊属性" class="headerlink" title="remove()方法的特殊属性"></a>remove()方法的特殊属性</h3><p>当节点使用remove()方法被删除后，该节点包含的所有后代节点都将同时被删除，这个方法的返回值是一个指向已被删除的节点的引用，因此可以在之后再次使用。</p>
-<h3 id="css-方法的命名规则"><a href="#css-方法的命名规则" class="headerlink" title="css()方法的命名规则"></a>css()方法的命名规则</h3><p>在css()方法中，若属性带有“-”连接符，则此时官方建议使用驼峰命名法进行代替，否则直接引用带”-“的属性时，需要加上引号。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&quot;p&quot;).css(&#123;fontSize: &quot;30px&quot;,&quot;background-color&quot;: &quot;#888&quot;&#125;)</div></pre></td></tr></table></figure></p>
-<h3 id="关于height-方法和css-中的css-“height”-方法"><a href="#关于height-方法和css-中的css-“height”-方法" class="headerlink" title="关于height()方法和css()中的css(“height”)方法"></a>关于height()方法和css()中的css(“height”)方法</h3><p>两者无较大区别，但是当给height()方法设置值时，默认的单位为px，若使用其他单位，则需要加上引号。<br>height()方法获得的是页面的实际高度，而css()获取的高度根据设置的值的单位决定，也有可能为auto。</p>
-<h3 id="判断当前元素是否处于动画状态"><a href="#判断当前元素是否处于动画状态" class="headerlink" title="判断当前元素是否处于动画状态"></a>判断当前元素是否处于动画状态</h3><p>判断当前元素是否处于动画状态，是写动画时常常需要的一个判断方法，可以防止在多次点击按钮后，页面不停跳转的问题。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">if(!$(&quot;element&quot;).is(&quot;:animated&quot;))&#123;</div><div class="line">	//若当前无动画，则进行新动画</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;整体地看了一遍《锋利的jQuery》这本书，老师对jQuery这个脚本库进行了非常详细的解答，通俗易懂，但是感觉对AJAX我还是云里雾里，过两天有网了还是要撸一下AJAX。同时，我对里面的API还是不够熟悉，过一段时间，还要再看一遍！再对着上面的代码再敲一遍才好。等JS高程
-    
-    </summary>
-    
-      <category term="jQuery 学习笔记" scheme="https://github.com/ChangerHe/categories/jQuery-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="jQuery" scheme="https://github.com/ChangerHe/tags/jQuery/"/>
     
   </entry>
   
