@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/ChangerHe/"/>
-  <updated>2017-08-17T02:23:31.112Z</updated>
+  <updated>2017-08-22T01:41:32.786Z</updated>
   <id>https://github.com/ChangerHe/</id>
   
   <author>
@@ -14,6 +14,56 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JavaScript笔试面试题收集（四）</title>
+    <link href="https://github.com/ChangerHe/2017/08/22/JavaScript%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98%E6%94%B6%E9%9B%86%EF%BC%88%E5%9B%9B%EF%BC%89/"/>
+    <id>https://github.com/ChangerHe/2017/08/22/JavaScript笔试面试题收集（四）/</id>
+    <published>2017-08-22T01:04:27.000Z</published>
+    <updated>2017-08-22T01:41:32.786Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="关于形参的传参问题"><a href="#关于形参的传参问题" class="headerlink" title="关于形参的传参问题"></a>关于形参的传参问题</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(function(foo)&#123;return typeof foo.foo.bar;&#125;)(&#123; foo:&#123; bar: 1 &#125; &#125;)</div></pre></td></tr></table></figure>
+<p>答案: number<br>解析: 其实这题考了我们闭包以及形参传参的问题,首先,我们将整体看成一个自执行函数,函数的变量是{ foo:{ bar: 1 } },那么我们可以把这一题简化一下:(当然,这个对象并不是存在于全局作用域的,我们只是把它拆开,做个比喻)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var baz = &#123; foo:&#123; bar: 1 &#125; &#125;</div><div class="line">(function(foo)&#123;</div><div class="line">	return typeof foo.foo.bar;&#125;</div><div class="line">&#125;)(baz)</div></pre></td></tr></table></figure>
+<p>那么现在就很明显了,其实就是把baz作为参数传递到这个自执行函数中,理解了这第一步,那么我们要先了解一下”左值”的概念,就是当我们遇到<code>foo.foo.bar</code>这一串的时候,可能很多同学很疑惑,怎么传了两次参数,其实两次参数的作用是不同的,执行这段代码,那么会先查找左边的值,并传入这个参数. </p>
+<p>那么我们再简化一下这一题</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var baz = &#123; foo:&#123; bar: 1 &#125; &#125;</div><div class="line">(function(baz)&#123;</div><div class="line">	return typeof baz.foo.bar;&#125;</div><div class="line">&#125;)(baz)</div></pre></td></tr></table></figure>
+<p>到这里,结果就很明显了,最后返回值就是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">typeof &#123; foo:&#123; bar: 1 &#125; &#125;.foo.bar</div></pre></td></tr></table></figure>
+<p>那么,自然结果就是number啦</p>
+<h1 id="关于作用域的问题"><a href="#关于作用域的问题" class="headerlink" title="关于作用域的问题"></a>关于作用域的问题</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var x = 1;</div><div class="line">if (function f()&#123;&#125;) &#123;</div><div class="line">x += typeof f;</div><div class="line">&#125;</div><div class="line">console.log(x)    // 1undefined</div></pre></td></tr></table></figure>
+<p>这一题比较简单,但是考的是细节,我们需要了解function f(){}这个函数,其实在括号中,它的作用域就仅仅是在括号中了,但是平常我们不能这样做,因为这是不符合ES语法规范的.</p>
+<h1 id="关于闭包的问题"><a href="#关于闭包的问题" class="headerlink" title="关于闭包的问题"></a>关于闭包的问题</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">;(function(x)&#123;</div><div class="line">	console.log(x)    // 1</div><div class="line">	console.log(delete x) // false</div><div class="line">	console.log(x)    // 1</div><div class="line">	return x</div><div class="line">	console.log(x)    // 1</div><div class="line">&#125;)(1)</div></pre></td></tr></table></figure>
+<p>这一题主要是考察我们对闭包中形参和实参的处理问题.</p>
+<p>这里给出一些个人理解,不一定正确:</p>
+<p>首先,我们要明白,其实形参在其函数内,也是有一个在局部作用域中的函数定义的操作的.也就是隐式地声明了这个形参,然后才把这个形参进行赋值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">;(function(x)&#123;</div><div class="line">	var x	 // 这里是打了个比方</div><div class="line">	x = 1    // 这里是打了个比方</div><div class="line">	console.log(delete x) ;</div><div class="line">	console.log(x)</div><div class="line">	return x</div><div class="line">	console.log(x)</div><div class="line">&#125;)(1)</div></pre></td></tr></table></figure>
+<p>对于delete操作符,我们知道,如果成功删除,则会返回true,不成功则返回false.</p>
+<p>同时,当我们使用var定义的变量,是无法使用delete操作符进行删除的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var a</div><div class="line">a = 1</div><div class="line">delete a   // false</div></pre></td></tr></table></figure>
+<h1 id="关于闭包的参数问题"><a href="#关于闭包的参数问题" class="headerlink" title="关于闭包的参数问题"></a>关于闭包的参数问题</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">;(function f(f)&#123;</div><div class="line">	return typeof f();    // number</div><div class="line">&#125;)(function()&#123; return 1; &#125;);</div></pre></td></tr></table></figure>
+<p>这一题还是关于自执行函数的传参,乍看可能有点懵逼,但是实际很简单,我们把这个自执行函数中打印出一个东西,你就明白了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">;(function f(f)&#123;</div><div class="line">	console.log(f)   // function()&#123; return 1; &#125;</div><div class="line">	return typeof f();    // number</div><div class="line">&#125;)(function()&#123; return 1; &#125;);</div></pre></td></tr></table></figure>
+<p>传进去的f就是一个函数,而在进行判断的时候是用的 <code>typeof f()</code> 我们会发现这个时候f已经被执行了,执行自然就会返回结果1,对1 进行类型判断,自然就是number了.</p>
+<h1 id="关于函数闭包的执行问题"><a href="#关于函数闭包的执行问题" class="headerlink" title="关于函数闭包的执行问题"></a>关于函数闭包的执行问题</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function test() &#123;</div><div class="line">	var i = 0;</div><div class="line">	var f1 = function() &#123;</div><div class="line">		return ++i</div><div class="line">	&#125;</div><div class="line">	return f1</div><div class="line">&#125;</div><div class="line">var fn1 = test();</div><div class="line">var fn2 = test();</div><div class="line">console.log(fn1 == fn2)  // false</div><div class="line">console.log(fn1() + fn2() + fn1() + fn2())  // 6</div></pre></td></tr></table></figure>
+<p>fn1和fn2其实都是对test中返回值的引用,打印这两个值,都是一个函数,也就是f1</p>
+<p>但是,fn1和fn2都是对test()函数值的浅拷贝,因此二者并不相等,返回false</p>
+<p>fn1和fn2是两个完全不同的引用,引用的对象都是f1,所以我们每执行一次,i就会加一.</p>
+<p>所以fn1执行一次,就会加一,fn1第一次是1,第二次执行是2,所以.fn1和fn2都执行两次,值就是6了</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;关于形参的传参问题&quot;&gt;&lt;a href=&quot;#关于形参的传参问题&quot; class=&quot;headerlink&quot; title=&quot;关于形参的传参问题&quot;&gt;&lt;/a&gt;关于形参的传参问题&lt;/h1&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;t
+    
+    </summary>
+    
+      <category term="JavaScript笔试面试题" scheme="https://github.com/ChangerHe/categories/JavaScript%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    
+      <category term="JavaScript笔试面试题" scheme="https://github.com/ChangerHe/tags/JavaScript%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+  </entry>
   
   <entry>
     <title>JavaScript笔试面试题收集（三）</title>
@@ -923,94 +973,6 @@
     
       &lt;p&gt;昨天看了一遍javascript的面向对象，感觉javascript的面向对象比java难懂很多啊，主要还是原型链继承这块的东西。&lt;br&gt;本篇内容主要讲在学习javascript中很容易搞不清楚的call()方法和apply()方法。&lt;/p&gt;
 &lt;h1 id=&quot;apply和c
-    
-    </summary>
-    
-      <category term="JavaScript 学习笔记" scheme="https://github.com/ChangerHe/categories/JavaScript-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="JavaScript" scheme="https://github.com/ChangerHe/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JavaScript高级程序设计复习笔记（二）</title>
-    <link href="https://github.com/ChangerHe/2017/07/07/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
-    <id>https://github.com/ChangerHe/2017/07/07/JavaScript高级程序设计复习笔记（二）/</id>
-    <published>2017-07-07T12:53:14.000Z</published>
-    <updated>2017-07-07T14:58:23.633Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="Array类型的数组数量问题"><a href="#Array类型的数组数量问题" class="headerlink" title="Array类型的数组数量问题"></a>Array类型的数组数量问题</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var ar = [,,,];</div><div class="line">console.log(arr.length);   //3（最后一个逗号后面不计数）</div></pre></td></tr></table></figure>
-<p>小技巧，利用length在数组的末尾添加新项<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var colors = [&quot;red&quot;,&quot;blue&quot;];</div><div class="line">colors[color.length] = &quot;black&quot;;</div></pre></td></tr></table></figure></p>
-<h3 id="join-方法用于给数组提供分隔符以构建字符串"><a href="#join-方法用于给数组提供分隔符以构建字符串" class="headerlink" title="join()方法用于给数组提供分隔符以构建字符串"></a>join()方法用于给数组提供分隔符以构建字符串</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var colors = [&quot;red&quot;,&quot;green&quot;];</div><div class="line">console.log(colors.join(&quot;||&quot;));</div><div class="line">//输出 red||green，当直接调用join()时，使用默认的“，”分隔。</div></pre></td></tr></table></figure>
-<h3 id="栈方法（LIFO-后进先出；队列方法-FIFO-先进先出"><a href="#栈方法（LIFO-后进先出；队列方法-FIFO-先进先出" class="headerlink" title="栈方法（LIFO):后进先出；队列方法(FIFO):先进先出"></a>栈方法（LIFO):后进先出；队列方法(FIFO):先进先出</h3><p>方法类比：</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">方法名称</th>
-<th style="text-align:center">方法作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">push()</td>
-<td style="text-align:center">从数组后方依次添加</td>
-</tr>
-<tr>
-<td style="text-align:center">unshift()</td>
-<td style="text-align:center">从数组前方依次添加</td>
-</tr>
-<tr>
-<td style="text-align:center">pop()</td>
-<td style="text-align:center">从数组后方删除最后一个，并返回被删除值</td>
-</tr>
-<tr>
-<td style="text-align:center">shift()</td>
-<td style="text-align:center">从数组前删除第一个，并返回第一个被删除的值</td>
-</tr>
-</tbody>
-</table>
-<h3 id="重排序方法"><a href="#重排序方法" class="headerlink" title="重排序方法"></a>重排序方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var values = [0,1,2,10,15];</div><div class="line">values.sort();</div><div class="line">console.log(values); //0,1,10,15,2</div></pre></td></tr></table></figure>
-<p>原因：排序时sort将所有数组值均转化为字符串值再拍讯。<br>解决方法：新建一个compare()方法进行比较<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function compare(value1,value2)&#123;</div><div class="line">	if(value1 &lt; value2)&#123;</div><div class="line">		return -1;</div><div class="line">	&#125; else if (value1 &gt; value2)&#123;</div><div class="line">		return 1;</div><div class="line">	&#125; else &#123;</div><div class="line">		return 0;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">&#125;</div><div class="line">var values = [0,1,5,10,15];</div><div class="line">values.sort(compare);</div><div class="line">console.log(values);   //0,1,5,10,15</div></pre></td></tr></table></figure></p>
-<h3 id="操作方法"><a href="#操作方法" class="headerlink" title="操作方法"></a>操作方法</h3><p>concat():链接两数组，若不传递参数，则只复制一份，不会额外向原数组增加内容。<br>slice():复制当前数组，参数为开始和结束位置。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var arr = [1,2,3,4,5];</div><div class="line">var arr1 = arr.slice(1);</div><div class="line">console.log(arr1);  //2,3,4,5</div><div class="line">var arr2 = arr.slice(1,4);</div><div class="line">console.log(arr2);  //2,3,4</div></pre></td></tr></table></figure></p>
-<p>注：当slice传参为负时，则要加上数组长度，以得到正确结果。<br>splice()：有删除，插入，替换三个作用<br>    删除：splice（要删除的第一项，删除的项数）；<br>    插入：splice（起始位置，0，要插入的项）；<br>    替换：splice（起始位置，要删除的项，要替换的项）；</p>
-<h3 id="迭代方法"><a href="#迭代方法" class="headerlink" title="迭代方法"></a>迭代方法</h3><pre><code>every():为数组每一次运行给定函数，每一项为true，则返回true。
-fliter():为数组的每一项执行给定函数，返回true项组成的数组。
-forEach():每一项执行函数，无返回值。
-map():为每一项执行函数，返回每次调用结果组成的数组。
-some():为每一项执行函数，任意项返回true，则返回true。
-</code></pre><h3 id="归并方法"><a href="#归并方法" class="headerlink" title="归并方法"></a>归并方法</h3><pre><code>reduce():迭代数组所有项，构建一个最终返回值。
-reduceRight():迭代数组所有项，从最后一个数开始。
-</code></pre><h3 id="函数声明提升"><a href="#函数声明提升" class="headerlink" title="函数声明提升"></a>函数声明提升</h3><p>解析器会在代码执行前进行一个函数声明提升的过程，读取并将函数声明添加到执行环境中。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">console.log(num1(1,2));   //3</div><div class="line">console.log(num2(1,2));   //报错</div><div class="line">function num1(m , n)&#123;</div><div class="line">	return m + n;</div><div class="line">&#125;</div><div class="line">num2 = function(m , n)&#123;</div><div class="line">	return m + n;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>注：要访问函数的指针而不执行函数，则需要在调用时去掉函数的圆括号进行调用。</p>
-<h3 id="使用arguments-callee-消除紧密耦合"><a href="#使用arguments-callee-消除紧密耦合" class="headerlink" title="使用arguments.callee()消除紧密耦合"></a>使用arguments.callee()消除紧密耦合</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">//这是一个普通的递归函数</div><div class="line">function factioral(num)&#123;</div><div class="line">	if(num &lt;= 1)&#123;</div><div class="line">		return 1;</div><div class="line">	&#125; else &#123;</div><div class="line">		return num*arguments.callee(num - 1);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="函数的prototype属性"><a href="#函数的prototype属性" class="headerlink" title="函数的prototype属性"></a>函数的prototype属性</h3><p>对于所有属性，prototype属性时保存他们的所有实例方法的真正所在，prototype属性包含两个非继承来的方法：apply()和call()。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">function sum(num1,num2)&#123;</div><div class="line">	return num1 + num2;</div><div class="line">&#125;</div><div class="line">function callSum1(num1,num2)&#123;</div><div class="line">	return sum.apply(this.arguments);  //传入arguments对象</div><div class="line">&#125;</div><div class="line">function callSum2(num1,num2)&#123;</div><div class="line">	return sum.apply(this,[num1,num2]); //传入数组</div><div class="line">&#125;</div><div class="line">function callSum3(num1,num2)&#123;</div><div class="line">	return sum.call(this,num1,num2);</div><div class="line">&#125;</div><div class="line">console.log(callSum1(10,10));  //20</div><div class="line">console.log(callSum2(10,10));  //20</div><div class="line">console.log(callSum3(10,10));  //20</div></pre></td></tr></table></figure></p>
-<p>call和apply的作用相同，当包含函数中接受数组时，apply更加合适。<br>apply和call的最大用处，是可扩充函数赖以执行的作用域7.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">window.color = &quot;red&quot;;</div><div class="line">var o = &#123;color : &quot;blue&quot;&#125;;</div><div class="line">function sayColor()&#123;</div><div class="line">	alert(this.color);</div><div class="line">&#125;</div><div class="line">sayColor();   //red</div><div class="line">sayColor(o);  //blue</div><div class="line">sayColor(window); //red</div></pre></td></tr></table></figure></p>
-<h3 id="基本包装类"><a href="#基本包装类" class="headerlink" title="基本包装类"></a>基本包装类</h3><p>基本包装类的自用创建的引用类型实例，会在代码执行后立即销毁。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var s1 = &quot;some test&quot;;</div><div class="line">s1.color = &quot;red&quot;;</div><div class="line">colsole.log(s1.color);   //undefined</div></pre></td></tr></table></figure></p>
-<p>注：直接使用转型函数，则返回相应结果。使用构造函数，则返回相应函数的实例。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var value = &quot;25&quot;;</div><div class="line">var number = Number(value);   //使用转型函数</div><div class="line">console.log(typeof number);  //number</div><div class="line">var obj = new Number(value);   //使用构造函数</div><div class="line">console.log(typeof obj);   //Object</div></pre></td></tr></table></figure></p>
-<p>注：new会创造一个object对象，new Boolean(false)可判定为true。</p>
-<h3 id="数值类型的转换"><a href="#数值类型的转换" class="headerlink" title="数值类型的转换"></a>数值类型的转换</h3><p>.toFixed(n):表示转换为几位小数的值。<br>.toExponential(n):表示转换为几位指数值<br>.toPreoision(n):表示转换为n位最合适的数<br>.charAt():输出当前字符串的第n位字符（从0开始）<br>.charCodeAt():输出当前字符串的第n位字符的ASCII码<br>.trim():删除前缀和后缀的空格，并返回结果<br>.toLowerCase():转换为小写<br>.toUpperCase():转换为大写<br>.match():查找字符串相匹配的位置（search()）的作用相同<br>.replace():传递两个参数，用后面的参数替换前面的参数<br>.localeCompare():比较，返回-1,0,1的其中一种<br>.fromCharCode():接收字符编码，转换为字符串<br>.eval():相当于一个独立解析器，在其中创建任何变量或函数都不会被提升</p>
-<h3 id="typrof-和instanceof-得到的结果不同-如下："><a href="#typrof-和instanceof-得到的结果不同-如下：" class="headerlink" title="typrof()和instanceof()得到的结果不同,如下："></a>typrof()和instanceof()得到的结果不同,如下：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var numberObject = new Number(10);</div><div class="line">var numberValue = 10;</div><div class="line">console.log(typeof numberObject);  //Object</div><div class="line">console.log(typeof numberValue);   //number</div><div class="line">console.log(numberObject instanceof Number);  //true</div><div class="line">console.log(numberValue instanceof Number); //false</div></pre></td></tr></table></figure>
-<h1 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h1><h3 id="数据属性"><a href="#数据属性" class="headerlink" title="数据属性"></a>数据属性</h3><p>configurable:表示能否通过delete删除属性从而重新定义属性，默认为true。<br>enumerable:表示能否通过for-in循环返回属性，默认为true。<br>writable：表示能否修改属性值，默认为true。<br>value：表示包含这个属性的数据值，默认为undefined。<br>以上的属性，可以通过` Object.defineProperty()方法进行修改。但是一旦属性定义为不可配置，再调用该方法修改除writable以外的属性，都会导致错误。定义多个属性，可用Object.defineProperties()。<br>Object.getOwnPropertyDescriptor()方法，可取得给定属性的描述符。</p>
-<h3 id="访问器属性"><a href="#访问器属性" class="headerlink" title="访问器属性"></a>访问器属性</h3><p>访问器属性不包含属性值，但包含一对getter和setter函数，读取时调用getter，写入时调用setter。<br>注：在某参数前加“_”表示该参数只能通过对象方法访问。</p>
-<h2 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h2><p>抽象了创建具体对象的过程，用函数来封装以特定接口创建对象的细节。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function createPerson(name,age,job)&#123;</div><div class="line">	var o = new Object();</div><div class="line">	o.name = name;</div><div class="line">	o.age  = age;</div><div class="line">	o.job  = job;</div><div class="line">	o.sayName = function()&#123;</div><div class="line">		alert(this.name);</div><div class="line">	&#125;</div><div class="line">	return o;</div><div class="line">&#125;</div><div class="line">var person1 = createPerson(&quot;changer&quot;,18,&quot;Engineer&quot;);</div></pre></td></tr></table></figure></p>
-<p>函数createPerson()能够根据接受的参数来构建一个包含所有必要信息的person对象，可无数次调用，工厂模式虽然解决了多个相似对象的问题，却没有解决对象识别的问题。</p>
-<h2 id="构造函数模式"><a href="#构造函数模式" class="headerlink" title="构造函数模式"></a>构造函数模式</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function Person(name,age,job)&#123;</div><div class="line">	this.name = name;</div><div class="line">	this.age = age;</div><div class="line">	this.job = job;</div><div class="line">	this.sayName = function()&#123;</div><div class="line">		alert(this.name);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">var person1 = Person(&quot;changer&quot;,&quot;18,&quot;Engineer&quot;);</div></pre></td></tr></table></figure>
-<p>构造函数始终都应以一个大写字母开头，非构造函数应以小写字母开头。构造函数的实例都有constructor()属性，该属性指向Person。<br>构造函数的缺点：每个方法都要在每个实例上重新创建一遍，因此可将函数定义转移到函数外面以解决问题：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function Person(name,age,job)&#123;</div><div class="line">	this.name = name;</div><div class="line">	this.age = age;</div><div class="line">	this.job = job;</div><div class="line">&#125;</div><div class="line">function sayName()&#123;</div><div class="line">		alert(this.name);</div><div class="line">&#125;</div><div class="line">var person1 = Person(&quot;changer&quot;,&quot;18,&quot;Engineer&quot;);</div></pre></td></tr></table></figure></p>
-<p>以上做法解决了两个函数做同一件事的问题，但是在全局作用域中定义的函数实际上只能被某个对象调用，这让全局作用域名不副实，如果要定义多个方法，全部作为全局变量就毫无封装性可言了。</p>
-<h2 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a>原型模式</h2><p>注：当原型中有某属性而且实例中也有该属性时，原型中的该属性值就用不到了，也无法被检测出来。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function Person()&#123;&#125;</div><div class="line">Person.prototype = &#123;</div><div class="line">	name : &quot;Nicholas&quot;,</div><div class="line">	age : 29,</div><div class="line">	job : &quot;Software Engineer&quot;,</div><div class="line">	sayName : function()&#123;</div><div class="line">		alert(this.name);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">var friend = new Person();</div><div class="line">alert(friend instanceof Person);  //true</div><div class="line">alert(friend.constructor == Person);  //false</div></pre></td></tr></table></figure></p>
-<p>以上写法完全重写了默认的prototype对象，因此constructor属性也就变成了新对象的constructor属性，指向Object构造函数。<br>在浏览器内核兼容ES5的情况下，可在下面增加：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Object.defineProperty(Person.prototype,&quot;constructor&quot;,&#123;</div><div class="line">	enumerable : false,</div><div class="line">	value : Person</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
-<p>该写法改进了在Person.prototype中设置导致enumerable属性被设置为true的问题。<br>但是原型对象还存在问题：省略了构造函数传递初始化参数这一操作，会使所有实例在默认情况下取得相同值。</p>
-<h2 id="混成模式"><a href="#混成模式" class="headerlink" title="混成模式"></a>混成模式</h2><p>组合使用了构造函数模式和原型模式，构造函数模式用于定义实例属性，原型模式用于定义方法和共享的属性。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function Person(name,age,job)&#123;</div><div class="line">	this.name = name;</div><div class="line">	this.age = age;</div><div class="line">	this.job = job;</div><div class="line">	this.friends = [&quot;aa&quot;,&quot;bb&quot;];</div><div class="line">&#125;</div><div class="line">Person.prototype = &#123;</div><div class="line">	constructor : Person;</div><div class="line">	sayName : function()&#123;</div><div class="line">		alert(this.name);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">var person1 = new Person(&quot;changer&quot;,18,&quot;worker&quot;);</div></pre></td></tr></table></figure></p>
-<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><p>通过原型链实现继承时，不能使用对象字面量创建原型方法，这样做会重写原型链。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">function SuperType()&#123;</div><div class="line">	this.property = true;</div><div class="line">&#125;</div><div class="line">SuperType.prototype.getSuperValue = function()&#123;</div><div class="line">	return this.property;</div><div class="line">&#125;</div><div class="line">function SubType()&#123;</div><div class="line">	this.property = false;</div><div class="line">&#125;</div><div class="line">SubType.prototype = new SuperType;</div><div class="line">//为原型使用字面量添加新方法，会使之前的方法无效</div><div class="line">SubType.prototype = &#123;</div><div class="line">	getSubValue : function()&#123;</div><div class="line">		return this.subproperty;</div><div class="line">	&#125;</div><div class="line">	SomeOtherMeshod :funcion()&#123;</div><div class="line">		return false;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">var instance = new SubType();</div><div class="line">alert(instance.gerSuperValue());  //错误，找不到该方法</div></pre></td></tr></table></figure></p>
-<p>原型链的问题：原型链上所有属性都被共享，原型链上的数据可由原型push进行增加。创建子类型的实例时，无法向超类型的构造函数中传递参数。</p>
-<h2 id="借用构造函数"><a href="#借用构造函数" class="headerlink" title="借用构造函数"></a>借用构造函数</h2><p>在子类型构造函数的内部调用超类型构造函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function SuperType()&#123;</div><div class="line">	this.colors = [&quot;red&quot;,&quot;blue&quot;,&quot;green&quot;];</div><div class="line">&#125;</div><div class="line">function SubType()&#123;</div><div class="line">	SuperType.call(this);</div><div class="line">&#125;</div><div class="line">var instance1 = new SubType();</div><div class="line">instance1.colors.push(&quot;black&quot;);</div><div class="line">console.log(instance1,colors);  //red,blue,green,black</div><div class="line">var instance2 = new SubType();</div><div class="line">console.log(instance2.colors);  //red,blue,green</div></pre></td></tr></table></figure></p>
-<p>由此可见，因为call()方法创造了一个新的SuperType的作用域，使得两个实例在不同的作用域中进行，从而产生了不同的colors结果。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;Array类型的数组数量问题&quot;&gt;&lt;a href=&quot;#Array类型的数组数量问题&quot; class=&quot;headerlink&quot; title=&quot;Array类型的数组数量问题&quot;&gt;&lt;/a&gt;Array类型的数组数量问题&lt;/h3&gt;&lt;figure class=&quot;highlight 
     
     </summary>
     

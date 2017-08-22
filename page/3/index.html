@@ -283,6 +283,254 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://github.com/ChangerHe/2017/07/07/JavaScript高级程序设计复习笔记（二）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Changer He">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Changer He's Home Page">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/07/07/JavaScript高级程序设计复习笔记（二）/" itemprop="url">
+                  JavaScript高级程序设计复习笔记（二）
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-07T20:53:14+08:00">
+                2017-07-07
+              </time>
+            
+
+            
+
+  <span class="post-letters-count">
+    &nbsp; | &nbsp;
+    <span>2,434 字</span>
+    &nbsp; | &nbsp;
+    <span>10 min</span>
+  </span>
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript-学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript 学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  2,434字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  10分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="Array类型的数组数量问题"><a href="#Array类型的数组数量问题" class="headerlink" title="Array类型的数组数量问题"></a>Array类型的数组数量问题</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var ar = [,,,];</div><div class="line">console.log(arr.length);   //3（最后一个逗号后面不计数）</div></pre></td></tr></table></figure>
+<p>小技巧，利用length在数组的末尾添加新项<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var colors = [&quot;red&quot;,&quot;blue&quot;];</div><div class="line">colors[color.length] = &quot;black&quot;;</div></pre></td></tr></table></figure></p>
+<h3 id="join-方法用于给数组提供分隔符以构建字符串"><a href="#join-方法用于给数组提供分隔符以构建字符串" class="headerlink" title="join()方法用于给数组提供分隔符以构建字符串"></a>join()方法用于给数组提供分隔符以构建字符串</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var colors = [&quot;red&quot;,&quot;green&quot;];</div><div class="line">console.log(colors.join(&quot;||&quot;));</div><div class="line">//输出 red||green，当直接调用join()时，使用默认的“，”分隔。</div></pre></td></tr></table></figure>
+<h3 id="栈方法（LIFO-后进先出；队列方法-FIFO-先进先出"><a href="#栈方法（LIFO-后进先出；队列方法-FIFO-先进先出" class="headerlink" title="栈方法（LIFO):后进先出；队列方法(FIFO):先进先出"></a>栈方法（LIFO):后进先出；队列方法(FIFO):先进先出</h3><p>方法类比：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">方法名称</th>
+<th style="text-align:center">方法作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">push()</td>
+<td style="text-align:center">从数组后方依次添加</td>
+</tr>
+<tr>
+<td style="text-align:center">unshift()</td>
+<td style="text-align:center">从数组前方依次添加</td>
+</tr>
+<tr>
+<td style="text-align:center">pop()</td>
+<td style="text-align:center">从数组后方删除最后一个，并返回被删除值</td>
+</tr>
+<tr>
+<td style="text-align:center">shift()</td>
+<td style="text-align:center">从数组前删除第一个，并返回第一个被删除的值</td>
+</tr>
+</tbody>
+</table>
+<h3 id="重排序方法"><a href="#重排序方法" class="headerlink" title="重排序方法"></a>重排序方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var values = [0,1,2,10,15];</div><div class="line">values.sort();</div><div class="line">console.log(values); //0,1,10,15,2</div></pre></td></tr></table></figure>
+<p>原因：排序时sort将所有数组值均转化为字符串值再拍讯。<br>解决方法：新建一个compare()方法进行比较<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function compare(value1,value2)&#123;</div><div class="line">	if(value1 &lt; value2)&#123;</div><div class="line">		return -1;</div><div class="line">	&#125; else if (value1 &gt; value2)&#123;</div><div class="line">		return 1;</div><div class="line">	&#125; else &#123;</div><div class="line">		return 0;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">&#125;</div><div class="line">var values = [0,1,5,10,15];</div><div class="line">values.sort(compare);</div><div class="line">console.log(values);   //0,1,5,10,15</div></pre></td></tr></table></figure></p>
+<h3 id="操作方法"><a href="#操作方法" class="headerlink" title="操作方法"></a>操作方法</h3><p>concat():链接两数组，若不传递参数，则只复制一份，不会额外向原数组增加内容。<br>slice():复制当前数组，参数为开始和结束位置。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var arr = [1,2,3,4,5];</div><div class="line">var arr1 = arr.slice(1);</div><div class="line">console.log(arr1);  //2,3,4,5</div><div class="line">var arr2 = arr.slice(1,4);</div><div class="line">console.log(arr2);  //2,3,4</div></pre></td></tr></table></figure></p>
+<p>注：当slice传参为负时，则要加上数组长度，以得到正确结果。<br>splice()：有删除，插入，替换三个作用<br>    删除：splice（要删除的第一项，删除的项数）；<br>    插入：splice（起始位置，0，要插入的项）；<br>    替换：splice（起始位置，要删除的项，要替换的项）；</p>
+<h3 id="迭代方法"><a href="#迭代方法" class="headerlink" title="迭代方法"></a>迭代方法</h3><pre><code>every():为数组每一次运行给定函数，每一项为true，则返回true。
+fliter():为数组的每一项执行给定函数，返回true项组成的数组。
+forEach():每一项执行函数，无返回值。
+map():为每一项执行函数，返回每次调用结果组成的数组。
+some():为每一项执行函数，任意项返回true，则返回true。
+</code></pre><h3 id="归并方法"><a href="#归并方法" class="headerlink" title="归并方法"></a>归并方法</h3><pre><code>reduce():迭代数组所有项，构建一个最终返回值。
+reduceRight():迭代数组所有项，从最后一个数开始。
+</code></pre><h3 id="函数声明提升"><a href="#函数声明提升" class="headerlink" title="函数声明提升"></a>函数声明提升</h3><p>解析器会在代码执行前进行一个函数声明提升的过程，读取并将函数声明添加到执行环境中。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">console.log(num1(1,2));   //3</div><div class="line">console.log(num2(1,2));   //报错</div><div class="line">function num1(m , n)&#123;</div><div class="line">	return m + n;</div><div class="line">&#125;</div><div class="line">num2 = function(m , n)&#123;</div><div class="line">	return m + n;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>注：要访问函数的指针而不执行函数，则需要在调用时去掉函数的圆括号进行调用。</p>
+<h3 id="使用arguments-callee-消除紧密耦合"><a href="#使用arguments-callee-消除紧密耦合" class="headerlink" title="使用arguments.callee()消除紧密耦合"></a>使用arguments.callee()消除紧密耦合</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">//这是一个普通的递归函数</div><div class="line">function factioral(num)&#123;</div><div class="line">	if(num &lt;= 1)&#123;</div><div class="line">		return 1;</div><div class="line">	&#125; else &#123;</div><div class="line">		return num*arguments.callee(num - 1);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="函数的prototype属性"><a href="#函数的prototype属性" class="headerlink" title="函数的prototype属性"></a>函数的prototype属性</h3><p>对于所有属性，prototype属性时保存他们的所有实例方法的真正所在，prototype属性包含两个非继承来的方法：apply()和call()。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">function sum(num1,num2)&#123;</div><div class="line">	return num1 + num2;</div><div class="line">&#125;</div><div class="line">function callSum1(num1,num2)&#123;</div><div class="line">	return sum.apply(this.arguments);  //传入arguments对象</div><div class="line">&#125;</div><div class="line">function callSum2(num1,num2)&#123;</div><div class="line">	return sum.apply(this,[num1,num2]); //传入数组</div><div class="line">&#125;</div><div class="line">function callSum3(num1,num2)&#123;</div><div class="line">	return sum.call(this,num1,num2);</div><div class="line">&#125;</div><div class="line">console.log(callSum1(10,10));  //20</div><div class="line">console.log(callSum2(10,10));  //20</div><div class="line">console.log(callSum3(10,10));  //20</div></pre></td></tr></table></figure></p>
+<p>call和apply的作用相同，当包含函数中接受数组时，apply更加合适。<br>apply和call的最大用处，是可扩充函数赖以执行的作用域7.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">window.color = &quot;red&quot;;</div><div class="line">var o = &#123;color : &quot;blue&quot;&#125;;</div><div class="line">function sayColor()&#123;</div><div class="line">	alert(this.color);</div><div class="line">&#125;</div><div class="line">sayColor();   //red</div><div class="line">sayColor(o);  //blue</div><div class="line">sayColor(window); //red</div></pre></td></tr></table></figure></p>
+<h3 id="基本包装类"><a href="#基本包装类" class="headerlink" title="基本包装类"></a>基本包装类</h3><p>基本包装类的自用创建的引用类型实例，会在代码执行后立即销毁。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var s1 = &quot;some test&quot;;</div><div class="line">s1.color = &quot;red&quot;;</div><div class="line">colsole.log(s1.color);   //undefined</div></pre></td></tr></table></figure></p>
+<p>注：直接使用转型函数，则返回相应结果。使用构造函数，则返回相应函数的实例。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var value = &quot;25&quot;;</div><div class="line">var number = Number(value);   //使用转型函数</div><div class="line">console.log(typeof number);  //number</div><div class="line">var obj = new Number(value);   //使用构造函数</div><div class="line">console.log(typeof obj);   //Object</div></pre></td></tr></table></figure></p>
+<p>注：new会创造一个object对象，new Boolean(false)可判定为true。</p>
+<h3 id="数值类型的转换"><a href="#数值类型的转换" class="headerlink" title="数值类型的转换"></a>数值类型的转换</h3><p>.toFixed(n):表示转换为几位小数的值。<br>.toExponential(n):表示转换为几位指数值<br>.toPreoision(n):表示转换为n位最合适的数<br>.charAt():输出当前字符串的第n位字符（从0开始）<br>.charCodeAt():输出当前字符串的第n位字符的ASCII码<br>.trim():删除前缀和后缀的空格，并返回结果<br>.toLowerCase():转换为小写<br>.toUpperCase():转换为大写<br>.match():查找字符串相匹配的位置（search()）的作用相同<br>.replace():传递两个参数，用后面的参数替换前面的参数<br>.localeCompare():比较，返回-1,0,1的其中一种<br>.fromCharCode():接收字符编码，转换为字符串<br>.eval():相当于一个独立解析器，在其中创建任何变量或函数都不会被提升</p>
+<h3 id="typrof-和instanceof-得到的结果不同-如下："><a href="#typrof-和instanceof-得到的结果不同-如下：" class="headerlink" title="typrof()和instanceof()得到的结果不同,如下："></a>typrof()和instanceof()得到的结果不同,如下：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var numberObject = new Number(10);</div><div class="line">var numberValue = 10;</div><div class="line">console.log(typeof numberObject);  //Object</div><div class="line">console.log(typeof numberValue);   //number</div><div class="line">console.log(numberObject instanceof Number);  //true</div><div class="line">console.log(numberValue instanceof Number); //false</div></pre></td></tr></table></figure>
+<h1 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h1><h3 id="数据属性"><a href="#数据属性" class="headerlink" title="数据属性"></a>数据属性</h3><p>configurable:表示能否通过delete删除属性从而重新定义属性，默认为true。<br>enumerable:表示能否通过for-in循环返回属性，默认为true。<br>writable：表示能否修改属性值，默认为true。<br>value：表示包含这个属性的数据值，默认为undefined。<br>以上的属性，可以通过` Object.defineProperty()方法进行修改。但是一旦属性定义为不可配置，再调用该方法修改除writable以外的属性，都会导致错误。定义多个属性，可用Object.defineProperties()。<br>Object.getOwnPropertyDescriptor()方法，可取得给定属性的描述符。</p>
+<h3 id="访问器属性"><a href="#访问器属性" class="headerlink" title="访问器属性"></a>访问器属性</h3><p>访问器属性不包含属性值，但包含一对getter和setter函数，读取时调用getter，写入时调用setter。<br>注：在某参数前加“_”表示该参数只能通过对象方法访问。</p>
+<h2 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h2><p>抽象了创建具体对象的过程，用函数来封装以特定接口创建对象的细节。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function createPerson(name,age,job)&#123;</div><div class="line">	var o = new Object();</div><div class="line">	o.name = name;</div><div class="line">	o.age  = age;</div><div class="line">	o.job  = job;</div><div class="line">	o.sayName = function()&#123;</div><div class="line">		alert(this.name);</div><div class="line">	&#125;</div><div class="line">	return o;</div><div class="line">&#125;</div><div class="line">var person1 = createPerson(&quot;changer&quot;,18,&quot;Engineer&quot;);</div></pre></td></tr></table></figure></p>
+<p>函数createPerson()能够根据接受的参数来构建一个包含所有必要信息的person对象，可无数次调用，工厂模式虽然解决了多个相似对象的问题，却没有解决对象识别的问题。</p>
+<h2 id="构造函数模式"><a href="#构造函数模式" class="headerlink" title="构造函数模式"></a>构造函数模式</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function Person(name,age,job)&#123;</div><div class="line">	this.name = name;</div><div class="line">	this.age = age;</div><div class="line">	this.job = job;</div><div class="line">	this.sayName = function()&#123;</div><div class="line">		alert(this.name);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">var person1 = Person(&quot;changer&quot;,&quot;18,&quot;Engineer&quot;);</div></pre></td></tr></table></figure>
+<p>构造函数始终都应以一个大写字母开头，非构造函数应以小写字母开头。构造函数的实例都有constructor()属性，该属性指向Person。<br>构造函数的缺点：每个方法都要在每个实例上重新创建一遍，因此可将函数定义转移到函数外面以解决问题：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function Person(name,age,job)&#123;</div><div class="line">	this.name = name;</div><div class="line">	this.age = age;</div><div class="line">	this.job = job;</div><div class="line">&#125;</div><div class="line">function sayName()&#123;</div><div class="line">		alert(this.name);</div><div class="line">&#125;</div><div class="line">var person1 = Person(&quot;changer&quot;,&quot;18,&quot;Engineer&quot;);</div></pre></td></tr></table></figure></p>
+<p>以上做法解决了两个函数做同一件事的问题，但是在全局作用域中定义的函数实际上只能被某个对象调用，这让全局作用域名不副实，如果要定义多个方法，全部作为全局变量就毫无封装性可言了。</p>
+<h2 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a>原型模式</h2><p>注：当原型中有某属性而且实例中也有该属性时，原型中的该属性值就用不到了，也无法被检测出来。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function Person()&#123;&#125;</div><div class="line">Person.prototype = &#123;</div><div class="line">	name : &quot;Nicholas&quot;,</div><div class="line">	age : 29,</div><div class="line">	job : &quot;Software Engineer&quot;,</div><div class="line">	sayName : function()&#123;</div><div class="line">		alert(this.name);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">var friend = new Person();</div><div class="line">alert(friend instanceof Person);  //true</div><div class="line">alert(friend.constructor == Person);  //false</div></pre></td></tr></table></figure></p>
+<p>以上写法完全重写了默认的prototype对象，因此constructor属性也就变成了新对象的constructor属性，指向Object构造函数。<br>在浏览器内核兼容ES5的情况下，可在下面增加：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Object.defineProperty(Person.prototype,&quot;constructor&quot;,&#123;</div><div class="line">	enumerable : false,</div><div class="line">	value : Person</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>该写法改进了在Person.prototype中设置导致enumerable属性被设置为true的问题。<br>但是原型对象还存在问题：省略了构造函数传递初始化参数这一操作，会使所有实例在默认情况下取得相同值。</p>
+<h2 id="混成模式"><a href="#混成模式" class="headerlink" title="混成模式"></a>混成模式</h2><p>组合使用了构造函数模式和原型模式，构造函数模式用于定义实例属性，原型模式用于定义方法和共享的属性。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function Person(name,age,job)&#123;</div><div class="line">	this.name = name;</div><div class="line">	this.age = age;</div><div class="line">	this.job = job;</div><div class="line">	this.friends = [&quot;aa&quot;,&quot;bb&quot;];</div><div class="line">&#125;</div><div class="line">Person.prototype = &#123;</div><div class="line">	constructor : Person;</div><div class="line">	sayName : function()&#123;</div><div class="line">		alert(this.name);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">var person1 = new Person(&quot;changer&quot;,18,&quot;worker&quot;);</div></pre></td></tr></table></figure></p>
+<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><p>通过原型链实现继承时，不能使用对象字面量创建原型方法，这样做会重写原型链。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">function SuperType()&#123;</div><div class="line">	this.property = true;</div><div class="line">&#125;</div><div class="line">SuperType.prototype.getSuperValue = function()&#123;</div><div class="line">	return this.property;</div><div class="line">&#125;</div><div class="line">function SubType()&#123;</div><div class="line">	this.property = false;</div><div class="line">&#125;</div><div class="line">SubType.prototype = new SuperType;</div><div class="line">//为原型使用字面量添加新方法，会使之前的方法无效</div><div class="line">SubType.prototype = &#123;</div><div class="line">	getSubValue : function()&#123;</div><div class="line">		return this.subproperty;</div><div class="line">	&#125;</div><div class="line">	SomeOtherMeshod :funcion()&#123;</div><div class="line">		return false;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">var instance = new SubType();</div><div class="line">alert(instance.gerSuperValue());  //错误，找不到该方法</div></pre></td></tr></table></figure></p>
+<p>原型链的问题：原型链上所有属性都被共享，原型链上的数据可由原型push进行增加。创建子类型的实例时，无法向超类型的构造函数中传递参数。</p>
+<h2 id="借用构造函数"><a href="#借用构造函数" class="headerlink" title="借用构造函数"></a>借用构造函数</h2><p>在子类型构造函数的内部调用超类型构造函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function SuperType()&#123;</div><div class="line">	this.colors = [&quot;red&quot;,&quot;blue&quot;,&quot;green&quot;];</div><div class="line">&#125;</div><div class="line">function SubType()&#123;</div><div class="line">	SuperType.call(this);</div><div class="line">&#125;</div><div class="line">var instance1 = new SubType();</div><div class="line">instance1.colors.push(&quot;black&quot;);</div><div class="line">console.log(instance1,colors);  //red,blue,green,black</div><div class="line">var instance2 = new SubType();</div><div class="line">console.log(instance2.colors);  //red,blue,green</div></pre></td></tr></table></figure></p>
+<p>由此可见，因为call()方法创造了一个新的SuperType的作用域，使得两个实例在不同的作用域中进行，从而产生了不同的colors结果。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">共42.6k字</span>
+</div>
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="https://github.com/ChangerHe/2017/07/06/JavaScript高级程序设计复习笔记（一）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -473,7 +721,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共41.7k字</span>
+  <span class="post-count">共42.6k字</span>
 </div>
 
     
@@ -669,7 +917,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共41.7k字</span>
+  <span class="post-count">共42.6k字</span>
 </div>
 
     
@@ -862,7 +1110,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共41.7k字</span>
+  <span class="post-count">共42.6k字</span>
 </div>
 
     
@@ -1062,7 +1310,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共41.7k字</span>
+  <span class="post-count">共42.6k字</span>
 </div>
 
     
@@ -1254,7 +1502,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共41.7k字</span>
+  <span class="post-count">共42.6k字</span>
 </div>
 
     
@@ -1498,7 +1746,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共41.7k字</span>
+  <span class="post-count">共42.6k字</span>
 </div>
 
     
@@ -1689,7 +1937,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共41.7k字</span>
+  <span class="post-count">共42.6k字</span>
 </div>
 
     
@@ -1880,7 +2128,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共41.7k字</span>
+  <span class="post-count">共42.6k字</span>
 </div>
 
     
@@ -2086,222 +2334,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共41.7k字</span>
-</div>
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://github.com/ChangerHe/2017/06/27/SASS学习笔记/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Changer He">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Changer He's Home Page">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/06/27/SASS学习笔记/" itemprop="url">
-                  SASS学习笔记
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-27T15:37:18+08:00">
-                2017-06-27
-              </time>
-            
-
-            
-
-  <span class="post-letters-count">
-    &nbsp; | &nbsp;
-    <span>1,593 字</span>
-    &nbsp; | &nbsp;
-    <span>7 min</span>
-  </span>
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/SASS-学习笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">SASS 学习笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计</span>
-                
-                <span title="字数统计">
-                  1,593字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长</span>
-                
-                <span title="阅读时长">
-                  7分钟
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Sass语法"><a href="#Sass语法" class="headerlink" title="Sass语法"></a>Sass语法</h1><p>Sass 有两种语法。 第一种被称为 SCSS (Sassy CSS)，是一个 CSS3 语法的扩充版本。也就是说，所有符合CSS3语法的样式表也都是具有相同语法意义的SCSS文件。另外，SCSS理解大多数CSShacks以及浏览器专属语法，例如IE古老的filter 语法。这种语种语法的样式表文件需要以.scss扩展名。<br>第二种比较老的语法成为缩排语法（或者就称为 “Sass”），提供了一种更简洁的CSS书写方式。它不使用花括号，而是通过缩排的方式来表达选择符的嵌套层级，而且也不使用分号，而是用换行符来分隔属性。很多人认为这种格式比SCSS更容易阅读，书写也更快速。缩排语法具有Sass的所有特色功能,虽然有些语法上稍有差异；这些差异在{file:INDENTED_SYNTAX.md所排语法参考手册}中都有描述。使用此种语法的样式表文件需要以.sass作为扩展名。</p>
-<h2 id="sass的转换"><a href="#sass的转换" class="headerlink" title="sass的转换"></a>sass的转换</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># 将 Sass 转换为 SCSS</div><div class="line">$ sass-convert style.sass style.scss</div><div class="line"></div><div class="line"># 将 SCSS 转换为 Sass</div><div class="line">$ sass-convert style.scss style.sass</div></pre></td></tr></table></figure>
-<p>Sass 有三种使用方式： 命令行工具、独立的 Ruby 模块，以及包含 Ruby on Rails 和 Merb 作为支持 Rack 的框架的插件。 所有这些方式的第一步都是安装 Sass gem：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gem install sass</div></pre></td></tr></table></figure></p>
-<p>如果你使用的是 Windows， 就需要先安装 Ruby。</p>
-<p>如果要在命令行中运行 Sass ,只要输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sass input.scss output.css</div></pre></td></tr></table></figure></p>
-<p>你还可以命令 Sass 监视文件的改动并更新 CSS ：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sass --watch input.scss:output.css</div></pre></td></tr></table></figure></p>
-<p>如果你的目录里有很多 Sass 文件，你还可以命令 Sass 监视整个目录：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sass --watch app/sass:public/stylesheets</div></pre></td></tr></table></figure></p>
-<h1 id="sass编译"><a href="#sass编译" class="headerlink" title="sass编译"></a>sass编译</h1><h2 id="命令行编译"><a href="#命令行编译" class="headerlink" title="命令行编译"></a>命令行编译</h2><p>单文件转换命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sass style.scss style.css</div></pre></td></tr></table></figure></p>
-<p>单文件监听命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sass --watch style.scss:style.css</div></pre></td></tr></table></figure></p>
-<p>文件夹监听命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sass --watch sassFileDirectory:cssFileDirectory</div></pre></td></tr></table></figure></p>
-<p>css文件转成sass/scss文件（在线转换工具css2sass）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sass-convert style.css style.sass   </div><div class="line">sass-convert style.css style.scss</div></pre></td></tr></table></figure></p>
-<h2 id="编译格式"><a href="#编译格式" class="headerlink" title="编译格式"></a>编译格式</h2><p>我们一般常用的有–style，–sourcemap，–debug-info等。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sass --watch style.scss:style.css --style compact</div><div class="line">sass --watch style.scss:style.css --sourcemap</div><div class="line">sass --watch style.scss:style.css --style expanded --sourcemap</div><div class="line">sass --watch style.scss:style.css --debug-info</div></pre></td></tr></table></figure></p>
-<p>–style表示解析后的css是什么格式，有四种取值分别为：nested，expanded，compact，compressed。<br>–sourcemap表示开启sourcemap调试。开启sourcemap调试后，会生成一个后缀名为.css.map文件。<br>–debug-info表示开启debug信息，升级到3.3.0之后因为sourcemap更高级，这个debug-info就不太用了。</p>
-<h1 id="sass混合宏"><a href="#sass混合宏" class="headerlink" title="sass混合宏"></a>sass混合宏</h1><h2 id="混合宏的关键词"><a href="#混合宏的关键词" class="headerlink" title="混合宏的关键词"></a>混合宏的关键词</h2><p>在sass中通过@mixin关键词声明一个混合宏，那么在实际调用中，其匹配了一个关键词@include来调用声明好的混合宏。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">@mixin border-radius&#123;   //对混合宏进行声明</div><div class="line">	-webkit-border-radius: 3px;</div><div class="line">	border-radius: 3px;</div><div class="line">&#125;</div><div class="line">button&#123;</div><div class="line">	@include border-radius: 3px;  //对声明出的混合宏进行使用关键字@include调用</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>此时编译出的css为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">button&#123;</div><div class="line">	-webkit-border-radius: 3px;</div><div class="line">	border: 3px;</div><div class="line">&#125;</div><div class="line"></div><div class="line">## 混合宏的传参</div><div class="line">sass有一个强大的混合宏功能：传参。混合宏传参有以下几种情形：</div><div class="line">### 1.传一个不带值的参数</div></pre></td></tr></table></figure></p>
-<p>@mixin border-radius($radius){<br>    -webkit-border-radius: $radius;<br>    border-radius: $radius;<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">在调用是，给这个混合宏进行参数传递，即可。如，当我想传递给radius传参3px时。代码如下：</div></pre></td></tr></table></figure></p>
-<p>.box{<br>    @include border-radius(3px);<br>}<br>此时编译出的结果为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.box&#123;</div><div class="line">	-webkit-border-radius: 3px;</div><div class="line">	border-radius: 3px;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="2-传一个带值的参数"><a href="#2-传一个带值的参数" class="headerlink" title="2.传一个带值的参数"></a>2.传一个带值的参数</h3><p>在sass中可以给参数带一个默认的值，在调用时，就可以直接使用此默认值进行编译，这种情况适用于比较多地方使用默认值的时候，此时可设置一个默认值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">@mixin border-radius($radius: 3px)&#123;</div><div class="line">	-webkit-border-radius: $radius;</div><div class="line">	border-radius: $radius;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="3-传递多个参数"><a href="#3-传递多个参数" class="headerlink" title="3.传递多个参数"></a>3.传递多个参数</h3><p>sass中不仅可以传递一个参数，还可传递多个参数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">@mixin size($width,$height)&#123;</div><div class="line">	width: $width;</div><div class="line">	height: $height;</div><div class="line">&#125;</div><div class="line">.box-center&#123;</div><div class="line">	@include size(500px,300px);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h1 id="sass扩展"><a href="#sass扩展" class="headerlink" title="sass扩展"></a>sass扩展</h1><h3 id="sass继承"><a href="#sass继承" class="headerlink" title="sass继承"></a>sass继承</h3><p>sass可以继承类中的样式代码块，在sass中是通过关键字@extend来继承已经存在的类样式块的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">.btn&#123;</div><div class="line">	border: 1px solid #ccc;</div><div class="line">	padding: 6px 10px;</div><div class="line">	font-size: 14px;</div><div class="line">&#125;</div><div class="line">.btn-primary&#123;</div><div class="line">	background: #f36;</div><div class="line">	color: #fff;</div><div class="line">	@extend: .btn;</div><div class="line">&#125;</div><div class="line">.btn-second&#123;</div><div class="line">	background: orange;</div><div class="line">	color: #fff;</div><div class="line">	@extend .btn;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>编译出的结果是精简的写法，不想之前通过@include进行编译的一样，通过@include编译出来的是没有简化写法的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">.btn,.btn-primary,.btn-second&#123;</div><div class="line">	border: 1px solid #ccc;</div><div class="line">	padding: 6px 10px;</div><div class="line">	font-size: 14px;</div><div class="line">&#125;</div><div class="line">.btn-primary&#123;</div><div class="line">	background: #f36;</div><div class="line">	color: #fff;</div><div class="line">&#125;</div><div class="line">.btn-second&#123;</div><div class="line">	background: orange;</div><div class="line">	color: #fff;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="sass占位符（-placeholder）"><a href="#sass占位符（-placeholder）" class="headerlink" title="sass占位符（%placeholder）"></a>sass占位符（%placeholder）</h3><p>占位符（%placeholder）声明的代码，如果不被@extend调用的话，不会产生任何代码。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">%mt5&#123;</div><div class="line">	margin-top: 5px;</div><div class="line">&#125;</div><div class="line">%pt5&#123;</div><div class="line">	padding-top: 5px;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>以上代码若不被@extend调用，则不会产生任何代码块，但是当调用的时候，该代码块才会生效。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.btn&#123;</div><div class="line">	@extend %mt5;</div><div class="line">	@extend %pt5;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>此时解析出的结果为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.btn&#123;</div><div class="line">	margin-top: 5px;</div><div class="line">	padding-top: 5px;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="使用混合宏，继承，占位符的方式和使用对象比较"><a href="#使用混合宏，继承，占位符的方式和使用对象比较" class="headerlink" title="使用混合宏，继承，占位符的方式和使用对象比较"></a>使用混合宏，继承，占位符的方式和使用对象比较</h2><p>!(PIC)[<a href="http://img.mukewang.com/55263aa30001913307940364.jpg" target="_blank" rel="external">http://img.mukewang.com/55263aa30001913307940364.jpg</a>]</p>
-<h3 id="sass插值"><a href="#sass插值" class="headerlink" title="sass插值#{}"></a>sass插值#{}</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">@mixin firefox-message($selector)&#123;</div><div class="line">	body.firefox #&#123;$selector&#125;:before&#123;</div><div class="line">		content : &quot;Hi, firefox users!&quot;;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">@include firefox-message(&quot;.header&quot;);</div><div class="line">//编译结果为</div><div class="line">body.forefox .header:before&#123;</div><div class="line">	content: &quot;Hi,firefox users!&quot;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h1 id="sass运算"><a href="#sass运算" class="headerlink" title="sass运算"></a>sass运算</h1><h2 id="加法"><a href="#加法" class="headerlink" title="加法"></a>加法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.box&#123;</div><div class="line">	width: 20px + 8in;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="减法"><a href="#减法" class="headerlink" title="减法"></a>减法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$full-width: 960px;</div><div class="line">$sidebar-width: 200px;</div><div class="line">.content&#123;</div><div class="line">	width: $full-width - $sidebar-width;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="乘法"><a href="#乘法" class="headerlink" title="乘法"></a>乘法</h2><p>乘法只能乘以一个数字，不能乘以一个数字加上单位，否则会报错<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.box&#123;</div><div class="line">	width: 10px *2px;  //报错“20px*px isn&apos;t a valid CSS value.”</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="除法"><a href="#除法" class="headerlink" title="除法"></a>除法</h2><p>除法在应用时，需要加上括号<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">.box&#123;</div><div class="line">	width: (100px / 2);</div><div class="line">&#125;</div><div class="line">//编译后等价于</div><div class="line">.box&#123;</div><div class="line">	width: 50px;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>当使用变量或者其他运算常亮进行计算时，可以不加括号。</p>
-<h2 id="字符运算"><a href="#字符运算" class="headerlink" title="字符运算"></a>字符运算</h2><p>在sass中可以使用符号+来实现字符串的链接。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$content: &quot;hello&quot; + &quot; &quot; + &quot;sass!&quot;;</div><div class="line">.box: before&#123;</div><div class="line">	ontent: &quot;#&#123;$content&#125;&quot;;</div><div class="line">&#125;</div><div class="line">//编译后等价于</div><div class="line">.box: before&#123;</div><div class="line">	content: &quot;hello sass!&quot;;</div><div class="line">&#125;</div><div class="line">除了在变量中做字符连接运算以外，还可以直接通过加号把字符连在一起</div></pre></td></tr></table></figure></p>
-<p>div{<br>    cursor: e + -resize;<br>}<br>//编译后等价于<br>div{<br>    cursor: e-resize;<br>}<br>```<br>注意，如果有引号的字符串被添加了一个没有引号的字符串，结果会是一个有引号的字符串。<br>同样的，如果一个没有引号的字符串被添加了一个有引号的字符串，结果将是一个没有引号的字符串。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-<div class="theme-info">
-  <div class="powered-by"></div>
-  <span class="post-count">共41.7k字</span>
+  <span class="post-count">共42.6k字</span>
 </div>
 
     
@@ -2354,7 +2387,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">42</span>
+                <span class="site-state-item-count">43</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

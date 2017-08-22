@@ -283,6 +283,216 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://github.com/ChangerHe/2017/08/22/JavaScript笔试面试题收集（四）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Changer He">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Changer He's Home Page">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/08/22/JavaScript笔试面试题收集（四）/" itemprop="url">
+                  JavaScript笔试面试题收集（四）
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-22T09:04:27+08:00">
+                2017-08-22
+              </time>
+            
+
+            
+
+  <span class="post-letters-count">
+    &nbsp; | &nbsp;
+    <span>951 字</span>
+    &nbsp; | &nbsp;
+    <span>4 min</span>
+  </span>
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript笔试面试题/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript笔试面试题</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  951字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  4分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="关于形参的传参问题"><a href="#关于形参的传参问题" class="headerlink" title="关于形参的传参问题"></a>关于形参的传参问题</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(function(foo)&#123;return typeof foo.foo.bar;&#125;)(&#123; foo:&#123; bar: 1 &#125; &#125;)</div></pre></td></tr></table></figure>
+<p>答案: number<br>解析: 其实这题考了我们闭包以及形参传参的问题,首先,我们将整体看成一个自执行函数,函数的变量是{ foo:{ bar: 1 } },那么我们可以把这一题简化一下:(当然,这个对象并不是存在于全局作用域的,我们只是把它拆开,做个比喻)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var baz = &#123; foo:&#123; bar: 1 &#125; &#125;</div><div class="line">(function(foo)&#123;</div><div class="line">	return typeof foo.foo.bar;&#125;</div><div class="line">&#125;)(baz)</div></pre></td></tr></table></figure>
+<p>那么现在就很明显了,其实就是把baz作为参数传递到这个自执行函数中,理解了这第一步,那么我们要先了解一下”左值”的概念,就是当我们遇到<code>foo.foo.bar</code>这一串的时候,可能很多同学很疑惑,怎么传了两次参数,其实两次参数的作用是不同的,执行这段代码,那么会先查找左边的值,并传入这个参数. </p>
+<p>那么我们再简化一下这一题</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var baz = &#123; foo:&#123; bar: 1 &#125; &#125;</div><div class="line">(function(baz)&#123;</div><div class="line">	return typeof baz.foo.bar;&#125;</div><div class="line">&#125;)(baz)</div></pre></td></tr></table></figure>
+<p>到这里,结果就很明显了,最后返回值就是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">typeof &#123; foo:&#123; bar: 1 &#125; &#125;.foo.bar</div></pre></td></tr></table></figure>
+<p>那么,自然结果就是number啦</p>
+<h1 id="关于作用域的问题"><a href="#关于作用域的问题" class="headerlink" title="关于作用域的问题"></a>关于作用域的问题</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var x = 1;</div><div class="line">if (function f()&#123;&#125;) &#123;</div><div class="line">x += typeof f;</div><div class="line">&#125;</div><div class="line">console.log(x)    // 1undefined</div></pre></td></tr></table></figure>
+<p>这一题比较简单,但是考的是细节,我们需要了解function f(){}这个函数,其实在括号中,它的作用域就仅仅是在括号中了,但是平常我们不能这样做,因为这是不符合ES语法规范的.</p>
+<h1 id="关于闭包的问题"><a href="#关于闭包的问题" class="headerlink" title="关于闭包的问题"></a>关于闭包的问题</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">;(function(x)&#123;</div><div class="line">	console.log(x)    // 1</div><div class="line">	console.log(delete x) // false</div><div class="line">	console.log(x)    // 1</div><div class="line">	return x</div><div class="line">	console.log(x)    // 1</div><div class="line">&#125;)(1)</div></pre></td></tr></table></figure>
+<p>这一题主要是考察我们对闭包中形参和实参的处理问题.</p>
+<p>这里给出一些个人理解,不一定正确:</p>
+<p>首先,我们要明白,其实形参在其函数内,也是有一个在局部作用域中的函数定义的操作的.也就是隐式地声明了这个形参,然后才把这个形参进行赋值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">;(function(x)&#123;</div><div class="line">	var x	 // 这里是打了个比方</div><div class="line">	x = 1    // 这里是打了个比方</div><div class="line">	console.log(delete x) ;</div><div class="line">	console.log(x)</div><div class="line">	return x</div><div class="line">	console.log(x)</div><div class="line">&#125;)(1)</div></pre></td></tr></table></figure>
+<p>对于delete操作符,我们知道,如果成功删除,则会返回true,不成功则返回false.</p>
+<p>同时,当我们使用var定义的变量,是无法使用delete操作符进行删除的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var a</div><div class="line">a = 1</div><div class="line">delete a   // false</div></pre></td></tr></table></figure>
+<h1 id="关于闭包的参数问题"><a href="#关于闭包的参数问题" class="headerlink" title="关于闭包的参数问题"></a>关于闭包的参数问题</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">;(function f(f)&#123;</div><div class="line">	return typeof f();    // number</div><div class="line">&#125;)(function()&#123; return 1; &#125;);</div></pre></td></tr></table></figure>
+<p>这一题还是关于自执行函数的传参,乍看可能有点懵逼,但是实际很简单,我们把这个自执行函数中打印出一个东西,你就明白了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">;(function f(f)&#123;</div><div class="line">	console.log(f)   // function()&#123; return 1; &#125;</div><div class="line">	return typeof f();    // number</div><div class="line">&#125;)(function()&#123; return 1; &#125;);</div></pre></td></tr></table></figure>
+<p>传进去的f就是一个函数,而在进行判断的时候是用的 <code>typeof f()</code> 我们会发现这个时候f已经被执行了,执行自然就会返回结果1,对1 进行类型判断,自然就是number了.</p>
+<h1 id="关于函数闭包的执行问题"><a href="#关于函数闭包的执行问题" class="headerlink" title="关于函数闭包的执行问题"></a>关于函数闭包的执行问题</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function test() &#123;</div><div class="line">	var i = 0;</div><div class="line">	var f1 = function() &#123;</div><div class="line">		return ++i</div><div class="line">	&#125;</div><div class="line">	return f1</div><div class="line">&#125;</div><div class="line">var fn1 = test();</div><div class="line">var fn2 = test();</div><div class="line">console.log(fn1 == fn2)  // false</div><div class="line">console.log(fn1() + fn2() + fn1() + fn2())  // 6</div></pre></td></tr></table></figure>
+<p>fn1和fn2其实都是对test中返回值的引用,打印这两个值,都是一个函数,也就是f1</p>
+<p>但是,fn1和fn2都是对test()函数值的浅拷贝,因此二者并不相等,返回false</p>
+<p>fn1和fn2是两个完全不同的引用,引用的对象都是f1,所以我们每执行一次,i就会加一.</p>
+<p>所以fn1执行一次,就会加一,fn1第一次是1,第二次执行是2,所以.fn1和fn2都执行两次,值就是6了</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">共42.6k字</span>
+</div>
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="https://github.com/ChangerHe/2017/08/17/JavaScript笔试面试题收集（三）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -457,7 +667,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共41.7k字</span>
+  <span class="post-count">共42.6k字</span>
 </div>
 
     
@@ -653,7 +863,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共41.7k字</span>
+  <span class="post-count">共42.6k字</span>
 </div>
 
     
@@ -861,7 +1071,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共41.7k字</span>
+  <span class="post-count">共42.6k字</span>
 </div>
 
     
@@ -1076,7 +1286,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共41.7k字</span>
+  <span class="post-count">共42.6k字</span>
 </div>
 
     
@@ -1279,7 +1489,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共41.7k字</span>
+  <span class="post-count">共42.6k字</span>
 </div>
 
     
@@ -1485,7 +1695,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共41.7k字</span>
+  <span class="post-count">共42.6k字</span>
 </div>
 
     
@@ -1681,7 +1891,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共41.7k字</span>
+  <span class="post-count">共42.6k字</span>
 </div>
 
     
@@ -1868,7 +2078,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共41.7k字</span>
+  <span class="post-count">共42.6k字</span>
 </div>
 
     
@@ -2059,268 +2269,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共41.7k字</span>
-</div>
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://github.com/ChangerHe/2017/07/25/浅谈框架模式的MVC-MVP-MVVM/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Changer He">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Changer He's Home Page">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/07/25/浅谈框架模式的MVC-MVP-MVVM/" itemprop="url">
-                  浅谈框架模式的MVC/MVP/MVVM
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-25T10:24:22+08:00">
-                2017-07-25
-              </time>
-            
-
-            
-
-  <span class="post-letters-count">
-    &nbsp; | &nbsp;
-    <span>2,535 字</span>
-    &nbsp; | &nbsp;
-    <span>9 min</span>
-  </span>
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript框架模式/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript框架模式</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计</span>
-                
-                <span title="字数统计">
-                  2,535字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长</span>
-                
-                <span title="阅读时长">
-                  9分钟
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>框架模式不是一门写代码的学问，而是一门管理与组织代码的学问。其本质是一种软件开发的模型。与设计模式不同，设计模式是在解决一类问题时总结抽象出的公共方法，如（工厂模式、单例模式。。等等），他们与某种具体的技术栈无关。一种框架模式往往使用了多种设计模式。<br>下面来说一下框架设计的诞生原因及演化。</p>
-<h1 id="第一代：脚本式设计（无架构设计）"><a href="#第一代：脚本式设计（无架构设计）" class="headerlink" title="第一代：脚本式设计（无架构设计）"></a>第一代：脚本式设计（无架构设计）</h1><p>下面这样的代码，就是没有任何设计模式的产物：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">const a = document.createElement(&quot;a&quot;);</div><div class="line">a.innerHTML = &quot;www.google.com&quot;;</div><div class="line">a.href = &quot;//www.google.com&quot;;</div><div class="line">a.style.position = &quot;absolute&quot;;</div><div class="line">a.style.top = 100;</div><div class="line">a.onclick = function()&#123;</div><div class="line">    console.log(&quot;google&quot;);</div><div class="line">&#125;</div><div class="line"> document.body.appendChild(a);</div></pre></td></tr></table></figure></p>
-<p>这种搞法虽有不少缺点，但麻雀虽小五脏俱全，所有功能一应俱全。早些年由于UI程序还处在一个懵懂期， 逻辑不算太复杂，代码量也不会太多。这样的搞法似乎也没有什么问题。 毕竟到达A B两点最短的距离就是直线，上述代码可以说是实现某功能的最短路径。 典型的例子就是 ASM (虽然汇编语言不是用来写UI的)，他们共有的缺点是 :入口单一 功能简单 不可维护。</p>
-<p>我们来修改一下上面的逻辑：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">function doCss(a) &#123;</div><div class="line">    a.style.position = &quot;absolute&quot;;</div><div class="line">    a.style.top = 100;</div><div class="line">&#125;</div><div class="line">function doEvent(a) &#123;</div><div class="line">    a.onclick = function()&#123;</div><div class="line">        alert(&quot;google&quot;);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">function doAttribute(a)&#123;</div><div class="line">    a.innerHTML = &quot;www.google.com&quot;;</div><div class="line">    a.href = &quot;//www.google.com&quot;;</div><div class="line">&#125;</div><div class="line">const a = document.createElement(&quot;a&quot;);</div><div class="line">doCss(a);</div><div class="line">doEvent(a);</div><div class="line">doAttribute(a)</div><div class="line">document.body.appendChild(a);</div></pre></td></tr></table></figure></p>
-<p>这里我们将一个功能拆分成了3个部分，即 外观 事件 和属性。</p>
-<p>函数将他们重新分离成一个个独立的逻辑块，这样一定程度上达到了分离复用的目的，比如你想修改外观，就去doCss函数里去找。。。</p>
-<p>就像有钱人追求更多的财富，权贵追求更多权利一样。</p>
-<p>人类总在思考同一个问题， 我们能不能做得更好。。</p>
-<p>直到有一天。。。</p>
-<h1 id="第二代：代码文件分离-CodeBehind"><a href="#第二代：代码文件分离-CodeBehind" class="headerlink" title="第二代：代码文件分离(CodeBehind)"></a>第二代：代码文件分离(CodeBehind)</h1><p>HTML是视图文件，而对应的。csS文件是他的相关逻辑处理文件 事件驱动模式下，框架帮我们完成了基本的事件类型，我们要做的是在事件下完成相关业务逻辑。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;link href=&quot;style.css&quot; rel=&quot;stylesheet&quot; /&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">    &lt;script src=&quot;bundle.js&quot; &gt;&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
-<p>各文件各司其职，编写的时候分离，在运行的时候合并。这样进一步降低了功能之间的耦合度。 视图看起来非常”清爽”，对应的逻辑也被分离成一个个文件， 交由相应的开发人员处理。</p>
-<p>如果你涉猎的技术范围很广，你会发现其实这种技术已经出现在诸多成熟的技术栈中。。。。</p>
-<p>但是，没过多久伊甸园欢乐的笑声被下面这个需求打破。。。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">`购买苹果按钮`绑定事件如下:</div><div class="line">1.int 苹果数变量 + 1;</div><div class="line">2.显示苹果数控件的值 = 苹果数变量;</div><div class="line"> </div><div class="line">`购买梨按钮`绑定事件如下:</div><div class="line">1.int 梨数变量 + 1;</div><div class="line">2.显示梨数控件的值 = 梨数变量;</div><div class="line"> </div><div class="line">...`吃苹果`</div><div class="line"> </div><div class="line">...`吃梨`</div></pre></td></tr></table></figure></p>
-<p>这里比较困难的是 第2步</p>
-<p>就是如果显示苹果数的控件是另一个程序员开发的黑盒， 如何修改其值?</p>
-<p>于是程序员A 去找 程序员B 寻求是否存在对应的 get/set 方法。</p>
-<p>程序员B说有， “有” 字还没落地， 开发买梨的程序员C 又踹门进来了，问了同样的问题， 后来才知道 开发吃苹果功能的程序员D正在路上。。。</p>
-<p>于是程序员B 不得不把接口的详细信息写到 wiki中， 于是 程序员CDEFGHIJKMLN 都看了wiki 懂了。</p>
-<p>完成这件事 程序员B 写wiki 花了 10分钟， 程序员CDEFGHIJKMLN 看wiki每人花 1分钟，一共团队成本 20分钟。</p>
-<p>于是 wiki中这个 get/set 接口函数出现在了每一个被绑定的函数里。一共4个button 出现4次</p>
-<p>ps: 这个get/set接口本质上就是一个view刷新接口</p>
-<p>事情仍在在酝酿:</p>
-<p>产品大爷发话了，需求改了！</p>
-<p>多了一个求和。</p>
-<p>于是伪代码变成了这样:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">`购买苹果按钮`绑定事件如下:</div><div class="line">1.int 苹果数变量 + 1;</div><div class="line">2.int 总和变量 = 苹果数变量 + 梨数变量;</div><div class="line">2.显示苹果数控件的值 = 苹果数变量;</div><div class="line">3.显示总和控件的值 = 总和变量;</div></pre></td></tr></table></figure></p>
-<p>这次 程序员B为了人身安全，提前把 get/set 接口发布到了 wiki上。。</p>
-<p>于是 总和控件的值 = 总和变量 这行代码出现了 4次。</p>
-<p>产品存在的意义，就是将程序狗虐到极致:qq</p>
-<p>于是需求改成了这样:</p>
-<p>q2</p>
-<p>只是删了一行。</p>
-<p>于是 4个函数中 所有相关代码都被删除。。。 共影响 4行代码。。</p>
-<p>段子讲完了，其核心问题在于，按照事件进行的业务模块划分，有时候是不合理的，事件是用户行为的入口，但不是程序逻辑的入口。 一个button的click就可能横跨N个领域， 需要N个人来进行协作， 这部分逻辑到最后还是会耦合在一起，通过各种函数封装进行解耦，无疑是扬汤止沸，而我们需要的是釜底抽薪</p>
-<h1 id="M-V-C-模型，视图，控制器"><a href="#M-V-C-模型，视图，控制器" class="headerlink" title="M-V-C:(模型，视图，控制器)"></a>M-V-C:(模型，视图，控制器)</h1><p>现在网上有很多关于mvc的介绍，让人纠结的是他们各不相同，而且有的根本就说的不对， 对于框架模式这东西，没有一个严格的规定说这样搞是 mvc 那样就不是。 甚至连mvc本身也有很多变种，我们只要从根源上理解这个东西就行。</p>
-<p>我就不扒祖坟了，咱们只需要知道它已经存在了 30多年就行了。</p>
-<p>我们思考一下 UI(图形化用户界面) 的本质:</p>
-<p>为什么要有UI， 在计算机眼中 一切即数据，其实要是深挖这个问题，数据与操作其实都是 0 1 组成的机器码，只不过 CPU运行的时候用指定寄存器的数据当做指令罢了，也就是说 决定一个数据到底是数据还是指令 只取决于他所在的寄存器位置。(好了好了 扯远了，往回跑。。) 数据的操作是抽象的，是专业人士干的事情， 计算机为了走进千家万户， 必须提供一种傻瓜式的操作方式，于是UI诞生了。。。 用一句话解释UI就是:他是数据到图像的一种映射程序;</p>
-<p>刚才说了它是一种映射程序，用户通过操作图像上的按钮，来达到操作数据的目的，数据被用户改变后，肯定需要从新生成映射。</p>
-<h2 id="Model-View-Controller-是干什么的"><a href="#Model-View-Controller-是干什么的" class="headerlink" title="Model View Controller 是干什么的:"></a>Model View Controller 是干什么的:</h2><p>1.View: 放置视图相关的代码，原则上里面不应该有任何业务逻辑。</p>
-<p>2.Controller: 放置视图与模型之间的映射，原则上这里应该很薄，他只放一些事件绑定相关的代码(router)，但并不实现真正的功能，他只是一个桥梁。</p>
-<p>3.Model: 这里的model不是说 实体类， 他是主要实现逻辑的地方。</p>
-<p>那还是上面 买水果的例子，那么在MVC下该如何设计呢:</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">概念</th>
-<th style="text-align:center">解释</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">view层</td>
-<td style="text-align:center">放置界面代码，以及一些刷新逻辑 如数据中的 0 1 转成 男 女</td>
-</tr>
-<tr>
-<td style="text-align:center">controller层</td>
-<td style="text-align:center">放置一些绑定逻辑。完成router，不实现函数体。</td>
-</tr>
-<tr>
-<td style="text-align:center">model层</td>
-<td style="text-align:center">接收view的注册，当自身数据变化时，执行view的刷新函数。 业务逻辑都在这里</td>
-</tr>
-</tbody>
-</table>
-<p>他是这样一个流程:</p>
-<p>1.创建显示苹果数量的控件。</p>
-<p>2.将上面控件注册到model中。(设置关联的数据，–苹果数变量)</p>
-<p>3.修改model中 苹果数变量 。</p>
-<p>4.由于苹果数变量被修改，触发所有绑定在上面的控件(view)从新执行刷新函数。</p>
-<p>5.显示苹果数量的控件被更新。</p>
-<p>这样便解决了大部分界面与逻辑耦合的问题，但是它并不完美:</p>
-<p>View 和 Model 并不是完全脱离的，还是有一些逻辑耦合，因为需要根据修改后的model从新刷新view。 难免view里面沾染一点model的结构。</p>
-<p>代码量膨胀。</p>
-<p>不方便进行更精细的颗粒化控制。(因为view只知道 model被改了，但不知道谁改的!)</p>
-<p>model在对应多个view的时候，很难都伺候到位。<br>于是。。。</p>
-<h1 id="M-V-P-模型，视图，派发器"><a href="#M-V-P-模型，视图，派发器" class="headerlink" title="M-V-P:(模型，视图，派发器)"></a>M-V-P:(模型，视图，派发器)</h1><p>针对mvc的一些问题，在mvp模式下， 斩断了 view 与 model的关系， 当m 改变时，m 通知 p 去改变v， 所以v变得更纯洁(刷新逻辑被移动到了p层)， 为了保证m可以最大程度的复用 一部分业务逻辑也从 m 转移到了p所以 mvp下 p 非常厚实。</p>
-<p>mvp中最后改变v的是p那么在 v与p 之间会有一个接口，解决怎么转换以及传值的问题。</p>
-<h1 id="M-V-VM-模型，视图，抽象视图"><a href="#M-V-VM-模型，视图，抽象视图" class="headerlink" title="M-V-VM:(模型，视图，抽象视图)"></a>M-V-VM:(模型，视图，抽象视图)</h1><p>mvvm 与 mvp 的最大区别就是它使用 数据绑定(Data Binding)、依赖属性(Dependency Property)、命令(Command)、路由事件(Routed Event) 来搞定与view层的交互， 但是这种绑定是与某种具体技术栈相关的， ViewModel从Model中抽象而来，但更贴近于业务模型， 比如你Model中某字段是 true false， ViewModel中可能就是 “黑”，”白”等 这种更贴近业务场景的描述。 ViewModel中的属性直接与某具体控件的属性相绑定。 也就是说当某具体控件发生变化，ViewModel中的 某个字段就会跟着变化，然后Model中的字段也会进一步变化。</p>
-<p>(以上文章摘自网络)</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-<div class="theme-info">
-  <div class="powered-by"></div>
-  <span class="post-count">共41.7k字</span>
+  <span class="post-count">共42.6k字</span>
 </div>
 
     
@@ -2373,7 +2322,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">42</span>
+                <span class="site-state-item-count">43</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
