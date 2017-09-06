@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/ChangerHe/"/>
-  <updated>2017-08-22T01:41:32.786Z</updated>
+  <updated>2017-09-06T07:48:15.946Z</updated>
   <id>https://github.com/ChangerHe/</id>
   
   <author>
@@ -14,6 +14,93 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>jQuery.extend和jQuery.fn.extend的区别</title>
+    <link href="https://github.com/ChangerHe/2017/09/06/jQuery-extend%E5%92%8CjQuery-fn-extend%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
+    <id>https://github.com/ChangerHe/2017/09/06/jQuery-extend和jQuery-fn-extend的区别/</id>
+    <published>2017-09-06T07:27:53.000Z</published>
+    <updated>2017-09-06T07:48:15.946Z</updated>
+    
+    <content type="html"><![CDATA[<p>在jQuery的API手册中,jQuery.extend和jQuery.fn.extend,是挂载在jQuery和jQuery.fn上的两个方法,挂载对象不同,但是jQuery的内部实现中是相同的,只是功能不太一样.</p>
+<p>官方的解释是这样的</p>
+<ul>
+<li><p>jQuery.extend(): Merge the contents of two or more objects together into the first object.(把两个或者更多的对象合并到第一个当中)；</p>
+</li>
+<li><p>jQuery.fn.extend():Merge the contents of an object onto the jQuery prototype to provide new jQuery instance methods.(把对象挂载到jQuery的prototype属性，来扩展一个新的jQuery实例方法)</p>
+</li>
+</ul>
+<h1 id="理解jQuery-extend"><a href="#理解jQuery-extend" class="headerlink" title="理解jQuery.extend"></a>理解jQuery.extend</h1><p>我们先把jQuery看成一个类,jQuery.extend是扩展的jQuery这个类</p>
+<p>假设我们把jQuery这个类看成是人类,能吃饭喝水能跑能跳,我们现在用extend方法给人类扩展一个能说话(speak)的技能,这样的话所有的人类,都能继承这个技能.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">JQuery.extend(&#123;</div><div class="line">    speak:function()&#123;</div><div class="line">         alert(&quot;how are you!&quot;);</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>那么,我们需要使用这个技能的时候,直接使用<code>$.speak()</code>就可以成功调用这个方法了.</p>
+<p>这说明,$.speak变成了jQuery这个类本身的方法,现在人类都能说话了</p>
+<p>所以,这个扩展也就是所谓的静态方法, 只跟这个类本身有关,跟你具体的实例化对象是没有关系的.</p>
+<h1 id="理解jQuery-fn-extend"><a href="#理解jQuery-fn-extend" class="headerlink" title="理解jQuery.fn.extend"></a>理解jQuery.fn.extend</h1><p>从字面理解,这个扩展的是jQuery.fn的方法,那么jQuery.fn是什么呢?</p>
+<p>在jQuery源码的开通部分,有这样的一段代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">jQuery.fn = jQuery.prototype = &#123;</div><div class="line">      init:funtion(selector,context)&#123;</div><div class="line">            //..... </div><div class="line">     &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>所以显而易见,jQuery,fn其实扩展的就是jQuery这个对象原型上面的方法.</p>
+<p>也就是说,这个方法必须使用在jQuery实例化的对象上,就不能直接使用jQuery.xxx() 这样调用了,而是必须指明实例化的对象,然后在对象上面调用.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&apos;person1&apos;).speak()</div></pre></td></tr></table></figure>
+<h1 id="两者区别的总结"><a href="#两者区别的总结" class="headerlink" title="两者区别的总结"></a>两者区别的总结</h1><h2 id="两者调用方式不同："><a href="#两者调用方式不同：" class="headerlink" title="两者调用方式不同："></a>两者调用方式不同：</h2><p>jQuery.extend(),一般由传入的全局函数来调用，主要是用来拓展个全局函数，如$.init()，$.ajax();</p>
+<p>Query.fn.extend(),一般由具体的实例对象来调用，可以用来拓展个选择器，例如$.fn.each();</p>
+<h2 id="两者的主要功能作用不同："><a href="#两者的主要功能作用不同：" class="headerlink" title="两者的主要功能作用不同："></a>两者的主要功能作用不同：</h2><p> jQuery.extend(object); 为扩展jQuery类本身，为自身添加新的方法。</p>
+<p>jQuery.fn.extend(object);给jQuery对象添加方法</p>
+<h2 id="大部分插件都是用jQuery-fn-extend"><a href="#大部分插件都是用jQuery-fn-extend" class="headerlink" title="大部分插件都是用jQuery.fn.extend()"></a>大部分插件都是用jQuery.fn.extend()</h2><h1 id="JQuery的extend扩展方法："><a href="#JQuery的extend扩展方法：" class="headerlink" title="JQuery的extend扩展方法："></a>JQuery的extend扩展方法：</h1><h2 id="Jquery的扩展方法原型是"><a href="#Jquery的扩展方法原型是" class="headerlink" title="Jquery的扩展方法原型是:"></a>Jquery的扩展方法原型是:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">extend(dest,src1,src2,src3...);</div></pre></td></tr></table></figure>
+<p>作用是将src1 src2 … 合并到dest上,然后返回,返回值是合并之后的dest,也就是说这个时候dest是被修改了的.</p>
+<p>如果我们不想修改dest的值,可以这样</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">extend([],src1,src2,src3...);</div></pre></td></tr></table></figure>
+<p>这样的话,就不会有值会被改变了</p>
+<h2 id="jQuery中extend的内部实现"><a href="#jQuery中extend的内部实现" class="headerlink" title="jQuery中extend的内部实现"></a>jQuery中extend的内部实现</h2><p>jQuery的内部多次使用了其自己定义的merge方法,作用就是将后面的值往前面的值身上加,这种方法在extend方法上得到了很好的实现.</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在jQuery的API手册中,jQuery.extend和jQuery.fn.extend,是挂载在jQuery和jQuery.fn上的两个方法,挂载对象不同,但是jQuery的内部实现中是相同的,只是功能不太一样.&lt;/p&gt;
+&lt;p&gt;官方的解释是这样的&lt;/p&gt;
+&lt;ul&gt;
+&lt;l
+    
+    </summary>
+    
+      <category term="jQuery 学习笔记" scheme="https://github.com/ChangerHe/categories/jQuery-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="jQuery" scheme="https://github.com/ChangerHe/tags/jQuery/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JavaScript笔试面试题收集（五）</title>
+    <link href="https://github.com/ChangerHe/2017/08/24/JavaScript%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98%E6%94%B6%E9%9B%86%EF%BC%88%E4%BA%94%EF%BC%89/"/>
+    <id>https://github.com/ChangerHe/2017/08/24/JavaScript笔试面试题收集（五）/</id>
+    <published>2017-08-24T09:46:42.000Z</published>
+    <updated>2017-08-24T10:02:02.683Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="函数作用域的变量提升问题"><a href="#函数作用域的变量提升问题" class="headerlink" title="函数作用域的变量提升问题"></a>函数作用域的变量提升问题</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var tmp = new Date()</div><div class="line">function f() &#123;</div><div class="line">	console.log(tmp)  // undefined</div><div class="line">	if(false) &#123;</div><div class="line">		var tmp = &apos;Hello World&apos;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>此题涉及到了函数作用域的变量提升问题.</p>
+<p>因为函数是没有块级作用域的,只有函数作用域</p>
+<p>所以if判断即使为空,编译器预编译的阶段其内部变量声明也会提升到函数作用域的最顶端.</p>
+<p>这个时候因为有了tmp的声明,所以tmp就不会往外面的作用域找值了,会直接返回一个undefined.</p>
+<h1 id="let的作用域问题"><a href="#let的作用域问题" class="headerlink" title="let的作用域问题"></a>let的作用域问题</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function f1() &#123;</div><div class="line">	let n = 5;</div><div class="line">	if(true) &#123;</div><div class="line">		let n = 10;</div><div class="line">	&#125;</div><div class="line">	console.log(n)  // 5</div><div class="line">&#125;</div><div class="line">f1()</div></pre></td></tr></table></figure>
+<p>let是es6成为国际标准的声明方式,由let声明的变量是可以有块级作用域的,所以即使我们使用了if判断语句,其里面的变量也是外面无法访问到的.</p>
+<p>另外,es6还支持块级作用域的任意嵌套</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	&#123;</div><div class="line">		&#123;</div><div class="line">			let a = 1;</div><div class="line">			&#123;</div><div class="line">				console.log(a)  // 报错, a is not defined</div><div class="line">				let a = 2;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>以上的写法是没有错误的.还有一点要注意的是,因为不同的块级作用域是不同的,所以可以同时定义相同的变量</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;函数作用域的变量提升问题&quot;&gt;&lt;a href=&quot;#函数作用域的变量提升问题&quot; class=&quot;headerlink&quot; title=&quot;函数作用域的变量提升问题&quot;&gt;&lt;/a&gt;函数作用域的变量提升问题&lt;/h1&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;
+    
+    </summary>
+    
+      <category term="JavaScript笔试面试题" scheme="https://github.com/ChangerHe/categories/JavaScript%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    
+      <category term="JavaScript笔试面试题" scheme="https://github.com/ChangerHe/tags/JavaScript%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+  </entry>
   
   <entry>
     <title>JavaScript笔试面试题收集（四）</title>
@@ -858,121 +945,6 @@
     <summary type="html">
     
       &lt;p&gt;众所周知，JavaScript中的sort()方法可对数组进行排序。&lt;br&gt;平时我们使用就是简单的执行一个sort()方法，但是其实这个方法是带有参数的。&lt;br&gt;语法为：&lt;code&gt;arrayObject.sort(sortby);&lt;/code&gt;&lt;br&gt;其中，参数sortb
-    
-    </summary>
-    
-      <category term="JavaScript 学习笔记" scheme="https://github.com/ChangerHe/categories/JavaScript-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="JavaScript" scheme="https://github.com/ChangerHe/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>XML学习笔记</title>
-    <link href="https://github.com/ChangerHe/2017/07/09/XML%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    <id>https://github.com/ChangerHe/2017/07/09/XML学习笔记/</id>
-    <published>2017-07-09T15:29:15.000Z</published>
-    <updated>2017-07-09T18:06:27.099Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="XML-HTML-XHTML-DHTML的相互关系"><a href="#XML-HTML-XHTML-DHTML的相互关系" class="headerlink" title="XML/HTML/XHTML/DHTML的相互关系"></a>XML/HTML/XHTML/DHTML的相互关系</h1><p>XML(Extensible Markup Language)可扩展标记语言，和HTML类似，都是一种标记语言，还有类似的标记语言有：DHTML和XHTML，先来捋一捋他们的关系：</p>
-<h2 id="HTML（HyperText-Markup-Language）"><a href="#HTML（HyperText-Markup-Language）" class="headerlink" title="HTML（HyperText Markup Language）"></a>HTML（HyperText Markup Language）</h2><p>这个不必多说，网络的通用语言，随着网络的盛行，大行其道。本身是一种文本文件，通过在文本文件中添加标记符来告诉浏览器显示什么内容。因为最初的标准不完善，经过长时间的演化，现在是一个基本上已经算是完全固定的HTML5版本。<br>HTML因为之前的不断向下兼容，导致结构不够严谨而备受诟病，因此之后一些搞事的程序猿们开始构思一个结构更加严谨的文档标记语言，这个时候XHTML应运而生了。</p>
-<h2 id="XHTML（Extensible-HyperText-Markup-Language）"><a href="#XHTML（Extensible-HyperText-Markup-Language）" class="headerlink" title="XHTML（Extensible HyperText Markup Language）"></a>XHTML（Extensible HyperText Markup Language）</h2><p>先看一下百度百科上对XHTML的解释<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">可扩展超文本标记语言，是一种置标语言，表现方式与超文本标记语言（HTML）类似，不过语法上更加严格。</div></pre></td></tr></table></figure></p>
-<p>其实就严谨性来说，XHTML确实相比于HTML严谨了很多，但是随之也产生了跨平台的兼容性问题和无法向下兼容的问题。因此XHTML逐渐被淘汰，只有一些很老的公司在使用这个技术。</p>
-<h2 id="DHTML（Dynamic-HTML）"><a href="#DHTML（Dynamic-HTML）" class="headerlink" title="DHTML（Dynamic HTML）"></a>DHTML（Dynamic HTML）</h2><p>DHTML其实相当于HTML加上CSS加上JS，因为DHTML是“动态的”HTML。</p>
-<h2 id="XML-Extensible-Markup-Language"><a href="#XML-Extensible-Markup-Language" class="headerlink" title="XML(Extensible Markup Language)"></a>XML(Extensible Markup Language)</h2><p>下面就是我们的主角登场了，因为考虑到数据的严谨性和可调用性，同时要保证能够和前台的HTML进行成功的交互，此时XML就应运而生了（其实XML比XHTML诞生的早很多，在1998年就成为了W3C的推荐标准），XML是各种应用程序之间进行数据传输最常用的工具。</p>
-<h1 id="XML的语法"><a href="#XML的语法" class="headerlink" title="XML的语法"></a>XML的语法</h1><h2 id="语法注意事项"><a href="#语法注意事项" class="headerlink" title="语法注意事项"></a>语法注意事项</h2><p>1.空元素标签都必须用“/”来关闭，如：  <code>&lt;br/&gt;</code><br>2.所有标签都区分大小写。<br>3.必须严格嵌套。<br>4.所有标签的属性都必须用引号括起来。<br>5.XML有且只有一个根元素。</p>
-<h2 id="XML声明"><a href="#XML声明" class="headerlink" title="XML声明"></a>XML声明</h2><p>&lt;?xml 版本信息[编码信息][文档独立性信息]?&gt;<br>如： <code>&lt;?xml version=&quot;1.0&quot;?&gt;</code><br>注：xml文档声明必须放到文档第一行，且前方不能又任何字符。</p>
-<h2 id="文档类型声明（DTD）"><a href="#文档类型声明（DTD）" class="headerlink" title="文档类型声明（DTD）"></a>文档类型声明（DTD）</h2><h3 id="命名规范"><a href="#命名规范" class="headerlink" title="命名规范"></a>命名规范</h3><p>1.只能以字母，下划线，或冒号开头。<br>2.不能包含空格。<br>3.名称中尽量不使用冒号，否则可能出现解析问题。<br>4.字符中不能有 <code>&amp;</code> 和 <code>&lt;</code> 以及 <code>]]&gt;</code> 标签，否则会被理解为标记的起始和结束定界符。</p>
-<h3 id="字符引用"><a href="#字符引用" class="headerlink" title="字符引用"></a>字符引用</h3><p>有些地方必须要用字符时，可用字符的实体或者字符的进制码代替</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">字符</th>
-<th style="text-align:center">字符引用（十进制）</th>
-<th style="text-align:center">字符引用（十六进制）</th>
-<th style="text-align:center">预定义实体引用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">&lt;</td>
-<td style="text-align:center">&amp;#60;</td>
-<td style="text-align:center">&amp;#x3c;</td>
-<td style="text-align:center">&amp;lt;</td>
-</tr>
-<tr>
-<td style="text-align:center">&gt;</td>
-<td style="text-align:center">&amp;#62;</td>
-<td style="text-align:center">&amp;#x3e;</td>
-<td style="text-align:center">&amp;gt;</td>
-</tr>
-<tr>
-<td style="text-align:center">“</td>
-<td style="text-align:center">&amp;#34;</td>
-<td style="text-align:center">&amp;#x22;</td>
-<td style="text-align:center">&amp;quot;</td>
-</tr>
-<tr>
-<td style="text-align:center">‘</td>
-<td style="text-align:center">&amp;#39;</td>
-<td style="text-align:center">&amp;#x27;</td>
-<td style="text-align:center">&amp;apos;</td>
-</tr>
-<tr>
-<td style="text-align:center">&amp;</td>
-<td style="text-align:center">&amp;#38;</td>
-<td style="text-align:center">&amp;#x26;</td>
-<td style="text-align:center">&amp;amp;</td>
-</tr>
-</tbody>
-</table>
-<h3 id="CDATA字段"><a href="#CDATA字段" class="headerlink" title="CDATA字段"></a>CDATA字段</h3><p>其内容不被XML处理器解析，所以可以包含任意字符。但是不能有 <code>&amp;</code> 和 <code>&lt;</code> 以及 <code>]]&gt;</code> ，相当于引用了其中的内容，而该内容不被解析。<br>格式：<code>&lt;![CDATA[ 任何不想被解析的内容 ]]&gt;</code></p>
-<h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><p>引用css格式：<code>&lt;?xml-stylesheet href=&quot;hello.css&quot; type=&quot;text/css&quot;?&gt;</code><br>引用外部DTD格式：<code>&lt;!DOCTYPE greeting SYSTEM &quot;hello.dtd&quot;&gt;</code><br>直接写在xml文档内的DTD：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE greeting [</div><div class="line">	&lt;!ELEMENT greeting (#PCDATA)&gt;</div><div class="line">]&gt;</div></pre></td></tr></table></figure></p>
-<p>不过，对于css而言，对xml其实并不特别合适，XML的首选样式语言是XSLT (eXtensible Stylesheet Language Transformations)<br>其引用方式与css类似：<br><code>&lt;?xml-stylesheet type=&quot;text/xsl&quot; href=&quot;simple.xsl&quot;?&gt;</code><br>注：<br><code>PCDATA</code>:被解析的字符数据<br><code>CDATA</code>:不会被解析器解析的文本</p>
-<h2 id="属性声明"><a href="#属性声明" class="headerlink" title="属性声明"></a>属性声明</h2><p>属性通过ATTLIST来进行声明<br>格式：<code>&lt;!ATTLIST 元素名称 属性名称 属性类型 默认值&gt;</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;!ATTLIST payment type CDATA &quot;check&quot;&gt;</div><div class="line">&lt;payment type=&quot;check&quot;/&gt;</div></pre></td></tr></table></figure></p>
-<h1 id="XML-HTTP-Request"><a href="#XML-HTTP-Request" class="headerlink" title="XML HTTP Request"></a>XML HTTP Request</h1><p>讲了半天XML的杂七杂八，其实这玩意儿才是正主。<br>XMLHttpRequest 对象用于在后台与服务器交换数据。也就是有了他，AJAX,JSON,XMLHttpRequest对象之流才能正常工作起来，实现数据的交换和同步异步传输。<br>语法如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">var xmlhttp=new XMLHttpRequest();   </div><div class="line">//新定义一个XMLHttpRequest对象</div><div class="line">xmlhttp.onreadystatechange = state_Change; </div><div class="line">//onreadystatechange 是一个事件句柄。它的值 (state_Change) 是一个函数的名称</div><div class="line">//当 XMLHttpRequest 对象的状态发生改变时，会触发此函数。</div><div class="line">xmlhttp.open(&quot;GET&quot;,url,true);</div><div class="line">//参数提交方式为GET，参数指向一个url，参数为异步请求（true）</div><div class="line">xmlhttp.send(null);</div><div class="line">//send()方法仅在使用POST传参时使用，故设定为null</div><div class="line">function state_Change()&#123;</div><div class="line">	if(xmlhttp.readyState == 4)&#123;   //4表示已装载</div><div class="line">		if(xmlhttp.status == 200)&#123;  //200表示http请求执行成功</div><div class="line">			//此处可执行代码</div><div class="line">		&#125; else &#123;</div><div class="line">			console.log(&quot;服务器发生错误&quot;)</div><div class="line">		&#125;</div><div class="line">	&#125; else  &#123;</div><div class="line">		consolg.log(&quot;未成功装载&quot;)</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;XML-HTML-XHTML-DHTML的相互关系&quot;&gt;&lt;a href=&quot;#XML-HTML-XHTML-DHTML的相互关系&quot; class=&quot;headerlink&quot; title=&quot;XML/HTML/XHTML/DHTML的相互关系&quot;&gt;&lt;/a&gt;XML/HTML/XH
-    
-    </summary>
-    
-      <category term="XML 学习笔记" scheme="https://github.com/ChangerHe/categories/XML-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="XML" scheme="https://github.com/ChangerHe/tags/XML/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JavaScript高级程序设计复习笔记（三）</title>
-    <link href="https://github.com/ChangerHe/2017/07/08/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/"/>
-    <id>https://github.com/ChangerHe/2017/07/08/JavaScript高级程序设计复习笔记（三）/</id>
-    <published>2017-07-08T12:20:09.000Z</published>
-    <updated>2017-07-08T12:41:30.925Z</updated>
-    
-    <content type="html"><![CDATA[<p>昨天看了一遍javascript的面向对象，感觉javascript的面向对象比java难懂很多啊，主要还是原型链继承这块的东西。<br>本篇内容主要讲在学习javascript中很容易搞不清楚的call()方法和apply()方法。</p>
-<h1 id="apply和call的区别在哪里"><a href="#apply和call的区别在哪里" class="headerlink" title="apply和call的区别在哪里"></a>apply和call的区别在哪里</h1><p>apply:方法能劫持另外一个对象的方法，继承另外一个对象的属性.<br>Function.apply(obj,args)方法能接收两个参数<br>obj：这个对象将代替Function类里this对象<br>args：这个是数组，它将作为参数传给Function（args–&gt;arguments）<br>call:和apply的意思一样,只不过是参数列表不一样.<br>Function.call(obj,[param1[,param2[,…[,paramN]]]])<br>obj：这个对象将代替Function类里this对象<br>params：这个是一个参数列表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">/*定义一个人类*/  </div><div class="line">function Person(name,age)  </div><div class="line">    &#123;  </div><div class="line">        this.name=name;  </div><div class="line">        this.age=age;  </div><div class="line">    &#125;  </div><div class="line">/*定义一个学生类*/  </div><div class="line">functionStudent(name,age,grade)  </div><div class="line">    &#123;  </div><div class="line">        Person.apply(this,arguments);  </div><div class="line">        this.grade=grade;  </div><div class="line">    &#125;  </div><div class="line">//创建一个学生类  </div><div class="line">var student=new Student(&quot;zhangsan&quot;,21,&quot;一年级&quot;);  </div><div class="line">//测试  </div><div class="line">alert(&quot;name:&quot;+student.name+&quot;\n&quot;+&quot;age:&quot;+student.age+&quot;\n&quot;+&quot;grade:&quot;+student.grade);</div></pre></td></tr></table></figure></p>
-<p>大家可以看到测试结果name:zhangsan age:21  grade:一年级<br>学生类里面我没有给name和age属性赋值啊,为什么又存在这两个属性的值呢,这个就是apply的神奇之处.<br>分析: Person.apply(this,arguments);<br>this:在创建对象在这个时候代表的是student<br>arguments:是一个数组,也就是[“zhangsan”,”21”,”一年级”];<br>也就是通俗一点讲就是:用student去执行Person这个类里面的内容,在Person这个类里面存在this.name等之类的语句,这样就将属性创建到了student对象里面。</p>
-<h1 id="什么情况下用apply-什么情况下用call"><a href="#什么情况下用apply-什么情况下用call" class="headerlink" title="什么情况下用apply,什么情况下用call"></a>什么情况下用apply,什么情况下用call</h1><p>在给对象参数的情况下,如果参数的形式是数组的时候,比如apply示例里面传递了参数arguments,这个参数是数组类型,并且在调用Person的时候参数的列表是对应一致的(也就是Person和Student的参数列表前两位是一致的) 就可以采用 apply , 如果我的Person的参数列表是这样的(age,name),而Student的参数列表是(name,age,grade),这样就可以用call来实现了,也就是直接指定参数列表对应值的位置(Person.call(this,age,name,grade));</p>
-<h1 id="Function-apply-在提升程序性能方面的技巧"><a href="#Function-apply-在提升程序性能方面的技巧" class="headerlink" title="Function.apply()在提升程序性能方面的技巧"></a>Function.apply()在提升程序性能方面的技巧</h1><p>我们先从 Math.max() 函数说起，  Math.max后面可以接任意个参数，最后返回所有参数中的最大值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">alert(Math.max(5,8))   //8</div><div class="line">alert(Math.max(5,7,9,3,1,6))   //9</div></pre></td></tr></table></figure></p>
-<p>但是在很多情况下，我们需要找出数组中最大的元素。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var arr=[5,7,9,1]</div><div class="line">alert(Math.max(arr))</div></pre></td></tr></table></figure></p>
-<p>这样却是不行的。一定要这样写<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function getMax(arr)&#123;</div><div class="line">    var arrLen=arr.length;</div><div class="line">    for(var i=0,ret=arr[0];i&lt;arrLen;i++)&#123;</div><div class="line">        ret=Math.max(ret,arr[i]);        </div><div class="line">    &#125;</div><div class="line">    return ret;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>这样写麻烦而且低效。如果用 apply呢，看代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function getMax2(arr)&#123;</div><div class="line">    return Math.max.apply(null,arr)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>两段代码达到了同样的目的，但是getMax2却优雅，高效，简洁得多。</p>
-<p>看性能测试:<br>getMax性能测试<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">var myArr=new Array()</div><div class="line"></div><div class="line">function fillRnd(arrLen)&#123;  //填入 arrLen个1-10的随机数字到数组</div><div class="line">    for(var i=0,arr=[];i&lt;arrLen;i++)&#123;</div><div class="line">        arr[i]=Math.ceil(Math.random()*10)</div><div class="line">    &#125;</div><div class="line">    return arr</div><div class="line">&#125;</div><div class="line"></div><div class="line">function getMax(arr)&#123;</div><div class="line">    var arrLen=arr.length;</div><div class="line">    for(var i=0,ret=arr[0];i&lt;arrLen;i++)&#123;</div><div class="line">        ret=Math.max(ret,arr[i]);        </div><div class="line">    &#125;</div><div class="line">    return ret;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function getMax2(arr)&#123;</div><div class="line">    return Math.max.apply(null,arr)</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">myArr=fillRnd(20*10000)  //生成20万个随机数填到数组</div><div class="line"></div><div class="line">var t1=new Date()</div><div class="line">var max1=getMax(myArr)</div><div class="line">var t2=new Date()</div><div class="line">var max2=getMax2(myArr)</div><div class="line">var t3=new Date()</div><div class="line"></div><div class="line">if (max1!==max2) alert(&quot;error&quot;)</div><div class="line">alert([t3-t2,t2-t1])   //在我机器上 96,464 .不同的机器,结果可能有差异</div><div class="line"></div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
-<p>通过20万个数据的比较， getMax2 时间为 96ms 而 getmax时间为464。 两者相差5倍</p>
-<p> 再比如数组的push方法。<br><code>var arr1=[1,3,4];</code><br><code>var arr2=[3,4,5];</code><br>如果我们要把 arr2展开，然后一个一个追加到 <code>arr1</code>中去，最后让  <code>arr1=[1,3,4,3,4,5]</code><br><code>arr1.push(arr2)</code>  显然是不行的。 因为这样做会得到  <code>[1,3,4, [3,4,5] ]</code></p>
-<p>我们只能用一个循环去一个一个的<code>push</code>当然也可以用 <code>arr1.concat(arr2)</code> 但是<code>concat</code>方法并不改变 arr1本身<br>自从有了 Apply    ,事情就变得如此简单<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Array.prototype.push.apply(arr1,arr2)</div></pre></td></tr></table></figure></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;昨天看了一遍javascript的面向对象，感觉javascript的面向对象比java难懂很多啊，主要还是原型链继承这块的东西。&lt;br&gt;本篇内容主要讲在学习javascript中很容易搞不清楚的call()方法和apply()方法。&lt;/p&gt;
-&lt;h1 id=&quot;apply和c
     
     </summary>
     

@@ -283,6 +283,384 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://github.com/ChangerHe/2017/08/04/JavaScript笔试面试题收集（二）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Changer He">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Changer He's Home Page">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/08/04/JavaScript笔试面试题收集（二）/" itemprop="url">
+                   JavaScript笔试面试题收集（二）
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-04T22:37:45+08:00">
+                2017-08-04
+              </time>
+            
+
+            
+
+  <span class="post-letters-count">
+    &nbsp; | &nbsp;
+    <span>361 字</span>
+    &nbsp; | &nbsp;
+    <span>2 min</span>
+  </span>
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript笔试面试题/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript笔试面试题</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  361字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  2分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>话不多说，直接撸题吧：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">function Parent() &#123;</div><div class="line">    this.a = 1;</div><div class="line">    this.b = [1,2,this.a];</div><div class="line">    this.c = &#123;demo: 5&#125;;</div><div class="line">    this.show = function() &#123;</div><div class="line">        console.log(this.a, this.b, this.c.demo)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">function Child() &#123;</div><div class="line">    this.a = 2;</div><div class="line">    this.change = function() &#123;</div><div class="line">        this.b.push(this.a);</div><div class="line">        this.a = this.b.length;</div><div class="line">        this.c.demo = this.a++;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">Child.prototype = new Parent();</div><div class="line">var parent = new Parent();</div><div class="line">var child1 = new Child();</div><div class="line">var child2 = new Child();</div><div class="line">child1.a = 11;</div><div class="line">child2.a = 12;</div><div class="line">parent.show();  //1,[1,2,1],5</div><div class="line">child1.show(); //11,[1,2,11],5</div><div class="line">child2.show();   //12,[1,2,11],5</div><div class="line">child1.change(); </div><div class="line">child2.change();  </div><div class="line">parent.show();  // 1,[1,2,1],5</div><div class="line">child1.show(); //5,[1,2,1,11,12],5</div><div class="line">child2.show();   //6,[1,2,1,11,12],5</div></pre></td></tr></table></figure></p>
+<p>其实要解出上面的问题，了解以下几句话就好了：</p>
+<blockquote>
+<p>1.每个构造函数，都有一个原型，指向构造函数的原型对象。<br>2.每一个实例生成的时候，都会在内存中产生一块新的堆内存。<br>3.每一个实例都有一个隐式原型指向构造函数的原型对象。<br>4.this的指向，取决于this调用的位置，在这道题中，也可以理解为，谁调用这个方法，this就指向哪个对象。<br>5.数组和字面量对象都是引用。<br>6.原型链的查找原则： 就近原则。也就是说：当实例上存在属性时，用实例上的，如果实例不存在，则顺着原型链往上查找，如果存在，则使用原型链上的对象，如果不存在，则查找Object原型对象上的，如果都不存在，则为undefined。</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">共43.7k字</span>
+</div>
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://github.com/ChangerHe/2017/07/27/使用Canvas绘制七巧板/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Changer He">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Changer He's Home Page">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/07/27/使用Canvas绘制七巧板/" itemprop="url">
+                  使用Canvas绘制七巧板
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-27T20:59:49+08:00">
+                2017-07-27
+              </time>
+            
+
+            
+
+  <span class="post-letters-count">
+    &nbsp; | &nbsp;
+    <span>712 字</span>
+    &nbsp; | &nbsp;
+    <span>3 min</span>
+  </span>
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Canvas学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">Canvas学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  712字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  3分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>中午登上慕课网，偶然发现慕课网改版了，这倒是其次，惊奇的是页面居然出现了不显示我的观看记录和观看百分比的BUG！还准备说要给慕课网反馈一下来着，晚上一登，居然修复了，不得不佩服慕课网工程师们惊人的处突能力啊。</p>
+<p>回到正题，相信大家都见到过七巧板，本文使用简单的HTML5新特性Canvas的2d图形绘制功能，绘制了一个简单的七巧板。</p>
+<p>Canvas是HTML5的新特性，相比于其他的HTML标签来说，Canvas给前端工程师们提供了更多的操作可能性，也为页面的生动化效果做出了不菲的贡献。canvas的3d绘图的出现，加上JS对HTML页面的强大动态渲染能力，加上各大浏览器厂商对于Flash的抛弃，相信日后canvas将在HTML页面展示，HTML游戏，HTML动画上大有可为。</p>
+<p>canvas的2d绘图非常简单，整体的操作感觉非常的人性化，主要是要区分，移动到点位（moveTo）和划线到点位（lineTo）的区别，canvas对于页面的色彩和轮廓方面也加入了相应的边框（stroke）和填充（fill）功能，下面让我们一起来看一下七巧板的canvas实现吧。</p>
+<h1 id="HTML方面"><a href="#HTML方面" class="headerlink" title="HTML方面"></a>HTML方面</h1><p>这块我就写了一个canvas的标签，同时制定它的宽高等属性，有一点要注意，其宽高最好不要使用px作为单位，而是使用默认值作为单位（简单点说就是不要写宽高的单位），否则在后期绘图会出现绘图区的一些问题。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;canvas id=&quot;canvas&quot; width=&quot;800&quot; height=&quot;800&quot; style=&quot;border: 1px solid #eee&quot;&gt;Your broser can&apos;t support canvas&lt;/canvas&gt;</div></pre></td></tr></table></figure>
+<h1 id="JS方面"><a href="#JS方面" class="headerlink" title="JS方面"></a>JS方面</h1><p>学过canvas的同学肯定知道，2d绘图简直就是小儿科，用来用去也就那么几个API，照本宣科就是了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">var canvas = document.getElementById(&quot;canvas&quot;);</div><div class="line">var context = canvas.getContext(&quot;2d&quot;);</div><div class="line">var arr = [</div><div class="line">	&#123;position: [&#123;x: 0,y: 0&#125;,&#123;x: 400,y: 400&#125;,&#123;x: 800,y: 0&#125;,&#123;x: 0,y: 0&#125;],color: &quot;#caff67&quot;&#125;,</div><div class="line">	&#123;position: [&#123;x: 0,y: 0&#125;,&#123;x: 400,y: 400&#125;,&#123;x: 0,y: 800&#125;,&#123;x: 0,y: 0&#125;],color: &quot;#67becf&quot;&#125;,</div><div class="line">	&#123;position: [&#123;x: 0,y: 800&#125;,&#123;x: 400,y: 400&#125;,&#123;x: 800,y: 800&#125;,&#123;x: 0,y: 800&#125;],color: &quot;#ef3d61&quot;&#125;,</div><div class="line">	&#123;position: [&#123;x: 400,y: 400&#125;,&#123;x: 800,y: 400&#125;,&#123;x: 600,y: 600&#125;,&#123;x: 400,y: 400&#125;],color: &quot;#f9f51a&quot;&#125;,</div><div class="line">	&#123;position: [&#123;x: 400,y: 400&#125;,&#123;x: 800,y: 400&#125;,&#123;x: 800,y: 0&#125;,&#123;x: 400,y: 400&#125;],color: &quot;#a594c0&quot;&#125;,</div><div class="line">	&#123;position: [&#123;x: 600,y: 600&#125;,&#123;x: 800,y: 600&#125;,&#123;x: 800,y: 400&#125;,&#123;x: 600,y: 600&#125;],color: &quot;#fa8ecc&quot;&#125;,</div><div class="line">	&#123;position: [&#123;x: 600,y: 600&#125;,&#123;x: 800,y: 600&#125;,&#123;x: 800,y: 800&#125;,&#123;x: 600,y: 600&#125;],color: &quot;#caff67&quot;&#125;</div><div class="line">];</div><div class="line">console.log(arr[0].color)</div><div class="line">for( var i = 0; i &lt; arr.length; i++) &#123;</div><div class="line">	context.beginPath();</div><div class="line">	context.moveTo(arr[i].position[0].x,arr[i].position[0].y);</div><div class="line">	for( var j = 1; j &lt; arr[i].position.length; j++) &#123;</div><div class="line">		context.lineTo(arr[i].position[j].x,arr[i].position[j].y);</div><div class="line">	&#125;</div><div class="line">	context.closePath();</div><div class="line">	context.lineWidth = &quot;2&quot;;</div><div class="line">	context.stroke();</div><div class="line">	context.fillStyle = arr[i].color;</div><div class="line">	context.fill();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>代码为以上，欢迎批评指正。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">共43.7k字</span>
+</div>
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="https://github.com/ChangerHe/2017/07/25/浅谈框架模式的MVC-MVP-MVVM/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -531,7 +909,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共42.6k字</span>
+  <span class="post-count">共43.7k字</span>
 </div>
 
     
@@ -809,7 +1187,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共42.6k字</span>
+  <span class="post-count">共43.7k字</span>
 </div>
 
     
@@ -996,7 +1374,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共42.6k字</span>
+  <span class="post-count">共43.7k字</span>
 </div>
 
     
@@ -1180,7 +1558,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共42.6k字</span>
+  <span class="post-count">共43.7k字</span>
 </div>
 
     
@@ -1370,7 +1748,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共42.6k字</span>
+  <span class="post-count">共43.7k字</span>
 </div>
 
     
@@ -1567,7 +1945,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共42.6k字</span>
+  <span class="post-count">共43.7k字</span>
 </div>
 
     
@@ -1802,7 +2180,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共42.6k字</span>
+  <span class="post-count">共43.7k字</span>
 </div>
 
     
@@ -1990,441 +2368,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共42.6k字</span>
-</div>
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://github.com/ChangerHe/2017/07/09/XML学习笔记/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Changer He">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Changer He's Home Page">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/07/09/XML学习笔记/" itemprop="url">
-                  XML学习笔记
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-09T23:29:15+08:00">
-                2017-07-09
-              </time>
-            
-
-            
-
-  <span class="post-letters-count">
-    &nbsp; | &nbsp;
-    <span>1,198 字</span>
-    &nbsp; | &nbsp;
-    <span>5 min</span>
-  </span>
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/XML-学习笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">XML 学习笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计</span>
-                
-                <span title="字数统计">
-                  1,198字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长</span>
-                
-                <span title="阅读时长">
-                  5分钟
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="XML-HTML-XHTML-DHTML的相互关系"><a href="#XML-HTML-XHTML-DHTML的相互关系" class="headerlink" title="XML/HTML/XHTML/DHTML的相互关系"></a>XML/HTML/XHTML/DHTML的相互关系</h1><p>XML(Extensible Markup Language)可扩展标记语言，和HTML类似，都是一种标记语言，还有类似的标记语言有：DHTML和XHTML，先来捋一捋他们的关系：</p>
-<h2 id="HTML（HyperText-Markup-Language）"><a href="#HTML（HyperText-Markup-Language）" class="headerlink" title="HTML（HyperText Markup Language）"></a>HTML（HyperText Markup Language）</h2><p>这个不必多说，网络的通用语言，随着网络的盛行，大行其道。本身是一种文本文件，通过在文本文件中添加标记符来告诉浏览器显示什么内容。因为最初的标准不完善，经过长时间的演化，现在是一个基本上已经算是完全固定的HTML5版本。<br>HTML因为之前的不断向下兼容，导致结构不够严谨而备受诟病，因此之后一些搞事的程序猿们开始构思一个结构更加严谨的文档标记语言，这个时候XHTML应运而生了。</p>
-<h2 id="XHTML（Extensible-HyperText-Markup-Language）"><a href="#XHTML（Extensible-HyperText-Markup-Language）" class="headerlink" title="XHTML（Extensible HyperText Markup Language）"></a>XHTML（Extensible HyperText Markup Language）</h2><p>先看一下百度百科上对XHTML的解释<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">可扩展超文本标记语言，是一种置标语言，表现方式与超文本标记语言（HTML）类似，不过语法上更加严格。</div></pre></td></tr></table></figure></p>
-<p>其实就严谨性来说，XHTML确实相比于HTML严谨了很多，但是随之也产生了跨平台的兼容性问题和无法向下兼容的问题。因此XHTML逐渐被淘汰，只有一些很老的公司在使用这个技术。</p>
-<h2 id="DHTML（Dynamic-HTML）"><a href="#DHTML（Dynamic-HTML）" class="headerlink" title="DHTML（Dynamic HTML）"></a>DHTML（Dynamic HTML）</h2><p>DHTML其实相当于HTML加上CSS加上JS，因为DHTML是“动态的”HTML。</p>
-<h2 id="XML-Extensible-Markup-Language"><a href="#XML-Extensible-Markup-Language" class="headerlink" title="XML(Extensible Markup Language)"></a>XML(Extensible Markup Language)</h2><p>下面就是我们的主角登场了，因为考虑到数据的严谨性和可调用性，同时要保证能够和前台的HTML进行成功的交互，此时XML就应运而生了（其实XML比XHTML诞生的早很多，在1998年就成为了W3C的推荐标准），XML是各种应用程序之间进行数据传输最常用的工具。</p>
-<h1 id="XML的语法"><a href="#XML的语法" class="headerlink" title="XML的语法"></a>XML的语法</h1><h2 id="语法注意事项"><a href="#语法注意事项" class="headerlink" title="语法注意事项"></a>语法注意事项</h2><p>1.空元素标签都必须用“/”来关闭，如：  <code>&lt;br/&gt;</code><br>2.所有标签都区分大小写。<br>3.必须严格嵌套。<br>4.所有标签的属性都必须用引号括起来。<br>5.XML有且只有一个根元素。</p>
-<h2 id="XML声明"><a href="#XML声明" class="headerlink" title="XML声明"></a>XML声明</h2><p>&lt;?xml 版本信息[编码信息][文档独立性信息]?&gt;<br>如： <code>&lt;?xml version=&quot;1.0&quot;?&gt;</code><br>注：xml文档声明必须放到文档第一行，且前方不能又任何字符。</p>
-<h2 id="文档类型声明（DTD）"><a href="#文档类型声明（DTD）" class="headerlink" title="文档类型声明（DTD）"></a>文档类型声明（DTD）</h2><h3 id="命名规范"><a href="#命名规范" class="headerlink" title="命名规范"></a>命名规范</h3><p>1.只能以字母，下划线，或冒号开头。<br>2.不能包含空格。<br>3.名称中尽量不使用冒号，否则可能出现解析问题。<br>4.字符中不能有 <code>&amp;</code> 和 <code>&lt;</code> 以及 <code>]]&gt;</code> 标签，否则会被理解为标记的起始和结束定界符。</p>
-<h3 id="字符引用"><a href="#字符引用" class="headerlink" title="字符引用"></a>字符引用</h3><p>有些地方必须要用字符时，可用字符的实体或者字符的进制码代替</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">字符</th>
-<th style="text-align:center">字符引用（十进制）</th>
-<th style="text-align:center">字符引用（十六进制）</th>
-<th style="text-align:center">预定义实体引用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">&lt;</td>
-<td style="text-align:center">&amp;#60;</td>
-<td style="text-align:center">&amp;#x3c;</td>
-<td style="text-align:center">&amp;lt;</td>
-</tr>
-<tr>
-<td style="text-align:center">&gt;</td>
-<td style="text-align:center">&amp;#62;</td>
-<td style="text-align:center">&amp;#x3e;</td>
-<td style="text-align:center">&amp;gt;</td>
-</tr>
-<tr>
-<td style="text-align:center">“</td>
-<td style="text-align:center">&amp;#34;</td>
-<td style="text-align:center">&amp;#x22;</td>
-<td style="text-align:center">&amp;quot;</td>
-</tr>
-<tr>
-<td style="text-align:center">‘</td>
-<td style="text-align:center">&amp;#39;</td>
-<td style="text-align:center">&amp;#x27;</td>
-<td style="text-align:center">&amp;apos;</td>
-</tr>
-<tr>
-<td style="text-align:center">&amp;</td>
-<td style="text-align:center">&amp;#38;</td>
-<td style="text-align:center">&amp;#x26;</td>
-<td style="text-align:center">&amp;amp;</td>
-</tr>
-</tbody>
-</table>
-<h3 id="CDATA字段"><a href="#CDATA字段" class="headerlink" title="CDATA字段"></a>CDATA字段</h3><p>其内容不被XML处理器解析，所以可以包含任意字符。但是不能有 <code>&amp;</code> 和 <code>&lt;</code> 以及 <code>]]&gt;</code> ，相当于引用了其中的内容，而该内容不被解析。<br>格式：<code>&lt;![CDATA[ 任何不想被解析的内容 ]]&gt;</code></p>
-<h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><p>引用css格式：<code>&lt;?xml-stylesheet href=&quot;hello.css&quot; type=&quot;text/css&quot;?&gt;</code><br>引用外部DTD格式：<code>&lt;!DOCTYPE greeting SYSTEM &quot;hello.dtd&quot;&gt;</code><br>直接写在xml文档内的DTD：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE greeting [</div><div class="line">	&lt;!ELEMENT greeting (#PCDATA)&gt;</div><div class="line">]&gt;</div></pre></td></tr></table></figure></p>
-<p>不过，对于css而言，对xml其实并不特别合适，XML的首选样式语言是XSLT (eXtensible Stylesheet Language Transformations)<br>其引用方式与css类似：<br><code>&lt;?xml-stylesheet type=&quot;text/xsl&quot; href=&quot;simple.xsl&quot;?&gt;</code><br>注：<br><code>PCDATA</code>:被解析的字符数据<br><code>CDATA</code>:不会被解析器解析的文本</p>
-<h2 id="属性声明"><a href="#属性声明" class="headerlink" title="属性声明"></a>属性声明</h2><p>属性通过ATTLIST来进行声明<br>格式：<code>&lt;!ATTLIST 元素名称 属性名称 属性类型 默认值&gt;</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;!ATTLIST payment type CDATA &quot;check&quot;&gt;</div><div class="line">&lt;payment type=&quot;check&quot;/&gt;</div></pre></td></tr></table></figure></p>
-<h1 id="XML-HTTP-Request"><a href="#XML-HTTP-Request" class="headerlink" title="XML HTTP Request"></a>XML HTTP Request</h1><p>讲了半天XML的杂七杂八，其实这玩意儿才是正主。<br>XMLHttpRequest 对象用于在后台与服务器交换数据。也就是有了他，AJAX,JSON,XMLHttpRequest对象之流才能正常工作起来，实现数据的交换和同步异步传输。<br>语法如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">var xmlhttp=new XMLHttpRequest();   </div><div class="line">//新定义一个XMLHttpRequest对象</div><div class="line">xmlhttp.onreadystatechange = state_Change; </div><div class="line">//onreadystatechange 是一个事件句柄。它的值 (state_Change) 是一个函数的名称</div><div class="line">//当 XMLHttpRequest 对象的状态发生改变时，会触发此函数。</div><div class="line">xmlhttp.open(&quot;GET&quot;,url,true);</div><div class="line">//参数提交方式为GET，参数指向一个url，参数为异步请求（true）</div><div class="line">xmlhttp.send(null);</div><div class="line">//send()方法仅在使用POST传参时使用，故设定为null</div><div class="line">function state_Change()&#123;</div><div class="line">	if(xmlhttp.readyState == 4)&#123;   //4表示已装载</div><div class="line">		if(xmlhttp.status == 200)&#123;  //200表示http请求执行成功</div><div class="line">			//此处可执行代码</div><div class="line">		&#125; else &#123;</div><div class="line">			console.log(&quot;服务器发生错误&quot;)</div><div class="line">		&#125;</div><div class="line">	&#125; else  &#123;</div><div class="line">		consolg.log(&quot;未成功装载&quot;)</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-<div class="theme-info">
-  <div class="powered-by"></div>
-  <span class="post-count">共42.6k字</span>
-</div>
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://github.com/ChangerHe/2017/07/08/JavaScript高级程序设计复习笔记（三）/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Changer He">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Changer He's Home Page">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/07/08/JavaScript高级程序设计复习笔记（三）/" itemprop="url">
-                  JavaScript高级程序设计复习笔记（三）
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-08T20:20:09+08:00">
-                2017-07-08
-              </time>
-            
-
-            
-
-  <span class="post-letters-count">
-    &nbsp; | &nbsp;
-    <span>1,059 字</span>
-    &nbsp; | &nbsp;
-    <span>4 min</span>
-  </span>
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript-学习笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript 学习笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计</span>
-                
-                <span title="字数统计">
-                  1,059字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长</span>
-                
-                <span title="阅读时长">
-                  4分钟
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>昨天看了一遍javascript的面向对象，感觉javascript的面向对象比java难懂很多啊，主要还是原型链继承这块的东西。<br>本篇内容主要讲在学习javascript中很容易搞不清楚的call()方法和apply()方法。</p>
-<h1 id="apply和call的区别在哪里"><a href="#apply和call的区别在哪里" class="headerlink" title="apply和call的区别在哪里"></a>apply和call的区别在哪里</h1><p>apply:方法能劫持另外一个对象的方法，继承另外一个对象的属性.<br>Function.apply(obj,args)方法能接收两个参数<br>obj：这个对象将代替Function类里this对象<br>args：这个是数组，它将作为参数传给Function（args–&gt;arguments）<br>call:和apply的意思一样,只不过是参数列表不一样.<br>Function.call(obj,[param1[,param2[,…[,paramN]]]])<br>obj：这个对象将代替Function类里this对象<br>params：这个是一个参数列表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">/*定义一个人类*/  </div><div class="line">function Person(name,age)  </div><div class="line">    &#123;  </div><div class="line">        this.name=name;  </div><div class="line">        this.age=age;  </div><div class="line">    &#125;  </div><div class="line">/*定义一个学生类*/  </div><div class="line">functionStudent(name,age,grade)  </div><div class="line">    &#123;  </div><div class="line">        Person.apply(this,arguments);  </div><div class="line">        this.grade=grade;  </div><div class="line">    &#125;  </div><div class="line">//创建一个学生类  </div><div class="line">var student=new Student(&quot;zhangsan&quot;,21,&quot;一年级&quot;);  </div><div class="line">//测试  </div><div class="line">alert(&quot;name:&quot;+student.name+&quot;\n&quot;+&quot;age:&quot;+student.age+&quot;\n&quot;+&quot;grade:&quot;+student.grade);</div></pre></td></tr></table></figure></p>
-<p>大家可以看到测试结果name:zhangsan age:21  grade:一年级<br>学生类里面我没有给name和age属性赋值啊,为什么又存在这两个属性的值呢,这个就是apply的神奇之处.<br>分析: Person.apply(this,arguments);<br>this:在创建对象在这个时候代表的是student<br>arguments:是一个数组,也就是[“zhangsan”,”21”,”一年级”];<br>也就是通俗一点讲就是:用student去执行Person这个类里面的内容,在Person这个类里面存在this.name等之类的语句,这样就将属性创建到了student对象里面。</p>
-<h1 id="什么情况下用apply-什么情况下用call"><a href="#什么情况下用apply-什么情况下用call" class="headerlink" title="什么情况下用apply,什么情况下用call"></a>什么情况下用apply,什么情况下用call</h1><p>在给对象参数的情况下,如果参数的形式是数组的时候,比如apply示例里面传递了参数arguments,这个参数是数组类型,并且在调用Person的时候参数的列表是对应一致的(也就是Person和Student的参数列表前两位是一致的) 就可以采用 apply , 如果我的Person的参数列表是这样的(age,name),而Student的参数列表是(name,age,grade),这样就可以用call来实现了,也就是直接指定参数列表对应值的位置(Person.call(this,age,name,grade));</p>
-<h1 id="Function-apply-在提升程序性能方面的技巧"><a href="#Function-apply-在提升程序性能方面的技巧" class="headerlink" title="Function.apply()在提升程序性能方面的技巧"></a>Function.apply()在提升程序性能方面的技巧</h1><p>我们先从 Math.max() 函数说起，  Math.max后面可以接任意个参数，最后返回所有参数中的最大值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">alert(Math.max(5,8))   //8</div><div class="line">alert(Math.max(5,7,9,3,1,6))   //9</div></pre></td></tr></table></figure></p>
-<p>但是在很多情况下，我们需要找出数组中最大的元素。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var arr=[5,7,9,1]</div><div class="line">alert(Math.max(arr))</div></pre></td></tr></table></figure></p>
-<p>这样却是不行的。一定要这样写<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function getMax(arr)&#123;</div><div class="line">    var arrLen=arr.length;</div><div class="line">    for(var i=0,ret=arr[0];i&lt;arrLen;i++)&#123;</div><div class="line">        ret=Math.max(ret,arr[i]);        </div><div class="line">    &#125;</div><div class="line">    return ret;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>这样写麻烦而且低效。如果用 apply呢，看代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function getMax2(arr)&#123;</div><div class="line">    return Math.max.apply(null,arr)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>两段代码达到了同样的目的，但是getMax2却优雅，高效，简洁得多。</p>
-<p>看性能测试:<br>getMax性能测试<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">var myArr=new Array()</div><div class="line"></div><div class="line">function fillRnd(arrLen)&#123;  //填入 arrLen个1-10的随机数字到数组</div><div class="line">    for(var i=0,arr=[];i&lt;arrLen;i++)&#123;</div><div class="line">        arr[i]=Math.ceil(Math.random()*10)</div><div class="line">    &#125;</div><div class="line">    return arr</div><div class="line">&#125;</div><div class="line"></div><div class="line">function getMax(arr)&#123;</div><div class="line">    var arrLen=arr.length;</div><div class="line">    for(var i=0,ret=arr[0];i&lt;arrLen;i++)&#123;</div><div class="line">        ret=Math.max(ret,arr[i]);        </div><div class="line">    &#125;</div><div class="line">    return ret;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function getMax2(arr)&#123;</div><div class="line">    return Math.max.apply(null,arr)</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">myArr=fillRnd(20*10000)  //生成20万个随机数填到数组</div><div class="line"></div><div class="line">var t1=new Date()</div><div class="line">var max1=getMax(myArr)</div><div class="line">var t2=new Date()</div><div class="line">var max2=getMax2(myArr)</div><div class="line">var t3=new Date()</div><div class="line"></div><div class="line">if (max1!==max2) alert(&quot;error&quot;)</div><div class="line">alert([t3-t2,t2-t1])   //在我机器上 96,464 .不同的机器,结果可能有差异</div><div class="line"></div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
-<p>通过20万个数据的比较， getMax2 时间为 96ms 而 getmax时间为464。 两者相差5倍</p>
-<p> 再比如数组的push方法。<br><code>var arr1=[1,3,4];</code><br><code>var arr2=[3,4,5];</code><br>如果我们要把 arr2展开，然后一个一个追加到 <code>arr1</code>中去，最后让  <code>arr1=[1,3,4,3,4,5]</code><br><code>arr1.push(arr2)</code>  显然是不行的。 因为这样做会得到  <code>[1,3,4, [3,4,5] ]</code></p>
-<p>我们只能用一个循环去一个一个的<code>push</code>当然也可以用 <code>arr1.concat(arr2)</code> 但是<code>concat</code>方法并不改变 arr1本身<br>自从有了 Apply    ,事情就变得如此简单<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Array.prototype.push.apply(arr1,arr2)</div></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-<div class="theme-info">
-  <div class="powered-by"></div>
-  <span class="post-count">共42.6k字</span>
+  <span class="post-count">共43.7k字</span>
 </div>
 
     
@@ -2477,7 +2421,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">43</span>
+                <span class="site-state-item-count">45</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
