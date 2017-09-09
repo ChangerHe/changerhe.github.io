@@ -283,6 +283,202 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://github.com/ChangerHe/2017/08/07/JavaScript深入浅出-call-apply/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Changer He">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Changer He's Home Page">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/08/07/JavaScript深入浅出-call-apply/" itemprop="url">
+                  JavaScript深入浅出-call/apply
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-07T22:51:48+08:00">
+                2017-08-07
+              </time>
+            
+
+            
+
+  <span class="post-letters-count">
+    &nbsp; | &nbsp;
+    <span>984 字</span>
+    &nbsp; | &nbsp;
+    <span>4 min</span>
+  </span>
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript-学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript 学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  984字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  4分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>本文中call和apply仅占小部分,主要还是关于自己在学习过程中踩到的坑的记录.</p>
+<h1 id="使用call方法将变量产生的数组进行转换"><a href="#使用call方法将变量产生的数组进行转换" class="headerlink" title="使用call方法将变量产生的数组进行转换"></a>使用call方法将变量产生的数组进行转换</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function foo(a, b, c) &#123;</div><div class="line">    var arr1 = [].reverse.call(arguments);</div><div class="line">    console.log(arr1);</div><div class="line">    var arr2 = [].slice.call(arguments);</div><div class="line">    console.log(arr2.reverse());</div><div class="line">&#125;</div><div class="line">foo(1,2,3)</div></pre></td></tr></table></figure>
+<p>以上使用了两种方法，arr1使用了数组的reverse方法，并将数组的reverse方法借用给arguments，也就是说arguments使用了数组中的方法，之前的arguments是没有这个方法的。其最终产生的效果是，arr1还是数组的集合。</p>
+<p>第二种方法其实是首先将数组的slice方法的作用域赋予给arguments，那么arguments其实是使用了slice的方法进行了数组的序列化，最终产生的效果其实是arr2最终变成了一个数组，然后使用数组，也就是arr2的作用域链中的reverse方法进行了调换。</p>
+<h1 id="arrow函数"><a href="#arrow函数" class="headerlink" title="arrow函数"></a>arrow函数</h1><p> 箭头函数其实是对于单调乏味且冗长的function关键词的简写，如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var foo = a =&gt; &#123;</div><div class="line">    console.log(a)</div><div class="line">&#125;</div><div class="line">foo(2);   //2</div></pre></td></tr></table></figure>
+<p>其实在这个情况下，以上的程序是等价于以下的程序的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var foo = function(a) &#123;</div><div class="line">	console.log(a);</div><div class="line">&#125;</div><div class="line">foo(2);</div></pre></td></tr></table></figure>
+<p>那么问题来了，这个箭头函数到底表示的是函数表达式还是函数声明呢？，经过一个简单的测试，发现其实这个箭头函数就是一个简单的函数表达式，我们来测试以下它的函数提升过程：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">foo(2);</div><div class="line">var foo = a =&gt; &#123;</div><div class="line">	console.log(a);    //TypeError: foo is not a function</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="严格模式下必报的this指向问题"><a href="#严格模式下必报的this指向问题" class="headerlink" title="严格模式下必报的this指向问题"></a>严格模式下必报的this指向问题</h1><p>严格模式下，全局对象无法绑定到未进行修饰的函数声明，因此在全局作用域下，在函数内调用this时会造成报错： Cannot read property ‘a’ of undefined；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">(function foo() &#123;</div><div class="line">	&quot;use strict&quot;;</div><div class="line">	var a = 2;</div><div class="line">	console.log(this.a);   //Cannot read property &apos;a&apos; of undefined；</div><div class="line">&#125;)()</div></pre></td></tr></table></figure></p>
+<h1 id="关于this的作用层级问题"><a href="#关于this的作用层级问题" class="headerlink" title="关于this的作用层级问题"></a>关于this的作用层级问题</h1><p>对象中只有引用链的最顶层或者说是作用者的最后一层会影响其调用位置，来看一下下面的这个代码，很奇怪的事情是this居然指向的是obj1 而不是obj2，原因就是因为作用者的最后一层就是obj1.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function foo() &#123;</div><div class="line">	console.log(this.a);</div><div class="line">&#125;</div><div class="line">var obj1 = &#123;</div><div class="line">	a: 1,</div><div class="line">	foo: foo</div><div class="line">&#125;</div><div class="line">var obj2 = &#123;</div><div class="line">	a: 2,</div><div class="line">	obj1: obj1</div><div class="line">&#125;</div><div class="line">obj2.obj1.foo();    //输出的是1，也就是代表this其实指向的是obj1</div></pre></td></tr></table></figure></p>
+<h1 id="引用类型常量的赋值问题"><a href="#引用类型常量的赋值问题" class="headerlink" title="引用类型常量的赋值问题"></a>引用类型常量的赋值问题</h1><p>当函数内部制定了变量值后,输出的值是不一样的,我们来看一下例子:<br>function foo(x) {<br>    x.push(4);<br>    console.log(x);   //输出的是[1,2,3,4],没毛病<br>    x = [4,5,6];<br>    x.push(7);<br>    console.log(x);   //输出[4,5,6,7]这个没毛病<br>}<br>var a = [1,2,3];<br>foo(a);<br>console.log(a);     //这个情况下,a的值其实是[1,2,3,4];<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">其实主要的原因是这样的,当我们的a作为参数传到foo函数中的时候,foo中的参数x其实是获得了一个到a数组的指针,当x进行相应的数值处理操作的时候,会直接作用到a上面,但是当x的指针改变了,也就是x被重新赋值的时候,x的指针就指向新的[4,5,6]数组了,这个时候其实后面的push(7)的操作已经是对于新的数组,并没有对a数组进行相应的操作,故最后返回的a的值只是[1,2,3,4]</div><div class="line"></div><div class="line"># 引用类型常量的赋值问题再探讨</div><div class="line"></div><div class="line">一个很小的问题(其实涉及到的知识点和第五条是类似的),当我为一个变量赋予了一个常量值,但通过函数对这个常量值进行更改,那么更改会不会体现到这个常量值中呢?</div></pre></td></tr></table></figure></p>
+<p>function foo(x) {<br>    x = x + 1;<br>    console.log(x);<br>}<br>var a = 2;<br>foo(a);<br>console.log(a);  //此时a还是为2<br>```</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">共45.1k字</span>
+</div>
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="https://github.com/ChangerHe/2017/08/04/JavaScript笔试面试题收集（二）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -457,7 +653,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共43.7k字</span>
+  <span class="post-count">共45.1k字</span>
 </div>
 
     
@@ -648,7 +844,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共43.7k字</span>
+  <span class="post-count">共45.1k字</span>
 </div>
 
     
@@ -909,7 +1105,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共43.7k字</span>
+  <span class="post-count">共45.1k字</span>
 </div>
 
     
@@ -1187,7 +1383,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共43.7k字</span>
+  <span class="post-count">共45.1k字</span>
 </div>
 
     
@@ -1374,7 +1570,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共43.7k字</span>
+  <span class="post-count">共45.1k字</span>
 </div>
 
     
@@ -1558,7 +1754,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共43.7k字</span>
+  <span class="post-count">共45.1k字</span>
 </div>
 
     
@@ -1748,7 +1944,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共43.7k字</span>
+  <span class="post-count">共45.1k字</span>
 </div>
 
     
@@ -1945,7 +2141,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共43.7k字</span>
+  <span class="post-count">共45.1k字</span>
 </div>
 
     
@@ -2180,195 +2376,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共43.7k字</span>
-</div>
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://github.com/ChangerHe/2017/07/12/JavaScipt中sort-方法的底层原理及妙用/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Changer He">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Changer He's Home Page">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/07/12/JavaScipt中sort-方法的底层原理及妙用/" itemprop="url">
-                  JavaScipt中sort()方法的底层原理及妙用
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-12T17:58:29+08:00">
-                2017-07-12
-              </time>
-            
-
-            
-
-  <span class="post-letters-count">
-    &nbsp; | &nbsp;
-    <span>665 字</span>
-    &nbsp; | &nbsp;
-    <span>3 min</span>
-  </span>
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript-学习笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript 学习笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计</span>
-                
-                <span title="字数统计">
-                  665字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长</span>
-                
-                <span title="阅读时长">
-                  3分钟
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>众所周知，JavaScript中的sort()方法可对数组进行排序。<br>平时我们使用就是简单的执行一个sort()方法，但是其实这个方法是带有参数的。<br>语法为：<code>arrayObject.sort(sortby);</code><br>其中，参数sortby，必须为函数！这点要注意，之前试过传值的方法一直都不奏效，后面才发现，只能传递一个参数。</p>
-<h1 id="未传参情况下的排序"><a href="#未传参情况下的排序" class="headerlink" title="未传参情况下的排序"></a>未传参情况下的排序</h1><p>当没有为该方法传参时，则默认对数组进行从大到小排序，排序的依据是数组中每个元素的首个字符的ASCII码，因此当你想要对数组<code>[2,10,3]</code>排序时，直接排序的结果为<code>[10,2,3]</code>，因为在sort()的底层，比较时会自动为数组中的值进行toString()方法的转换，比较时比较的是字符。</p>
-<h1 id="传参情况下的排序"><a href="#传参情况下的排序" class="headerlink" title="传参情况下的排序"></a>传参情况下的排序</h1><p>JS高程中介绍了传递比较函数的方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var a = [10,3,12];</div><div class="line">  var line = function(a,b)&#123;</div><div class="line">    return b -a;</div><div class="line">  &#125;</div><div class="line"> a.sort(line)</div><div class="line"> console.log(a)   //3,10,12</div></pre></td></tr></table></figure></p>
-<p> 但是有个问题，这个数东西就只能针对数组额，但是如果我想要对数组对象进行排序呢？<br> 其实方法类似，万变不离其宗。如下：<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"> var arr = [</div><div class="line">	&#123;name: &quot;aaa&quot;, age: 0&#125;,</div><div class="line">	&#123;name: &quot;bbb&quot;, age: 18&#125;,</div><div class="line">	&#123;name: &quot;ccc&quot;, age: 8&#125;</div><div class="line"> ];</div><div class="line">function compare(property)&#123;</div><div class="line">	return function(a,b)&#123;</div><div class="line">		var value1 = a[property];  //获取a的</div><div class="line">		var value2 = b[property];</div><div class="line">		return value1 - value2;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">console.log(arr.sort(compare(&apos;age&apos;)));</div></pre></td></tr></table></figure></p>
-<h1 id="逆向排序"><a href="#逆向排序" class="headerlink" title="逆向排序"></a>逆向排序</h1><p>那么问题来了，如果都是从小到大排序，那就不好玩了，能不能有办法在不使用reverse()方法的情况下，实现增加一个参数，来决定他们是从大到小排序，还是从小到大排序呢？<br>当然问题还是有解决方案的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">sortBy:function(attr,rev)&#123;</div><div class="line">	if(rev == undefined)&#123;</div><div class="line">		rev = 1;    //当未传递参数时，默认为从小到大排序，即undefined时，为1</div><div class="line">	&#125;else&#123;</div><div class="line">		rev = (rev)? 1 : -1;</div><div class="line">	&#125;</div><div class="line">	return function(a,b)&#123;</div><div class="line">		a = a[attr]</div><div class="line">		b = b[attr]</div><div class="line">		if(a &lt; b)&#123;</div><div class="line">			return rev * -1;</div><div class="line">		&#125; else if(a = b)&#123;</div><div class="line">			return 0;</div><div class="line">		&#125; else &#123;</div><div class="line">			return 1;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">someArray.sort(sortBy(&quot;number&quot;,false));</div></pre></td></tr></table></figure></p>
-<h1 id="底层原理"><a href="#底层原理" class="headerlink" title="底层原理"></a>底层原理</h1><p>以上是研究出的部分结果，但是对sort()的底层排序机制，还是不太理解，到底是用的冒泡排序，还是堆排序，还是更牛逼的高级算法？这就不得而知了，这里引用一下segmenfault上大神们的解释：<br>不同的浏览器，对sort()方法的实现机制是不同的。<br>Mozilla、Firefox这两个浏览器是使用的<code>归并排序</code>方法。使用V8引擎，对数组长度小于等于22的用插入排序，其他的使用快速排序。<br>webkit这个浏览器底层使用了C++库中的qsort()方法。<br>```</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-<div class="theme-info">
-  <div class="powered-by"></div>
-  <span class="post-count">共43.7k字</span>
+  <span class="post-count">共45.1k字</span>
 </div>
 
     
@@ -2421,7 +2429,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">45</span>
+                <span class="site-state-item-count">46</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2432,7 +2440,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">16</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -2443,7 +2451,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

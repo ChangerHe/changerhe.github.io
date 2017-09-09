@@ -89,17 +89,17 @@
 
 
 
-<meta name="description" content="关于形参的传参问题1(function(foo)&amp;#123;return typeof foo.foo.bar;&amp;#125;)(&amp;#123; foo:&amp;#123; bar: 1 &amp;#125; &amp;#125;) 答案: number解析: 其实这题考了我们闭包以及形参传参的问题,首先,我们将整体看成一个自执行函数,函数的变量是{ foo:{ bar: 1 } },那么我们可以把这一题简化一下:(当然,">
+<meta name="description" content="关于形参的传参问题123(function(foo)&amp;#123;	return typeof foo.foo.bar;	&amp;#125;)(&amp;#123; foo:&amp;#123; bar: 1 &amp;#125; &amp;#125;) 答案: number解析: 其实这题考了我们闭包以及形参传参的问题,首先,我们将整体看成一个自执行函数,函数的变量是{ foo:{ bar: 1 } },那么我们可以把这一题简化一下:">
 <meta name="keywords" content="JavaScript笔试面试题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript笔试面试题收集（四）">
 <meta property="og:url" content="https://github.com/ChangerHe/2017/08/22/JavaScript笔试面试题收集（四）/index.html">
 <meta property="og:site_name" content="Changer He&#39;s Home Page">
-<meta property="og:description" content="关于形参的传参问题1(function(foo)&amp;#123;return typeof foo.foo.bar;&amp;#125;)(&amp;#123; foo:&amp;#123; bar: 1 &amp;#125; &amp;#125;) 答案: number解析: 其实这题考了我们闭包以及形参传参的问题,首先,我们将整体看成一个自执行函数,函数的变量是{ foo:{ bar: 1 } },那么我们可以把这一题简化一下:(当然,">
-<meta property="og:updated_time" content="2017-08-22T01:41:32.786Z">
+<meta property="og:description" content="关于形参的传参问题123(function(foo)&amp;#123;	return typeof foo.foo.bar;	&amp;#125;)(&amp;#123; foo:&amp;#123; bar: 1 &amp;#125; &amp;#125;) 答案: number解析: 其实这题考了我们闭包以及形参传参的问题,首先,我们将整体看成一个自执行函数,函数的变量是{ foo:{ bar: 1 } },那么我们可以把这一题简化一下:">
+<meta property="og:updated_time" content="2017-09-06T11:00:56.142Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript笔试面试题收集（四）">
-<meta name="twitter:description" content="关于形参的传参问题1(function(foo)&amp;#123;return typeof foo.foo.bar;&amp;#125;)(&amp;#123; foo:&amp;#123; bar: 1 &amp;#125; &amp;#125;) 答案: number解析: 其实这题考了我们闭包以及形参传参的问题,首先,我们将整体看成一个自执行函数,函数的变量是{ foo:{ bar: 1 } },那么我们可以把这一题简化一下:(当然,">
+<meta name="twitter:description" content="关于形参的传参问题123(function(foo)&amp;#123;	return typeof foo.foo.bar;	&amp;#125;)(&amp;#123; foo:&amp;#123; bar: 1 &amp;#125; &amp;#125;) 答案: number解析: 其实这题考了我们闭包以及形参传参的问题,首先,我们将整体看成一个自执行函数,函数的变量是{ foo:{ bar: 1 } },那么我们可以把这一题简化一下:">
 
 
 
@@ -414,7 +414,7 @@
       
 
       
-        <h1 id="关于形参的传参问题"><a href="#关于形参的传参问题" class="headerlink" title="关于形参的传参问题"></a>关于形参的传参问题</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(function(foo)&#123;return typeof foo.foo.bar;&#125;)(&#123; foo:&#123; bar: 1 &#125; &#125;)</div></pre></td></tr></table></figure>
+        <h1 id="关于形参的传参问题"><a href="#关于形参的传参问题" class="headerlink" title="关于形参的传参问题"></a>关于形参的传参问题</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">(function(foo)&#123;</div><div class="line">	return typeof foo.foo.bar;</div><div class="line">	&#125;)(&#123; foo:&#123; bar: 1 &#125; &#125;)</div></pre></td></tr></table></figure>
 <p>答案: number<br>解析: 其实这题考了我们闭包以及形参传参的问题,首先,我们将整体看成一个自执行函数,函数的变量是{ foo:{ bar: 1 } },那么我们可以把这一题简化一下:(当然,这个对象并不是存在于全局作用域的,我们只是把它拆开,做个比喻)</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var baz = &#123; foo:&#123; bar: 1 &#125; &#125;</div><div class="line">(function(foo)&#123;</div><div class="line">	return typeof foo.foo.bar;&#125;</div><div class="line">&#125;)(baz)</div></pre></td></tr></table></figure>
 <p>那么现在就很明显了,其实就是把baz作为参数传递到这个自执行函数中,理解了这第一步,那么我们要先了解一下”左值”的概念,就是当我们遇到<code>foo.foo.bar</code>这一串的时候,可能很多同学很疑惑,怎么传了两次参数,其实两次参数的作用是不同的,执行这段代码,那么会先查找左边的值,并传入这个参数. </p>
@@ -508,7 +508,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共43.7k字</span>
+  <span class="post-count">共45.1k字</span>
 </div>
 
 
@@ -594,7 +594,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">45</span>
+                <span class="site-state-item-count">46</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -605,7 +605,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">16</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -616,7 +616,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

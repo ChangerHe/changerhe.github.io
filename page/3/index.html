@@ -283,6 +283,194 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://github.com/ChangerHe/2017/07/12/JavaScipt中sort-方法的底层原理及妙用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Changer He">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Changer He's Home Page">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/07/12/JavaScipt中sort-方法的底层原理及妙用/" itemprop="url">
+                  JavaScipt中sort()方法的底层原理及妙用
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-12T17:58:29+08:00">
+                2017-07-12
+              </time>
+            
+
+            
+
+  <span class="post-letters-count">
+    &nbsp; | &nbsp;
+    <span>665 字</span>
+    &nbsp; | &nbsp;
+    <span>3 min</span>
+  </span>
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript-学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript 学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  665字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  3分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>众所周知，JavaScript中的sort()方法可对数组进行排序。<br>平时我们使用就是简单的执行一个sort()方法，但是其实这个方法是带有参数的。<br>语法为：<code>arrayObject.sort(sortby);</code><br>其中，参数sortby，必须为函数！这点要注意，之前试过传值的方法一直都不奏效，后面才发现，只能传递一个参数。</p>
+<h1 id="未传参情况下的排序"><a href="#未传参情况下的排序" class="headerlink" title="未传参情况下的排序"></a>未传参情况下的排序</h1><p>当没有为该方法传参时，则默认对数组进行从大到小排序，排序的依据是数组中每个元素的首个字符的ASCII码，因此当你想要对数组<code>[2,10,3]</code>排序时，直接排序的结果为<code>[10,2,3]</code>，因为在sort()的底层，比较时会自动为数组中的值进行toString()方法的转换，比较时比较的是字符。</p>
+<h1 id="传参情况下的排序"><a href="#传参情况下的排序" class="headerlink" title="传参情况下的排序"></a>传参情况下的排序</h1><p>JS高程中介绍了传递比较函数的方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var a = [10,3,12];</div><div class="line">  var line = function(a,b)&#123;</div><div class="line">    return b -a;</div><div class="line">  &#125;</div><div class="line"> a.sort(line)</div><div class="line"> console.log(a)   //3,10,12</div></pre></td></tr></table></figure></p>
+<p> 但是有个问题，这个数东西就只能针对数组额，但是如果我想要对数组对象进行排序呢？<br> 其实方法类似，万变不离其宗。如下：<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"> var arr = [</div><div class="line">	&#123;name: &quot;aaa&quot;, age: 0&#125;,</div><div class="line">	&#123;name: &quot;bbb&quot;, age: 18&#125;,</div><div class="line">	&#123;name: &quot;ccc&quot;, age: 8&#125;</div><div class="line"> ];</div><div class="line">function compare(property)&#123;</div><div class="line">	return function(a,b)&#123;</div><div class="line">		var value1 = a[property];  //获取a的</div><div class="line">		var value2 = b[property];</div><div class="line">		return value1 - value2;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">console.log(arr.sort(compare(&apos;age&apos;)));</div></pre></td></tr></table></figure></p>
+<h1 id="逆向排序"><a href="#逆向排序" class="headerlink" title="逆向排序"></a>逆向排序</h1><p>那么问题来了，如果都是从小到大排序，那就不好玩了，能不能有办法在不使用reverse()方法的情况下，实现增加一个参数，来决定他们是从大到小排序，还是从小到大排序呢？<br>当然问题还是有解决方案的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">sortBy:function(attr,rev)&#123;</div><div class="line">	if(rev == undefined)&#123;</div><div class="line">		rev = 1;    //当未传递参数时，默认为从小到大排序，即undefined时，为1</div><div class="line">	&#125;else&#123;</div><div class="line">		rev = (rev)? 1 : -1;</div><div class="line">	&#125;</div><div class="line">	return function(a,b)&#123;</div><div class="line">		a = a[attr]</div><div class="line">		b = b[attr]</div><div class="line">		if(a &lt; b)&#123;</div><div class="line">			return rev * -1;</div><div class="line">		&#125; else if(a = b)&#123;</div><div class="line">			return 0;</div><div class="line">		&#125; else &#123;</div><div class="line">			return 1;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">someArray.sort(sortBy(&quot;number&quot;,false));</div></pre></td></tr></table></figure></p>
+<h1 id="底层原理"><a href="#底层原理" class="headerlink" title="底层原理"></a>底层原理</h1><p>以上是研究出的部分结果，但是对sort()的底层排序机制，还是不太理解，到底是用的冒泡排序，还是堆排序，还是更牛逼的高级算法？这就不得而知了，这里引用一下segmenfault上大神们的解释：<br>不同的浏览器，对sort()方法的实现机制是不同的。<br>Mozilla、Firefox这两个浏览器是使用的<code>归并排序</code>方法。使用V8引擎，对数组长度小于等于22的用插入排序，其他的使用快速排序。<br>webkit这个浏览器底层使用了C++库中的qsort()方法。<br>```</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">共45.1k字</span>
+</div>
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="https://github.com/ChangerHe/2017/07/09/XML学习笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -509,7 +697,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共43.7k字</span>
+  <span class="post-count">共45.1k字</span>
 </div>
 
     
@@ -704,7 +892,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共43.7k字</span>
+  <span class="post-count">共45.1k字</span>
 </div>
 
     
@@ -952,7 +1140,7 @@ reduceRight():迭代数组所有项，从最后一个数开始。
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共43.7k字</span>
+  <span class="post-count">共45.1k字</span>
 </div>
 
     
@@ -1155,7 +1343,7 @@ reduceRight():迭代数组所有项，从最后一个数开始。
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共43.7k字</span>
+  <span class="post-count">共45.1k字</span>
 </div>
 
     
@@ -1351,7 +1539,7 @@ reduceRight():迭代数组所有项，从最后一个数开始。
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共43.7k字</span>
+  <span class="post-count">共45.1k字</span>
 </div>
 
     
@@ -1544,7 +1732,7 @@ reduceRight():迭代数组所有项，从最后一个数开始。
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共43.7k字</span>
+  <span class="post-count">共45.1k字</span>
 </div>
 
     
@@ -1744,7 +1932,7 @@ reduceRight():迭代数组所有项，从最后一个数开始。
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共43.7k字</span>
+  <span class="post-count">共45.1k字</span>
 </div>
 
     
@@ -1936,7 +2124,7 @@ reduceRight():迭代数组所有项，从最后一个数开始。
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共43.7k字</span>
+  <span class="post-count">共45.1k字</span>
 </div>
 
     
@@ -2180,198 +2368,7 @@ reduceRight():迭代数组所有项，从最后一个数开始。
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共43.7k字</span>
-</div>
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://github.com/ChangerHe/2017/06/28/GIT配置不需密码即可push的方法/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Changer He">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Changer He's Home Page">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/06/28/GIT配置不需密码即可push的方法/" itemprop="url">
-                  GIT配置不需密码即可push的方法
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-28T22:36:16+08:00">
-                2017-06-28
-              </time>
-            
-
-            
-
-  <span class="post-letters-count">
-    &nbsp; | &nbsp;
-    <span>703 字</span>
-    &nbsp; | &nbsp;
-    <span>3 min</span>
-  </span>
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/GitHub-优化/" itemprop="url" rel="index">
-                    <span itemprop="name">GitHub 优化</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计</span>
-                
-                <span title="字数统计">
-                  703字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长</span>
-                
-                <span title="阅读时长">
-                  3分钟
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="为什么要写这篇博客？"><a href="#为什么要写这篇博客？" class="headerlink" title="为什么要写这篇博客？"></a>为什么要写这篇博客？</h1><p>今天学了点node.js，被慕课网狂拽酷炫的操作所折服，故决定投身sublime的怀抱。安装了package control以及各大插件后，最后安装git插件测试时，使用git：push命令始终没办法将代码push到我的github，想想也真是日了Justin Beiber了。<br>没办法，谁叫我天生丽质爱学习呢，然后我在网上找了各种办法，发现百度上的方法真的是水平太低，标准不一，基本雷同，更坑爹的是错都是差不多错一样的。我一个用github用了好几个月的人，你还叫我配置公钥？真是想说：<br><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1498671155922&amp;di=b3e1084de0148f1b484388639a6c86a1&amp;imgtype=0&amp;src=http%3A%2F%2Fwanzao2.b0.upaiyun.com%2Fsystem%2Fpictures%2F34182985%2Foriginal%2F1458040253_640x646.png" alt="PIC"></p>
-<h1 id="真正的解决办法"><a href="#真正的解决办法" class="headerlink" title="真正的解决办法"></a>真正的解决办法</h1><p>网上有很多办法，其实已经快说到点子上了，但是都是隔着被子瘙痒——没什么卵用，配置的时候看到那些博客，始终是摸不着头脑。<br>注：以下的配置方法，默认你已经安装好了git客户端，且熟悉基本的git操作命令，在远程代码库拥有了自己的仓库，且使用密码提交代码是成功的。</p>
-<h2 id="好，那么话不多说，开干"><a href="#好，那么话不多说，开干" class="headerlink" title="好，那么话不多说，开干"></a>好，那么话不多说，开干</h2><p>我们最主要的目的，是将提交时的http协议地址，直接改成类似于<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git@github.com:ChangerHe/My-code.git</div></pre></td></tr></table></figure></p>
-<p>这样的地址，当然，ChanerHe是我的github名，My-code是我想要push到的远程仓库名。更改之后，push的时候就会自动push到自己的仓库，不需要输入代码了，同时可以开心地在sublime上进行使用git插件了！<br>那么，现在我们现在打开我们我的git bash，在gitbash中输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote -v</div></pre></td></tr></table></figure></p>
-<p>输入之后可查看到自己的输出的branch，此时默认是origin。<br>此时如果未设置成功，bash中的输出是这样子的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">origin https://github.com/ChangerHe/My-code (fetch)</div><div class="line">origin https://github.com/ChangerHe/My-code (push)</div></pre></td></tr></table></figure></p>
-<p>这个时候你的push地址是https路径，所以会导致此时需要输入账号密码，我们现在再执行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote set-url origin git@github.com:ChangerHe/My-code.git</div></pre></td></tr></table></figure></p>
-<p>上面这段代码的意思就是，把git的默认push和fetch地址，改为以上相应地址。</p>
-<h2 id="同样的，ChangerHe是我的ID，My-code是我要提交的远程仓库名称，这段代码中，这两处需要改为你自己的。"><a href="#同样的，ChangerHe是我的ID，My-code是我要提交的远程仓库名称，这段代码中，这两处需要改为你自己的。" class="headerlink" title="同样的，ChangerHe是我的ID，My-code是我要提交的远程仓库名称，这段代码中，这两处需要改为你自己的。"></a>同样的，ChangerHe是我的ID，My-code是我要提交的远程仓库名称，这段代码中，这两处需要改为你自己的。</h2><p>以上是我查到的很多资料，没有提到的地方，导致我白白浪费掉了一个小时的时间，哎~自学最大的难处就在这里。<br>以上，设置好之后，会发现你的路径方式变了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">origin https://github.com/ChangerHe/My-code (fetch)</div><div class="line">origin https://github.com/ChangerHe/My-code (push)</div></pre></td></tr></table></figure></p>
-<p>此时即配置成功，现在就可以开心地不用密码进行push啦。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-<div class="theme-info">
-  <div class="powered-by"></div>
-  <span class="post-count">共43.7k字</span>
+  <span class="post-count">共45.1k字</span>
 </div>
 
     
@@ -2424,7 +2421,7 @@ reduceRight():迭代数组所有项，从最后一个数开始。
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">45</span>
+                <span class="site-state-item-count">46</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2435,7 +2432,7 @@ reduceRight():迭代数组所有项，从最后一个数开始。
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">16</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -2446,7 +2443,7 @@ reduceRight():迭代数组所有项，从最后一个数开始。
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
