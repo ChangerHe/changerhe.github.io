@@ -283,6 +283,199 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://github.com/ChangerHe/2017/09/13/使用Nodejs实现简单的自动化构建/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Changer He">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Changer He's Home Page">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/09/13/使用Nodejs实现简单的自动化构建/" itemprop="url">
+                  使用Nodejs实现简单的自动化构建
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-13T16:56:30+08:00">
+                2017-09-13
+              </time>
+            
+
+            
+
+  <span class="post-letters-count">
+    &nbsp; | &nbsp;
+    <span>359 字</span>
+    &nbsp; | &nbsp;
+    <span>2 min</span>
+  </span>
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Nodejs学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">Nodejs学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  359字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  2分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>自动化构建是现代前端基本都需要的东西,说起这个,大家自然会想到 Glup/Grount这些自动化的构建工具.</p>
+<p>当然,本文只是从最最基础的角度,使用Node的fs模块进行了简单的文档的写入操作.</p>
+<p>首先,我们先定义一个JSON,用于存放我们想要预先定义的文件夹的内容,比如说,我想要我的文件夹名称为<code>ProjectModule</code> ,里面的文件夹有 <code>css</code> / <code>js</code> / <code>img</code> 还有一个 <code>index.html</code>,同时定义好index文件中的内容</p>
+<p>那么我的JSON结构可以这样写</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">var projectData = &#123;</div><div class="line">    &apos;name&apos; : &apos;ProjectModule&apos;,</div><div class="line">    &apos;fileData&apos;: [</div><div class="line">        &#123;</div><div class="line">            &apos;name&apos;: &apos;css&apos;,</div><div class="line">            &apos;type&apos;: &apos;dir&apos;</div><div class="line">        &#125;,</div><div class="line">        &#123;</div><div class="line">            &apos;name&apos;: &apos;js&apos;,</div><div class="line">            &apos;type&apos;: &apos;dir&apos;</div><div class="line">        &#125;,</div><div class="line">        &#123;</div><div class="line">            &apos;name&apos;: &apos;img&apos;,</div><div class="line">            &apos;type&apos;: &apos;dir&apos;</div><div class="line">        &#125;,</div><div class="line">        &#123;</div><div class="line">            &apos;name&apos;: &apos;index.html&apos;,</div><div class="line">            &apos;type&apos;: &apos;file&apos;,</div><div class="line">            &apos;content&apos;: &apos;&lt;html&gt;\n\t&lt;head&gt;\n\t&lt;title&gt;MyProject&lt;/title&gt;\n\t&lt;/head&gt;\n\t&lt;body&gt;\n\t&lt;/body&gt;\n&lt;/html&gt;&apos;</div><div class="line">        &#125;</div><div class="line">    ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>接下来,就是引入fs模块</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var fs = require(&apos;fs&apos;)</div></pre></td></tr></table></figure>
+<p>因为这里是要实时创建的,我们可以直接使用同步的操作,就省去了异步需要使用回调函数的麻烦</p>
+<p>当然,开始之前,要先确定一下,JSON是否有正常的给出文件夹的名称</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">if(projectData.name) &#123;</div><div class="line"></div><div class="line">    fs.mkdirSync(projectData.name)</div><div class="line"></div><div class="line">    var fileData = projectData.fileData</div><div class="line"></div><div class="line">    fileData.forEach(function(f) &#123;</div><div class="line"></div><div class="line">        f.content = f.content? f.content : &apos;&apos;</div><div class="line"></div><div class="line">        f.path = projectData.name + &apos;/&apos; + f.name</div><div class="line"></div><div class="line">        switch (f.type) &#123;</div><div class="line">            </div><div class="line">            case &apos;dir&apos;:</div><div class="line">                fs.mkdirSync(f.path)</div><div class="line">                break;</div><div class="line">            case &apos;file&apos;:</div><div class="line">                fs.writeFileSync(f.path, f.content)</div><div class="line">                break;</div><div class="line">            default:</div><div class="line">                break;</div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果使用的是webstorm, 那么直接使用ctrl+f9, 让你的node程序跑起来吧~</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">共45.5k字</span>
+</div>
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="https://github.com/ChangerHe/2017/09/09/ES6中的遍历器接口Iterator/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -492,7 +685,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共45.1k字</span>
+  <span class="post-count">共45.5k字</span>
 </div>
 
     
@@ -704,7 +897,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共45.1k字</span>
+  <span class="post-count">共45.5k字</span>
 </div>
 
     
@@ -896,7 +1089,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共45.1k字</span>
+  <span class="post-count">共45.5k字</span>
 </div>
 
     
@@ -1106,7 +1299,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共45.1k字</span>
+  <span class="post-count">共45.5k字</span>
 </div>
 
     
@@ -1293,7 +1486,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共45.1k字</span>
+  <span class="post-count">共45.5k字</span>
 </div>
 
     
@@ -1489,7 +1682,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共45.1k字</span>
+  <span class="post-count">共45.5k字</span>
 </div>
 
     
@@ -1697,7 +1890,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共45.1k字</span>
+  <span class="post-count">共45.5k字</span>
 </div>
 
     
@@ -1912,7 +2105,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共45.1k字</span>
+  <span class="post-count">共45.5k字</span>
 </div>
 
     
@@ -2115,213 +2308,7 @@
   </article>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">共45.1k字</span>
-</div>
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://github.com/ChangerHe/2017/08/08/JavaScript躲坑指南（一）/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Changer He">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Changer He's Home Page">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/08/08/JavaScript躲坑指南（一）/" itemprop="url">
-                  JavaScript躲坑指南（一）
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-08T23:03:29+08:00">
-                2017-08-08
-              </time>
-            
-
-            
-
-  <span class="post-letters-count">
-    &nbsp; | &nbsp;
-    <span>1,332 字</span>
-    &nbsp; | &nbsp;
-    <span>5 min</span>
-  </span>
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript躲坑指南/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript躲坑指南</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计</span>
-                
-                <span title="字数统计">
-                  1,332字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长</span>
-                
-                <span title="阅读时长">
-                  5分钟
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>本系列将会写一些在正常工作中会遇到的一些坑,然后分析它们的产生原因及解决办法.本文的内容主要来自&lt;you don’t know JS&gt;及日常工作的问题的一些总结.</p>
-<h1 id="坑一-关于parseInt-方法转换字符串的问题-神坑"><a href="#坑一-关于parseInt-方法转换字符串的问题-神坑" class="headerlink" title="坑一: 关于parseInt()方法转换字符串的问题,神坑!"></a>坑一: 关于parseInt()方法转换字符串的问题,神坑!</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">console.log(parseInt(1/0, 19));  //18</div><div class="line">//原因:1/0得到的结果是Infinity,而得到的Infinity本身其实也是一个字符串,所以parseInt会以19进制对其进行类型转换,首字母为I,则其结果则为18了.</div><div class="line">console.log(parseInt(.000009))    //0</div><div class="line">console.log(parseInt(.0000009))   //9</div><div class="line">console.log(parseInt(false, 16))  //250,判定&apos;false&apos;的字符串的&apos;fa&apos;为十六进制了</div><div class="line">console.log(parseInt(parseInt, 16))  //15</div><div class="line">//结果为15的原因是因为parseInt为函数,所以会被typeof为function,</div></pre></td></tr></table></figure>
-<h1 id="坑二-位运算符-的妙用"><a href="#坑二-位运算符-的妙用" class="headerlink" title="坑二: 位运算符~的妙用:"></a>坑二: 位运算符~的妙用:</h1><p>在许多编程语言中,查找值或函数执行过程中,大于等于0的值表示查找或执行成功,返回-1则表示查找或执行失败.因此当失败时,可以直接使用位运算符~进行判定,当为-1时, -(-1 + 1) 即为零,因此就可以直接进行布尔运算了.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var a = &quot;hello world&quot;;</div><div class="line">if(~a.indexof(&quot;lo&quot;))&#123;</div><div class="line">	//查找不到值,则执行函数体中的内容</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>位运算的另一个巧妙用法:将值截除为一个32位整数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">console.log(Math.floor(-.1))  //-1</div><div class="line">console.log(Math.floor(.1))  //0</div><div class="line">console.log(~~-.1)   // 0</div><div class="line">console.log(~~.1)    //0</div></pre></td></tr></table></figure>
-<h1 id="坑三-对于稀疏数组的输出差异"><a href="#坑三-对于稀疏数组的输出差异" class="headerlink" title="坑三: 对于稀疏数组的输出差异"></a>坑三: 对于稀疏数组的输出差异</h1><p>在谷歌浏览器中,对于长度为三,无内容的稀疏数组显示为undefined*3,对于长度为三,但内容都赋值为undefined的数组,显示为[undefined, undefined, undefined].但是此情况在IE浏览器中显示的内容都是两个等号!不过在火狐中相对比较正常,输出的是文字”三个空的数组”和[undefined, undefined, undefined]</p>
-<h1 id="坑四-JSON-stringify的妙用"><a href="#坑四-JSON-stringify的妙用" class="headerlink" title="坑四: JSON.stringify的妙用:"></a>坑四: JSON.stringify的妙用:</h1><p>在序列化为JSON对象时,将该对象选择性输出,以得到想要的值;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var a = &#123;</div><div class="line">    b: 42,</div><div class="line">    c: &apos;41&apos;,</div><div class="line">    d: [1,2,3]</div><div class="line">&#125;</div><div class="line">console.log(JSON.stringify(a, [&apos;b&apos;,&apos;d&apos;]))   //&#123;&quot;b&quot;:42,&quot;d&quot;:[1,2,3]&#125;</div></pre></td></tr></table></figure>
-<p>当然,这个时候stringify还可以传递一个函数进去进行判断.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var a = &#123;</div><div class="line">    b: 42,</div><div class="line">    c: &apos;41&apos;,</div><div class="line">    d: [1,2,3]</div><div class="line">&#125;</div><div class="line">console.log(JSON.stringify(a, function(k, v)&#123;</div><div class="line">	if(k !== &apos;c&apos;) return v;</div><div class="line">&#125;))   //&#123;&quot;b&quot;:42,&quot;d&quot;:[1,2,3]&#125;</div></pre></td></tr></table></figure>
-<p>JSON.stringify()还有一个参数space,用来指定输出的缩进格式,space为数值时表示缩进的字符数,还可以是字符串,为字符串时最前面的十个字符用于每一级的缩进:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">var a = &#123;</div><div class="line">    b: 42,</div><div class="line">    c: &apos;41&apos;,</div><div class="line">    d: [1,2,3]</div><div class="line">&#125;</div><div class="line">console.log(JSON.stringify(a, null, &quot;------------------&quot;));</div><div class="line">//&#123;</div><div class="line">//----------&quot;b&quot;: 42,</div><div class="line">//----------&quot;c&quot;: &quot;41&quot;,</div><div class="line">//----------&quot;d&quot;: [</div><div class="line">//--------------------1,</div><div class="line">//--------------------2,</div><div class="line">//--------------------3</div><div class="line">//----------]</div><div class="line">//&#125;</div></pre></td></tr></table></figure>
-<p>从上面来看,使用位运算得到的值和Math.floor() 的值不尽相同,使用位运算相当于直接去掉了数字的小数点.</p>
-<h1 id="坑五-当在函数内部为变量指定新值后-并不影响传参的值"><a href="#坑五-当在函数内部为变量指定新值后-并不影响传参的值" class="headerlink" title="坑五: 当在函数内部为变量指定新值后,并不影响传参的值."></a>坑五: 当在函数内部为变量指定新值后,并不影响传参的值.</h1><p>当函数内部制定了变量值后,输出的值是不一样的,我们来看一下例子:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function foo(x) &#123;</div><div class="line">	x.push(4);</div><div class="line">	console.log(x);   //输出的是[1,2,3,4],没毛病</div><div class="line">	x = [4,5,6];</div><div class="line">	x.push(7);</div><div class="line">	console.log(x);   //输出[4,5,6,7]这个没毛病</div><div class="line">&#125;</div><div class="line">var a = [1,2,3];</div><div class="line">foo(a);</div><div class="line">console.log(a);     //这个情况下,a的值其实是[1,2,3,4];</div></pre></td></tr></table></figure>
-<p>其实主要的原因是这样的,当我们的a作为参数传到foo函数中的时候,foo中的参数x其实是获得了一个到a数组的指针,当x进行相应的数值处理操作的时候,会直接作用到a上面,但是当x的指针改变了,也就是x被重新赋值的时候,x的指针就指向新的[4,5,6]数组了,这个时候其实后面的push(7)的操作已经是对于新的数组,并没有对a数组进行相应的操作,故最后返回的a的值只是[1,2,3,4]</p>
-<h1 id="坑六-为变量赋予常量值的问题"><a href="#坑六-为变量赋予常量值的问题" class="headerlink" title="坑六: 为变量赋予常量值的问题"></a>坑六: 为变量赋予常量值的问题</h1><p>一个很小的问题(其实涉及到的知识点和上面是类似的),当我为一个变量赋予了一个常量值,但通过函数对这个常量值进行更改,那么更改会不会体现到这个常量值中呢?<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function foo(x) &#123;</div><div class="line">	x = x + 1;</div><div class="line">	console.log(x);</div><div class="line">&#125;</div><div class="line">var a = 2;</div><div class="line">foo(a);</div><div class="line">console.log(a);  //此时a还是为2</div></pre></td></tr></table></figure></p>
-<h1 id="坑七-关于浅复制的一些小技巧-也是对上面问题的另一种出理方案"><a href="#坑七-关于浅复制的一些小技巧-也是对上面问题的另一种出理方案" class="headerlink" title="坑七: 关于浅复制的一些小技巧(也是对上面问题的另一种出理方案)"></a>坑七: 关于浅复制的一些小技巧(也是对上面问题的另一种出理方案)</h1><p>使用slice()方法对变量进行浅复制,达到不影响变量原来的值的目的.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">foo(slice() )</div></pre></td></tr></table></figure>
-<h1 id="坑八-new出的对象"><a href="#坑八-new出的对象" class="headerlink" title="坑八: new出的对象"></a>坑八: new出的对象</h1><p>使用new方法new出来的变量都是属于对象,因此进行类型检测时都会显示为object型.</p>
-<h1 id="坑九-关于隐式类型转换"><a href="#坑九-关于隐式类型转换" class="headerlink" title="坑九: 关于隐式类型转换"></a>坑九: 关于隐式类型转换</h1><p>对new出来的对象来讲,对其进行判断会有一个自动的隐式类型转换过程,自动调用数组中的valueof()方法,因此就有了以下这样的奇葩现象:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var a = 2;</div><div class="line">Number.prototype.valueOf = function() &#123;</div><div class="line">    return a++;</div><div class="line">&#125;</div><div class="line">var b = new Number(2);</div><div class="line">if(b == 2 &amp;&amp; b ==3) &#123;</div><div class="line">    console.log(&apos;WTF?&apos;)   //WTF?</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>其实这个问题很好解释,每次对b进行判断都是会调用其valueof方法,而valueof方法中a会自增1,因此会有b又等于2,又等于3的情况.</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-<div class="theme-info">
-  <div class="powered-by"></div>
-  <span class="post-count">共45.1k字</span>
+  <span class="post-count">共45.5k字</span>
 </div>
 
     
@@ -2374,7 +2361,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">46</span>
+                <span class="site-state-item-count">47</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2385,7 +2372,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-count">17</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -2396,7 +2383,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-count">20</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
