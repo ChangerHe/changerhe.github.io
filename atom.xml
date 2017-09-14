@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Changer He&#39;s Home Page</title>
+  <title>ChangerHe&#39;s Bolg</title>
   <subtitle>What doesn&#39;t kill you make you stronger.</subtitle>
   <link href="/atom.xml" rel="self"/>
   
@@ -9,7 +9,7 @@
   <id>https://github.com/ChangerHe/</id>
   
   <author>
-    <name>Changer He</name>
+    <name>ChangerHe</name>
     
   </author>
   
