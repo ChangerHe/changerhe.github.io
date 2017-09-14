@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="ChangerHe" />
+
+
+
+<meta name="description" content="框架模式不是一门写代码的学问，而是一门管理与组织代码的学问。其本质是一种软件开发的模型。与设计模式不同，设计模式是在解决一类问题时总结抽象出的公共方法，如（工厂模式、单例模式。。等等），他们与某种具体的技术栈无关。一种框架模式往往使用了多种设计模式。">
+<meta name="keywords" content="JavaScript框架模式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浅谈框架模式的MVC&#x2F;MVP&#x2F;MVVM">
+<meta property="og:url" content="https://github.com/ChangerHe/2017/06/15/浅谈框架模式的MVC-MVP-MVVM/index.html">
+<meta property="og:site_name" content="ChangerHe&#39;s Bolg">
+<meta property="og:description" content="框架模式不是一门写代码的学问，而是一门管理与组织代码的学问。其本质是一种软件开发的模型。与设计模式不同，设计模式是在解决一类问题时总结抽象出的公共方法，如（工厂模式、单例模式。。等等），他们与某种具体的技术栈无关。一种框架模式往往使用了多种设计模式。">
+<meta property="og:updated_time" content="2017-09-14T15:02:57.268Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="浅谈框架模式的MVC&#x2F;MVP&#x2F;MVVM">
+<meta name="twitter:description" content="框架模式不是一门写代码的学问，而是一门管理与组织代码的学问。其本质是一种软件开发的模型。与设计模式不同，设计模式是在解决一类问题时总结抽象出的公共方法，如（工厂模式、单例模式。。等等），他们与某种具体的技术栈无关。一种框架模式往往使用了多种设计模式。">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="ChangerHe&#39;s Bolg" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>浅谈框架模式的MVC/MVP/MVVM | ChangerHe&#39;s Bolg</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: undefined
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?dfac40c3a2e8f0af4127ebbb645d4a78";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">ChangerHe</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">What doesn&#39;t kill you make you stronger.</p>
+        
+
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                            <li><a href="/demos/">个人作品</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ZFZQUFNXU1VSViQVFUoHCwk" title="Email"></a>
+                            
+                                <a class="fa 新浪微博" href="http://weibo.com/ChangerHe" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/ChangerHe" title="GitHub"></a>
+                            
+                                <a class="fa QQ" href="http://wpa.qq.com/msgrd?v=3&uin=244737162&site=qq&menu=yes" title="QQ"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS样式书写规范/">CSS样式书写规范</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Canvas学习笔记/">Canvas学习笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6标准入门阅读笔记/">ES6标准入门阅读笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/">GitHub</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HEXO/">HEXO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML-CSS/">HTML & CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP相关知识/">HTTP相关知识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/">JAVA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA-JavaScript/">JAVA & JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA-学习笔记/">JAVA 学习笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript框架模式/">JavaScript框架模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript模块化编程/">JavaScript模块化编程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript笔试面试题/">JavaScript笔试面试题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript躲坑指南/">JavaScript躲坑指南</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nodejs学习笔记/">Nodejs学习笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SASS/">SASS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/What-is-Flex/">What is Flex?</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XML/">XML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">ChangerHe</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">ChangerHe</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">What doesn&#39;t kill you make you stronger.</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                    <li><a href="/demos/">个人作品</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ZFZQUFNXU1VSViQVFUoHCwk" title="Email"></a>
+                            
+                                <a class="fa 新浪微博" target="_blank" href="http://weibo.com/ChangerHe" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/ChangerHe" title="GitHub"></a>
+                            
+                                <a class="fa QQ" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=244737162&site=qq&menu=yes" title="QQ"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-浅谈框架模式的MVC-MVP-MVVM" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/06/15/浅谈框架模式的MVC-MVP-MVVM/" class="article-date">
+      <time datetime="2017-06-15T04:16:09.000Z" itemprop="datePublished">2017-06-15</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      浅谈框架模式的MVC/MVP/MVVM
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/JavaScript框架模式/">JavaScript框架模式</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript框架模式/">JavaScript框架模式</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>框架模式不是一门写代码的学问，而是一门管理与组织代码的学问。其本质是一种软件开发的模型。与设计模式不同，设计模式是在解决一类问题时总结抽象出的公共方法，如（工厂模式、单例模式。。等等），他们与某种具体的技术栈无关。一种框架模式往往使用了多种设计模式。<br>下面来说一下框架设计的诞生原因及演化。</p>
+<h1 id="第一代：脚本式设计（无架构设计）"><a href="#第一代：脚本式设计（无架构设计）" class="headerlink" title="第一代：脚本式设计（无架构设计）"></a>第一代：脚本式设计（无架构设计）</h1><p>下面这样的代码，就是没有任何设计模式的产物：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">const a = document.createElement(&quot;a&quot;);</div><div class="line">a.innerHTML = &quot;www.google.com&quot;;</div><div class="line">a.href = &quot;//www.google.com&quot;;</div><div class="line">a.style.position = &quot;absolute&quot;;</div><div class="line">a.style.top = 100;</div><div class="line">a.onclick = function()&#123;</div><div class="line">    console.log(&quot;google&quot;);</div><div class="line">&#125;</div><div class="line"> document.body.appendChild(a);</div></pre></td></tr></table></figure></p>
+<p>这种搞法虽有不少缺点，但麻雀虽小五脏俱全，所有功能一应俱全。早些年由于UI程序还处在一个懵懂期， 逻辑不算太复杂，代码量也不会太多。这样的搞法似乎也没有什么问题。 毕竟到达A B两点最短的距离就是直线，上述代码可以说是实现某功能的最短路径。 典型的例子就是 ASM (虽然汇编语言不是用来写UI的)，他们共有的缺点是 :入口单一 功能简单 不可维护。</p>
+<p>我们来修改一下上面的逻辑：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">function doCss(a) &#123;</div><div class="line">    a.style.position = &quot;absolute&quot;;</div><div class="line">    a.style.top = 100;</div><div class="line">&#125;</div><div class="line">function doEvent(a) &#123;</div><div class="line">    a.onclick = function()&#123;</div><div class="line">        alert(&quot;google&quot;);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">function doAttribute(a)&#123;</div><div class="line">    a.innerHTML = &quot;www.google.com&quot;;</div><div class="line">    a.href = &quot;//www.google.com&quot;;</div><div class="line">&#125;</div><div class="line">const a = document.createElement(&quot;a&quot;);</div><div class="line">doCss(a);</div><div class="line">doEvent(a);</div><div class="line">doAttribute(a)</div><div class="line">document.body.appendChild(a);</div></pre></td></tr></table></figure></p>
+<p>这里我们将一个功能拆分成了3个部分，即 外观 事件 和属性。</p>
+<p>函数将他们重新分离成一个个独立的逻辑块，这样一定程度上达到了分离复用的目的，比如你想修改外观，就去doCss函数里去找。。。</p>
+<p>就像有钱人追求更多的财富，权贵追求更多权利一样。</p>
+<p>人类总在思考同一个问题， 我们能不能做得更好。。</p>
+<p>直到有一天。。。</p>
+<h1 id="第二代：代码文件分离-CodeBehind"><a href="#第二代：代码文件分离-CodeBehind" class="headerlink" title="第二代：代码文件分离(CodeBehind)"></a>第二代：代码文件分离(CodeBehind)</h1><p>HTML是视图文件，而对应的。csS文件是他的相关逻辑处理文件 事件驱动模式下，框架帮我们完成了基本的事件类型，我们要做的是在事件下完成相关业务逻辑。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;link href=&quot;style.css&quot; rel=&quot;stylesheet&quot; /&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">    &lt;script src=&quot;bundle.js&quot; &gt;&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+<p>各文件各司其职，编写的时候分离，在运行的时候合并。这样进一步降低了功能之间的耦合度。 视图看起来非常”清爽”，对应的逻辑也被分离成一个个文件， 交由相应的开发人员处理。</p>
+<p>如果你涉猎的技术范围很广，你会发现其实这种技术已经出现在诸多成熟的技术栈中。。。。</p>
+<p>但是，没过多久伊甸园欢乐的笑声被下面这个需求打破。。。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">`购买苹果按钮`绑定事件如下:</div><div class="line">1.int 苹果数变量 + 1;</div><div class="line">2.显示苹果数控件的值 = 苹果数变量;</div><div class="line"> </div><div class="line">`购买梨按钮`绑定事件如下:</div><div class="line">1.int 梨数变量 + 1;</div><div class="line">2.显示梨数控件的值 = 梨数变量;</div><div class="line"> </div><div class="line">...`吃苹果`</div><div class="line"> </div><div class="line">...`吃梨`</div></pre></td></tr></table></figure></p>
+<p>这里比较困难的是 第2步</p>
+<p>就是如果显示苹果数的控件是另一个程序员开发的黑盒， 如何修改其值?</p>
+<p>于是程序员A 去找 程序员B 寻求是否存在对应的 get/set 方法。</p>
+<p>程序员B说有， “有” 字还没落地， 开发买梨的程序员C 又踹门进来了，问了同样的问题， 后来才知道 开发吃苹果功能的程序员D正在路上。。。</p>
+<p>于是程序员B 不得不把接口的详细信息写到 wiki中， 于是 程序员CDEFGHIJKMLN 都看了wiki 懂了。</p>
+<p>完成这件事 程序员B 写wiki 花了 10分钟， 程序员CDEFGHIJKMLN 看wiki每人花 1分钟，一共团队成本 20分钟。</p>
+<p>于是 wiki中这个 get/set 接口函数出现在了每一个被绑定的函数里。一共4个button 出现4次</p>
+<p>ps: 这个get/set接口本质上就是一个view刷新接口</p>
+<p>事情仍在在酝酿:</p>
+<p>产品大爷发话了，需求改了！</p>
+<p>多了一个求和。</p>
+<p>于是伪代码变成了这样:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">`购买苹果按钮`绑定事件如下:</div><div class="line">1.int 苹果数变量 + 1;</div><div class="line">2.int 总和变量 = 苹果数变量 + 梨数变量;</div><div class="line">2.显示苹果数控件的值 = 苹果数变量;</div><div class="line">3.显示总和控件的值 = 总和变量;</div></pre></td></tr></table></figure></p>
+<p>这次 程序员B为了人身安全，提前把 get/set 接口发布到了 wiki上。。</p>
+<p>于是 总和控件的值 = 总和变量 这行代码出现了 4次。</p>
+<p>产品存在的意义，就是将程序狗虐到极致:qq</p>
+<p>于是需求改成了这样:</p>
+<p>q2</p>
+<p>只是删了一行。</p>
+<p>于是 4个函数中 所有相关代码都被删除。。。 共影响 4行代码。。</p>
+<p>段子讲完了，其核心问题在于，按照事件进行的业务模块划分，有时候是不合理的，事件是用户行为的入口，但不是程序逻辑的入口。 一个button的click就可能横跨N个领域， 需要N个人来进行协作， 这部分逻辑到最后还是会耦合在一起，通过各种函数封装进行解耦，无疑是扬汤止沸，而我们需要的是釜底抽薪</p>
+<h1 id="M-V-C-模型，视图，控制器"><a href="#M-V-C-模型，视图，控制器" class="headerlink" title="M-V-C:(模型，视图，控制器)"></a>M-V-C:(模型，视图，控制器)</h1><p>现在网上有很多关于mvc的介绍，让人纠结的是他们各不相同，而且有的根本就说的不对， 对于框架模式这东西，没有一个严格的规定说这样搞是 mvc 那样就不是。 甚至连mvc本身也有很多变种，我们只要从根源上理解这个东西就行。</p>
+<p>我就不扒祖坟了，咱们只需要知道它已经存在了 30多年就行了。</p>
+<p>我们思考一下 UI(图形化用户界面) 的本质:</p>
+<p>为什么要有UI， 在计算机眼中 一切即数据，其实要是深挖这个问题，数据与操作其实都是 0 1 组成的机器码，只不过 CPU运行的时候用指定寄存器的数据当做指令罢了，也就是说 决定一个数据到底是数据还是指令 只取决于他所在的寄存器位置。(好了好了 扯远了，往回跑。。) 数据的操作是抽象的，是专业人士干的事情， 计算机为了走进千家万户， 必须提供一种傻瓜式的操作方式，于是UI诞生了。。。 用一句话解释UI就是:他是数据到图像的一种映射程序;</p>
+<p>刚才说了它是一种映射程序，用户通过操作图像上的按钮，来达到操作数据的目的，数据被用户改变后，肯定需要从新生成映射。</p>
+<h2 id="Model-View-Controller-是干什么的"><a href="#Model-View-Controller-是干什么的" class="headerlink" title="Model View Controller 是干什么的:"></a>Model View Controller 是干什么的:</h2><p>1.View: 放置视图相关的代码，原则上里面不应该有任何业务逻辑。</p>
+<p>2.Controller: 放置视图与模型之间的映射，原则上这里应该很薄，他只放一些事件绑定相关的代码(router)，但并不实现真正的功能，他只是一个桥梁。</p>
+<p>3.Model: 这里的model不是说 实体类， 他是主要实现逻辑的地方。</p>
+<p>那还是上面 买水果的例子，那么在MVC下该如何设计呢:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">概念</th>
+<th style="text-align:center">解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">view层</td>
+<td style="text-align:center">放置界面代码，以及一些刷新逻辑 如数据中的 0 1 转成 男 女</td>
+</tr>
+<tr>
+<td style="text-align:center">controller层</td>
+<td style="text-align:center">放置一些绑定逻辑。完成router，不实现函数体。</td>
+</tr>
+<tr>
+<td style="text-align:center">model层</td>
+<td style="text-align:center">接收view的注册，当自身数据变化时，执行view的刷新函数。 业务逻辑都在这里</td>
+</tr>
+</tbody>
+</table>
+<p>他是这样一个流程:</p>
+<p>1.创建显示苹果数量的控件。</p>
+<p>2.将上面控件注册到model中。(设置关联的数据，–苹果数变量)</p>
+<p>3.修改model中 苹果数变量 。</p>
+<p>4.由于苹果数变量被修改，触发所有绑定在上面的控件(view)从新执行刷新函数。</p>
+<p>5.显示苹果数量的控件被更新。</p>
+<p>这样便解决了大部分界面与逻辑耦合的问题，但是它并不完美:</p>
+<p>View 和 Model 并不是完全脱离的，还是有一些逻辑耦合，因为需要根据修改后的model从新刷新view。 难免view里面沾染一点model的结构。</p>
+<p>代码量膨胀。</p>
+<p>不方便进行更精细的颗粒化控制。(因为view只知道 model被改了，但不知道谁改的!)</p>
+<p>model在对应多个view的时候，很难都伺候到位。<br>于是。。。</p>
+<h1 id="M-V-P-模型，视图，派发器"><a href="#M-V-P-模型，视图，派发器" class="headerlink" title="M-V-P:(模型，视图，派发器)"></a>M-V-P:(模型，视图，派发器)</h1><p>针对mvc的一些问题，在mvp模式下， 斩断了 view 与 model的关系， 当m 改变时，m 通知 p 去改变v， 所以v变得更纯洁(刷新逻辑被移动到了p层)， 为了保证m可以最大程度的复用 一部分业务逻辑也从 m 转移到了p所以 mvp下 p 非常厚实。</p>
+<p>mvp中最后改变v的是p那么在 v与p 之间会有一个接口，解决怎么转换以及传值的问题。</p>
+<h1 id="M-V-VM-模型，视图，抽象视图"><a href="#M-V-VM-模型，视图，抽象视图" class="headerlink" title="M-V-VM:(模型，视图，抽象视图)"></a>M-V-VM:(模型，视图，抽象视图)</h1><p>mvvm 与 mvp 的最大区别就是它使用 数据绑定(Data Binding)、依赖属性(Dependency Property)、命令(Command)、路由事件(Routed Event) 来搞定与view层的交互， 但是这种绑定是与某种具体技术栈相关的， ViewModel从Model中抽象而来，但更贴近于业务模型， 比如你Model中某字段是 true false， ViewModel中可能就是 “黑”，”白”等 这种更贴近业务场景的描述。 ViewModel中的属性直接与某具体控件的属性相绑定。 也就是说当某具体控件发生变化，ViewModel中的 某个字段就会跟着变化，然后Model中的字段也会进一步变化。</p>
+<p>(以上文章摘自网络)</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/06/15/浅谈框架模式的MVC-MVP-MVVM/">浅谈框架模式的MVC/MVP/MVVM</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">ChangerHe</a></p>
+        <p><span>发布时间:</span>2017-06-15, 12:16:09</p>
+        <p><span>最后更新:</span>2017-09-14, 23:02:57</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/06/15/浅谈框架模式的MVC-MVP-MVVM/" title="浅谈框架模式的MVC/MVP/MVVM">https://github.com/ChangerHe/2017/06/15/浅谈框架模式的MVC-MVP-MVVM/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://github.com/ChangerHe/2017/06/15/浅谈框架模式的MVC-MVP-MVVM/　　作者: ChangerHe" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2017/06/15/JavaScript深入浅出-表达式和运算符/">
+                    JavaScript深入浅出-表达式和运算符
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2017/06/15/HTTP相关知识/">
+                    HTTP相关知识（一）
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#第一代：脚本式设计（无架构设计）"><span class="toc-number">1.</span> <span class="toc-text">第一代：脚本式设计（无架构设计）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第二代：代码文件分离-CodeBehind"><span class="toc-number">2.</span> <span class="toc-text">第二代：代码文件分离(CodeBehind)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#M-V-C-模型，视图，控制器"><span class="toc-number">3.</span> <span class="toc-text">M-V-C:(模型，视图，控制器)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Model-View-Controller-是干什么的"><span class="toc-number">3.1.</span> <span class="toc-text">Model View Controller 是干什么的:</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#M-V-P-模型，视图，派发器"><span class="toc-number">4.</span> <span class="toc-text">M-V-P:(模型，视图，派发器)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#M-V-VM-模型，视图，抽象视图"><span class="toc-number">5.</span> <span class="toc-text">M-V-VM:(模型，视图，抽象视图)</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2017/06/15/JavaScript深入浅出-表达式和运算符/" title="上一篇: JavaScript深入浅出-表达式和运算符">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2017/06/15/HTTP相关知识/" title="下一篇: HTTP相关知识（一）">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/06/15/使用Nodejs实现简单的自动化构建/">使用Nodejs实现简单的自动化构建</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/15/ES6中的遍历器接口Iterator/">ES6中的遍历器接口Iterator</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/15/JavaScript躲坑指南（一）/">JavaScript躲坑指南（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/15/JavaScript躲坑指南（二）/">JavaScript躲坑指南（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/15/JavaScript模块化编程-commonjs和AMD及CMD/">JavaScript模块化编程-commonjs和AMD及CMD</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/15/JavaScript深入浅出-call-apply/">JavaScript深入浅出-call/apply</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/15/深入理解JavaScript构造函数和原型对象/">深入理解JavaScript构造函数和原型对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/15/JavaScript深入浅出-闭包及解决办法/">JavaScript深入浅出-闭包及闭包问题的解决办法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/15/JavaScript笔试面试题收集（三）/">JavaScript笔试面试题收集（三）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/15/JavaScript笔试面试题收集（一）/">JavaScript笔试面试题收集（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/15/JavaScript笔试面试题收集（二）/"> JavaScript笔试面试题收集（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/15/JavaScript笔试面试题收集（四）/">JavaScript笔试面试题收集（四）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/15/JavaScript笔试面试题收集（五）/">JavaScript笔试面试题收集（五）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/15/JavaScript高级程序设计复习笔记（二）/">JavaScript高级程序设计复习笔记（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/15/JavaScript高级程序设计复习笔记（一）/">JavaScript高级程序设计复习笔记（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/15/JavaScript高级程序设计复习笔记（三）/">JavaScript高级程序设计复习笔记（三）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/15/SASS学习进阶/">SASS学习进阶</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/15/SASS学习笔记/">SASS学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/15/jQuery-extend和jQuery-fn-extend的区别/">jQuery.extend和jQuery.fn.extend的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/15/JavaScript深入浅出-表达式和运算符/">JavaScript深入浅出-表达式和运算符</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/15/浅谈框架模式的MVC-MVP-MVVM/">浅谈框架模式的MVC/MVP/MVVM</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/15/HTTP相关知识/">HTTP相关知识（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/15/JavaScipt中sort-方法的底层原理及妙用/">JavaScipt中sort()方法的底层原理及妙用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/14/代码执行顺序解析/">JAVA代码执行顺序解析</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/14/nine-block-mission/">九宫格自适应布局的页面重构</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/14/What-is-Flex/">What is Flex?</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/14/The-Usages-Of-Iconfont/">阿里妈妈iconfont矢量图标字体的用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/14/XML学习笔记/">XML学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/14/hello-world/">Position属性知多少</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/14/hexo/">HEXO使用小结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/14/JavaScript计时器的优化/">JavaScript计时器的优化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/14/jQuery-学习笔记/">jQuery 学习笔记——选择器</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/14/jQuery查漏补缺/">jQuery 学习笔记——Review</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/14/jQuery学习笔记——属性与样式/">jQuery 学习笔记——属性与样式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/14/GIT配置不需密码即可push的方法/">GIT配置不需密码即可push的方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/14/不同排序算法的JAVA实现及性能比较/">不同排序算法的JAVA实现及性能比较</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/14/PHP菜鸟入门笔记/">PHP菜鸟入门不完全指南</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/14/使用Canvas绘制七巧板/">使用Canvas绘制七巧板</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/14/Java-Learning/">斐波那契数列和九九乘法表在JAVA中的实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/14/基本算法的JavaScript实现/">基本算法的JavaScript实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/14/在GitHub账户中搭建静态博客的同时另开一个代码展示页面的方法/">在GitHub账户中搭建静态博客的同时另开一个代码展示页面的方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/14/实现某节点子节点的倒序排列/">实现某节点子节点的倒序排列</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/14/接口和抽象类的区别/">接口和抽象类的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/14/杨辉三角的JAVA实现/">杨辉三角的JAVA实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/14/The-Data-Type-Differences-of-JavaScript-and-Java/">JavaScript 和 JAVA 在数据类型方面的异同</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/14/CSS样式书写规范/">CSS样式书写规范</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016-2017 ChangerHe
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        $("a[target=_blank]").removeAttr("target");
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

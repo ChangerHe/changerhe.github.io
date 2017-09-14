@@ -293,6 +293,43 @@
   </entry>
   
   <entry>
+    <title>深入理解JavaScript构造函数和原型对象</title>
+    <link href="https://github.com/ChangerHe/2017/06/15/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3JavaScript%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E5%92%8C%E5%8E%9F%E5%9E%8B%E5%AF%B9%E8%B1%A1/"/>
+    <id>https://github.com/ChangerHe/2017/06/15/深入理解JavaScript构造函数和原型对象/</id>
+    <published>2017-06-15T14:16:09.000Z</published>
+    <updated>2017-09-14T15:02:33.119Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="对象？"><a href="#对象？" class="headerlink" title="对象？"></a>对象？</h1><p>对象，是javascript中非常重要的一个梗，是否能透彻的理解它直接关系到你对整个javascript体系的基础理解，说白了，javascript就是一群对象在搞！！基！！</p>
+<h1 id="常用的几种对象创建模式"><a href="#常用的几种对象创建模式" class="headerlink" title="常用的几种对象创建模式"></a>常用的几种对象创建模式</h1><h2 id="使用new关键字创建"><a href="#使用new关键字创建" class="headerlink" title="使用new关键字创建"></a>使用new关键字创建</h2><p>最基础的对象创建方式，无非就是和其他多数语言一样说的一样：所以俗话说得好，当我们程序猿们没对象的时候，我们应该“new”一个对象出来。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var gf = new Object();</div><div class="line">gf.name = &quot;tangwei&quot;;</div><div class="line">gf.bar = &quot;c++&quot;;</div><div class="line">gf.sayWhat = function() &#123;</div><div class="line">  console.log(this.name + &quot;said:love you forever&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="使用字面量创建"><a href="#使用字面量创建" class="headerlink" title="使用字面量创建"></a>使用字面量创建</h2><p>这样似乎妥妥的了，但是宅寂的geek们岂能喜欢如此复杂和low土的定义变量的方式，作为一门脚本语言那应该有和其他兄弟们一样的范儿，于是出现了对象字面量的定义方式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var gf = &#123;</div><div class="line">  name : &quot;tangwei&quot;,</div><div class="line">  bar : &quot;c++&quot;,</div><div class="line">  sayWhat : function() &#123;</div><div class="line">    console.log(this.name + &quot;said:love you forever&quot;);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h1 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h1><p>实际上这是我们在实际中最常用的对象定义方式，但是我要有好多拥有相似属性的对象（想想都让人激动。。。）怎么办呢？那要是一个个的定义，就会产生大量的代码，何不建个工厂，批量的生产出我们的对象呢，于是，javascript世界中第一个充气娃。。。不，“工厂模式”诞生了！<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function createGf(name, bar) &#123;</div><div class="line">  var o = new Object();</div><div class="line">  o.name = name;</div><div class="line">  o.bar = bar;</div><div class="line">  o.sayWhat = function() &#123;</div><div class="line">    alert(this.name + &quot;said:love you forever&quot;);</div><div class="line">  &#125;</div><div class="line">  return o;</div><div class="line">&#125;</div><div class="line">var gf1 = createGf(&quot;bingbing&quot;,&quot;d&quot;);</div><div class="line">var gf2 = createGf(&quot;mimi&quot;,&quot;a&quot;);</div></pre></td></tr></table></figure></p>
+<h1 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h1><p>工厂模式解决了多个相似对象的创建问题，但是问题又来了，这些对象都是Object整出来的，怎么区分它们的对象具体类型呢？这时候我们就需要切换到另一种模式了，构造函数模式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function Gf(name,bar)&#123;</div><div class="line">  this.name = name;</div><div class="line">  this.bar = bar;</div><div class="line">  this.sayWhat = function()&#123;</div><div class="line">    alert(this.name + &quot;said:love you forever&quot;);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">var gf1 = new Gf(&quot;vivian&quot;,&quot;f&quot;);</div><div class="line">var gf2 = new Gf(&quot;vivian2&quot;,&quot;f&quot;);</div></pre></td></tr></table></figure></p>
+<p>这里我们使用一个大写字母开头的构造函数替代了上例中的createGf，注意按照约定构造函数的首字母要大写。在这里我们创建一个新对象，然后将构造函数的作用域赋给新对象，调用构造函数中的方法。<br>上面的方式似乎没什么不妥，但是我们可以发现，两个实例中调用的构造函数中的sayWhat方法不是同一个Function实例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">console.log(gf1.sayWhat == gf2.sayWhat); //false</div></pre></td></tr></table></figure></p>
+<p>调用同一个方法，却声明了不同的实例，实在浪费资源。我们可以优化一下将sayWhat函数放到构造函数外面声明：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function Gf(name,bar)&#123;</div><div class="line">  this.name = name;</div><div class="line">  this.bar = bar;</div><div class="line">  this.sayWhat = sayWhat</div><div class="line">&#125;</div><div class="line">function sayWhat()&#123;</div><div class="line">  alert(this.name + &quot;said:love you forever&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这样解决了，多个实例多次定义同一个方法实例的问题，但是新问题又来了，我们定义的sayWhat是一个全局作用域的方法，但这个方法其实是没法直接调用的，这就有点矛盾了。如何更优雅的定义一个具备一定封装性的对象呢？我们来看一下javascript原型对象模式。</p>
+<h1 id="原型对象模式"><a href="#原型对象模式" class="headerlink" title="原型对象模式"></a>原型对象模式</h1><p>当我们创建一个函数时，该函数就会具备一个prototype属性，这个属性指向通过构造函数创建的那个函数的原型对象。通俗点讲原型对象就是内存中为其他对象提供共享属性和方法的对象。<br><img src="http://files.jb51.net/file_images/article/201409/2014923152050636.png?201482315219" alt=""><br>在原型模式中，不必再构造函数中定义实例属性，可以将属性信息直接赋予原型对象：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function Gf()&#123;</div><div class="line">  Gf.prototype.name = &quot;vivian&quot;;</div><div class="line">  Gf.prototype.bar = &quot;c++&quot;;</div><div class="line">  Gf.prototype.sayWhat = function()&#123;</div><div class="line">    alert(this.name + &quot;said:love you forever&quot;);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">var gf1 = new Gf();</div><div class="line">gf1.sayWhat();</div><div class="line">var gf2 = new Gf();</div></pre></td></tr></table></figure></p>
+<p>和构造函数不同的是这里新对象的属性和方法是所有实例都可以共享的，换句话说gf1和gf2访问的是同一份属性和方法。原型对象中除了我们赋予的属性外，还有一些内置的属性，所有原型对象都具备一个constructor属性，这个属性是一个指向包含prototype属性函数的一个指针（敢不敢再绕点！）。通过一幅图我们来清楚的理一下这个绕口的流程：<br><img src="http://files.jb51.net/file_images/article/201409/2014923152134756.png?2014823152147" alt=""><br>所有的对象都有一个原型对象（prototype），原型对象中有一个constructor属性指向包含prototype属性的函数，Gf的实例gf1和gf2都包含一个内部属性指向原型对象（在firefox浏览器中表现为私有属性proto），当我们访问一个对象中的属性时，首先会询问实例对象中有没有该属性，如果没有则继续查找原型对象。<br>在前面的示例中，我们注意到在为原型对象添加属性时，需要每个都增加Gf.prototype，这个工作很重复，在上面对象的创建模式中，我们知道可以通过字面量的形式创建一个对象，这里我们也可以改进一下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function Gf()&#123;&#125;</div><div class="line">Gf.prototype = &#123;</div><div class="line">  name : &quot;vivian&quot;,</div><div class="line">  bar : &quot;c++&quot;,</div><div class="line">  sayWhat : function()&#123;</div><div class="line">    alert(this.name + &quot;said:love you forever&quot;);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这里有一个地方需要特别注意，constructor属性不再指向对象Gf，因为每定义一个函数，就会同时为其创建一个prototype对象，这个对象也会自动获取一个新的constructor属性，这个地方我们使用Gf.prototype本质上覆写了原有的prototype对象，因此constructor也变成了新对象的constructor属性，不再指向Gf，而是Object:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var gf1 = new Gf();</div><div class="line">console.log(gf1.constructor == Gf);//false</div><div class="line">console.log(gf1.constructor == Object)//true</div></pre></td></tr></table></figure></p>
+<p>一般情况下，这个微妙的改变是不会对我们造成影响的，但如果你对constructor有特殊的需求，我们也可以显式的指定下Gf.prototype的constructor属性：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Gf.prototype = &#123;</div><div class="line">  constructor : Gf,</div><div class="line">  name : &quot;vivian&quot;,</div><div class="line">  bar : &quot;c++&quot;,</div><div class="line">  sayWhat : function() &#123;</div><div class="line">    alert(this.name + &quot;said:love you forever&quot;);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">var gf1 = new Gf();</div><div class="line">console.log(gf1.constructor == Gf);//true</div></pre></td></tr></table></figure></p>
+<p>通过对原型对象模式的初步了解，我们发现所有的实例对象都共享相同的属性，这是原型模式的基本特点，但往往对于开发者来说这是把“双刃剑”，在实际开发中，我们希望的实例应该是具备自己的属性，这也是在实际开发中很少有人单独使用原型模式的主要原因。</p>
+<h1 id="构造函数和原型组合模式"><a href="#构造函数和原型组合模式" class="headerlink" title="构造函数和原型组合模式"></a>构造函数和原型组合模式</h1><p>在实际开发中，我们可以使用构造函数来定义对象的属性，使用原型来定义共享的属性和方法，这样我们就可以传递不同的参数来创建出不同的对象，同时又拥有了共享的方法和属性。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function Gf(name,bar)&#123;</div><div class="line">  this.name = name;</div><div class="line">  this.bar = bar;</div><div class="line">&#125;</div><div class="line">Gf.prototype = &#123;</div><div class="line">  constructor : Gf,</div><div class="line">  sayWhat : function() &#123;</div><div class="line">    alert(this.name + &quot;said:love you forever&quot;);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">var gf1 = new Gf(&quot;vivian&quot;, &quot;f&quot;);</div><div class="line">var gf2 = new Gf(&quot;vivian1&quot;, &quot;c&quot;);</div></pre></td></tr></table></figure></p>
+<p>在这个例子中，我们再构造函数中定义了对象各自的属性值，在原型对象中定义了constructor属性和sayWhat函数，这样gf1和gf2属性之间就不会产生影响了。这种模式也是实际开发中最常用的对象定义方式，包括很多js库（bootstrap等）默认的采用的模式。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      对象，是javascript中非常重要的一个梗，是否能透彻的理解它直接关系到你对整个javascript体系的基础理解，说白了，javascript就是一群对象在搞！！基！！
+    
+    </summary>
+    
+      <category term="JavaScript 学习笔记" scheme="https://github.com/ChangerHe/categories/JavaScript-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="JavaScript" scheme="https://github.com/ChangerHe/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
     <title>JavaScript深入浅出-闭包及闭包问题的解决办法</title>
     <link href="https://github.com/ChangerHe/2017/06/15/JavaScript%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BA-%E9%97%AD%E5%8C%85%E5%8F%8A%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/"/>
     <id>https://github.com/ChangerHe/2017/06/15/JavaScript深入浅出-闭包及解决办法/</id>
@@ -337,6 +374,93 @@
     
     
       <category term="JavaScript" scheme="https://github.com/ChangerHe/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JavaScript笔试面试题收集（三）</title>
+    <link href="https://github.com/ChangerHe/2017/06/15/JavaScript%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98%E6%94%B6%E9%9B%86%EF%BC%88%E4%B8%89%EF%BC%89/"/>
+    <id>https://github.com/ChangerHe/2017/06/15/JavaScript笔试面试题收集（三）/</id>
+    <published>2017-06-15T13:34:18.000Z</published>
+    <updated>2017-09-14T14:39:02.002Z</updated>
+    
+    <content type="html"><![CDATA[<p>本系列主要在于对自己的日常学习的内容做一个归纳整理,同时分享一些平时遇到的一些比较好的面试题.</p>
+<p>通过对笔试面试题的学习,强化自己的所学知识面.</p>
+<p>今天分享的题比较简单,主要是考察闭包的知识以及一些逻辑思维</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">function fun(n,o)&#123;</div><div class="line">	console.log(o)</div><div class="line">	return &#123;</div><div class="line">		fun:function(m)&#123;</div><div class="line">		return fun(m,n)</div><div class="line">	&#125;&#125;</div><div class="line">&#125;</div><div class="line">var a = fun(0);  //undefined</div><div class="line">a.fun(1);  //0</div><div class="line">a.fun(2); // 0</div><div class="line">a.fun(3);  // 0</div><div class="line">var b = fun(0).fun(1).fun(2).fun(3);  //undefined   0    1    2</div><div class="line">var c = fun(0).fun(1);  // undefined   0</div><div class="line">c.fun(2);     // 1</div><div class="line">c.fun(3);     // 1</div></pre></td></tr></table></figure>
+<h1 id="个人拙见"><a href="#个人拙见" class="headerlink" title="个人拙见:"></a>个人拙见:</h1><p>其实以上的代码主要还是一个闭包的问题,代码的逻辑判断清楚了就很好解.因为当我们传一个参的时候,第二个参数必然是undefined.这也是为什么abc一出来就执行的是undefined的原因.因为所有的函数执行都只传递了一个参数.</p>
+<p>第二,当我们为返还的函数传参的时候,也就是给这个函数里面的函数fun的参数m传值的时候,会返回一个以m为第一个参数,其父函数的第一个参数作为第二个参数的函数.</p>
+<p>其实说到这里就很好理解了,我们将函数看成一个很好玩的方法,我们传值进去的时候,它会记录两个值作为参数,并把第二个参数的值打印出来,再往里面传一个值的时候,就会把之前的第一个参数挪到后面作为第二个参数.以此类推.</p>
+]]></content>
+    
+    <summary type="html">
+    
+      本系列主要在于对自己的日常学习的内容做一个归纳整理,同时分享一些平时遇到的一些比较好的面试题.
+通过对笔试面试题的学习,强化自己的所学知识面.
+    
+    </summary>
+    
+      <category term="JavaScript笔试面试题" scheme="https://github.com/ChangerHe/categories/JavaScript%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    
+      <category term="JavaScript笔试面试题" scheme="https://github.com/ChangerHe/tags/JavaScript%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JavaScript笔试面试题收集（一）</title>
+    <link href="https://github.com/ChangerHe/2017/06/15/JavaScript%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98%E6%94%B6%E9%9B%86%EF%BC%88%E4%B8%80%EF%BC%89/"/>
+    <id>https://github.com/ChangerHe/2017/06/15/JavaScript笔试面试题收集（一）/</id>
+    <published>2017-06-15T13:34:18.000Z</published>
+    <updated>2017-09-14T14:38:39.890Z</updated>
+    
+    <content type="html"><![CDATA[<p>本系列主要在于对自己的日常学习的内容做一个归纳整理,同时分享一些平时遇到的一些比较好的面试题.</p>
+<p>通过对笔试面试题的学习,强化自己的所学知识面.</p>
+<p>出题的大师兄，草粉吗？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">function Foo() &#123;</div><div class="line">	getName = function () &#123;</div><div class="line">		console.log(1);</div><div class="line">	&#125;;</div><div class="line">	return this;</div><div class="line">&#125;</div><div class="line">Foo.getName = function () &#123;</div><div class="line">	console.log(2);</div><div class="line">&#125;;</div><div class="line">Foo.prototype.getName = function () &#123;</div><div class="line">	console.log(3);</div><div class="line">&#125;;</div><div class="line">var getName = function () &#123;</div><div class="line">	console.log(4);</div><div class="line">&#125;;</div><div class="line">function getName() &#123;</div><div class="line">	console.log(5);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">// 请写出以下输出结果：</div><div class="line">Foo.getName();</div><div class="line">getName();</div><div class="line">Foo().getName();</div><div class="line">getName();</div><div class="line">new Foo.getName();</div><div class="line">new Foo().getName();</div><div class="line">new new Foo().getName();</div></pre></td></tr></table></figure></p>
+<p>题目只答对一半的宝宝表示很想哭啊。<br>以下是解题思路：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">Foo.getName();              // 2</div><div class="line">getName();                     // 4</div><div class="line">Foo().getName();           // 1</div><div class="line">getName();                     // 1</div><div class="line"></div><div class="line">new Foo.getName();          // 2</div><div class="line">// var a = new Foo.getName();  </div><div class="line">// var a = &#123;&#125;;</div><div class="line">// a.__proto = Foo.getName.prototype;</div><div class="line">// Foo.getName.call(a);</div><div class="line"></div><div class="line">new Foo().getName();        // 3</div><div class="line">// var b = new Foo().getName();</div><div class="line">// var b = &#123;&#125;;</div><div class="line">// b.__proto__ = Foo.prototype;</div><div class="line">// Foo.call(b);</div><div class="line">// b.getName();</div><div class="line"></div><div class="line">new new Foo().getName();    // 3</div><div class="line">// var c = new Foo().getName();</div><div class="line">// var c = &#123;&#125;;</div><div class="line">// c.__proto__ = Foo.prototype;</div><div class="line">// Foo.call(c);</div><div class="line">// var d = new c.getName();</div><div class="line">// var d = &#123;&#125;;</div><div class="line">// d.__proto__ = c.getName.prototype;</div><div class="line">// c.getName.call(d);</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      本系列主要在于对自己的日常学习的内容做一个归纳整理,同时分享一些平时遇到的一些比较好的面试题.
+通过对笔试面试题的学习,强化自己的所学知识面.
+    
+    </summary>
+    
+      <category term="JavaScript笔试面试题" scheme="https://github.com/ChangerHe/categories/JavaScript%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    
+      <category term="JavaScript笔试面试题" scheme="https://github.com/ChangerHe/tags/JavaScript%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title> JavaScript笔试面试题收集（二）</title>
+    <link href="https://github.com/ChangerHe/2017/06/15/JavaScript%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98%E6%94%B6%E9%9B%86%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
+    <id>https://github.com/ChangerHe/2017/06/15/JavaScript笔试面试题收集（二）/</id>
+    <published>2017-06-15T13:34:18.000Z</published>
+    <updated>2017-09-14T14:38:56.029Z</updated>
+    
+    <content type="html"><![CDATA[<p>本系列主要在于对自己的日常学习的内容做一个归纳整理,同时分享一些平时遇到的一些比较好的面试题.</p>
+<p>通过对笔试面试题的学习,强化自己的所学知识面.</p>
+<p>话不多说，直接撸题吧：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">function Parent() &#123;</div><div class="line">    this.a = 1;</div><div class="line">    this.b = [1,2,this.a];</div><div class="line">    this.c = &#123;demo: 5&#125;;</div><div class="line">    this.show = function() &#123;</div><div class="line">        console.log(this.a, this.b, this.c.demo)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">function Child() &#123;</div><div class="line">    this.a = 2;</div><div class="line">    this.change = function() &#123;</div><div class="line">        this.b.push(this.a);</div><div class="line">        this.a = this.b.length;</div><div class="line">        this.c.demo = this.a++;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">Child.prototype = new Parent();</div><div class="line">var parent = new Parent();</div><div class="line">var child1 = new Child();</div><div class="line">var child2 = new Child();</div><div class="line">child1.a = 11;</div><div class="line">child2.a = 12;</div><div class="line">parent.show();  //1,[1,2,1],5</div><div class="line">child1.show(); //11,[1,2,11],5</div><div class="line">child2.show();   //12,[1,2,11],5</div><div class="line">child1.change(); </div><div class="line">child2.change();  </div><div class="line">parent.show();  // 1,[1,2,1],5</div><div class="line">child1.show(); //5,[1,2,1,11,12],5</div><div class="line">child2.show();   //6,[1,2,1,11,12],5</div></pre></td></tr></table></figure></p>
+<p>其实要解出上面的问题，了解以下几句话就好了：</p>
+<blockquote>
+<p>1.每个构造函数，都有一个原型，指向构造函数的原型对象。<br>2.每一个实例生成的时候，都会在内存中产生一块新的堆内存。<br>3.每一个实例都有一个隐式原型指向构造函数的原型对象。<br>4.this的指向，取决于this调用的位置，在这道题中，也可以理解为，谁调用这个方法，this就指向哪个对象。<br>5.数组和字面量对象都是引用。<br>6.原型链的查找原则： 就近原则。也就是说：当实例上存在属性时，用实例上的，如果实例不存在，则顺着原型链往上查找，如果存在，则使用原型链上的对象，如果不存在，则查找Object原型对象上的，如果都不存在，则为undefined。</p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      本系列主要在于对自己的日常学习的内容做一个归纳整理,同时分享一些平时遇到的一些比较好的面试题.
+通过对笔试面试题的学习,强化自己的所学知识面.
+    
+    </summary>
+    
+      <category term="JavaScript笔试面试题" scheme="https://github.com/ChangerHe/categories/JavaScript%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    
+      <category term="JavaScript笔试面试题" scheme="https://github.com/ChangerHe/tags/JavaScript%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
     
   </entry>
   
@@ -394,36 +518,6 @@
   </entry>
   
   <entry>
-    <title>JavaScript笔试面试题收集（三）</title>
-    <link href="https://github.com/ChangerHe/2017/06/15/JavaScript%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98%E6%94%B6%E9%9B%86%EF%BC%88%E4%B8%89%EF%BC%89/"/>
-    <id>https://github.com/ChangerHe/2017/06/15/JavaScript笔试面试题收集（三）/</id>
-    <published>2017-06-15T13:34:18.000Z</published>
-    <updated>2017-09-14T14:39:02.002Z</updated>
-    
-    <content type="html"><![CDATA[<p>本系列主要在于对自己的日常学习的内容做一个归纳整理,同时分享一些平时遇到的一些比较好的面试题.</p>
-<p>通过对笔试面试题的学习,强化自己的所学知识面.</p>
-<p>今天分享的题比较简单,主要是考察闭包的知识以及一些逻辑思维</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">function fun(n,o)&#123;</div><div class="line">	console.log(o)</div><div class="line">	return &#123;</div><div class="line">		fun:function(m)&#123;</div><div class="line">		return fun(m,n)</div><div class="line">	&#125;&#125;</div><div class="line">&#125;</div><div class="line">var a = fun(0);  //undefined</div><div class="line">a.fun(1);  //0</div><div class="line">a.fun(2); // 0</div><div class="line">a.fun(3);  // 0</div><div class="line">var b = fun(0).fun(1).fun(2).fun(3);  //undefined   0    1    2</div><div class="line">var c = fun(0).fun(1);  // undefined   0</div><div class="line">c.fun(2);     // 1</div><div class="line">c.fun(3);     // 1</div></pre></td></tr></table></figure>
-<h1 id="个人拙见"><a href="#个人拙见" class="headerlink" title="个人拙见:"></a>个人拙见:</h1><p>其实以上的代码主要还是一个闭包的问题,代码的逻辑判断清楚了就很好解.因为当我们传一个参的时候,第二个参数必然是undefined.这也是为什么abc一出来就执行的是undefined的原因.因为所有的函数执行都只传递了一个参数.</p>
-<p>第二,当我们为返还的函数传参的时候,也就是给这个函数里面的函数fun的参数m传值的时候,会返回一个以m为第一个参数,其父函数的第一个参数作为第二个参数的函数.</p>
-<p>其实说到这里就很好理解了,我们将函数看成一个很好玩的方法,我们传值进去的时候,它会记录两个值作为参数,并把第二个参数的值打印出来,再往里面传一个值的时候,就会把之前的第一个参数挪到后面作为第二个参数.以此类推.</p>
-]]></content>
-    
-    <summary type="html">
-    
-      本系列主要在于对自己的日常学习的内容做一个归纳整理,同时分享一些平时遇到的一些比较好的面试题.
-通过对笔试面试题的学习,强化自己的所学知识面.
-    
-    </summary>
-    
-      <category term="JavaScript笔试面试题" scheme="https://github.com/ChangerHe/categories/JavaScript%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
-    
-    
-      <category term="JavaScript笔试面试题" scheme="https://github.com/ChangerHe/tags/JavaScript%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
-    
-  </entry>
-  
-  <entry>
     <title>JavaScript笔试面试题收集（五）</title>
     <link href="https://github.com/ChangerHe/2017/06/15/JavaScript%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98%E6%94%B6%E9%9B%86%EF%BC%88%E4%BA%94%EF%BC%89/"/>
     <id>https://github.com/ChangerHe/2017/06/15/JavaScript笔试面试题收集（五）/</id>
@@ -442,63 +536,6 @@
 <p>另外,es6还支持块级作用域的任意嵌套</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	&#123;</div><div class="line">		&#123;</div><div class="line">			let a = 1;</div><div class="line">			&#123;</div><div class="line">				console.log(a)  // 报错, a is not defined</div><div class="line">				let a = 2;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>以上的写法是没有错误的.还有一点要注意的是,因为不同的块级作用域是不同的,所以可以同时定义相同的变量</p>
-]]></content>
-    
-    <summary type="html">
-    
-      本系列主要在于对自己的日常学习的内容做一个归纳整理,同时分享一些平时遇到的一些比较好的面试题.
-通过对笔试面试题的学习,强化自己的所学知识面.
-    
-    </summary>
-    
-      <category term="JavaScript笔试面试题" scheme="https://github.com/ChangerHe/categories/JavaScript%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
-    
-    
-      <category term="JavaScript笔试面试题" scheme="https://github.com/ChangerHe/tags/JavaScript%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title> JavaScript笔试面试题收集（二）</title>
-    <link href="https://github.com/ChangerHe/2017/06/15/JavaScript%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98%E6%94%B6%E9%9B%86%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
-    <id>https://github.com/ChangerHe/2017/06/15/JavaScript笔试面试题收集（二）/</id>
-    <published>2017-06-15T13:34:18.000Z</published>
-    <updated>2017-09-14T14:38:56.029Z</updated>
-    
-    <content type="html"><![CDATA[<p>本系列主要在于对自己的日常学习的内容做一个归纳整理,同时分享一些平时遇到的一些比较好的面试题.</p>
-<p>通过对笔试面试题的学习,强化自己的所学知识面.</p>
-<p>话不多说，直接撸题吧：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">function Parent() &#123;</div><div class="line">    this.a = 1;</div><div class="line">    this.b = [1,2,this.a];</div><div class="line">    this.c = &#123;demo: 5&#125;;</div><div class="line">    this.show = function() &#123;</div><div class="line">        console.log(this.a, this.b, this.c.demo)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">function Child() &#123;</div><div class="line">    this.a = 2;</div><div class="line">    this.change = function() &#123;</div><div class="line">        this.b.push(this.a);</div><div class="line">        this.a = this.b.length;</div><div class="line">        this.c.demo = this.a++;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">Child.prototype = new Parent();</div><div class="line">var parent = new Parent();</div><div class="line">var child1 = new Child();</div><div class="line">var child2 = new Child();</div><div class="line">child1.a = 11;</div><div class="line">child2.a = 12;</div><div class="line">parent.show();  //1,[1,2,1],5</div><div class="line">child1.show(); //11,[1,2,11],5</div><div class="line">child2.show();   //12,[1,2,11],5</div><div class="line">child1.change(); </div><div class="line">child2.change();  </div><div class="line">parent.show();  // 1,[1,2,1],5</div><div class="line">child1.show(); //5,[1,2,1,11,12],5</div><div class="line">child2.show();   //6,[1,2,1,11,12],5</div></pre></td></tr></table></figure></p>
-<p>其实要解出上面的问题，了解以下几句话就好了：</p>
-<blockquote>
-<p>1.每个构造函数，都有一个原型，指向构造函数的原型对象。<br>2.每一个实例生成的时候，都会在内存中产生一块新的堆内存。<br>3.每一个实例都有一个隐式原型指向构造函数的原型对象。<br>4.this的指向，取决于this调用的位置，在这道题中，也可以理解为，谁调用这个方法，this就指向哪个对象。<br>5.数组和字面量对象都是引用。<br>6.原型链的查找原则： 就近原则。也就是说：当实例上存在属性时，用实例上的，如果实例不存在，则顺着原型链往上查找，如果存在，则使用原型链上的对象，如果不存在，则查找Object原型对象上的，如果都不存在，则为undefined。</p>
-</blockquote>
-]]></content>
-    
-    <summary type="html">
-    
-      本系列主要在于对自己的日常学习的内容做一个归纳整理,同时分享一些平时遇到的一些比较好的面试题.
-通过对笔试面试题的学习,强化自己的所学知识面.
-    
-    </summary>
-    
-      <category term="JavaScript笔试面试题" scheme="https://github.com/ChangerHe/categories/JavaScript%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
-    
-    
-      <category term="JavaScript笔试面试题" scheme="https://github.com/ChangerHe/tags/JavaScript%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JavaScript笔试面试题收集（一）</title>
-    <link href="https://github.com/ChangerHe/2017/06/15/JavaScript%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98%E6%94%B6%E9%9B%86%EF%BC%88%E4%B8%80%EF%BC%89/"/>
-    <id>https://github.com/ChangerHe/2017/06/15/JavaScript笔试面试题收集（一）/</id>
-    <published>2017-06-15T13:34:18.000Z</published>
-    <updated>2017-09-14T14:38:39.890Z</updated>
-    
-    <content type="html"><![CDATA[<p>本系列主要在于对自己的日常学习的内容做一个归纳整理,同时分享一些平时遇到的一些比较好的面试题.</p>
-<p>通过对笔试面试题的学习,强化自己的所学知识面.</p>
-<p>出题的大师兄，草粉吗？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">function Foo() &#123;</div><div class="line">	getName = function () &#123;</div><div class="line">		console.log(1);</div><div class="line">	&#125;;</div><div class="line">	return this;</div><div class="line">&#125;</div><div class="line">Foo.getName = function () &#123;</div><div class="line">	console.log(2);</div><div class="line">&#125;;</div><div class="line">Foo.prototype.getName = function () &#123;</div><div class="line">	console.log(3);</div><div class="line">&#125;;</div><div class="line">var getName = function () &#123;</div><div class="line">	console.log(4);</div><div class="line">&#125;;</div><div class="line">function getName() &#123;</div><div class="line">	console.log(5);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">// 请写出以下输出结果：</div><div class="line">Foo.getName();</div><div class="line">getName();</div><div class="line">Foo().getName();</div><div class="line">getName();</div><div class="line">new Foo.getName();</div><div class="line">new Foo().getName();</div><div class="line">new new Foo().getName();</div></pre></td></tr></table></figure></p>
-<p>题目只答对一半的宝宝表示很想哭啊。<br>以下是解题思路：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">Foo.getName();              // 2</div><div class="line">getName();                     // 4</div><div class="line">Foo().getName();           // 1</div><div class="line">getName();                     // 1</div><div class="line"></div><div class="line">new Foo.getName();          // 2</div><div class="line">// var a = new Foo.getName();  </div><div class="line">// var a = &#123;&#125;;</div><div class="line">// a.__proto = Foo.getName.prototype;</div><div class="line">// Foo.getName.call(a);</div><div class="line"></div><div class="line">new Foo().getName();        // 3</div><div class="line">// var b = new Foo().getName();</div><div class="line">// var b = &#123;&#125;;</div><div class="line">// b.__proto__ = Foo.prototype;</div><div class="line">// Foo.call(b);</div><div class="line">// b.getName();</div><div class="line"></div><div class="line">new new Foo().getName();    // 3</div><div class="line">// var c = new Foo().getName();</div><div class="line">// var c = &#123;&#125;;</div><div class="line">// c.__proto__ = Foo.prototype;</div><div class="line">// Foo.call(c);</div><div class="line">// var d = new c.getName();</div><div class="line">// var d = &#123;&#125;;</div><div class="line">// d.__proto__ = c.getName.prototype;</div><div class="line">// c.getName.call(d);</div></pre></td></tr></table></figure></p>
 ]]></content>
     
     <summary type="html">
@@ -862,32 +899,6 @@ reduceRight():迭代数组所有项，从最后一个数开始。
     
     
       <category term="JavaScript" scheme="https://github.com/ChangerHe/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JAVA代码执行顺序解析</title>
-    <link href="https://github.com/ChangerHe/2017/06/14/%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F%E8%A7%A3%E6%9E%90/"/>
-    <id>https://github.com/ChangerHe/2017/06/14/代码执行顺序解析/</id>
-    <published>2017-06-14T14:58:57.000Z</published>
-    <updated>2017-09-14T14:21:28.061Z</updated>
-    
-    <content type="html"><![CDATA[<p>今天的博客记录一道题目，求出以下代码，所打印出的顺序，代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">public class App</div><div class="line">&#123;</div><div class="line">	private static App d = new App();</div><div class="line">	private SubClass t = new SubClass();</div><div class="line">	static</div><div class="line">	&#123;</div><div class="line">		System.out.println(3);</div><div class="line">	&#125;</div><div class="line">	public App()</div><div class="line">	&#123;</div><div class="line">		System.out.println(4);</div><div class="line">	&#125;</div><div class="line">	public static void main(String[] args) </div><div class="line">	&#123;</div><div class="line">		System.out.println(&quot;Hello World!&quot;);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line">class SuperClass</div><div class="line">&#123;</div><div class="line">	SuperClass()</div><div class="line">	&#123;</div><div class="line">		System.out.println(&quot;SuperClass 构造器&quot;);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">class SubClass extends SuperClass</div><div class="line">&#123;</div><div class="line">	static</div><div class="line">	&#123;</div><div class="line">		System.out.println(1);</div><div class="line">	&#125;</div><div class="line">	public SubClass()</div><div class="line">	&#123;</div><div class="line">		System.out.println(2);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>此题主要考察构造器，类及静态变量、非静态变量，父类，子类在JVM中的调用顺序。<br>答案在我第一次做的时候确实是意想不到：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">1</div><div class="line">SuperClass 构造器</div><div class="line">2</div><div class="line">4</div><div class="line">3</div><div class="line">Hello World!</div></pre></td></tr></table></figure></p>
-<h2 id="JVM代码块加载原则"><a href="#JVM代码块加载原则" class="headerlink" title="JVM代码块加载原则"></a>JVM代码块加载原则</h2><p>1.优先加载主类以外，与主类相关的其他类，方便主类进行调用。<br>2.如果代码块有static修饰，则优先加载进JVM进行执行。<br>3.子类中的构造器自带一个super（）；方法，且在构造器的第一行代码中，因此当父类的构造器为无参数构造器时，子类将优先调用父类的无参数构造器的内容。</p>
-<h2 id="题目中的加载顺序分析"><a href="#题目中的加载顺序分析" class="headerlink" title="题目中的加载顺序分析"></a>题目中的加载顺序分析</h2><p>1.第一个为什么是1，因为主类中的main方法会在其他相关的父类和子类优先调用之后，再进行调用，因此优先进行调用SuperClass和SubClass，在这两个类中，SubClass又是SuperClass的子类，理论上应先行调用父类，但子类中包含静态代码块，因此优先调用static修饰的静态字码快中的内容，从而优先输出“1”；<br>2.为什么第二个是“SuperClass 构造器”，上面优先打印1的原理讲明白了，第二个也就好理解了，子代码块中的构造器自带一个super();的方法，会优先进行调用父类中的无变量构造器。因此打印出“SuperClass 构造器”。<br>3.为什么第三个是数字2，构造器的运行顺序是自顶向下的，因此执行完super();后，就开始执行下一字段，也就是2；<br>4.为什么第四个是数字4？非主类中的其他类已经加载完毕，那么现在开始加载主类，主类中又有一个static修饰的代码块，因此主类优先执行了App();中的打印4，操作<br>5.同样，根据自顶向下原色，执行了打印3的操作。<br>6.也就是最后，打印了main方法中的“Hello World!”。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      1.优先加载主类以外，与主类相关的其他类，方便主类进行调用。 2.如果代码块有static修饰，则优先加载进JVM进行执行。 3.子类中的构造器自带一个super（）；方法，且在构造器的第一行代码中，因此当父类的构造器为无参数构造器时，子类将优先调用父类的无参数构造器的内容。
-    
-    </summary>
-    
-      <category term="JAVA 学习笔记" scheme="https://github.com/ChangerHe/categories/JAVA-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="JAVA" scheme="https://github.com/ChangerHe/tags/JAVA/"/>
     
   </entry>
   
