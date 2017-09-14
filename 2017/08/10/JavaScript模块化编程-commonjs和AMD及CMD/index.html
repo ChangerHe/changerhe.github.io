@@ -206,8 +206,6 @@
                     
                       <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
                     
-                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
-                    
                     </div>
                 </section>
                 
@@ -510,22 +508,7 @@
 <script>
     // Open in New Window
     
-        var oOpenInNew = {
-            
-            
-            
-            
-            
-            
-             archives: ".archive-article-title", 
-             miniArchives: "a.post-list-link", 
-            
-             friends: "#js-friends a", 
-             socail: ".social a" 
-        }
-        for (var x in oOpenInNew) {
-            $(oOpenInNew[x]).attr("target", "_blank");
-        }
+        $("a[target=_blank]").removeAttr("target");
     
 </script>
 
