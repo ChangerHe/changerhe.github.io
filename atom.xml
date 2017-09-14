@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/ChangerHe/"/>
-  <updated>2017-09-14T11:10:41.718Z</updated>
+  <updated>2017-09-14T12:32:38.326Z</updated>
   <id>https://github.com/ChangerHe/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://github.com/ChangerHe/2017/09/13/%E4%BD%BF%E7%94%A8Nodejs%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E6%9E%84%E5%BB%BA/"/>
     <id>https://github.com/ChangerHe/2017/09/13/使用Nodejs实现简单的自动化构建/</id>
     <published>2017-09-13T08:56:30.000Z</published>
-    <updated>2017-09-14T11:10:41.718Z</updated>
+    <updated>2017-09-14T12:32:38.326Z</updated>
     
     <content type="html"><![CDATA[<p>自动化构建是现代前端基本都需要的东西,说起这个,大家自然会想到 Glup/Grount这些自动化的构建工具.</p>
 <p>当然,本文只是从最最基础的角度,使用Node的fs模块进行了简单的文档的写入操作.</p>
