@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/ChangerHe/"/>
-  <updated>2017-09-13T10:03:53.904Z</updated>
+  <updated>2017-09-14T11:10:41.718Z</updated>
   <id>https://github.com/ChangerHe/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://github.com/ChangerHe/2017/09/13/%E4%BD%BF%E7%94%A8Nodejs%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E6%9E%84%E5%BB%BA/"/>
     <id>https://github.com/ChangerHe/2017/09/13/使用Nodejs实现简单的自动化构建/</id>
     <published>2017-09-13T08:56:30.000Z</published>
-    <updated>2017-09-13T10:03:53.904Z</updated>
+    <updated>2017-09-14T11:10:41.718Z</updated>
     
     <content type="html"><![CDATA[<p>自动化构建是现代前端基本都需要的东西,说起这个,大家自然会想到 Glup/Grount这些自动化的构建工具.</p>
 <p>当然,本文只是从最最基础的角度,使用Node的fs模块进行了简单的文档的写入操作.</p>
@@ -37,9 +37,8 @@
     
     <summary type="html">
     
-      &lt;p&gt;自动化构建是现代前端基本都需要的东西,说起这个,大家自然会想到 Glup/Grount这些自动化的构建工具.&lt;/p&gt;
-&lt;p&gt;当然,本文只是从最最基础的角度,使用Node的fs模块进行了简单的文档的写入操作.&lt;/p&gt;
-&lt;p&gt;首先,我们先定义一个JSON,用于存放我们想要预先定
+      自动化构建是现代前端基本都需要的东西,说起这个,大家自然会想到 Glup/Grount这些自动化的构建工具.
+当然,本文只是从最最基础的角度,使用Node的fs模块进行了简单的文档的写入操作.
     
     </summary>
     
@@ -55,7 +54,7 @@
     <link href="https://github.com/ChangerHe/2017/09/09/ES6%E4%B8%AD%E7%9A%84%E9%81%8D%E5%8E%86%E5%99%A8%E6%8E%A5%E5%8F%A3Iterator/"/>
     <id>https://github.com/ChangerHe/2017/09/09/ES6中的遍历器接口Iterator/</id>
     <published>2017-09-09T02:04:54.000Z</published>
-    <updated>2017-09-09T02:22:26.326Z</updated>
+    <updated>2017-09-14T11:12:04.538Z</updated>
     
     <content type="html"><![CDATA[<p>初读阮一峰老师的这本书,简直如发现了新世界一般.原来ES6的语法是如此的清奇.</p>
 <p>随着ES6, ES7, 到今年七月份的ES8. 我们会发现,javascript这门最初被定义在客户端的’玩具语言’已经变得越发的强壮和标准,这也是我们作为前端ers 所希望看到的,毕竟,这涉及到以后的饭碗呢哈哈.</p>
@@ -101,8 +100,8 @@
     
     <summary type="html">
     
-      &lt;p&gt;初读阮一峰老师的这本书,简直如发现了新世界一般.原来ES6的语法是如此的清奇.&lt;/p&gt;
-&lt;p&gt;随着ES6, ES7, 到今年七月份的ES8. 我们会发现,javascript这门最初被定义在客户端的’玩具语言’已经变得越发的强壮和标准,这也是我们作为前端ers 所希望看到的
+      初读阮一峰老师的这本书,简直如发现了新世界一般.原来ES6的语法是如此的清奇.
+随着ES6, ES7, 到今年七月份的ES8. 我们会发现,javascript这门最初被定义在客户端的&#39;玩具语言&#39;已经变得越发的强壮和标准,这也是我们作为前端ers 所希望看到的,毕竟,这涉及到以后的饭碗呢哈哈.
     
     </summary>
     
@@ -118,7 +117,7 @@
     <link href="https://github.com/ChangerHe/2017/09/06/jQuery-extend%E5%92%8CjQuery-fn-extend%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
     <id>https://github.com/ChangerHe/2017/09/06/jQuery-extend和jQuery-fn-extend的区别/</id>
     <published>2017-09-06T07:27:53.000Z</published>
-    <updated>2017-09-06T07:48:15.946Z</updated>
+    <updated>2017-09-14T11:17:34.085Z</updated>
     
     <content type="html"><![CDATA[<p>在jQuery的API手册中,jQuery.extend和jQuery.fn.extend,是挂载在jQuery和jQuery.fn上的两个方法,挂载对象不同,但是jQuery的内部实现中是相同的,只是功能不太一样.</p>
 <p>官方的解释是这样的</p>
@@ -154,10 +153,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;在jQuery的API手册中,jQuery.extend和jQuery.fn.extend,是挂载在jQuery和jQuery.fn上的两个方法,挂载对象不同,但是jQuery的内部实现中是相同的,只是功能不太一样.&lt;/p&gt;
-&lt;p&gt;官方的解释是这样的&lt;/p&gt;
-&lt;ul&gt;
-&lt;l
+      在jQuery的API手册中,jQuery.extend和jQuery.fn.extend,是挂载在jQuery和jQuery.fn上的两个方法,挂载对象不同,但是jQuery的内部实现中是相同的,只是功能不太一样.
     
     </summary>
     
@@ -173,9 +169,11 @@
     <link href="https://github.com/ChangerHe/2017/08/24/JavaScript%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98%E6%94%B6%E9%9B%86%EF%BC%88%E4%BA%94%EF%BC%89/"/>
     <id>https://github.com/ChangerHe/2017/08/24/JavaScript笔试面试题收集（五）/</id>
     <published>2017-08-24T09:46:42.000Z</published>
-    <updated>2017-08-24T10:02:02.683Z</updated>
+    <updated>2017-09-14T11:16:22.909Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="函数作用域的变量提升问题"><a href="#函数作用域的变量提升问题" class="headerlink" title="函数作用域的变量提升问题"></a>函数作用域的变量提升问题</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var tmp = new Date()</div><div class="line">function f() &#123;</div><div class="line">	console.log(tmp)  // undefined</div><div class="line">	if(false) &#123;</div><div class="line">		var tmp = &apos;Hello World&apos;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+    <content type="html"><![CDATA[<p>本系列主要在于对自己的日常学习的内容做一个归纳整理,同时分享一些平时遇到的一些比较好的面试题.</p>
+<p>通过对笔试面试题的学习,强化自己的所学知识面.</p>
+<h1 id="函数作用域的变量提升问题"><a href="#函数作用域的变量提升问题" class="headerlink" title="函数作用域的变量提升问题"></a>函数作用域的变量提升问题</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var tmp = new Date()</div><div class="line">function f() &#123;</div><div class="line">	console.log(tmp)  // undefined</div><div class="line">	if(false) &#123;</div><div class="line">		var tmp = &apos;Hello World&apos;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>此题涉及到了函数作用域的变量提升问题.</p>
 <p>因为函数是没有块级作用域的,只有函数作用域</p>
 <p>所以if判断即使为空,编译器预编译的阶段其内部变量声明也会提升到函数作用域的最顶端.</p>
@@ -189,7 +187,8 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;函数作用域的变量提升问题&quot;&gt;&lt;a href=&quot;#函数作用域的变量提升问题&quot; class=&quot;headerlink&quot; title=&quot;函数作用域的变量提升问题&quot;&gt;&lt;/a&gt;函数作用域的变量提升问题&lt;/h1&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;
+      本系列主要在于对自己的日常学习的内容做一个归纳整理,同时分享一些平时遇到的一些比较好的面试题.
+通过对笔试面试题的学习,强化自己的所学知识面.
     
     </summary>
     
@@ -205,9 +204,11 @@
     <link href="https://github.com/ChangerHe/2017/08/22/JavaScript%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98%E6%94%B6%E9%9B%86%EF%BC%88%E5%9B%9B%EF%BC%89/"/>
     <id>https://github.com/ChangerHe/2017/08/22/JavaScript笔试面试题收集（四）/</id>
     <published>2017-08-22T01:04:27.000Z</published>
-    <updated>2017-09-06T11:00:56.142Z</updated>
+    <updated>2017-09-14T11:15:05.844Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="关于形参的传参问题"><a href="#关于形参的传参问题" class="headerlink" title="关于形参的传参问题"></a>关于形参的传参问题</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">(function(foo)&#123;</div><div class="line">	return typeof foo.foo.bar;</div><div class="line">	&#125;)(&#123; foo:&#123; bar: 1 &#125; &#125;)</div></pre></td></tr></table></figure>
+    <content type="html"><![CDATA[<p>本系列主要在于对自己的日常学习的内容做一个归纳整理,同时分享一些平时遇到的一些比较好的面试题.</p>
+<p>通过对笔试面试题的学习,强化自己的所学知识面.</p>
+<h1 id="关于形参的传参问题"><a href="#关于形参的传参问题" class="headerlink" title="关于形参的传参问题"></a>关于形参的传参问题</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">(function(foo)&#123;</div><div class="line">	return typeof foo.foo.bar;</div><div class="line">	&#125;)(&#123; foo:&#123; bar: 1 &#125; &#125;)</div></pre></td></tr></table></figure>
 <p>答案: number<br>解析: 其实这题考了我们闭包以及形参传参的问题,首先,我们将整体看成一个自执行函数,函数的变量是{ foo:{ bar: 1 } },那么我们可以把这一题简化一下:(当然,这个对象并不是存在于全局作用域的,我们只是把它拆开,做个比喻)</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var baz = &#123; foo:&#123; bar: 1 &#125; &#125;</div><div class="line">(function(foo)&#123;</div><div class="line">	return typeof foo.foo.bar;&#125;</div><div class="line">&#125;)(baz)</div></pre></td></tr></table></figure>
 <p>那么现在就很明显了,其实就是把baz作为参数传递到这个自执行函数中,理解了这第一步,那么我们要先了解一下”左值”的概念,就是当我们遇到<code>foo.foo.bar</code>这一串的时候,可能很多同学很疑惑,怎么传了两次参数,其实两次参数的作用是不同的,执行这段代码,那么会先查找左边的值,并传入这个参数. </p>
@@ -239,7 +240,8 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;关于形参的传参问题&quot;&gt;&lt;a href=&quot;#关于形参的传参问题&quot; class=&quot;headerlink&quot; title=&quot;关于形参的传参问题&quot;&gt;&lt;/a&gt;关于形参的传参问题&lt;/h1&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;t
+      本系列主要在于对自己的日常学习的内容做一个归纳整理,同时分享一些平时遇到的一些比较好的面试题.
+通过对笔试面试题的学习,强化自己的所学知识面.
     
     </summary>
     
@@ -255,9 +257,11 @@
     <link href="https://github.com/ChangerHe/2017/08/17/JavaScript%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98%E6%94%B6%E9%9B%86%EF%BC%88%E4%B8%89%EF%BC%89/"/>
     <id>https://github.com/ChangerHe/2017/08/17/JavaScript笔试面试题收集（三）/</id>
     <published>2017-08-17T02:13:35.000Z</published>
-    <updated>2017-08-17T02:23:31.112Z</updated>
+    <updated>2017-09-14T11:16:20.127Z</updated>
     
-    <content type="html"><![CDATA[<p>今天分享的题比较简单,主要是考察闭包的知识以及一些逻辑思维</p>
+    <content type="html"><![CDATA[<p>本系列主要在于对自己的日常学习的内容做一个归纳整理,同时分享一些平时遇到的一些比较好的面试题.</p>
+<p>通过对笔试面试题的学习,强化自己的所学知识面.</p>
+<p>今天分享的题比较简单,主要是考察闭包的知识以及一些逻辑思维</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">function fun(n,o)&#123;</div><div class="line">	console.log(o)</div><div class="line">	return &#123;</div><div class="line">		fun:function(m)&#123;</div><div class="line">		return fun(m,n)</div><div class="line">	&#125;&#125;</div><div class="line">&#125;</div><div class="line">var a = fun(0);  //undefined</div><div class="line">a.fun(1);  //0</div><div class="line">a.fun(2); // 0</div><div class="line">a.fun(3);  // 0</div><div class="line">var b = fun(0).fun(1).fun(2).fun(3);  //undefined   0    1    2</div><div class="line">var c = fun(0).fun(1);  // undefined   0</div><div class="line">c.fun(2);     // 1</div><div class="line">c.fun(3);     // 1</div></pre></td></tr></table></figure>
 <h1 id="个人拙见"><a href="#个人拙见" class="headerlink" title="个人拙见:"></a>个人拙见:</h1><p>其实以上的代码主要还是一个闭包的问题,代码的逻辑判断清楚了就很好解.因为当我们传一个参的时候,第二个参数必然是undefined.这也是为什么abc一出来就执行的是undefined的原因.因为所有的函数执行都只传递了一个参数.</p>
 <p>第二,当我们为返还的函数传参的时候,也就是给这个函数里面的函数fun的参数m传值的时候,会返回一个以m为第一个参数,其父函数的第一个参数作为第二个参数的函数.</p>
@@ -266,8 +270,8 @@
     
     <summary type="html">
     
-      &lt;p&gt;今天分享的题比较简单,主要是考察闭包的知识以及一些逻辑思维&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=
+      本系列主要在于对自己的日常学习的内容做一个归纳整理,同时分享一些平时遇到的一些比较好的面试题.
+通过对笔试面试题的学习,强化自己的所学知识面.
     
     </summary>
     
@@ -283,7 +287,7 @@
     <link href="https://github.com/ChangerHe/2017/08/16/%E5%AE%9E%E7%8E%B0%E6%9F%90%E8%8A%82%E7%82%B9%E5%AD%90%E8%8A%82%E7%82%B9%E7%9A%84%E5%80%92%E5%BA%8F%E6%8E%92%E5%88%97/"/>
     <id>https://github.com/ChangerHe/2017/08/16/实现某节点子节点的倒序排列/</id>
     <published>2017-08-16T02:03:10.000Z</published>
-    <updated>2017-08-16T02:35:00.241Z</updated>
+    <updated>2017-09-14T11:17:58.926Z</updated>
     
     <content type="html"><![CDATA[<p>文章主要是对于一个很容易被忽略的知识点:createDocumentFragment()方法的一个复习,并给大家解锁一个解决给某个标签动态改变其子节点顺序的新姿势.</p>
 <p>首先,documentFragment是一个很早之前就被广泛支持的方法,所以犀牛书上面所提供的为element对象增加一个原型方法insertAdjacentHTML()的兼容性写法,大家可以无视了,因为IE7-IE9都亲测完美支持.当然,如果你想碰IE6,就当我没说.</p>
@@ -303,8 +307,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;文章主要是对于一个很容易被忽略的知识点:createDocumentFragment()方法的一个复习,并给大家解锁一个解决给某个标签动态改变其子节点顺序的新姿势.&lt;/p&gt;
-&lt;p&gt;首先,documentFragment是一个很早之前就被广泛支持的方法,所以犀牛书上面所提供的
+      文章主要是对于一个很容易被忽略的知识点:createDocumentFragment()方法的一个复习,并给大家解锁一个解决给某个标签动态改变其子节点顺序的新姿势.
     
     </summary>
     
@@ -320,7 +323,7 @@
     <link href="https://github.com/ChangerHe/2017/08/11/JavaScript%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BA-%E9%97%AD%E5%8C%85%E5%8F%8A%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/"/>
     <id>https://github.com/ChangerHe/2017/08/11/JavaScript深入浅出-闭包及解决办法/</id>
     <published>2017-08-11T07:15:34.000Z</published>
-    <updated>2017-08-11T08:13:44.360Z</updated>
+    <updated>2017-09-14T11:18:26.147Z</updated>
     
     <content type="html"><![CDATA[<h1 id="闭包是什么"><a href="#闭包是什么" class="headerlink" title="闭包是什么?"></a>闭包是什么?</h1><p>在JS中可谓处处是闭包,也许你不知道这个概念,但是你一定自己手写过闭包,而且还碰到了闭包的问题.</p>
 <p>闭包的最大作用还是解决了全局作用域中的变量被污染的问题.</p>
@@ -352,8 +355,7 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;闭包是什么&quot;&gt;&lt;a href=&quot;#闭包是什么&quot; class=&quot;headerlink&quot; title=&quot;闭包是什么?&quot;&gt;&lt;/a&gt;闭包是什么?&lt;/h1&gt;&lt;p&gt;在JS中可谓处处是闭包,也许你不知道这个概念,但是你一定自己手写过闭包,而且还碰到了闭包的问题.&lt;/p&gt;
-&lt;p&gt;
+      在JS中可谓处处是闭包,也许你不知道这个概念,但是你一定自己手写过闭包,而且还碰到了闭包的问题.
     
     </summary>
     
@@ -369,7 +371,7 @@
     <link href="https://github.com/ChangerHe/2017/08/10/JavaScript%E6%A8%A1%E5%9D%97%E5%8C%96%E7%BC%96%E7%A8%8B-commonjs%E5%92%8CAMD%E5%8F%8ACMD/"/>
     <id>https://github.com/ChangerHe/2017/08/10/JavaScript模块化编程-commonjs和AMD及CMD/</id>
     <published>2017-08-10T15:00:36.000Z</published>
-    <updated>2017-08-10T15:01:34.524Z</updated>
+    <updated>2017-09-14T11:34:02.472Z</updated>
     
     <content type="html"><![CDATA[<h1 id="commonjs"><a href="#commonjs" class="headerlink" title="commonjs"></a>commonjs</h1><p>2009年，美国程序员Ryan Dahl创造了node.js项目，将javascript语言用于服务器端编程。</p>
 <p>这标志”Javascript模块化编程”正式诞生。因为老实说，在浏览器环境下，没有模块也不是特别大的问题，毕竟网页程序的复杂性有限；但是在服务器端，一定要有模块，与操作系统和其他应用程序互动，否则根本没法编程。</p>
@@ -408,7 +410,7 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;commonjs&quot;&gt;&lt;a href=&quot;#commonjs&quot; class=&quot;headerlink&quot; title=&quot;commonjs&quot;&gt;&lt;/a&gt;commonjs&lt;/h1&gt;&lt;p&gt;2009年，美国程序员Ryan Dahl创造了node.js项目，将javascript语言
+      2009年，美国程序员Ryan Dahl创造了node.js项目，将javascript语言用于服务器端编程。 这标志Javascript模块化编程正式诞生。因为老实说，在浏览器环境下，没有模块也不是特别大的问题，毕竟网页程序的复杂性有限；但是在服务器端，一定要有模块，与操作系统和其他应用程序互动，否则根本没法编程。
     
     </summary>
     
@@ -424,7 +426,7 @@
     <link href="https://github.com/ChangerHe/2017/08/09/JavaScript%E8%BA%B2%E5%9D%91%E6%8C%87%E5%8D%97%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
     <id>https://github.com/ChangerHe/2017/08/09/JavaScript躲坑指南（二）/</id>
     <published>2017-08-09T15:02:38.000Z</published>
-    <updated>2017-08-09T15:08:51.857Z</updated>
+    <updated>2017-09-14T11:19:08.839Z</updated>
     
     <content type="html"><![CDATA[<p>本系列将会写一些在正常工作中会遇到的一些坑,然后分析它们的产生原因及解决办法.本文的内容主要来自&lt;you don’t know JS&gt;及日常工作的问题的一些总结.</p>
 <h1 id="关于arguments的使用"><a href="#关于arguments的使用" class="headerlink" title="关于arguments的使用:"></a>关于arguments的使用:</h1><p>arguments在ES6之前简直就是福音,因为在ES6之前是没有办法取到函数的参数组成的数组的.</p>
@@ -451,8 +453,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;本系列将会写一些在正常工作中会遇到的一些坑,然后分析它们的产生原因及解决办法.本文的内容主要来自&amp;lt;you don’t know JS&amp;gt;及日常工作的问题的一些总结.&lt;/p&gt;
-&lt;h1 id=&quot;关于arguments的使用&quot;&gt;&lt;a href=&quot;#关于arguments
+      本系列将会写一些在正常工作中会遇到的一些坑,然后分析它们的产生原因及解决办法.本文的内容主要来自&lt;you don&#39;t know JS&gt;及日常工作的问题的一些总结.
     
     </summary>
     
@@ -468,7 +469,7 @@
     <link href="https://github.com/ChangerHe/2017/08/08/JavaScript%E8%BA%B2%E5%9D%91%E6%8C%87%E5%8D%97%EF%BC%88%E4%B8%80%EF%BC%89/"/>
     <id>https://github.com/ChangerHe/2017/08/08/JavaScript躲坑指南（一）/</id>
     <published>2017-08-08T15:03:29.000Z</published>
-    <updated>2017-08-08T15:27:21.200Z</updated>
+    <updated>2017-09-14T11:19:19.182Z</updated>
     
     <content type="html"><![CDATA[<p>本系列将会写一些在正常工作中会遇到的一些坑,然后分析它们的产生原因及解决办法.本文的内容主要来自&lt;you don’t know JS&gt;及日常工作的问题的一些总结.</p>
 <h1 id="坑一-关于parseInt-方法转换字符串的问题-神坑"><a href="#坑一-关于parseInt-方法转换字符串的问题-神坑" class="headerlink" title="坑一: 关于parseInt()方法转换字符串的问题,神坑!"></a>坑一: 关于parseInt()方法转换字符串的问题,神坑!</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">console.log(parseInt(1/0, 19));  //18</div><div class="line">//原因:1/0得到的结果是Infinity,而得到的Infinity本身其实也是一个字符串,所以parseInt会以19进制对其进行类型转换,首字母为I,则其结果则为18了.</div><div class="line">console.log(parseInt(.000009))    //0</div><div class="line">console.log(parseInt(.0000009))   //9</div><div class="line">console.log(parseInt(false, 16))  //250,判定&apos;false&apos;的字符串的&apos;fa&apos;为十六进制了</div><div class="line">console.log(parseInt(parseInt, 16))  //15</div><div class="line">//结果为15的原因是因为parseInt为函数,所以会被typeof为function,</div></pre></td></tr></table></figure>
@@ -498,8 +499,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;本系列将会写一些在正常工作中会遇到的一些坑,然后分析它们的产生原因及解决办法.本文的内容主要来自&amp;lt;you don’t know JS&amp;gt;及日常工作的问题的一些总结.&lt;/p&gt;
-&lt;h1 id=&quot;坑一-关于parseInt-方法转换字符串的问题-神坑&quot;&gt;&lt;a href=
+      本系列将会写一些在正常工作中会遇到的一些坑,然后分析它们的产生原因及解决办法.本文的内容主要来自&lt;you don&#39;t know JS&gt;及日常工作的问题的一些总结.
     
     </summary>
     
@@ -515,7 +515,7 @@
     <link href="https://github.com/ChangerHe/2017/08/07/JavaScript%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BA-call-apply/"/>
     <id>https://github.com/ChangerHe/2017/08/07/JavaScript深入浅出-call-apply/</id>
     <published>2017-08-07T14:51:48.000Z</published>
-    <updated>2017-08-07T14:56:17.125Z</updated>
+    <updated>2017-09-14T11:19:49.703Z</updated>
     
     <content type="html"><![CDATA[<p>本文中call和apply仅占小部分,主要还是关于自己在学习过程中踩到的坑的记录.</p>
 <h1 id="使用call方法将变量产生的数组进行转换"><a href="#使用call方法将变量产生的数组进行转换" class="headerlink" title="使用call方法将变量产生的数组进行转换"></a>使用call方法将变量产生的数组进行转换</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function foo(a, b, c) &#123;</div><div class="line">    var arr1 = [].reverse.call(arguments);</div><div class="line">    console.log(arr1);</div><div class="line">    var arr2 = [].slice.call(arguments);</div><div class="line">    console.log(arr2.reverse());</div><div class="line">&#125;</div><div class="line">foo(1,2,3)</div></pre></td></tr></table></figure>
@@ -535,8 +535,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;本文中call和apply仅占小部分,主要还是关于自己在学习过程中踩到的坑的记录.&lt;/p&gt;
-&lt;h1 id=&quot;使用call方法将变量产生的数组进行转换&quot;&gt;&lt;a href=&quot;#使用call方法将变量产生的数组进行转换&quot; class=&quot;headerlink&quot; title=&quot;使用c
+      本文中call和apply仅占小部分,主要还是关于自己在学习过程中踩到的坑的记录.
     
     </summary>
     
@@ -552,9 +551,11 @@
     <link href="https://github.com/ChangerHe/2017/08/04/JavaScript%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98%E6%94%B6%E9%9B%86%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
     <id>https://github.com/ChangerHe/2017/08/04/JavaScript笔试面试题收集（二）/</id>
     <published>2017-08-04T14:37:45.000Z</published>
-    <updated>2017-08-04T14:48:02.448Z</updated>
+    <updated>2017-09-14T11:16:49.062Z</updated>
     
-    <content type="html"><![CDATA[<p>话不多说，直接撸题吧：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">function Parent() &#123;</div><div class="line">    this.a = 1;</div><div class="line">    this.b = [1,2,this.a];</div><div class="line">    this.c = &#123;demo: 5&#125;;</div><div class="line">    this.show = function() &#123;</div><div class="line">        console.log(this.a, this.b, this.c.demo)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">function Child() &#123;</div><div class="line">    this.a = 2;</div><div class="line">    this.change = function() &#123;</div><div class="line">        this.b.push(this.a);</div><div class="line">        this.a = this.b.length;</div><div class="line">        this.c.demo = this.a++;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">Child.prototype = new Parent();</div><div class="line">var parent = new Parent();</div><div class="line">var child1 = new Child();</div><div class="line">var child2 = new Child();</div><div class="line">child1.a = 11;</div><div class="line">child2.a = 12;</div><div class="line">parent.show();  //1,[1,2,1],5</div><div class="line">child1.show(); //11,[1,2,11],5</div><div class="line">child2.show();   //12,[1,2,11],5</div><div class="line">child1.change(); </div><div class="line">child2.change();  </div><div class="line">parent.show();  // 1,[1,2,1],5</div><div class="line">child1.show(); //5,[1,2,1,11,12],5</div><div class="line">child2.show();   //6,[1,2,1,11,12],5</div></pre></td></tr></table></figure></p>
+    <content type="html"><![CDATA[<p>本系列主要在于对自己的日常学习的内容做一个归纳整理,同时分享一些平时遇到的一些比较好的面试题.</p>
+<p>通过对笔试面试题的学习,强化自己的所学知识面.</p>
+<p>话不多说，直接撸题吧：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">function Parent() &#123;</div><div class="line">    this.a = 1;</div><div class="line">    this.b = [1,2,this.a];</div><div class="line">    this.c = &#123;demo: 5&#125;;</div><div class="line">    this.show = function() &#123;</div><div class="line">        console.log(this.a, this.b, this.c.demo)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">function Child() &#123;</div><div class="line">    this.a = 2;</div><div class="line">    this.change = function() &#123;</div><div class="line">        this.b.push(this.a);</div><div class="line">        this.a = this.b.length;</div><div class="line">        this.c.demo = this.a++;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">Child.prototype = new Parent();</div><div class="line">var parent = new Parent();</div><div class="line">var child1 = new Child();</div><div class="line">var child2 = new Child();</div><div class="line">child1.a = 11;</div><div class="line">child2.a = 12;</div><div class="line">parent.show();  //1,[1,2,1],5</div><div class="line">child1.show(); //11,[1,2,11],5</div><div class="line">child2.show();   //12,[1,2,11],5</div><div class="line">child1.change(); </div><div class="line">child2.change();  </div><div class="line">parent.show();  // 1,[1,2,1],5</div><div class="line">child1.show(); //5,[1,2,1,11,12],5</div><div class="line">child2.show();   //6,[1,2,1,11,12],5</div></pre></td></tr></table></figure></p>
 <p>其实要解出上面的问题，了解以下几句话就好了：</p>
 <blockquote>
 <p>1.每个构造函数，都有一个原型，指向构造函数的原型对象。<br>2.每一个实例生成的时候，都会在内存中产生一块新的堆内存。<br>3.每一个实例都有一个隐式原型指向构造函数的原型对象。<br>4.this的指向，取决于this调用的位置，在这道题中，也可以理解为，谁调用这个方法，this就指向哪个对象。<br>5.数组和字面量对象都是引用。<br>6.原型链的查找原则： 就近原则。也就是说：当实例上存在属性时，用实例上的，如果实例不存在，则顺着原型链往上查找，如果存在，则使用原型链上的对象，如果不存在，则查找Object原型对象上的，如果都不存在，则为undefined。</p>
@@ -563,7 +564,8 @@
     
     <summary type="html">
     
-      &lt;p&gt;话不多说，直接撸题吧：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div 
+      本系列主要在于对自己的日常学习的内容做一个归纳整理,同时分享一些平时遇到的一些比较好的面试题.
+通过对笔试面试题的学习,强化自己的所学知识面.
     
     </summary>
     
@@ -579,7 +581,7 @@
     <link href="https://github.com/ChangerHe/2017/07/27/%E4%BD%BF%E7%94%A8Canvas%E7%BB%98%E5%88%B6%E4%B8%83%E5%B7%A7%E6%9D%BF/"/>
     <id>https://github.com/ChangerHe/2017/07/27/使用Canvas绘制七巧板/</id>
     <published>2017-07-27T12:59:49.000Z</published>
-    <updated>2017-07-27T15:00:38.011Z</updated>
+    <updated>2017-09-14T11:20:26.591Z</updated>
     
     <content type="html"><![CDATA[<p>中午登上慕课网，偶然发现慕课网改版了，这倒是其次，惊奇的是页面居然出现了不显示我的观看记录和观看百分比的BUG！还准备说要给慕课网反馈一下来着，晚上一登，居然修复了，不得不佩服慕课网工程师们惊人的处突能力啊。</p>
 <p>回到正题，相信大家都见到过七巧板，本文使用简单的HTML5新特性Canvas的2d图形绘制功能，绘制了一个简单的七巧板。</p>
@@ -594,8 +596,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;中午登上慕课网，偶然发现慕课网改版了，这倒是其次，惊奇的是页面居然出现了不显示我的观看记录和观看百分比的BUG！还准备说要给慕课网反馈一下来着，晚上一登，居然修复了，不得不佩服慕课网工程师们惊人的处突能力啊。&lt;/p&gt;
-&lt;p&gt;回到正题，相信大家都见到过七巧板，本文使用简单的H
+      本文使用简单的HTML5新特性Canvas的2d图形绘制功能，绘制了一个简单的七巧板。
     
     </summary>
     
@@ -611,7 +612,7 @@
     <link href="https://github.com/ChangerHe/2017/07/25/%E6%B5%85%E8%B0%88%E6%A1%86%E6%9E%B6%E6%A8%A1%E5%BC%8F%E7%9A%84MVC-MVP-MVVM/"/>
     <id>https://github.com/ChangerHe/2017/07/25/浅谈框架模式的MVC-MVP-MVVM/</id>
     <published>2017-07-25T02:24:22.000Z</published>
-    <updated>2017-07-25T02:45:14.136Z</updated>
+    <updated>2017-09-14T11:20:42.517Z</updated>
     
     <content type="html"><![CDATA[<p>框架模式不是一门写代码的学问，而是一门管理与组织代码的学问。其本质是一种软件开发的模型。与设计模式不同，设计模式是在解决一类问题时总结抽象出的公共方法，如（工厂模式、单例模式。。等等），他们与某种具体的技术栈无关。一种框架模式往往使用了多种设计模式。<br>下面来说一下框架设计的诞生原因及演化。</p>
 <h1 id="第一代：脚本式设计（无架构设计）"><a href="#第一代：脚本式设计（无架构设计）" class="headerlink" title="第一代：脚本式设计（无架构设计）"></a>第一代：脚本式设计（无架构设计）</h1><p>下面这样的代码，就是没有任何设计模式的产物：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">const a = document.createElement(&quot;a&quot;);</div><div class="line">a.innerHTML = &quot;www.google.com&quot;;</div><div class="line">a.href = &quot;//www.google.com&quot;;</div><div class="line">a.style.position = &quot;absolute&quot;;</div><div class="line">a.style.top = 100;</div><div class="line">a.onclick = function()&#123;</div><div class="line">    console.log(&quot;google&quot;);</div><div class="line">&#125;</div><div class="line"> document.body.appendChild(a);</div></pre></td></tr></table></figure></p>
@@ -696,7 +697,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;框架模式不是一门写代码的学问，而是一门管理与组织代码的学问。其本质是一种软件开发的模型。与设计模式不同，设计模式是在解决一类问题时总结抽象出的公共方法，如（工厂模式、单例模式。。等等），他们与某种具体的技术栈无关。一种框架模式往往使用了多种设计模式。&lt;br&gt;下面来说一下框架
+      框架模式不是一门写代码的学问，而是一门管理与组织代码的学问。其本质是一种软件开发的模型。与设计模式不同，设计模式是在解决一类问题时总结抽象出的公共方法，如（工厂模式、单例模式。。等等），他们与某种具体的技术栈无关。一种框架模式往往使用了多种设计模式。
     
     </summary>
     
@@ -712,7 +713,7 @@
     <link href="https://github.com/ChangerHe/2017/07/19/CSS%E6%A0%B7%E5%BC%8F%E4%B9%A6%E5%86%99%E8%A7%84%E8%8C%83/"/>
     <id>https://github.com/ChangerHe/2017/07/19/CSS样式书写规范/</id>
     <published>2017-07-19T13:16:09.000Z</published>
-    <updated>2017-07-19T13:40:49.913Z</updated>
+    <updated>2017-09-14T11:21:09.537Z</updated>
     
     <content type="html"><![CDATA[<p>(以下文章转载自伯乐在线,仅供以后方便查阅使用)<br>可能不同团队都有各自的规范，又或者很多人在写 CSS 的时候还是想到什么就写什么，不存在太多的约束。</p>
 <p>我觉得 CSS 代码规范还是有存在的必要的，尤其是在团队配合，多人协作下，规范就显得尤为重要。</p>
@@ -814,8 +815,8 @@
     
     <summary type="html">
     
-      &lt;p&gt;(以下文章转载自伯乐在线,仅供以后方便查阅使用)&lt;br&gt;可能不同团队都有各自的规范，又或者很多人在写 CSS 的时候还是想到什么就写什么，不存在太多的约束。&lt;/p&gt;
-&lt;p&gt;我觉得 CSS 代码规范还是有存在的必要的，尤其是在团队配合，多人协作下，规范就显得尤为重要。&lt;/p&gt;
+      可能不同团队都有各自的规范，又或者很多人在写 CSS 的时候还是想到什么就写什么，不存在太多的约束。
+我觉得 CSS 代码规范还是有存在的必要的，尤其是在团队配合，多人协作下，规范就显得尤为重要。
     
     </summary>
     
@@ -831,7 +832,7 @@
     <link href="https://github.com/ChangerHe/2017/07/19/JavaScript%E8%AE%A1%E6%97%B6%E5%99%A8%E7%9A%84%E4%BC%98%E5%8C%96/"/>
     <id>https://github.com/ChangerHe/2017/07/19/JavaScript计时器的优化/</id>
     <published>2017-07-19T01:51:42.000Z</published>
-    <updated>2017-07-19T02:14:31.578Z</updated>
+    <updated>2017-09-14T11:21:43.565Z</updated>
     
     <content type="html"><![CDATA[<p>首先，要对我的脑子进行严格而深刻的批判，写个简单的计时器，花了一个小时的时间才写完。</p>
 <blockquote>
@@ -842,11 +843,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;首先，要对我的脑子进行严格而深刻的批判，写个简单的计时器，花了一个小时的时间才写完。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;“脑子是个好东西，我希望我自己也能有一个。”   ——某位将要成为前端大佬的菜鸟如是说&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;情况分析：在HTM
+      首先，要对我的脑子进行严格而深刻的批判，写个简单的计时器，花了一个小时的时间才写完。 &gt; “脑子是个好东西，我希望我自己也能有一个。”   ——某位将要成为前端大佬的菜鸟如是说
     
     </summary>
     
@@ -862,15 +859,18 @@
     <link href="https://github.com/ChangerHe/2017/07/17/JavaScript%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98%E6%94%B6%E9%9B%86%EF%BC%88%E4%B8%80%EF%BC%89/"/>
     <id>https://github.com/ChangerHe/2017/07/17/JavaScript笔试面试题收集（一）/</id>
     <published>2017-07-17T13:34:18.000Z</published>
-    <updated>2017-07-17T13:39:06.050Z</updated>
+    <updated>2017-09-14T11:17:09.193Z</updated>
     
-    <content type="html"><![CDATA[<p>出题的大师兄，草粉吗？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">function Foo() &#123;</div><div class="line">	getName = function () &#123;</div><div class="line">		console.log(1);</div><div class="line">	&#125;;</div><div class="line">	return this;</div><div class="line">&#125;</div><div class="line">Foo.getName = function () &#123;</div><div class="line">	console.log(2);</div><div class="line">&#125;;</div><div class="line">Foo.prototype.getName = function () &#123;</div><div class="line">	console.log(3);</div><div class="line">&#125;;</div><div class="line">var getName = function () &#123;</div><div class="line">	console.log(4);</div><div class="line">&#125;;</div><div class="line">function getName() &#123;</div><div class="line">	console.log(5);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">// 请写出以下输出结果：</div><div class="line">Foo.getName();</div><div class="line">getName();</div><div class="line">Foo().getName();</div><div class="line">getName();</div><div class="line">new Foo.getName();</div><div class="line">new Foo().getName();</div><div class="line">new new Foo().getName();</div></pre></td></tr></table></figure></p>
+    <content type="html"><![CDATA[<p>本系列主要在于对自己的日常学习的内容做一个归纳整理,同时分享一些平时遇到的一些比较好的面试题.</p>
+<p>通过对笔试面试题的学习,强化自己的所学知识面.</p>
+<p>出题的大师兄，草粉吗？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">function Foo() &#123;</div><div class="line">	getName = function () &#123;</div><div class="line">		console.log(1);</div><div class="line">	&#125;;</div><div class="line">	return this;</div><div class="line">&#125;</div><div class="line">Foo.getName = function () &#123;</div><div class="line">	console.log(2);</div><div class="line">&#125;;</div><div class="line">Foo.prototype.getName = function () &#123;</div><div class="line">	console.log(3);</div><div class="line">&#125;;</div><div class="line">var getName = function () &#123;</div><div class="line">	console.log(4);</div><div class="line">&#125;;</div><div class="line">function getName() &#123;</div><div class="line">	console.log(5);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">// 请写出以下输出结果：</div><div class="line">Foo.getName();</div><div class="line">getName();</div><div class="line">Foo().getName();</div><div class="line">getName();</div><div class="line">new Foo.getName();</div><div class="line">new Foo().getName();</div><div class="line">new new Foo().getName();</div></pre></td></tr></table></figure></p>
 <p>题目只答对一半的宝宝表示很想哭啊。<br>以下是解题思路：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">Foo.getName();              // 2</div><div class="line">getName();                     // 4</div><div class="line">Foo().getName();           // 1</div><div class="line">getName();                     // 1</div><div class="line"></div><div class="line">new Foo.getName();          // 2</div><div class="line">// var a = new Foo.getName();  </div><div class="line">// var a = &#123;&#125;;</div><div class="line">// a.__proto = Foo.getName.prototype;</div><div class="line">// Foo.getName.call(a);</div><div class="line"></div><div class="line">new Foo().getName();        // 3</div><div class="line">// var b = new Foo().getName();</div><div class="line">// var b = &#123;&#125;;</div><div class="line">// b.__proto__ = Foo.prototype;</div><div class="line">// Foo.call(b);</div><div class="line">// b.getName();</div><div class="line"></div><div class="line">new new Foo().getName();    // 3</div><div class="line">// var c = new Foo().getName();</div><div class="line">// var c = &#123;&#125;;</div><div class="line">// c.__proto__ = Foo.prototype;</div><div class="line">// Foo.call(c);</div><div class="line">// var d = new c.getName();</div><div class="line">// var d = &#123;&#125;;</div><div class="line">// d.__proto__ = c.getName.prototype;</div><div class="line">// c.getName.call(d);</div></pre></td></tr></table></figure></p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;出题的大师兄，草粉吗？&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div 
+      本系列主要在于对自己的日常学习的内容做一个归纳整理,同时分享一些平时遇到的一些比较好的面试题.
+通过对笔试面试题的学习,强化自己的所学知识面.
     
     </summary>
     
@@ -886,7 +886,7 @@
     <link href="https://github.com/ChangerHe/2017/07/16/%E5%9F%BA%E6%9C%AC%E7%AE%97%E6%B3%95%E7%9A%84JavaScript%E5%AE%9E%E7%8E%B0/"/>
     <id>https://github.com/ChangerHe/2017/07/16/基本算法的JavaScript实现/</id>
     <published>2017-07-16T13:47:22.000Z</published>
-    <updated>2017-07-16T14:15:44.449Z</updated>
+    <updated>2017-09-14T11:22:34.037Z</updated>
     
     <content type="html"><![CDATA[<p>也算是一时兴起，对着手机拾掇了一早上，实现了一些简单的排序算法。</p>
 <h1 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h1><p>这个不必多说，最经典的排序算法之一，下面我也是用的最经典的解决方案，同时对算法进行了优化，减少了不必要的比较次数。<br>冒泡排序在嵌套循环都为数组长度的话，这个时候的循环最多次数是N的平方，但是用以下的算法，比较的次数可以减少一半。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">function bubbleSort(arr)&#123;   </div><div class="line">	console.time(&apos;冒泡排序耗时&apos;)</div><div class="line">	var len = arr.length;  //定义冒泡排序的数组长度</div><div class="line">	var n;           //定义n用于在冒泡排序时进行位置调换</div><div class="line">	for (var i = 0; i &lt; len-1; i++) &#123;  //外层循环，使冒泡排序循环数组长度</div><div class="line">		for (var j = 0; j &lt; len-i-1; j++) &#123;</div><div class="line">			if (arr[j] &gt; arr[j+1]) &#123;</div><div class="line">				n = arr[j];</div><div class="line">				arr[j] = arr[j+1];</div><div class="line">				arr[j+1] = n;</div><div class="line">			&#125; </div><div class="line"></div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	console.timeEnd(&apos;冒泡排序耗时&apos;)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
@@ -900,8 +900,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;也算是一时兴起，对着手机拾掇了一早上，实现了一些简单的排序算法。&lt;/p&gt;
-&lt;h1 id=&quot;冒泡排序&quot;&gt;&lt;a href=&quot;#冒泡排序&quot; class=&quot;headerlink&quot; title=&quot;冒泡排序&quot;&gt;&lt;/a&gt;冒泡排序&lt;/h1&gt;&lt;p&gt;这个不必多说，最经典的排序算法之一，下面我也
+      本文对日常的简单算法问题进行了一个归纳整理,并提出了自己的一些优化思路和方法
     
     </summary>
     
@@ -917,7 +916,7 @@
     <link href="https://github.com/ChangerHe/2017/07/16/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3JavaScript%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E5%92%8C%E5%8E%9F%E5%9E%8B%E5%AF%B9%E8%B1%A1/"/>
     <id>https://github.com/ChangerHe/2017/07/16/深入理解JavaScript构造函数和原型对象/</id>
     <published>2017-07-15T23:25:47.000Z</published>
-    <updated>2017-07-15T23:34:29.730Z</updated>
+    <updated>2017-09-14T11:23:00.179Z</updated>
     
     <content type="html"><![CDATA[<h1 id="对象？"><a href="#对象？" class="headerlink" title="对象？"></a>对象？</h1><p>对象，是javascript中非常重要的一个梗，是否能透彻的理解它直接关系到你对整个javascript体系的基础理解，说白了，javascript就是一群对象在搞！！基！！</p>
 <h1 id="常用的几种对象创建模式"><a href="#常用的几种对象创建模式" class="headerlink" title="常用的几种对象创建模式"></a>常用的几种对象创建模式</h1><h2 id="使用new关键字创建"><a href="#使用new关键字创建" class="headerlink" title="使用new关键字创建"></a>使用new关键字创建</h2><p>最基础的对象创建方式，无非就是和其他多数语言一样说的一样：所以俗话说得好，当我们程序猿们没对象的时候，我们应该“new”一个对象出来。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var gf = new Object();</div><div class="line">gf.name = &quot;tangwei&quot;;</div><div class="line">gf.bar = &quot;c++&quot;;</div><div class="line">gf.sayWhat = function() &#123;</div><div class="line">  console.log(this.name + &quot;said:love you forever&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
@@ -938,7 +937,7 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;对象？&quot;&gt;&lt;a href=&quot;#对象？&quot; class=&quot;headerlink&quot; title=&quot;对象？&quot;&gt;&lt;/a&gt;对象？&lt;/h1&gt;&lt;p&gt;对象，是javascript中非常重要的一个梗，是否能透彻的理解它直接关系到你对整个javascript体系的基础理解，说白了，ja
+      对象，是javascript中非常重要的一个梗，是否能透彻的理解它直接关系到你对整个javascript体系的基础理解，说白了，javascript就是一群对象在搞！！基！！
     
     </summary>
     
