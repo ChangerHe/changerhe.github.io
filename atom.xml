@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>ChangerHe&#39;s Bolg | 何庆畅的个人博客</title>
+  <title>ChangerHe&#39;s Bolg|何庆畅的个人博客</title>
   <subtitle>What doesn&#39;t kill you make you stronger.</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/ChangerHe/"/>
-  <updated>2017-09-15T11:45:52.148Z</updated>
+  <updated>2017-09-15T11:55:10.892Z</updated>
   <id>https://github.com/ChangerHe/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://github.com/ChangerHe/2017/09/15/Nodejs%E7%9A%84require-%E6%A8%A1%E5%9D%97%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/"/>
     <id>https://github.com/ChangerHe/2017/09/15/Nodejs的require-模块源码解读/</id>
     <published>2017-09-15T11:44:27.000Z</published>
-    <updated>2017-09-15T11:45:52.148Z</updated>
+    <updated>2017-09-15T11:55:10.892Z</updated>
     
     <content type="html"><![CDATA[<p>2009年, nodejs项目诞生,所有模块一律为commonjs格式.</p>
 <p>时至今日,Nodejs的包管理npm仓库,已经存放了十万百万级的模块,其中绝大部分都是使用的commonjs格式.</p>
@@ -73,6 +73,8 @@
     
     
       <category term="Nodejs" scheme="https://github.com/ChangerHe/tags/Nodejs/"/>
+    
+      <category term="require" scheme="https://github.com/ChangerHe/tags/require/"/>
     
   </entry>
   
