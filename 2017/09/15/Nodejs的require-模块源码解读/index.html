@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="ChangerHe" />
+
+
+
+<meta name="description" content="Nodejs的require()模块源码解读">
+<meta name="keywords" content="Nodejs">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nodejs的require()模块源码解读">
+<meta property="og:url" content="https://github.com/ChangerHe/2017/09/15/Nodejs的require-模块源码解读/index.html">
+<meta property="og:site_name" content="ChangerHe&#39;s Bolg | 何庆畅的个人博客">
+<meta property="og:description" content="Nodejs的require()模块源码解读">
+<meta property="og:updated_time" content="2017-09-15T11:45:52.148Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Nodejs的require()模块源码解读">
+<meta name="twitter:description" content="Nodejs的require()模块源码解读">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="ChangerHe&#39;s Bolg | 何庆畅的个人博客" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>Nodejs的require()模块源码解读 | ChangerHe&#39;s Bolg | 何庆畅的个人博客</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: undefined
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?dfac40c3a2e8f0af4127ebbb645d4a78";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">ChangerHe</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">What doesn&#39;t kill you make you stronger.</p>
+        
+
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                            <li><a href="/demos/">个人作品</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ZFZQUFNXU1VSViQVFUoHCwk" title="Email"></a>
+                            
+                                <a class="fa 新浪微博" href="http://weibo.com/ChangerHe" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/ChangerHe" title="GitHub"></a>
+                            
+                                <a class="fa QQ" href="http://wpa.qq.com/msgrd?v=3&uin=244737162&site=qq&menu=yes" title="QQ"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS样式书写规范/">CSS样式书写规范</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Canvas学习笔记/">Canvas学习笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6标准入门阅读笔记/">ES6标准入门阅读笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/">GitHub</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HEXO/">HEXO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML-CSS/">HTML & CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP相关知识/">HTTP相关知识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/">JAVA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA-JavaScript/">JAVA & JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA-学习笔记/">JAVA 学习笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript框架模式/">JavaScript框架模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript模块化编程/">JavaScript模块化编程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript笔试面试题/">JavaScript笔试面试题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript躲坑指南/">JavaScript躲坑指南</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nodejs/">Nodejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nodejs学习笔记/">Nodejs学习笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SASS/">SASS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/What-is-Flex/">What is Flex?</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XML/">XML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">ChangerHe</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">ChangerHe</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">What doesn&#39;t kill you make you stronger.</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                    <li><a href="/demos/">个人作品</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ZFZQUFNXU1VSViQVFUoHCwk" title="Email"></a>
+                            
+                                <a class="fa 新浪微博" target="_blank" href="http://weibo.com/ChangerHe" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/ChangerHe" title="GitHub"></a>
+                            
+                                <a class="fa QQ" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=244737162&site=qq&menu=yes" title="QQ"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-Nodejs的require-模块源码解读" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/09/15/Nodejs的require-模块源码解读/" class="article-date">
+      <time datetime="2017-09-15T11:44:27.000Z" itemprop="datePublished">2017-09-15</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Nodejs的require()模块源码解读
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Nodejs学习笔记/">Nodejs学习笔记</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nodejs/">Nodejs</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>2009年, nodejs项目诞生,所有模块一律为commonjs格式.</p>
+<p>时至今日,Nodejs的包管理npm仓库,已经存放了十万百万级的模块,其中绝大部分都是使用的commonjs格式.</p>
+<p>这种格式的核心就是require语句, 模块通过它进行加载.</p>
+<h1 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h1><p>以下内容翻译自《Node使用手册》</p>
+<p>当 Node 遇到 require(X) 时，按下面的顺序处理。</p>
+<blockquote>
+<p>（1）如果 X 是内置模块（比如 require(‘http’）)<br>　　a. 返回该模块。<br>　　b. 不再继续执行。<br>（2）如果 X 以 “./“ 或者 “/“ 或者 “../“ 开头<br>　　a. 根据 X 所在的父模块，确定 X 的绝对路径。<br>　　b. 将 X 当成文件，依次查找<code>X</code>,找不到之后会查找<code>X .js</code>,再找不到则找<code>X .json</code>,还找不到则找<code>X .node</code>，只要其中有一个存在，就返回该文件，不再继续执行。<br>　　c. 将 X 当成目录，依次查找<code>X /package.json</code>,找不到之后会查找<code>X /index.js</code>,再找不到则找<code>X /index.json</code>,还找不到则找<code>X /index.node</code>，只要其中有一个存在，就返回该文件，不再继续执行。<br>（3）如果 X 不带路径<br>　　a. 根据 X 所在的父模块，确定 X 可能的安装目录。<br>　　b. 依次在每个目录中，将 X 当成文件名或目录名加载。<br>（4） 抛出 “not found”</p>
+</blockquote>
+<h1 id="Module构造函数"><a href="#Module构造函数" class="headerlink" title="Module构造函数"></a>Module构造函数</h1><p>Module构造函数的部分源码是这样的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function Module(id, parent) &#123;</div><div class="line">  this.id = id;</div><div class="line">  this.exports = &#123;&#125;;</div><div class="line">  this.parent = parent;</div><div class="line">  this.filename = null;</div><div class="line">  this.loaded = false;</div><div class="line">  this.children = [];</div><div class="line">&#125;</div><div class="line"></div><div class="line">module.exports = Module;</div><div class="line"></div><div class="line">var module = new Module(filename, parent);</div></pre></td></tr></table></figure>
+<p>上面代码中，Node 定义了一个构造函数 Module，所有的模块都是 Module 的实例。可以看到，当前模块（module.js）也是 Module 的一个实例。<br>每个实例都有自己的属性。下面通过一个例子，看看这些属性的值是什么。新建一个脚本文件 a.js 。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">// a.js</div><div class="line"></div><div class="line">console.log(&apos;module.id: &apos;, module.id);  //.</div><div class="line">console.log(&apos;module.exports: &apos;, module.exports); // &#123;&#125;</div><div class="line">console.log(&apos;module.parent: &apos;, module.parent); // null</div><div class="line">console.log(&apos;module.filename: &apos;, module.filename); // 当前文件路径</div><div class="line">console.log(&apos;module.loaded: &apos;, module.loaded); // false</div><div class="line">console.log(&apos;module.children: &apos;, module.children); //</div><div class="line">console.log(&apos;module.paths: &apos;, module.paths);</div></pre></td></tr></table></figure>
+<p>可以看到，如果没有父模块，直接调用当前模块，parent 属性就是 null，id 属性就是一个点。filename 属性是模块的绝对路径，path 属性是一个数组，包含了模块可能的位置。另外，输出这些内容时，模块还没有全部加载，所以 loaded 属性为 false 。<br>新建另一个脚本文件 b.js，让其调用 a.js 。</p>
+<p>上面代码中，由于 a.js 被 b.js 调用，所以 parent 属性指向 b.js 模块，id 属性和 filename 属性一致，都是模块的绝对路径。</p>
+<h1 id="模块实例的-require-方法"><a href="#模块实例的-require-方法" class="headerlink" title="模块实例的 require 方法"></a>模块实例的 require 方法</h1><p>每个模块实例都有一个 require 方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Module.prototype.require = function(path) &#123;</div><div class="line">return Module._load(path, this);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>由此可知，require 并不是全局性命令，而是每个模块提供的一个内部方法，也就是说，只有在模块内部才能使用 require 命令（唯一的例外是 REPL 环境）。另外，require 其实内部调用 Module._load 方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">Module._load = function(request, parent, isMain) &#123;</div><div class="line"></div><div class="line">//  计算绝对路径</div><div class="line">var filename = Module._resolveFilename(request, parent);</div><div class="line"></div><div class="line">//  第一步：如果有缓存，取出缓存</div><div class="line">var cachedModule = Module._cache[filename];</div><div class="line">if (cachedModule) &#123;</div><div class="line">return cachedModule.exports;</div><div class="line"></div><div class="line">// 第二步：是否为内置模块</div><div class="line">if (NativeModule.exists(filename)) &#123;</div><div class="line">return NativeModule.require(filename);</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 第三步：生成模块实例，存入缓存</div><div class="line">var module = new Module(filename, parent);</div><div class="line">Module._cache[filename] = module;</div><div class="line"></div><div class="line">// 第四步：加载模块</div><div class="line">try &#123;</div><div class="line">module.load(filename);</div><div class="line">hadException = false;</div><div class="line">&#125; finally &#123;</div><div class="line">if (hadException) &#123;</div><div class="line">delete Module._cache[filename];</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 第五步：输出模块的exports属性</div><div class="line">return module.exports;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>上面代码中，首先解析出模块的绝对路径（filename），以它作为模块的识别符。然后，如果模块已经在缓存中，就从缓存取出；如果不在缓存中，就加载模块。</p>
+<p>因此，Module._load 的关键步骤是两个。</p>
+<p>Module._resolveFilename() ：确定模块的绝对路径<br>module.load()：加载模块</p>
+<h1 id="模块的绝对路径"><a href="#模块的绝对路径" class="headerlink" title="模块的绝对路径"></a>模块的绝对路径</h1><p>下面是 Module._resolveFilename 方法的源码。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">Module._resolveFilename = function(request, parent) &#123;</div><div class="line"></div><div class="line">// 第一步：如果是内置模块，不含路径返回</div><div class="line">if (NativeModule.exists(request)) &#123;</div><div class="line">return request;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 第二步：确定所有可能的路径</div><div class="line">var resolvedModule = Module._resolveLookupPaths(request, parent);</div><div class="line">var id = resolvedModule[0];</div><div class="line">var paths = resolvedModule[1];</div><div class="line"></div><div class="line">// 第三步：确定哪一个路径为真</div><div class="line">var filename = Module._findPath(request, paths);</div><div class="line">if (!filename) &#123;</div><div class="line">var err = new Error(&quot;Cannot find module &apos;&quot; + request + &quot;&apos;&quot;);</div><div class="line">err.code = &apos;MODULE_NOT_FOUND&apos;;</div><div class="line">throw err;</div><div class="line">&#125;</div><div class="line">return filename;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>上面代码中，在 Module.resolveFilename 方法内部，又调用了两个方法 Module.resolveLookupPaths() 和 Module._findPath() ，前者用来列出可能的路径，后者用来确认哪一个路径为真。<br>为了简洁起见，这里只给出 Module._resolveLookupPaths() 的运行结果。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">[   &apos;/home/ruanyf/tmp/node_modules&apos;,</div><div class="line">&apos;/home/ruanyf/node_modules&apos;,</div><div class="line">&apos;/home/node_modules&apos;,</div><div class="line">&apos;/node_modules&apos;</div><div class="line">&apos;/home/ruanyf/.node_modules&apos;,</div><div class="line">&apos;/home/ruanyf/.node_libraries&apos;，</div><div class="line">&apos;$Prefix/lib/node&apos; ]</div></pre></td></tr></table></figure>
+<p>上面的数组，就是模块所有可能的路径。基本上是，从当前路径开始一级级向上寻找 node_modules 子目录。最后那三个路径，主要是为了历史原因保持兼容，实际上已经很少用了。<br>有了可能的路径以后，下面就是 Module._findPath() 的源码，用来确定到底哪一个是正确路径。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line">Module._findPath = function(request, paths) &#123;</div><div class="line"></div><div class="line">// 列出所有可能的后缀名：.js，.json, .node</div><div class="line">var exts = Object.keys(Module._extensions);</div><div class="line"></div><div class="line">// 如果是绝对路径，就不再搜索</div><div class="line">if (request.charAt(0) === &apos;/&apos;) &#123;</div><div class="line">paths = [&apos;&apos;];</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 是否有后缀的目录斜杠</div><div class="line">var trailingSlash = (request.slice(-1) === &apos;/&apos;);</div><div class="line"></div><div class="line">// 第一步：如果当前路径已在缓存中，就直接返回缓存</div><div class="line">var cacheKey = JSON.stringify(&#123;request: request, paths: paths&#125;);</div><div class="line">if (Module._pathCache[cacheKey]) &#123;</div><div class="line">return Module._pathCache[cacheKey];</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 第二步：依次遍历所有路径</div><div class="line">for (var i = 0, PL = paths.length; i &lt; PL; i++) &#123;</div><div class="line">var basePath = path.resolve(paths[i], request);</div><div class="line">var filename;</div><div class="line"></div><div class="line">if (!trailingSlash) &#123;</div><div class="line">// 第三步：是否存在该模块文件</div><div class="line">filename = tryFile(basePath);</div><div class="line"></div><div class="line">if (!filename &amp;&amp; !trailingSlash) &#123;</div><div class="line">// 第四步：该模块文件加上后缀名，是否存在</div><div class="line">filename = tryExtensions(basePath, exts);</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 第五步：目录中是否存在 package.json</div><div class="line">if (!filename) &#123;</div><div class="line">filename = tryPackage(basePath, exts);</div><div class="line">&#125;</div><div class="line"></div><div class="line">if (!filename) &#123;</div><div class="line">// 第六步：是否存在目录名 + index + 后缀名</div><div class="line">filename = tryExtensions(path.resolve(basePath, &apos;index&apos;), exts);</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 第七步：将找到的文件路径存入返回缓存，然后返回</div><div class="line">if (filename) &#123;</div><div class="line">Module._pathCache[cacheKey] = filename;</div><div class="line">return filename;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 第八步：没有找到文件，返回false</div><div class="line">return false;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>经过上面代码，就可以找到模块的绝对路径了。<br>有时在项目代码中，需要调用模块的绝对路径，那么除了 module.filename ，Node 还提供一个 require.resolve 方法，供外部调用，用于从模块名取到绝对路径。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">require.resolve = function(request) &#123;</div><div class="line">return Module._resolveFilename(request, self);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">// 用法</div><div class="line">require.resolve(&apos;a.js&apos;)</div><div class="line">// 返回 /home/ruanyf/tmp/a.js</div></pre></td></tr></table></figure>
+<h1 id="加载模块"><a href="#加载模块" class="headerlink" title="加载模块"></a>加载模块</h1><p>有了模块的绝对路径，就可以加载该模块了。下面是 module.load 方法的源码。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Module.prototype.load = function(filename) &#123;</div><div class="line">var extension = path.extname(filename) || &apos;.js&apos;;</div><div class="line">if (!Module._extensions[extension]) extension = &apos;.js&apos;;</div><div class="line">Module._extensions[extension](this, filename);</div><div class="line">this.loaded = true;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>上面代码中，首先确定模块的后缀名，不同的后缀名对应不同的加载方法。下面是 .js 和 .json 后缀名对应的处理方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">Module._extensions[&apos;.js&apos;] = function(module, filename) &#123;</div><div class="line">var content = fs.readFileSync(filename, &apos;utf8&apos;);</div><div class="line">module._compile(stripBOM(content), filename);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">Module._extensions[&apos;.json&apos;] = function(module, filename) &#123;</div><div class="line">var content = fs.readFileSync(filename, &apos;utf8&apos;);</div><div class="line">try &#123;</div><div class="line">module.exports = JSON.parse(stripBOM(content));</div><div class="line">&#125; catch (err) &#123;</div><div class="line">err.message = filename + &apos;: &apos; + err.message;</div><div class="line">throw err;</div><div class="line">&#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>这里只讨论 js 文件的加载。首先，将模块文件读取成字符串，然后剥离 utf8 编码特有的BOM文件头，最后编译该模块。<br>module._compile 方法用于模块的编译。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Module.prototype._compile = function(content, filename) &#123;</div><div class="line">var self = this;</div><div class="line">var args = [self.exports, require, self, filename, dirname];</div><div class="line">return compiledWrapper.apply(self.exports, args);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>上面的代码基本等同于下面的形式。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">(function (exports, require, module, __filename, __dirname) &#123;</div><div class="line">// 模块源码</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>也就是说，模块的加载实质上就是，注入exports、require、module三个全局变量，然后执行模块的源码，然后将模块的 exports 变量的值输出。</p>
+<p>(以上文章转载自阮一峰博客)</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/09/15/Nodejs的require-模块源码解读/">Nodejs的require()模块源码解读</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">ChangerHe</a></p>
+        <p><span>发布时间:</span>2017-09-15, 19:44:27</p>
+        <p><span>最后更新:</span>2017-09-15, 19:45:52</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/09/15/Nodejs的require-模块源码解读/" title="Nodejs的require()模块源码解读">https://github.com/ChangerHe/2017/09/15/Nodejs的require-模块源码解读/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://github.com/ChangerHe/2017/09/15/Nodejs的require-模块源码解读/　　作者: ChangerHe" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2017/06/15/使用Nodejs实现简单的自动化构建/">
+                    使用Nodejs实现简单的自动化构建
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#基本用法"><span class="toc-number">1.</span> <span class="toc-text">基本用法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Module构造函数"><span class="toc-number">2.</span> <span class="toc-text">Module构造函数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#模块实例的-require-方法"><span class="toc-number">3.</span> <span class="toc-text">模块实例的 require 方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#模块的绝对路径"><span class="toc-number">4.</span> <span class="toc-text">模块的绝对路径</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#加载模块"><span class="toc-number">5.</span> <span class="toc-text">加载模块</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2017/06/15/使用Nodejs实现简单的自动化构建/" title="下一篇: 使用Nodejs实现简单的自动化构建">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/09/15/Nodejs的require-模块源码解读/">Nodejs的require()模块源码解读</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/15/使用Nodejs实现简单的自动化构建/">使用Nodejs实现简单的自动化构建</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/15/ES6中的遍历器接口Iterator/">ES6中的遍历器接口Iterator</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/15/JavaScript躲坑指南（一）/">JavaScript躲坑指南（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/15/JavaScript躲坑指南（二）/">JavaScript躲坑指南（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/15/JavaScript模块化编程-commonjs和AMD及CMD/">JavaScript模块化编程-commonjs和AMD及CMD</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/15/JavaScript深入浅出-call-apply/">JavaScript深入浅出-call/apply</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/15/深入理解JavaScript构造函数和原型对象/">深入理解JavaScript构造函数和原型对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/15/JavaScript深入浅出-闭包及解决办法/">JavaScript深入浅出-闭包及闭包问题的解决办法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/15/JavaScript笔试面试题收集（三）/">JavaScript笔试面试题收集（三）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/15/JavaScript笔试面试题收集（五）/">JavaScript笔试面试题收集（五）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/15/JavaScript笔试面试题收集（四）/">JavaScript笔试面试题收集（四）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/15/JavaScript笔试面试题收集（一）/">JavaScript笔试面试题收集（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/15/JavaScript笔试面试题收集（二）/"> JavaScript笔试面试题收集（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/15/JavaScript高级程序设计复习笔记（二）/">JavaScript高级程序设计复习笔记（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/15/JavaScript高级程序设计复习笔记（一）/">JavaScript高级程序设计复习笔记（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/15/JavaScript高级程序设计复习笔记（三）/">JavaScript高级程序设计复习笔记（三）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/15/SASS学习进阶/">SASS学习进阶</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/15/SASS学习笔记/">SASS学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/15/jQuery-extend和jQuery-fn-extend的区别/">jQuery.extend和jQuery.fn.extend的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/15/JavaScript深入浅出-表达式和运算符/">JavaScript深入浅出-表达式和运算符</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/15/HTTP相关知识/">HTTP相关知识（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/15/浅谈框架模式的MVC-MVP-MVVM/">浅谈框架模式的MVC/MVP/MVVM</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/15/JavaScipt中sort-方法的底层原理及妙用/">JavaScipt中sort()方法的底层原理及妙用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/14/代码执行顺序解析/">JAVA代码执行顺序解析</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/14/What-is-Flex/">What is Flex?</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/14/hexo/">HEXO使用小结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/14/XML学习笔记/">XML学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/14/hello-world/">Position属性知多少</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/14/CSS样式书写规范/">CSS样式书写规范</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/14/jQuery学习笔记——属性与样式/">jQuery 学习笔记——属性与样式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/14/PHP菜鸟入门笔记/">PHP菜鸟入门不完全指南</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/14/jQuery-学习笔记/">jQuery 学习笔记——选择器</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/14/jQuery查漏补缺/">jQuery 学习笔记——Review</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/14/Java-Learning/">斐波那契数列和九九乘法表在JAVA中的实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/14/nine-block-mission/">九宫格自适应布局的页面重构</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/14/不同排序算法的JAVA实现及性能比较/">不同排序算法的JAVA实现及性能比较</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/14/使用Canvas绘制七巧板/">使用Canvas绘制七巧板</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/14/GIT配置不需密码即可push的方法/">GIT配置不需密码即可push的方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/14/在GitHub账户中搭建静态博客的同时另开一个代码展示页面的方法/">在GitHub账户中搭建静态博客的同时另开一个代码展示页面的方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/14/基本算法的JavaScript实现/">基本算法的JavaScript实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/14/接口和抽象类的区别/">接口和抽象类的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/14/JavaScript计时器的优化/">JavaScript计时器的优化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/14/杨辉三角的JAVA实现/">杨辉三角的JAVA实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/14/实现某节点子节点的倒序排列/">实现某节点子节点的倒序排列</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/14/The-Usages-Of-Iconfont/">阿里妈妈iconfont矢量图标字体的用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/14/The-Data-Type-Differences-of-JavaScript-and-Java/">JavaScript 和 JAVA 在数据类型方面的异同</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016-2017 ChangerHe
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/ChangerHe/ChangerHe.github.io" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by ChangerHe <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+
+<script>
+    // Open in New Window
+    
+        $("a[target=_blank]").removeAttr("target");
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

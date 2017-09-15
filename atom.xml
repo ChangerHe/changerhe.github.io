@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>ChangerHe&#39;s Bolg</title>
+  <title>ChangerHe&#39;s Bolg | 何庆畅的个人博客</title>
   <subtitle>What doesn&#39;t kill you make you stronger.</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/ChangerHe/"/>
-  <updated>2017-09-14T14:35:01.695Z</updated>
+  <updated>2017-09-15T11:45:52.148Z</updated>
   <id>https://github.com/ChangerHe/</id>
   
   <author>
@@ -14,6 +14,67 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Nodejs的require()模块源码解读</title>
+    <link href="https://github.com/ChangerHe/2017/09/15/Nodejs%E7%9A%84require-%E6%A8%A1%E5%9D%97%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/"/>
+    <id>https://github.com/ChangerHe/2017/09/15/Nodejs的require-模块源码解读/</id>
+    <published>2017-09-15T11:44:27.000Z</published>
+    <updated>2017-09-15T11:45:52.148Z</updated>
+    
+    <content type="html"><![CDATA[<p>2009年, nodejs项目诞生,所有模块一律为commonjs格式.</p>
+<p>时至今日,Nodejs的包管理npm仓库,已经存放了十万百万级的模块,其中绝大部分都是使用的commonjs格式.</p>
+<p>这种格式的核心就是require语句, 模块通过它进行加载.</p>
+<h1 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h1><p>以下内容翻译自《Node使用手册》</p>
+<p>当 Node 遇到 require(X) 时，按下面的顺序处理。</p>
+<blockquote>
+<p>（1）如果 X 是内置模块（比如 require(‘http’）)<br>　　a. 返回该模块。<br>　　b. 不再继续执行。<br>（2）如果 X 以 “./“ 或者 “/“ 或者 “../“ 开头<br>　　a. 根据 X 所在的父模块，确定 X 的绝对路径。<br>　　b. 将 X 当成文件，依次查找<code>X</code>,找不到之后会查找<code>X .js</code>,再找不到则找<code>X .json</code>,还找不到则找<code>X .node</code>，只要其中有一个存在，就返回该文件，不再继续执行。<br>　　c. 将 X 当成目录，依次查找<code>X /package.json</code>,找不到之后会查找<code>X /index.js</code>,再找不到则找<code>X /index.json</code>,还找不到则找<code>X /index.node</code>，只要其中有一个存在，就返回该文件，不再继续执行。<br>（3）如果 X 不带路径<br>　　a. 根据 X 所在的父模块，确定 X 可能的安装目录。<br>　　b. 依次在每个目录中，将 X 当成文件名或目录名加载。<br>（4） 抛出 “not found”</p>
+</blockquote>
+<h1 id="Module构造函数"><a href="#Module构造函数" class="headerlink" title="Module构造函数"></a>Module构造函数</h1><p>Module构造函数的部分源码是这样的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function Module(id, parent) &#123;</div><div class="line">  this.id = id;</div><div class="line">  this.exports = &#123;&#125;;</div><div class="line">  this.parent = parent;</div><div class="line">  this.filename = null;</div><div class="line">  this.loaded = false;</div><div class="line">  this.children = [];</div><div class="line">&#125;</div><div class="line"></div><div class="line">module.exports = Module;</div><div class="line"></div><div class="line">var module = new Module(filename, parent);</div></pre></td></tr></table></figure>
+<p>上面代码中，Node 定义了一个构造函数 Module，所有的模块都是 Module 的实例。可以看到，当前模块（module.js）也是 Module 的一个实例。<br>每个实例都有自己的属性。下面通过一个例子，看看这些属性的值是什么。新建一个脚本文件 a.js 。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">// a.js</div><div class="line"></div><div class="line">console.log(&apos;module.id: &apos;, module.id);  //.</div><div class="line">console.log(&apos;module.exports: &apos;, module.exports); // &#123;&#125;</div><div class="line">console.log(&apos;module.parent: &apos;, module.parent); // null</div><div class="line">console.log(&apos;module.filename: &apos;, module.filename); // 当前文件路径</div><div class="line">console.log(&apos;module.loaded: &apos;, module.loaded); // false</div><div class="line">console.log(&apos;module.children: &apos;, module.children); //</div><div class="line">console.log(&apos;module.paths: &apos;, module.paths);</div></pre></td></tr></table></figure>
+<p>可以看到，如果没有父模块，直接调用当前模块，parent 属性就是 null，id 属性就是一个点。filename 属性是模块的绝对路径，path 属性是一个数组，包含了模块可能的位置。另外，输出这些内容时，模块还没有全部加载，所以 loaded 属性为 false 。<br>新建另一个脚本文件 b.js，让其调用 a.js 。</p>
+<p>上面代码中，由于 a.js 被 b.js 调用，所以 parent 属性指向 b.js 模块，id 属性和 filename 属性一致，都是模块的绝对路径。</p>
+<h1 id="模块实例的-require-方法"><a href="#模块实例的-require-方法" class="headerlink" title="模块实例的 require 方法"></a>模块实例的 require 方法</h1><p>每个模块实例都有一个 require 方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Module.prototype.require = function(path) &#123;</div><div class="line">return Module._load(path, this);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>由此可知，require 并不是全局性命令，而是每个模块提供的一个内部方法，也就是说，只有在模块内部才能使用 require 命令（唯一的例外是 REPL 环境）。另外，require 其实内部调用 Module._load 方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">Module._load = function(request, parent, isMain) &#123;</div><div class="line"></div><div class="line">//  计算绝对路径</div><div class="line">var filename = Module._resolveFilename(request, parent);</div><div class="line"></div><div class="line">//  第一步：如果有缓存，取出缓存</div><div class="line">var cachedModule = Module._cache[filename];</div><div class="line">if (cachedModule) &#123;</div><div class="line">return cachedModule.exports;</div><div class="line"></div><div class="line">// 第二步：是否为内置模块</div><div class="line">if (NativeModule.exists(filename)) &#123;</div><div class="line">return NativeModule.require(filename);</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 第三步：生成模块实例，存入缓存</div><div class="line">var module = new Module(filename, parent);</div><div class="line">Module._cache[filename] = module;</div><div class="line"></div><div class="line">// 第四步：加载模块</div><div class="line">try &#123;</div><div class="line">module.load(filename);</div><div class="line">hadException = false;</div><div class="line">&#125; finally &#123;</div><div class="line">if (hadException) &#123;</div><div class="line">delete Module._cache[filename];</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 第五步：输出模块的exports属性</div><div class="line">return module.exports;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>上面代码中，首先解析出模块的绝对路径（filename），以它作为模块的识别符。然后，如果模块已经在缓存中，就从缓存取出；如果不在缓存中，就加载模块。</p>
+<p>因此，Module._load 的关键步骤是两个。</p>
+<p>Module._resolveFilename() ：确定模块的绝对路径<br>module.load()：加载模块</p>
+<h1 id="模块的绝对路径"><a href="#模块的绝对路径" class="headerlink" title="模块的绝对路径"></a>模块的绝对路径</h1><p>下面是 Module._resolveFilename 方法的源码。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">Module._resolveFilename = function(request, parent) &#123;</div><div class="line"></div><div class="line">// 第一步：如果是内置模块，不含路径返回</div><div class="line">if (NativeModule.exists(request)) &#123;</div><div class="line">return request;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 第二步：确定所有可能的路径</div><div class="line">var resolvedModule = Module._resolveLookupPaths(request, parent);</div><div class="line">var id = resolvedModule[0];</div><div class="line">var paths = resolvedModule[1];</div><div class="line"></div><div class="line">// 第三步：确定哪一个路径为真</div><div class="line">var filename = Module._findPath(request, paths);</div><div class="line">if (!filename) &#123;</div><div class="line">var err = new Error(&quot;Cannot find module &apos;&quot; + request + &quot;&apos;&quot;);</div><div class="line">err.code = &apos;MODULE_NOT_FOUND&apos;;</div><div class="line">throw err;</div><div class="line">&#125;</div><div class="line">return filename;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>上面代码中，在 Module.resolveFilename 方法内部，又调用了两个方法 Module.resolveLookupPaths() 和 Module._findPath() ，前者用来列出可能的路径，后者用来确认哪一个路径为真。<br>为了简洁起见，这里只给出 Module._resolveLookupPaths() 的运行结果。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">[   &apos;/home/ruanyf/tmp/node_modules&apos;,</div><div class="line">&apos;/home/ruanyf/node_modules&apos;,</div><div class="line">&apos;/home/node_modules&apos;,</div><div class="line">&apos;/node_modules&apos;</div><div class="line">&apos;/home/ruanyf/.node_modules&apos;,</div><div class="line">&apos;/home/ruanyf/.node_libraries&apos;，</div><div class="line">&apos;$Prefix/lib/node&apos; ]</div></pre></td></tr></table></figure>
+<p>上面的数组，就是模块所有可能的路径。基本上是，从当前路径开始一级级向上寻找 node_modules 子目录。最后那三个路径，主要是为了历史原因保持兼容，实际上已经很少用了。<br>有了可能的路径以后，下面就是 Module._findPath() 的源码，用来确定到底哪一个是正确路径。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line">Module._findPath = function(request, paths) &#123;</div><div class="line"></div><div class="line">// 列出所有可能的后缀名：.js，.json, .node</div><div class="line">var exts = Object.keys(Module._extensions);</div><div class="line"></div><div class="line">// 如果是绝对路径，就不再搜索</div><div class="line">if (request.charAt(0) === &apos;/&apos;) &#123;</div><div class="line">paths = [&apos;&apos;];</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 是否有后缀的目录斜杠</div><div class="line">var trailingSlash = (request.slice(-1) === &apos;/&apos;);</div><div class="line"></div><div class="line">// 第一步：如果当前路径已在缓存中，就直接返回缓存</div><div class="line">var cacheKey = JSON.stringify(&#123;request: request, paths: paths&#125;);</div><div class="line">if (Module._pathCache[cacheKey]) &#123;</div><div class="line">return Module._pathCache[cacheKey];</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 第二步：依次遍历所有路径</div><div class="line">for (var i = 0, PL = paths.length; i &lt; PL; i++) &#123;</div><div class="line">var basePath = path.resolve(paths[i], request);</div><div class="line">var filename;</div><div class="line"></div><div class="line">if (!trailingSlash) &#123;</div><div class="line">// 第三步：是否存在该模块文件</div><div class="line">filename = tryFile(basePath);</div><div class="line"></div><div class="line">if (!filename &amp;&amp; !trailingSlash) &#123;</div><div class="line">// 第四步：该模块文件加上后缀名，是否存在</div><div class="line">filename = tryExtensions(basePath, exts);</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 第五步：目录中是否存在 package.json</div><div class="line">if (!filename) &#123;</div><div class="line">filename = tryPackage(basePath, exts);</div><div class="line">&#125;</div><div class="line"></div><div class="line">if (!filename) &#123;</div><div class="line">// 第六步：是否存在目录名 + index + 后缀名</div><div class="line">filename = tryExtensions(path.resolve(basePath, &apos;index&apos;), exts);</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 第七步：将找到的文件路径存入返回缓存，然后返回</div><div class="line">if (filename) &#123;</div><div class="line">Module._pathCache[cacheKey] = filename;</div><div class="line">return filename;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 第八步：没有找到文件，返回false</div><div class="line">return false;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>经过上面代码，就可以找到模块的绝对路径了。<br>有时在项目代码中，需要调用模块的绝对路径，那么除了 module.filename ，Node 还提供一个 require.resolve 方法，供外部调用，用于从模块名取到绝对路径。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">require.resolve = function(request) &#123;</div><div class="line">return Module._resolveFilename(request, self);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">// 用法</div><div class="line">require.resolve(&apos;a.js&apos;)</div><div class="line">// 返回 /home/ruanyf/tmp/a.js</div></pre></td></tr></table></figure>
+<h1 id="加载模块"><a href="#加载模块" class="headerlink" title="加载模块"></a>加载模块</h1><p>有了模块的绝对路径，就可以加载该模块了。下面是 module.load 方法的源码。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Module.prototype.load = function(filename) &#123;</div><div class="line">var extension = path.extname(filename) || &apos;.js&apos;;</div><div class="line">if (!Module._extensions[extension]) extension = &apos;.js&apos;;</div><div class="line">Module._extensions[extension](this, filename);</div><div class="line">this.loaded = true;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>上面代码中，首先确定模块的后缀名，不同的后缀名对应不同的加载方法。下面是 .js 和 .json 后缀名对应的处理方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">Module._extensions[&apos;.js&apos;] = function(module, filename) &#123;</div><div class="line">var content = fs.readFileSync(filename, &apos;utf8&apos;);</div><div class="line">module._compile(stripBOM(content), filename);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">Module._extensions[&apos;.json&apos;] = function(module, filename) &#123;</div><div class="line">var content = fs.readFileSync(filename, &apos;utf8&apos;);</div><div class="line">try &#123;</div><div class="line">module.exports = JSON.parse(stripBOM(content));</div><div class="line">&#125; catch (err) &#123;</div><div class="line">err.message = filename + &apos;: &apos; + err.message;</div><div class="line">throw err;</div><div class="line">&#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>这里只讨论 js 文件的加载。首先，将模块文件读取成字符串，然后剥离 utf8 编码特有的BOM文件头，最后编译该模块。<br>module._compile 方法用于模块的编译。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Module.prototype._compile = function(content, filename) &#123;</div><div class="line">var self = this;</div><div class="line">var args = [self.exports, require, self, filename, dirname];</div><div class="line">return compiledWrapper.apply(self.exports, args);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>上面的代码基本等同于下面的形式。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">(function (exports, require, module, __filename, __dirname) &#123;</div><div class="line">// 模块源码</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>也就是说，模块的加载实质上就是，注入exports、require、module三个全局变量，然后执行模块的源码，然后将模块的 exports 变量的值输出。</p>
+<p>(以上文章转载自阮一峰博客)</p>
+]]></content>
+    
+    <summary type="html">
+    
+      Nodejs的require()模块源码解读
+    
+    </summary>
+    
+      <category term="Nodejs学习笔记" scheme="https://github.com/ChangerHe/categories/Nodejs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="Nodejs" scheme="https://github.com/ChangerHe/tags/Nodejs/"/>
+    
+  </entry>
   
   <entry>
     <title>使用Nodejs实现简单的自动化构建</title>
@@ -408,46 +469,24 @@
   </entry>
   
   <entry>
-    <title>JavaScript笔试面试题收集（一）</title>
-    <link href="https://github.com/ChangerHe/2017/06/15/JavaScript%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98%E6%94%B6%E9%9B%86%EF%BC%88%E4%B8%80%EF%BC%89/"/>
-    <id>https://github.com/ChangerHe/2017/06/15/JavaScript笔试面试题收集（一）/</id>
+    <title>JavaScript笔试面试题收集（五）</title>
+    <link href="https://github.com/ChangerHe/2017/06/15/JavaScript%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98%E6%94%B6%E9%9B%86%EF%BC%88%E4%BA%94%EF%BC%89/"/>
+    <id>https://github.com/ChangerHe/2017/06/15/JavaScript笔试面试题收集（五）/</id>
     <published>2017-06-15T13:34:18.000Z</published>
-    <updated>2017-09-14T14:38:39.890Z</updated>
+    <updated>2017-09-14T14:38:54.465Z</updated>
     
     <content type="html"><![CDATA[<p>本系列主要在于对自己的日常学习的内容做一个归纳整理,同时分享一些平时遇到的一些比较好的面试题.</p>
 <p>通过对笔试面试题的学习,强化自己的所学知识面.</p>
-<p>出题的大师兄，草粉吗？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">function Foo() &#123;</div><div class="line">	getName = function () &#123;</div><div class="line">		console.log(1);</div><div class="line">	&#125;;</div><div class="line">	return this;</div><div class="line">&#125;</div><div class="line">Foo.getName = function () &#123;</div><div class="line">	console.log(2);</div><div class="line">&#125;;</div><div class="line">Foo.prototype.getName = function () &#123;</div><div class="line">	console.log(3);</div><div class="line">&#125;;</div><div class="line">var getName = function () &#123;</div><div class="line">	console.log(4);</div><div class="line">&#125;;</div><div class="line">function getName() &#123;</div><div class="line">	console.log(5);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">// 请写出以下输出结果：</div><div class="line">Foo.getName();</div><div class="line">getName();</div><div class="line">Foo().getName();</div><div class="line">getName();</div><div class="line">new Foo.getName();</div><div class="line">new Foo().getName();</div><div class="line">new new Foo().getName();</div></pre></td></tr></table></figure></p>
-<p>题目只答对一半的宝宝表示很想哭啊。<br>以下是解题思路：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">Foo.getName();              // 2</div><div class="line">getName();                     // 4</div><div class="line">Foo().getName();           // 1</div><div class="line">getName();                     // 1</div><div class="line"></div><div class="line">new Foo.getName();          // 2</div><div class="line">// var a = new Foo.getName();  </div><div class="line">// var a = &#123;&#125;;</div><div class="line">// a.__proto = Foo.getName.prototype;</div><div class="line">// Foo.getName.call(a);</div><div class="line"></div><div class="line">new Foo().getName();        // 3</div><div class="line">// var b = new Foo().getName();</div><div class="line">// var b = &#123;&#125;;</div><div class="line">// b.__proto__ = Foo.prototype;</div><div class="line">// Foo.call(b);</div><div class="line">// b.getName();</div><div class="line"></div><div class="line">new new Foo().getName();    // 3</div><div class="line">// var c = new Foo().getName();</div><div class="line">// var c = &#123;&#125;;</div><div class="line">// c.__proto__ = Foo.prototype;</div><div class="line">// Foo.call(c);</div><div class="line">// var d = new c.getName();</div><div class="line">// var d = &#123;&#125;;</div><div class="line">// d.__proto__ = c.getName.prototype;</div><div class="line">// c.getName.call(d);</div></pre></td></tr></table></figure></p>
-]]></content>
-    
-    <summary type="html">
-    
-      本系列主要在于对自己的日常学习的内容做一个归纳整理,同时分享一些平时遇到的一些比较好的面试题.
-通过对笔试面试题的学习,强化自己的所学知识面.
-    
-    </summary>
-    
-      <category term="JavaScript笔试面试题" scheme="https://github.com/ChangerHe/categories/JavaScript%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
-    
-    
-      <category term="JavaScript笔试面试题" scheme="https://github.com/ChangerHe/tags/JavaScript%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title> JavaScript笔试面试题收集（二）</title>
-    <link href="https://github.com/ChangerHe/2017/06/15/JavaScript%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98%E6%94%B6%E9%9B%86%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
-    <id>https://github.com/ChangerHe/2017/06/15/JavaScript笔试面试题收集（二）/</id>
-    <published>2017-06-15T13:34:18.000Z</published>
-    <updated>2017-09-14T14:38:56.029Z</updated>
-    
-    <content type="html"><![CDATA[<p>本系列主要在于对自己的日常学习的内容做一个归纳整理,同时分享一些平时遇到的一些比较好的面试题.</p>
-<p>通过对笔试面试题的学习,强化自己的所学知识面.</p>
-<p>话不多说，直接撸题吧：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">function Parent() &#123;</div><div class="line">    this.a = 1;</div><div class="line">    this.b = [1,2,this.a];</div><div class="line">    this.c = &#123;demo: 5&#125;;</div><div class="line">    this.show = function() &#123;</div><div class="line">        console.log(this.a, this.b, this.c.demo)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">function Child() &#123;</div><div class="line">    this.a = 2;</div><div class="line">    this.change = function() &#123;</div><div class="line">        this.b.push(this.a);</div><div class="line">        this.a = this.b.length;</div><div class="line">        this.c.demo = this.a++;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">Child.prototype = new Parent();</div><div class="line">var parent = new Parent();</div><div class="line">var child1 = new Child();</div><div class="line">var child2 = new Child();</div><div class="line">child1.a = 11;</div><div class="line">child2.a = 12;</div><div class="line">parent.show();  //1,[1,2,1],5</div><div class="line">child1.show(); //11,[1,2,11],5</div><div class="line">child2.show();   //12,[1,2,11],5</div><div class="line">child1.change(); </div><div class="line">child2.change();  </div><div class="line">parent.show();  // 1,[1,2,1],5</div><div class="line">child1.show(); //5,[1,2,1,11,12],5</div><div class="line">child2.show();   //6,[1,2,1,11,12],5</div></pre></td></tr></table></figure></p>
-<p>其实要解出上面的问题，了解以下几句话就好了：</p>
-<blockquote>
-<p>1.每个构造函数，都有一个原型，指向构造函数的原型对象。<br>2.每一个实例生成的时候，都会在内存中产生一块新的堆内存。<br>3.每一个实例都有一个隐式原型指向构造函数的原型对象。<br>4.this的指向，取决于this调用的位置，在这道题中，也可以理解为，谁调用这个方法，this就指向哪个对象。<br>5.数组和字面量对象都是引用。<br>6.原型链的查找原则： 就近原则。也就是说：当实例上存在属性时，用实例上的，如果实例不存在，则顺着原型链往上查找，如果存在，则使用原型链上的对象，如果不存在，则查找Object原型对象上的，如果都不存在，则为undefined。</p>
-</blockquote>
+<h1 id="函数作用域的变量提升问题"><a href="#函数作用域的变量提升问题" class="headerlink" title="函数作用域的变量提升问题"></a>函数作用域的变量提升问题</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var tmp = new Date()</div><div class="line">function f() &#123;</div><div class="line">	console.log(tmp)  // undefined</div><div class="line">	if(false) &#123;</div><div class="line">		var tmp = &apos;Hello World&apos;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>此题涉及到了函数作用域的变量提升问题.</p>
+<p>因为函数是没有块级作用域的,只有函数作用域</p>
+<p>所以if判断即使为空,编译器预编译的阶段其内部变量声明也会提升到函数作用域的最顶端.</p>
+<p>这个时候因为有了tmp的声明,所以tmp就不会往外面的作用域找值了,会直接返回一个undefined.</p>
+<h1 id="let的作用域问题"><a href="#let的作用域问题" class="headerlink" title="let的作用域问题"></a>let的作用域问题</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function f1() &#123;</div><div class="line">	let n = 5;</div><div class="line">	if(true) &#123;</div><div class="line">		let n = 10;</div><div class="line">	&#125;</div><div class="line">	console.log(n)  // 5</div><div class="line">&#125;</div><div class="line">f1()</div></pre></td></tr></table></figure>
+<p>let是es6成为国际标准的声明方式,由let声明的变量是可以有块级作用域的,所以即使我们使用了if判断语句,其里面的变量也是外面无法访问到的.</p>
+<p>另外,es6还支持块级作用域的任意嵌套</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	&#123;</div><div class="line">		&#123;</div><div class="line">			let a = 1;</div><div class="line">			&#123;</div><div class="line">				console.log(a)  // 报错, a is not defined</div><div class="line">				let a = 2;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>以上的写法是没有错误的.还有一点要注意的是,因为不同的块级作用域是不同的,所以可以同时定义相同的变量</p>
 ]]></content>
     
     <summary type="html">
@@ -518,24 +557,46 @@
   </entry>
   
   <entry>
-    <title>JavaScript笔试面试题收集（五）</title>
-    <link href="https://github.com/ChangerHe/2017/06/15/JavaScript%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98%E6%94%B6%E9%9B%86%EF%BC%88%E4%BA%94%EF%BC%89/"/>
-    <id>https://github.com/ChangerHe/2017/06/15/JavaScript笔试面试题收集（五）/</id>
+    <title>JavaScript笔试面试题收集（一）</title>
+    <link href="https://github.com/ChangerHe/2017/06/15/JavaScript%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98%E6%94%B6%E9%9B%86%EF%BC%88%E4%B8%80%EF%BC%89/"/>
+    <id>https://github.com/ChangerHe/2017/06/15/JavaScript笔试面试题收集（一）/</id>
     <published>2017-06-15T13:34:18.000Z</published>
-    <updated>2017-09-14T14:38:54.465Z</updated>
+    <updated>2017-09-14T14:38:39.890Z</updated>
     
     <content type="html"><![CDATA[<p>本系列主要在于对自己的日常学习的内容做一个归纳整理,同时分享一些平时遇到的一些比较好的面试题.</p>
 <p>通过对笔试面试题的学习,强化自己的所学知识面.</p>
-<h1 id="函数作用域的变量提升问题"><a href="#函数作用域的变量提升问题" class="headerlink" title="函数作用域的变量提升问题"></a>函数作用域的变量提升问题</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var tmp = new Date()</div><div class="line">function f() &#123;</div><div class="line">	console.log(tmp)  // undefined</div><div class="line">	if(false) &#123;</div><div class="line">		var tmp = &apos;Hello World&apos;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>此题涉及到了函数作用域的变量提升问题.</p>
-<p>因为函数是没有块级作用域的,只有函数作用域</p>
-<p>所以if判断即使为空,编译器预编译的阶段其内部变量声明也会提升到函数作用域的最顶端.</p>
-<p>这个时候因为有了tmp的声明,所以tmp就不会往外面的作用域找值了,会直接返回一个undefined.</p>
-<h1 id="let的作用域问题"><a href="#let的作用域问题" class="headerlink" title="let的作用域问题"></a>let的作用域问题</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function f1() &#123;</div><div class="line">	let n = 5;</div><div class="line">	if(true) &#123;</div><div class="line">		let n = 10;</div><div class="line">	&#125;</div><div class="line">	console.log(n)  // 5</div><div class="line">&#125;</div><div class="line">f1()</div></pre></td></tr></table></figure>
-<p>let是es6成为国际标准的声明方式,由let声明的变量是可以有块级作用域的,所以即使我们使用了if判断语句,其里面的变量也是外面无法访问到的.</p>
-<p>另外,es6还支持块级作用域的任意嵌套</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	&#123;</div><div class="line">		&#123;</div><div class="line">			let a = 1;</div><div class="line">			&#123;</div><div class="line">				console.log(a)  // 报错, a is not defined</div><div class="line">				let a = 2;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>以上的写法是没有错误的.还有一点要注意的是,因为不同的块级作用域是不同的,所以可以同时定义相同的变量</p>
+<p>出题的大师兄，草粉吗？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">function Foo() &#123;</div><div class="line">	getName = function () &#123;</div><div class="line">		console.log(1);</div><div class="line">	&#125;;</div><div class="line">	return this;</div><div class="line">&#125;</div><div class="line">Foo.getName = function () &#123;</div><div class="line">	console.log(2);</div><div class="line">&#125;;</div><div class="line">Foo.prototype.getName = function () &#123;</div><div class="line">	console.log(3);</div><div class="line">&#125;;</div><div class="line">var getName = function () &#123;</div><div class="line">	console.log(4);</div><div class="line">&#125;;</div><div class="line">function getName() &#123;</div><div class="line">	console.log(5);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">// 请写出以下输出结果：</div><div class="line">Foo.getName();</div><div class="line">getName();</div><div class="line">Foo().getName();</div><div class="line">getName();</div><div class="line">new Foo.getName();</div><div class="line">new Foo().getName();</div><div class="line">new new Foo().getName();</div></pre></td></tr></table></figure></p>
+<p>题目只答对一半的宝宝表示很想哭啊。<br>以下是解题思路：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">Foo.getName();              // 2</div><div class="line">getName();                     // 4</div><div class="line">Foo().getName();           // 1</div><div class="line">getName();                     // 1</div><div class="line"></div><div class="line">new Foo.getName();          // 2</div><div class="line">// var a = new Foo.getName();  </div><div class="line">// var a = &#123;&#125;;</div><div class="line">// a.__proto = Foo.getName.prototype;</div><div class="line">// Foo.getName.call(a);</div><div class="line"></div><div class="line">new Foo().getName();        // 3</div><div class="line">// var b = new Foo().getName();</div><div class="line">// var b = &#123;&#125;;</div><div class="line">// b.__proto__ = Foo.prototype;</div><div class="line">// Foo.call(b);</div><div class="line">// b.getName();</div><div class="line"></div><div class="line">new new Foo().getName();    // 3</div><div class="line">// var c = new Foo().getName();</div><div class="line">// var c = &#123;&#125;;</div><div class="line">// c.__proto__ = Foo.prototype;</div><div class="line">// Foo.call(c);</div><div class="line">// var d = new c.getName();</div><div class="line">// var d = &#123;&#125;;</div><div class="line">// d.__proto__ = c.getName.prototype;</div><div class="line">// c.getName.call(d);</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      本系列主要在于对自己的日常学习的内容做一个归纳整理,同时分享一些平时遇到的一些比较好的面试题.
+通过对笔试面试题的学习,强化自己的所学知识面.
+    
+    </summary>
+    
+      <category term="JavaScript笔试面试题" scheme="https://github.com/ChangerHe/categories/JavaScript%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    
+      <category term="JavaScript笔试面试题" scheme="https://github.com/ChangerHe/tags/JavaScript%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title> JavaScript笔试面试题收集（二）</title>
+    <link href="https://github.com/ChangerHe/2017/06/15/JavaScript%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98%E6%94%B6%E9%9B%86%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
+    <id>https://github.com/ChangerHe/2017/06/15/JavaScript笔试面试题收集（二）/</id>
+    <published>2017-06-15T13:34:18.000Z</published>
+    <updated>2017-09-14T14:38:56.029Z</updated>
+    
+    <content type="html"><![CDATA[<p>本系列主要在于对自己的日常学习的内容做一个归纳整理,同时分享一些平时遇到的一些比较好的面试题.</p>
+<p>通过对笔试面试题的学习,强化自己的所学知识面.</p>
+<p>话不多说，直接撸题吧：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">function Parent() &#123;</div><div class="line">    this.a = 1;</div><div class="line">    this.b = [1,2,this.a];</div><div class="line">    this.c = &#123;demo: 5&#125;;</div><div class="line">    this.show = function() &#123;</div><div class="line">        console.log(this.a, this.b, this.c.demo)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">function Child() &#123;</div><div class="line">    this.a = 2;</div><div class="line">    this.change = function() &#123;</div><div class="line">        this.b.push(this.a);</div><div class="line">        this.a = this.b.length;</div><div class="line">        this.c.demo = this.a++;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">Child.prototype = new Parent();</div><div class="line">var parent = new Parent();</div><div class="line">var child1 = new Child();</div><div class="line">var child2 = new Child();</div><div class="line">child1.a = 11;</div><div class="line">child2.a = 12;</div><div class="line">parent.show();  //1,[1,2,1],5</div><div class="line">child1.show(); //11,[1,2,11],5</div><div class="line">child2.show();   //12,[1,2,11],5</div><div class="line">child1.change(); </div><div class="line">child2.change();  </div><div class="line">parent.show();  // 1,[1,2,1],5</div><div class="line">child1.show(); //5,[1,2,1,11,12],5</div><div class="line">child2.show();   //6,[1,2,1,11,12],5</div></pre></td></tr></table></figure></p>
+<p>其实要解出上面的问题，了解以下几句话就好了：</p>
+<blockquote>
+<p>1.每个构造函数，都有一个原型，指向构造函数的原型对象。<br>2.每一个实例生成的时候，都会在内存中产生一块新的堆内存。<br>3.每一个实例都有一个隐式原型指向构造函数的原型对象。<br>4.this的指向，取决于this调用的位置，在这道题中，也可以理解为，谁调用这个方法，this就指向哪个对象。<br>5.数组和字面量对象都是引用。<br>6.原型链的查找原则： 就近原则。也就是说：当实例上存在属性时，用实例上的，如果实例不存在，则顺着原型链往上查找，如果存在，则使用原型链上的对象，如果不存在，则查找Object原型对象上的，如果都不存在，则为undefined。</p>
+</blockquote>
 ]]></content>
     
     <summary type="html">
@@ -868,37 +929,6 @@ reduceRight():迭代数组所有项，从最后一个数开始。
     
     
       <category term="jQuery" scheme="https://github.com/ChangerHe/tags/jQuery/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JavaScript深入浅出-表达式和运算符</title>
-    <link href="https://github.com/ChangerHe/2017/06/15/JavaScript%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BA-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%92%8C%E8%BF%90%E7%AE%97%E7%AC%A6/"/>
-    <id>https://github.com/ChangerHe/2017/06/15/JavaScript深入浅出-表达式和运算符/</id>
-    <published>2017-06-15T06:10:18.000Z</published>
-    <updated>2017-09-14T14:35:46.638Z</updated>
-    
-    <content type="html"><![CDATA[<p>表达式是能计算出值的任何业务单元。<br>原始表达式：常量，直接量、关键字、变量<br>原始表达式和原始表达式可以通过运算符链接成符合表达式<br>函数表达式：<br>属性访问表达式：对定义好的表达式的属性进行访问<br>调用表达式：调用函数，等<br>堆箱创建表达式：</p>
-<h1 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h1><p>常用于表达式之间进行运算<br>三元运算符<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var a = c ? a : b;</div></pre></td></tr></table></figure></p>
-<p>delete运算符，删除对象。但是当定了了对象的configurable时，是无法删除的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var obj = &#123;&#125;&apos;</div><div class="line">Object.defineProperty(obj,&quot;x&quot;,&#123;</div><div class="line">configurable: false,value: 1&#125;</div><div class="line">);</div><div class="line">delete obj.x;   //false</div><div class="line">obj.x;   //1</div></pre></td></tr></table></figure></p>
-<p>in 运算符<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">window.x = 1;</div><div class="line">&quot;x&quot; in window;  //true;</div></pre></td></tr></table></figure></p>
-<p>instanceof tyoeof运算符<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&#123;&#125; instanceof Object；  //true</div><div class="line">typeof 100 === &apos;number&apos;;   //true</div></pre></td></tr></table></figure></p>
-<p>new 运算符<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function Foo()&#123;</div><div class="line">	Foo.prototype.x = 1;</div><div class="line">	var obj = new Foo();</div><div class="line">	obj.x;</div><div class="line">	obj.hasOwnProperty(&quot;x&quot;);  //判断x是不是属于自己的对象</div><div class="line">	obj._proto_.hasOwnProperty(&quot;x&quot;);  //判断是不是原型中的对象</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>this 运算符<br>void 运算符<br>var 语句<br>当使用循环时，循环使用的变量i在循环结束后仍然可以调用，即它为全局变量。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">for (var i = 0; i &lt; 5; i++) &#123;</div><div class="line">    console.log(i);   //0 1 2 3 4</div><div class="line">&#125;</div><div class="line">console.log(&quot;-------------&quot;)  //-------------</div><div class="line">console.log(i);  //5</div></pre></td></tr></table></figure></p>
-<p>当我们使用<code>var a = b = 0</code>来进行变量定义时，如果在局部变量中进行这样的定义，请注意，定义出的<code>b = 0</code>是全局变量。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function() &#123;</div><div class="line">	var a = b = 0;</div><div class="line">	console.log(a + &quot;,&quot; + b);  //0,0</div><div class="line">&#125;</div><div class="line">console.log(b);  //0</div></pre></td></tr></table></figure></p>
-<p>try-catch 语句<br>对方不想和你说话，并想向你抛出一段异常。<br>```<br>try{<br>    try{<br>        throw new Error(“oops”);<br>    }<br>    finally{<br>        console.log(“finally”);<br>    }<br>}<br>catch(ex){<br>    console.error(“outer”,ex.message);<br>}</p>
-]]></content>
-    
-    <summary type="html">
-    
-      表达式是能计算出值的任何业务单元。 原始表达式：常量，直接量、关键字、变量 原始表达式和原始表达式可以通过运算符链接成符合表达式 函数表达式： 属性访问表达式：对定义好的表达式的属性进行访问 调用表达式：调用函数，等 堆箱创建表达式：
-    
-    </summary>
-    
-      <category term="JavaScript 学习笔记" scheme="https://github.com/ChangerHe/categories/JavaScript-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="JavaScript" scheme="https://github.com/ChangerHe/tags/JavaScript/"/>
     
   </entry>
   
