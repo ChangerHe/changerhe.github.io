@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/ChangerHe/"/>
-  <updated>2017-09-15T11:55:10.892Z</updated>
+  <updated>2017-09-16T03:54:41.808Z</updated>
   <id>https://github.com/ChangerHe/</id>
   
   <author>
@@ -16,11 +16,504 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>《ES6标准入门》阅读笔记——-Module</title>
+    <link href="https://github.com/ChangerHe/2017/07/20/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-Module/"/>
+    <id>https://github.com/ChangerHe/2017/07/20/《ES6标准入门》阅读笔记——-Module/</id>
+    <published>2017-07-19T16:23:13.000Z</published>
+    <updated>2017-09-16T03:54:41.808Z</updated>
+    
+    <summary type="html">
+    
+      本系列为在我基本完全读完了阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理，作为日后的复习使用。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导像我这样的新手，快速入门ES6，并逐步将其投入到生产实践中。
+    
+    </summary>
+    
+      <category term="ES6标准入门" scheme="https://github.com/ChangerHe/categories/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8/"/>
+    
+    
+      <category term="ES6" scheme="https://github.com/ChangerHe/tags/ES6/"/>
+    
+      <category term="Module" scheme="https://github.com/ChangerHe/tags/Module/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《ES6标准入门》阅读笔记——-Class</title>
+    <link href="https://github.com/ChangerHe/2017/07/16/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-Class/"/>
+    <id>https://github.com/ChangerHe/2017/07/16/《ES6标准入门》阅读笔记——-Class/</id>
+    <published>2017-07-16T15:52:52.000Z</published>
+    <updated>2017-09-16T03:54:05.164Z</updated>
+    
+    <summary type="html">
+    
+      本系列为在我基本完全读完了阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理，作为日后的复习使用。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导像我这样的新手，快速入门ES6，并逐步将其投入到生产实践中。
+    
+    </summary>
+    
+      <category term="ES6标准入门" scheme="https://github.com/ChangerHe/categories/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8/"/>
+    
+    
+      <category term="ES6" scheme="https://github.com/ChangerHe/tags/ES6/"/>
+    
+      <category term="Class" scheme="https://github.com/ChangerHe/tags/Class/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《ES6标准入门》阅读笔记——-Promise</title>
+    <link href="https://github.com/ChangerHe/2017/07/11/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-Promise/"/>
+    <id>https://github.com/ChangerHe/2017/07/11/《ES6标准入门》阅读笔记——-Promise/</id>
+    <published>2017-07-11T14:23:54.000Z</published>
+    <updated>2017-09-16T03:53:28.932Z</updated>
+    
+    <summary type="html">
+    
+      本系列为在我基本完全读完了阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理，作为日后的复习使用。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导像我这样的新手，快速入门ES6，并逐步将其投入到生产实践中。
+    
+    </summary>
+    
+      <category term="ES6标准入门" scheme="https://github.com/ChangerHe/categories/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8/"/>
+    
+    
+      <category term="ES6" scheme="https://github.com/ChangerHe/tags/ES6/"/>
+    
+      <category term="Promise" scheme="https://github.com/ChangerHe/tags/Promise/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《ES6标准入门》阅读笔记——-Iterator和Generator</title>
+    <link href="https://github.com/ChangerHe/2017/07/07/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-Iterator%E5%92%8CGenerator/"/>
+    <id>https://github.com/ChangerHe/2017/07/07/《ES6标准入门》阅读笔记——-Iterator和Generator/</id>
+    <published>2017-07-07T15:11:34.000Z</published>
+    <updated>2017-09-16T03:53:00.557Z</updated>
+    
+    <summary type="html">
+    
+      本系列为在我基本完全读完了阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理，作为日后的复习使用。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导像我这样的新手，快速入门ES6，并逐步将其投入到生产实践中。
+    
+    </summary>
+    
+      <category term="ES6标准入门" scheme="https://github.com/ChangerHe/categories/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8/"/>
+    
+    
+      <category term="ES6" scheme="https://github.com/ChangerHe/tags/ES6/"/>
+    
+      <category term="Iterator" scheme="https://github.com/ChangerHe/tags/Iterator/"/>
+    
+      <category term="Generator" scheme="https://github.com/ChangerHe/tags/Generator/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《ES6标准入门》阅读笔记——-set和map</title>
+    <link href="https://github.com/ChangerHe/2017/07/03/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-set%E5%92%8Cmap/"/>
+    <id>https://github.com/ChangerHe/2017/07/03/《ES6标准入门》阅读笔记——-set和map/</id>
+    <published>2017-07-03T03:37:44.000Z</published>
+    <updated>2017-09-16T03:52:17.617Z</updated>
+    
+    <summary type="html">
+    
+      本系列为在我基本完全读完了阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理，作为日后的复习使用。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导像我这样的新手，快速入门ES6，并逐步将其投入到生产实践中。
+    
+    </summary>
+    
+      <category term="ES6标准入门" scheme="https://github.com/ChangerHe/categories/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8/"/>
+    
+    
+      <category term="ES6" scheme="https://github.com/ChangerHe/tags/ES6/"/>
+    
+      <category term="set" scheme="https://github.com/ChangerHe/tags/set/"/>
+    
+      <category term="map" scheme="https://github.com/ChangerHe/tags/map/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《ES6标准入门》阅读笔记——-symbol及proxy/reflect</title>
+    <link href="https://github.com/ChangerHe/2017/07/01/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-symbol%E5%8F%8Aproxy-reflect/"/>
+    <id>https://github.com/ChangerHe/2017/07/01/《ES6标准入门》阅读笔记——-symbol及proxy-reflect/</id>
+    <published>2017-07-01T05:51:28.000Z</published>
+    <updated>2017-09-16T03:51:33.270Z</updated>
+    
+    <summary type="html">
+    
+      本系列为在我基本完全读完了阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理，作为日后的复习使用。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导像我这样的新手，快速入门ES6，并逐步将其投入到生产实践中。
+    
+    </summary>
+    
+      <category term="ES6标准入门" scheme="https://github.com/ChangerHe/categories/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8/"/>
+    
+    
+      <category term="ES6" scheme="https://github.com/ChangerHe/tags/ES6/"/>
+    
+      <category term="symbol" scheme="https://github.com/ChangerHe/tags/symbol/"/>
+    
+      <category term="proxy" scheme="https://github.com/ChangerHe/tags/proxy/"/>
+    
+      <category term="reflect" scheme="https://github.com/ChangerHe/tags/reflect/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《ES6标准入门》阅读笔记——-string类型的扩展</title>
+    <link href="https://github.com/ChangerHe/2017/06/30/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-string%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%89%A9%E5%B1%95/"/>
+    <id>https://github.com/ChangerHe/2017/06/30/《ES6标准入门》阅读笔记——-string类型的扩展/</id>
+    <published>2017-06-30T05:49:33.000Z</published>
+    <updated>2017-09-16T03:50:34.743Z</updated>
+    
+    <summary type="html">
+    
+      本系列为在我基本完全读完了阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理，作为日后的复习使用。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导像我这样的新手，快速入门ES6，并逐步将其投入到生产实践中。
+    
+    </summary>
+    
+      <category term="ES6标准入门" scheme="https://github.com/ChangerHe/categories/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8/"/>
+    
+    
+      <category term="ES6" scheme="https://github.com/ChangerHe/tags/ES6/"/>
+    
+      <category term="string" scheme="https://github.com/ChangerHe/tags/string/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《ES6标准入门》阅读笔记——-函数的扩展</title>
+    <link href="https://github.com/ChangerHe/2017/06/28/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A9%E5%B1%95/"/>
+    <id>https://github.com/ChangerHe/2017/06/28/《ES6标准入门》阅读笔记——-函数的扩展/</id>
+    <published>2017-06-28T13:36:55.000Z</published>
+    <updated>2017-09-16T03:49:47.881Z</updated>
+    
+    <summary type="html">
+    
+      本系列为在我基本完全读完了阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理，作为日后的复习使用。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导像我这样的新手，快速入门ES6，并逐步将其投入到生产实践中。
+    
+    </summary>
+    
+      <category term="ES6标准入门" scheme="https://github.com/ChangerHe/categories/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8/"/>
+    
+    
+      <category term="ES6" scheme="https://github.com/ChangerHe/tags/ES6/"/>
+    
+      <category term="Function" scheme="https://github.com/ChangerHe/tags/Function/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《ES6标准入门》阅读笔记——-数组的扩展</title>
+    <link href="https://github.com/ChangerHe/2017/06/25/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-%E6%95%B0%E7%BB%84%E7%9A%84%E6%89%A9%E5%B1%95/"/>
+    <id>https://github.com/ChangerHe/2017/06/25/《ES6标准入门》阅读笔记——-数组的扩展/</id>
+    <published>2017-06-25T14:34:21.000Z</published>
+    <updated>2017-09-16T03:49:04.719Z</updated>
+    
+    <summary type="html">
+    
+      本系列为在我基本完全读完了阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理，作为日后的复习使用。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导像我这样的新手，快速入门ES6，并逐步将其投入到生产实践中。
+    
+    </summary>
+    
+      <category term="ES6标准入门" scheme="https://github.com/ChangerHe/categories/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8/"/>
+    
+    
+      <category term="ES6" scheme="https://github.com/ChangerHe/tags/ES6/"/>
+    
+      <category term="Array" scheme="https://github.com/ChangerHe/tags/Array/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《ES6标准入门》阅读笔记——-number类型的扩展</title>
+    <link href="https://github.com/ChangerHe/2017/06/22/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-number%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%89%A9%E5%B1%95/"/>
+    <id>https://github.com/ChangerHe/2017/06/22/《ES6标准入门》阅读笔记——-number类型的扩展/</id>
+    <published>2017-06-22T15:41:23.000Z</published>
+    <updated>2017-09-16T03:48:23.584Z</updated>
+    
+    <summary type="html">
+    
+      本系列为在我基本完全读完了阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理，作为日后的复习使用。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导像我这样的新手，快速入门ES6，并逐步将其投入到生产实践中。
+    
+    </summary>
+    
+      <category term="ES6标准入门" scheme="https://github.com/ChangerHe/categories/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8/"/>
+    
+    
+      <category term="ES6" scheme="https://github.com/ChangerHe/tags/ES6/"/>
+    
+      <category term="number" scheme="https://github.com/ChangerHe/tags/number/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《ES6标准入门》阅读笔记——-正则表达式的扩展</title>
+    <link href="https://github.com/ChangerHe/2017/06/20/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E6%89%A9%E5%B1%95/"/>
+    <id>https://github.com/ChangerHe/2017/06/20/《ES6标准入门》阅读笔记——-正则表达式的扩展/</id>
+    <published>2017-06-20T12:45:51.000Z</published>
+    <updated>2017-09-16T05:54:37.841Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>本系列为在我基本完全读完了阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理，作为日后的复习使用。</p>
+<p>许多初学ES6, 同时和我一样初次阅读阮老师的这本书的时候, 读第一遍会越发的困惑, 因为阮老师上面说的很多的定义,方法,之前都是没有见过的, 读到后面才发现, 哦~原来是这样.</p>
+<p>有一句话叫做”大神的世界我们不懂”, 所以我在初读第一遍《ES6标准入门》这本书的时候,也是踩了不少坑,读书的时候查阅了不少的资料.</p>
+<p>所以,在这一系列的笔记教程中,我会从一个初学者的角度,向您讲述ES6的相关知识,在后面介绍的知识我会尽量不提前用,即使提前使用,也会同时做好标注,避免了阅读时各种查阅资料的烦恼.</p>
+<p>系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导像我这样的新手，快速入门ES6，并逐步将其投入到生产实践中。</p>
+<p>同时,在阅读前也提醒您, 为了系统连贯性的学习ES6的基础知识,建议您从我的博客第一章开始阅读,当然,如果您对对应的知识已经有所了解,那么可以跳转到任意章节阅读,每一篇博客名中均有介绍该博客中涉及到的ES6的内容.</p>
+<p>阮一峰老师的这本书是开源的，在其官方博客就可以下载到，但是我强烈建议大家去购买一本书, 一是方便自己查阅ES6中新增的众多API, 二也是表达一下对大神的敬仰.</p>
+<h1 id="正则表达式的扩展"><a href="#正则表达式的扩展" class="headerlink" title="正则表达式的扩展"></a>正则表达式的扩展</h1><p>在ES6以前,正则表达式的构造函数只能接受字符串作为参数</p>
+<p>但在ES6中,是允许RegExp构造函数使用正则表达式作为参数的,这时候会返回一个原有正则表达式的拷贝</p>
+<p>如果在使用正则表达式的第二个参数时,则它将会使用第二个修饰符而忽略原有的正则表达式修饰符<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var reg = new RegExp(/abc/ig, &apos;g&apos;).flags // .flags表示查找正则表达式的修饰符,如ige等</div><div class="line">console.log(reg) // g</div></pre></td></tr></table></figure></p>
+<p>ES6新增了u修饰符,含义为Unicode模式, 用来正确处理大于\uFFFF 的Unicode字符</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">console.log(/^\ud83d/u.test(&apos;\ud83d\udc2a&apos;))</div><div class="line">console.log(/^\ud83d/.test(&apos;\ud83d\udc2a&apos;)) // 当不使用u操作符的时候,使用utf-16编码的字符无法被正常识别</div></pre></td></tr></table></figure>
+<p>对于点字符,当字符为utf-16编码是,是无法正常被识别的,此时必须加上u修饰符</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">console.log(&apos;\u&#123;20bb7&#125;&apos;)</div><div class="line">var s = &apos;\u&#123;20bb7&#125;&apos;</div><div class="line">console.log(/^.$/.test(s)) // 当正则表达式的标识符不加u时,是不会被识别的,不会被匹配为任意字符,当然,主要原因还是因为它被当成两个字符了</div><div class="line">console.log(/^.$/u.test(s)) // true</div></pre></td></tr></table></figure>
+<p>同时,ES6新增了使用大括号表示Unicode的表示法,这种表示法在正则表达式中必须加上u修饰符才能被识别</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">console.log(/\u&#123;61&#125;/.test(&apos;a&apos;))</div><div class="line"> // 当不使用u作为修饰符时,此正则表达式会被认为是u的61个重复</div><div class="line">console.log(/\u&#123;61&#125;/u.test(&apos;a&apos;))</div><div class="line"> // 使用u修饰符后,所有量词都会正确识别码点大于0xFFFF的Unicode字符</div><div class="line">console.log(/𠮷&#123;2&#125;/u.test(&apos;𠮷𠮷&apos;))</div><div class="line"> // 当我们使用\S(非空格字符)对四字节的字符进行匹配的时候,同样会产生问题:无法正常匹配,原因还是一样,之前ES5将这个字符理解成了两个字符了</div><div class="line">console.log(/^\S$/.test(&apos;𠮷&apos;))</div><div class="line">console.log(/^\S$/u.test(&apos;𠮷&apos;))</div></pre></td></tr></table></figure>
+<p>除了u修饰符,ES6还为正则表达式添加了y修饰符,叫做黏连修饰符(y)</p>
+<p>y修饰符的作用与g修饰符类似,也是全局匹配,后一次的匹配都会从上一次匹配成功的下一个位置开始.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var s = &apos;sss_ss_s&apos;</div><div class="line">var r1 = /s+/g</div><div class="line">var r2 = /s+/yg</div><div class="line">console.log(s.match(r1))</div><div class="line">console.log(s.match(r2)) </div><div class="line">// 我们使用y修饰符进行匹配,因为同样的s是没有连贯性的出现在一起,所以导致后面的就无法匹配了</div><div class="line">var r3 = /s+_/g</div><div class="line">var r4 = /s+_/y</div><div class="line">console.log(s.match(r3))</div><div class="line">console.log(s.match(r4))</div><div class="line">console.log(s.match(r4))</div></pre></td></tr></table></figure>
+<p>ES6为正则表达式提供了flags 和 source 方法,用于返回正则表达式的修饰符 和匹配正文</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var r = /s/igy</div><div class="line">console.log(r.source)</div><div class="line">console.log(r.flags)</div></pre></td></tr></table></figure>
+<p>(完)</p>
+]]></content>
+    
+    <summary type="html">
+    
+      本系列为在我基本完全读完了阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理，作为日后的复习使用。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导像我这样的新手，快速入门ES6，并逐步将其投入到生产实践中。
+    
+    </summary>
+    
+      <category term="ES6标准入门" scheme="https://github.com/ChangerHe/categories/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8/"/>
+    
+    
+      <category term="ES6" scheme="https://github.com/ChangerHe/tags/ES6/"/>
+    
+      <category term="RegExp" scheme="https://github.com/ChangerHe/tags/RegExp/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《ES6标准入门》阅读笔记——-Unicode</title>
+    <link href="https://github.com/ChangerHe/2017/06/19/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-Unicode/"/>
+    <id>https://github.com/ChangerHe/2017/06/19/《ES6标准入门》阅读笔记——-Unicode/</id>
+    <published>2017-06-19T14:11:34.000Z</published>
+    <updated>2017-09-16T05:46:44.244Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>本系列为在我基本完全读完了阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理，作为日后的复习使用。</p>
+<p>许多初学ES6, 同时和我一样初次阅读阮老师的这本书的时候, 读第一遍会越发的困惑, 因为阮老师上面说的很多的定义,方法,之前都是没有见过的, 读到后面才发现, 哦~原来是这样.</p>
+<p>有一句话叫做”大神的世界我们不懂”, 所以我在初读第一遍《ES6标准入门》这本书的时候,也是踩了不少坑,读书的时候查阅了不少的资料.</p>
+<p>所以,在这一系列的笔记教程中,我会从一个初学者的角度,向您讲述ES6的相关知识,在后面介绍的知识我会尽量不提前用,即使提前使用,也会同时做好标注,避免了阅读时各种查阅资料的烦恼.</p>
+<p>系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导像我这样的新手，快速入门ES6，并逐步将其投入到生产实践中。</p>
+<p>同时,在阅读前也提醒您, 为了系统连贯性的学习ES6的基础知识,建议您从我的博客第一章开始阅读,当然,如果您对对应的知识已经有所了解,那么可以跳转到任意章节阅读,每一篇博客名中均有介绍该博客中涉及到的ES6的内容.</p>
+<p>阮一峰老师的这本书是开源的，在其官方博客就可以下载到，但是我强烈建议大家去购买一本书, 一是方便自己查阅ES6中新增的众多API, 二也是表达一下对大神的敬仰.</p>
+<h1 id="ES6加强了对Unicode的支持-并扩展了字符串对象"><a href="#ES6加强了对Unicode的支持-并扩展了字符串对象" class="headerlink" title="ES6加强了对Unicode的支持,并扩展了字符串对象"></a>ES6加强了对Unicode的支持,并扩展了字符串对象</h1><p>ES6对Unicode的主要的新增支持是,已经开始支持32位的字符了,要知道在之前,32位的字符是会被JS判定为两个字符的.</p>
+<p>codePointAt()方法,可以很方便地判定字符是由2字节还是4字节组成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">let a = &apos;\uD842\uDFB7&apos;</div><div class="line">console.log(a);  // 𠮷 在ES5中会被判定为两个字符</div><div class="line">let b = &apos;\u20BB7&apos;</div><div class="line">let c = &apos;\u&#123;20BB7&#125;&apos;</div><div class="line">console.log(b) // □7  未被识别</div><div class="line">console.log(c) // 𠮷</div><div class="line">let d = &apos;𠮷a&apos;</div><div class="line">console.log(d.length) // 3 把第一个字符当两个字符了</div><div class="line">console.log(d.charAt(0)) // 乱码</div><div class="line">console.log(d.charAt(1)) // 乱码</div><div class="line">console.log(d.charAt(2)) // a</div><div class="line">console.log(d.charAt(3)) // </div><div class="line">console.log(d.codePointAt(0)) // 134071</div><div class="line">console.log(d.codePointAt(1)) // 57271</div></pre></td></tr></table></figure>
+<p>要知道在之前es5中定义的fromCharCode()方法中,只能够识别16位的字符,并将其转换为相应字符,但是当我们需要进行32位字符码点转换为字符的时候,就无能为力了,这个时候ES6定义了一个新的方法: fromCodePoint()</p>
+<p>在ES6中新定义的for-of循环可以实现识别使用32位编码的字符</p>
+<p>for of 循环也是ES6中新定义的循环方式,可以用来遍历数组,遍历的同时不同于for  in循环,for of循环不会遍历到你定义的原型上的可枚举属性,去除了for in循环的糟粕, 同时也避免了forEach循环不能跳出循环队列的问题,for of是可以随时跳出循环队列的. 同样的for of循环也可以遍历数组,对象等.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">let text = String.fromCodePoint(0x20bb7);</div><div class="line">for (let i = 0; i &lt; text.length; i++) &#123;</div><div class="line">	console.log(text[i])  // 乱码</div><div class="line">	console.log(i)  // 1</div><div class="line">&#125;</div><div class="line">for (let i of text) &#123;</div><div class="line">	console.log(i)  // 𠮷</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>ES5为字符串对象提供了charAt方法,返回给定位置的字符,该方法不能识别码点大于0xFFFF的字符</p>
+<p>因此,ES7定义了at方法,用于识别码点大于0xFFFF的字符</p>
+<p>但是,现在谷歌浏览器暂不支持, 需要通过babel转码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">console.log(&apos;𠮷a&apos;.charAt(0)) // 乱码</div><div class="line">console.log(&apos;𠮷&apos;.at(0))  // 报错</div></pre></td></tr></table></figure>
+<p>ES6新增了一些查找字符串的相应方法</p>
+<blockquote>
+<p>  includes() 返回布尔值,表示是否找到了参数字符串<br>  startsWith() 返回布尔值,表示字符串是否在元字符串的头部<br>  endsWith()  返回布尔值,表示参数自粗换是否在源字符串的头部<br>  repeat()  返回一个新字符串,表示将原字符串重复n次</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var str = &apos;hello&apos;</div><div class="line">console.log(str.startsWith(&apos;he&apos;)) // true</div><div class="line">console.log(str.endsWith(&apos;lo&apos;)) // true</div><div class="line">console.log(str.includes(&apos;lo&apos;)) // true</div><div class="line">console.log(str.repeat(3))  // hellohellohello</div></pre></td></tr></table></figure>
+<h1 id="ES6的模板字符串"><a href="#ES6的模板字符串" class="headerlink" title="ES6的模板字符串"></a>ES6的模板字符串</h1><p>使用变量直接添加到相应的字符串中 用法很简单,添加到相应的字符串中</p>
+<p>需要注意的是,使用模板字符串的时候,需要使用反向引号将整体的字符串引起来,否则是无效的</p>
+<p>模板字符串,其实就是模块化了的,放在${}里面的js代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">let name = &apos;Bob&apos;,</div><div class="line">	time = &apos;today&apos;</div><div class="line">console.log(`hello $&#123;name&#125;, how are you $&#123;time&#125;?`) </div><div class="line">// hello Bob, how are you today?</div><div class="line">console.log(&apos;hello $&#123;name&#125;&apos;) </div><div class="line">// hello $&#123;name&#125;</div></pre></td></tr></table></figure>
+<p>模板字符串还拥有更加灵活的用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">let a = 1,</div><div class="line">	b = 2;</div><div class="line">console.log(`$&#123;a&#125; + $&#123;b&#125; = $&#123;a+b&#125;`)  // 1 + 2 = 3</div><div class="line"></div><div class="line">function foo() &#123;</div><div class="line">	return &apos;hello&apos;</div><div class="line">&#125;</div><div class="line"></div><div class="line">console.log(`$&#123;foo()&#125; world`) // hello world</div></pre></td></tr></table></figure>
+<p>(完)</p>
+]]></content>
+    
+    <summary type="html">
+    
+      本系列为在我基本完全读完了阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理，作为日后的复习使用。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导像我这样的新手，快速入门ES6，并逐步将其投入到生产实践中。
+    
+    </summary>
+    
+      <category term="ES6标准入门" scheme="https://github.com/ChangerHe/categories/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8/"/>
+    
+    
+      <category term="ES6" scheme="https://github.com/ChangerHe/tags/ES6/"/>
+    
+      <category term="Unicode" scheme="https://github.com/ChangerHe/tags/Unicode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《ES6标准入门》阅读笔记———解构赋值</title>
+    <link href="https://github.com/ChangerHe/2017/06/18/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94%E2%80%94%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC/"/>
+    <id>https://github.com/ChangerHe/2017/06/18/《ES6标准入门》阅读笔记———解构赋值/</id>
+    <published>2017-06-18T13:21:39.000Z</published>
+    <updated>2017-09-16T05:45:46.786Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>本系列为在我基本完全读完了阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理，作为日后的复习使用。</p>
+<p>许多初学ES6, 同时和我一样初次阅读阮老师的这本书的时候, 读第一遍会越发的困惑, 因为阮老师上面说的很多的定义,方法,之前都是没有见过的, 读到后面才发现, 哦~原来是这样.</p>
+<p>有一句话叫做”大神的世界我们不懂”, 所以我在初读第一遍《ES6标准入门》这本书的时候,也是踩了不少坑,读书的时候查阅了不少的资料.</p>
+<p>所以,在这一系列的笔记教程中,我会从一个初学者的角度,向您讲述ES6的相关知识,在后面介绍的知识我会尽量不提前用,即使提前使用,也会同时做好标注,避免了阅读时各种查阅资料的烦恼.</p>
+<p>系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导像我这样的新手，快速入门ES6，并逐步将其投入到生产实践中。</p>
+<p>同时,在阅读前也提醒您, 为了系统连贯性的学习ES6的基础知识,建议您从我的博客第一章开始阅读,当然,如果您对对应的知识已经有所了解,那么可以跳转到任意章节阅读,每一篇博客名中均有介绍该博客中涉及到的ES6的内容.</p>
+<p>阮一峰老师的这本书是开源的，在其官方博客就可以下载到，但是我强烈建议大家去购买一本书, 一是方便自己查阅ES6中新增的众多API, 二也是表达一下对大神的敬仰.</p>
+<h1 id="什么是解构赋值"><a href="#什么是解构赋值" class="headerlink" title="什么是解构赋值?"></a>什么是解构赋值?</h1><p>ES6允许我们按照一定模式,从数组和对象中提取值,对变量进行赋值,这被称为解构</p>
+<p>解构赋值可将数组的元素或对象的属性赋予给另一个变量，该变量的定义语法与数组字面量或对象字面量很相似。此语法非常简洁，相比于传统的属性访问方式，更加直观清晰。</p>
+<p>在不使用解构赋值的情况下，通常我们这样访问数组中的元素：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var first = arr[0];  </div><div class="line">var second = arr[1];  </div><div class="line">var third = arr[2];</div></pre></td></tr></table></figure>
+<p>使用解构赋值后，代码得到了极大的简化，同时可读性也更强：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var [first, second, third] = arr;</div></pre></td></tr></table></figure>
+<p>以上代码的作用和上面的实例代码是一样的,声明三个变量,存储数组arr中的前三位的内容.</p>
+<h1 id="数组的解构赋值"><a href="#数组的解构赋值" class="headerlink" title="数组的解构赋值"></a>数组的解构赋值</h1><p>我们将数组的对应位置定义好变量,同时在相同位置定义好对应值,就可以完成赋值操作</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">let [foo, [[bar], baz]] = [1,[[2],3]]</div><div class="line">console.log(foo, bar, baz)   // 1 2</div></pre></td></tr></table></figure>
+<p>当我们对变量解构赋值的时候,不想赋值的地方可以使用空数组的键值代替.当需要使用一个变量匹配后面的所有未匹配数组的时候,使用三个点号代替</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">let [head, ...tail] = [1,2,3,4,5,6]</div><div class="line">console.log(head, tail)  // 1  [2,3,4,5,6]</div><div class="line">let [x, y, ...z] = [&apos;a&apos;];</div><div class="line">console.log(x,y,z)  // a undefined []</div></pre></td></tr></table></figure>
+<p>三个点号也是ES6中的新语法, 在阮一峰老师的书中有两种叫法,一个叫做扩展运算符,一个叫做rest参数, 但是我觉得三点运算符好像更加的形象贴切啊哈哈. 当然,这个三点运算符会在数组这一章进行具体讲解.</p>
+<p>解构不成功,表示右边的值不足以匹配左边的值,不完全解构,表示右边的值超出要赋予的左边的值<br>当出现如下情况的时候,f是只能匹配第一个数组元素的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">let [e,[f],g] = [1,[2,3],4]</div><div class="line">console.log(e,f,g)   //1 2 4</div></pre></td></tr></table></figure>
+<p>需要注意的是,当等号的右边不是数组,或者严格的说,不是可以遍历的结构的时候,是会报错的.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">let [a] = 1  // 报错</div></pre></td></tr></table></figure>
+<p>对于解构赋值,我们可以使用Set结构,也可以使用数组的解构赋值</p>
+<p>那么这里再解释一下啥叫set结构,ES6提供了一种新的数据结构Set,类似于数组,但成员值是唯一的,没有重复值. set本身是一个构造函数,用来生成set数据结构.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">let [h,i,j] = new Set([&apos;a&apos;,&apos;b&apos;,&apos;c&apos;])</div><div class="line">console.log(h,i,j)  // a b c</div></pre></td></tr></table></figure>
+<p>解构赋值也允许使用默认值,所以,当我们为其不传值,或者传值为undefined的时候,是会使用默认值的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">let [foo = true] = [undefined]</div><div class="line">console.log(foo)  // true</div></pre></td></tr></table></figure>
+<p>但是因为ES6修复了很多之前因为 null == Object 而导致的许多问题,所以,在ES6中,因为其内部的判定机制,如果所属的值不严格等于undefined,那么其值为null的时候,是可以进行赋值的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">let [foo = true] = [null]</div><div class="line">console.log(foo)</div></pre></td></tr></table></figure>
+<h1 id="对象的解构赋值"><a href="#对象的解构赋值" class="headerlink" title="对象的解构赋值"></a>对象的解构赋值</h1><p>同样的,解构赋值也支持对对象的解构赋值</p>
+<p>对象不同于数组,数组是按次序排列的,但是对象的属性时没有次序的,只能通过查找对象的键值来找到相应的值</p>
+<p>在这里可能很多童鞋就有点懵逼了,为啥对象你写个名字,不赋值都行啊?</p>
+<p>那么这里还是要再补充一下,ES6新增了一种对象的表示方法,  允许在对象之中，直接写变量。这时，属性名为变量名, 属性值为变量的值。也就是说:</p>
+<blockquote>
+<p><code>{bar, foo} === {bar: bar, foo: foo}</code></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var &#123;bar, foo&#125; = &#123;foo: &apos;aaa&apos;, bar: &apos;bbb&apos;&#125;</div><div class="line">console.log(foo)  // bbb</div><div class="line">console.log(bar)  // aaa</div></pre></td></tr></table></figure>
+<p>需要注意的是,我们给对象进行解构赋值的时候,其实是赋值给了对象的键值,对象的键名是不会改变的.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">let obj = &#123;first: &apos;hello&apos;, last: &apos;world&apos;&#125;;</div><div class="line">let &#123;first: i, last: j&#125; = obj</div><div class="line">console.log(i, j) // hello  world</div></pre></td></tr></table></figure>
+<p>那么还有一个问题就是,进行解构赋值的时候,我们必须将声明和赋值写在一起,不写在一起的话就会报错</p>
+<p>在书写的时候有一个小坑也需要注意一下</p>
+<p>当我们不加圆括号而是直接使用花括号的话,javascript引擎会把{foo}人为是一个语法块,从而不会正常进行语句的解构</p>
+<p>那么解决办法就是将整条语句使用圆括号括起来,从而让引擎正确理解这条语句</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">let foo</div><div class="line">(&#123;foo&#125; = &#123;foo: 1&#125;)</div><div class="line">console.log(foo) // 1</div></pre></td></tr></table></figure>
+<h1 id="使用解构赋值的小技巧"><a href="#使用解构赋值的小技巧" class="headerlink" title="使用解构赋值的小技巧"></a>使用解构赋值的小技巧</h1><p>当我们频繁使用某一个函数或是语句的时候,我们可以使用解构赋值,获得相应的更简便的书写方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">let &#123;logl, sin, cos&#125; = Math;</div><div class="line">console.log(cos(60))</div><div class="line">let &#123;log, dir, debug&#125; = console</div><div class="line">log(log)</div></pre></td></tr></table></figure>
+<p>对应此方法,字符串也可以进行解构赋值,此时字符串被转换成了一个类似数组的对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">const str = &apos;abcd&apos;</div><div class="line">const [a, b, c, d] = str;</div><div class="line">const &#123;length: len&#125; = str</div><div class="line">console.log(a,b,c,d) // a b c d</div><div class="line">console.log(len)  // 4</div></pre></td></tr></table></figure>
+<p>当等号右边是数值或布尔值的时候,会转换为对象,因此也拥有了此类的对象相应的方法和属性</p>
+<p>需要注意的是,每个内部类型对象的构造函数中都是拥有toString的方法的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">const &#123;toString: s&#125; = 123;</div><div class="line">console.log(s === Number.prototype.toString) // true</div><div class="line">console.log(s === Object.prototype.toString) // false</div></pre></td></tr></table></figure>
+<h2 id="变量解构赋值在函数参数中的应用"><a href="#变量解构赋值在函数参数中的应用" class="headerlink" title="变量解构赋值在函数参数中的应用"></a>变量解构赋值在函数参数中的应用</h2><p>函数的参数也是可以参与到解构赋值中的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">function add([x, y]) &#123;</div><div class="line">	return x + y;</div><div class="line">&#125;</div><div class="line">console.log(add([1,2]))</div></pre></td></tr></table></figure>
+<p>我们可以将函数的返回值作为解构赋值的值来进行使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function example() &#123;</div><div class="line">	return [1,2,3]</div><div class="line">&#125;</div><div class="line">var [a,b,c] = example()</div><div class="line">console.log(a,b,c)</div></pre></td></tr></table></figure>
+<p>同样的,不仅能使用函数的返回值,还可以使用解构赋值给函数赋值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">function f([x,y,z])&#123;&#125;</div><div class="line">f([1,2,3])</div><div class="line">function j(&#123;x,y,z&#125;)&#123;&#125;</div><div class="line">j(&#123;x: 1,y: 2, z: 3&#125;)</div></pre></td></tr></table></figure>
+<p>因为解构赋值的特性,因此其对提取json数据有奇效</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var jsonData = &#123;</div><div class="line">	id: 42,</div><div class="line">	status: &apos;OK&apos;,</div><div class="line">	data: [123,432]</div><div class="line">&#125;</div><div class="line">let &#123;id, status, data&#125; = jsonData</div><div class="line">console.log(id, status, data) // 42 OK [123, 432]</div></pre></td></tr></table></figure>
+<p>遍历Map结构</p>
+<p>Map结构也是ES6中定义的新的数据结构,它类似于对象,也是键值对的集合,但是键的范围不限于字符串,各种类型的值都可以当做键</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var map = new Map();</div><div class="line">map.set(&apos;first&apos;, &apos;hello&apos;);</div><div class="line">map.set(&apos;second&apos;, &apos;world&apos;)</div><div class="line">for(let [key, value] of map) &#123;</div><div class="line">	console.log(key + &apos; is &apos; + value)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>(完)</p>
+]]></content>
+    
+    <summary type="html">
+    
+      本系列为在我基本完全读完了阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理，作为日后的复习使用。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导像我这样的新手，快速入门ES6，并逐步将其投入到生产实践中。
+    
+    </summary>
+    
+      <category term="ES6标准入门" scheme="https://github.com/ChangerHe/categories/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8/"/>
+    
+    
+      <category term="ES6" scheme="https://github.com/ChangerHe/tags/ES6/"/>
+    
+      <category term="解构赋值" scheme="https://github.com/ChangerHe/tags/%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《ES6标准入门》阅读笔记——let和const</title>
+    <link href="https://github.com/ChangerHe/2017/06/17/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94let%E5%92%8Cconst/"/>
+    <id>https://github.com/ChangerHe/2017/06/17/《ES6标准入门》阅读笔记——let和const/</id>
+    <published>2017-06-17T13:33:39.000Z</published>
+    <updated>2017-09-16T05:45:28.262Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>本系列为在我基本完全读完了阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理，作为日后的复习使用。</p>
+<p>许多初学ES6, 同时和我一样初次阅读阮老师的这本书的时候, 读第一遍会越发的困惑, 因为阮老师上面说的很多的定义,方法,之前都是没有见过的, 读到后面才发现, 哦~原来是这样.</p>
+<p>有一句话叫做”大神的世界我们不懂”, 所以我在初读第一遍《ES6标准入门》这本书的时候,也是踩了不少坑,读书的时候查阅了不少的资料.</p>
+<p>所以,在这一系列的笔记教程中,我会从一个初学者的角度,向您讲述ES6的相关知识,在后面介绍的知识我会尽量不提前用,即使提前使用,也会同时做好标注,避免了阅读时各种查阅资料的烦恼.</p>
+<p>系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导像我这样的新手，快速入门ES6，并逐步将其投入到生产实践中。</p>
+<p>同时,在阅读前也提醒您, 为了系统连贯性的学习ES6的基础知识,建议您从我的博客第一章开始阅读,当然,如果您对对应的知识已经有所了解,那么可以跳转到任意章节阅读,每一篇博客名中均有介绍该博客中涉及到的ES6的内容.</p>
+<p>阮一峰老师的这本书是开源的，在其官方博客就可以下载到，但是我强烈建议大家去购买一本书, 一是方便自己查阅ES6中新增的众多API, 二也是表达一下对大神的敬仰.</p>
+<h1 id="函数的作用域"><a href="#函数的作用域" class="headerlink" title="函数的作用域"></a>函数的作用域</h1><p>要知道，在ES6以前，JS一直都是只有函数作用域，而没有块级作用域的。在这样的情况下，我们大多会使用IIFE（自执行函数表达式）来模拟块级作用域，达到避免全局作用域污染等目的。</p>
+<p>那么ES6有新定义了两种变量的定义方式，let和const，两种变量的定义方式均会产生块级作用域，也就是我们使用大括号包起来的区域，都是块级作用域。</p>
+<p>let和const两者之间的区别就是，const定义的变量，之后是无法更改的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	let a = 10;</div><div class="line">	var b = 1;</div><div class="line">&#125;</div><div class="line">console.log(b)</div><div class="line">console.log(a)   // 报错</div></pre></td></tr></table></figure>
+<p>我们在大括号外面去打印a会报错,说明let其实是有块级作用域的,当我们使用循环语句的时候,let来声明变量是一个不错的选择.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var a = [];</div><div class="line">for (let i = 0; i &lt; 10; i++) &#123;</div><div class="line">	a[i] = function() &#123;</div><div class="line">		console.log(i)</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">a[6]()    // 6</div></pre></td></tr></table></figure>
+<p>当我们使用let来进行声明的时候,才能得到想要的值 也就是6</p>
+<p>原因是因为,变量i是let声明的,当前的i只在本轮循环有效,所以相当于每一次循环的i都是一个新的变量</p>
+<p>let 不和var一样,存在变量的提升,所以我们在没有声明之前调用let声明的变量,会报错</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">console.log(b)   // 报错</div><div class="line">let b = 2;</div></pre></td></tr></table></figure>
+<p>还有一点要注意的是,我们在第一行使用var声明了b,在这里再声明,就会报错,因为let和const是不允许变量被重复声明的.</p>
+<h1 id="暂时性死区"><a href="#暂时性死区" class="headerlink" title="暂时性死区"></a>暂时性死区</h1><p>只要块级作用域内存在let命令,那么它所声明的变量就绑定了这个区域,不会受外部的影响<br>es6明确规定,只要区块中存在let和const命令,则这个区块对这些命令声明的变量从一开始就形成封闭作用域.只要在声明之前就使用这些变量,就会报错</p>
+<p>其实上面那个例子,已经很好地说明了暂时性死区这个概念了.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var c = 3;</div><div class="line">if(true) &#123;</div><div class="line">	tmp = &apos;abc&apos;  //报错,tmp没有定义</div><div class="line">	let tmp</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>不仅如此,坑爹的是有些死区,你不仔细看真的很难发现</p>
+<p>另外补充一点,在函数中进行形式参数的预定义,也就是设置函数的参数默认值,也是ES6中新定义的函数写法,关于此的内容,会在之后在函数篇中详细介绍.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">function bar(x = y, y = 2) &#123;</div><div class="line">	return [x, y]</div><div class="line">&#125;</div><div class="line">bar()  //报错, y is not defined</div></pre></td></tr></table></figure>
+<p>当然,我们把上面的代码稍微改一下就不会报错了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">function bac(y = 2, x = y) &#123;</div><div class="line">	return [x, y]</div><div class="line">&#125;</div><div class="line">console.log(bac()) // [2,2]</div></pre></td></tr></table></figure>
+<p>结合上面的介绍,还有一点,当我们在块级作用域的内部再定义块级作用域的时候,就不会报错了.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function f1() &#123;</div><div class="line">	let n = 5;</div><div class="line">	if (true) &#123;</div><div class="line">		let n = 10;</div><div class="line">	&#125;</div><div class="line">	console.log(n) // 5</div><div class="line">&#125;</div><div class="line">f1()</div></pre></td></tr></table></figure>
+<p>讲到这里,我再分享一个坑,关于函数的声明提升问题,当然, 下面这一题我没有直接在题上写答案,大家可以把解析先遮住,思考一下这题的结果是什么.既然是坑, 我觉得新手还是老老实实往上踩几脚比较好.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">let f = function() &#123;</div><div class="line">	console.log(&apos;outside&apos;)</div><div class="line">&#125;</div><div class="line"></div><div class="line">function aaa() &#123;</div><div class="line">	if (false) &#123;</div><div class="line">		function f() &#123;</div><div class="line">			console.log(&apos;inside&apos;)</div><div class="line">		&#125;</div><div class="line"></div><div class="line">	&#125;</div><div class="line">	f()</div><div class="line">&#125;</div><div class="line">aaa()</div></pre></td></tr></table></figure>
+<p>万万没想到啊没想到, aaa函数中f()函数的执行居然会报错,而且打印f的值居然是undefined!</p>
+<p>这其实是一个函数的作用域提升问题,预编译阶段内部函数f会跨过if判断而提升至函数aaa的作用域顶端</p>
+<p>那么可能大家会问,我在aaa函数内部打印f函数,是undefined啊.</p>
+<p>因为函数的声明赋值时在if判断语句之内的,所以在此之前仅有一个var f,也就是定义了一个f,但并未对其赋值,所以f打印出来就是undefined.</p>
+<h1 id="const和let的具体区别"><a href="#const和let的具体区别" class="headerlink" title="const和let的具体区别"></a>const和let的具体区别</h1><p>我们来看下面这几行代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">let f;</div><div class="line">console.log(f);  // undefined</div><div class="line">&#123;</div><div class="line">	let a = &apos;secret&apos;</div><div class="line">	console.log(f)  // undefined</div><div class="line">	f = function() &#123;</div><div class="line">		return a;</div><div class="line">	&#125;</div><div class="line">	console.log(f)  // f() &#123; return a &#125;</div><div class="line">&#125;</div><div class="line">console.log(f());   //secret</div></pre></td></tr></table></figure>
+<p>其实上面的代码很好地说明了let的作用域的问题,而且需要注意的是,let的变量值,是可以随时更改的.</p>
+<p>而const,就没有这么自由了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">const PI = 3.14;</div><div class="line">PI = 3;   // 报错</div><div class="line">const foo;  // 定义变量时位对其赋值,报错</div></pre></td></tr></table></figure>
+<p>需要注意的是const定义复合类型值的时候,因为复合类型的变量不直接指向数据,而是指向数据所存储的相应内存空间</p>
+<p>所以这个时候当我们对相应的内存空间中的值进行更改,只要内存空间不变,则都可以对值进行更改</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">const foo = &#123;&#125;;</div><div class="line">foo.prop = 1;</div><div class="line">console.log(foo.prop)   // 1</div></pre></td></tr></table></figure>
+<p>但是呢,,如果我们更改相应的foo指向的内存空间,则就会报错</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">foo = &#123;&#125;  // 报错(接上面的代码实例)</div></pre></td></tr></table></figure>
+<p>如果在声明引用类型变量后,我们不想让里面的值改变怎么办呢?</p>
+<p>这个时候可以使用Object.freeze()方法,冻结这个对象,包括其内存空间的值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">const foo1 = Object.freeze(&#123;&#125;);</div><div class="line">foo1.prop = 1;</div><div class="line">console.log(foo1.prop)  // undefined</div></pre></td></tr></table></figure>
+<p>这个时候为该对象定义属性和方法,都无效了,但是不会抛出异常</p>
+<p>最后需要注意的一点是,即使我们在全局使用let或是const定义变量,变量都不会挂载到全局的window对象上.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var a = 1</div><div class="line">let b = 2</div><div class="line">const c = 3</div><div class="line"></div><div class="line">console.log(window.a) // 1</div><div class="line">console.log(window.b) // undefined</div><div class="line">console.log(window.c) // undefined</div></pre></td></tr></table></figure>
+<p>(完)</p>
+]]></content>
+    
+    <summary type="html">
+    
+      本系列为在我基本完全读完了阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理，作为日后的复习使用。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导像我这样的新手，快速入门ES6，并逐步将其投入到生产实践中。
+    
+    </summary>
+    
+      <category term="ES6标准入门" scheme="https://github.com/ChangerHe/categories/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8/"/>
+    
+    
+      <category term="ES6" scheme="https://github.com/ChangerHe/tags/ES6/"/>
+    
+      <category term="let" scheme="https://github.com/ChangerHe/tags/let/"/>
+    
+      <category term="const" scheme="https://github.com/ChangerHe/tags/const/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Nodejs的require()模块源码解读</title>
-    <link href="https://github.com/ChangerHe/2017/09/15/Nodejs%E7%9A%84require-%E6%A8%A1%E5%9D%97%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/"/>
-    <id>https://github.com/ChangerHe/2017/09/15/Nodejs的require-模块源码解读/</id>
-    <published>2017-09-15T11:44:27.000Z</published>
-    <updated>2017-09-15T11:55:10.892Z</updated>
+    <link href="https://github.com/ChangerHe/2017/06/16/Nodejs%E7%9A%84require-%E6%A8%A1%E5%9D%97%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/"/>
+    <id>https://github.com/ChangerHe/2017/06/16/Nodejs的require-模块源码解读/</id>
+    <published>2017-06-16T11:44:27.000Z</published>
+    <updated>2017-09-16T03:39:33.855Z</updated>
     
     <content type="html"><![CDATA[<p>2009年, nodejs项目诞生,所有模块一律为commonjs格式.</p>
 <p>时至今日,Nodejs的包管理npm仓库,已经存放了十万百万级的模块,其中绝大部分都是使用的commonjs格式.</p>
@@ -316,621 +809,6 @@
     
     
       <category term="JavaScript模块化编程" scheme="https://github.com/ChangerHe/tags/JavaScript%E6%A8%A1%E5%9D%97%E5%8C%96%E7%BC%96%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JavaScript深入浅出-call/apply</title>
-    <link href="https://github.com/ChangerHe/2017/06/15/JavaScript%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BA-call-apply/"/>
-    <id>https://github.com/ChangerHe/2017/06/15/JavaScript深入浅出-call-apply/</id>
-    <published>2017-06-15T14:51:48.000Z</published>
-    <updated>2017-09-14T14:37:36.463Z</updated>
-    
-    <content type="html"><![CDATA[<p>本文中call和apply仅占小部分,主要还是关于自己在学习过程中踩到的坑的记录.</p>
-<h1 id="使用call方法将变量产生的数组进行转换"><a href="#使用call方法将变量产生的数组进行转换" class="headerlink" title="使用call方法将变量产生的数组进行转换"></a>使用call方法将变量产生的数组进行转换</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function foo(a, b, c) &#123;</div><div class="line">    var arr1 = [].reverse.call(arguments);</div><div class="line">    console.log(arr1);</div><div class="line">    var arr2 = [].slice.call(arguments);</div><div class="line">    console.log(arr2.reverse());</div><div class="line">&#125;</div><div class="line">foo(1,2,3)</div></pre></td></tr></table></figure>
-<p>以上使用了两种方法，arr1使用了数组的reverse方法，并将数组的reverse方法借用给arguments，也就是说arguments使用了数组中的方法，之前的arguments是没有这个方法的。其最终产生的效果是，arr1还是数组的集合。</p>
-<p>第二种方法其实是首先将数组的slice方法的作用域赋予给arguments，那么arguments其实是使用了slice的方法进行了数组的序列化，最终产生的效果其实是arr2最终变成了一个数组，然后使用数组，也就是arr2的作用域链中的reverse方法进行了调换。</p>
-<h1 id="arrow函数"><a href="#arrow函数" class="headerlink" title="arrow函数"></a>arrow函数</h1><p> 箭头函数其实是对于单调乏味且冗长的function关键词的简写，如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var foo = a =&gt; &#123;</div><div class="line">    console.log(a)</div><div class="line">&#125;</div><div class="line">foo(2);   //2</div></pre></td></tr></table></figure>
-<p>其实在这个情况下，以上的程序是等价于以下的程序的：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var foo = function(a) &#123;</div><div class="line">	console.log(a);</div><div class="line">&#125;</div><div class="line">foo(2);</div></pre></td></tr></table></figure>
-<p>那么问题来了，这个箭头函数到底表示的是函数表达式还是函数声明呢？，经过一个简单的测试，发现其实这个箭头函数就是一个简单的函数表达式，我们来测试以下它的函数提升过程：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">foo(2);</div><div class="line">var foo = a =&gt; &#123;</div><div class="line">	console.log(a);    //TypeError: foo is not a function</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h1 id="严格模式下必报的this指向问题"><a href="#严格模式下必报的this指向问题" class="headerlink" title="严格模式下必报的this指向问题"></a>严格模式下必报的this指向问题</h1><p>严格模式下，全局对象无法绑定到未进行修饰的函数声明，因此在全局作用域下，在函数内调用this时会造成报错： Cannot read property ‘a’ of undefined；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">(function foo() &#123;</div><div class="line">	&quot;use strict&quot;;</div><div class="line">	var a = 2;</div><div class="line">	console.log(this.a);   //Cannot read property &apos;a&apos; of undefined；</div><div class="line">&#125;)()</div></pre></td></tr></table></figure></p>
-<h1 id="关于this的作用层级问题"><a href="#关于this的作用层级问题" class="headerlink" title="关于this的作用层级问题"></a>关于this的作用层级问题</h1><p>对象中只有引用链的最顶层或者说是作用者的最后一层会影响其调用位置，来看一下下面的这个代码，很奇怪的事情是this居然指向的是obj1 而不是obj2，原因就是因为作用者的最后一层就是obj1.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function foo() &#123;</div><div class="line">	console.log(this.a);</div><div class="line">&#125;</div><div class="line">var obj1 = &#123;</div><div class="line">	a: 1,</div><div class="line">	foo: foo</div><div class="line">&#125;</div><div class="line">var obj2 = &#123;</div><div class="line">	a: 2,</div><div class="line">	obj1: obj1</div><div class="line">&#125;</div><div class="line">obj2.obj1.foo();    //输出的是1，也就是代表this其实指向的是obj1</div></pre></td></tr></table></figure></p>
-<h1 id="引用类型常量的赋值问题"><a href="#引用类型常量的赋值问题" class="headerlink" title="引用类型常量的赋值问题"></a>引用类型常量的赋值问题</h1><p>当函数内部制定了变量值后,输出的值是不一样的,我们来看一下例子:<br>function foo(x) {<br>    x.push(4);<br>    console.log(x);   //输出的是[1,2,3,4],没毛病<br>    x = [4,5,6];<br>    x.push(7);<br>    console.log(x);   //输出[4,5,6,7]这个没毛病<br>}<br>var a = [1,2,3];<br>foo(a);<br>console.log(a);     //这个情况下,a的值其实是[1,2,3,4];<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">其实主要的原因是这样的,当我们的a作为参数传到foo函数中的时候,foo中的参数x其实是获得了一个到a数组的指针,当x进行相应的数值处理操作的时候,会直接作用到a上面,但是当x的指针改变了,也就是x被重新赋值的时候,x的指针就指向新的[4,5,6]数组了,这个时候其实后面的push(7)的操作已经是对于新的数组,并没有对a数组进行相应的操作,故最后返回的a的值只是[1,2,3,4]</div><div class="line"></div><div class="line"># 引用类型常量的赋值问题再探讨</div><div class="line"></div><div class="line">一个很小的问题(其实涉及到的知识点和第五条是类似的),当我为一个变量赋予了一个常量值,但通过函数对这个常量值进行更改,那么更改会不会体现到这个常量值中呢?</div></pre></td></tr></table></figure></p>
-<p>function foo(x) {<br>    x = x + 1;<br>    console.log(x);<br>}<br>var a = 2;<br>foo(a);<br>console.log(a);  //此时a还是为2<br>```</p>
-]]></content>
-    
-    <summary type="html">
-    
-      本文中call和apply仅占小部分,主要还是关于自己在学习过程中踩到的坑的记录.
-    
-    </summary>
-    
-      <category term="JavaScript 学习笔记" scheme="https://github.com/ChangerHe/categories/JavaScript-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="JavaScript" scheme="https://github.com/ChangerHe/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>深入理解JavaScript构造函数和原型对象</title>
-    <link href="https://github.com/ChangerHe/2017/06/15/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3JavaScript%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E5%92%8C%E5%8E%9F%E5%9E%8B%E5%AF%B9%E8%B1%A1/"/>
-    <id>https://github.com/ChangerHe/2017/06/15/深入理解JavaScript构造函数和原型对象/</id>
-    <published>2017-06-15T14:16:09.000Z</published>
-    <updated>2017-09-14T15:02:33.119Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="对象？"><a href="#对象？" class="headerlink" title="对象？"></a>对象？</h1><p>对象，是javascript中非常重要的一个梗，是否能透彻的理解它直接关系到你对整个javascript体系的基础理解，说白了，javascript就是一群对象在搞！！基！！</p>
-<h1 id="常用的几种对象创建模式"><a href="#常用的几种对象创建模式" class="headerlink" title="常用的几种对象创建模式"></a>常用的几种对象创建模式</h1><h2 id="使用new关键字创建"><a href="#使用new关键字创建" class="headerlink" title="使用new关键字创建"></a>使用new关键字创建</h2><p>最基础的对象创建方式，无非就是和其他多数语言一样说的一样：所以俗话说得好，当我们程序猿们没对象的时候，我们应该“new”一个对象出来。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var gf = new Object();</div><div class="line">gf.name = &quot;tangwei&quot;;</div><div class="line">gf.bar = &quot;c++&quot;;</div><div class="line">gf.sayWhat = function() &#123;</div><div class="line">  console.log(this.name + &quot;said:love you forever&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="使用字面量创建"><a href="#使用字面量创建" class="headerlink" title="使用字面量创建"></a>使用字面量创建</h2><p>这样似乎妥妥的了，但是宅寂的geek们岂能喜欢如此复杂和low土的定义变量的方式，作为一门脚本语言那应该有和其他兄弟们一样的范儿，于是出现了对象字面量的定义方式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var gf = &#123;</div><div class="line">  name : &quot;tangwei&quot;,</div><div class="line">  bar : &quot;c++&quot;,</div><div class="line">  sayWhat : function() &#123;</div><div class="line">    console.log(this.name + &quot;said:love you forever&quot;);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h1 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h1><p>实际上这是我们在实际中最常用的对象定义方式，但是我要有好多拥有相似属性的对象（想想都让人激动。。。）怎么办呢？那要是一个个的定义，就会产生大量的代码，何不建个工厂，批量的生产出我们的对象呢，于是，javascript世界中第一个充气娃。。。不，“工厂模式”诞生了！<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function createGf(name, bar) &#123;</div><div class="line">  var o = new Object();</div><div class="line">  o.name = name;</div><div class="line">  o.bar = bar;</div><div class="line">  o.sayWhat = function() &#123;</div><div class="line">    alert(this.name + &quot;said:love you forever&quot;);</div><div class="line">  &#125;</div><div class="line">  return o;</div><div class="line">&#125;</div><div class="line">var gf1 = createGf(&quot;bingbing&quot;,&quot;d&quot;);</div><div class="line">var gf2 = createGf(&quot;mimi&quot;,&quot;a&quot;);</div></pre></td></tr></table></figure></p>
-<h1 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h1><p>工厂模式解决了多个相似对象的创建问题，但是问题又来了，这些对象都是Object整出来的，怎么区分它们的对象具体类型呢？这时候我们就需要切换到另一种模式了，构造函数模式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function Gf(name,bar)&#123;</div><div class="line">  this.name = name;</div><div class="line">  this.bar = bar;</div><div class="line">  this.sayWhat = function()&#123;</div><div class="line">    alert(this.name + &quot;said:love you forever&quot;);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">var gf1 = new Gf(&quot;vivian&quot;,&quot;f&quot;);</div><div class="line">var gf2 = new Gf(&quot;vivian2&quot;,&quot;f&quot;);</div></pre></td></tr></table></figure></p>
-<p>这里我们使用一个大写字母开头的构造函数替代了上例中的createGf，注意按照约定构造函数的首字母要大写。在这里我们创建一个新对象，然后将构造函数的作用域赋给新对象，调用构造函数中的方法。<br>上面的方式似乎没什么不妥，但是我们可以发现，两个实例中调用的构造函数中的sayWhat方法不是同一个Function实例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">console.log(gf1.sayWhat == gf2.sayWhat); //false</div></pre></td></tr></table></figure></p>
-<p>调用同一个方法，却声明了不同的实例，实在浪费资源。我们可以优化一下将sayWhat函数放到构造函数外面声明：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function Gf(name,bar)&#123;</div><div class="line">  this.name = name;</div><div class="line">  this.bar = bar;</div><div class="line">  this.sayWhat = sayWhat</div><div class="line">&#125;</div><div class="line">function sayWhat()&#123;</div><div class="line">  alert(this.name + &quot;said:love you forever&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>这样解决了，多个实例多次定义同一个方法实例的问题，但是新问题又来了，我们定义的sayWhat是一个全局作用域的方法，但这个方法其实是没法直接调用的，这就有点矛盾了。如何更优雅的定义一个具备一定封装性的对象呢？我们来看一下javascript原型对象模式。</p>
-<h1 id="原型对象模式"><a href="#原型对象模式" class="headerlink" title="原型对象模式"></a>原型对象模式</h1><p>当我们创建一个函数时，该函数就会具备一个prototype属性，这个属性指向通过构造函数创建的那个函数的原型对象。通俗点讲原型对象就是内存中为其他对象提供共享属性和方法的对象。<br><img src="http://files.jb51.net/file_images/article/201409/2014923152050636.png?201482315219" alt=""><br>在原型模式中，不必再构造函数中定义实例属性，可以将属性信息直接赋予原型对象：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function Gf()&#123;</div><div class="line">  Gf.prototype.name = &quot;vivian&quot;;</div><div class="line">  Gf.prototype.bar = &quot;c++&quot;;</div><div class="line">  Gf.prototype.sayWhat = function()&#123;</div><div class="line">    alert(this.name + &quot;said:love you forever&quot;);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">var gf1 = new Gf();</div><div class="line">gf1.sayWhat();</div><div class="line">var gf2 = new Gf();</div></pre></td></tr></table></figure></p>
-<p>和构造函数不同的是这里新对象的属性和方法是所有实例都可以共享的，换句话说gf1和gf2访问的是同一份属性和方法。原型对象中除了我们赋予的属性外，还有一些内置的属性，所有原型对象都具备一个constructor属性，这个属性是一个指向包含prototype属性函数的一个指针（敢不敢再绕点！）。通过一幅图我们来清楚的理一下这个绕口的流程：<br><img src="http://files.jb51.net/file_images/article/201409/2014923152134756.png?2014823152147" alt=""><br>所有的对象都有一个原型对象（prototype），原型对象中有一个constructor属性指向包含prototype属性的函数，Gf的实例gf1和gf2都包含一个内部属性指向原型对象（在firefox浏览器中表现为私有属性proto），当我们访问一个对象中的属性时，首先会询问实例对象中有没有该属性，如果没有则继续查找原型对象。<br>在前面的示例中，我们注意到在为原型对象添加属性时，需要每个都增加Gf.prototype，这个工作很重复，在上面对象的创建模式中，我们知道可以通过字面量的形式创建一个对象，这里我们也可以改进一下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function Gf()&#123;&#125;</div><div class="line">Gf.prototype = &#123;</div><div class="line">  name : &quot;vivian&quot;,</div><div class="line">  bar : &quot;c++&quot;,</div><div class="line">  sayWhat : function()&#123;</div><div class="line">    alert(this.name + &quot;said:love you forever&quot;);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>这里有一个地方需要特别注意，constructor属性不再指向对象Gf，因为每定义一个函数，就会同时为其创建一个prototype对象，这个对象也会自动获取一个新的constructor属性，这个地方我们使用Gf.prototype本质上覆写了原有的prototype对象，因此constructor也变成了新对象的constructor属性，不再指向Gf，而是Object:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var gf1 = new Gf();</div><div class="line">console.log(gf1.constructor == Gf);//false</div><div class="line">console.log(gf1.constructor == Object)//true</div></pre></td></tr></table></figure></p>
-<p>一般情况下，这个微妙的改变是不会对我们造成影响的，但如果你对constructor有特殊的需求，我们也可以显式的指定下Gf.prototype的constructor属性：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Gf.prototype = &#123;</div><div class="line">  constructor : Gf,</div><div class="line">  name : &quot;vivian&quot;,</div><div class="line">  bar : &quot;c++&quot;,</div><div class="line">  sayWhat : function() &#123;</div><div class="line">    alert(this.name + &quot;said:love you forever&quot;);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">var gf1 = new Gf();</div><div class="line">console.log(gf1.constructor == Gf);//true</div></pre></td></tr></table></figure></p>
-<p>通过对原型对象模式的初步了解，我们发现所有的实例对象都共享相同的属性，这是原型模式的基本特点，但往往对于开发者来说这是把“双刃剑”，在实际开发中，我们希望的实例应该是具备自己的属性，这也是在实际开发中很少有人单独使用原型模式的主要原因。</p>
-<h1 id="构造函数和原型组合模式"><a href="#构造函数和原型组合模式" class="headerlink" title="构造函数和原型组合模式"></a>构造函数和原型组合模式</h1><p>在实际开发中，我们可以使用构造函数来定义对象的属性，使用原型来定义共享的属性和方法，这样我们就可以传递不同的参数来创建出不同的对象，同时又拥有了共享的方法和属性。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function Gf(name,bar)&#123;</div><div class="line">  this.name = name;</div><div class="line">  this.bar = bar;</div><div class="line">&#125;</div><div class="line">Gf.prototype = &#123;</div><div class="line">  constructor : Gf,</div><div class="line">  sayWhat : function() &#123;</div><div class="line">    alert(this.name + &quot;said:love you forever&quot;);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">var gf1 = new Gf(&quot;vivian&quot;, &quot;f&quot;);</div><div class="line">var gf2 = new Gf(&quot;vivian1&quot;, &quot;c&quot;);</div></pre></td></tr></table></figure></p>
-<p>在这个例子中，我们再构造函数中定义了对象各自的属性值，在原型对象中定义了constructor属性和sayWhat函数，这样gf1和gf2属性之间就不会产生影响了。这种模式也是实际开发中最常用的对象定义方式，包括很多js库（bootstrap等）默认的采用的模式。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      对象，是javascript中非常重要的一个梗，是否能透彻的理解它直接关系到你对整个javascript体系的基础理解，说白了，javascript就是一群对象在搞！！基！！
-    
-    </summary>
-    
-      <category term="JavaScript 学习笔记" scheme="https://github.com/ChangerHe/categories/JavaScript-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="JavaScript" scheme="https://github.com/ChangerHe/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JavaScript深入浅出-闭包及闭包问题的解决办法</title>
-    <link href="https://github.com/ChangerHe/2017/06/15/JavaScript%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BA-%E9%97%AD%E5%8C%85%E5%8F%8A%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/"/>
-    <id>https://github.com/ChangerHe/2017/06/15/JavaScript深入浅出-闭包及解决办法/</id>
-    <published>2017-06-15T14:15:34.000Z</published>
-    <updated>2017-09-14T14:38:05.948Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="闭包是什么"><a href="#闭包是什么" class="headerlink" title="闭包是什么?"></a>闭包是什么?</h1><p>在JS中可谓处处是闭包,也许你不知道这个概念,但是你一定自己手写过闭包,而且还碰到了闭包的问题.</p>
-<p>闭包的最大作用还是解决了全局作用域中的变量被污染的问题.</p>
-<p>但是闭包虽有好处,但是也不能滥用,因为闭包的调用机制使得垃圾回收机制(GC)在闭包使用完毕后,无法对其进行回收,使用过多的话会影响到性能.特别是在IE浏览器中,因为IE浏览器在IE8及之前的GC机制使用的是引用计数方式,所以使用闭包会产生内存泄露.万幸在IE9中更正了这个问题,现在绝大部分浏览器实现的是标记清除式的GC机制.</p>
-<p>如果必须使用闭包的时候,笔者建议可在闭包使用完之后,可以将其引用变量设置为null,以便清除其占用的内存空间.</p>
-<h1 id="一个很简单的闭包例子"><a href="#一个很简单的闭包例子" class="headerlink" title="一个很简单的闭包例子"></a>一个很简单的闭包例子</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function add() &#123;</div><div class="line">     var a = 100;</div><div class="line">     return function() &#123;</div><div class="line">        return a++;</div><div class="line">     &#125;</div><div class="line">&#125;</div><div class="line">var a = add();</div><div class="line">console.log(a());   //100</div><div class="line">console.log(a());   //101</div></pre></td></tr></table></figure>
-<p>看,这就是闭包了,闭包的调用也很方便,直接执行函数中的函数,就可以了.</p>
-<h1 id="闭包产生的问题和解决方法"><a href="#闭包产生的问题和解决方法" class="headerlink" title="闭包产生的问题和解决方法"></a>闭包产生的问题和解决方法</h1><p>其实闭包最大的危害就是在函数进行循环调用的时候以及使用回调函数的时候了,之前没懂闭包,做这类问题的时候是相当的头痛啊,这里我就简单介绍一下如何解决这类问题.下面以循环调用为例.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">function returnArr() &#123;</div><div class="line">	var arr = [];</div><div class="line">	for (var i = 0; i &lt; 5; i++) &#123;</div><div class="line">		arr[i] = function() &#123;</div><div class="line">			return i</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	return arr;</div><div class="line">&#125;</div><div class="line">var a = returnArr();</div><div class="line"></div><div class="line">for (var i = 0; i &lt; 5; i++) &#123;</div><div class="line">	console.log(a[i]())   //5 5 5 5 5</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>可能这个时候很多人会觉得很奇怪,这是什么情况啊,我明明是想要输出0 1 2 3 4的啊!这个时候,你其实已经写了一个闭包了.</p>
-<h2 id="闭包问题的产生原因"><a href="#闭包问题的产生原因" class="headerlink" title="闭包问题的产生原因"></a>闭包问题的产生原因</h2><p>在循环体中,当我们像平常一样调用函数中的函数的时候,其实这个时候循环体早就执行完毕了,所以这个时候输出的值是一个固定的值,在本题中输出的是5,因为循环一直到4时跳转,在循环到四之后最后还有一个4++的操作,最终输出的是5 </p>
-<h2 id="解决闭包问题的方案"><a href="#解决闭包问题的方案" class="headerlink" title="解决闭包问题的方案"></a>解决闭包问题的方案</h2><p>1.将函数体转换为自执行函数,这个时候就可以在循环的同时将函数一起执行了,所以i的值可以正确地传入,但是因为自执行函数是一个封闭的作用域,所以在这个时候应该将i的值作为参数传递到这个封闭作用域中,最后可以得到想要的输出结果.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function returnArr() &#123;</div><div class="line">	var arr = [];</div><div class="line">	for (var i = 0; i &lt; 5; i++) &#123;</div><div class="line">		arr[i] = function(a) &#123;</div><div class="line">			return a</div><div class="line">		&#125;(i)</div><div class="line">	&#125;</div><div class="line">	return arr;</div><div class="line">&#125;</div><div class="line">var a = returnArr();</div><div class="line">console.log(a);   //0 1 2 3 4</div></pre></td></tr></table></figure>
-<p>2.将函数中再嵌套一个函数,然后再执行以下函数中的函数,这样也可以解决闭包问题,但是为什么我在里面又嵌套了一个匿名函数,却没有再次产生闭包的问题呢?这是因为当我们传参给自执行函数时,其参数时直接驻留在自执行函数的内存中的.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">function returnArr() &#123;</div><div class="line">	var arr = [];</div><div class="line">	for (var i = 0; i &lt; 5; i++) &#123;</div><div class="line">		arr[i] = function(a) &#123;</div><div class="line">			return function() &#123;</div><div class="line">				return a;</div><div class="line">			&#125;</div><div class="line">		&#125;(i)</div><div class="line">	&#125;</div><div class="line">	return arr;</div><div class="line">&#125;</div><div class="line">var a = returnArr();</div><div class="line">for (var i = 0; i &lt; 5; i++) &#123;</div><div class="line">	console.log(a[i]())</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h1 id="闭包的时候的this指向问题"><a href="#闭包的时候的this指向问题" class="headerlink" title="闭包的时候的this指向问题"></a>闭包的时候的this指向问题</h1><p>产生闭包的时候,闭包里的this其实是指向window的.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var box = &#123;</div><div class="line">    getThis: function() &#123;</div><div class="line">        return function() &#123;</div><div class="line">            return this;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">console.log(box.getThis()()) //window</div></pre></td></tr></table></figure>
-<p>那么当我在使用闭包的时候,想让这个this再指回我们的调用对象怎么办呢?这个时候我们的call方法就派上用场了.</p>
-<p>很多时候,call和apply的用法是类似的,只是传参不同而已,大部分情况下使用call也意味着可以使用apply.apply就不演示了.其实两者都是一样的.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var box = &#123;</div><div class="line">	getThis: function() &#123;</div><div class="line">		return function() &#123;</div><div class="line">			return this;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">console.log(box.getThis().call(box)) //box</div></pre></td></tr></table></figure>
-<p>当我们不想用call或者apply方法怎么办呢?ES5中新增了一种方法就是bind(),可以将函数的this硬绑定到一个对象上.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var box = &#123;</div><div class="line">	getThis: function() &#123;</div><div class="line">		return function() &#123;</div><div class="line">			return this;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">var a = box.getThis();</div><div class="line">console.log(a.bind(box)())   //box</div></pre></td></tr></table></figure>
-<p>觉得上面的方法复杂,不想用?别急还有一种暴力方法解决这个问题,就是直接在函数体中动刀.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var box = &#123;</div><div class="line">	getThis: function() &#123;</div><div class="line">		var that = this;</div><div class="line">		return function() &#123;</div><div class="line">			return that;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">console.log(box.getThis()()) //box</div></pre></td></tr></table></figure>
-<h1 id="利用闭包来模仿块级作用域"><a href="#利用闭包来模仿块级作用域" class="headerlink" title="利用闭包来模仿块级作用域"></a>利用闭包来模仿块级作用域</h1><p>包含自我执行的匿名函数,就可以创建私有作用域</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">(function() &#123;</div><div class="line">	(function() &#123;</div><div class="line">		for (var i = 0; i &lt; 5; i++) &#123;</div><div class="line"></div><div class="line">		&#125;</div><div class="line">	&#125;)()</div><div class="line">	console.log(i) //ReferenceError: i is not defined</div><div class="line">&#125;)()</div></pre></td></tr></table></figure>
-<p>那么根据以上,就可以引申出各种设计模式了.比如说单例模式啊,工厂模式啊.构造函数模式啊巴拉巴拉.这个在我的<code>JavaScript高级程序设计复习笔记（三）</code>这一篇博客里面有详细讲解.</p>
-]]></content>
-    
-    <summary type="html">
-    
-      在JS中可谓处处是闭包,也许你不知道这个概念,但是你一定自己手写过闭包,而且还碰到了闭包的问题.
-    
-    </summary>
-    
-      <category term="JavaScript 学习笔记" scheme="https://github.com/ChangerHe/categories/JavaScript-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="JavaScript" scheme="https://github.com/ChangerHe/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JavaScript笔试面试题收集（三）</title>
-    <link href="https://github.com/ChangerHe/2017/06/15/JavaScript%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98%E6%94%B6%E9%9B%86%EF%BC%88%E4%B8%89%EF%BC%89/"/>
-    <id>https://github.com/ChangerHe/2017/06/15/JavaScript笔试面试题收集（三）/</id>
-    <published>2017-06-15T13:34:18.000Z</published>
-    <updated>2017-09-14T14:39:02.002Z</updated>
-    
-    <content type="html"><![CDATA[<p>本系列主要在于对自己的日常学习的内容做一个归纳整理,同时分享一些平时遇到的一些比较好的面试题.</p>
-<p>通过对笔试面试题的学习,强化自己的所学知识面.</p>
-<p>今天分享的题比较简单,主要是考察闭包的知识以及一些逻辑思维</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">function fun(n,o)&#123;</div><div class="line">	console.log(o)</div><div class="line">	return &#123;</div><div class="line">		fun:function(m)&#123;</div><div class="line">		return fun(m,n)</div><div class="line">	&#125;&#125;</div><div class="line">&#125;</div><div class="line">var a = fun(0);  //undefined</div><div class="line">a.fun(1);  //0</div><div class="line">a.fun(2); // 0</div><div class="line">a.fun(3);  // 0</div><div class="line">var b = fun(0).fun(1).fun(2).fun(3);  //undefined   0    1    2</div><div class="line">var c = fun(0).fun(1);  // undefined   0</div><div class="line">c.fun(2);     // 1</div><div class="line">c.fun(3);     // 1</div></pre></td></tr></table></figure>
-<h1 id="个人拙见"><a href="#个人拙见" class="headerlink" title="个人拙见:"></a>个人拙见:</h1><p>其实以上的代码主要还是一个闭包的问题,代码的逻辑判断清楚了就很好解.因为当我们传一个参的时候,第二个参数必然是undefined.这也是为什么abc一出来就执行的是undefined的原因.因为所有的函数执行都只传递了一个参数.</p>
-<p>第二,当我们为返还的函数传参的时候,也就是给这个函数里面的函数fun的参数m传值的时候,会返回一个以m为第一个参数,其父函数的第一个参数作为第二个参数的函数.</p>
-<p>其实说到这里就很好理解了,我们将函数看成一个很好玩的方法,我们传值进去的时候,它会记录两个值作为参数,并把第二个参数的值打印出来,再往里面传一个值的时候,就会把之前的第一个参数挪到后面作为第二个参数.以此类推.</p>
-]]></content>
-    
-    <summary type="html">
-    
-      本系列主要在于对自己的日常学习的内容做一个归纳整理,同时分享一些平时遇到的一些比较好的面试题.
-通过对笔试面试题的学习,强化自己的所学知识面.
-    
-    </summary>
-    
-      <category term="JavaScript笔试面试题" scheme="https://github.com/ChangerHe/categories/JavaScript%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
-    
-    
-      <category term="JavaScript笔试面试题" scheme="https://github.com/ChangerHe/tags/JavaScript%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title> JavaScript笔试面试题收集（二）</title>
-    <link href="https://github.com/ChangerHe/2017/06/15/JavaScript%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98%E6%94%B6%E9%9B%86%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
-    <id>https://github.com/ChangerHe/2017/06/15/JavaScript笔试面试题收集（二）/</id>
-    <published>2017-06-15T13:34:18.000Z</published>
-    <updated>2017-09-14T14:38:56.029Z</updated>
-    
-    <content type="html"><![CDATA[<p>本系列主要在于对自己的日常学习的内容做一个归纳整理,同时分享一些平时遇到的一些比较好的面试题.</p>
-<p>通过对笔试面试题的学习,强化自己的所学知识面.</p>
-<p>话不多说，直接撸题吧：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">function Parent() &#123;</div><div class="line">    this.a = 1;</div><div class="line">    this.b = [1,2,this.a];</div><div class="line">    this.c = &#123;demo: 5&#125;;</div><div class="line">    this.show = function() &#123;</div><div class="line">        console.log(this.a, this.b, this.c.demo)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">function Child() &#123;</div><div class="line">    this.a = 2;</div><div class="line">    this.change = function() &#123;</div><div class="line">        this.b.push(this.a);</div><div class="line">        this.a = this.b.length;</div><div class="line">        this.c.demo = this.a++;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">Child.prototype = new Parent();</div><div class="line">var parent = new Parent();</div><div class="line">var child1 = new Child();</div><div class="line">var child2 = new Child();</div><div class="line">child1.a = 11;</div><div class="line">child2.a = 12;</div><div class="line">parent.show();  //1,[1,2,1],5</div><div class="line">child1.show(); //11,[1,2,11],5</div><div class="line">child2.show();   //12,[1,2,11],5</div><div class="line">child1.change(); </div><div class="line">child2.change();  </div><div class="line">parent.show();  // 1,[1,2,1],5</div><div class="line">child1.show(); //5,[1,2,1,11,12],5</div><div class="line">child2.show();   //6,[1,2,1,11,12],5</div></pre></td></tr></table></figure></p>
-<p>其实要解出上面的问题，了解以下几句话就好了：</p>
-<blockquote>
-<p>1.每个构造函数，都有一个原型，指向构造函数的原型对象。<br>2.每一个实例生成的时候，都会在内存中产生一块新的堆内存。<br>3.每一个实例都有一个隐式原型指向构造函数的原型对象。<br>4.this的指向，取决于this调用的位置，在这道题中，也可以理解为，谁调用这个方法，this就指向哪个对象。<br>5.数组和字面量对象都是引用。<br>6.原型链的查找原则： 就近原则。也就是说：当实例上存在属性时，用实例上的，如果实例不存在，则顺着原型链往上查找，如果存在，则使用原型链上的对象，如果不存在，则查找Object原型对象上的，如果都不存在，则为undefined。</p>
-</blockquote>
-]]></content>
-    
-    <summary type="html">
-    
-      本系列主要在于对自己的日常学习的内容做一个归纳整理,同时分享一些平时遇到的一些比较好的面试题.
-通过对笔试面试题的学习,强化自己的所学知识面.
-    
-    </summary>
-    
-      <category term="JavaScript笔试面试题" scheme="https://github.com/ChangerHe/categories/JavaScript%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
-    
-    
-      <category term="JavaScript笔试面试题" scheme="https://github.com/ChangerHe/tags/JavaScript%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JavaScript笔试面试题收集（四）</title>
-    <link href="https://github.com/ChangerHe/2017/06/15/JavaScript%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98%E6%94%B6%E9%9B%86%EF%BC%88%E5%9B%9B%EF%BC%89/"/>
-    <id>https://github.com/ChangerHe/2017/06/15/JavaScript笔试面试题收集（四）/</id>
-    <published>2017-06-15T13:34:18.000Z</published>
-    <updated>2017-09-14T14:39:05.304Z</updated>
-    
-    <content type="html"><![CDATA[<p>本系列主要在于对自己的日常学习的内容做一个归纳整理,同时分享一些平时遇到的一些比较好的面试题.</p>
-<p>通过对笔试面试题的学习,强化自己的所学知识面.</p>
-<h1 id="关于形参的传参问题"><a href="#关于形参的传参问题" class="headerlink" title="关于形参的传参问题"></a>关于形参的传参问题</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">(function(foo)&#123;</div><div class="line">	return typeof foo.foo.bar;</div><div class="line">	&#125;)(&#123; foo:&#123; bar: 1 &#125; &#125;)</div></pre></td></tr></table></figure>
-<p>答案: number<br>解析: 其实这题考了我们闭包以及形参传参的问题,首先,我们将整体看成一个自执行函数,函数的变量是{ foo:{ bar: 1 } },那么我们可以把这一题简化一下:(当然,这个对象并不是存在于全局作用域的,我们只是把它拆开,做个比喻)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var baz = &#123; foo:&#123; bar: 1 &#125; &#125;</div><div class="line">(function(foo)&#123;</div><div class="line">	return typeof foo.foo.bar;&#125;</div><div class="line">&#125;)(baz)</div></pre></td></tr></table></figure>
-<p>那么现在就很明显了,其实就是把baz作为参数传递到这个自执行函数中,理解了这第一步,那么我们要先了解一下”左值”的概念,就是当我们遇到<code>foo.foo.bar</code>这一串的时候,可能很多同学很疑惑,怎么传了两次参数,其实两次参数的作用是不同的,执行这段代码,那么会先查找左边的值,并传入这个参数. </p>
-<p>那么我们再简化一下这一题</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var baz = &#123; foo:&#123; bar: 1 &#125; &#125;</div><div class="line">(function(baz)&#123;</div><div class="line">	return typeof baz.foo.bar;&#125;</div><div class="line">&#125;)(baz)</div></pre></td></tr></table></figure>
-<p>到这里,结果就很明显了,最后返回值就是</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">typeof &#123; foo:&#123; bar: 1 &#125; &#125;.foo.bar</div></pre></td></tr></table></figure>
-<p>那么,自然结果就是number啦</p>
-<h1 id="关于作用域的问题"><a href="#关于作用域的问题" class="headerlink" title="关于作用域的问题"></a>关于作用域的问题</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var x = 1;</div><div class="line">if (function f()&#123;&#125;) &#123;</div><div class="line">x += typeof f;</div><div class="line">&#125;</div><div class="line">console.log(x)    // 1undefined</div></pre></td></tr></table></figure>
-<p>这一题比较简单,但是考的是细节,我们需要了解function f(){}这个函数,其实在括号中,它的作用域就仅仅是在括号中了,但是平常我们不能这样做,因为这是不符合ES语法规范的.</p>
-<h1 id="关于闭包的问题"><a href="#关于闭包的问题" class="headerlink" title="关于闭包的问题"></a>关于闭包的问题</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">;(function(x)&#123;</div><div class="line">	console.log(x)    // 1</div><div class="line">	console.log(delete x) // false</div><div class="line">	console.log(x)    // 1</div><div class="line">	return x</div><div class="line">	console.log(x)    // 1</div><div class="line">&#125;)(1)</div></pre></td></tr></table></figure>
-<p>这一题主要是考察我们对闭包中形参和实参的处理问题.</p>
-<p>这里给出一些个人理解,不一定正确:</p>
-<p>首先,我们要明白,其实形参在其函数内,也是有一个在局部作用域中的函数定义的操作的.也就是隐式地声明了这个形参,然后才把这个形参进行赋值</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">;(function(x)&#123;</div><div class="line">	var x	 // 这里是打了个比方</div><div class="line">	x = 1    // 这里是打了个比方</div><div class="line">	console.log(delete x) ;</div><div class="line">	console.log(x)</div><div class="line">	return x</div><div class="line">	console.log(x)</div><div class="line">&#125;)(1)</div></pre></td></tr></table></figure>
-<p>对于delete操作符,我们知道,如果成功删除,则会返回true,不成功则返回false.</p>
-<p>同时,当我们使用var定义的变量,是无法使用delete操作符进行删除的</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var a</div><div class="line">a = 1</div><div class="line">delete a   // false</div></pre></td></tr></table></figure>
-<h1 id="关于闭包的参数问题"><a href="#关于闭包的参数问题" class="headerlink" title="关于闭包的参数问题"></a>关于闭包的参数问题</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">;(function f(f)&#123;</div><div class="line">	return typeof f();    // number</div><div class="line">&#125;)(function()&#123; return 1; &#125;);</div></pre></td></tr></table></figure>
-<p>这一题还是关于自执行函数的传参,乍看可能有点懵逼,但是实际很简单,我们把这个自执行函数中打印出一个东西,你就明白了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">;(function f(f)&#123;</div><div class="line">	console.log(f)   // function()&#123; return 1; &#125;</div><div class="line">	return typeof f();    // number</div><div class="line">&#125;)(function()&#123; return 1; &#125;);</div></pre></td></tr></table></figure>
-<p>传进去的f就是一个函数,而在进行判断的时候是用的 <code>typeof f()</code> 我们会发现这个时候f已经被执行了,执行自然就会返回结果1,对1 进行类型判断,自然就是number了.</p>
-<h1 id="关于函数闭包的执行问题"><a href="#关于函数闭包的执行问题" class="headerlink" title="关于函数闭包的执行问题"></a>关于函数闭包的执行问题</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function test() &#123;</div><div class="line">	var i = 0;</div><div class="line">	var f1 = function() &#123;</div><div class="line">		return ++i</div><div class="line">	&#125;</div><div class="line">	return f1</div><div class="line">&#125;</div><div class="line">var fn1 = test();</div><div class="line">var fn2 = test();</div><div class="line">console.log(fn1 == fn2)  // false</div><div class="line">console.log(fn1() + fn2() + fn1() + fn2())  // 6</div></pre></td></tr></table></figure>
-<p>fn1和fn2其实都是对test中返回值的引用,打印这两个值,都是一个函数,也就是f1</p>
-<p>但是,fn1和fn2都是对test()函数值的浅拷贝,因此二者并不相等,返回false</p>
-<p>fn1和fn2是两个完全不同的引用,引用的对象都是f1,所以我们每执行一次,i就会加一.</p>
-<p>所以fn1执行一次,就会加一,fn1第一次是1,第二次执行是2,所以.fn1和fn2都执行两次,值就是6了</p>
-]]></content>
-    
-    <summary type="html">
-    
-      本系列主要在于对自己的日常学习的内容做一个归纳整理,同时分享一些平时遇到的一些比较好的面试题.
-通过对笔试面试题的学习,强化自己的所学知识面.
-    
-    </summary>
-    
-      <category term="JavaScript笔试面试题" scheme="https://github.com/ChangerHe/categories/JavaScript%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
-    
-    
-      <category term="JavaScript笔试面试题" scheme="https://github.com/ChangerHe/tags/JavaScript%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JavaScript笔试面试题收集（五）</title>
-    <link href="https://github.com/ChangerHe/2017/06/15/JavaScript%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98%E6%94%B6%E9%9B%86%EF%BC%88%E4%BA%94%EF%BC%89/"/>
-    <id>https://github.com/ChangerHe/2017/06/15/JavaScript笔试面试题收集（五）/</id>
-    <published>2017-06-15T13:34:18.000Z</published>
-    <updated>2017-09-14T14:38:54.465Z</updated>
-    
-    <content type="html"><![CDATA[<p>本系列主要在于对自己的日常学习的内容做一个归纳整理,同时分享一些平时遇到的一些比较好的面试题.</p>
-<p>通过对笔试面试题的学习,强化自己的所学知识面.</p>
-<h1 id="函数作用域的变量提升问题"><a href="#函数作用域的变量提升问题" class="headerlink" title="函数作用域的变量提升问题"></a>函数作用域的变量提升问题</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var tmp = new Date()</div><div class="line">function f() &#123;</div><div class="line">	console.log(tmp)  // undefined</div><div class="line">	if(false) &#123;</div><div class="line">		var tmp = &apos;Hello World&apos;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>此题涉及到了函数作用域的变量提升问题.</p>
-<p>因为函数是没有块级作用域的,只有函数作用域</p>
-<p>所以if判断即使为空,编译器预编译的阶段其内部变量声明也会提升到函数作用域的最顶端.</p>
-<p>这个时候因为有了tmp的声明,所以tmp就不会往外面的作用域找值了,会直接返回一个undefined.</p>
-<h1 id="let的作用域问题"><a href="#let的作用域问题" class="headerlink" title="let的作用域问题"></a>let的作用域问题</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function f1() &#123;</div><div class="line">	let n = 5;</div><div class="line">	if(true) &#123;</div><div class="line">		let n = 10;</div><div class="line">	&#125;</div><div class="line">	console.log(n)  // 5</div><div class="line">&#125;</div><div class="line">f1()</div></pre></td></tr></table></figure>
-<p>let是es6成为国际标准的声明方式,由let声明的变量是可以有块级作用域的,所以即使我们使用了if判断语句,其里面的变量也是外面无法访问到的.</p>
-<p>另外,es6还支持块级作用域的任意嵌套</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	&#123;</div><div class="line">		&#123;</div><div class="line">			let a = 1;</div><div class="line">			&#123;</div><div class="line">				console.log(a)  // 报错, a is not defined</div><div class="line">				let a = 2;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>以上的写法是没有错误的.还有一点要注意的是,因为不同的块级作用域是不同的,所以可以同时定义相同的变量</p>
-]]></content>
-    
-    <summary type="html">
-    
-      本系列主要在于对自己的日常学习的内容做一个归纳整理,同时分享一些平时遇到的一些比较好的面试题.
-通过对笔试面试题的学习,强化自己的所学知识面.
-    
-    </summary>
-    
-      <category term="JavaScript笔试面试题" scheme="https://github.com/ChangerHe/categories/JavaScript%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
-    
-    
-      <category term="JavaScript笔试面试题" scheme="https://github.com/ChangerHe/tags/JavaScript%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JavaScript笔试面试题收集（一）</title>
-    <link href="https://github.com/ChangerHe/2017/06/15/JavaScript%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98%E6%94%B6%E9%9B%86%EF%BC%88%E4%B8%80%EF%BC%89/"/>
-    <id>https://github.com/ChangerHe/2017/06/15/JavaScript笔试面试题收集（一）/</id>
-    <published>2017-06-15T13:34:18.000Z</published>
-    <updated>2017-09-14T14:38:39.890Z</updated>
-    
-    <content type="html"><![CDATA[<p>本系列主要在于对自己的日常学习的内容做一个归纳整理,同时分享一些平时遇到的一些比较好的面试题.</p>
-<p>通过对笔试面试题的学习,强化自己的所学知识面.</p>
-<p>出题的大师兄，草粉吗？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">function Foo() &#123;</div><div class="line">	getName = function () &#123;</div><div class="line">		console.log(1);</div><div class="line">	&#125;;</div><div class="line">	return this;</div><div class="line">&#125;</div><div class="line">Foo.getName = function () &#123;</div><div class="line">	console.log(2);</div><div class="line">&#125;;</div><div class="line">Foo.prototype.getName = function () &#123;</div><div class="line">	console.log(3);</div><div class="line">&#125;;</div><div class="line">var getName = function () &#123;</div><div class="line">	console.log(4);</div><div class="line">&#125;;</div><div class="line">function getName() &#123;</div><div class="line">	console.log(5);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">// 请写出以下输出结果：</div><div class="line">Foo.getName();</div><div class="line">getName();</div><div class="line">Foo().getName();</div><div class="line">getName();</div><div class="line">new Foo.getName();</div><div class="line">new Foo().getName();</div><div class="line">new new Foo().getName();</div></pre></td></tr></table></figure></p>
-<p>题目只答对一半的宝宝表示很想哭啊。<br>以下是解题思路：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">Foo.getName();              // 2</div><div class="line">getName();                     // 4</div><div class="line">Foo().getName();           // 1</div><div class="line">getName();                     // 1</div><div class="line"></div><div class="line">new Foo.getName();          // 2</div><div class="line">// var a = new Foo.getName();  </div><div class="line">// var a = &#123;&#125;;</div><div class="line">// a.__proto = Foo.getName.prototype;</div><div class="line">// Foo.getName.call(a);</div><div class="line"></div><div class="line">new Foo().getName();        // 3</div><div class="line">// var b = new Foo().getName();</div><div class="line">// var b = &#123;&#125;;</div><div class="line">// b.__proto__ = Foo.prototype;</div><div class="line">// Foo.call(b);</div><div class="line">// b.getName();</div><div class="line"></div><div class="line">new new Foo().getName();    // 3</div><div class="line">// var c = new Foo().getName();</div><div class="line">// var c = &#123;&#125;;</div><div class="line">// c.__proto__ = Foo.prototype;</div><div class="line">// Foo.call(c);</div><div class="line">// var d = new c.getName();</div><div class="line">// var d = &#123;&#125;;</div><div class="line">// d.__proto__ = c.getName.prototype;</div><div class="line">// c.getName.call(d);</div></pre></td></tr></table></figure></p>
-]]></content>
-    
-    <summary type="html">
-    
-      本系列主要在于对自己的日常学习的内容做一个归纳整理,同时分享一些平时遇到的一些比较好的面试题.
-通过对笔试面试题的学习,强化自己的所学知识面.
-    
-    </summary>
-    
-      <category term="JavaScript笔试面试题" scheme="https://github.com/ChangerHe/categories/JavaScript%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
-    
-    
-      <category term="JavaScript笔试面试题" scheme="https://github.com/ChangerHe/tags/JavaScript%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JavaScript高级程序设计复习笔记（二）</title>
-    <link href="https://github.com/ChangerHe/2017/06/15/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
-    <id>https://github.com/ChangerHe/2017/06/15/JavaScript高级程序设计复习笔记（二）/</id>
-    <published>2017-06-15T12:53:14.000Z</published>
-    <updated>2017-09-14T14:35:18.129Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="Array类型的数组数量问题"><a href="#Array类型的数组数量问题" class="headerlink" title="Array类型的数组数量问题"></a>Array类型的数组数量问题</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var ar = [,,,];</div><div class="line">console.log(arr.length);   //3（最后一个逗号后面不计数）</div></pre></td></tr></table></figure>
-<p>小技巧，利用length在数组的末尾添加新项<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var colors = [&quot;red&quot;,&quot;blue&quot;];</div><div class="line">colors[color.length] = &quot;black&quot;;</div></pre></td></tr></table></figure></p>
-<h3 id="join-方法用于给数组提供分隔符以构建字符串"><a href="#join-方法用于给数组提供分隔符以构建字符串" class="headerlink" title="join()方法用于给数组提供分隔符以构建字符串"></a>join()方法用于给数组提供分隔符以构建字符串</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var colors = [&quot;red&quot;,&quot;green&quot;];</div><div class="line">console.log(colors.join(&quot;||&quot;));</div><div class="line">//输出 red||green，当直接调用join()时，使用默认的“，”分隔。</div></pre></td></tr></table></figure>
-<h3 id="栈方法（LIFO-后进先出；队列方法-FIFO-先进先出"><a href="#栈方法（LIFO-后进先出；队列方法-FIFO-先进先出" class="headerlink" title="栈方法（LIFO):后进先出；队列方法(FIFO):先进先出"></a>栈方法（LIFO):后进先出；队列方法(FIFO):先进先出</h3><p>方法类比：</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">方法名称</th>
-<th style="text-align:center">方法作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">push()</td>
-<td style="text-align:center">从数组后方依次添加</td>
-</tr>
-<tr>
-<td style="text-align:center">unshift()</td>
-<td style="text-align:center">从数组前方依次添加</td>
-</tr>
-<tr>
-<td style="text-align:center">pop()</td>
-<td style="text-align:center">从数组后方删除最后一个，并返回被删除值</td>
-</tr>
-<tr>
-<td style="text-align:center">shift()</td>
-<td style="text-align:center">从数组前删除第一个，并返回第一个被删除的值</td>
-</tr>
-</tbody>
-</table>
-<h3 id="重排序方法"><a href="#重排序方法" class="headerlink" title="重排序方法"></a>重排序方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var values = [0,1,2,10,15];</div><div class="line">values.sort();</div><div class="line">console.log(values); //0,1,10,15,2</div></pre></td></tr></table></figure>
-<p>原因：排序时sort将所有数组值均转化为字符串值再拍讯。<br>解决方法：新建一个compare()方法进行比较<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function compare(value1,value2)&#123;</div><div class="line">	if(value1 &lt; value2)&#123;</div><div class="line">		return -1;</div><div class="line">	&#125; else if (value1 &gt; value2)&#123;</div><div class="line">		return 1;</div><div class="line">	&#125; else &#123;</div><div class="line">		return 0;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">&#125;</div><div class="line">var values = [0,1,5,10,15];</div><div class="line">values.sort(compare);</div><div class="line">console.log(values);   //0,1,5,10,15</div></pre></td></tr></table></figure></p>
-<h3 id="操作方法"><a href="#操作方法" class="headerlink" title="操作方法"></a>操作方法</h3><p>concat():链接两数组，若不传递参数，则只复制一份，不会额外向原数组增加内容。<br>slice():复制当前数组，参数为开始和结束位置。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var arr = [1,2,3,4,5];</div><div class="line">var arr1 = arr.slice(1);</div><div class="line">console.log(arr1);  //2,3,4,5</div><div class="line">var arr2 = arr.slice(1,4);</div><div class="line">console.log(arr2);  //2,3,4</div></pre></td></tr></table></figure></p>
-<p>注：当slice传参为负时，则要加上数组长度，以得到正确结果。<br>splice()：有删除，插入，替换三个作用<br>    删除：splice（要删除的第一项，删除的项数）；<br>    插入：splice（起始位置，0，要插入的项）；<br>    替换：splice（起始位置，要删除的项，要替换的项）；</p>
-<h3 id="迭代方法"><a href="#迭代方法" class="headerlink" title="迭代方法"></a>迭代方法</h3><pre><code>every():为数组每一次运行给定函数，每一项为true，则返回true。
-fliter():为数组的每一项执行给定函数，返回true项组成的数组。
-forEach():每一项执行函数，无返回值。
-map():为每一项执行函数，返回每次调用结果组成的数组。
-some():为每一项执行函数，任意项返回true，则返回true。
-</code></pre><h3 id="归并方法"><a href="#归并方法" class="headerlink" title="归并方法"></a>归并方法</h3><pre><code>reduce():迭代数组所有项，构建一个最终返回值。
-reduceRight():迭代数组所有项，从最后一个数开始。
-</code></pre><h3 id="函数声明提升"><a href="#函数声明提升" class="headerlink" title="函数声明提升"></a>函数声明提升</h3><p>解析器会在代码执行前进行一个函数声明提升的过程，读取并将函数声明添加到执行环境中。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">console.log(num1(1,2));   //3</div><div class="line">console.log(num2(1,2));   //报错</div><div class="line">function num1(m , n)&#123;</div><div class="line">	return m + n;</div><div class="line">&#125;</div><div class="line">num2 = function(m , n)&#123;</div><div class="line">	return m + n;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>注：要访问函数的指针而不执行函数，则需要在调用时去掉函数的圆括号进行调用。</p>
-<h3 id="使用arguments-callee-消除紧密耦合"><a href="#使用arguments-callee-消除紧密耦合" class="headerlink" title="使用arguments.callee()消除紧密耦合"></a>使用arguments.callee()消除紧密耦合</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">//这是一个普通的递归函数</div><div class="line">function factioral(num)&#123;</div><div class="line">	if(num &lt;= 1)&#123;</div><div class="line">		return 1;</div><div class="line">	&#125; else &#123;</div><div class="line">		return num*arguments.callee(num - 1);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="函数的prototype属性"><a href="#函数的prototype属性" class="headerlink" title="函数的prototype属性"></a>函数的prototype属性</h3><p>对于所有属性，prototype属性时保存他们的所有实例方法的真正所在，prototype属性包含两个非继承来的方法：apply()和call()。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">function sum(num1,num2)&#123;</div><div class="line">	return num1 + num2;</div><div class="line">&#125;</div><div class="line">function callSum1(num1,num2)&#123;</div><div class="line">	return sum.apply(this.arguments);  //传入arguments对象</div><div class="line">&#125;</div><div class="line">function callSum2(num1,num2)&#123;</div><div class="line">	return sum.apply(this,[num1,num2]); //传入数组</div><div class="line">&#125;</div><div class="line">function callSum3(num1,num2)&#123;</div><div class="line">	return sum.call(this,num1,num2);</div><div class="line">&#125;</div><div class="line">console.log(callSum1(10,10));  //20</div><div class="line">console.log(callSum2(10,10));  //20</div><div class="line">console.log(callSum3(10,10));  //20</div></pre></td></tr></table></figure></p>
-<p>call和apply的作用相同，当包含函数中接受数组时，apply更加合适。<br>apply和call的最大用处，是可扩充函数赖以执行的作用域7.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">window.color = &quot;red&quot;;</div><div class="line">var o = &#123;color : &quot;blue&quot;&#125;;</div><div class="line">function sayColor()&#123;</div><div class="line">	alert(this.color);</div><div class="line">&#125;</div><div class="line">sayColor();   //red</div><div class="line">sayColor(o);  //blue</div><div class="line">sayColor(window); //red</div></pre></td></tr></table></figure></p>
-<h3 id="基本包装类"><a href="#基本包装类" class="headerlink" title="基本包装类"></a>基本包装类</h3><p>基本包装类的自用创建的引用类型实例，会在代码执行后立即销毁。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var s1 = &quot;some test&quot;;</div><div class="line">s1.color = &quot;red&quot;;</div><div class="line">colsole.log(s1.color);   //undefined</div></pre></td></tr></table></figure></p>
-<p>注：直接使用转型函数，则返回相应结果。使用构造函数，则返回相应函数的实例。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var value = &quot;25&quot;;</div><div class="line">var number = Number(value);   //使用转型函数</div><div class="line">console.log(typeof number);  //number</div><div class="line">var obj = new Number(value);   //使用构造函数</div><div class="line">console.log(typeof obj);   //Object</div></pre></td></tr></table></figure></p>
-<p>注：new会创造一个object对象，new Boolean(false)可判定为true。</p>
-<h3 id="数值类型的转换"><a href="#数值类型的转换" class="headerlink" title="数值类型的转换"></a>数值类型的转换</h3><p>.toFixed(n):表示转换为几位小数的值。<br>.toExponential(n):表示转换为几位指数值<br>.toPreoision(n):表示转换为n位最合适的数<br>.charAt():输出当前字符串的第n位字符（从0开始）<br>.charCodeAt():输出当前字符串的第n位字符的ASCII码<br>.trim():删除前缀和后缀的空格，并返回结果<br>.toLowerCase():转换为小写<br>.toUpperCase():转换为大写<br>.match():查找字符串相匹配的位置（search()）的作用相同<br>.replace():传递两个参数，用后面的参数替换前面的参数<br>.localeCompare():比较，返回-1,0,1的其中一种<br>.fromCharCode():接收字符编码，转换为字符串<br>.eval():相当于一个独立解析器，在其中创建任何变量或函数都不会被提升</p>
-<h3 id="typrof-和instanceof-得到的结果不同-如下："><a href="#typrof-和instanceof-得到的结果不同-如下：" class="headerlink" title="typrof()和instanceof()得到的结果不同,如下："></a>typrof()和instanceof()得到的结果不同,如下：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var numberObject = new Number(10);</div><div class="line">var numberValue = 10;</div><div class="line">console.log(typeof numberObject);  //Object</div><div class="line">console.log(typeof numberValue);   //number</div><div class="line">console.log(numberObject instanceof Number);  //true</div><div class="line">console.log(numberValue instanceof Number); //false</div></pre></td></tr></table></figure>
-<h1 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h1><h3 id="数据属性"><a href="#数据属性" class="headerlink" title="数据属性"></a>数据属性</h3><p>configurable:表示能否通过delete删除属性从而重新定义属性，默认为true。<br>enumerable:表示能否通过for-in循环返回属性，默认为true。<br>writable：表示能否修改属性值，默认为true。<br>value：表示包含这个属性的数据值，默认为undefined。<br>以上的属性，可以通过` Object.defineProperty()方法进行修改。但是一旦属性定义为不可配置，再调用该方法修改除writable以外的属性，都会导致错误。定义多个属性，可用Object.defineProperties()。<br>Object.getOwnPropertyDescriptor()方法，可取得给定属性的描述符。</p>
-<h3 id="访问器属性"><a href="#访问器属性" class="headerlink" title="访问器属性"></a>访问器属性</h3><p>访问器属性不包含属性值，但包含一对getter和setter函数，读取时调用getter，写入时调用setter。<br>注：在某参数前加“_”表示该参数只能通过对象方法访问。</p>
-<h2 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h2><p>抽象了创建具体对象的过程，用函数来封装以特定接口创建对象的细节。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function createPerson(name,age,job)&#123;</div><div class="line">	var o = new Object();</div><div class="line">	o.name = name;</div><div class="line">	o.age  = age;</div><div class="line">	o.job  = job;</div><div class="line">	o.sayName = function()&#123;</div><div class="line">		alert(this.name);</div><div class="line">	&#125;</div><div class="line">	return o;</div><div class="line">&#125;</div><div class="line">var person1 = createPerson(&quot;changer&quot;,18,&quot;Engineer&quot;);</div></pre></td></tr></table></figure></p>
-<p>函数createPerson()能够根据接受的参数来构建一个包含所有必要信息的person对象，可无数次调用，工厂模式虽然解决了多个相似对象的问题，却没有解决对象识别的问题。</p>
-<h2 id="构造函数模式"><a href="#构造函数模式" class="headerlink" title="构造函数模式"></a>构造函数模式</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function Person(name,age,job)&#123;</div><div class="line">	this.name = name;</div><div class="line">	this.age = age;</div><div class="line">	this.job = job;</div><div class="line">	this.sayName = function()&#123;</div><div class="line">		alert(this.name);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">var person1 = Person(&quot;changer&quot;,&quot;18,&quot;Engineer&quot;);</div></pre></td></tr></table></figure>
-<p>构造函数始终都应以一个大写字母开头，非构造函数应以小写字母开头。构造函数的实例都有constructor()属性，该属性指向Person。<br>构造函数的缺点：每个方法都要在每个实例上重新创建一遍，因此可将函数定义转移到函数外面以解决问题：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function Person(name,age,job)&#123;</div><div class="line">	this.name = name;</div><div class="line">	this.age = age;</div><div class="line">	this.job = job;</div><div class="line">&#125;</div><div class="line">function sayName()&#123;</div><div class="line">		alert(this.name);</div><div class="line">&#125;</div><div class="line">var person1 = Person(&quot;changer&quot;,&quot;18,&quot;Engineer&quot;);</div></pre></td></tr></table></figure></p>
-<p>以上做法解决了两个函数做同一件事的问题，但是在全局作用域中定义的函数实际上只能被某个对象调用，这让全局作用域名不副实，如果要定义多个方法，全部作为全局变量就毫无封装性可言了。</p>
-<h2 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a>原型模式</h2><p>注：当原型中有某属性而且实例中也有该属性时，原型中的该属性值就用不到了，也无法被检测出来。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function Person()&#123;&#125;</div><div class="line">Person.prototype = &#123;</div><div class="line">	name : &quot;Nicholas&quot;,</div><div class="line">	age : 29,</div><div class="line">	job : &quot;Software Engineer&quot;,</div><div class="line">	sayName : function()&#123;</div><div class="line">		alert(this.name);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">var friend = new Person();</div><div class="line">alert(friend instanceof Person);  //true</div><div class="line">alert(friend.constructor == Person);  //false</div></pre></td></tr></table></figure></p>
-<p>以上写法完全重写了默认的prototype对象，因此constructor属性也就变成了新对象的constructor属性，指向Object构造函数。<br>在浏览器内核兼容ES5的情况下，可在下面增加：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Object.defineProperty(Person.prototype,&quot;constructor&quot;,&#123;</div><div class="line">	enumerable : false,</div><div class="line">	value : Person</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
-<p>该写法改进了在Person.prototype中设置导致enumerable属性被设置为true的问题。<br>但是原型对象还存在问题：省略了构造函数传递初始化参数这一操作，会使所有实例在默认情况下取得相同值。</p>
-<h2 id="混成模式"><a href="#混成模式" class="headerlink" title="混成模式"></a>混成模式</h2><p>组合使用了构造函数模式和原型模式，构造函数模式用于定义实例属性，原型模式用于定义方法和共享的属性。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function Person(name,age,job)&#123;</div><div class="line">	this.name = name;</div><div class="line">	this.age = age;</div><div class="line">	this.job = job;</div><div class="line">	this.friends = [&quot;aa&quot;,&quot;bb&quot;];</div><div class="line">&#125;</div><div class="line">Person.prototype = &#123;</div><div class="line">	constructor : Person;</div><div class="line">	sayName : function()&#123;</div><div class="line">		alert(this.name);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">var person1 = new Person(&quot;changer&quot;,18,&quot;worker&quot;);</div></pre></td></tr></table></figure></p>
-<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><p>通过原型链实现继承时，不能使用对象字面量创建原型方法，这样做会重写原型链。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">function SuperType()&#123;</div><div class="line">	this.property = true;</div><div class="line">&#125;</div><div class="line">SuperType.prototype.getSuperValue = function()&#123;</div><div class="line">	return this.property;</div><div class="line">&#125;</div><div class="line">function SubType()&#123;</div><div class="line">	this.property = false;</div><div class="line">&#125;</div><div class="line">SubType.prototype = new SuperType;</div><div class="line">//为原型使用字面量添加新方法，会使之前的方法无效</div><div class="line">SubType.prototype = &#123;</div><div class="line">	getSubValue : function()&#123;</div><div class="line">		return this.subproperty;</div><div class="line">	&#125;</div><div class="line">	SomeOtherMeshod :funcion()&#123;</div><div class="line">		return false;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">var instance = new SubType();</div><div class="line">alert(instance.gerSuperValue());  //错误，找不到该方法</div></pre></td></tr></table></figure></p>
-<p>原型链的问题：原型链上所有属性都被共享，原型链上的数据可由原型push进行增加。创建子类型的实例时，无法向超类型的构造函数中传递参数。</p>
-<h2 id="借用构造函数"><a href="#借用构造函数" class="headerlink" title="借用构造函数"></a>借用构造函数</h2><p>在子类型构造函数的内部调用超类型构造函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function SuperType()&#123;</div><div class="line">	this.colors = [&quot;red&quot;,&quot;blue&quot;,&quot;green&quot;];</div><div class="line">&#125;</div><div class="line">function SubType()&#123;</div><div class="line">	SuperType.call(this);</div><div class="line">&#125;</div><div class="line">var instance1 = new SubType();</div><div class="line">instance1.colors.push(&quot;black&quot;);</div><div class="line">console.log(instance1,colors);  //red,blue,green,black</div><div class="line">var instance2 = new SubType();</div><div class="line">console.log(instance2.colors);  //red,blue,green</div></pre></td></tr></table></figure></p>
-<p>由此可见，因为call()方法创造了一个新的SuperType的作用域，使得两个实例在不同的作用域中进行，从而产生了不同的colors结果。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      Array类型的数组数量问题 var ar = [,,,]; console.log(arr.length);   //3（最后一个逗号后面不计数） 小技巧，利用length在数组的末尾添加新项
-    
-    </summary>
-    
-      <category term="JavaScript 学习笔记" scheme="https://github.com/ChangerHe/categories/JavaScript-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="JavaScript" scheme="https://github.com/ChangerHe/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JavaScript高级程序设计复习笔记（一）</title>
-    <link href="https://github.com/ChangerHe/2017/06/15/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/"/>
-    <id>https://github.com/ChangerHe/2017/06/15/JavaScript高级程序设计复习笔记（一）/</id>
-    <published>2017-06-15T12:31:19.000Z</published>
-    <updated>2017-09-14T14:36:22.803Z</updated>
-    
-    <content type="html"><![CDATA[<p>今天重新看了一遍JS高程的第一到四章，查漏补缺记录了一些容易出错的地方，做笔记如下：</p>
-<h3 id="变量的作用域问题"><a href="#变量的作用域问题" class="headerlink" title="变量的作用域问题"></a>变量的作用域问题</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function test()&#123;</div><div class="line">	message = &quot;Hi&quot;;  </div><div class="line">	//此时因为未进行变量声明，message默认为全局变量</div><div class="line">&#125;</div><div class="line">test();       //调用函数</div><div class="line">console.log(message);  //Hi</div></pre></td></tr></table></figure>
-<p>变量未声明，且循环定义的循环变量，都是在全局的作用域中。</p>
-<h3 id="typeof-方法"><a href="#typeof-方法" class="headerlink" title="typeof()方法"></a>typeof()方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var message;</div><div class="line">console.log(message);  //undefined</div><div class="line">console.log(age);       //undefined</div></pre></td></tr></table></figure>
-<p>注：Null类型表示一个空对象指针，因此使用typeof检测时会返回object。（undefined派生自Null，因此二者相等）<br>NaN与任何值都不相等，包括NaN本身</p>
-<h3 id="Number-方法进行数值转换"><a href="#Number-方法进行数值转换" class="headerlink" title="Number()方法进行数值转换"></a>Number()方法进行数值转换</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var num3 = Number(0xa);   //10</div><div class="line">var num2 = Number(011);   //11（不会判定为八进制）</div><div class="line">var num1 = Number(11);    //11</div><div class="line">var num6 = parseInt(011); //9(判断为八进制,ES5以上不适用，返回11)</div><div class="line">var num5 = parseInt(011,8)；//9</div><div class="line">var num4 = parseInt(&quot;AF&quot;,16);//175(转换为16进制)</div></pre></td></tr></table></figure>
-<h3 id="按位操作-根据数值的二进制进行操作"><a href="#按位操作-根据数值的二进制进行操作" class="headerlink" title="按位操作(根据数值的二进制进行操作)"></a>按位操作(根据数值的二进制进行操作)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var result1 = 3 &amp; 1;</div><div class="line">console.log(result1); //1(按位与)</div><div class="line">var result2 = 1 | 3;</div><div class="line">console.log(result2); //3(按位或)</div><div class="line">var result3 = ~result2;</div><div class="line">console.log(result3); //-4(按位非，求反码)</div><div class="line">var result4 = 4 ^ 3;</div><div class="line">console.log(result4); //7(按位异或)</div></pre></td></tr></table></figure>
-<h3 id="变量的赋值技巧"><a href="#变量的赋值技巧" class="headerlink" title="变量的赋值技巧"></a>变量的赋值技巧</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var num = num1 || num2;</div></pre></td></tr></table></figure>
-<p>当num1有值是，num被赋值为num1，否则被赋值为num2.</p>
-<h3 id="switch操作符"><a href="#switch操作符" class="headerlink" title="switch操作符"></a>switch操作符</h3><p>switch的语句中可以使用任何数据类型，这在其他的很多语言中是没有的，且switch支持表达式。<br>注：switch使用的是全等操作符，因此“10”和10 是不相等的。</p>
-<h3 id="arguments-对象"><a href="#arguments-对象" class="headerlink" title="arguments[]对象"></a>arguments[]对象</h3><p>arguments[]对象可在函数调用时使用，arguments[0]表示第一个参数，arguments[1]表示第二个参数，以此类推。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function anyArgs()&#123;</div><div class="line">	console.log(arguments.length);</div><div class="line">&#125;</div><div class="line">anyArgs(&quot;string&quot;,1); //2</div><div class="line">anyArgs();           //0</div></pre></td></tr></table></figure></p>
-<h3 id="JS方法不存在重载，因此不可同时var两个相同函数名的函数"><a href="#JS方法不存在重载，因此不可同时var两个相同函数名的函数" class="headerlink" title="JS方法不存在重载，因此不可同时var两个相同函数名的函数"></a>JS方法不存在重载，因此不可同时var两个相同函数名的函数</h3><h3 id="基本类型和引用类型的变量赋值"><a href="#基本类型和引用类型的变量赋值" class="headerlink" title="基本类型和引用类型的变量赋值"></a>基本类型和引用类型的变量赋值</h3><p>基本类型：相当于在堆中创建了一个新空间，并在该空间中为新变量赋予相同的值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var num1 = 5;</div><div class="line">var num2 = num1;</div><div class="line">num1 = 4;</div><div class="line">console.log(num2);  //5</div></pre></td></tr></table></figure></p>
-<p>引用类型：在堆中的引用空间是不变的，新的变量值与老的变量值指向同一个堆空间。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var obj1 = new Object();</div><div class="line">var obj2 = new Object();</div><div class="line">obj1.name = &quot;Changer&quot;;</div><div class="line">console.log(obj2.name); //Changer</div></pre></td></tr></table></figure></p>
-<h3 id="传参问题"><a href="#传参问题" class="headerlink" title="传参问题"></a>传参问题</h3><p>向参数传递基本类型值时，被传递的值会被复制给一个局部变量，其本身的值及属性不会改变。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var num1 = 1;</div><div class="line">function count(num)&#123;</div><div class="line">	num++;</div><div class="line">	return num;</div><div class="line">&#125;</div><div class="line">count(num1);</div><div class="line">cinsole.log(num1);   //1</div><div class="line">console.log(count(num1));  //2</div></pre></td></tr></table></figure></p>
-<p>当给引用类型传参时，引用类型变量传递到函数中会复制到变量中，在函数内部，变量和引用类型常量实际上引用的是同一个对象，因此在函数内部为常量添加属性后，在外也可调用。（这句话，我有点儿没看懂）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">function setName(obj)&#123;</div><div class="line">	obj.name = &quot;Nicholas&quot;;</div><div class="line">&#125;</div><div class="line">var person = new Object();</div><div class="line">setName(person);</div><div class="line">console.log(person.name);  //Nicholas</div><div class="line">//另有一例，用于说明局部变量的传参问题</div><div class="line">function setName(obj)&#123;</div><div class="line">	obj.name = &quot;Nicholas&quot;;</div><div class="line">	obj = new Object();</div><div class="line">	obj.name = &quot;Greg&quot;;</div><div class="line">&#125;</div><div class="line">setName(person);</div><div class="line">console.log(person.name);  //Nicholas</div><div class="line">//原因：局部变量作用域仅在函数中，使用后即被销毁。</div></pre></td></tr></table></figure></p>
-<h3 id="延长作用域链"><a href="#延长作用域链" class="headerlink" title="延长作用域链"></a>延长作用域链</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function buildUrl()&#123;</div><div class="line">	var qs = &quot;?debug=true&quot;;</div><div class="line">	with(location)&#123;</div><div class="line">		var url = href + qs;</div><div class="line">	&#125;</div><div class="line">	return url;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>此函数有效，原因（个人认为）S函数无块级作用域，因此可在with外调用。</p>
-<h2 id="JS的垃圾回收机制"><a href="#JS的垃圾回收机制" class="headerlink" title="JS的垃圾回收机制"></a>JS的垃圾回收机制</h2><h3 id="标记清除"><a href="#标记清除" class="headerlink" title="标记清除"></a>标记清除</h3><p>当变量进入环境时，就将这个变量标记为“进入环境”状态，当变量离开环境时，则将其标记为“离开环境”状态，它会去掉环境中的变量及被环境中变量引用的变量的标记。大部分浏览器采用此策略。</p>
-<h3 id="引用计数"><a href="#引用计数" class="headerlink" title="引用计数"></a>引用计数</h3><p>跟踪记录每个值被引用的次数，当声明了一个变量并将一个引用类型值赋值给该变量时，该值的引用次数则为1，当再次被引用时加一，相反，当引用的变量取消引用时，减一，减为0后将被回收。<br>但是该方法存在一个很严重的性能问题：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function problem()&#123;</div><div class="line">	var objectA = new Object();</div><div class="line">	var objectB = new Object();</div><div class="line">	objectA.otherObject = objectB;</div><div class="line">	objectB.anotherObject = objectA;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>运行上例时，其引用次数将永远不为0，若此函数被大量调用，则其垃圾将永远不会回收。<br>解决方案（这也是采用标记清除方法的垃圾回收最佳方案）：当不需要使用该变量时，为其设置值为null。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">objectA.otherObject = null;</div><div class="line">objectB.anotherObject = null;</div></pre></td></tr></table></figure></p>
-<p>另：在IE中，可食用window.CollectGarbage()方法立即执行垃圾回收。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      今天重新看了一遍JS高程的第一到四章，查漏补缺记录了一些容易出错的地方，做笔记如下：
-    
-    </summary>
-    
-      <category term="JavaScript 学习笔记" scheme="https://github.com/ChangerHe/categories/JavaScript-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="JavaScript" scheme="https://github.com/ChangerHe/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JavaScript高级程序设计复习笔记（三）</title>
-    <link href="https://github.com/ChangerHe/2017/06/15/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/"/>
-    <id>https://github.com/ChangerHe/2017/06/15/JavaScript高级程序设计复习笔记（三）/</id>
-    <published>2017-06-15T12:20:09.000Z</published>
-    <updated>2017-09-14T14:36:26.737Z</updated>
-    
-    <content type="html"><![CDATA[<p>昨天看了一遍javascript的面向对象，感觉javascript的面向对象比java难懂很多啊，主要还是原型链继承这块的东西。<br>本篇内容主要讲在学习javascript中很容易搞不清楚的call()方法和apply()方法。</p>
-<h1 id="apply和call的区别在哪里"><a href="#apply和call的区别在哪里" class="headerlink" title="apply和call的区别在哪里"></a>apply和call的区别在哪里</h1><p>apply:方法能劫持另外一个对象的方法，继承另外一个对象的属性.<br>Function.apply(obj,args)方法能接收两个参数<br>obj：这个对象将代替Function类里this对象<br>args：这个是数组，它将作为参数传给Function（args–&gt;arguments）<br>call:和apply的意思一样,只不过是参数列表不一样.<br>Function.call(obj,[param1[,param2[,…[,paramN]]]])<br>obj：这个对象将代替Function类里this对象<br>params：这个是一个参数列表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">/*定义一个人类*/  </div><div class="line">function Person(name,age)  </div><div class="line">    &#123;  </div><div class="line">        this.name=name;  </div><div class="line">        this.age=age;  </div><div class="line">    &#125;  </div><div class="line">/*定义一个学生类*/  </div><div class="line">functionStudent(name,age,grade)  </div><div class="line">    &#123;  </div><div class="line">        Person.apply(this,arguments);  </div><div class="line">        this.grade=grade;  </div><div class="line">    &#125;  </div><div class="line">//创建一个学生类  </div><div class="line">var student=new Student(&quot;zhangsan&quot;,21,&quot;一年级&quot;);  </div><div class="line">//测试  </div><div class="line">alert(&quot;name:&quot;+student.name+&quot;\n&quot;+&quot;age:&quot;+student.age+&quot;\n&quot;+&quot;grade:&quot;+student.grade);</div></pre></td></tr></table></figure></p>
-<p>大家可以看到测试结果name:zhangsan age:21  grade:一年级<br>学生类里面我没有给name和age属性赋值啊,为什么又存在这两个属性的值呢,这个就是apply的神奇之处.<br>分析: Person.apply(this,arguments);<br>this:在创建对象在这个时候代表的是student<br>arguments:是一个数组,也就是[“zhangsan”,”21”,”一年级”];<br>也就是通俗一点讲就是:用student去执行Person这个类里面的内容,在Person这个类里面存在this.name等之类的语句,这样就将属性创建到了student对象里面。</p>
-<h1 id="什么情况下用apply-什么情况下用call"><a href="#什么情况下用apply-什么情况下用call" class="headerlink" title="什么情况下用apply,什么情况下用call"></a>什么情况下用apply,什么情况下用call</h1><p>在给对象参数的情况下,如果参数的形式是数组的时候,比如apply示例里面传递了参数arguments,这个参数是数组类型,并且在调用Person的时候参数的列表是对应一致的(也就是Person和Student的参数列表前两位是一致的) 就可以采用 apply , 如果我的Person的参数列表是这样的(age,name),而Student的参数列表是(name,age,grade),这样就可以用call来实现了,也就是直接指定参数列表对应值的位置(Person.call(this,age,name,grade));</p>
-<h1 id="Function-apply-在提升程序性能方面的技巧"><a href="#Function-apply-在提升程序性能方面的技巧" class="headerlink" title="Function.apply()在提升程序性能方面的技巧"></a>Function.apply()在提升程序性能方面的技巧</h1><p>我们先从 Math.max() 函数说起，  Math.max后面可以接任意个参数，最后返回所有参数中的最大值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">alert(Math.max(5,8))   //8</div><div class="line">alert(Math.max(5,7,9,3,1,6))   //9</div></pre></td></tr></table></figure></p>
-<p>但是在很多情况下，我们需要找出数组中最大的元素。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var arr=[5,7,9,1]</div><div class="line">alert(Math.max(arr))</div></pre></td></tr></table></figure></p>
-<p>这样却是不行的。一定要这样写<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function getMax(arr)&#123;</div><div class="line">    var arrLen=arr.length;</div><div class="line">    for(var i=0,ret=arr[0];i&lt;arrLen;i++)&#123;</div><div class="line">        ret=Math.max(ret,arr[i]);        </div><div class="line">    &#125;</div><div class="line">    return ret;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>这样写麻烦而且低效。如果用 apply呢，看代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function getMax2(arr)&#123;</div><div class="line">    return Math.max.apply(null,arr)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>两段代码达到了同样的目的，但是getMax2却优雅，高效，简洁得多。</p>
-<p>看性能测试:<br>getMax性能测试<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">var myArr=new Array()</div><div class="line"></div><div class="line">function fillRnd(arrLen)&#123;  //填入 arrLen个1-10的随机数字到数组</div><div class="line">    for(var i=0,arr=[];i&lt;arrLen;i++)&#123;</div><div class="line">        arr[i]=Math.ceil(Math.random()*10)</div><div class="line">    &#125;</div><div class="line">    return arr</div><div class="line">&#125;</div><div class="line"></div><div class="line">function getMax(arr)&#123;</div><div class="line">    var arrLen=arr.length;</div><div class="line">    for(var i=0,ret=arr[0];i&lt;arrLen;i++)&#123;</div><div class="line">        ret=Math.max(ret,arr[i]);        </div><div class="line">    &#125;</div><div class="line">    return ret;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function getMax2(arr)&#123;</div><div class="line">    return Math.max.apply(null,arr)</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">myArr=fillRnd(20*10000)  //生成20万个随机数填到数组</div><div class="line"></div><div class="line">var t1=new Date()</div><div class="line">var max1=getMax(myArr)</div><div class="line">var t2=new Date()</div><div class="line">var max2=getMax2(myArr)</div><div class="line">var t3=new Date()</div><div class="line"></div><div class="line">if (max1!==max2) alert(&quot;error&quot;)</div><div class="line">alert([t3-t2,t2-t1])   //在我机器上 96,464 .不同的机器,结果可能有差异</div><div class="line"></div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
-<p>通过20万个数据的比较， getMax2 时间为 96ms 而 getmax时间为464。 两者相差5倍</p>
-<p> 再比如数组的push方法。<br><code>var arr1=[1,3,4];</code><br><code>var arr2=[3,4,5];</code><br>如果我们要把 arr2展开，然后一个一个追加到 <code>arr1</code>中去，最后让  <code>arr1=[1,3,4,3,4,5]</code><br><code>arr1.push(arr2)</code>  显然是不行的。 因为这样做会得到  <code>[1,3,4, [3,4,5] ]</code></p>
-<p>我们只能用一个循环去一个一个的<code>push</code>当然也可以用 <code>arr1.concat(arr2)</code> 但是<code>concat</code>方法并不改变 arr1本身<br>自从有了 Apply    ,事情就变得如此简单<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Array.prototype.push.apply(arr1,arr2)</div></pre></td></tr></table></figure></p>
-]]></content>
-    
-    <summary type="html">
-    
-      昨天看了一遍javascript的面向对象，感觉javascript的面向对象比java难懂很多啊，主要还是原型链继承这块的东西。 本篇内容主要讲在学习javascript中很容易搞不清楚的call()方法和apply()方法。
-    
-    </summary>
-    
-      <category term="JavaScript 学习笔记" scheme="https://github.com/ChangerHe/categories/JavaScript-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="JavaScript" scheme="https://github.com/ChangerHe/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SASS学习进阶</title>
-    <link href="https://github.com/ChangerHe/2017/06/15/SASS%E5%AD%A6%E4%B9%A0%E8%BF%9B%E9%98%B6/"/>
-    <id>https://github.com/ChangerHe/2017/06/15/SASS学习进阶/</id>
-    <published>2017-06-15T11:37:41.000Z</published>
-    <updated>2017-09-14T14:35:40.658Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="sass学习进阶"><a href="#sass学习进阶" class="headerlink" title="sass学习进阶"></a>sass学习进阶</h1><h2 id="if语句"><a href="#if语句" class="headerlink" title="@if语句"></a>@if语句</h2><p>@if是一个SassScript，它可以根据条件来处理样式快，如果条件为true则返回一个样式块，反之false返回另一个样式块。在sass中除了@if单独使用以外，还可以配合@else if 和@else 一起使用。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">@mixin blockOrHidden($boolean: true)&#123;</div><div class="line">	@if $boolean&#123;</div><div class="line">		@debug &quot;$boolean is #&#123;$boolean&#125;&quot;;  //@debug指令用于调试</div><div class="line">		display: block;</div><div class="line">	&#125;</div><div class="line">	@else &#123;</div><div class="line">		@debug &quot;$boolean is #&#123;$boolean&#125;&quot;;  //@debug指令用于调试</div><div class="line">		display: none;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">.block &#123;</div><div class="line">	@include blockOrHidden;</div><div class="line">&#125;</div><div class="line">.hidden &#123;</div><div class="line">	@include blockOrHidden(false);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>编译出的css为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">.block &#123;</div><div class="line">	display: block;</div><div class="line">&#125;</div><div class="line">.hidden &#123;</div><div class="line">	display: none;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h2><p>在制作网格系统的时候，我们都需要使用到.col1~.col12这样的类名，在css中需要一个个去写，但是在sass 中可以很容易地使用@for循环来完成。<br>for循环有两种实现方式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">@for $i from &lt;start&gt; through &lt;end&gt;   </div><div class="line">//$i表示变量 start表示起始值 end表示结束值</div><div class="line">@for $i form &lt;start&gt; to &lt;end&gt;  </div><div class="line">//二者区别是，关键字through表示包括end这个数，而to表示不包括end这个数</div></pre></td></tr></table></figure></p>
-<p>@for循环在网格系统生成每个格子的class代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">$grid-prefix: span;</div><div class="line">$grid-width: 60px;</div><div class="line">$grid-gutter: 20px;</div><div class="line">%grid &#123;</div><div class="line">	float: left;</div><div class="line">	margin-left: $grid-gutter /2;</div><div class="line">	margin-right: $grid-gutter /2;</div><div class="line">&#125;</div><div class="line">@for $i form 1 through 12 &#123;</div><div class="line">	.#&#123;$grid-prefix&#125;#&#123;$i&#125;&#123;</div><div class="line">		width: $grid-width * $i + $grid-gutter * ($i - 1);</div><div class="line">		@extend %grid;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>编译出的css为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line">.span1, .span2, .span3, .span4, .span5, .span6, .span7, .span8, .span9, .span10, .span11, .span12 &#123;</div><div class="line">  float: left;</div><div class="line">  margin-left: 10px;</div><div class="line">  margin-right: 10px;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.span1 &#123;</div><div class="line">  width: 60px;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.span2 &#123;</div><div class="line">  width: 140px;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.span3 &#123;</div><div class="line">  width: 220px;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.span4 &#123;</div><div class="line">  width: 300px;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.span5 &#123;</div><div class="line">  width: 380px;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.span6 &#123;</div><div class="line">  width: 460px;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.span7 &#123;</div><div class="line">  width: 540px;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.span8 &#123;</div><div class="line">  width: 620px;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.span9 &#123;</div><div class="line">  width: 700px;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.span10 &#123;</div><div class="line">  width: 780px;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.span11 &#123;</div><div class="line">  width: 860px;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.span12 &#123;</div><div class="line">  width: 940px;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>将上面的实例做一些修改，将@for through方式换成@for to：：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">@for $i from 1 to 13 &#123;</div><div class="line">	.#&#123;$grid-prefix&#125;#&#123;$i&#125;&#123;</div><div class="line">		width: $grid-width * $i + $grid-gutter * ($i - 1);</div><div class="line">		@extend %grid;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="while循环"><a href="#while循环" class="headerlink" title="@while循环"></a>@while循环</h2><p>@while指令也需要SassScript表达式，并且会生成不同的代码块，直到表达式值为false时停止循环。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$types: 4;</div><div class="line">$type-width: 20px;</div><div class="line">@while $types &gt; 0&#123;      //等价于while( types = 4 , types &gt; 0);</div><div class="line">	.while-#&#123;$types&#125;&#123;   //等价于.while-types&#123;</div><div class="line">		width: $types-width + $types; //等价于width： 20px - types；</div><div class="line">	&#125;</div><div class="line">	$types: $types - 1;  //等价于  4--；</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="each循环"><a href="#each循环" class="headerlink" title="@each循环"></a>@each循环</h2><p>@each循环就是去遍历一个列表，然后从列表中取出对应的值。<br>@each命令的形式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">@each $var in &lt;list&gt;</div></pre></td></tr></table></figure></p>
-<p>$var 是一个变量名，list是一个列表，用于进行引用。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">$list: adam john wynn mason kuroir; //列出列表，供下面进行引用</div><div class="line">@mixin author-images &#123;</div><div class="line">	@each $author in $list &#123;</div><div class="line">		.photo-#&#123;$author&#125;&#123;</div><div class="line">			background: url(&quot;images/avatars/#&#123;$author&#125;.png&quot;) no-repeat;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">.author-bio &#123;</div><div class="line">	@include author-images;</div><div class="line">&#125;</div><div class="line">//编译出的css为</div><div class="line">.author-bio .photo-adam &#123;</div><div class="line">  background: url(&quot;/images/avatars/adam.png&quot;) no-repeat; &#125;</div><div class="line">.author-bio .photo-john &#123;</div><div class="line">  background: url(&quot;/images/avatars/john.png&quot;) no-repeat; &#125;</div><div class="line">.author-bio .photo-wynn &#123;</div><div class="line">  background: url(&quot;/images/avatars/wynn.png&quot;) no-repeat; &#125;</div><div class="line">.author-bio .photo-mason &#123;</div><div class="line">  background: url(&quot;/images/avatars/mason.png&quot;) no-repeat; &#125;</div><div class="line">.author-bio .photo-kuroir &#123;</div><div class="line">  background: url(&quot;/images/avatars/kuroir.png&quot;) no-repeat; &#125;</div></pre></td></tr></table></figure></p>
-<h1 id="sass函数"><a href="#sass函数" class="headerlink" title="sass函数"></a>sass函数</h1><h2 id="字符串函数"><a href="#字符串函数" class="headerlink" title="字符串函数"></a>字符串函数</h2><p>sass的字符串函数主要包括两个<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">unquote($string); </div><div class="line">//删除字符串中的引号，如果字符串中没有引号，将返回原始字符串。注：unquote()函数只能删除字符串最前和最后的引号，无法删除字符串中间的引号。</div><div class="line">quote($string);  </div><div class="line">//给字符串添加引号，如果字符串中间有引号或空格时，需要用单引号或者双引号括起，否则编译时会报错。</div></pre></td></tr></table></figure></p>
-<h2 id="字符串函数To-upper-case-和To-lower-case"><a href="#字符串函数To-upper-case-和To-lower-case" class="headerlink" title="字符串函数To-upper-case()和To-lower-case()"></a>字符串函数To-upper-case()和To-lower-case()</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">To-upper-case():将字符串的小写字母转换成大写字母</div><div class="line">To-lower-case():将字符串的啊写字母转换成小写字母</div></pre></td></tr></table></figure>
-<h2 id="数字函数"><a href="#数字函数" class="headerlink" title="数字函数"></a>数字函数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">percentage($value)：将一个不带单位的数转换成百分比值；</div><div class="line">round($value)：将数值四舍五入，转换成一个最接近的整数； 0.4999视为0</div><div class="line">ceil($value)：将大于自己的小数转换成下一位整数；  0.0001视为1</div><div class="line">floor($value)：将一个数去除他的小数部分；   0.0001视为0</div><div class="line">abs($value)：返回一个数的绝对值；   </div><div class="line">min($numbers…)：找出几个数值之间的最小值；</div><div class="line">max($numbers…)：找出几个数值之间的最大值；</div><div class="line">random(): 获取随机数</div></pre></td></tr></table></figure>
-<h2 id="列表函数"><a href="#列表函数" class="headerlink" title="列表函数"></a>列表函数</h2><p>列表函数主要包括一些对列表参数的函数使用，主要包括以下几种：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">length($list)：返回一个列表的长度值； //括号内的值算一个</div><div class="line">nth($list, $n)：返回一个列表中指定的某个标签值，$n表示第几个</div><div class="line">join($list1, $list2, [$separator])：将两个列给连接在一起，变成一个列表；</div><div class="line">append($list1, $val, [$separator])：将某个值放在列表的最后；</div><div class="line">zip($lists…)：将几个列表结合成一个多维的列表；</div><div class="line">index($list, $value)：返回一个值在列表中的位置值。以1开始</div></pre></td></tr></table></figure></p>
-<h2 id="Introspection函数"><a href="#Introspection函数" class="headerlink" title="Introspection函数"></a>Introspection函数</h2><p>Introspection函数包括了几个判断型函数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">type-of($value)：返回一个值的类型</div><div class="line">unit($number)：返回一个值的单位</div><div class="line">unitless($number)：判断一个值是否带有单位</div><div class="line">comparable($number-1, $number-2)：判断两个值是否可以做加、减和合并</div></pre></td></tr></table></figure></p>
-<h2 id="sass-Maps函数"><a href="#sass-Maps函数" class="headerlink" title="sass Maps函数"></a>sass Maps函数</h2><p>借助于map功能，为同一量下，多个有名字的变量进行处理。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">map-get($map,$key)：根据给定的 key 值，返回 map 中相关的值。</div><div class="line">map-merge($map1,$map2)：将两个 map 合并成一个新的 map。</div><div class="line">map-remove($map,$key)：从 map 中删除一个 key，返回一个新 map。</div><div class="line">map-keys($map)：返回 map 中所有的 key。</div><div class="line">map-values($map)：返回 map 中所有的 value。</div><div class="line">map-has-key($map,$key)：根据给定的 key 值判断 map 是否有对应的 value 值，如果有返回 true，否则返回 false。</div><div class="line">keywords($args)：返回一个函数的参数，这个参数可以动态的设置 key 和 value。</div></pre></td></tr></table></figure></p>
-<h1 id="sass的-规则"><a href="#sass的-规则" class="headerlink" title="sass的@规则"></a>sass的@规则</h1><p>sass支持所有css3的@规则，以及一些sass专属的规则，也被成为指令。这些规则在sass 中具有不同的功效。</p>
-<h2 id="import规则"><a href="#import规则" class="headerlink" title="@import规则"></a>@import规则</h2><p>sass扩展了css的@import规则，使其能够引入scss和sass文件。所有引入的scss文件和sass文件都会被合并输出一个单一的css文件。被导入的文件中所定义的变量或mixins都可以在主文件中使用。<br>sass会在当前目录下寻找其他sass文件，也可以通过:load_paths选项或在命令行中使用–load-path 选项来制定额外的搜索目录。<br>@import根据文件名引入。默认情况下，它会寻找sass文件并直接引入，但是在少数几种情况下，它会被编译成css的@import规则：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">如果文件的扩展名是 .css。</div><div class="line">如果文件名以 http:// 开头。</div><div class="line">如果文件名是 url()。</div><div class="line">如果 @import 包含了任何媒体查询（media queries）。</div></pre></td></tr></table></figure></p>
-<p>如果上述情况都没有出现，且扩展名是.sass或者是.scss，则该名称的sass<br>或scss文件就会被引入。</p>
-<h2 id="media规则"><a href="#media规则" class="headerlink" title="@media规则"></a>@media规则</h2><p>sass中的@media规则和css中的使用规则类似，但它有另外一个功能，可以嵌套在css规则中。有点类似于JS中的冒泡功能一样。如果使用@media指令，他将冒泡到外面。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">.sidebar &#123;</div><div class="line">	width: 300px;</div><div class="line">	@media screen and (orientation: landscape)&#123;</div><div class="line">		width: 500px;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">//编译结果</div><div class="line">.sidebar &#123;</div><div class="line">	width: 300px;</div><div class="line">	@media screen and (orientation: landscape)&#123;</div><div class="line">		.sidebar&#123;</div><div class="line">			width: 500px;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="extend规则"><a href="#extend规则" class="headerlink" title="@extend规则"></a>@extend规则</h2><p>sass中的@extend是用来扩展选择器或占位符（类似于继承）</p>
-<h2 id="at-root规则"><a href="#at-root规则" class="headerlink" title="@at-root规则"></a>@at-root规则</h2><p>@at-root规则从字面上解释就是跳出根元素。当你选择器嵌套多层之后，想让某个选择器跳出，此时就可以使用@at-root。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">.a &#123;</div><div class="line">	color: red;</div><div class="line">	.b &#123;</div><div class="line">		color: orange;</div><div class="line">		.c &#123;</div><div class="line">			color:yellow;</div><div class="line">			@at-root .d &#123;</div><div class="line">				color: green;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">//编译之后</div><div class="line">.a &#123;</div><div class="line">	color: red;</div><div class="line">&#125;</div><div class="line">.a .b&#123;</div><div class="line">	color: orange;</div><div class="line">&#125;</div><div class="line">.a .b .c &#123;</div><div class="line">	color:yellow;</div><div class="line">&#125;</div><div class="line">.d &#123;</div><div class="line">	color: green;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="debug规则"><a href="#debug规则" class="headerlink" title="@debug规则"></a>@debug规则</h2><p>@debug在sass中是用来调试的，当你在sass的源码中使用了@debug规则之后，sass代码在编译出错时，在命令终端会输出你设置的提示bug：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">@debug 10em + 12em;</div><div class="line">//输出内容</div><div class="line">Line 1 DEBUG: 22em;</div></pre></td></tr></table></figure></p>
-<h2 id="warn规则"><a href="#warn规则" class="headerlink" title="@warn规则"></a>@warn规则</h2><p>@warn 和@debug 类似，用来帮助我们很好的调试sass。</p>
-<h2 id="error"><a href="#error" class="headerlink" title="@error"></a>@error</h2><p>@error 和@debug、@warn 类似，用来帮助我们很好的调试sass。</p>
-]]></content>
-    
-    <summary type="html">
-    
-       sass学习进阶 @if语句 @if是一个SassScript，它可以根据条件来处理样式快，如果条件为true则返回一个样式块，反之false返回另一个样式块。在sass中除了@if单独使用以外，还可以配合@else if 和@else 一起使用。
-    
-    </summary>
-    
-      <category term="SASS 学习笔记" scheme="https://github.com/ChangerHe/categories/SASS-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="SASS" scheme="https://github.com/ChangerHe/tags/SASS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SASS学习笔记</title>
-    <link href="https://github.com/ChangerHe/2017/06/15/SASS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    <id>https://github.com/ChangerHe/2017/06/15/SASS学习笔记/</id>
-    <published>2017-06-15T07:37:18.000Z</published>
-    <updated>2017-09-14T14:35:35.933Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Sass语法"><a href="#Sass语法" class="headerlink" title="Sass语法"></a>Sass语法</h1><p>Sass 有两种语法。 第一种被称为 SCSS (Sassy CSS)，是一个 CSS3 语法的扩充版本。也就是说，所有符合CSS3语法的样式表也都是具有相同语法意义的SCSS文件。另外，SCSS理解大多数CSShacks以及浏览器专属语法，例如IE古老的filter 语法。这种语种语法的样式表文件需要以.scss扩展名。<br>第二种比较老的语法成为缩排语法（或者就称为 “Sass”），提供了一种更简洁的CSS书写方式。它不使用花括号，而是通过缩排的方式来表达选择符的嵌套层级，而且也不使用分号，而是用换行符来分隔属性。很多人认为这种格式比SCSS更容易阅读，书写也更快速。缩排语法具有Sass的所有特色功能,虽然有些语法上稍有差异；这些差异在{file:INDENTED_SYNTAX.md所排语法参考手册}中都有描述。使用此种语法的样式表文件需要以.sass作为扩展名。</p>
-<h2 id="sass的转换"><a href="#sass的转换" class="headerlink" title="sass的转换"></a>sass的转换</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># 将 Sass 转换为 SCSS</div><div class="line">$ sass-convert style.sass style.scss</div><div class="line"></div><div class="line"># 将 SCSS 转换为 Sass</div><div class="line">$ sass-convert style.scss style.sass</div></pre></td></tr></table></figure>
-<p>Sass 有三种使用方式： 命令行工具、独立的 Ruby 模块，以及包含 Ruby on Rails 和 Merb 作为支持 Rack 的框架的插件。 所有这些方式的第一步都是安装 Sass gem：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gem install sass</div></pre></td></tr></table></figure></p>
-<p>如果你使用的是 Windows， 就需要先安装 Ruby。</p>
-<p>如果要在命令行中运行 Sass ,只要输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sass input.scss output.css</div></pre></td></tr></table></figure></p>
-<p>你还可以命令 Sass 监视文件的改动并更新 CSS ：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sass --watch input.scss:output.css</div></pre></td></tr></table></figure></p>
-<p>如果你的目录里有很多 Sass 文件，你还可以命令 Sass 监视整个目录：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sass --watch app/sass:public/stylesheets</div></pre></td></tr></table></figure></p>
-<h1 id="sass编译"><a href="#sass编译" class="headerlink" title="sass编译"></a>sass编译</h1><h2 id="命令行编译"><a href="#命令行编译" class="headerlink" title="命令行编译"></a>命令行编译</h2><p>单文件转换命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sass style.scss style.css</div></pre></td></tr></table></figure></p>
-<p>单文件监听命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sass --watch style.scss:style.css</div></pre></td></tr></table></figure></p>
-<p>文件夹监听命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sass --watch sassFileDirectory:cssFileDirectory</div></pre></td></tr></table></figure></p>
-<p>css文件转成sass/scss文件（在线转换工具css2sass）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sass-convert style.css style.sass   </div><div class="line">sass-convert style.css style.scss</div></pre></td></tr></table></figure></p>
-<h2 id="编译格式"><a href="#编译格式" class="headerlink" title="编译格式"></a>编译格式</h2><p>我们一般常用的有–style，–sourcemap，–debug-info等。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sass --watch style.scss:style.css --style compact</div><div class="line">sass --watch style.scss:style.css --sourcemap</div><div class="line">sass --watch style.scss:style.css --style expanded --sourcemap</div><div class="line">sass --watch style.scss:style.css --debug-info</div></pre></td></tr></table></figure></p>
-<p>–style表示解析后的css是什么格式，有四种取值分别为：nested，expanded，compact，compressed。<br>–sourcemap表示开启sourcemap调试。开启sourcemap调试后，会生成一个后缀名为.css.map文件。<br>–debug-info表示开启debug信息，升级到3.3.0之后因为sourcemap更高级，这个debug-info就不太用了。</p>
-<h1 id="sass混合宏"><a href="#sass混合宏" class="headerlink" title="sass混合宏"></a>sass混合宏</h1><h2 id="混合宏的关键词"><a href="#混合宏的关键词" class="headerlink" title="混合宏的关键词"></a>混合宏的关键词</h2><p>在sass中通过@mixin关键词声明一个混合宏，那么在实际调用中，其匹配了一个关键词@include来调用声明好的混合宏。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">@mixin border-radius&#123;   //对混合宏进行声明</div><div class="line">	-webkit-border-radius: 3px;</div><div class="line">	border-radius: 3px;</div><div class="line">&#125;</div><div class="line">button&#123;</div><div class="line">	@include border-radius: 3px;  //对声明出的混合宏进行使用关键字@include调用</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>此时编译出的css为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">button&#123;</div><div class="line">	-webkit-border-radius: 3px;</div><div class="line">	border: 3px;</div><div class="line">&#125;</div><div class="line"></div><div class="line">## 混合宏的传参</div><div class="line">sass有一个强大的混合宏功能：传参。混合宏传参有以下几种情形：</div><div class="line">### 1.传一个不带值的参数</div></pre></td></tr></table></figure></p>
-<p>@mixin border-radius($radius){<br>    -webkit-border-radius: $radius;<br>    border-radius: $radius;<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">在调用是，给这个混合宏进行参数传递，即可。如，当我想传递给radius传参3px时。代码如下：</div></pre></td></tr></table></figure></p>
-<p>.box{<br>    @include border-radius(3px);<br>}<br>此时编译出的结果为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.box&#123;</div><div class="line">	-webkit-border-radius: 3px;</div><div class="line">	border-radius: 3px;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="2-传一个带值的参数"><a href="#2-传一个带值的参数" class="headerlink" title="2.传一个带值的参数"></a>2.传一个带值的参数</h3><p>在sass中可以给参数带一个默认的值，在调用时，就可以直接使用此默认值进行编译，这种情况适用于比较多地方使用默认值的时候，此时可设置一个默认值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">@mixin border-radius($radius: 3px)&#123;</div><div class="line">	-webkit-border-radius: $radius;</div><div class="line">	border-radius: $radius;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="3-传递多个参数"><a href="#3-传递多个参数" class="headerlink" title="3.传递多个参数"></a>3.传递多个参数</h3><p>sass中不仅可以传递一个参数，还可传递多个参数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">@mixin size($width,$height)&#123;</div><div class="line">	width: $width;</div><div class="line">	height: $height;</div><div class="line">&#125;</div><div class="line">.box-center&#123;</div><div class="line">	@include size(500px,300px);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h1 id="sass扩展"><a href="#sass扩展" class="headerlink" title="sass扩展"></a>sass扩展</h1><h3 id="sass继承"><a href="#sass继承" class="headerlink" title="sass继承"></a>sass继承</h3><p>sass可以继承类中的样式代码块，在sass中是通过关键字@extend来继承已经存在的类样式块的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">.btn&#123;</div><div class="line">	border: 1px solid #ccc;</div><div class="line">	padding: 6px 10px;</div><div class="line">	font-size: 14px;</div><div class="line">&#125;</div><div class="line">.btn-primary&#123;</div><div class="line">	background: #f36;</div><div class="line">	color: #fff;</div><div class="line">	@extend: .btn;</div><div class="line">&#125;</div><div class="line">.btn-second&#123;</div><div class="line">	background: orange;</div><div class="line">	color: #fff;</div><div class="line">	@extend .btn;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>编译出的结果是精简的写法，不想之前通过@include进行编译的一样，通过@include编译出来的是没有简化写法的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">.btn,.btn-primary,.btn-second&#123;</div><div class="line">	border: 1px solid #ccc;</div><div class="line">	padding: 6px 10px;</div><div class="line">	font-size: 14px;</div><div class="line">&#125;</div><div class="line">.btn-primary&#123;</div><div class="line">	background: #f36;</div><div class="line">	color: #fff;</div><div class="line">&#125;</div><div class="line">.btn-second&#123;</div><div class="line">	background: orange;</div><div class="line">	color: #fff;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="sass占位符（-placeholder）"><a href="#sass占位符（-placeholder）" class="headerlink" title="sass占位符（%placeholder）"></a>sass占位符（%placeholder）</h3><p>占位符（%placeholder）声明的代码，如果不被@extend调用的话，不会产生任何代码。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">%mt5&#123;</div><div class="line">	margin-top: 5px;</div><div class="line">&#125;</div><div class="line">%pt5&#123;</div><div class="line">	padding-top: 5px;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>以上代码若不被@extend调用，则不会产生任何代码块，但是当调用的时候，该代码块才会生效。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.btn&#123;</div><div class="line">	@extend %mt5;</div><div class="line">	@extend %pt5;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>此时解析出的结果为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.btn&#123;</div><div class="line">	margin-top: 5px;</div><div class="line">	padding-top: 5px;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="使用混合宏，继承，占位符的方式和使用对象比较"><a href="#使用混合宏，继承，占位符的方式和使用对象比较" class="headerlink" title="使用混合宏，继承，占位符的方式和使用对象比较"></a>使用混合宏，继承，占位符的方式和使用对象比较</h2><p>!(PIC)[<a href="http://img.mukewang.com/55263aa30001913307940364.jpg" target="_blank" rel="external">http://img.mukewang.com/55263aa30001913307940364.jpg</a>]</p>
-<h3 id="sass插值"><a href="#sass插值" class="headerlink" title="sass插值#{}"></a>sass插值#{}</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">@mixin firefox-message($selector)&#123;</div><div class="line">	body.firefox #&#123;$selector&#125;:before&#123;</div><div class="line">		content : &quot;Hi, firefox users!&quot;;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">@include firefox-message(&quot;.header&quot;);</div><div class="line">//编译结果为</div><div class="line">body.forefox .header:before&#123;</div><div class="line">	content: &quot;Hi,firefox users!&quot;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h1 id="sass运算"><a href="#sass运算" class="headerlink" title="sass运算"></a>sass运算</h1><h2 id="加法"><a href="#加法" class="headerlink" title="加法"></a>加法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.box&#123;</div><div class="line">	width: 20px + 8in;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="减法"><a href="#减法" class="headerlink" title="减法"></a>减法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$full-width: 960px;</div><div class="line">$sidebar-width: 200px;</div><div class="line">.content&#123;</div><div class="line">	width: $full-width - $sidebar-width;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="乘法"><a href="#乘法" class="headerlink" title="乘法"></a>乘法</h2><p>乘法只能乘以一个数字，不能乘以一个数字加上单位，否则会报错<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.box&#123;</div><div class="line">	width: 10px *2px;  //报错“20px*px isn&apos;t a valid CSS value.”</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="除法"><a href="#除法" class="headerlink" title="除法"></a>除法</h2><p>除法在应用时，需要加上括号<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">.box&#123;</div><div class="line">	width: (100px / 2);</div><div class="line">&#125;</div><div class="line">//编译后等价于</div><div class="line">.box&#123;</div><div class="line">	width: 50px;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>当使用变量或者其他运算常亮进行计算时，可以不加括号。</p>
-<h2 id="字符运算"><a href="#字符运算" class="headerlink" title="字符运算"></a>字符运算</h2><p>在sass中可以使用符号+来实现字符串的链接。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$content: &quot;hello&quot; + &quot; &quot; + &quot;sass!&quot;;</div><div class="line">.box: before&#123;</div><div class="line">	ontent: &quot;#&#123;$content&#125;&quot;;</div><div class="line">&#125;</div><div class="line">//编译后等价于</div><div class="line">.box: before&#123;</div><div class="line">	content: &quot;hello sass!&quot;;</div><div class="line">&#125;</div><div class="line">除了在变量中做字符连接运算以外，还可以直接通过加号把字符连在一起</div></pre></td></tr></table></figure></p>
-<p>div{<br>    cursor: e + -resize;<br>}<br>//编译后等价于<br>div{<br>    cursor: e-resize;<br>}<br>```<br>注意，如果有引号的字符串被添加了一个没有引号的字符串，结果会是一个有引号的字符串。<br>同样的，如果一个没有引号的字符串被添加了一个有引号的字符串，结果将是一个没有引号的字符串。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      Sass 有两种语法。 第一种被称为 SCSS (Sassy CSS)，是一个 CSS3 语法的扩充版本。也就是说，所有符合CSS3语法的样式表也都是具有相同语法意义的SCSS文件。另外，SCSS理解大多数CSShacks以及浏览器专属语法，例如IE古老的filter 语法。这种语种语法的样式表文件需要以.scss扩展名。
-    
-    </summary>
-    
-      <category term="SASS 学习笔记" scheme="https://github.com/ChangerHe/categories/SASS-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="SASS" scheme="https://github.com/ChangerHe/tags/SASS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>jQuery.extend和jQuery.fn.extend的区别</title>
-    <link href="https://github.com/ChangerHe/2017/06/15/jQuery-extend%E5%92%8CjQuery-fn-extend%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
-    <id>https://github.com/ChangerHe/2017/06/15/jQuery-extend和jQuery-fn-extend的区别/</id>
-    <published>2017-06-15T07:27:53.000Z</published>
-    <updated>2017-09-14T14:38:16.909Z</updated>
-    
-    <content type="html"><![CDATA[<p>在jQuery的API手册中,jQuery.extend和jQuery.fn.extend,是挂载在jQuery和jQuery.fn上的两个方法,挂载对象不同,但是jQuery的内部实现中是相同的,只是功能不太一样.</p>
-<p>官方的解释是这样的</p>
-<ul>
-<li><p>jQuery.extend(): Merge the contents of two or more objects together into the first object.(把两个或者更多的对象合并到第一个当中)；</p>
-</li>
-<li><p>jQuery.fn.extend():Merge the contents of an object onto the jQuery prototype to provide new jQuery instance methods.(把对象挂载到jQuery的prototype属性，来扩展一个新的jQuery实例方法)</p>
-</li>
-</ul>
-<h1 id="理解jQuery-extend"><a href="#理解jQuery-extend" class="headerlink" title="理解jQuery.extend"></a>理解jQuery.extend</h1><p>我们先把jQuery看成一个类,jQuery.extend是扩展的jQuery这个类</p>
-<p>假设我们把jQuery这个类看成是人类,能吃饭喝水能跑能跳,我们现在用extend方法给人类扩展一个能说话(speak)的技能,这样的话所有的人类,都能继承这个技能.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">JQuery.extend(&#123;</div><div class="line">    speak:function()&#123;</div><div class="line">         alert(&quot;how are you!&quot;);</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>那么,我们需要使用这个技能的时候,直接使用<code>$.speak()</code>就可以成功调用这个方法了.</p>
-<p>这说明,$.speak变成了jQuery这个类本身的方法,现在人类都能说话了</p>
-<p>所以,这个扩展也就是所谓的静态方法, 只跟这个类本身有关,跟你具体的实例化对象是没有关系的.</p>
-<h1 id="理解jQuery-fn-extend"><a href="#理解jQuery-fn-extend" class="headerlink" title="理解jQuery.fn.extend"></a>理解jQuery.fn.extend</h1><p>从字面理解,这个扩展的是jQuery.fn的方法,那么jQuery.fn是什么呢?</p>
-<p>在jQuery源码的开通部分,有这样的一段代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">jQuery.fn = jQuery.prototype = &#123;</div><div class="line">      init:funtion(selector,context)&#123;</div><div class="line">            //..... </div><div class="line">     &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>所以显而易见,jQuery,fn其实扩展的就是jQuery这个对象原型上面的方法.</p>
-<p>也就是说,这个方法必须使用在jQuery实例化的对象上,就不能直接使用jQuery.xxx() 这样调用了,而是必须指明实例化的对象,然后在对象上面调用.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&apos;person1&apos;).speak()</div></pre></td></tr></table></figure>
-<h1 id="两者区别的总结"><a href="#两者区别的总结" class="headerlink" title="两者区别的总结"></a>两者区别的总结</h1><h2 id="两者调用方式不同："><a href="#两者调用方式不同：" class="headerlink" title="两者调用方式不同："></a>两者调用方式不同：</h2><p>jQuery.extend(),一般由传入的全局函数来调用，主要是用来拓展个全局函数，如$.init()，$.ajax();</p>
-<p>Query.fn.extend(),一般由具体的实例对象来调用，可以用来拓展个选择器，例如$.fn.each();</p>
-<h2 id="两者的主要功能作用不同："><a href="#两者的主要功能作用不同：" class="headerlink" title="两者的主要功能作用不同："></a>两者的主要功能作用不同：</h2><p> jQuery.extend(object); 为扩展jQuery类本身，为自身添加新的方法。</p>
-<p>jQuery.fn.extend(object);给jQuery对象添加方法</p>
-<h2 id="大部分插件都是用jQuery-fn-extend"><a href="#大部分插件都是用jQuery-fn-extend" class="headerlink" title="大部分插件都是用jQuery.fn.extend()"></a>大部分插件都是用jQuery.fn.extend()</h2><h1 id="JQuery的extend扩展方法："><a href="#JQuery的extend扩展方法：" class="headerlink" title="JQuery的extend扩展方法："></a>JQuery的extend扩展方法：</h1><h2 id="Jquery的扩展方法原型是"><a href="#Jquery的扩展方法原型是" class="headerlink" title="Jquery的扩展方法原型是:"></a>Jquery的扩展方法原型是:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">extend(dest,src1,src2,src3...);</div></pre></td></tr></table></figure>
-<p>作用是将src1 src2 … 合并到dest上,然后返回,返回值是合并之后的dest,也就是说这个时候dest是被修改了的.</p>
-<p>如果我们不想修改dest的值,可以这样</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">extend([],src1,src2,src3...);</div></pre></td></tr></table></figure>
-<p>这样的话,就不会有值会被改变了</p>
-<h2 id="jQuery中extend的内部实现"><a href="#jQuery中extend的内部实现" class="headerlink" title="jQuery中extend的内部实现"></a>jQuery中extend的内部实现</h2><p>jQuery的内部多次使用了其自己定义的merge方法,作用就是将后面的值往前面的值身上加,这种方法在extend方法上得到了很好的实现.</p>
-]]></content>
-    
-    <summary type="html">
-    
-      在jQuery的API手册中,jQuery.extend和jQuery.fn.extend,是挂载在jQuery和jQuery.fn上的两个方法,挂载对象不同,但是jQuery的内部实现中是相同的,只是功能不太一样.
-    
-    </summary>
-    
-      <category term="jQuery 学习笔记" scheme="https://github.com/ChangerHe/categories/jQuery-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="jQuery" scheme="https://github.com/ChangerHe/tags/jQuery/"/>
     
   </entry>
   
