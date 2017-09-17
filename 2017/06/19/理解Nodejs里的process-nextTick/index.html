@@ -15,19 +15,17 @@
 
 
 
-<meta name="description" content="今天学了点node.js，被慕课网狂拽酷炫的操作所折服，故决定投身sublime的怀抱。">
-<meta name="keywords" content="GitHub">
+<meta name="description" content="理解Node.js里的process.nextTick()">
+<meta name="keywords" content="Nodejs,process.nextTick()">
 <meta property="og:type" content="article">
-<meta property="og:title" content="GIT配置不需密码即可push的方法">
-<meta property="og:url" content="https://github.com/ChangerHe/2017/06/14/GIT配置不需密码即可push的方法/index.html">
+<meta property="og:title" content="理解Node.js里的process.nextTick()">
+<meta property="og:url" content="https://github.com/ChangerHe/2017/06/19/理解Nodejs里的process-nextTick/index.html">
 <meta property="og:site_name" content="ChangerHe&#39;s Bolg|何庆畅的个人博客">
-<meta property="og:description" content="今天学了点node.js，被慕课网狂拽酷炫的操作所折服，故决定投身sublime的怀抱。">
-<meta property="og:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1498671155922&di=b3e1084de0148f1b484388639a6c86a1&imgtype=0&src=http%3A%2F%2Fwanzao2.b0.upaiyun.com%2Fsystem%2Fpictures%2F34182985%2Foriginal%2F1458040253_640x646.png">
-<meta property="og:updated_time" content="2017-09-14T15:01:46.148Z">
+<meta property="og:description" content="理解Node.js里的process.nextTick()">
+<meta property="og:updated_time" content="2017-09-17T12:23:08.214Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="GIT配置不需密码即可push的方法">
-<meta name="twitter:description" content="今天学了点node.js，被慕课网狂拽酷炫的操作所折服，故决定投身sublime的怀抱。">
-<meta name="twitter:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1498671155922&di=b3e1084de0148f1b484388639a6c86a1&imgtype=0&src=http%3A%2F%2Fwanzao2.b0.upaiyun.com%2Fsystem%2Fpictures%2F34182985%2Foriginal%2F1458040253_640x646.png">
+<meta name="twitter:title" content="理解Node.js里的process.nextTick()">
+<meta name="twitter:description" content="理解Node.js里的process.nextTick()">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -59,7 +57,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>GIT配置不需密码即可push的方法 | ChangerHe&#39;s Bolg|何庆畅的个人博客</title>
+<title>理解Node.js里的process.nextTick() | ChangerHe&#39;s Bolg|何庆畅的个人博客</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -268,11 +266,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-GIT配置不需密码即可push的方法" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-理解Nodejs里的process-nextTick" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/06/14/GIT配置不需密码即可push的方法/" class="article-date">
-      <time datetime="2017-06-14T14:16:09.000Z" itemprop="datePublished">2017-06-14</time>
+      <a href="/2017/06/19/理解Nodejs里的process-nextTick/" class="article-date">
+      <time datetime="2017-06-19T12:00:32.000Z" itemprop="datePublished">2017-06-19</time>
 </a>
 
 
@@ -287,7 +285,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      GIT配置不需密码即可push的方法
+      理解Node.js里的process.nextTick()
     </h1>
   
 
@@ -296,13 +294,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/GitHub-优化/">GitHub 优化</a>
+    <a class="article-category-link" href="/categories/Nodejs学习笔记/">Nodejs学习笔记</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitHub/">GitHub</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nodejs/">Nodejs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/process-nextTick/">process.nextTick()</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -312,15 +310,39 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="为什么要写这篇博客？"><a href="#为什么要写这篇博客？" class="headerlink" title="为什么要写这篇博客？"></a>为什么要写这篇博客？</h1><p>今天学了点node.js，被慕课网狂拽酷炫的操作所折服，故决定投身sublime的怀抱。安装了package control以及各大插件后，最后安装git插件测试时，使用git：push命令始终没办法将代码push到我的github，想想也真是日了Justin Beiber了。<br>没办法，谁叫我天生丽质爱学习呢，然后我在网上找了各种办法，发现百度上的方法真的是水平太低，标准不一，基本雷同，更坑爹的是错都是差不多错一样的。我一个用github用了好几个月的人，你还叫我配置公钥？真是想说：<br><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1498671155922&amp;di=b3e1084de0148f1b484388639a6c86a1&amp;imgtype=0&amp;src=http%3A%2F%2Fwanzao2.b0.upaiyun.com%2Fsystem%2Fpictures%2F34182985%2Foriginal%2F1458040253_640x646.png" alt="PIC"></p>
-<h1 id="真正的解决办法"><a href="#真正的解决办法" class="headerlink" title="真正的解决办法"></a>真正的解决办法</h1><p>网上有很多办法，其实已经快说到点子上了，但是都是隔着被子瘙痒——没什么卵用，配置的时候看到那些博客，始终是摸不着头脑。<br>注：以下的配置方法，默认你已经安装好了git客户端，且熟悉基本的git操作命令，在远程代码库拥有了自己的仓库，且使用密码提交代码是成功的。</p>
-<h2 id="好，那么话不多说，开干"><a href="#好，那么话不多说，开干" class="headerlink" title="好，那么话不多说，开干"></a>好，那么话不多说，开干</h2><p>我们最主要的目的，是将提交时的http协议地址，直接改成类似于<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git@github.com:ChangerHe/My-code.git</div></pre></td></tr></table></figure></p>
-<p>这样的地址，当然，ChanerHe是我的github名，My-code是我想要push到的远程仓库名。更改之后，push的时候就会自动push到自己的仓库，不需要输入代码了，同时可以开心地在sublime上进行使用git插件了！<br>那么，现在我们现在打开我们我的git bash，在gitbash中输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote -v</div></pre></td></tr></table></figure></p>
-<p>输入之后可查看到自己的输出的branch，此时默认是origin。<br>此时如果未设置成功，bash中的输出是这样子的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">origin https://github.com/ChangerHe/My-code (fetch)</div><div class="line">origin https://github.com/ChangerHe/My-code (push)</div></pre></td></tr></table></figure></p>
-<p>这个时候你的push地址是https路径，所以会导致此时需要输入账号密码，我们现在再执行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote set-url origin git@github.com:ChangerHe/My-code.git</div></pre></td></tr></table></figure></p>
-<p>上面这段代码的意思就是，把git的默认push和fetch地址，改为以上相应地址。</p>
-<h2 id="同样的，ChangerHe是我的ID，My-code是我要提交的远程仓库名称，这段代码中，这两处需要改为你自己的。"><a href="#同样的，ChangerHe是我的ID，My-code是我要提交的远程仓库名称，这段代码中，这两处需要改为你自己的。" class="headerlink" title="同样的，ChangerHe是我的ID，My-code是我要提交的远程仓库名称，这段代码中，这两处需要改为你自己的。"></a>同样的，ChangerHe是我的ID，My-code是我要提交的远程仓库名称，这段代码中，这两处需要改为你自己的。</h2><p>以上是我查到的很多资料，没有提到的地方，导致我白白浪费掉了一个小时的时间，哎~自学最大的难处就在这里。<br>以上，设置好之后，会发现你的路径方式变了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">origin https://github.com/ChangerHe/My-code (fetch)</div><div class="line">origin https://github.com/ChangerHe/My-code (push)</div></pre></td></tr></table></figure></p>
-<p>此时即配置成功，现在就可以开心地不用密码进行push啦。</p>
+        <p>Nodejs的事件驱动,异步IO模型另异步编程变得异常风行,它借助了异步IO模型及V8高性能引擎,突破了单线程的性能瓶颈. 让Jacascript在后端达到了其应有的使用价值. </p>
+<p>另外以方便,它也同意了前后端的javascript编程模型.</p>
+<p>异步编程也给前端程序猿带来了诸多的痛苦和不适应. 这也是我今天着重想提<code>process.nextTick()</code>这个API的原因之一.</p>
+<h1 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h1><p>在过去,我们处理异常一般使用try catch fanily这个语句块进行异常捕获和处理</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">try &#123;</div><div class="line">	JSON.parse(jsonObj)</div><div class="line">&#125; catch(e) &#123;</div><div class="line">	// do something...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>但是这个方法对异步编程而言是并不适用的, 举个很简单的例子,也是我们在日常开发中常常使用的一个小技巧: 当我们想要某个在文档中间的语句块在整个脚本的最后执行的时候,可以使用setTimeout将这个语句块包起来,将延时时间设为0, 那么这个时候它就会等待所有同步的进程全部执行完毕之后再执行.</p>
+<p>在try中,我们进行异步的方式处理JSON.parse的时候,那么它也会被放到文档流的最后执行而try catch先执行了,这就是导致出现这个问题的原因</p>
+<p>那么这个时候,就需要们的主角登场了</p>
+<p>同样的,我们再来一个例子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function foo() &#123;</div><div class="line">	console.error(&apos;foo&apos;);</div><div class="line">&#125;</div><div class="line">process.nextTick(foo);</div><div class="line">console.error(&apos;bar&apos;);</div></pre></td></tr></table></figure>
+<p>运行上面的代码，你从下面终端打印的信息会看到，”bar”的输出在“foo”的前面。这就验证了上面的说法，foo()是在下一个时间点运行的。</p>
+<p>但在内部的处理机制上，process.nextTick()和setTimeout(fn, 0)是不同的，process.nextTick()不是一个单纯的延时，他有更多的 特性。</p>
+<p>更精确的说，process.nextTick()定义的调用会创建一个新的子堆栈。在当前的栈里，你可以执行任意多的操作。但一旦调用netxTick，函数就必须返回到父堆栈。然后事件轮询机制又重新等待处理新的事件，如果发现nextTick的调用，就会创建一个新的栈。</p>
+<p>下面我们来看看，什么情况下使用process.nextTick()：</p>
+<h1 id="在多个事件里交叉执行CPU运算密集型的任务："><a href="#在多个事件里交叉执行CPU运算密集型的任务：" class="headerlink" title="在多个事件里交叉执行CPU运算密集型的任务："></a>在多个事件里交叉执行CPU运算密集型的任务：</h1><p>在下面的例子里有一个compute()，我们希望这个函数尽可能持续的执行，来进行一些运算密集的任务。</p>
+<p>但与此同时，我们还希望系统不要被这个函数堵塞住，还需要能响应处理别的事件。这个应用模式就像一个单线程的web服务server。在这里我们就可以使用process.nextTick()来交叉执行compute()和正常的事件响应。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var http = require(&apos;http&apos;);</div><div class="line"></div><div class="line">function compute() &#123;</div><div class="line">    // performs complicated calculations continuously</div><div class="line">    // ...</div><div class="line">    process.nextTick(compute);</div><div class="line">&#125;</div><div class="line"> </div><div class="line">http.createServer(function(req, res) &#123;</div><div class="line">     res.writeHead(200, &#123;&apos;Content-Type&apos;: &apos;text/plain&apos;&#125;);</div><div class="line">     res.end(&apos;Hello World&apos;);</div><div class="line">&#125;).listen(5000, &apos;127.0.0.1&apos;);</div><div class="line"> </div><div class="line">compute();</div></pre></td></tr></table></figure>
+<p>在这种模式下，我们不需要递归的调用compute()，我们只需要在事件循环中使用process.nextTick()定义compute()在下一个时间点执行即可。在这个过程中，如果有新的http请求进来，事件循环机制会先处理新的请求，然后再调用compute()。反之，如果你把compute()放在一个递归调用里，那系统就会一直阻塞在compute()里，无法处理新的http请求了。你可以自己试试。</p>
+<p>当然，我们无法通过process.nextTick()来获得多CPU下并行执行的真正好处，这只是模拟同一个应用在CPU上分段执行而已。</p>
+<h1 id="保持回调函数异步执行的原则"><a href="#保持回调函数异步执行的原则" class="headerlink" title="保持回调函数异步执行的原则"></a>保持回调函数异步执行的原则</h1><p>当你给一个函数定义一个回调函数时，你要确保这个回调是被异步执行的。下面我们看一个例子，例子中的回调违反了这一原则：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function asyncFake(data, callback) &#123;  </div><div class="line">    if(data === &apos;foo&apos;) callback(true);</div><div class="line">    else callback(false);</div><div class="line">&#125;</div><div class="line"> </div><div class="line">asyncFake(&apos;bar&apos;, function(result) &#123;</div><div class="line">    // this callback is actually called synchronously!</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>为什么这样不好呢？我们来看Node.js 文档里一段代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var client = net.connect(8124, function() &#123; </div><div class="line">    console.log(&apos;client connected&apos;);</div><div class="line">    client.write(&apos;world!\r\n&apos;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>在上面的代码里，如果因为某种原因，net.connect()变成同步执行的了，回调函数就会被立刻执行，因此回调函数写到客户端的变量就永远不会被初始化了。</p>
+<p>这种情况下我们就可以使用process.nextTick()把上面asyncFake()改成异步执行的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function asyncReal(data, callback) &#123;</div><div class="line">    process.nextTick(function() &#123;</div><div class="line">        callback(data === &apos;foo&apos;);   </div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="用在事件触发过程中"><a href="#用在事件触发过程中" class="headerlink" title="用在事件触发过程中"></a>用在事件触发过程中</h1><p>来看一个例子，你想写一个库实现这样的功能：从源文件里读取数据，当读取完毕后，触发一个事件同时传递读取的数据。可能你会这样写：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var EventEmitter = require(&apos;events&apos;).EventEmitter;</div><div class="line"> </div><div class="line">function StreamLibrary(resourceName) &#123; </div><div class="line">    this.emit(&apos;start&apos;);</div><div class="line"> </div><div class="line">    // read from the file, and for every chunk read, do: </div><div class="line">    this.emit(&apos;data&apos;, chunkRead);      </div><div class="line">&#125;</div><div class="line">StreamLibrary.prototype.__proto__ = EventEmitter.prototype;   </div><div class="line">// inherit from EventEmitter</div></pre></td></tr></table></figure>
+<p>下面是一段调用这个库的客户端程序，我们想在程序中监听这些事件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var stream = new StreamLibrary(&apos;fooResource&apos;);</div><div class="line"> </div><div class="line">stream.on(&apos;start&apos;, function() &#123;</div><div class="line">    console.log(&apos;Reading has started&apos;);</div><div class="line">&#125;);</div><div class="line"> </div><div class="line">stream.on(&apos;data&apos;, function(chunk) &#123;</div><div class="line">    console.log(&apos;Received: &apos; + chunk);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>但是上面的代码中，将永远接收不到“start”事件，因为在这个库实例化的时候，“start”事件会被立刻触发执行，但此时事件的回调函数还没有准备好，所以在客户端根本无法接收到这个事件。同样，我们可以用process.nextTick()来改写事件触发的过程，下面是一个正确的版本：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function StreamLibrary(resourceName) &#123;      </div><div class="line">    var self = this;</div><div class="line"> </div><div class="line">    process.nextTick(function() &#123;</div><div class="line">        self.emit(&apos;start&apos;);</div><div class="line">    &#125;);</div><div class="line"> </div><div class="line">    // read from the file, and for every chunk read, do:</div><div class="line">    this.emit(&apos;data&apos;, chunkRead);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>(文章部分引用了网上内容)</p>
 
       
     </div>
@@ -329,13 +351,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/06/14/GIT配置不需密码即可push的方法/">GIT配置不需密码即可push的方法</a></p>
+        <p><span>本文标题:</span><a href="/2017/06/19/理解Nodejs里的process-nextTick/">理解Node.js里的process.nextTick()</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">ChangerHe</a></p>
-        <p><span>发布时间:</span>2017-06-14, 22:16:09</p>
-        <p><span>最后更新:</span>2017-09-14, 23:01:46</p>
+        <p><span>发布时间:</span>2017-06-19, 20:00:32</p>
+        <p><span>最后更新:</span>2017-09-17, 20:23:08</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/06/14/GIT配置不需密码即可push的方法/" title="GIT配置不需密码即可push的方法">https://github.com/ChangerHe/2017/06/14/GIT配置不需密码即可push的方法/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://github.com/ChangerHe/2017/06/14/GIT配置不需密码即可push的方法/　　作者: ChangerHe" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/06/19/理解Nodejs里的process-nextTick/" title="理解Node.js里的process.nextTick()">https://github.com/ChangerHe/2017/06/19/理解Nodejs里的process-nextTick/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://github.com/ChangerHe/2017/06/19/理解Nodejs里的process-nextTick/　　作者: ChangerHe" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -348,15 +370,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/06/14/What-is-Flex/">
-                    What is Flex?
+                <a href="/2017/06/19/《ES6标准入门》阅读笔记——-Unicode/">
+                    《ES6标准入门》阅读笔记——-Unicode
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2017/06/14/jQuery-学习笔记/">
-                    jQuery 学习笔记——选择器
+                <a href="/2017/06/18/《ES6标准入门》阅读笔记———解构赋值/">
+                    《ES6标准入门》阅读笔记———解构赋值
                 </a>
             </div>
         
@@ -368,7 +390,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#为什么要写这篇博客？"><span class="toc-number">1.</span> <span class="toc-text">为什么要写这篇博客？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#真正的解决办法"><span class="toc-number">2.</span> <span class="toc-text">真正的解决办法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#好，那么话不多说，开干"><span class="toc-number">2.1.</span> <span class="toc-text">好，那么话不多说，开干</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#同样的，ChangerHe是我的ID，My-code是我要提交的远程仓库名称，这段代码中，这两处需要改为你自己的。"><span class="toc-number">2.2.</span> <span class="toc-text">同样的，ChangerHe是我的ID，My-code是我要提交的远程仓库名称，这段代码中，这两处需要改为你自己的。</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#异常处理"><span class="toc-number">1.</span> <span class="toc-text">异常处理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#在多个事件里交叉执行CPU运算密集型的任务："><span class="toc-number">2.</span> <span class="toc-text">在多个事件里交叉执行CPU运算密集型的任务：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#保持回调函数异步执行的原则"><span class="toc-number">3.</span> <span class="toc-text">保持回调函数异步执行的原则</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#用在事件触发过程中"><span class="toc-number">4.</span> <span class="toc-text">用在事件触发过程中</span></a></li></ol>
         
     </div>
     <style>
@@ -399,7 +421,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/06/14/What-is-Flex/" title="上一篇: What is Flex?">
+            <a href="/2017/06/19/《ES6标准入门》阅读笔记——-Unicode/" title="上一篇: 《ES6标准入门》阅读笔记——-Unicode">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -407,7 +429,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/06/14/jQuery-学习笔记/" title="下一篇: jQuery 学习笔记——选择器">
+            <a href="/2017/06/18/《ES6标准入门》阅读笔记———解构赋值/" title="下一篇: 《ES6标准入门》阅读笔记———解构赋值">
                 <i class="fa fa-angle-right"></i>
             </a>
         
