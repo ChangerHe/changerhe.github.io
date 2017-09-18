@@ -15,17 +15,17 @@
 
 
 
-<meta name="description" content="本系列为在我基本完全读完了阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理，作为日后的复习使用。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导像我这样的新手，快速入门ES6，并逐步将其投入到生产实践中。">
+<meta name="description" content="本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导新手，快速入门ES6，并逐步将其投入到生产实践中。">
 <meta name="keywords" content="ES6,string">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《ES6标准入门》阅读笔记——-string类型的扩展">
 <meta property="og:url" content="https://github.com/ChangerHe/2017/06/30/《ES6标准入门》阅读笔记——-string类型的扩展/index.html">
 <meta property="og:site_name" content="ChangerHe&#39;s Bolg|何庆畅的个人博客">
-<meta property="og:description" content="本系列为在我基本完全读完了阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理，作为日后的复习使用。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导像我这样的新手，快速入门ES6，并逐步将其投入到生产实践中。">
-<meta property="og:updated_time" content="2017-09-16T03:50:34.743Z">
+<meta property="og:description" content="本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导新手，快速入门ES6，并逐步将其投入到生产实践中。">
+<meta property="og:updated_time" content="2017-09-18T00:41:46.977Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《ES6标准入门》阅读笔记——-string类型的扩展">
-<meta name="twitter:description" content="本系列为在我基本完全读完了阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理，作为日后的复习使用。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导像我这样的新手，快速入门ES6，并逐步将其投入到生产实践中。">
+<meta name="twitter:description" content="本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导新手，快速入门ES6，并逐步将其投入到生产实践中。">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -310,7 +310,14 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        
+        <h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。</p>
+<p>许多初学ES6, 同时和我一样初次阅读阮老师的这本书的时候, 读第一遍会越发的困惑, 因为阮老师上面说的很多的定义,方法,之前都是没有见过的, 读到后面才发现, 哦~原来是这样.</p>
+<p>有一句话叫做”大神的世界我们不懂”, 所以我在初读第一遍《ES6标准入门》这本书的时候,也是踩了不少坑,读书的时候查阅了不少的资料.</p>
+<p>所以,在这一系列的笔记教程中,我会从一个初学者的角度,向您讲述ES6的相关知识,在后面介绍的知识我会尽量不提前用,即使提前使用,也会同时做好标注,避免了阅读时各种查阅资料的烦恼.</p>
+<p>系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导新手，快速入门ES6，并逐步将其投入到生产实践中。</p>
+<p>同时,在阅读前也提醒您, 为了系统连贯性的学习ES6的基础知识,建议您从我的博客第一章开始阅读,当然,如果您对对应的知识已经有所了解,那么可以跳转到任意章节阅读,每一篇博客名中均有介绍该博客中涉及到的ES6的内容.</p>
+<p>阮一峰老师的这本书是开源的，在其官方博客就可以下载到，但是我强烈建议大家去购买一本书, 一是方便自己查阅ES6中新增的众多API, 二也是表达一下对大神的敬仰.</p>
+
       
     </div>
     
@@ -321,7 +328,7 @@
         <p><span>本文标题:</span><a href="/2017/06/30/《ES6标准入门》阅读笔记——-string类型的扩展/">《ES6标准入门》阅读笔记——-string类型的扩展</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">ChangerHe</a></p>
         <p><span>发布时间:</span>2017-06-30, 13:49:33</p>
-        <p><span>最后更新:</span>2017-09-16, 11:50:34</p>
+        <p><span>最后更新:</span>2017-09-18, 08:41:46</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/06/30/《ES6标准入门》阅读笔记——-string类型的扩展/" title="《ES6标准入门》阅读笔记——-string类型的扩展">https://github.com/ChangerHe/2017/06/30/《ES6标准入门》阅读笔记——-string类型的扩展/</a>
             <span class="copy-path" data-clipboard-text="原文: https://github.com/ChangerHe/2017/06/30/《ES6标准入门》阅读笔记——-string类型的扩展/　　作者: ChangerHe" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -357,7 +364,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#写在前面"><span class="toc-number">1.</span> <span class="toc-text">写在前面</span></a></li></ol>
         
     </div>
     <style>

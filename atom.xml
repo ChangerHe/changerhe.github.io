@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/ChangerHe/"/>
-  <updated>2017-09-16T03:54:41.808Z</updated>
+  <updated>2017-09-18T00:42:20.342Z</updated>
   <id>https://github.com/ChangerHe/</id>
   
   <author>
@@ -20,11 +20,20 @@
     <link href="https://github.com/ChangerHe/2017/07/20/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-Module/"/>
     <id>https://github.com/ChangerHe/2017/07/20/《ES6标准入门》阅读笔记——-Module/</id>
     <published>2017-07-19T16:23:13.000Z</published>
-    <updated>2017-09-16T03:54:41.808Z</updated>
+    <updated>2017-09-18T00:42:20.342Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。</p>
+<p>许多初学ES6, 同时和我一样初次阅读阮老师的这本书的时候, 读第一遍会越发的困惑, 因为阮老师上面说的很多的定义,方法,之前都是没有见过的, 读到后面才发现, 哦~原来是这样.</p>
+<p>有一句话叫做”大神的世界我们不懂”, 所以我在初读第一遍《ES6标准入门》这本书的时候,也是踩了不少坑,读书的时候查阅了不少的资料.</p>
+<p>所以,在这一系列的笔记教程中,我会从一个初学者的角度,向您讲述ES6的相关知识,在后面介绍的知识我会尽量不提前用,即使提前使用,也会同时做好标注,避免了阅读时各种查阅资料的烦恼.</p>
+<p>系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导新手，快速入门ES6，并逐步将其投入到生产实践中。</p>
+<p>同时,在阅读前也提醒您, 为了系统连贯性的学习ES6的基础知识,建议您从我的博客第一章开始阅读,当然,如果您对对应的知识已经有所了解,那么可以跳转到任意章节阅读,每一篇博客名中均有介绍该博客中涉及到的ES6的内容.</p>
+<p>阮一峰老师的这本书是开源的，在其官方博客就可以下载到，但是我强烈建议大家去购买一本书, 一是方便自己查阅ES6中新增的众多API, 二也是表达一下对大神的敬仰.</p>
+]]></content>
     
     <summary type="html">
     
-      本系列为在我基本完全读完了阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理，作为日后的复习使用。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导像我这样的新手，快速入门ES6，并逐步将其投入到生产实践中。
+      本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导新手，快速入门ES6，并逐步将其投入到生产实践中。
     
     </summary>
     
@@ -42,11 +51,20 @@
     <link href="https://github.com/ChangerHe/2017/07/16/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-Class/"/>
     <id>https://github.com/ChangerHe/2017/07/16/《ES6标准入门》阅读笔记——-Class/</id>
     <published>2017-07-16T15:52:52.000Z</published>
-    <updated>2017-09-16T03:54:05.164Z</updated>
+    <updated>2017-09-18T00:42:14.635Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。</p>
+<p>许多初学ES6, 同时和我一样初次阅读阮老师的这本书的时候, 读第一遍会越发的困惑, 因为阮老师上面说的很多的定义,方法,之前都是没有见过的, 读到后面才发现, 哦~原来是这样.</p>
+<p>有一句话叫做”大神的世界我们不懂”, 所以我在初读第一遍《ES6标准入门》这本书的时候,也是踩了不少坑,读书的时候查阅了不少的资料.</p>
+<p>所以,在这一系列的笔记教程中,我会从一个初学者的角度,向您讲述ES6的相关知识,在后面介绍的知识我会尽量不提前用,即使提前使用,也会同时做好标注,避免了阅读时各种查阅资料的烦恼.</p>
+<p>系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导新手，快速入门ES6，并逐步将其投入到生产实践中。</p>
+<p>同时,在阅读前也提醒您, 为了系统连贯性的学习ES6的基础知识,建议您从我的博客第一章开始阅读,当然,如果您对对应的知识已经有所了解,那么可以跳转到任意章节阅读,每一篇博客名中均有介绍该博客中涉及到的ES6的内容.</p>
+<p>阮一峰老师的这本书是开源的，在其官方博客就可以下载到，但是我强烈建议大家去购买一本书, 一是方便自己查阅ES6中新增的众多API, 二也是表达一下对大神的敬仰.</p>
+]]></content>
     
     <summary type="html">
     
-      本系列为在我基本完全读完了阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理，作为日后的复习使用。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导像我这样的新手，快速入门ES6，并逐步将其投入到生产实践中。
+      本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导新手，快速入门ES6，并逐步将其投入到生产实践中。
     
     </summary>
     
@@ -64,11 +82,20 @@
     <link href="https://github.com/ChangerHe/2017/07/11/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-Promise/"/>
     <id>https://github.com/ChangerHe/2017/07/11/《ES6标准入门》阅读笔记——-Promise/</id>
     <published>2017-07-11T14:23:54.000Z</published>
-    <updated>2017-09-16T03:53:28.932Z</updated>
+    <updated>2017-09-18T00:42:09.303Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。</p>
+<p>许多初学ES6, 同时和我一样初次阅读阮老师的这本书的时候, 读第一遍会越发的困惑, 因为阮老师上面说的很多的定义,方法,之前都是没有见过的, 读到后面才发现, 哦~原来是这样.</p>
+<p>有一句话叫做”大神的世界我们不懂”, 所以我在初读第一遍《ES6标准入门》这本书的时候,也是踩了不少坑,读书的时候查阅了不少的资料.</p>
+<p>所以,在这一系列的笔记教程中,我会从一个初学者的角度,向您讲述ES6的相关知识,在后面介绍的知识我会尽量不提前用,即使提前使用,也会同时做好标注,避免了阅读时各种查阅资料的烦恼.</p>
+<p>系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导新手，快速入门ES6，并逐步将其投入到生产实践中。</p>
+<p>同时,在阅读前也提醒您, 为了系统连贯性的学习ES6的基础知识,建议您从我的博客第一章开始阅读,当然,如果您对对应的知识已经有所了解,那么可以跳转到任意章节阅读,每一篇博客名中均有介绍该博客中涉及到的ES6的内容.</p>
+<p>阮一峰老师的这本书是开源的，在其官方博客就可以下载到，但是我强烈建议大家去购买一本书, 一是方便自己查阅ES6中新增的众多API, 二也是表达一下对大神的敬仰.</p>
+]]></content>
     
     <summary type="html">
     
-      本系列为在我基本完全读完了阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理，作为日后的复习使用。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导像我这样的新手，快速入门ES6，并逐步将其投入到生产实践中。
+      本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导新手，快速入门ES6，并逐步将其投入到生产实践中。
     
     </summary>
     
@@ -86,11 +113,20 @@
     <link href="https://github.com/ChangerHe/2017/07/07/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-Iterator%E5%92%8CGenerator/"/>
     <id>https://github.com/ChangerHe/2017/07/07/《ES6标准入门》阅读笔记——-Iterator和Generator/</id>
     <published>2017-07-07T15:11:34.000Z</published>
-    <updated>2017-09-16T03:53:00.557Z</updated>
+    <updated>2017-09-18T00:42:03.573Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。</p>
+<p>许多初学ES6, 同时和我一样初次阅读阮老师的这本书的时候, 读第一遍会越发的困惑, 因为阮老师上面说的很多的定义,方法,之前都是没有见过的, 读到后面才发现, 哦~原来是这样.</p>
+<p>有一句话叫做”大神的世界我们不懂”, 所以我在初读第一遍《ES6标准入门》这本书的时候,也是踩了不少坑,读书的时候查阅了不少的资料.</p>
+<p>所以,在这一系列的笔记教程中,我会从一个初学者的角度,向您讲述ES6的相关知识,在后面介绍的知识我会尽量不提前用,即使提前使用,也会同时做好标注,避免了阅读时各种查阅资料的烦恼.</p>
+<p>系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导新手，快速入门ES6，并逐步将其投入到生产实践中。</p>
+<p>同时,在阅读前也提醒您, 为了系统连贯性的学习ES6的基础知识,建议您从我的博客第一章开始阅读,当然,如果您对对应的知识已经有所了解,那么可以跳转到任意章节阅读,每一篇博客名中均有介绍该博客中涉及到的ES6的内容.</p>
+<p>阮一峰老师的这本书是开源的，在其官方博客就可以下载到，但是我强烈建议大家去购买一本书, 一是方便自己查阅ES6中新增的众多API, 二也是表达一下对大神的敬仰.</p>
+]]></content>
     
     <summary type="html">
     
-      本系列为在我基本完全读完了阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理，作为日后的复习使用。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导像我这样的新手，快速入门ES6，并逐步将其投入到生产实践中。
+      本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导新手，快速入门ES6，并逐步将其投入到生产实践中。
     
     </summary>
     
@@ -110,11 +146,20 @@
     <link href="https://github.com/ChangerHe/2017/07/03/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-set%E5%92%8Cmap/"/>
     <id>https://github.com/ChangerHe/2017/07/03/《ES6标准入门》阅读笔记——-set和map/</id>
     <published>2017-07-03T03:37:44.000Z</published>
-    <updated>2017-09-16T03:52:17.617Z</updated>
+    <updated>2017-09-18T00:41:58.319Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。</p>
+<p>许多初学ES6, 同时和我一样初次阅读阮老师的这本书的时候, 读第一遍会越发的困惑, 因为阮老师上面说的很多的定义,方法,之前都是没有见过的, 读到后面才发现, 哦~原来是这样.</p>
+<p>有一句话叫做”大神的世界我们不懂”, 所以我在初读第一遍《ES6标准入门》这本书的时候,也是踩了不少坑,读书的时候查阅了不少的资料.</p>
+<p>所以,在这一系列的笔记教程中,我会从一个初学者的角度,向您讲述ES6的相关知识,在后面介绍的知识我会尽量不提前用,即使提前使用,也会同时做好标注,避免了阅读时各种查阅资料的烦恼.</p>
+<p>系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导新手，快速入门ES6，并逐步将其投入到生产实践中。</p>
+<p>同时,在阅读前也提醒您, 为了系统连贯性的学习ES6的基础知识,建议您从我的博客第一章开始阅读,当然,如果您对对应的知识已经有所了解,那么可以跳转到任意章节阅读,每一篇博客名中均有介绍该博客中涉及到的ES6的内容.</p>
+<p>阮一峰老师的这本书是开源的，在其官方博客就可以下载到，但是我强烈建议大家去购买一本书, 一是方便自己查阅ES6中新增的众多API, 二也是表达一下对大神的敬仰.</p>
+]]></content>
     
     <summary type="html">
     
-      本系列为在我基本完全读完了阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理，作为日后的复习使用。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导像我这样的新手，快速入门ES6，并逐步将其投入到生产实践中。
+      本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导新手，快速入门ES6，并逐步将其投入到生产实践中。
     
     </summary>
     
@@ -134,11 +179,20 @@
     <link href="https://github.com/ChangerHe/2017/07/01/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-symbol%E5%8F%8Aproxy-reflect/"/>
     <id>https://github.com/ChangerHe/2017/07/01/《ES6标准入门》阅读笔记——-symbol及proxy-reflect/</id>
     <published>2017-07-01T05:51:28.000Z</published>
-    <updated>2017-09-16T03:51:33.270Z</updated>
+    <updated>2017-09-18T00:41:52.397Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。</p>
+<p>许多初学ES6, 同时和我一样初次阅读阮老师的这本书的时候, 读第一遍会越发的困惑, 因为阮老师上面说的很多的定义,方法,之前都是没有见过的, 读到后面才发现, 哦~原来是这样.</p>
+<p>有一句话叫做”大神的世界我们不懂”, 所以我在初读第一遍《ES6标准入门》这本书的时候,也是踩了不少坑,读书的时候查阅了不少的资料.</p>
+<p>所以,在这一系列的笔记教程中,我会从一个初学者的角度,向您讲述ES6的相关知识,在后面介绍的知识我会尽量不提前用,即使提前使用,也会同时做好标注,避免了阅读时各种查阅资料的烦恼.</p>
+<p>系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导新手，快速入门ES6，并逐步将其投入到生产实践中。</p>
+<p>同时,在阅读前也提醒您, 为了系统连贯性的学习ES6的基础知识,建议您从我的博客第一章开始阅读,当然,如果您对对应的知识已经有所了解,那么可以跳转到任意章节阅读,每一篇博客名中均有介绍该博客中涉及到的ES6的内容.</p>
+<p>阮一峰老师的这本书是开源的，在其官方博客就可以下载到，但是我强烈建议大家去购买一本书, 一是方便自己查阅ES6中新增的众多API, 二也是表达一下对大神的敬仰.</p>
+]]></content>
     
     <summary type="html">
     
-      本系列为在我基本完全读完了阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理，作为日后的复习使用。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导像我这样的新手，快速入门ES6，并逐步将其投入到生产实践中。
+      本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导新手，快速入门ES6，并逐步将其投入到生产实践中。
     
     </summary>
     
@@ -160,11 +214,20 @@
     <link href="https://github.com/ChangerHe/2017/06/30/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-string%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%89%A9%E5%B1%95/"/>
     <id>https://github.com/ChangerHe/2017/06/30/《ES6标准入门》阅读笔记——-string类型的扩展/</id>
     <published>2017-06-30T05:49:33.000Z</published>
-    <updated>2017-09-16T03:50:34.743Z</updated>
+    <updated>2017-09-18T00:41:46.977Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。</p>
+<p>许多初学ES6, 同时和我一样初次阅读阮老师的这本书的时候, 读第一遍会越发的困惑, 因为阮老师上面说的很多的定义,方法,之前都是没有见过的, 读到后面才发现, 哦~原来是这样.</p>
+<p>有一句话叫做”大神的世界我们不懂”, 所以我在初读第一遍《ES6标准入门》这本书的时候,也是踩了不少坑,读书的时候查阅了不少的资料.</p>
+<p>所以,在这一系列的笔记教程中,我会从一个初学者的角度,向您讲述ES6的相关知识,在后面介绍的知识我会尽量不提前用,即使提前使用,也会同时做好标注,避免了阅读时各种查阅资料的烦恼.</p>
+<p>系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导新手，快速入门ES6，并逐步将其投入到生产实践中。</p>
+<p>同时,在阅读前也提醒您, 为了系统连贯性的学习ES6的基础知识,建议您从我的博客第一章开始阅读,当然,如果您对对应的知识已经有所了解,那么可以跳转到任意章节阅读,每一篇博客名中均有介绍该博客中涉及到的ES6的内容.</p>
+<p>阮一峰老师的这本书是开源的，在其官方博客就可以下载到，但是我强烈建议大家去购买一本书, 一是方便自己查阅ES6中新增的众多API, 二也是表达一下对大神的敬仰.</p>
+]]></content>
     
     <summary type="html">
     
-      本系列为在我基本完全读完了阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理，作为日后的复习使用。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导像我这样的新手，快速入门ES6，并逐步将其投入到生产实践中。
+      本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导新手，快速入门ES6，并逐步将其投入到生产实践中。
     
     </summary>
     
@@ -182,11 +245,20 @@
     <link href="https://github.com/ChangerHe/2017/06/28/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A9%E5%B1%95/"/>
     <id>https://github.com/ChangerHe/2017/06/28/《ES6标准入门》阅读笔记——-函数的扩展/</id>
     <published>2017-06-28T13:36:55.000Z</published>
-    <updated>2017-09-16T03:49:47.881Z</updated>
+    <updated>2017-09-18T00:41:42.148Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。</p>
+<p>许多初学ES6, 同时和我一样初次阅读阮老师的这本书的时候, 读第一遍会越发的困惑, 因为阮老师上面说的很多的定义,方法,之前都是没有见过的, 读到后面才发现, 哦~原来是这样.</p>
+<p>有一句话叫做”大神的世界我们不懂”, 所以我在初读第一遍《ES6标准入门》这本书的时候,也是踩了不少坑,读书的时候查阅了不少的资料.</p>
+<p>所以,在这一系列的笔记教程中,我会从一个初学者的角度,向您讲述ES6的相关知识,在后面介绍的知识我会尽量不提前用,即使提前使用,也会同时做好标注,避免了阅读时各种查阅资料的烦恼.</p>
+<p>系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导新手，快速入门ES6，并逐步将其投入到生产实践中。</p>
+<p>同时,在阅读前也提醒您, 为了系统连贯性的学习ES6的基础知识,建议您从我的博客第一章开始阅读,当然,如果您对对应的知识已经有所了解,那么可以跳转到任意章节阅读,每一篇博客名中均有介绍该博客中涉及到的ES6的内容.</p>
+<p>阮一峰老师的这本书是开源的，在其官方博客就可以下载到，但是我强烈建议大家去购买一本书, 一是方便自己查阅ES6中新增的众多API, 二也是表达一下对大神的敬仰.</p>
+]]></content>
     
     <summary type="html">
     
-      本系列为在我基本完全读完了阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理，作为日后的复习使用。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导像我这样的新手，快速入门ES6，并逐步将其投入到生产实践中。
+      本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导新手，快速入门ES6，并逐步将其投入到生产实践中。
     
     </summary>
     
@@ -204,11 +276,90 @@
     <link href="https://github.com/ChangerHe/2017/06/25/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-%E6%95%B0%E7%BB%84%E7%9A%84%E6%89%A9%E5%B1%95/"/>
     <id>https://github.com/ChangerHe/2017/06/25/《ES6标准入门》阅读笔记——-数组的扩展/</id>
     <published>2017-06-25T14:34:21.000Z</published>
-    <updated>2017-09-16T03:49:04.719Z</updated>
+    <updated>2017-09-18T02:59:23.397Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。</p>
+<p>许多初学ES6, 同时和我一样初次阅读阮老师的这本书的时候, 读第一遍会越发的困惑, 因为阮老师上面说的很多的定义,方法,之前都是没有见过的, 读到后面才发现, 哦~原来是这样.</p>
+<p>有一句话叫做”大神的世界我们不懂”, 所以我在初读第一遍《ES6标准入门》这本书的时候,也是踩了不少坑,读书的时候查阅了不少的资料.</p>
+<p>所以,在这一系列的笔记教程中,我会从一个初学者的角度,向您讲述ES6的相关知识,在后面介绍的知识我会尽量不提前用,即使提前使用,也会同时做好标注,避免了阅读时各种查阅资料的烦恼.</p>
+<p>系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导新手，快速入门ES6，并逐步将其投入到生产实践中。</p>
+<p>同时,在阅读前也提醒您, 为了系统连贯性的学习ES6的基础知识,建议您从我的博客第一章开始阅读,当然,如果您对对应的知识已经有所了解,那么可以跳转到任意章节阅读,每一篇博客名中均有介绍该博客中涉及到的ES6的内容.</p>
+<p>阮一峰老师的这本书是开源的，在其官方博客就可以下载到，但是我强烈建议大家去购买一本书, 一是方便自己查阅ES6中新增的众多API, 二也是表达一下对大神的敬仰.</p>
+<h1 id="新增的API–Array-from"><a href="#新增的API–Array-from" class="headerlink" title="新增的API–Array.from()"></a>新增的API–Array.from()</h1><p>Array.from() 方法将两类对象转为真正的数组:类数组对象和可遍历对象 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">let arrayLike = &#123;</div><div class="line">	&apos;0&apos;: &apos;a&apos;,</div><div class="line">	&apos;1&apos;: &apos;b&apos;,</div><div class="line">	&apos;2&apos;: &apos;c&apos;,</div><div class="line">	length: 3</div><div class="line">&#125;</div><div class="line">var arr1 = Array.prototype.slice.call(arrayLike)</div><div class="line">console.log(arr1)  // [1,2,3]</div><div class="line"></div><div class="line">let arr2 = Array.from(arrayLike)</div><div class="line">console.log(arr2)  // [1,2,3]</div></pre></td></tr></table></figure>
+<p>可见,在将类数组转换为数组的过程中,使用ES6定义的新方法能够更好且更简单地将类数组转换为真正的数组.</p>
+<p>在实际应用中,我们最常见的对象是DOM操作返回的NodeList集合,同样的,使用这个方法就可以实现将相应的类数组对象转换为数组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">let nameSet = new Set([&apos;a&apos;, &apos;b&apos;])</div><div class="line">var a = Array.from(nameSet)</div><div class="line">console.log(a)  // [&apos;a&apos;, &apos;b&apos;]</div></pre></td></tr></table></figure>
+<p>注: Set是ES6中的新的数据结构, 类似于数组, 但是成员的值都是唯一的, 没有重复的值, 这是Set结构的最大特征.</p>
+<p>如果对象是一个真的数组,那么使用Array.from() 方法会返回一个和原来一模一样的新数组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">let a = [1, 2, 3]</div><div class="line">let b = Array.from(a)</div><div class="line">a = [3, 2, 1]</div><div class="line">console.log(a) // [3,2,1]</div><div class="line">console.log(b) // [1,2,3]</div></pre></td></tr></table></figure>
+<p>扩展运算符也可以将某些数据结构转为数组<br>那么,我们可以对函数的变量arguments进行相应的处理,让其变成真正的数组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function foo() &#123;</div><div class="line">	var args = [...arguments]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>那么同样的,我们也可以对HTML的元素对象进行相应的操作</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[...document.querySelectorAll(&apos;div&apos;)]</div></pre></td></tr></table></figure>
+<p>扩展运算符背后调用的是遍历器接口Iterator, 如果一个对象没有部署该接口就无法进行转换, Iterator将在后面详细讲解.</p>
+<p>但是,所有的转换,一个最大的前提条件是,必须要有一个length对象,保存一个数值,没有这个属性的话是没有办法转为数组的</p>
+<p>对于没有部署Array.from() 方法的浏览器,我们可以使用对应的老方法和新方法进行结合模拟</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">const toArray = (() =&gt;</div><div class="line">	Array.from ? Array.from : obj =&gt; [].slice.call(obj)</div><div class="line">)</div></pre></td></tr></table></figure>
+<p>注: 箭头函数也是ES6中新定义的方法, 其实是一种语法糖,方便我们进行编程而已.<br><code>() =&gt; console.log(1)</code>   等价于  <code>function() {console.log(1)}</code></p>
+<p>Array.from 方法还可以接受第二个参数,作用类似于数组的map方法,用来对每个元素进行处理,并将处理后的值放入返回的数组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">let arrayLike = &#123;</div><div class="line">	&apos;0&apos;: &apos;a&apos;,</div><div class="line">	&apos;1&apos;: &apos;b&apos;,</div><div class="line">	&apos;2&apos;: &apos;c&apos;,</div><div class="line">	length: 3</div><div class="line">&#125;</div><div class="line">Array.from(arrayLike, x =&gt; x * x)</div><div class="line">// 其实上面的方法就等同于下面的方法</div><div class="line">Array.from(arrayLike).map(function(x) &#123;</div><div class="line">	return x * x</div><div class="line">&#125;)</div><div class="line">// 上面是使用ES5的方法所写的方法,我们可以将函数转换为箭头函数的形式</div><div class="line">Array.from(arrayLike).map(x =&gt; x * x)</div></pre></td></tr></table></figure>
+<p>利用这个特性,可以很容易地将数组的空位置零</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">let a = Array.from([1,,2,,5], (x) =&gt; x || 0)</div><div class="line">console.log(a) // [1,0,2,0,5]</div></pre></td></tr></table></figure>
+<h1 id="数组的Array-of-方法"><a href="#数组的Array-of-方法" class="headerlink" title="数组的Array.of()方法"></a>数组的Array.of()方法</h1><p>Array.of() 方法用于将一组值转换为数组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">console.log(Array.of(1, 8, 3))  // [1,8,3]</div><div class="line">console.log(Array.of(3)) // [3]</div><div class="line">console.log(Array.of()) // []</div></pre></td></tr></table></figure>
+<p>其实这个方法的主要目的,是弥补构造函数Array的不足, 因为参数的不同会导致Array的行为有所差异</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">console.log(Array())  // []</div><div class="line">console.log(Array(3)) // [,,,]</div><div class="line">console.log(1,2,3) // [1,2,3]</div></pre></td></tr></table></figure>
+<p>因此, 不同于直接使用Array方法, 使用Array.of()方法不论你传入的是一个数,还是几个数,其实最后都是返回的数组对象, 而不同于使用Array, 会产生不同的行为.</p>
+<h1 id="数组的copyWithin-方法"><a href="#数组的copyWithin-方法" class="headerlink" title="数组的copyWithin() 方法"></a>数组的copyWithin() 方法</h1><p>数组的copyWithin()方法, 主要的作用是在当前数组内部将指定位置的成员复制到其他位置, 此方法接受三个参数</p>
+<blockquote>
+<p>target 必需值,从该位置开始替换数据, 也就是说, 从这个地方开始要更改数组了<br>atart  可选值,从该位置开始读取数据,默认为0 , 若为负值,则表示倒数, 也就是说, 我要更改数组,总得找个东西替换这些个之前的数组呀. 那么我就从这个位置开始截取数组的值,把它放到要更改的地方<br>end    到该位置前停止读取数据,默认等于数组长度,如果为负值,表示倒数, 也就是说,截取也不能截取个没完嘛,所以需要在这个地方停止截取, 然后就把截取的值丢到target的那个位置了.</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">let a = [1, 2, 3, 4, 5]</div><div class="line">a.copyWithin(3, 1, 2)</div><div class="line">console.log(a)  // [1, 2, 3, 2, 5]</div></pre></td></tr></table></figure>
+<p>由上可见,其实copyWithin()最终更改了, 第四个位置, 也就是a[3] 的值</p>
+<h1 id="数组的find-方法和findIndex-方法"><a href="#数组的find-方法和findIndex-方法" class="headerlink" title="数组的find() 方法和findIndex() 方法"></a>数组的find() 方法和findIndex() 方法</h1><p>数组的find() 方法,用于找出第一个符合条件的数组成员.数组成员依次执行其后的回调函数,直到找出第一个匹配的成员,否则返回undefined</p>
+<p>下面的代码找出了数组中小于0 的成员, 并将其打印出来</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">let a = [1, 2, 3, -4, 3]</div><div class="line">console.log(a.find((x) =&gt; x &lt; 0)) // -4</div></pre></td></tr></table></figure>
+<p>find方法可以接受三个参数, 依次为当前值, 当前位置和原数组.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">let b = [1, 5, 10, 15].find((value, index, arr) =&gt; value &gt; 9)</div><div class="line">console.log(a) // 10</div></pre></td></tr></table></figure>
+<p>数组的findeIndex() 方法返回第一个符合条件的数组成员的位置, 如果所有成员都不符合条件,则返回-1</p>
+<p>这两个方法还可以接受第二个参数,用来绑定回调函数的this对象</p>
+<p>还有重要的一点是,这两个方法都可以发现NaN,弥补了之前NaN支持的不足</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">let a = [NaN].indexOf(NaN)</div><div class="line">console.log(a) // -1</div><div class="line"></div><div class="line">let b = [NaN].findIndex(y =&gt; Object.is(NaN, y))</div><div class="line">console.log(b) // 0</div></pre></td></tr></table></figure>
+<p>注: Object.is() 用来比较两个值是否严格相等. 它与全等运算符表现基本一致, 但增加了NaN的支持.</p>
+<h1 id="数组的fill-方法"><a href="#数组的fill-方法" class="headerlink" title="数组的fill() 方法"></a>数组的fill() 方法</h1><p>数组实例的fill() 该方法使用给定值填充数组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">console.log([&apos;a&apos;, &apos;b&apos;, &apos;c&apos;].fill(1)) // [1, 1, 1]</div><div class="line">console.log([&apos;a&apos;, &apos;b&apos;, &apos;c&apos;].fill(7, 1, 2)) // [&quot;a&quot;, 7, &quot;c&quot;]</div></pre></td></tr></table></figure>
+<p>这样对数组进行初始化非常的方便,该方法还可接受另外两个可选参数,规定填充的起始和结束位置</p>
+<h1 id="数组遍历"><a href="#数组遍历" class="headerlink" title="数组遍历"></a>数组遍历</h1><p>ES6提供了三个新方法用于遍历数组</p>
+<blockquote>
+<p>keys() 对键名的遍历<br>values() 对键值的遍历<br>entries() 对键值对的遍历</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">for (let index of [&apos;a&apos;, &apos;b&apos;].keys()) &#123;</div><div class="line">	console.log(index) // 0  // 1</div><div class="line">&#125;</div><div class="line">for (let index of [&apos;a&apos;, &apos;b&apos;].values()) &#123;</div><div class="line">	console.log(index) // &apos;a&apos;  // &apos;b&apos;</div><div class="line">&#125;</div><div class="line">for (let index of [&apos;a&apos;, &apos;b&apos;].entries()) &#123;</div><div class="line">	console.log(index) // 0 &apos;a&apos;  // 1 &apos;b&apos;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>注: for…of 遍历也是对循环的一种补充,与for…in类似,但不会枚举出对象上的可枚举属性</p>
+<h1 id="数组的includes"><a href="#数组的includes" class="headerlink" title="数组的includes()"></a>数组的includes()</h1><p>includes() 方法返回一个实例,表示某数组是否包含给定的值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">let a = [1, 2, 3]</div><div class="line">console.log(a.includes(2)) // true</div><div class="line">console.log(a.includes(4)) // false</div></pre></td></tr></table></figure>
+<p>当浏览器不兼容的时候,可以使用indexOf方法进行替代<br>但是indexOf有一个弊端,原因是indexOf内部使用的是全等操作符进行匹配,所以这个时候当我们判定NaN的时候,是无法判定成功的, 因为NaN!==NaN</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">console.log([NaN].indexOf(NaN)) // -1</div></pre></td></tr></table></figure>
+<h1 id="数组的空位"><a href="#数组的空位" class="headerlink" title="数组的空位"></a>数组的空位</h1><p>ES5在很多情况下,对于数组的空位是直接忽略的,例如forEach filter every some 等方法会跳过空位, map 会跳过空位,但会保留这个值, join 和 toString 会将空位视为undefined 而undefined和null会被处理为字符串</p>
+<p>下面是ES5下的方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">[, &apos;a&apos;].forEach((x, i) =&gt; console.log(i)); </div><div class="line">// 1 因为第零个是空位,被忽略了</div><div class="line">console.log([, &apos;a&apos;].filter((x, i) =&gt; true)); </div><div class="line">// [&quot;a&quot;]  小红书有讲过的方法,使用true将数组的空位去除</div><div class="line">console.log([, &apos;a&apos;].every((x, i) =&gt; x !== undefined)) </div><div class="line">// true</div><div class="line">console.log([, &apos;a&apos;].some((x, i) =&gt; x === undefined)) </div><div class="line">// false</div><div class="line">console.log([, &apos;a&apos;].map((x, i) =&gt; 1));</div><div class="line">// [empty × 1, 1]</div><div class="line">console.log([, &apos;a&apos;, undefined, null].join(&apos;#&apos;)) </div><div class="line">// #a##</div><div class="line"></div><div class="line">`</div></pre></td></tr></table></figure>
+<p>但在ES6中,空位会被明确转为undefined</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">console.log([...[&apos;a&apos;, , &apos;b&apos;]]) </div><div class="line">//[&quot;a&quot;, undefined, &quot;b&quot;]</div></pre></td></tr></table></figure>
+<p>copyWithin()会连空位一起复制</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[, &apos;a&apos;, &apos;b&apos;, ,].copyWithin(2, 0) //[empty × 1, &quot;a&quot;, empty × 1, &quot;a&quot;]</div></pre></td></tr></table></figure>
+<p>fill()会将空位视为正常的数组位置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">new Array(3).fill(&apos;a&apos;) // [&apos;a&apos;, &apos;a&apos;, &apos;a&apos;]</div></pre></td></tr></table></figure>
+<p>for…of循环也会遍历空位, 而map却不会遍历空位</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">let arr = [, ,]</div><div class="line">for(let i of arr) &#123;</div><div class="line">	console.log(1) // 1 // 1</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="数组推导"><a href="#数组推导" class="headerlink" title="数组推导"></a>数组推导</h1><p>数组推导是ES7中的新方法,允许直接通过现有数组生成新数组.</p>
+<p>本来TC39是计划将其放入ES6的,但TC39仍然想完善它,让其支持所有数组结构. 所以推迟到了ES7.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">let a1 = [1, 2, 3, 4]</div><div class="line">var a2 = [</div><div class="line">	for (i of a1) i * 2</div><div class="line">];</div><div class="line">console.log(a2)  // [2, 4, 6, 8]</div></pre></td></tr></table></figure>
+<p>(完)</p>
+]]></content>
     
     <summary type="html">
     
-      本系列为在我基本完全读完了阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理，作为日后的复习使用。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导像我这样的新手，快速入门ES6，并逐步将其投入到生产实践中。
+      本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导新手，快速入门ES6，并逐步将其投入到生产实践中。
     
     </summary>
     
@@ -226,9 +377,9 @@
     <link href="https://github.com/ChangerHe/2017/06/22/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-number%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%89%A9%E5%B1%95/"/>
     <id>https://github.com/ChangerHe/2017/06/22/《ES6标准入门》阅读笔记——-number类型的扩展/</id>
     <published>2017-06-22T15:41:23.000Z</published>
-    <updated>2017-09-17T02:59:14.613Z</updated>
+    <updated>2017-09-18T00:41:30.254Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>本系列为在我基本完全读完了阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理，作为日后的复习使用。</p>
+    <content type="html"><![CDATA[<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。</p>
 <p>许多初学ES6, 同时和我一样初次阅读阮老师的这本书的时候, 读第一遍会越发的困惑, 因为阮老师上面说的很多的定义,方法,之前都是没有见过的, 读到后面才发现, 哦~原来是这样.</p>
 <p>有一句话叫做”大神的世界我们不懂”, 所以我在初读第一遍《ES6标准入门》这本书的时候,也是踩了不少坑,读书的时候查阅了不少的资料.</p>
 <p>所以,在这一系列的笔记教程中,我会从一个初学者的角度,向您讲述ES6的相关知识,在后面介绍的知识我会尽量不提前用,即使提前使用,也会同时做好标注,避免了阅读时各种查阅资料的烦恼.</p>
@@ -272,7 +423,7 @@
     
     <summary type="html">
     
-      本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理，作为日后的复习使用。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导新手，快速入门ES6，并逐步将其投入到生产实践中。
+      本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导新手，快速入门ES6，并逐步将其投入到生产实践中。
     
     </summary>
     
@@ -290,9 +441,9 @@
     <link href="https://github.com/ChangerHe/2017/06/20/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E6%89%A9%E5%B1%95/"/>
     <id>https://github.com/ChangerHe/2017/06/20/《ES6标准入门》阅读笔记——-正则表达式的扩展/</id>
     <published>2017-06-20T12:45:51.000Z</published>
-    <updated>2017-09-17T02:58:57.557Z</updated>
+    <updated>2017-09-18T00:41:22.071Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>本系列为在我基本完全读完了阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理，作为日后的复习使用。</p>
+    <content type="html"><![CDATA[<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。</p>
 <p>许多初学ES6, 同时和我一样初次阅读阮老师的这本书的时候, 读第一遍会越发的困惑, 因为阮老师上面说的很多的定义,方法,之前都是没有见过的, 读到后面才发现, 哦~原来是这样.</p>
 <p>有一句话叫做”大神的世界我们不懂”, 所以我在初读第一遍《ES6标准入门》这本书的时候,也是踩了不少坑,读书的时候查阅了不少的资料.</p>
 <p>所以,在这一系列的笔记教程中,我会从一个初学者的角度,向您讲述ES6的相关知识,在后面介绍的知识我会尽量不提前用,即使提前使用,也会同时做好标注,避免了阅读时各种查阅资料的烦恼.</p>
@@ -318,7 +469,7 @@
     
     <summary type="html">
     
-      本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理，作为日后的复习使用。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导新手，快速入门ES6，并逐步将其投入到生产实践中。
+      本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导新手，快速入门ES6，并逐步将其投入到生产实践中。
     
     </summary>
     
@@ -336,13 +487,13 @@
     <link href="https://github.com/ChangerHe/2017/06/19/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-Unicode/"/>
     <id>https://github.com/ChangerHe/2017/06/19/《ES6标准入门》阅读笔记——-Unicode/</id>
     <published>2017-06-19T14:11:34.000Z</published>
-    <updated>2017-09-16T05:46:44.244Z</updated>
+    <updated>2017-09-18T00:41:10.344Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>本系列为在我基本完全读完了阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理，作为日后的复习使用。</p>
+    <content type="html"><![CDATA[<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。</p>
 <p>许多初学ES6, 同时和我一样初次阅读阮老师的这本书的时候, 读第一遍会越发的困惑, 因为阮老师上面说的很多的定义,方法,之前都是没有见过的, 读到后面才发现, 哦~原来是这样.</p>
 <p>有一句话叫做”大神的世界我们不懂”, 所以我在初读第一遍《ES6标准入门》这本书的时候,也是踩了不少坑,读书的时候查阅了不少的资料.</p>
 <p>所以,在这一系列的笔记教程中,我会从一个初学者的角度,向您讲述ES6的相关知识,在后面介绍的知识我会尽量不提前用,即使提前使用,也会同时做好标注,避免了阅读时各种查阅资料的烦恼.</p>
-<p>系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导像我这样的新手，快速入门ES6，并逐步将其投入到生产实践中。</p>
+<p>系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导新手，快速入门ES6，并逐步将其投入到生产实践中。</p>
 <p>同时,在阅读前也提醒您, 为了系统连贯性的学习ES6的基础知识,建议您从我的博客第一章开始阅读,当然,如果您对对应的知识已经有所了解,那么可以跳转到任意章节阅读,每一篇博客名中均有介绍该博客中涉及到的ES6的内容.</p>
 <p>阮一峰老师的这本书是开源的，在其官方博客就可以下载到，但是我强烈建议大家去购买一本书, 一是方便自己查阅ES6中新增的众多API, 二也是表达一下对大神的敬仰.</p>
 <h1 id="ES6加强了对Unicode的支持-并扩展了字符串对象"><a href="#ES6加强了对Unicode的支持-并扩展了字符串对象" class="headerlink" title="ES6加强了对Unicode的支持,并扩展了字符串对象"></a>ES6加强了对Unicode的支持,并扩展了字符串对象</h1><p>ES6对Unicode的主要的新增支持是,已经开始支持32位的字符了,要知道在之前,32位的字符是会被JS判定为两个字符的.</p>
@@ -372,7 +523,7 @@
     
     <summary type="html">
     
-      本系列为在我基本完全读完了阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理，作为日后的复习使用。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导像我这样的新手，快速入门ES6，并逐步将其投入到生产实践中。
+      本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导新手，快速入门ES6，并逐步将其投入到生产实践中。
     
     </summary>
     
@@ -390,10 +541,10 @@
     <link href="https://github.com/ChangerHe/2017/06/19/%E7%90%86%E8%A7%A3Nodejs%E9%87%8C%E7%9A%84process-nextTick/"/>
     <id>https://github.com/ChangerHe/2017/06/19/理解Nodejs里的process-nextTick/</id>
     <published>2017-06-19T12:00:32.000Z</published>
-    <updated>2017-09-17T12:23:08.214Z</updated>
+    <updated>2017-09-17T12:25:37.601Z</updated>
     
     <content type="html"><![CDATA[<p>Nodejs的事件驱动,异步IO模型另异步编程变得异常风行,它借助了异步IO模型及V8高性能引擎,突破了单线程的性能瓶颈. 让Jacascript在后端达到了其应有的使用价值. </p>
-<p>另外以方便,它也同意了前后端的javascript编程模型.</p>
+<p>另外一方面,它也统一了前后端的javascript编程模型.</p>
 <p>异步编程也给前端程序猿带来了诸多的痛苦和不适应. 这也是我今天着重想提<code>process.nextTick()</code>这个API的原因之一.</p>
 <h1 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h1><p>在过去,我们处理异常一般使用try catch fanily这个语句块进行异常捕获和处理</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">try &#123;</div><div class="line">	JSON.parse(jsonObj)</div><div class="line">&#125; catch(e) &#123;</div><div class="line">	// do something...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -429,7 +580,7 @@
     
     <summary type="html">
     
-      理解Node.js里的process.nextTick()
+      Nodejs的事件驱动,异步IO模型另异步编程变得异常风行,它借助了异步IO模型及V8高性能引擎,突破了单线程的性能瓶颈. 让Jacascript在后端达到了其应有的使用价值.  另外一方面,它也统一了前后端的javascript编程模型.
     
     </summary>
     
@@ -447,13 +598,13 @@
     <link href="https://github.com/ChangerHe/2017/06/18/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94%E2%80%94%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC/"/>
     <id>https://github.com/ChangerHe/2017/06/18/《ES6标准入门》阅读笔记———解构赋值/</id>
     <published>2017-06-18T13:21:39.000Z</published>
-    <updated>2017-09-16T05:45:46.786Z</updated>
+    <updated>2017-09-18T00:40:26.230Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>本系列为在我基本完全读完了阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理，作为日后的复习使用。</p>
+    <content type="html"><![CDATA[<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。</p>
 <p>许多初学ES6, 同时和我一样初次阅读阮老师的这本书的时候, 读第一遍会越发的困惑, 因为阮老师上面说的很多的定义,方法,之前都是没有见过的, 读到后面才发现, 哦~原来是这样.</p>
 <p>有一句话叫做”大神的世界我们不懂”, 所以我在初读第一遍《ES6标准入门》这本书的时候,也是踩了不少坑,读书的时候查阅了不少的资料.</p>
 <p>所以,在这一系列的笔记教程中,我会从一个初学者的角度,向您讲述ES6的相关知识,在后面介绍的知识我会尽量不提前用,即使提前使用,也会同时做好标注,避免了阅读时各种查阅资料的烦恼.</p>
-<p>系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导像我这样的新手，快速入门ES6，并逐步将其投入到生产实践中。</p>
+<p>系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导新手，快速入门ES6，并逐步将其投入到生产实践中。</p>
 <p>同时,在阅读前也提醒您, 为了系统连贯性的学习ES6的基础知识,建议您从我的博客第一章开始阅读,当然,如果您对对应的知识已经有所了解,那么可以跳转到任意章节阅读,每一篇博客名中均有介绍该博客中涉及到的ES6的内容.</p>
 <p>阮一峰老师的这本书是开源的，在其官方博客就可以下载到，但是我强烈建议大家去购买一本书, 一是方便自己查阅ES6中新增的众多API, 二也是表达一下对大神的敬仰.</p>
 <h1 id="什么是解构赋值"><a href="#什么是解构赋值" class="headerlink" title="什么是解构赋值?"></a>什么是解构赋值?</h1><p>ES6允许我们按照一定模式,从数组和对象中提取值,对变量进行赋值,这被称为解构</p>
@@ -517,7 +668,7 @@
     
     <summary type="html">
     
-      本系列为在我基本完全读完了阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理，作为日后的复习使用。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导像我这样的新手，快速入门ES6，并逐步将其投入到生产实践中。
+      本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导新手，快速入门ES6，并逐步将其投入到生产实践中。
     
     </summary>
     
@@ -535,13 +686,13 @@
     <link href="https://github.com/ChangerHe/2017/06/17/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94let%E5%92%8Cconst/"/>
     <id>https://github.com/ChangerHe/2017/06/17/《ES6标准入门》阅读笔记——let和const/</id>
     <published>2017-06-17T13:33:39.000Z</published>
-    <updated>2017-09-16T05:45:28.262Z</updated>
+    <updated>2017-09-18T00:40:15.428Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>本系列为在我基本完全读完了阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理，作为日后的复习使用。</p>
+    <content type="html"><![CDATA[<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。</p>
 <p>许多初学ES6, 同时和我一样初次阅读阮老师的这本书的时候, 读第一遍会越发的困惑, 因为阮老师上面说的很多的定义,方法,之前都是没有见过的, 读到后面才发现, 哦~原来是这样.</p>
 <p>有一句话叫做”大神的世界我们不懂”, 所以我在初读第一遍《ES6标准入门》这本书的时候,也是踩了不少坑,读书的时候查阅了不少的资料.</p>
 <p>所以,在这一系列的笔记教程中,我会从一个初学者的角度,向您讲述ES6的相关知识,在后面介绍的知识我会尽量不提前用,即使提前使用,也会同时做好标注,避免了阅读时各种查阅资料的烦恼.</p>
-<p>系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导像我这样的新手，快速入门ES6，并逐步将其投入到生产实践中。</p>
+<p>系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导新手，快速入门ES6，并逐步将其投入到生产实践中。</p>
 <p>同时,在阅读前也提醒您, 为了系统连贯性的学习ES6的基础知识,建议您从我的博客第一章开始阅读,当然,如果您对对应的知识已经有所了解,那么可以跳转到任意章节阅读,每一篇博客名中均有介绍该博客中涉及到的ES6的内容.</p>
 <p>阮一峰老师的这本书是开源的，在其官方博客就可以下载到，但是我强烈建议大家去购买一本书, 一是方便自己查阅ES6中新增的众多API, 二也是表达一下对大神的敬仰.</p>
 <h1 id="函数的作用域"><a href="#函数的作用域" class="headerlink" title="函数的作用域"></a>函数的作用域</h1><p>要知道，在ES6以前，JS一直都是只有函数作用域，而没有块级作用域的。在这样的情况下，我们大多会使用IIFE（自执行函数表达式）来模拟块级作用域，达到避免全局作用域污染等目的。</p>
@@ -592,7 +743,7 @@
     
     <summary type="html">
     
-      本系列为在我基本完全读完了阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理，作为日后的复习使用。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导像我这样的新手，快速入门ES6，并逐步将其投入到生产实践中。
+      本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导新手，快速入门ES6，并逐步将其投入到生产实践中。
     
     </summary>
     
