@@ -15,17 +15,17 @@
 
 
 
-<meta name="description" content="众所周知，JavaScript中的sort()方法可对数组进行排序。 平时我们使用就是简单的执行一个sort()方法，但是其实这个方法是带有参数的。">
-<meta name="keywords" content="JavaScript">
+<meta name="description" content="本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导新手，快速入门ES6，并逐步将其投入到生产实践中。">
+<meta name="keywords" content="ES6,Object">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScipt中sort()方法的底层原理及妙用">
-<meta property="og:url" content="https://github.com/ChangerHe/2017/06/15/JavaScipt中sort-方法的底层原理及妙用/index.html">
+<meta property="og:title" content="《ES6标准入门》阅读笔记——-对象的扩展">
+<meta property="og:url" content="https://github.com/ChangerHe/2017/06/30/《ES6标准入门》阅读笔记——-对象的扩展/index.html">
 <meta property="og:site_name" content="ChangerHe&#39;s Bolg|何庆畅的个人博客">
-<meta property="og:description" content="众所周知，JavaScript中的sort()方法可对数组进行排序。 平时我们使用就是简单的执行一个sort()方法，但是其实这个方法是带有参数的。">
-<meta property="og:updated_time" content="2017-09-14T15:02:17.145Z">
+<meta property="og:description" content="本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导新手，快速入门ES6，并逐步将其投入到生产实践中。">
+<meta property="og:updated_time" content="2017-09-23T13:50:55.999Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScipt中sort()方法的底层原理及妙用">
-<meta name="twitter:description" content="众所周知，JavaScript中的sort()方法可对数组进行排序。 平时我们使用就是简单的执行一个sort()方法，但是其实这个方法是带有参数的。">
+<meta name="twitter:title" content="《ES6标准入门》阅读笔记——-对象的扩展">
+<meta name="twitter:description" content="本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导新手，快速入门ES6，并逐步将其投入到生产实践中。">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -57,7 +57,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>JavaScipt中sort()方法的底层原理及妙用 | ChangerHe&#39;s Bolg|何庆畅的个人博客</title>
+<title>《ES6标准入门》阅读笔记——-对象的扩展 | ChangerHe&#39;s Bolg|何庆畅的个人博客</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -266,11 +266,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-JavaScipt中sort-方法的底层原理及妙用" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-《ES6标准入门》阅读笔记——-对象的扩展" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/06/15/JavaScipt中sort-方法的底层原理及妙用/" class="article-date">
-      <time datetime="2017-06-15T02:16:09.000Z" itemprop="datePublished">2017-06-15</time>
+      <a href="/2017/06/30/《ES6标准入门》阅读笔记——-对象的扩展/" class="article-date">
+      <time datetime="2017-06-30T05:49:33.000Z" itemprop="datePublished">2017-06-30</time>
 </a>
 
 
@@ -285,7 +285,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      JavaScipt中sort()方法的底层原理及妙用
+      《ES6标准入门》阅读笔记——-对象的扩展
     </h1>
   
 
@@ -294,13 +294,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/JavaScript-学习笔记/">JavaScript 学习笔记</a>
+    <a class="article-category-link" href="/categories/ES6标准入门/">ES6标准入门</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/">ES6</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Object/">Object</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -310,12 +310,66 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>众所周知，JavaScript中的sort()方法可对数组进行排序。<br>平时我们使用就是简单的执行一个sort()方法，但是其实这个方法是带有参数的。<br>语法为：<code>arrayObject.sort(sortby);</code><br>其中，参数sortby，必须为函数！这点要注意，之前试过传值的方法一直都不奏效，后面才发现，只能传递一个参数。</p>
-<h1 id="未传参情况下的排序"><a href="#未传参情况下的排序" class="headerlink" title="未传参情况下的排序"></a>未传参情况下的排序</h1><p>当没有为该方法传参时，则默认对数组进行从大到小排序，排序的依据是数组中每个元素的首个字符的ASCII码，因此当你想要对数组<code>[2,10,3]</code>排序时，直接排序的结果为<code>[10,2,3]</code>，因为在sort()的底层，比较时会自动为数组中的值进行toString()方法的转换，比较时比较的是字符。</p>
-<h1 id="传参情况下的排序"><a href="#传参情况下的排序" class="headerlink" title="传参情况下的排序"></a>传参情况下的排序</h1><p>JS高程中介绍了传递比较函数的方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var a = [10,3,12];</div><div class="line">  var line = function(a,b)&#123;</div><div class="line">    return b -a;</div><div class="line">  &#125;</div><div class="line"> a.sort(line)</div><div class="line"> console.log(a)   //3,10,12</div></pre></td></tr></table></figure></p>
-<p> 但是有个问题，这个数东西就只能针对数组额，但是如果我想要对数组对象进行排序呢？<br> 其实方法类似，万变不离其宗。如下：<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"> var arr = [</div><div class="line">	&#123;name: &quot;aaa&quot;, age: 0&#125;,</div><div class="line">	&#123;name: &quot;bbb&quot;, age: 18&#125;,</div><div class="line">	&#123;name: &quot;ccc&quot;, age: 8&#125;</div><div class="line"> ];</div><div class="line">function compare(property)&#123;</div><div class="line">	return function(a,b)&#123;</div><div class="line">		var value1 = a[property];  //获取a的</div><div class="line">		var value2 = b[property];</div><div class="line">		return value1 - value2;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">console.log(arr.sort(compare(&apos;age&apos;)));</div></pre></td></tr></table></figure></p>
-<h1 id="逆向排序"><a href="#逆向排序" class="headerlink" title="逆向排序"></a>逆向排序</h1><p>那么问题来了，如果都是从小到大排序，那就不好玩了，能不能有办法在不使用reverse()方法的情况下，实现增加一个参数，来决定他们是从大到小排序，还是从小到大排序呢？<br>当然问题还是有解决方案的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">sortBy:function(attr,rev)&#123;</div><div class="line">	if(rev == undefined)&#123;</div><div class="line">		rev = 1;    //当未传递参数时，默认为从小到大排序，即undefined时，为1</div><div class="line">	&#125;else&#123;</div><div class="line">		rev = (rev)? 1 : -1;</div><div class="line">	&#125;</div><div class="line">	return function(a,b)&#123;</div><div class="line">		a = a[attr]</div><div class="line">		b = b[attr]</div><div class="line">		if(a &lt; b)&#123;</div><div class="line">			return rev * -1;</div><div class="line">		&#125; else if(a = b)&#123;</div><div class="line">			return 0;</div><div class="line">		&#125; else &#123;</div><div class="line">			return 1;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">someArray.sort(sortBy(&quot;number&quot;,false));</div></pre></td></tr></table></figure></p>
-<h1 id="底层原理"><a href="#底层原理" class="headerlink" title="底层原理"></a>底层原理</h1><p>以上是研究出的部分结果，但是对sort()的底层排序机制，还是不太理解，到底是用的冒泡排序，还是堆排序，还是更牛逼的高级算法？这就不得而知了，这里引用一下segmenfault上大神们的解释：<br>不同的浏览器，对sort()方法的实现机制是不同的。<br>Mozilla、Firefox这两个浏览器是使用的<code>归并排序</code>方法。使用V8引擎，对数组长度小于等于22的用插入排序，其他的使用快速排序。<br>webkit这个浏览器底层使用了C++库中的qsort()方法。<br>```</p>
+        <h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。</p>
+<p>许多初学ES6, 同时和我一样初次阅读阮老师的这本书的时候, 读第一遍会越发的困惑, 因为阮老师上面说的很多的定义,方法,之前都是没有见过的, 读到后面才发现, 哦~原来是这样.</p>
+<p>有一句话叫做”大神的世界我们不懂”, 所以我在初读第一遍《ES6标准入门》这本书的时候,也是踩了不少坑,读书的时候查阅了不少的资料.</p>
+<p>所以,在这一系列的笔记教程中,我会从一个初学者的角度,向您讲述ES6的相关知识,在后面介绍的知识我会尽量不提前用,即使提前使用,也会同时做好标注,避免了阅读时各种查阅资料的烦恼.</p>
+<p>系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导新手，快速入门ES6，并逐步将其投入到生产实践中。</p>
+<p>同时,在阅读前也提醒您, 为了系统连贯性的学习ES6的基础知识,建议您从我的博客第一章开始阅读,当然,如果您对对应的知识已经有所了解,那么可以跳转到任意章节阅读,每一篇博客名中均有介绍该博客中涉及到的ES6的内容.</p>
+<p>阮一峰老师的这本书是开源的，在其官方博客就可以下载到，但是我强烈建议大家去购买一本书, 一是方便自己查阅ES6中新增的众多API, 二也是表达一下对大神的敬仰.</p>
+<h1 id="属性的简洁表示法"><a href="#属性的简洁表示法" class="headerlink" title="属性的简洁表示法"></a>属性的简洁表示法</h1><p>ES6允许写入变量和函数作为对象的属性和方法, 也就是说,在ES6中是允许在对象中只写属性名,不写属性值的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var foo = &apos;bar&apos;</div><div class="line">var baz = &#123;foo&#125;</div><div class="line">console.log(baz) // &#123;foo: &quot;bar&quot;&#125;</div><div class="line"></div><div class="line">function f(x, y) &#123;</div><div class="line">	return &#123;x,y&#125;</div><div class="line">&#125;</div><div class="line">console.log(f(1, 2)) // &#123;x: 1, y: 2&#125;</div></pre></td></tr></table></figure>
+<p>除了属性简写,方法也是可以简写的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var o = &#123;</div><div class="line">	method() &#123;</div><div class="line">		return &apos;Hello!&apos;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>等价于</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var o = &#123;</div><div class="line">	method: function() &#123;</div><div class="line">		return &apos;Hello&apos;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>CommonJS的模块输出变量就非常适合使用简洁写法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">var ms = &#123;&#125;</div><div class="line"></div><div class="line">function getItem(key) &#123;</div><div class="line">	return key in ms ? ms[key] : null</div><div class="line">&#125;</div><div class="line"></div><div class="line">function setItem(key, value) &#123;</div><div class="line">	ms[key] = value</div><div class="line">&#125;</div><div class="line"></div><div class="line">function clear() &#123;</div><div class="line">	ms = &#123;&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">module.exports = &#123;getItem, setItem, clear&#125;</div></pre></td></tr></table></figure>
+<p>上面代码的最后一句就等价于</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">module.exports = &#123;</div><div class="line">	getItem: getItem, </div><div class="line">	setItem: setItem,</div><div class="line">	clear: clear</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="属性名表达式"><a href="#属性名表达式" class="headerlink" title="属性名表达式"></a>属性名表达式</h1><p>ES6同时开放了使用表达式放在方括号内,作为字面量的方式定义对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var obj = &#123;</div><div class="line">    [propkey]: true,</div><div class="line">    [&apos;a&apos; + &apos;bc&apos;]: 123</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="方法的name属性"><a href="#方法的name属性" class="headerlink" title="方法的name属性"></a>方法的name属性</h1><p>函数的name属性返回函数名,对象方法也是函数,因此也存在name属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">console.log((new Function()).name) //anonymous</div></pre></td></tr></table></figure>
+<p>关于方法的name属性,存在以下几个特点</p>
+<blockquote>
+<p>正常的情况下,函数的函数体的name值返回函数的名称</p>
+<p>当我们使用get或者set方法对函数进行描述的时候,会返回对应的前缀加上函数名</p>
+<p>当我们使用bind方法创造的函数,函数会有一个bound来修饰</p>
+<p>当使用构造函数来创造的函数中,name值固定为anonymous</p>
+<p>如果对象的方法是一个symbol值, 那么那么属性返回的是这个symbol值的描述</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">const key1 = Symbol(&apos;description&apos;)</div><div class="line">const key2 = Symbol()</div><div class="line">let obj = &#123;</div><div class="line">	[key1]() &#123;&#125;,</div><div class="line">	[key2]() &#123;&#125;</div><div class="line">&#125;</div><div class="line">console.log(obj[key1].name) // &apos;[description]&apos;</div><div class="line">console.log(obj[key2].name) // &apos;&apos;</div></pre></td></tr></table></figure>
+<h1 id="Object-is"><a href="#Object-is" class="headerlink" title="Object.is()"></a>Object.is()</h1><p>Object.is() 是ES6新定义的方法,用于确定传入的两个参数是否严格相等</p>
+<p>但是, 与全等 === 符号唯一不同的地方是 +0不等于-0  NaN等于自身NaN</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">console.log(-0 === +0)  // true</div><div class="line">console.log(NaN === NaN) // false</div><div class="line"></div><div class="line">console.log(Object.is(-0, +0)) // false</div><div class="line">console.log(Object.is(NaN, NaN))  // true</div></pre></td></tr></table></figure>
+<p>在ES5中可以部署对应的方法, 来模拟Object.is的效果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">Object.defineProperty(Object, &apos;is&apos;, &#123;</div><div class="line">	value: function(x, y) &#123;</div><div class="line">		if (x === y) &#123;</div><div class="line">			return x !== 0 || 1 / x === 1 / y</div><div class="line">		&#125;</div><div class="line">		return x !== x &amp;&amp; y !== y</div><div class="line">	&#125;,</div><div class="line">	configurable: true,</div><div class="line">	enumerable: false,</div><div class="line">	writable: true</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h1 id="Object-assign"><a href="#Object-assign" class="headerlink" title="Object.assign()"></a>Object.assign()</h1><p>Object.assign() 方法将源对象的所有可枚举属性复制到目标对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">let target = &#123;a: 1&#125;</div><div class="line">let source1 = &#123;b: 2&#125;</div><div class="line">let source2 = &#123;c: 3&#125;</div><div class="line"></div><div class="line">Object.assign(target, source1, source2)</div><div class="line">console.log(target) // &#123;a: 1, b: 2, c: 3&#125;</div></pre></td></tr></table></figure>
+<p>同样的,Object.assign 方法可以用来复制数组,但是因为会将数组视为一个对象,所以后面数组的对应数组下标的值会覆盖之前的数组的下标的值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var a = [1, 2, 3]</div><div class="line">var b = [4, 5]</div><div class="line">Object.assign(a, b)</div><div class="line">console.log(a) // [4,5,3]</div></pre></td></tr></table></figure>
+<p>使用Object.assign可以将原始对象赋值到一个空对象, 就得到了原始对象的克隆</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function clone(origin) &#123;</div><div class="line">	return Object.assign(&#123;&#125;, origin)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>通过将对象赋值到一个空对象的方式,获得了这个origin对象的克隆</p>
+<p>不过,采用这种方法克隆,只能克隆原始对象自身的值,而不能克隆它继承的值</p>
+<p>那么,如果想要获得保持原型链的对象,那么就需要使用这样的方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">function clone(origin) &#123;</div><div class="line">	let originProto = Object.getPrototypeOf(origin)</div><div class="line">	return Object.assign(Object.create(originProto), origin)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>实现方式就是这样的,使用getPropertyOf方法获取了origin的原型,然后将函数体合并到原型中,并返回</p>
+<p>当使用Object.assign() 对两个对象进行合并的时候,不论前面对应对象名称的内容是什么,其内容都会被替换掉</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var target = &#123;</div><div class="line">	a: &#123;b: &apos;c&apos;,d: &apos;e&apos;&#125;</div><div class="line">&#125;</div><div class="line">var source = &#123;</div><div class="line">	a: &#123;b: &apos;hello&apos;&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Object.assign(target, source)</div><div class="line">console.log(target) // a:&#123;b: &quot;hello&quot;&#125;</div></pre></td></tr></table></figure>
+<h1 id="属性的可枚举性"><a href="#属性的可枚举性" class="headerlink" title="属性的可枚举性"></a>属性的可枚举性</h1><p>ES6规定,所有class的原型的方法都是不可枚举的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var a = Object.getOwnPropertyDescriptor(</div><div class="line">	class &#123;</div><div class="line">		foo() &#123;&#125;</div><div class="line">	&#125;.prototype, &apos;foo&apos;</div><div class="line">).enumerable</div><div class="line">console.log(a) // false</div></pre></td></tr></table></figure>
+<h1 id="proto属性"><a href="#proto属性" class="headerlink" title="proto属性"></a><strong>proto</strong>属性</h1><p><strong>proto</strong>属性用来读取或设置当前对象的prototype对象, 这个属性其实在很早版本的chrome Firefox Opera等现代浏览器中都已经得到了支持,被广泛用于查找原型上的方法和属性.</p>
+<p>但是IE迟迟得不到支持,在ES6中,此属性被写到了规范中</p>
+<p>让人欣喜的是,IE11开始,也支持此属性了</p>
+<p>对应的, ES6也同时推出了Object.setPrototypeOf()方法, 该方法的作用与<strong>proto</strong>是相同的,只不过<strong>proto</strong>是一个内部方法, 因此TC39推荐使用Object.setPrototypeOf()来设置原型对象的方法.</p>
+<h1 id="对象的扩展运算符"><a href="#对象的扩展运算符" class="headerlink" title="对象的扩展运算符"></a>对象的扩展运算符</h1><p>ES7有个提案, 将rest参数,也就是扩展运算符引入对象,目前babel已经支持</p>
+<p>rest参数(扩展运算符) 用于从一个对象取值,相当于将所有可遍历但尚未被读取的键但尚未读取的属性,分配到指定的对象上,所有的键及相应的值都会被赋值到新对象上</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">let &#123;x, y, ...z&#125; = &#123;</div><div class="line">	x: 1,</div><div class="line">	a: 3,</div><div class="line">	y: 2,</div><div class="line">	b: 4,</div><div class="line">&#125;</div><div class="line">console.log(x) // 1</div><div class="line">console.log(y) // 2</div><div class="line">console.log(z) // &#123;a: 3, b: 4&#125;</div></pre></td></tr></table></figure>
+<p>目前在Chrome中测试, 尚未支持上面的方法</p>
+<p>有一点要注意的是,rest参数的复制是浅复制</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">let obj = &#123;a: &#123;b: 1&#125;&#125;</div><div class="line">let &#123;...x&#125; = obj</div><div class="line">obj.a.b = 2</div><div class="line">console.log(x.a.b) // 2</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -324,12 +378,12 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/06/15/JavaScipt中sort-方法的底层原理及妙用/">JavaScipt中sort()方法的底层原理及妙用</a></p>
+        <p><span>本文标题:</span><a href="/2017/06/30/《ES6标准入门》阅读笔记——-对象的扩展/">《ES6标准入门》阅读笔记——-对象的扩展</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">ChangerHe</a></p>
-        <p><span>发布时间:</span>2017-06-15, 10:16:09</p>
+        <p><span>发布时间:</span>2017-06-30, 13:49:33</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/06/15/JavaScipt中sort-方法的底层原理及妙用/" title="JavaScipt中sort()方法的底层原理及妙用">https://github.com/ChangerHe/2017/06/15/JavaScipt中sort-方法的底层原理及妙用/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://github.com/ChangerHe/2017/06/15/JavaScipt中sort-方法的底层原理及妙用/　　作者: ChangerHe" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/06/30/《ES6标准入门》阅读笔记——-对象的扩展/" title="《ES6标准入门》阅读笔记——-对象的扩展">https://github.com/ChangerHe/2017/06/30/《ES6标准入门》阅读笔记——-对象的扩展/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://github.com/ChangerHe/2017/06/30/《ES6标准入门》阅读笔记——-对象的扩展/　　作者: ChangerHe" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -342,15 +396,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/06/15/浅谈框架模式的MVC-MVP-MVVM/">
-                    浅谈框架模式的MVC/MVP/MVVM
+                <a href="/2017/07/01/《ES6标准入门》阅读笔记——-symbol及proxy-reflect/">
+                    《ES6标准入门》阅读笔记——-symbol及proxy/reflect
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2017/06/14/代码执行顺序解析/">
-                    JAVA代码执行顺序解析
+                <a href="/2017/06/28/《ES6标准入门》阅读笔记——-函数的扩展/">
+                    《ES6标准入门》阅读笔记——-函数的扩展
                 </a>
             </div>
         
@@ -362,7 +416,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#未传参情况下的排序"><span class="toc-number">1.</span> <span class="toc-text">未传参情况下的排序</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#传参情况下的排序"><span class="toc-number">2.</span> <span class="toc-text">传参情况下的排序</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#逆向排序"><span class="toc-number">3.</span> <span class="toc-text">逆向排序</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#底层原理"><span class="toc-number">4.</span> <span class="toc-text">底层原理</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#写在前面"><span class="toc-number">1.</span> <span class="toc-text">写在前面</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#属性的简洁表示法"><span class="toc-number">2.</span> <span class="toc-text">属性的简洁表示法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#属性名表达式"><span class="toc-number">3.</span> <span class="toc-text">属性名表达式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#方法的name属性"><span class="toc-number">4.</span> <span class="toc-text">方法的name属性</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Object-is"><span class="toc-number">5.</span> <span class="toc-text">Object.is()</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Object-assign"><span class="toc-number">6.</span> <span class="toc-text">Object.assign()</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#属性的可枚举性"><span class="toc-number">7.</span> <span class="toc-text">属性的可枚举性</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#proto属性"><span class="toc-number">8.</span> <span class="toc-text">proto属性</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#对象的扩展运算符"><span class="toc-number">9.</span> <span class="toc-text">对象的扩展运算符</span></a></li></ol>
         
     </div>
     <style>
@@ -393,7 +447,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/06/15/浅谈框架模式的MVC-MVP-MVVM/" title="上一篇: 浅谈框架模式的MVC/MVP/MVVM">
+            <a href="/2017/07/01/《ES6标准入门》阅读笔记——-symbol及proxy-reflect/" title="上一篇: 《ES6标准入门》阅读笔记——-symbol及proxy/reflect">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -401,7 +455,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/06/14/代码执行顺序解析/" title="下一篇: JAVA代码执行顺序解析">
+            <a href="/2017/06/28/《ES6标准入门》阅读笔记——-函数的扩展/" title="下一篇: 《ES6标准入门》阅读笔记——-函数的扩展">
                 <i class="fa fa-angle-right"></i>
             </a>
         
