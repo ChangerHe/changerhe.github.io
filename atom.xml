@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/ChangerHe/"/>
-  <updated>2017-09-18T00:42:20.342Z</updated>
+  <updated>2017-09-24T15:35:44.241Z</updated>
   <id>https://github.com/ChangerHe/</id>
   
   <author>
@@ -14,6 +14,49 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>基于MongoDB 2dSphere索引查找最近的点</title>
+    <link href="https://github.com/ChangerHe/2017/07/21/%E5%9F%BA%E4%BA%8EMongoDB-2dSphere%E7%B4%A2%E5%BC%95%E6%9F%A5%E6%89%BE%E6%9C%80%E8%BF%91%E7%9A%84%E7%82%B9/"/>
+    <id>https://github.com/ChangerHe/2017/07/21/基于MongoDB-2dSphere索引查找最近的点/</id>
+    <published>2017-07-21T15:27:22.000Z</published>
+    <updated>2017-09-24T15:35:44.241Z</updated>
+    
+    <content type="html"><![CDATA[<p>在移动端普及的今天，LBS应用需求也越来越大。比如查找附近的人，最近的餐厅等。面对这些需求，MongoDB提供了功能完备的解决方案。下面通过一个案例来解释一下MongoDB的2dSphere</p>
+<p><img src="http://img.blog.csdn.net/20160923111644414" alt=""></p>
+<p>在这个图片中，有A B C D E F G,假如我是搜索点A。我想查找离自己最近的点。下面是具体的操作步骤： </p>
+<h1 id="建立集合和索引。sp为建立索引的字段名，我们建立的索引类型是2dsphere"><a href="#建立集合和索引。sp为建立索引的字段名，我们建立的索引类型是2dsphere" class="headerlink" title="建立集合和索引。sp为建立索引的字段名，我们建立的索引类型是2dsphere"></a>建立集合和索引。sp为建立索引的字段名，我们建立的索引类型是2dsphere</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 创建2dsphere索引</div><div class="line"> db.sphere.ensureIndex(&#123;&quot;sp&quot;:&quot;2dsphere&quot;&#125;)</div></pre></td></tr></table></figure>
+<h1 id="向集合中插入测试数据，我们插入的是实际的经纬度。"><a href="#向集合中插入测试数据，我们插入的是实际的经纬度。" class="headerlink" title="向集合中插入测试数据，我们插入的是实际的经纬度。"></a>向集合中插入测试数据，我们插入的是实际的经纬度。</h1><p>这里需要注意的是，如果我们如果用的是2dsphere索引，那么插入的应该是GeoJson数据。GeoJson的格式是 </p>
+<p><code>{ type: ‘GeoJSON type’ , coordinates: ‘coordinates’ }</code></p>
+<p>其中type指的是类型，可以是Point(本例中用的)，LineString，Polygon等，coordinates是一个坐标数组。英语好的同学可以去官网看看<a href="https://docs.mongodb.com/manual/reference/geojson/" target="_blank" rel="external">https://docs.mongodb.com/manual/reference/geojson/</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># 插入Point数据</div><div class="line">db.sphere.insert(&#123;name:&quot;A&quot;,sp:&#123;type:&quot;Point&quot;,coordinates:[105.754484701156,41.689607057699]&#125;&#125;)</div><div class="line">db.sphere.insert(&#123;name:&quot;B&quot;,sp:&#123;type:&quot;Point&quot;,coordinates:[105.304045248031,41.783456183240]&#125;&#125;)</div><div class="line">db.sphere.insert(&#123;name:&quot;C&quot;,sp:&#123;type:&quot;Point&quot;,coordinates:[105.084318685531,41.389027478812]&#125;&#125;)</div><div class="line">db.sphere.insert(&#123;name:&quot;D&quot;,sp:&#123;type:&quot;Point&quot;,coordinates:[105.831388998031,41.285916385493]&#125;&#125;)</div><div class="line">db.sphere.insert(&#123;name:&quot;E&quot;,sp:&#123;type:&quot;Point&quot;,coordinates:[106.128706502914,42.086868474465]&#125;&#125;)</div><div class="line">db.sphere.insert(&#123;name:&quot;F&quot;,sp:&#123;type:&quot;Point&quot;,coordinates:[105.431074666976,42.009365053841]&#125;&#125;)</div><div class="line">db.sphere.insert(&#123;name:&quot;G&quot;,sp:&#123;type:&quot;Point&quot;,coordinates:[104.705977010726,41.921549795110]&#125;&#125;)</div></pre></td></tr></table></figure>
+<h1 id="进行查询。介绍一下其中的参数"><a href="#进行查询。介绍一下其中的参数" class="headerlink" title="进行查询。介绍一下其中的参数"></a>进行查询。介绍一下其中的参数</h1><blockquote>
+<p>（1）geoNear:我们要查询的集合名称 </p>
+<p>（2）near:就是基于那个点进行搜索，这里是我们的搜索点A </p>
+<p>（3）spherical:是个布尔值，如果为true，表示将计算实际的物理距离比如两点之间有多少km,若为false,则会基于点的单位进行计算 </p>
+<p>（4）minDistance:搜索的最小距离，这里的单位是米 </p>
+<p>（5）maxDistance:搜索的最大距离</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">db.runCommand(&#123;</div><div class="line">    geoNear:&quot;sphere&quot;,</div><div class="line">    near:&#123;type:&quot;Point&quot;,coordinates:[105.794621276855,41.869574065014]&#125;,</div><div class="line">    spherical:true,</div><div class="line">    minDistance:25000,</div><div class="line">    maxDistance:40000,</div><div class="line">    &#125;)</div></pre></td></tr></table></figure>
+<h1 id="结果分析"><a href="#结果分析" class="headerlink" title="结果分析"></a>结果分析</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    &quot;waitedMS&quot; : NumberLong(0),</div><div class="line">    &quot;results&quot; : [ </div><div class="line">        &#123;</div><div class="line">            &quot;dis&quot; : 33887.5416611258,</div><div class="line">            &quot;obj&quot; : &#123;</div><div class="line">                &quot;_id&quot; : ObjectId(&quot;57e3857e6a4a326367ae0d05&quot;),</div><div class="line">                &quot;name&quot; : &quot;F&quot;,</div><div class="line">                &quot;sp&quot; : &#123;</div><div class="line">                    &quot;type&quot; : &quot;Point&quot;,</div><div class="line">                    &quot;coordinates&quot; : [ </div><div class="line">                        105.431074666976, </div><div class="line">                        42.009365053841</div><div class="line">                    ]</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;, </div><div class="line">        &#123;</div><div class="line">            &quot;dis&quot; : 36734.9748784127,</div><div class="line">            &quot;obj&quot; : &#123;</div><div class="line">                &quot;_id&quot; : ObjectId(&quot;57e3857e6a4a326367ae0d04&quot;),</div><div class="line">                &quot;name&quot; : &quot;E&quot;,</div><div class="line">                &quot;sp&quot; : &#123;</div><div class="line">                    &quot;type&quot; : &quot;Point&quot;,</div><div class="line">                    &quot;coordinates&quot; : [ </div><div class="line">                        106.128706502914, </div><div class="line">                        42.086868474465</div><div class="line">                    ]</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    ],</div><div class="line">    &quot;stats&quot; : &#123;</div><div class="line">        &quot;nscanned&quot; : 24,</div><div class="line">        &quot;objectsLoaded&quot; : 20,</div><div class="line">        &quot;avgDistance&quot; : 35311.2582697693,</div><div class="line">        &quot;maxDistance&quot; : 36734.9748784127,</div><div class="line">        &quot;time&quot; : 87</div><div class="line">    &#125;,</div><div class="line">    &quot;ok&quot; : 1.0</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在results中，我们搜索到了点F和E。每个文档都加上了一个dis字段，他表示这个点离你搜索点的距离。</p>
+<p>比如说，在结果中name为F的点的dis为33887.5416611258。表示F点距离搜索点的距离是33887米。这个结果对于LBS应用是非常有用的。 </p>
+]]></content>
+    
+    <summary type="html">
+    
+      在移动端普及的今天，LBS应用需求也越来越大。比如查找附近的人，最近的餐厅等。面对这些需求，MongoDB提供了功能完备的解决方案。下面通过一个案例来解释一下MongoDB的2dSphere
+    
+    </summary>
+    
+      <category term="MongoDB学习笔记" scheme="https://github.com/ChangerHe/categories/MongoDB%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="MongoDB" scheme="https://github.com/ChangerHe/tags/MongoDB/"/>
+    
+      <category term="2dSphere" scheme="https://github.com/ChangerHe/tags/2dSphere/"/>
+    
+  </entry>
   
   <entry>
     <title>《ES6标准入门》阅读笔记——-Module</title>
@@ -1094,49 +1137,6 @@
 <h1 id="坑九-关于隐式类型转换"><a href="#坑九-关于隐式类型转换" class="headerlink" title="坑九: 关于隐式类型转换"></a>坑九: 关于隐式类型转换</h1><p>对new出来的对象来讲,对其进行判断会有一个自动的隐式类型转换过程,自动调用数组中的valueof()方法,因此就有了以下这样的奇葩现象:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var a = 2;</div><div class="line">Number.prototype.valueOf = function() &#123;</div><div class="line">    return a++;</div><div class="line">&#125;</div><div class="line">var b = new Number(2);</div><div class="line">if(b == 2 &amp;&amp; b ==3) &#123;</div><div class="line">    console.log(&apos;WTF?&apos;)   //WTF?</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>其实这个问题很好解释,每次对b进行判断都是会调用其valueof方法,而valueof方法中a会自增1,因此会有b又等于2,又等于3的情况.</p>
-]]></content>
-    
-    <summary type="html">
-    
-      本系列将会写一些在正常工作中会遇到的一些坑,然后分析它们的产生原因及解决办法.本文的内容主要来自&lt;you don&#39;t know JS&gt;及日常工作的问题的一些总结.
-    
-    </summary>
-    
-      <category term="JavaScript躲坑指南" scheme="https://github.com/ChangerHe/categories/JavaScript%E8%BA%B2%E5%9D%91%E6%8C%87%E5%8D%97/"/>
-    
-    
-      <category term="JavaScript躲坑指南" scheme="https://github.com/ChangerHe/tags/JavaScript%E8%BA%B2%E5%9D%91%E6%8C%87%E5%8D%97/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JavaScript躲坑指南（二）</title>
-    <link href="https://github.com/ChangerHe/2017/06/15/JavaScript%E8%BA%B2%E5%9D%91%E6%8C%87%E5%8D%97%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
-    <id>https://github.com/ChangerHe/2017/06/15/JavaScript躲坑指南（二）/</id>
-    <published>2017-06-15T15:02:38.000Z</published>
-    <updated>2017-09-14T14:37:53.212Z</updated>
-    
-    <content type="html"><![CDATA[<p>本系列将会写一些在正常工作中会遇到的一些坑,然后分析它们的产生原因及解决办法.本文的内容主要来自&lt;you don’t know JS&gt;及日常工作的问题的一些总结.</p>
-<h1 id="关于arguments的使用"><a href="#关于arguments的使用" class="headerlink" title="关于arguments的使用:"></a>关于arguments的使用:</h1><p>arguments在ES6之前简直就是福音,因为在ES6之前是没有办法取到函数的参数组成的数组的.</p>
-<p>但是arguments在使用的过程中还是有一些坑的,我们来看一下:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function foo(a) &#123;</div><div class="line">    a = 42;</div><div class="line">    console.log(arguments[0])</div><div class="line">&#125;</div><div class="line">foo(2);   //42</div><div class="line">foo();    //undefined</div></pre></td></tr></table></figure>
-<p>在向函数传递参数的时候,arguments数组中的对应单元会和命名参数建立关联,以得到相同的值,但是当函数在调用的时候没有传递参数时,因为没有参数,自然arguments就无法和函数建立关联了,自然就是undefined.</p>
-<h1 id="try-catch-finally的内容执行先后的问题"><a href="#try-catch-finally的内容执行先后的问题" class="headerlink" title="try/catch/finally的内容执行先后的问题"></a>try/catch/finally的内容执行先后的问题</h1><p>finally中的代码总是会在try之后执行,如果有catch的话会在catch之后执行.其实也可以把finally中的代码当做一个回调函数.无论出现什么情况,最后一定会被调用.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function foo() &#123;</div><div class="line">    try &#123;</div><div class="line">        return 42;</div><div class="line">    &#125; finally &#123;</div><div class="line">        console.log(&apos;hello&apos;)</div><div class="line">    &#125;</div><div class="line">    console.log(&apos;never runs&apos;);</div><div class="line">&#125;</div><div class="line">console.log(foo());</div><div class="line">//输出结果: 先输出 hello  再输出返回的值hello</div></pre></td></tr></table></figure>
-<p>在这里return42先执行,并将foo()函数的返回值设置为42.try执行完毕后执行finally.console.log()显示的是函数的返回值.</p>
-<p>对于这个问题还有一个很好玩的东西,就是当你在finally中进行抛出异常时,其实try中的返回值就不生效了.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function foo() &#123;</div><div class="line">    try &#123;</div><div class="line">        return  42;</div><div class="line">    &#125; finally &#123;</div><div class="line">        throw &quot;oops!&quot;</div><div class="line">    &#125;</div><div class="line">    console.log(&apos;never runs&apos;);</div><div class="line">&#125;</div><div class="line">console.log(foo()); // Uncaught oops!</div></pre></td></tr></table></figure>
-<p>其实综上而言,不论try中执行的是什么东西,即使是<code>return</code>或者<code>throw</code>等让函数立即结束的语句,最后finally也会成功执行.但是当<code>finally</code>中抛出异常时,<code>try</code>中的代码其实就相当于无效了.也就是finally中的值会最终覆盖掉try中的值.</p>
-<h1 id="关于全局的DOM变量"><a href="#关于全局的DOM变量" class="headerlink" title="关于全局的DOM变量"></a>关于全局的DOM变量</h1><p>当我们在文档流中加入 <code>&lt;div id=&quot;foo&quot;&gt;&lt;/div&gt;</code> 时,我们在其下面的js文档中能否找到foo这个变量呢?答案是可以!</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//我们直接在文档的下面进行类型判定</div><div class="line">console.log(typeof foo);   //输出结果是object,   WTF?</div></pre></td></tr></table></figure>
-<h1 id="关于属性的屏蔽"><a href="#关于属性的屏蔽" class="headerlink" title="关于属性的屏蔽"></a>关于属性的屏蔽</h1><p>当我们在原型链中为底层函数操作原型链中的属性进行算术运算时,属性被被底层函数给屏蔽掉.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var anotherObject = &#123;</div><div class="line">    a: 2</div><div class="line">&#125;</div><div class="line">var myObject = Object.create(anotherObject);</div><div class="line">console.log(myObject.a);</div><div class="line">myObject.a++;</div><div class="line">console.log(myObject.a,anotherObject.a);</div></pre></td></tr></table></figure>
-<p>其实想到原理就很简单,因为当我们把<code>myObject</code>中的a,也就是<code>anotherObject</code>中的a调用之后,相应的<code>myObject.a</code>会得到<code>anotherObject</code>中的a的值,也就是2.但是当我们对<code>myObject</code>执行其属性的自加操作之后,它的底层其实是这样的:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">myObject.__proto__.a = 2;</div><div class="line">myObject= &#123;a:myObject.__proto__.a&#125;;</div><div class="line">myObject.a = myObject.a + 1;</div></pre></td></tr></table></figure>
-<h1 id="关于concat-方法连接数组和push-方法连接数组的区别"><a href="#关于concat-方法连接数组和push-方法连接数组的区别" class="headerlink" title="关于concat()方法连接数组和push()方法连接数组的区别"></a>关于concat()方法连接数组和push()方法连接数组的区别</h1><p>首先我们看一个例子:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var nums = [2, 3, 4, 5];</div><div class="line">console.log(nums.concat([1, 2]))</div><div class="line">//[2, 3, 4, 5, 1, 2]</div><div class="line">console.log(nums)</div><div class="line">//[2, 3, 4, 5]</div><div class="line">nums.push([1, 2])</div><div class="line">console.log(nums)</div><div class="line">[2, 3, 4, 5, [1, 2]]</div></pre></td></tr></table></figure>
-<p>其实看了这个例子大家应该都懂了,首先,<code>concat</code>的作用是链接两个数组,会将两个数组拼合成一个数组,并且不会改变之前的数组的值,而是返回一个新数组.</p>
-<p>而<code>push()</code>则直接改变了数组的值,而且是直接将<code>push()</code>中传的参数直接接到了数组的后面,也就是当我们在<code>push()</code>中传参数组时,最后会得到一个嵌套的数组.</p>
 ]]></content>
     
     <summary type="html">
