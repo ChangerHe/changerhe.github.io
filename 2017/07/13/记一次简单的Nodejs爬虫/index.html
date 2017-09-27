@@ -15,17 +15,17 @@
 
 
 
-<meta name="description" content="本文对日常的简单算法问题进行了一个归纳整理,并提出了自己的一些优化思路和方法">
-<meta name="keywords" content="JavaScript">
+<meta name="description" content="作为初学nodejs的小学森, 不玩一把爬虫真的都不好意思说自己学过nodejs. 所以, 本次教程本着严谨的教学角度, 向大家传授一下严谨的老司机绝技">
+<meta name="keywords" content="Nodejs,爬虫">
 <meta property="og:type" content="article">
-<meta property="og:title" content="基本算法的JavaScript实现">
-<meta property="og:url" content="https://github.com/ChangerHe/2017/06/14/基本算法的JavaScript实现/index.html">
+<meta property="og:title" content="记一次简单的Nodejs爬虫">
+<meta property="og:url" content="https://github.com/ChangerHe/2017/07/13/记一次简单的Nodejs爬虫/index.html">
 <meta property="og:site_name" content="ChangerHe&#39;s Bolg|何庆畅的个人博客">
-<meta property="og:description" content="本文对日常的简单算法问题进行了一个归纳整理,并提出了自己的一些优化思路和方法">
-<meta property="og:updated_time" content="2017-09-14T15:02:38.816Z">
+<meta property="og:description" content="作为初学nodejs的小学森, 不玩一把爬虫真的都不好意思说自己学过nodejs. 所以, 本次教程本着严谨的教学角度, 向大家传授一下严谨的老司机绝技">
+<meta property="og:updated_time" content="2017-09-27T09:13:27.086Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="基本算法的JavaScript实现">
-<meta name="twitter:description" content="本文对日常的简单算法问题进行了一个归纳整理,并提出了自己的一些优化思路和方法">
+<meta name="twitter:title" content="记一次简单的Nodejs爬虫">
+<meta name="twitter:description" content="作为初学nodejs的小学森, 不玩一把爬虫真的都不好意思说自己学过nodejs. 所以, 本次教程本着严谨的教学角度, 向大家传授一下严谨的老司机绝技">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -57,7 +57,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>基本算法的JavaScript实现 | ChangerHe&#39;s Bolg|何庆畅的个人博客</title>
+<title>记一次简单的Nodejs爬虫 | ChangerHe&#39;s Bolg|何庆畅的个人博客</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -266,11 +266,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-基本算法的JavaScript实现" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-记一次简单的Nodejs爬虫" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/06/14/基本算法的JavaScript实现/" class="article-date">
-      <time datetime="2017-06-14T14:16:09.000Z" itemprop="datePublished">2017-06-14</time>
+      <a href="/2017/07/13/记一次简单的Nodejs爬虫/" class="article-date">
+      <time datetime="2017-07-13T10:32:57.000Z" itemprop="datePublished">2017-07-13</time>
 </a>
 
 
@@ -285,7 +285,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      基本算法的JavaScript实现
+      记一次简单的Nodejs爬虫
     </h1>
   
 
@@ -294,13 +294,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/JavaScript-学习笔记/">JavaScript 学习笔记</a>
+    <a class="article-category-link" href="/categories/Nodejs学习笔记/">Nodejs学习笔记</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nodejs/">Nodejs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/爬虫/">爬虫</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -310,14 +310,72 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>也算是一时兴起，对着手机拾掇了一早上，实现了一些简单的排序算法。</p>
-<h1 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h1><p>这个不必多说，最经典的排序算法之一，下面我也是用的最经典的解决方案，同时对算法进行了优化，减少了不必要的比较次数。<br>冒泡排序在嵌套循环都为数组长度的话，这个时候的循环最多次数是N的平方，但是用以下的算法，比较的次数可以减少一半。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">function bubbleSort(arr)&#123;   </div><div class="line">	console.time(&apos;冒泡排序耗时&apos;)</div><div class="line">	var len = arr.length;  //定义冒泡排序的数组长度</div><div class="line">	var n;           //定义n用于在冒泡排序时进行位置调换</div><div class="line">	for (var i = 0; i &lt; len-1; i++) &#123;  //外层循环，使冒泡排序循环数组长度</div><div class="line">		for (var j = 0; j &lt; len-i-1; j++) &#123;</div><div class="line">			if (arr[j] &gt; arr[j+1]) &#123;</div><div class="line">				n = arr[j];</div><div class="line">				arr[j] = arr[j+1];</div><div class="line">				arr[j+1] = n;</div><div class="line">			&#125; </div><div class="line"></div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	console.timeEnd(&apos;冒泡排序耗时&apos;)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>冒泡排序的经典算法经过我自己思考优化后，其实还存在一个多次比较的问题，在网上查了些资料，大佬们给出了另一种算法，主要的优化点在于，记录上要调换的位置，然后从要调换的位置开始进行调换，调换之后，再对剩余的地方进行调换。无疑减少了在一个不需要调换的位置进行多次比较的次数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">function betterBubbleSort(arr)&#123;</div><div class="line">	console.time(&apos;改进后冒泡排序耗时&apos;)</div><div class="line">	var i = arr.length-1;  //定义i为数组的最后一位数</div><div class="line">	var n;      //n作为中间值，用于进行数组调换</div><div class="line">	while(i &gt; 0)&#123;     </div><div class="line">		var pos = 0;   //记录需要调换的位置</div><div class="line">		for(var j = 0; j &lt; i; j++)&#123;   //</div><div class="line">			if (arr[j] &gt; arr[j+1]) &#123;</div><div class="line">				pos = j;</div><div class="line">				n = arr[j];</div><div class="line">				arr[j] = arr[j+1];</div><div class="line">				arr[j+1] = n;</div><div class="line">			&#125; </div><div class="line">		&#125;</div><div class="line">		i = pos;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	console.timeEnd(&apos;改进后冒泡排序耗时&apos;)</div><div class="line">	return arr;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>以上算法对于计算次数已经有了较多的优化了，计算次数显然已经不能再往下优化，但是还有一点就是，我们能否进行多线程的计算，从而缩短整体的计算时间呢？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">function bestBubbleSort(arr)&#123;</div><div class="line">	console.time(&apos;改进后冒泡排序耗时&apos;)</div><div class="line">	var low = 0;</div><div class="line">	var high = arr.length -1;</div><div class="line">	var tmp,j;</div><div class="line">	while(low &lt; high)&#123;</div><div class="line">		for(j = low; j &lt; high; ++j)&#123;</div><div class="line">			if( arr[j] &gt; arr[j+1])&#123;</div><div class="line">				tmp = arr[j];</div><div class="line">				arr[j] = arr[j+1];</div><div class="line">				arr[j+1] = tmp;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		--high;</div><div class="line">		for(j = high; j &gt; low; --j)&#123;</div><div class="line">			if( arr[j] &lt; arr[j-1])&#123;</div><div class="line">				tmp = arr[j];</div><div class="line">				arr[j] = arr[j-1];</div><div class="line">				arr[j-1] = tmp;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		++low;</div><div class="line">	&#125;</div><div class="line">	console.timeEnd(&apos;改进后冒泡排序耗时&apos;)</div><div class="line">	return arr;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h1 id="选择排序的算法"><a href="#选择排序的算法" class="headerlink" title="选择排序的算法"></a>选择排序的算法</h1><p>选择排序是先在数组中进行查找而不调换位置，找到数组中最小数之后，将最小数放到数组的第一个位置，然后再次寻找第二个数。这样做的好处就是，相比于冒泡排序，大大减少了两个数组元素调换位置所产生的内存消耗和计算量。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">function selectionSort(arr)&#123;</div><div class="line">	var len = arr.length-1; //定义数组的长度，并赋值给len</div><div class="line">	console.time(&apos;选择排序耗时&apos;);   //设置计时开始</div><div class="line">	var minindex,temp;</div><div class="line">	for (var i = 0; i &lt; len; i++) &#123;</div><div class="line">		minindex = i;    </div><div class="line">		//设置最小数组下标为minindex，将i赋值给minindex</div><div class="line">		for( var j = i; j &lt; len; j++)&#123;</div><div class="line">		//设置循环，循环区间为最小值到最后一位数</div><div class="line">			if (arr[j] &lt; arr[minindex]) &#123;</div><div class="line">			//若某数小于第minindex个数组的值，就把它赋值给minindex</div><div class="line">				minindex = j;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		//进行最小值与需要调换值的数组下标调换</div><div class="line">		temp = arr[i];</div><div class="line">		arr[i] = arr[minindex];</div><div class="line">		arr[minindex] = temp;</div><div class="line">	&#125;</div><div class="line">	console.timeEnd(&apos;选择排序耗时&apos;);</div><div class="line">	return arr;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h1 id="插入排序算法"><a href="#插入排序算法" class="headerlink" title="插入排序算法"></a>插入排序算法</h1><p>插入排序即是将需要排序的数组中的元素，逐次插入，以达到排序的效果，亲测此方法比上面的两个方法所耗时间都要短。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">function insertionSort(arr)&#123;</div><div class="line">	console.time(&apos;插入排序耗时&apos;);   //设置计时开始</div><div class="line">	for( var i = 1; i &lt; arr.length; i++)&#123;</div><div class="line">		var key = arr[i];</div><div class="line">		var j = i - 1;</div><div class="line">		while(j &gt;= 0 &amp;&amp; arr[j] &gt; key)&#123;</div><div class="line">			arr[j+1] = arr[j];</div><div class="line">			j--;</div><div class="line">		&#125;</div><div class="line">		arr[j+1] = key;</div><div class="line">	&#125;</div><div class="line">	console.timeEnd(&apos;插入排序耗时&apos;);   //设置计时开始</div><div class="line">	return arr;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h1 id="排序算法耗时汇总"><a href="#排序算法耗时汇总" class="headerlink" title="排序算法耗时汇总"></a>排序算法耗时汇总</h1><p>冒泡排序三个方法在随机生成10000个数并对其进行排序的计算中，均耗时约300ms，选择排序和插入排序则耗时较短些，选择排序耗时约200ms左右，插入排序可达到低于200ms。</p>
-<h1 id="JS内核的自带排序算法"><a href="#JS内核的自带排序算法" class="headerlink" title="JS内核的自带排序算法"></a>JS内核的自带排序算法</h1><p>不多说了，就是这个sort()方法，简直想给它跪舔！同样用10000个随机生成的0-100的数，对其进行排序，其计算时间竟然能缩短到逆天的15ms！但是并没有办法详细了解其深层次的原因，听说是因为V8引擎的优化，和基于C++的算法优化所产生的效果。</p>
+        <p>作为初学nodejs的小学森, 不玩一把爬虫真的都不好意思说自己学过nodejs</p>
+<p>所以, 本次教程本着严谨的教学角度, 向大家传授一下严谨的老司机绝技</p>
+<p>学完之后, 自己写点儿小程序, 爬一爬某些不可描述的小图片啊, 小电影啊什么的, 也是可以的</p>
+<p>所以我要在这里再次重申一下啊, 这真的是一篇严谨的教学博客</p>
+<p>一入*门深似海, 从此节操是路人</p>
+<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><p>看到这篇博客时, 默认您已经掌握了nodejs的基本知识以及模块化的相关理念, 以及npm包管理的简单使用方法(也就一个cmd命令, npm i),所以基本上是看一遍之后就可以非常简单的上手的.</p>
+<p>本次的数据库是直接使用的mongoDB, 简单上手,值得拥有.</p>
+<h2 id="mongoDB的配置"><a href="#mongoDB的配置" class="headerlink" title="mongoDB的配置"></a>mongoDB的配置</h2><p>这个下载就不用说了吧, 老司机都知道上度娘.</p>
+<p>关键是配置这块, 安装好之后,我们在项目的文件夹下创建一个db文件夹, 当然,项目文件夹是要存储你待会儿写的代码用的,新建一个就好</p>
+<p>下好之后, 可以启动cmd(win + r, 然后回车) 输入mongo</p>
+<p>输完了吗? 是不是没有看到结果? </p>
+<p>没有结果就对了,因为我没教你配置环境变量啊</p>
+<h3 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h3><p>首先,进入安装目录的bin文件夹,比如我是直接在安装的时候全部点的下一步,所以我的安装目录在<code>C:\Program Files\MongoDB\Server\3.2\bin</code>, 找到这个地方之后,在地址栏, 将这个文件路径复制下来,粘贴到环境变量的对应地方</p>
+<p>环境变量的位置在: 我的电脑右键&gt; 属性 &gt; 高级系统设置 &gt; 环境变量 &gt; 管理员的用户变量</p>
+<p>注意不要动系统变量,不然一旦操作不慎是会造成系统宕机的. </p>
+<p>我们在用户变量的PATH中,鼠标光标点到最后,在它后面插上一个小分号</p>
+<p>哎, 怎么有了一种邪恶的感觉</p>
+<p>咳咳~ 插进去之后, 将我们之前bin目录的文件路径复制上去,然后确定</p>
+<p>现在我们要做一下简单的配置让mongoDB启动起来:</p>
+<p><code>mongod  --storageEngine mmapv1 --dbpath &quot;d:\mongodb\db&quot; --logpath &quot;d:\mongodb\log\MongoDB.log</code></p>
+<p>下面详细讲一下配置的参数:</p>
+<blockquote>
+<p><code>mongod</code> mongoDB的命令,这个不用说</p>
+<p><code>--storageEngine mmapv1</code> 这是一个比较老的mongoDB的存储引擎, 32位系统的童鞋需要有这条命令, 64位系统的可以不用, </p>
+<p><code>--dbpath &quot;d:\mongodb\db&quot;</code> 数据库路径,找到项目文件夹, 把自己的项目文件夹的db路径替换掉上面的路径</p>
+<p><code>--logpath &quot;d:\mongodb\log\MongoDB.log</code> 日志路径,一般我们会放在和db一起, 也是一样的, 把自己的log文件夹的路径替换掉上面的路径,因为刚开始是没有MongoDB.log这个文件的,所以需要新建一个.</p>
+</blockquote>
+<p>执行成功之后,如果没有看到ERROR的提示, 那么恭喜你,mongo的服务已经成功启动了, 报错的可以再往上翻一下是不是有步骤遗漏, 因为我也是纯手工码字, 难免可能自己也有遗漏的地方, 确实不懂的地方也可以度娘或google</p>
+<p>以上,mongo的配置就搞定了,mongo服务默认跑在27017端口, 如果不需要长期使用, 保持cmd挂起服务就正常运行的, 记住不能关掉哦</p>
+<p>如果需要长期使用mongo服务的, 可以将mongo服务设置为系统服务,开机即启动, 可以在cmd中执行以下代码, 用于创建mongo服务进程</p>
+<p><code>mongod  --storageEngine mmapv1 --dbpath &quot;d:\mongodb\db&quot; --logpath &quot;d:\mongodb\log\MongoDB.log&quot; --install --serviceName &quot;MongoDB&quot;</code></p>
+<p>这个是mongo的指令,所以要在cmd状态下,不要在mongo的交互状态下执行这个命令,否则会报错的</p>
+<p>完成以上指令, 就已经成功创建了系统服务了, 我们现在来启动它, 在cmd中输入:</p>
+<p><code>NET START MongoDB</code></p>
+<p>提示服务器启动成功, bongo~</p>
+<h1 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h1><p>进入项目文件夹, 在cmd中输入<code>npm init</code> 创建一个json文件, 然后使用<code>npm i *</code> 一次安装express, cheerio, mongoose, superagent这几个依赖, 所以需要将指令中的<code>*</code>改为以上的依赖名称</p>
+<p>万事俱备只欠东风了, 我们新建一个app.js文件, 并引入刚刚安装的依赖</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var express = require(&apos;express&apos;)</div><div class="line">var cheerio = require(&apos;cheerio&apos;)</div><div class="line">var superagent = require(&apos;superagent&apos;)</div><div class="line">var mongoose = require(&apos;mongoose&apos;)</div></pre></td></tr></table></figure>
+<p>下面来大概说明一下这几个模块的作用</p>
+<blockquote>
+<p>express: 一个极简快速灵活的web开发框架, 用来快速搭建web服务器的</p>
+<p>cheerio: nodejs中的jQuery</p>
+<p>superagent 用来做客户端请求代理的, 直接点儿说就是代我们上网站拉网页代码的</p>
+<p>mongoose: 用来连接mongoDB和处理mongo的请求</p>
+</blockquote>
+<p>好了解完之后,我们要正式开始写代码了</p>
+<p>首先一步,还是连接mongo数据库, 不然我们趴下来的数据就没地儿存了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">// 连接到mongoDB数据库,端口是27017, 我们将内容存储在cnodejs这个数据库中</div><div class="line">mongoose.connect(&apos;mongodb://localhost:27017/cnodejs&apos;,function(err) &#123;</div><div class="line">    if(err) &#123;</div><div class="line">        throw err</div><div class="line">    &#125; else &#123;</div><div class="line">        console.log(&apos;服务器连接成功...&apos;)</div><div class="line">    &#125;</div><div class="line">&#125;)</div><div class="line"></div><div class="line">// 实例化一个骨架,定义我们要传入的内容的键名及键值</div><div class="line">var schema = new mongoose.Schema(&#123;</div><div class="line">    title: String,</div><div class="line">    href: String</div><div class="line">&#125;)</div><div class="line"></div><div class="line">// 定义一个模型变量, 我们将模型名称定义为List, 将爬取的内容存储在list这个文档中</div><div class="line">var model = mongoose.model(&apos;List&apos;, schema, &apos;list&apos;)</div></pre></td></tr></table></figure>
+<p>然后,我们再实例一个express, 方便我们进行操作</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var app = express()</div></pre></td></tr></table></figure>
+<p>使用代码来进行抓取</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">app.get(&apos;/&apos;, function(req, res, next)&#123;</div><div class="line">    // 使用superagent去抓取https://cnodejs.org的内容</div><div class="line">    superagent.get(&apos;https://cnodejs.org/&apos;).end(function(err, sres)&#123;</div><div class="line">        // 常规的错误处理</div><div class="line">        if(err) return next(err)</div><div class="line">		</div><div class="line">        // sres.text里面存储着网页的html内容, 将它传给cheerio.load之后</div><div class="line">		//就可以得到一个实现了jQuery接口的变量,我们习惯性将其命名为 &apos;$&apos;</div><div class="line">        var $ = cheerio.load(sres.text)</div><div class="line">		</div><div class="line">        var items = []</div><div class="line"></div><div class="line">        // 使用cheerio获取到爬取到的东西的内容</div><div class="line">        $(&apos;#topic_list .topic_title&apos;).each((idx, element)=&gt; &#123;</div><div class="line">		</div><div class="line">            // 预定义一个变量,从而提升整体的程序性能</div><div class="line">            var $element = $(element);</div><div class="line">			</div><div class="line">            var listModel = new model()</div><div class="line">			</div><div class="line">            listModel.title = $element.attr(&apos;title&apos;)</div><div class="line">			</div><div class="line">            listModel.href = $element.attr(&apos;href&apos;)</div><div class="line">			</div><div class="line">			// 将内容保存到数据库</div><div class="line">            listModel.save((err) =&gt; &#123;</div><div class="line">                if(err) &#123;</div><div class="line">                    throw err</div><div class="line">                &#125; else &#123;</div><div class="line">                    console.log(&apos;保存成功...&apos;)</div><div class="line">                &#125;</div><div class="line">            &#125;)</div><div class="line">        &#125;)</div><div class="line">    &#125;)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>最后一步, 指定服务器的监听端口</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">app.listen(8090, function(err) &#123;</div><div class="line">	if(err) &#123;</div><div class="line">		throw err</div><div class="line">	&#125; else &#123;</div><div class="line">		console.log(&apos;服务器启动成功.. &apos;)	</div><div class="line">	&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>全部搞定,我们使用cmd输入命令 node app 或者使用webstorm的ctrl + f9启动一下</p>
+<p>到浏览器中,输入刚刚设置的本地服务器加端口号: <code>localhost:8090</code> </p>
+<p>回来一看,我靠,好多的保存成功啊</p>
+<p>至此,我们的爬取工作就已经全部完成了, 看下成果呗:</p>
+<h1 id="在mongoDB中查看自己的爬取结果"><a href="#在mongoDB中查看自己的爬取结果" class="headerlink" title="在mongoDB中查看自己的爬取结果"></a>在mongoDB中查看自己的爬取结果</h1><p>如果不想麻烦的话, 可以直接安装一个ROBO 3T, 傻瓜式操作</p>
+<p>也可以自己输入指令查看</p>
+<p>在cmd中输入mongo, 进入mongo的交互</p>
+<p>输入指令: <code>use cnodejs</code> 转到我们的cnodejs这个数据库中</p>
+<p>然后输入指令: ‘db.list.find().pretty()’ 爬取的结果就都出来了</p>
+<h1 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h1><p>爬取的过程至此圆满结束</p>
+<p>当然, 作为一个负责任的老司机, 怎么可能会不告诉你, 爬取出来的小电影小图片怎么看呢.</p>
+<p>很简单, 使用ejs或者handlebars这类的模板引擎, 将数据库的内容渲染出来就好了</p>
 
       
     </div>
@@ -326,12 +384,12 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/06/14/基本算法的JavaScript实现/">基本算法的JavaScript实现</a></p>
+        <p><span>本文标题:</span><a href="/2017/07/13/记一次简单的Nodejs爬虫/">记一次简单的Nodejs爬虫</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">ChangerHe</a></p>
-        <p><span>发布时间:</span>2017-06-14, 22:16:09</p>
+        <p><span>发布时间:</span>2017-07-13, 18:32:57</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/06/14/基本算法的JavaScript实现/" title="基本算法的JavaScript实现">https://github.com/ChangerHe/2017/06/14/基本算法的JavaScript实现/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://github.com/ChangerHe/2017/06/14/基本算法的JavaScript实现/　　作者: ChangerHe" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/07/13/记一次简单的Nodejs爬虫/" title="记一次简单的Nodejs爬虫">https://github.com/ChangerHe/2017/07/13/记一次简单的Nodejs爬虫/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://github.com/ChangerHe/2017/07/13/记一次简单的Nodejs爬虫/　　作者: ChangerHe" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -344,15 +402,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/06/14/实现某节点子节点的倒序排列/">
-                    实现某节点子节点的倒序排列
+                <a href="/2017/07/16/《ES6标准入门》阅读笔记——-Class/">
+                    《ES6标准入门》阅读笔记——-Class
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2017/06/14/杨辉三角的JAVA实现/">
-                    杨辉三角的JAVA实现
+                <a href="/2017/07/11/《ES6标准入门》阅读笔记——-Promise/">
+                    《ES6标准入门》阅读笔记——-Promise
                 </a>
             </div>
         
@@ -364,7 +422,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#冒泡排序"><span class="toc-number">1.</span> <span class="toc-text">冒泡排序</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#选择排序的算法"><span class="toc-number">2.</span> <span class="toc-text">选择排序的算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#插入排序算法"><span class="toc-number">3.</span> <span class="toc-text">插入排序算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#排序算法耗时汇总"><span class="toc-number">4.</span> <span class="toc-text">排序算法耗时汇总</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JS内核的自带排序算法"><span class="toc-number">5.</span> <span class="toc-text">JS内核的自带排序算法</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#准备工作"><span class="toc-number">1.</span> <span class="toc-text">准备工作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#mongoDB的配置"><span class="toc-number">1.1.</span> <span class="toc-text">mongoDB的配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#配置环境变量"><span class="toc-number">1.1.1.</span> <span class="toc-text">配置环境变量</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装依赖"><span class="toc-number">2.</span> <span class="toc-text">安装依赖</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#在mongoDB中查看自己的爬取结果"><span class="toc-number">3.</span> <span class="toc-text">在mongoDB中查看自己的爬取结果</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#结束"><span class="toc-number">4.</span> <span class="toc-text">结束</span></a></li></ol>
         
     </div>
     <style>
@@ -395,7 +453,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/06/14/实现某节点子节点的倒序排列/" title="上一篇: 实现某节点子节点的倒序排列">
+            <a href="/2017/07/16/《ES6标准入门》阅读笔记——-Class/" title="上一篇: 《ES6标准入门》阅读笔记——-Class">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -403,7 +461,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/06/14/杨辉三角的JAVA实现/" title="下一篇: 杨辉三角的JAVA实现">
+            <a href="/2017/07/11/《ES6标准入门》阅读笔记——-Promise/" title="下一篇: 《ES6标准入门》阅读笔记——-Promise">
                 <i class="fa fa-angle-right"></i>
             </a>
         

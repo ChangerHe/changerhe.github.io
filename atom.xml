@@ -121,6 +121,96 @@
   </entry>
   
   <entry>
+    <title>记一次简单的Nodejs爬虫</title>
+    <link href="https://github.com/ChangerHe/2017/07/13/%E8%AE%B0%E4%B8%80%E6%AC%A1%E7%AE%80%E5%8D%95%E7%9A%84Nodejs%E7%88%AC%E8%99%AB/"/>
+    <id>https://github.com/ChangerHe/2017/07/13/记一次简单的Nodejs爬虫/</id>
+    <published>2017-07-13T10:32:57.000Z</published>
+    <updated>2017-09-27T09:13:27.086Z</updated>
+    
+    <content type="html"><![CDATA[<p>作为初学nodejs的小学森, 不玩一把爬虫真的都不好意思说自己学过nodejs</p>
+<p>所以, 本次教程本着严谨的教学角度, 向大家传授一下严谨的老司机绝技</p>
+<p>学完之后, 自己写点儿小程序, 爬一爬某些不可描述的小图片啊, 小电影啊什么的, 也是可以的</p>
+<p>所以我要在这里再次重申一下啊, 这真的是一篇严谨的教学博客</p>
+<p>一入*门深似海, 从此节操是路人</p>
+<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><p>看到这篇博客时, 默认您已经掌握了nodejs的基本知识以及模块化的相关理念, 以及npm包管理的简单使用方法(也就一个cmd命令, npm i),所以基本上是看一遍之后就可以非常简单的上手的.</p>
+<p>本次的数据库是直接使用的mongoDB, 简单上手,值得拥有.</p>
+<h2 id="mongoDB的配置"><a href="#mongoDB的配置" class="headerlink" title="mongoDB的配置"></a>mongoDB的配置</h2><p>这个下载就不用说了吧, 老司机都知道上度娘.</p>
+<p>关键是配置这块, 安装好之后,我们在项目的文件夹下创建一个db文件夹, 当然,项目文件夹是要存储你待会儿写的代码用的,新建一个就好</p>
+<p>下好之后, 可以启动cmd(win + r, 然后回车) 输入mongo</p>
+<p>输完了吗? 是不是没有看到结果? </p>
+<p>没有结果就对了,因为我没教你配置环境变量啊</p>
+<h3 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h3><p>首先,进入安装目录的bin文件夹,比如我是直接在安装的时候全部点的下一步,所以我的安装目录在<code>C:\Program Files\MongoDB\Server\3.2\bin</code>, 找到这个地方之后,在地址栏, 将这个文件路径复制下来,粘贴到环境变量的对应地方</p>
+<p>环境变量的位置在: 我的电脑右键&gt; 属性 &gt; 高级系统设置 &gt; 环境变量 &gt; 管理员的用户变量</p>
+<p>注意不要动系统变量,不然一旦操作不慎是会造成系统宕机的. </p>
+<p>我们在用户变量的PATH中,鼠标光标点到最后,在它后面插上一个小分号</p>
+<p>哎, 怎么有了一种邪恶的感觉</p>
+<p>咳咳~ 插进去之后, 将我们之前bin目录的文件路径复制上去,然后确定</p>
+<p>现在我们要做一下简单的配置让mongoDB启动起来:</p>
+<p><code>mongod  --storageEngine mmapv1 --dbpath &quot;d:\mongodb\db&quot; --logpath &quot;d:\mongodb\log\MongoDB.log</code></p>
+<p>下面详细讲一下配置的参数:</p>
+<blockquote>
+<p><code>mongod</code> mongoDB的命令,这个不用说</p>
+<p><code>--storageEngine mmapv1</code> 这是一个比较老的mongoDB的存储引擎, 32位系统的童鞋需要有这条命令, 64位系统的可以不用, </p>
+<p><code>--dbpath &quot;d:\mongodb\db&quot;</code> 数据库路径,找到项目文件夹, 把自己的项目文件夹的db路径替换掉上面的路径</p>
+<p><code>--logpath &quot;d:\mongodb\log\MongoDB.log</code> 日志路径,一般我们会放在和db一起, 也是一样的, 把自己的log文件夹的路径替换掉上面的路径,因为刚开始是没有MongoDB.log这个文件的,所以需要新建一个.</p>
+</blockquote>
+<p>执行成功之后,如果没有看到ERROR的提示, 那么恭喜你,mongo的服务已经成功启动了, 报错的可以再往上翻一下是不是有步骤遗漏, 因为我也是纯手工码字, 难免可能自己也有遗漏的地方, 确实不懂的地方也可以度娘或google</p>
+<p>以上,mongo的配置就搞定了,mongo服务默认跑在27017端口, 如果不需要长期使用, 保持cmd挂起服务就正常运行的, 记住不能关掉哦</p>
+<p>如果需要长期使用mongo服务的, 可以将mongo服务设置为系统服务,开机即启动, 可以在cmd中执行以下代码, 用于创建mongo服务进程</p>
+<p><code>mongod  --storageEngine mmapv1 --dbpath &quot;d:\mongodb\db&quot; --logpath &quot;d:\mongodb\log\MongoDB.log&quot; --install --serviceName &quot;MongoDB&quot;</code></p>
+<p>这个是mongo的指令,所以要在cmd状态下,不要在mongo的交互状态下执行这个命令,否则会报错的</p>
+<p>完成以上指令, 就已经成功创建了系统服务了, 我们现在来启动它, 在cmd中输入:</p>
+<p><code>NET START MongoDB</code></p>
+<p>提示服务器启动成功, bongo~</p>
+<h1 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h1><p>进入项目文件夹, 在cmd中输入<code>npm init</code> 创建一个json文件, 然后使用<code>npm i *</code> 一次安装express, cheerio, mongoose, superagent这几个依赖, 所以需要将指令中的<code>*</code>改为以上的依赖名称</p>
+<p>万事俱备只欠东风了, 我们新建一个app.js文件, 并引入刚刚安装的依赖</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var express = require(&apos;express&apos;)</div><div class="line">var cheerio = require(&apos;cheerio&apos;)</div><div class="line">var superagent = require(&apos;superagent&apos;)</div><div class="line">var mongoose = require(&apos;mongoose&apos;)</div></pre></td></tr></table></figure>
+<p>下面来大概说明一下这几个模块的作用</p>
+<blockquote>
+<p>express: 一个极简快速灵活的web开发框架, 用来快速搭建web服务器的</p>
+<p>cheerio: nodejs中的jQuery</p>
+<p>superagent 用来做客户端请求代理的, 直接点儿说就是代我们上网站拉网页代码的</p>
+<p>mongoose: 用来连接mongoDB和处理mongo的请求</p>
+</blockquote>
+<p>好了解完之后,我们要正式开始写代码了</p>
+<p>首先一步,还是连接mongo数据库, 不然我们趴下来的数据就没地儿存了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">// 连接到mongoDB数据库,端口是27017, 我们将内容存储在cnodejs这个数据库中</div><div class="line">mongoose.connect(&apos;mongodb://localhost:27017/cnodejs&apos;,function(err) &#123;</div><div class="line">    if(err) &#123;</div><div class="line">        throw err</div><div class="line">    &#125; else &#123;</div><div class="line">        console.log(&apos;服务器连接成功...&apos;)</div><div class="line">    &#125;</div><div class="line">&#125;)</div><div class="line"></div><div class="line">// 实例化一个骨架,定义我们要传入的内容的键名及键值</div><div class="line">var schema = new mongoose.Schema(&#123;</div><div class="line">    title: String,</div><div class="line">    href: String</div><div class="line">&#125;)</div><div class="line"></div><div class="line">// 定义一个模型变量, 我们将模型名称定义为List, 将爬取的内容存储在list这个文档中</div><div class="line">var model = mongoose.model(&apos;List&apos;, schema, &apos;list&apos;)</div></pre></td></tr></table></figure>
+<p>然后,我们再实例一个express, 方便我们进行操作</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var app = express()</div></pre></td></tr></table></figure>
+<p>使用代码来进行抓取</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">app.get(&apos;/&apos;, function(req, res, next)&#123;</div><div class="line">    // 使用superagent去抓取https://cnodejs.org的内容</div><div class="line">    superagent.get(&apos;https://cnodejs.org/&apos;).end(function(err, sres)&#123;</div><div class="line">        // 常规的错误处理</div><div class="line">        if(err) return next(err)</div><div class="line">		</div><div class="line">        // sres.text里面存储着网页的html内容, 将它传给cheerio.load之后</div><div class="line">		//就可以得到一个实现了jQuery接口的变量,我们习惯性将其命名为 &apos;$&apos;</div><div class="line">        var $ = cheerio.load(sres.text)</div><div class="line">		</div><div class="line">        var items = []</div><div class="line"></div><div class="line">        // 使用cheerio获取到爬取到的东西的内容</div><div class="line">        $(&apos;#topic_list .topic_title&apos;).each((idx, element)=&gt; &#123;</div><div class="line">		</div><div class="line">            // 预定义一个变量,从而提升整体的程序性能</div><div class="line">            var $element = $(element);</div><div class="line">			</div><div class="line">            var listModel = new model()</div><div class="line">			</div><div class="line">            listModel.title = $element.attr(&apos;title&apos;)</div><div class="line">			</div><div class="line">            listModel.href = $element.attr(&apos;href&apos;)</div><div class="line">			</div><div class="line">			// 将内容保存到数据库</div><div class="line">            listModel.save((err) =&gt; &#123;</div><div class="line">                if(err) &#123;</div><div class="line">                    throw err</div><div class="line">                &#125; else &#123;</div><div class="line">                    console.log(&apos;保存成功...&apos;)</div><div class="line">                &#125;</div><div class="line">            &#125;)</div><div class="line">        &#125;)</div><div class="line">    &#125;)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>最后一步, 指定服务器的监听端口</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">app.listen(8090, function(err) &#123;</div><div class="line">	if(err) &#123;</div><div class="line">		throw err</div><div class="line">	&#125; else &#123;</div><div class="line">		console.log(&apos;服务器启动成功.. &apos;)	</div><div class="line">	&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>全部搞定,我们使用cmd输入命令 node app 或者使用webstorm的ctrl + f9启动一下</p>
+<p>到浏览器中,输入刚刚设置的本地服务器加端口号: <code>localhost:8090</code> </p>
+<p>回来一看,我靠,好多的保存成功啊</p>
+<p>至此,我们的爬取工作就已经全部完成了, 看下成果呗:</p>
+<h1 id="在mongoDB中查看自己的爬取结果"><a href="#在mongoDB中查看自己的爬取结果" class="headerlink" title="在mongoDB中查看自己的爬取结果"></a>在mongoDB中查看自己的爬取结果</h1><p>如果不想麻烦的话, 可以直接安装一个ROBO 3T, 傻瓜式操作</p>
+<p>也可以自己输入指令查看</p>
+<p>在cmd中输入mongo, 进入mongo的交互</p>
+<p>输入指令: <code>use cnodejs</code> 转到我们的cnodejs这个数据库中</p>
+<p>然后输入指令: ‘db.list.find().pretty()’ 爬取的结果就都出来了</p>
+<h1 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h1><p>爬取的过程至此圆满结束</p>
+<p>当然, 作为一个负责任的老司机, 怎么可能会不告诉你, 爬取出来的小电影小图片怎么看呢.</p>
+<p>很简单, 使用ejs或者handlebars这类的模板引擎, 将数据库的内容渲染出来就好了</p>
+]]></content>
+    
+    <summary type="html">
+    
+      作为初学nodejs的小学森, 不玩一把爬虫真的都不好意思说自己学过nodejs. 所以, 本次教程本着严谨的教学角度, 向大家传授一下严谨的老司机绝技
+    
+    </summary>
+    
+      <category term="Nodejs学习笔记" scheme="https://github.com/ChangerHe/categories/Nodejs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="Nodejs" scheme="https://github.com/ChangerHe/tags/Nodejs/"/>
+    
+      <category term="爬虫" scheme="https://github.com/ChangerHe/tags/%E7%88%AC%E8%99%AB/"/>
+    
+  </entry>
+  
+  <entry>
     <title>《ES6标准入门》阅读笔记——-Promise</title>
     <link href="https://github.com/ChangerHe/2017/07/11/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-Promise/"/>
     <id>https://github.com/ChangerHe/2017/07/11/《ES6标准入门》阅读笔记——-Promise/</id>
@@ -1103,52 +1193,6 @@
     
     
       <category term="ES6标准入门阅读笔记" scheme="https://github.com/ChangerHe/tags/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JavaScript躲坑指南（一）</title>
-    <link href="https://github.com/ChangerHe/2017/06/15/JavaScript%E8%BA%B2%E5%9D%91%E6%8C%87%E5%8D%97%EF%BC%88%E4%B8%80%EF%BC%89/"/>
-    <id>https://github.com/ChangerHe/2017/06/15/JavaScript躲坑指南（一）/</id>
-    <published>2017-06-15T15:03:29.000Z</published>
-    <updated>2017-09-14T14:37:46.143Z</updated>
-    
-    <content type="html"><![CDATA[<p>本系列将会写一些在正常工作中会遇到的一些坑,然后分析它们的产生原因及解决办法.本文的内容主要来自&lt;you don’t know JS&gt;及日常工作的问题的一些总结.</p>
-<h1 id="坑一-关于parseInt-方法转换字符串的问题-神坑"><a href="#坑一-关于parseInt-方法转换字符串的问题-神坑" class="headerlink" title="坑一: 关于parseInt()方法转换字符串的问题,神坑!"></a>坑一: 关于parseInt()方法转换字符串的问题,神坑!</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">console.log(parseInt(1/0, 19));  //18</div><div class="line">//原因:1/0得到的结果是Infinity,而得到的Infinity本身其实也是一个字符串,所以parseInt会以19进制对其进行类型转换,首字母为I,则其结果则为18了.</div><div class="line">console.log(parseInt(.000009))    //0</div><div class="line">console.log(parseInt(.0000009))   //9</div><div class="line">console.log(parseInt(false, 16))  //250,判定&apos;false&apos;的字符串的&apos;fa&apos;为十六进制了</div><div class="line">console.log(parseInt(parseInt, 16))  //15</div><div class="line">//结果为15的原因是因为parseInt为函数,所以会被typeof为function,</div></pre></td></tr></table></figure>
-<h1 id="坑二-位运算符-的妙用"><a href="#坑二-位运算符-的妙用" class="headerlink" title="坑二: 位运算符~的妙用:"></a>坑二: 位运算符~的妙用:</h1><p>在许多编程语言中,查找值或函数执行过程中,大于等于0的值表示查找或执行成功,返回-1则表示查找或执行失败.因此当失败时,可以直接使用位运算符~进行判定,当为-1时, -(-1 + 1) 即为零,因此就可以直接进行布尔运算了.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var a = &quot;hello world&quot;;</div><div class="line">if(~a.indexof(&quot;lo&quot;))&#123;</div><div class="line">	//查找不到值,则执行函数体中的内容</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>位运算的另一个巧妙用法:将值截除为一个32位整数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">console.log(Math.floor(-.1))  //-1</div><div class="line">console.log(Math.floor(.1))  //0</div><div class="line">console.log(~~-.1)   // 0</div><div class="line">console.log(~~.1)    //0</div></pre></td></tr></table></figure>
-<h1 id="坑三-对于稀疏数组的输出差异"><a href="#坑三-对于稀疏数组的输出差异" class="headerlink" title="坑三: 对于稀疏数组的输出差异"></a>坑三: 对于稀疏数组的输出差异</h1><p>在谷歌浏览器中,对于长度为三,无内容的稀疏数组显示为undefined*3,对于长度为三,但内容都赋值为undefined的数组,显示为[undefined, undefined, undefined].但是此情况在IE浏览器中显示的内容都是两个等号!不过在火狐中相对比较正常,输出的是文字”三个空的数组”和[undefined, undefined, undefined]</p>
-<h1 id="坑四-JSON-stringify的妙用"><a href="#坑四-JSON-stringify的妙用" class="headerlink" title="坑四: JSON.stringify的妙用:"></a>坑四: JSON.stringify的妙用:</h1><p>在序列化为JSON对象时,将该对象选择性输出,以得到想要的值;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var a = &#123;</div><div class="line">    b: 42,</div><div class="line">    c: &apos;41&apos;,</div><div class="line">    d: [1,2,3]</div><div class="line">&#125;</div><div class="line">console.log(JSON.stringify(a, [&apos;b&apos;,&apos;d&apos;]))   //&#123;&quot;b&quot;:42,&quot;d&quot;:[1,2,3]&#125;</div></pre></td></tr></table></figure>
-<p>当然,这个时候stringify还可以传递一个函数进去进行判断.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var a = &#123;</div><div class="line">    b: 42,</div><div class="line">    c: &apos;41&apos;,</div><div class="line">    d: [1,2,3]</div><div class="line">&#125;</div><div class="line">console.log(JSON.stringify(a, function(k, v)&#123;</div><div class="line">	if(k !== &apos;c&apos;) return v;</div><div class="line">&#125;))   //&#123;&quot;b&quot;:42,&quot;d&quot;:[1,2,3]&#125;</div></pre></td></tr></table></figure>
-<p>JSON.stringify()还有一个参数space,用来指定输出的缩进格式,space为数值时表示缩进的字符数,还可以是字符串,为字符串时最前面的十个字符用于每一级的缩进:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">var a = &#123;</div><div class="line">    b: 42,</div><div class="line">    c: &apos;41&apos;,</div><div class="line">    d: [1,2,3]</div><div class="line">&#125;</div><div class="line">console.log(JSON.stringify(a, null, &quot;------------------&quot;));</div><div class="line">//&#123;</div><div class="line">//----------&quot;b&quot;: 42,</div><div class="line">//----------&quot;c&quot;: &quot;41&quot;,</div><div class="line">//----------&quot;d&quot;: [</div><div class="line">//--------------------1,</div><div class="line">//--------------------2,</div><div class="line">//--------------------3</div><div class="line">//----------]</div><div class="line">//&#125;</div></pre></td></tr></table></figure>
-<p>从上面来看,使用位运算得到的值和Math.floor() 的值不尽相同,使用位运算相当于直接去掉了数字的小数点.</p>
-<h1 id="坑五-当在函数内部为变量指定新值后-并不影响传参的值"><a href="#坑五-当在函数内部为变量指定新值后-并不影响传参的值" class="headerlink" title="坑五: 当在函数内部为变量指定新值后,并不影响传参的值."></a>坑五: 当在函数内部为变量指定新值后,并不影响传参的值.</h1><p>当函数内部制定了变量值后,输出的值是不一样的,我们来看一下例子:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function foo(x) &#123;</div><div class="line">	x.push(4);</div><div class="line">	console.log(x);   //输出的是[1,2,3,4],没毛病</div><div class="line">	x = [4,5,6];</div><div class="line">	x.push(7);</div><div class="line">	console.log(x);   //输出[4,5,6,7]这个没毛病</div><div class="line">&#125;</div><div class="line">var a = [1,2,3];</div><div class="line">foo(a);</div><div class="line">console.log(a);     //这个情况下,a的值其实是[1,2,3,4];</div></pre></td></tr></table></figure>
-<p>其实主要的原因是这样的,当我们的a作为参数传到foo函数中的时候,foo中的参数x其实是获得了一个到a数组的指针,当x进行相应的数值处理操作的时候,会直接作用到a上面,但是当x的指针改变了,也就是x被重新赋值的时候,x的指针就指向新的[4,5,6]数组了,这个时候其实后面的push(7)的操作已经是对于新的数组,并没有对a数组进行相应的操作,故最后返回的a的值只是[1,2,3,4]</p>
-<h1 id="坑六-为变量赋予常量值的问题"><a href="#坑六-为变量赋予常量值的问题" class="headerlink" title="坑六: 为变量赋予常量值的问题"></a>坑六: 为变量赋予常量值的问题</h1><p>一个很小的问题(其实涉及到的知识点和上面是类似的),当我为一个变量赋予了一个常量值,但通过函数对这个常量值进行更改,那么更改会不会体现到这个常量值中呢?<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function foo(x) &#123;</div><div class="line">	x = x + 1;</div><div class="line">	console.log(x);</div><div class="line">&#125;</div><div class="line">var a = 2;</div><div class="line">foo(a);</div><div class="line">console.log(a);  //此时a还是为2</div></pre></td></tr></table></figure></p>
-<h1 id="坑七-关于浅复制的一些小技巧-也是对上面问题的另一种出理方案"><a href="#坑七-关于浅复制的一些小技巧-也是对上面问题的另一种出理方案" class="headerlink" title="坑七: 关于浅复制的一些小技巧(也是对上面问题的另一种出理方案)"></a>坑七: 关于浅复制的一些小技巧(也是对上面问题的另一种出理方案)</h1><p>使用slice()方法对变量进行浅复制,达到不影响变量原来的值的目的.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">foo(slice() )</div></pre></td></tr></table></figure>
-<h1 id="坑八-new出的对象"><a href="#坑八-new出的对象" class="headerlink" title="坑八: new出的对象"></a>坑八: new出的对象</h1><p>使用new方法new出来的变量都是属于对象,因此进行类型检测时都会显示为object型.</p>
-<h1 id="坑九-关于隐式类型转换"><a href="#坑九-关于隐式类型转换" class="headerlink" title="坑九: 关于隐式类型转换"></a>坑九: 关于隐式类型转换</h1><p>对new出来的对象来讲,对其进行判断会有一个自动的隐式类型转换过程,自动调用数组中的valueof()方法,因此就有了以下这样的奇葩现象:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var a = 2;</div><div class="line">Number.prototype.valueOf = function() &#123;</div><div class="line">    return a++;</div><div class="line">&#125;</div><div class="line">var b = new Number(2);</div><div class="line">if(b == 2 &amp;&amp; b ==3) &#123;</div><div class="line">    console.log(&apos;WTF?&apos;)   //WTF?</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>其实这个问题很好解释,每次对b进行判断都是会调用其valueof方法,而valueof方法中a会自增1,因此会有b又等于2,又等于3的情况.</p>
-]]></content>
-    
-    <summary type="html">
-    
-      本系列将会写一些在正常工作中会遇到的一些坑,然后分析它们的产生原因及解决办法.本文的内容主要来自&lt;you don&#39;t know JS&gt;及日常工作的问题的一些总结.
-    
-    </summary>
-    
-      <category term="JavaScript躲坑指南" scheme="https://github.com/ChangerHe/categories/JavaScript%E8%BA%B2%E5%9D%91%E6%8C%87%E5%8D%97/"/>
-    
-    
-      <category term="JavaScript躲坑指南" scheme="https://github.com/ChangerHe/tags/JavaScript%E8%BA%B2%E5%9D%91%E6%8C%87%E5%8D%97/"/>
     
   </entry>
   
