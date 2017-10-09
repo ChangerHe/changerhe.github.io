@@ -22,7 +22,7 @@
 <meta property="og:url" content="https://github.com/ChangerHe/2017/07/01/《ES6标准入门》阅读笔记——-symbol及proxy-reflect/index.html">
 <meta property="og:site_name" content="ChangerHe&#39;s Bolg|何庆畅的个人博客">
 <meta property="og:description" content="本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导新手，快速入门ES6，并逐步将其投入到生产实践中。">
-<meta property="og:updated_time" content="2017-09-23T14:22:38.686Z">
+<meta property="og:updated_time" content="2017-10-09T09:10:47.950Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《ES6标准入门》阅读笔记——-symbol及proxy&#x2F;reflect">
 <meta name="twitter:description" content="本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导新手，快速入门ES6，并逐步将其投入到生产实践中。">
@@ -347,6 +347,26 @@
 <p>上面的代码中,由于Symbol()没有登记机制,所以每次调用都会返回不同的值</p>
 <p>Symbol.keyFor()方法用于返回一个已经登记的Symbol类型值的key</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">let s3 = Symbol.for(&apos;aaa&apos;)</div><div class="line">let s4 = Symbol(&apos;bbb&apos;)</div><div class="line"></div><div class="line">console.log(Symbol.keyFor(s3)) // aaa</div><div class="line">console.log(Symbol.keyFor(s4)) // undefined</div></pre></td></tr></table></figure>
+<h1 id="Proxy概述"><a href="#Proxy概述" class="headerlink" title="Proxy概述"></a>Proxy概述</h1><p>proxy 用于修改某些操作的默认行为,等同于在语言层面做出修改,所以属于一种元编程, 即对编程语言进行编程</p>
+<p>Proxy 可以理解为在目标对象前架设一个拦截层,外界对该对象的访问都必须先通过这一层拦截,因此提供了一钟机制来对外界的访问进行过滤和改写</p>
+<p>所以,Proxy 也可以理解为一种代理器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">let obj = new Proxy(&#123;&#125;, &#123;</div><div class="line">	get: function(target, key, receiver) &#123;</div><div class="line">		console.log(`getting $&#123;key&#125;`)</div><div class="line">		return Reflect.get(target, key, receiver)</div><div class="line">	&#125;,</div><div class="line">	set: function(target, key, value, receiver) &#123;</div><div class="line">		console.log(`setting $&#123;key&#125;`)</div><div class="line">		return Reflect.set(target, key, value, receiver)</div><div class="line">	&#125;</div><div class="line">&#125;)</div><div class="line"></div><div class="line">obj.count = 1  // setting count   </div><div class="line">obj.count++  // getting count   setting count</div></pre></td></tr></table></figure>
+<p>上面的代码说明, proxy实际上重载了点运算符, 即用自己的定义覆盖了语言的原始定义</p>
+<p>一个小技巧是,可以将Proxy对象设置到object.proxy属性,从而可以在object对象上调用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var object = &#123;</div><div class="line">    proxy: new Proxy(target, handler)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>那么我们就可以直接定义一个proxy对象,并在需要的时候使用Object.create() 进行对象的创建即可</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var proxy = new Proxy(&#123;&#125;, &#123;</div><div class="line">	get: function(target, property) &#123;</div><div class="line">		return 35</div><div class="line">	&#125;</div><div class="line">&#125;)</div><div class="line"></div><div class="line">let obj = Object.create(proxy)</div><div class="line"></div><div class="line">console.log(obj.time)</div></pre></td></tr></table></figure>
+<h1 id="Reflect"><a href="#Reflect" class="headerlink" title="Reflect"></a>Reflect</h1><p>Reflect对象和Proxy对象一样, 也是ES6为了操作对象而提供的新api</p>
+<p>reflect对象的设计目的主要有以下几个</p>
+<blockquote>
+<p>将object对象的一些明显属于语言层面的方法放到reflect对象上. 现阶段, 某些方法同时在object和reflect对象上部署, 未来的新方法将只部署在reflect对象上</p>
+<p>修改某些object方法的返回结果, 让其变得更加合理, 如:<code>Object.defineProperty(obj, name, desc)</code> 在无法定义属性时会抛出一个错误, 而<code>Reflect.defineProperty(obj, name, desc)</code>则会返回一个false</p>
+<p>让Object操作都变成函数行为, 某些object操作是命令式, 比如<code>name in obj</code>和<code>delete obj[name]</code>, 而<code>Reflect.has(obj, name)</code>和Reflect.deleteProperty(obj, name)让他们变成了函数行为</p>
+<p>Reflect对象的方法和Proxy对象的方法一一对应, 只要是Proxy对象的方法, 就能在Reflect对象上找到相应的方法. 也就是说, 不管Proxy怎么修改默认行为, 你总可以在Reflect上获取默认行为</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Proxy(target, &#123;</div><div class="line">	set: function(target, name, value, receiver) &#123;</div><div class="line">		var success = Reflect.set(target, name, value, receiver)</div><div class="line">		if(success) &#123;</div><div class="line">			log(&apos;property &apos; + name + &apos; on &apos; + target + &apos; set to &apos; + value)</div><div class="line">		&#125;</div><div class="line">		return success </div><div class="line">	&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>上面的代码中,proxy方法拦截了target对象的属性赋值行为, 它采用<code>Reflect.set</code>方法赋值给对象的属性, 然后再部署额外的功能. </p>
+<p>(完)</p>
 
       
     </div>
@@ -393,7 +413,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#写在前面"><span class="toc-number">1.</span> <span class="toc-text">写在前面</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Symbol"><span class="toc-number">2.</span> <span class="toc-text">Symbol</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#symbol的几个特征"><span class="toc-number">2.1.</span> <span class="toc-text">symbol的几个特征</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#作为属性名的symbol"><span class="toc-number">2.2.</span> <span class="toc-text">作为属性名的symbol</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reflect-ownKeys-obj"><span class="toc-number">2.3.</span> <span class="toc-text">Reflect.ownKeys(obj)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Symbol-for-和-Symbol-keyFor"><span class="toc-number">2.4.</span> <span class="toc-text">Symbol.for() 和 Symbol.keyFor()</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#写在前面"><span class="toc-number">1.</span> <span class="toc-text">写在前面</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Symbol"><span class="toc-number">2.</span> <span class="toc-text">Symbol</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#symbol的几个特征"><span class="toc-number">2.1.</span> <span class="toc-text">symbol的几个特征</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#作为属性名的symbol"><span class="toc-number">2.2.</span> <span class="toc-text">作为属性名的symbol</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reflect-ownKeys-obj"><span class="toc-number">2.3.</span> <span class="toc-text">Reflect.ownKeys(obj)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Symbol-for-和-Symbol-keyFor"><span class="toc-number">2.4.</span> <span class="toc-text">Symbol.for() 和 Symbol.keyFor()</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Proxy概述"><span class="toc-number">3.</span> <span class="toc-text">Proxy概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Reflect"><span class="toc-number">4.</span> <span class="toc-text">Reflect</span></a></li></ol>
         
     </div>
     <style>
