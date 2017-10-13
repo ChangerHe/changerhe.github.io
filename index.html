@@ -273,6 +273,97 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-处理git无法上传超过100M文件的问题" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/10/13/处理git无法上传超过100M文件的问题/" class="article-date">
+      <time datetime="2017-10-13T03:26:43.000Z" itemprop="datePublished">2017-10-13</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/13/处理git无法上传超过100M文件的问题/">处理git无法上传超过100M文件的问题</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>最近在项目提交分支到github的时候, 出现了一件很尴尬的事情, 文件超过100m, 被github拒绝了</p>
+<p>宝宝心里苦, 但宝宝不说</p>
+<p>当时也没太在意, 但是当我的当前分支提交堆积到12次的时候, 我急了</p>
+<p>卧槽, 要是我以后都不能提交, 那得多尴尬啊</p>
+<p>谁叫我有轻微强迫症呢</p>
+<p>自己搞不定, 那百度啊</p>
+<p>然后, 我百度了一圈, 更换各种搜索词, 从百度的搜索结果的第一页看到第四页, 玛德终于解决了</p>
+<p>所以我响应祖国的号召, 坚持每年3.15打击假冒伪劣的思想, 向大家告知一下, 下面的方法  都!!!!  是!!!!! 不!!!!! 对!!!!! 的!!!!!</p>
+<p>在这里可能有人要说了, 卧槽你整些不对的跟我说干嘛</p>
+<p>没事, 我开心, 结尾也有正确的答案, 不想看过程直接看结果的跳到最后就好</p>
+<h1 id="坑爹的jar包"><a href="#坑爹的jar包" class="headerlink" title="坑爹的jar包"></a>坑爹的jar包</h1><p>首先引用一下前辈的话</p>
+<blockquote>
+<p>如果做了这几步你push的时候还是报和开始的时候一样的错，那说明这个文件你不是最近一次commit时添加的，而是在之前commit过很多次了，这就需要把关于这个文件的所有历史commit记录全部清除掉，这时候我们就需要用到一个叫BFG的工具。我们要到<a href="https://rtyley.github.io/bfg-repo-cleaner/#download这个网站去下载并学习如何使用这个工具。" target="_blank" rel="external">https://rtyley.github.io/bfg-repo-cleaner/#download这个网站去下载并学习如何使用这个工具。</a> —— <a href="https://www.2cto.com/kf/201612/576868.html" target="_blank"> [ 来自某位不知名的大佬 ]</a></p>
+</blockquote>
+<p>我去尝试下下来这个文档, 卧槽原来是一个jar包, 瞬间觉得高大上了</p>
+<p>前辈, 您是想要我学习一下java的运行原理么?</p>
+<p>嗯~ jar包, 可以的, 跟着前辈指示的指令一波操作</p>
+<p>结果: 指令没卵用</p>
+<h1 id="使用git-lfs"><a href="#使用git-lfs" class="headerlink" title="使用git-lfs"></a>使用git-lfs</h1><p>其实这个方法也是可行的, 因为git是专门提供了一个工具来给我们存储大容量文件的, 就是<code>Git Large File Storage</code> 大家有兴趣可以百度或者google一下</p>
+<p>但问题是, 搞这个玩意儿又要下另一个版本的git, 神烦, 故跳转到下一百度词条了, 毕竟以后很少用到, 学习成本太高</p>
+<p>这里也一样, 贴上前辈的文章链接, 有兴趣的可以学习一下</p>
+<blockquote>
+<p>—— <a href="http://www.liuxiao.org/2017/02/git-%E5%A4%84%E7%90%86-github-%E4%B8%8D%E5%85%81%E8%AE%B8%E4%B8%8A%E4%BC%A0%E8%B6%85%E8%BF%87-100mb-%E6%96%87%E4%BB%B6%E7%9A%84%E9%97%AE%E9%A2%98/" target="_blank"> [ [Git] 处理 github 不允许上传超过 100MB 文件的问题 ]</a></p>
+</blockquote>
+<h1 id="修正错误"><a href="#修正错误" class="headerlink" title="修正错误?"></a>修正错误?</h1><p>还有某前辈建议这样做</p>
+<blockquote>
+<p>第一步输入命令 cd /Users/Dora/Desktop/XXX（cd后面的这个路径要换成你自己项目的路径），然后第二步输入命令 git rm –cached /Users/Dora/Desktop/XXX/XXX/IJKMediaFramework（加下划线部分是你自己的要移除的文件的路径），第三步输入命令 git commit –amend -CHEAD，执行完这步后，这个大文件将会从你的commit记录里移除，并且以后commit都将不会再把它commit了，这时候就可以git push把本地代码push到github上了。</p>
+</blockquote>
+<p>似乎~ 还是不行</p>
+<h1 id="正确的做法"><a href="#正确的做法" class="headerlink" title="正确的做法"></a>正确的做法</h1><p>其实就代码来说, 很简单</p>
+<p>注意一点就是, 记得在你当前本地仓库的根目录下打开git bash 否则是无效的, 别问我怎么知道的, 蓝瘦香菇</p>
+<p>代码就只有三行, 复制粘贴就好了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">git filter-branch --force --index-filter &quot;git rm --cached --ignore-unmatch ***&quot;  --prune-empty --tag-name-filter cat -- --all</div><div class="line"></div><div class="line">git commit --amend -CHEAD</div><div class="line"></div><div class="line">git push origin master</div></pre></td></tr></table></figure>
+<p>代码第一行中的三个*, 将它换为你之前不要提交的文件的相对路径, 然后会看到一堆的代码校验, 最后会在分支中删除掉你提交这个大文件的记录</p>
+<p>那么最后使用git push就可以提交了, 全部搞定, 大吉大利, 今晚吃鸡</p>
+<p>(完)</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Javascript中隐式类型转换的神坑" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -885,77 +976,9 @@
 
 
   
-    <article id="post-《ES6标准入门》阅读笔记——-对象的扩展" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/06/30/《ES6标准入门》阅读笔记——-对象的扩展/" class="article-date">
-      <time datetime="2017-06-30T05:49:33.000Z" itemprop="datePublished">2017-06-30</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/30/《ES6标准入门》阅读笔记——-对象的扩展/">《ES6标准入门》阅读笔记——-对象的扩展</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导新手，快速入门ES6，并逐步将其投入到生产实践中。
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/ES6标准入门/">ES6标准入门</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/">ES6</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Object/">Object</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2017/06/30/《ES6标准入门》阅读笔记——-对象的扩展/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 </div>

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/ChangerHe/"/>
-  <updated>2017-09-30T03:41:50.749Z</updated>
+  <updated>2017-10-13T03:47:46.427Z</updated>
   <id>https://github.com/ChangerHe/</id>
   
   <author>
@@ -14,6 +14,63 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>处理git无法上传超过100M文件的问题</title>
+    <link href="https://github.com/ChangerHe/2017/10/13/%E5%A4%84%E7%90%86git%E6%97%A0%E6%B3%95%E4%B8%8A%E4%BC%A0%E8%B6%85%E8%BF%87100M%E6%96%87%E4%BB%B6%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    <id>https://github.com/ChangerHe/2017/10/13/处理git无法上传超过100M文件的问题/</id>
+    <published>2017-10-13T03:26:43.000Z</published>
+    <updated>2017-10-13T03:47:46.427Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近在项目提交分支到github的时候, 出现了一件很尴尬的事情, 文件超过100m, 被github拒绝了</p>
+<p>宝宝心里苦, 但宝宝不说</p>
+<p>当时也没太在意, 但是当我的当前分支提交堆积到12次的时候, 我急了</p>
+<p>卧槽, 要是我以后都不能提交, 那得多尴尬啊</p>
+<p>谁叫我有轻微强迫症呢</p>
+<p>自己搞不定, 那百度啊</p>
+<p>然后, 我百度了一圈, 更换各种搜索词, 从百度的搜索结果的第一页看到第四页, 玛德终于解决了</p>
+<p>所以我响应祖国的号召, 坚持每年3.15打击假冒伪劣的思想, 向大家告知一下, 下面的方法  都!!!!  是!!!!! 不!!!!! 对!!!!! 的!!!!!</p>
+<p>在这里可能有人要说了, 卧槽你整些不对的跟我说干嘛</p>
+<p>没事, 我开心, 结尾也有正确的答案, 不想看过程直接看结果的跳到最后就好</p>
+<h1 id="坑爹的jar包"><a href="#坑爹的jar包" class="headerlink" title="坑爹的jar包"></a>坑爹的jar包</h1><p>首先引用一下前辈的话</p>
+<blockquote>
+<p>如果做了这几步你push的时候还是报和开始的时候一样的错，那说明这个文件你不是最近一次commit时添加的，而是在之前commit过很多次了，这就需要把关于这个文件的所有历史commit记录全部清除掉，这时候我们就需要用到一个叫BFG的工具。我们要到<a href="https://rtyley.github.io/bfg-repo-cleaner/#download这个网站去下载并学习如何使用这个工具。" target="_blank" rel="external">https://rtyley.github.io/bfg-repo-cleaner/#download这个网站去下载并学习如何使用这个工具。</a> —— <a href="https://www.2cto.com/kf/201612/576868.html" target="_blank"> [ 来自某位不知名的大佬 ]</a></p>
+</blockquote>
+<p>我去尝试下下来这个文档, 卧槽原来是一个jar包, 瞬间觉得高大上了</p>
+<p>前辈, 您是想要我学习一下java的运行原理么?</p>
+<p>嗯~ jar包, 可以的, 跟着前辈指示的指令一波操作</p>
+<p>结果: 指令没卵用</p>
+<h1 id="使用git-lfs"><a href="#使用git-lfs" class="headerlink" title="使用git-lfs"></a>使用git-lfs</h1><p>其实这个方法也是可行的, 因为git是专门提供了一个工具来给我们存储大容量文件的, 就是<code>Git Large File Storage</code> 大家有兴趣可以百度或者google一下</p>
+<p>但问题是, 搞这个玩意儿又要下另一个版本的git, 神烦, 故跳转到下一百度词条了, 毕竟以后很少用到, 学习成本太高</p>
+<p>这里也一样, 贴上前辈的文章链接, 有兴趣的可以学习一下</p>
+<blockquote>
+<p>—— <a href="http://www.liuxiao.org/2017/02/git-%E5%A4%84%E7%90%86-github-%E4%B8%8D%E5%85%81%E8%AE%B8%E4%B8%8A%E4%BC%A0%E8%B6%85%E8%BF%87-100mb-%E6%96%87%E4%BB%B6%E7%9A%84%E9%97%AE%E9%A2%98/" target="_blank"> [ [Git] 处理 github 不允许上传超过 100MB 文件的问题 ]</a></p>
+</blockquote>
+<h1 id="修正错误"><a href="#修正错误" class="headerlink" title="修正错误?"></a>修正错误?</h1><p>还有某前辈建议这样做</p>
+<blockquote>
+<p>第一步输入命令 cd /Users/Dora/Desktop/XXX（cd后面的这个路径要换成你自己项目的路径），然后第二步输入命令 git rm –cached /Users/Dora/Desktop/XXX/XXX/IJKMediaFramework（加下划线部分是你自己的要移除的文件的路径），第三步输入命令 git commit –amend -CHEAD，执行完这步后，这个大文件将会从你的commit记录里移除，并且以后commit都将不会再把它commit了，这时候就可以git push把本地代码push到github上了。</p>
+</blockquote>
+<p>似乎~ 还是不行</p>
+<h1 id="正确的做法"><a href="#正确的做法" class="headerlink" title="正确的做法"></a>正确的做法</h1><p>其实就代码来说, 很简单</p>
+<p>注意一点就是, 记得在你当前本地仓库的根目录下打开git bash 否则是无效的, 别问我怎么知道的, 蓝瘦香菇</p>
+<p>代码就只有三行, 复制粘贴就好了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">git filter-branch --force --index-filter &quot;git rm --cached --ignore-unmatch ***&quot;  --prune-empty --tag-name-filter cat -- --all</div><div class="line"></div><div class="line">git commit --amend -CHEAD</div><div class="line"></div><div class="line">git push origin master</div></pre></td></tr></table></figure>
+<p>代码第一行中的三个*, 将它换为你之前不要提交的文件的相对路径, 然后会看到一堆的代码校验, 最后会在分支中删除掉你提交这个大文件的记录</p>
+<p>那么最后使用git push就可以提交了, 全部搞定, 大吉大利, 今晚吃鸡</p>
+<p>(完)</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近在项目提交分支到github的时候, 出现了一件很尴尬的事情, 文件超过100m, 被github拒绝了&lt;/p&gt;
+&lt;p&gt;宝宝心里苦, 但宝宝不说&lt;/p&gt;
+&lt;p&gt;当时也没太在意, 但是当我的当前分支提交堆积到12次的时候, 我急了&lt;/p&gt;
+&lt;p&gt;卧槽, 要是我以后都不能提
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Javascript中隐式类型转换的神坑</title>
@@ -1311,40 +1368,6 @@
       <category term="Nodejs" scheme="https://github.com/ChangerHe/tags/Nodejs/"/>
     
       <category term="require" scheme="https://github.com/ChangerHe/tags/require/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>使用Nodejs实现简单的自动化构建</title>
-    <link href="https://github.com/ChangerHe/2017/06/15/%E4%BD%BF%E7%94%A8Nodejs%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E6%9E%84%E5%BB%BA/"/>
-    <id>https://github.com/ChangerHe/2017/06/15/使用Nodejs实现简单的自动化构建/</id>
-    <published>2017-06-15T15:56:30.000Z</published>
-    <updated>2017-09-14T14:35:01.695Z</updated>
-    
-    <content type="html"><![CDATA[<p>自动化构建是现代前端基本都需要的东西,说起这个,大家自然会想到 Glup/Grount这些自动化的构建工具.</p>
-<p>当然,本文只是从最最基础的角度,使用Node的fs模块进行了简单的文档的写入操作.</p>
-<p>首先,我们先定义一个JSON,用于存放我们想要预先定义的文件夹的内容,比如说,我想要我的文件夹名称为<code>ProjectModule</code> ,里面的文件夹有 <code>css</code> / <code>js</code> / <code>img</code> 还有一个 <code>index.html</code>,同时定义好index文件中的内容</p>
-<p>那么我的JSON结构可以这样写</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">var projectData = &#123;</div><div class="line">    &apos;name&apos; : &apos;ProjectModule&apos;,</div><div class="line">    &apos;fileData&apos;: [</div><div class="line">        &#123;</div><div class="line">            &apos;name&apos;: &apos;css&apos;,</div><div class="line">            &apos;type&apos;: &apos;dir&apos;</div><div class="line">        &#125;,</div><div class="line">        &#123;</div><div class="line">            &apos;name&apos;: &apos;js&apos;,</div><div class="line">            &apos;type&apos;: &apos;dir&apos;</div><div class="line">        &#125;,</div><div class="line">        &#123;</div><div class="line">            &apos;name&apos;: &apos;img&apos;,</div><div class="line">            &apos;type&apos;: &apos;dir&apos;</div><div class="line">        &#125;,</div><div class="line">        &#123;</div><div class="line">            &apos;name&apos;: &apos;index.html&apos;,</div><div class="line">            &apos;type&apos;: &apos;file&apos;,</div><div class="line">            &apos;content&apos;: &apos;&lt;html&gt;\n\t&lt;head&gt;\n\t&lt;title&gt;MyProject&lt;/title&gt;\n\t&lt;/head&gt;\n\t&lt;body&gt;\n\t&lt;/body&gt;\n&lt;/html&gt;&apos;</div><div class="line">        &#125;</div><div class="line">    ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>接下来,就是引入fs模块</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var fs = require(&apos;fs&apos;)</div></pre></td></tr></table></figure>
-<p>因为这里是要实时创建的,我们可以直接使用同步的操作,就省去了异步需要使用回调函数的麻烦</p>
-<p>当然,开始之前,要先确定一下,JSON是否有正常的给出文件夹的名称</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">if(projectData.name) &#123;</div><div class="line"></div><div class="line">    fs.mkdirSync(projectData.name)</div><div class="line"></div><div class="line">    var fileData = projectData.fileData</div><div class="line"></div><div class="line">    fileData.forEach(function(f) &#123;</div><div class="line"></div><div class="line">        f.content = f.content? f.content : &apos;&apos;</div><div class="line"></div><div class="line">        f.path = projectData.name + &apos;/&apos; + f.name</div><div class="line"></div><div class="line">        switch (f.type) &#123;</div><div class="line">            </div><div class="line">            case &apos;dir&apos;:</div><div class="line">                fs.mkdirSync(f.path)</div><div class="line">                break;</div><div class="line">            case &apos;file&apos;:</div><div class="line">                fs.writeFileSync(f.path, f.content)</div><div class="line">                break;</div><div class="line">            default:</div><div class="line">                break;</div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>如果使用的是webstorm, 那么直接使用ctrl+f9, 让你的node程序跑起来吧~</p>
-]]></content>
-    
-    <summary type="html">
-    
-      自动化构建是现代前端基本都需要的东西,说起这个,大家自然会想到 Glup/Grount这些自动化的构建工具.
-当然,本文只是从最最基础的角度,使用Node的fs模块进行了简单的文档的写入操作.
-    
-    </summary>
-    
-      <category term="Nodejs学习笔记" scheme="https://github.com/ChangerHe/categories/Nodejs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="Nodejs学习笔记" scheme="https://github.com/ChangerHe/tags/Nodejs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
