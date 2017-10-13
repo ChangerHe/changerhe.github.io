@@ -21,7 +21,7 @@
 <meta property="og:url" content="https://github.com/ChangerHe/2017/10/13/处理git无法上传超过100M文件的问题/index.html">
 <meta property="og:site_name" content="ChangerHe&#39;s Bolg|何庆畅的个人博客">
 <meta property="og:description" content="最近在项目提交分支到github的时候, 出现了一件很尴尬的事情, 文件超过100m, 被github拒绝了 宝宝心里苦, 但宝宝不说 当时也没太在意, 但是当我的当前分支提交堆积到12次的时候, 我急了 卧槽, 要是我以后都不能提交, 那得多尴尬啊 谁叫我有轻微强迫症呢 自己搞不定, 那百度啊 然后, 我百度了一圈, 更换各种搜索词, 从百度的搜索结果的第一页看到第四页, 玛德终于解决了 所以我">
-<meta property="og:updated_time" content="2017-10-13T03:47:46.427Z">
+<meta property="og:updated_time" content="2017-10-13T04:23:48.369Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="处理git无法上传超过100M文件的问题">
 <meta name="twitter:description" content="最近在项目提交分支到github的时候, 出现了一件很尴尬的事情, 文件超过100m, 被github拒绝了 宝宝心里苦, 但宝宝不说 当时也没太在意, 但是当我的当前分支提交堆积到12次的时候, 我急了 卧槽, 要是我以后都不能提交, 那得多尴尬啊 谁叫我有轻微强迫症呢 自己搞不定, 那百度啊 然后, 我百度了一圈, 更换各种搜索词, 从百度的搜索结果的第一页看到第四页, 玛德终于解决了 所以我">
@@ -328,6 +328,7 @@
 <h1 id="修正错误"><a href="#修正错误" class="headerlink" title="修正错误?"></a>修正错误?</h1><p>还有某前辈建议这样做</p>
 <blockquote>
 <p>第一步输入命令 cd /Users/Dora/Desktop/XXX（cd后面的这个路径要换成你自己项目的路径），然后第二步输入命令 git rm –cached /Users/Dora/Desktop/XXX/XXX/IJKMediaFramework（加下划线部分是你自己的要移除的文件的路径），第三步输入命令 git commit –amend -CHEAD，执行完这步后，这个大文件将会从你的commit记录里移除，并且以后commit都将不会再把它commit了，这时候就可以git push把本地代码push到github上了。</p>
+<p>—— <a href="http://www.cnblogs.com/akiha/p/5705505.html" target="_blank"> [ Github 修正上传时“this exceeds GitHub’s file size limit of 100 MB”错误 ]</a></p>
 </blockquote>
 <p>似乎~ 还是不行</p>
 <h1 id="正确的做法"><a href="#正确的做法" class="headerlink" title="正确的做法"></a>正确的做法</h1><p>其实就代码来说, 很简单</p>
