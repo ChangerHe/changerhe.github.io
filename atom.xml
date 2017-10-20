@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/ChangerHe/"/>
-  <updated>2017-10-20T09:10:00.920Z</updated>
+  <updated>2017-10-20T09:19:30.190Z</updated>
   <id>https://github.com/ChangerHe/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://github.com/ChangerHe/2017/10/30/%E7%BA%AFCSS%E5%AE%9E%E7%8E%B0%E5%85%83%E7%B4%A0%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E7%9A%84%E6%96%B9%E6%B3%95/"/>
     <id>https://github.com/ChangerHe/2017/10/30/纯CSS实现元素水平垂直居中的方法/</id>
     <published>2017-10-30T11:42:25.000Z</published>
-    <updated>2017-10-20T09:10:00.920Z</updated>
+    <updated>2017-10-20T09:19:30.190Z</updated>
     
     <content type="html"><![CDATA[<p>垂直居中是布局中十分常见的效果之一，为实现良好的兼容性，PC端实现垂直居中的方法一般是通过绝对定位，table-cell，负边距等方法。有了css3，针对移动端的垂直居中就更加多样化。</p>
 <p>笔者在这里总结了九种使用纯CSS实现水平垂直居中的方法</p>
@@ -55,9 +55,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;垂直居中是布局中十分常见的效果之一，为实现良好的兼容性，PC端实现垂直居中的方法一般是通过绝对定位，table-cell，负边距等方法。有了css3，针对移动端的垂直居中就更加多样化。&lt;/p&gt;
-&lt;p&gt;笔者在这里总结了九种使用纯CSS实现水平垂直居中的方法&lt;/p&gt;
-&lt;p&gt;OK
+      垂直居中是布局中十分常见的效果之一，为实现良好的兼容性，PC端实现垂直居中的方法一般是通过绝对定位，table-cell，负边距等方法。有了css3，针对移动端的垂直居中就更加多样化。
     
     </summary>
     
