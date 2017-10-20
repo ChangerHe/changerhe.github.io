@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/ChangerHe/"/>
-  <updated>2017-10-13T11:53:08.165Z</updated>
+  <updated>2017-10-20T09:10:00.920Z</updated>
   <id>https://github.com/ChangerHe/</id>
   
   <author>
@@ -14,6 +14,59 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>纯CSS实现元素水平垂直居中的方法</title>
+    <link href="https://github.com/ChangerHe/2017/10/30/%E7%BA%AFCSS%E5%AE%9E%E7%8E%B0%E5%85%83%E7%B4%A0%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E7%9A%84%E6%96%B9%E6%B3%95/"/>
+    <id>https://github.com/ChangerHe/2017/10/30/纯CSS实现元素水平垂直居中的方法/</id>
+    <published>2017-10-30T11:42:25.000Z</published>
+    <updated>2017-10-20T09:10:00.920Z</updated>
+    
+    <content type="html"><![CDATA[<p>垂直居中是布局中十分常见的效果之一，为实现良好的兼容性，PC端实现垂直居中的方法一般是通过绝对定位，table-cell，负边距等方法。有了css3，针对移动端的垂直居中就更加多样化。</p>
+<p>笔者在这里总结了九种使用纯CSS实现水平垂直居中的方法</p>
+<p>OK. Let’s see it!</p>
+<p>最开始, 我们先设置几个盒子, 设置它们的统一样式为以下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">.box &#123;</div><div class="line">	width: 300px;</div><div class="line">	height: 300px;</div><div class="line">	margin: 10px;</div><div class="line">	box-shadow: 2px 3px 4px #000;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="方法1-table-cell"><a href="#方法1-table-cell" class="headerlink" title="方法1: table-cell"></a>方法1: table-cell</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;!-- HTML --&gt;</div><div class="line">&lt;div class=&quot;box box1&quot;&gt;</div><div class="line">        &lt;span&gt;垂直居中&lt;/span&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<p>整体的结构是相当简单的, css直接设置本身的宽高, 然后设置为table-cell,并将对齐方式设置为vertic-align就可以实现水平垂直居中了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">/* CSS */</div><div class="line"></div><div class="line">.box1&#123;</div><div class="line">    display: table-cell;</div><div class="line">    vertical-align: middle;</div><div class="line">    text-align: center;        </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>实际上table-cell的兼容性也是相当不错的, 可兼容至IE8+, 相当于将这个区块设置成了一个td</p>
+<h1 id="方法2-display-flex"><a href="#方法2-display-flex" class="headerlink" title="方法2: display: flex;"></a>方法2: display: flex;</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">.box2&#123;</div><div class="line">    display: flex;</div><div class="line">    justify-content:center;</div><div class="line">    align-items:Center;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>使用flex布局就非常简单了, 只需要设置两个属性即可, 存在的问题就是兼容性很有限, 虽然非常简单, 一般使用在移动端</p>
+<h1 id="方法3-绝对定位和负边距"><a href="#方法3-绝对定位和负边距" class="headerlink" title="方法3 绝对定位和负边距"></a>方法3 绝对定位和负边距</h1><p>这个在以前算是比较中规中矩的办法了, 首先需要将父盒子设置为相对定位, 子盒子设置为绝对定位</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">.box3 &#123;</div><div class="line">	position:relative;</div><div class="line">&#125;</div><div class="line">.box3 span &#123;</div><div class="line">	position: absolute;</div><div class="line">	width:100px;</div><div class="line">	height: 50px;</div><div class="line">	top:50%;</div><div class="line">	left:50%;</div><div class="line">	margin-left:-50px;</div><div class="line">	margin-top:-25px;</div><div class="line">	text-align: center;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>原理也非常简单, 将定位到中间距左部和顶部50%之后,需要减去自身的长宽的一半,就实现居中了</p>
+<h1 id="方法4-绝对定位和0"><a href="#方法4-绝对定位和0" class="headerlink" title="方法4: 绝对定位和0"></a>方法4: 绝对定位和0</h1><p>这种方法常用于做蒙层和遮罩效果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">.box4 span&#123;</div><div class="line">	width: 50%; </div><div class="line">	height: 50%; </div><div class="line">	background: #000;</div><div class="line">	overflow: auto; </div><div class="line">	margin: auto; </div><div class="line">	position: absolute; </div><div class="line">	top: 0; </div><div class="line">	left: 0; </div><div class="line">	bottom: 0; </div><div class="line">	right: 0; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>利用绝对定位上下左右都设为0, 中间的子盒子设置margin为auto实现</p>
+<p>方法5: translate</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">.box6 &#123;</div><div class="line">	position: relative;</div><div class="line">&#125;</div><div class="line">.box6 span &#123;</div><div class="line">	position: absolute;</div><div class="line">	top:50%;</div><div class="line">	left:50%;</div><div class="line">	width:100%;</div><div class="line">	transform:translate(-50%,-50%);</div><div class="line">	text-align: center;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>利用CSS3的转换效果, 将自身的位置向左上分别移动了50%, 也就是自身的一半, 就实现居中了 </p>
+<h1 id="方法6：display-inline-block"><a href="#方法6：display-inline-block" class="headerlink" title="方法6：display:inline-block"></a>方法6：display:inline-block</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">.box7 &#123;</div><div class="line">  text-align:center;</div><div class="line">  font-size:0;</div><div class="line">&#125;</div><div class="line">.box7 span &#123;</div><div class="line">	vertical-align:middle;</div><div class="line">	display:inline-block;</div><div class="line">	font-size:16px;</div><div class="line">&#125;</div><div class="line">.box7:after &#123;</div><div class="line">	content:&apos;&apos;;</div><div class="line">	width:0;</div><div class="line">	height:100%;</div><div class="line">	display:inline-block;</div><div class="line">	vertical-align:middle;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这个方法就比较复杂一些了, 通过一个没有任何内容但高度为100%的伪类来进行占位, 根据vertical-align的特性, 来进行居中</p>
+<h1 id="方法7：display-flex和margin-auto"><a href="#方法7：display-flex和margin-auto" class="headerlink" title="方法7：display:flex和margin:auto"></a>方法7：display:flex和margin:auto</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">.box8 &#123;</div><div class="line">    display: flex;</div><div class="line">    text-align: center;</div><div class="line">&#125;</div><div class="line">.box8 span &#123;</div><div class="line">	margin: auto;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="方法8：display-webkit-box"><a href="#方法8：display-webkit-box" class="headerlink" title="方法8：display:-webkit-box"></a>方法8：display:-webkit-box</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">.box9 &#123;</div><div class="line">    display: -webkit-box;</div><div class="line">    -webkit-box-pack:center;</div><div class="line">    -webkit-box-align:center;</div><div class="line">    -webkit-box-orient: vertical;</div><div class="line">    text-align: center</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="方法9：display-webkit-box"><a href="#方法9：display-webkit-box" class="headerlink" title="方法9：display:-webkit-box"></a>方法9：display:-webkit-box</h1><p>这种方法，在 content 元素外插入一个 div。设置此 div height:50%; margin-bottom:-contentheight;。</p>
+<p>content 清除浮动，并显示在中间。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;floater&quot;&gt;&lt;/div&gt;  </div><div class="line">&lt;div class=&quot;content&quot;&gt; Content here &lt;/div&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">.floater &#123;</div><div class="line">    float:left; </div><div class="line">    height:50%; </div><div class="line">    margin-bottom:-120px;</div><div class="line">&#125;</div><div class="line">.content &#123;</div><div class="line">    clear:both; </div><div class="line">    height:240px; </div><div class="line">    position:relative;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>(后两种居中方法摘自网络)</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;垂直居中是布局中十分常见的效果之一，为实现良好的兼容性，PC端实现垂直居中的方法一般是通过绝对定位，table-cell，负边距等方法。有了css3，针对移动端的垂直居中就更加多样化。&lt;/p&gt;
+&lt;p&gt;笔者在这里总结了九种使用纯CSS实现水平垂直居中的方法&lt;/p&gt;
+&lt;p&gt;OK
+    
+    </summary>
+    
+      <category term="CSS" scheme="https://github.com/ChangerHe/categories/CSS/"/>
+    
+    
+      <category term="CSS" scheme="https://github.com/ChangerHe/tags/CSS/"/>
+    
+  </entry>
   
   <entry>
     <title>处理git无法上传超过100M文件的问题</title>
@@ -1295,83 +1348,6 @@
       <category term="ES6" scheme="https://github.com/ChangerHe/tags/ES6/"/>
     
       <category term="解构赋值" scheme="https://github.com/ChangerHe/tags/%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《ES6标准入门》阅读笔记——let和const</title>
-    <link href="https://github.com/ChangerHe/2017/06/17/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94let%E5%92%8Cconst/"/>
-    <id>https://github.com/ChangerHe/2017/06/17/《ES6标准入门》阅读笔记——let和const/</id>
-    <published>2017-06-17T13:33:39.000Z</published>
-    <updated>2017-09-18T00:40:15.428Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。</p>
-<p>许多初学ES6, 同时和我一样初次阅读阮老师的这本书的时候, 读第一遍会越发的困惑, 因为阮老师上面说的很多的定义,方法,之前都是没有见过的, 读到后面才发现, 哦~原来是这样.</p>
-<p>有一句话叫做”大神的世界我们不懂”, 所以我在初读第一遍《ES6标准入门》这本书的时候,也是踩了不少坑,读书的时候查阅了不少的资料.</p>
-<p>所以,在这一系列的笔记教程中,我会从一个初学者的角度,向您讲述ES6的相关知识,在后面介绍的知识我会尽量不提前用,即使提前使用,也会同时做好标注,避免了阅读时各种查阅资料的烦恼.</p>
-<p>系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导新手，快速入门ES6，并逐步将其投入到生产实践中。</p>
-<p>同时,在阅读前也提醒您, 为了系统连贯性的学习ES6的基础知识,建议您从我的博客第一章开始阅读,当然,如果您对对应的知识已经有所了解,那么可以跳转到任意章节阅读,每一篇博客名中均有介绍该博客中涉及到的ES6的内容.</p>
-<p>阮一峰老师的这本书是开源的，在其官方博客就可以下载到，但是我强烈建议大家去购买一本书, 一是方便自己查阅ES6中新增的众多API, 二也是表达一下对大神的敬仰.</p>
-<h1 id="函数的作用域"><a href="#函数的作用域" class="headerlink" title="函数的作用域"></a>函数的作用域</h1><p>要知道，在ES6以前，JS一直都是只有函数作用域，而没有块级作用域的。在这样的情况下，我们大多会使用IIFE（自执行函数表达式）来模拟块级作用域，达到避免全局作用域污染等目的。</p>
-<p>那么ES6有新定义了两种变量的定义方式，let和const，两种变量的定义方式均会产生块级作用域，也就是我们使用大括号包起来的区域，都是块级作用域。</p>
-<p>let和const两者之间的区别就是，const定义的变量，之后是无法更改的。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	let a = 10;</div><div class="line">	var b = 1;</div><div class="line">&#125;</div><div class="line">console.log(b)</div><div class="line">console.log(a)   // 报错</div></pre></td></tr></table></figure>
-<p>我们在大括号外面去打印a会报错,说明let其实是有块级作用域的,当我们使用循环语句的时候,let来声明变量是一个不错的选择.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var a = [];</div><div class="line">for (let i = 0; i &lt; 10; i++) &#123;</div><div class="line">	a[i] = function() &#123;</div><div class="line">		console.log(i)</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">a[6]()    // 6</div></pre></td></tr></table></figure>
-<p>当我们使用let来进行声明的时候,才能得到想要的值 也就是6</p>
-<p>原因是因为,变量i是let声明的,当前的i只在本轮循环有效,所以相当于每一次循环的i都是一个新的变量</p>
-<p>let 不和var一样,存在变量的提升,所以我们在没有声明之前调用let声明的变量,会报错</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">console.log(b)   // 报错</div><div class="line">let b = 2;</div></pre></td></tr></table></figure>
-<p>还有一点要注意的是,我们在第一行使用var声明了b,在这里再声明,就会报错,因为let和const是不允许变量被重复声明的.</p>
-<h1 id="暂时性死区"><a href="#暂时性死区" class="headerlink" title="暂时性死区"></a>暂时性死区</h1><p>只要块级作用域内存在let命令,那么它所声明的变量就绑定了这个区域,不会受外部的影响<br>es6明确规定,只要区块中存在let和const命令,则这个区块对这些命令声明的变量从一开始就形成封闭作用域.只要在声明之前就使用这些变量,就会报错</p>
-<p>其实上面那个例子,已经很好地说明了暂时性死区这个概念了.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var c = 3;</div><div class="line">if(true) &#123;</div><div class="line">	tmp = &apos;abc&apos;  //报错,tmp没有定义</div><div class="line">	let tmp</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>不仅如此,坑爹的是有些死区,你不仔细看真的很难发现</p>
-<p>另外补充一点,在函数中进行形式参数的预定义,也就是设置函数的参数默认值,也是ES6中新定义的函数写法,关于此的内容,会在之后在函数篇中详细介绍.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">function bar(x = y, y = 2) &#123;</div><div class="line">	return [x, y]</div><div class="line">&#125;</div><div class="line">bar()  //报错, y is not defined</div></pre></td></tr></table></figure>
-<p>当然,我们把上面的代码稍微改一下就不会报错了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">function bac(y = 2, x = y) &#123;</div><div class="line">	return [x, y]</div><div class="line">&#125;</div><div class="line">console.log(bac()) // [2,2]</div></pre></td></tr></table></figure>
-<p>结合上面的介绍,还有一点,当我们在块级作用域的内部再定义块级作用域的时候,就不会报错了.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function f1() &#123;</div><div class="line">	let n = 5;</div><div class="line">	if (true) &#123;</div><div class="line">		let n = 10;</div><div class="line">	&#125;</div><div class="line">	console.log(n) // 5</div><div class="line">&#125;</div><div class="line">f1()</div></pre></td></tr></table></figure>
-<p>讲到这里,我再分享一个坑,关于函数的声明提升问题,当然, 下面这一题我没有直接在题上写答案,大家可以把解析先遮住,思考一下这题的结果是什么.既然是坑, 我觉得新手还是老老实实往上踩几脚比较好.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">let f = function() &#123;</div><div class="line">	console.log(&apos;outside&apos;)</div><div class="line">&#125;</div><div class="line"></div><div class="line">function aaa() &#123;</div><div class="line">	if (false) &#123;</div><div class="line">		function f() &#123;</div><div class="line">			console.log(&apos;inside&apos;)</div><div class="line">		&#125;</div><div class="line"></div><div class="line">	&#125;</div><div class="line">	f()</div><div class="line">&#125;</div><div class="line">aaa()</div></pre></td></tr></table></figure>
-<p>万万没想到啊没想到, aaa函数中f()函数的执行居然会报错,而且打印f的值居然是undefined!</p>
-<p>这其实是一个函数的作用域提升问题,预编译阶段内部函数f会跨过if判断而提升至函数aaa的作用域顶端</p>
-<p>那么可能大家会问,我在aaa函数内部打印f函数,是undefined啊.</p>
-<p>因为函数的声明赋值时在if判断语句之内的,所以在此之前仅有一个var f,也就是定义了一个f,但并未对其赋值,所以f打印出来就是undefined.</p>
-<h1 id="const和let的具体区别"><a href="#const和let的具体区别" class="headerlink" title="const和let的具体区别"></a>const和let的具体区别</h1><p>我们来看下面这几行代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">let f;</div><div class="line">console.log(f);  // undefined</div><div class="line">&#123;</div><div class="line">	let a = &apos;secret&apos;</div><div class="line">	console.log(f)  // undefined</div><div class="line">	f = function() &#123;</div><div class="line">		return a;</div><div class="line">	&#125;</div><div class="line">	console.log(f)  // f() &#123; return a &#125;</div><div class="line">&#125;</div><div class="line">console.log(f());   //secret</div></pre></td></tr></table></figure>
-<p>其实上面的代码很好地说明了let的作用域的问题,而且需要注意的是,let的变量值,是可以随时更改的.</p>
-<p>而const,就没有这么自由了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">const PI = 3.14;</div><div class="line">PI = 3;   // 报错</div><div class="line">const foo;  // 定义变量时位对其赋值,报错</div></pre></td></tr></table></figure>
-<p>需要注意的是const定义复合类型值的时候,因为复合类型的变量不直接指向数据,而是指向数据所存储的相应内存空间</p>
-<p>所以这个时候当我们对相应的内存空间中的值进行更改,只要内存空间不变,则都可以对值进行更改</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">const foo = &#123;&#125;;</div><div class="line">foo.prop = 1;</div><div class="line">console.log(foo.prop)   // 1</div></pre></td></tr></table></figure>
-<p>但是呢,,如果我们更改相应的foo指向的内存空间,则就会报错</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">foo = &#123;&#125;  // 报错(接上面的代码实例)</div></pre></td></tr></table></figure>
-<p>如果在声明引用类型变量后,我们不想让里面的值改变怎么办呢?</p>
-<p>这个时候可以使用Object.freeze()方法,冻结这个对象,包括其内存空间的值</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">const foo1 = Object.freeze(&#123;&#125;);</div><div class="line">foo1.prop = 1;</div><div class="line">console.log(foo1.prop)  // undefined</div></pre></td></tr></table></figure>
-<p>这个时候为该对象定义属性和方法,都无效了,但是不会抛出异常</p>
-<p>最后需要注意的一点是,即使我们在全局使用let或是const定义变量,变量都不会挂载到全局的window对象上.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var a = 1</div><div class="line">let b = 2</div><div class="line">const c = 3</div><div class="line"></div><div class="line">console.log(window.a) // 1</div><div class="line">console.log(window.b) // undefined</div><div class="line">console.log(window.c) // undefined</div></pre></td></tr></table></figure>
-<p>(完)</p>
-]]></content>
-    
-    <summary type="html">
-    
-      本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导新手，快速入门ES6，并逐步将其投入到生产实践中。
-    
-    </summary>
-    
-      <category term="ES6标准入门" scheme="https://github.com/ChangerHe/categories/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8/"/>
-    
-    
-      <category term="ES6" scheme="https://github.com/ChangerHe/tags/ES6/"/>
-    
-      <category term="let" scheme="https://github.com/ChangerHe/tags/let/"/>
-    
-      <category term="const" scheme="https://github.com/ChangerHe/tags/const/"/>
     
   </entry>
   
