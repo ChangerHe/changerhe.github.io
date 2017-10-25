@@ -763,6 +763,42 @@
   </entry>
   
   <entry>
+    <title>Margin和Padding值设置成百分数的布局</title>
+    <link href="https://github.com/ChangerHe/2017/06/30/Margin%E5%92%8CPadding%E5%80%BC%E8%AE%BE%E7%BD%AE%E6%88%90%E7%99%BE%E5%88%86%E6%95%B0%E7%9A%84%E5%B8%83%E5%B1%80/"/>
+    <id>https://github.com/ChangerHe/2017/06/30/Margin和Padding值设置成百分数的布局/</id>
+    <published>2017-06-30T11:36:43.000Z</published>
+    <updated>2017-10-25T03:51:41.577Z</updated>
+    
+    <content type="html"><![CDATA[<p>Margin和Padding是我们在网页设计经常使用到的CSS样式，他们分别是间距和填充，一个作用于盒子外面，一个作用于盒子里面，默认的情况下，这些属性的值都会被计算在盒子的面积里面，在网页开发中的流体布局或者是响应式布局中，经常将Margin和Padding设置成百分数，那么到底这个百分数是多少，他是如何计算的呢？</p>
+<h1 id="Margin"><a href="#Margin" class="headerlink" title="Margin"></a>Margin</h1><p>假设我们有这样的一段HTML代码，外面一个DIV宽度980px，高度500px，里面有一个子元素DIV，宽度和高度都不设置，然后给他设置margin:10% 5%，这个属性相当于margin:10% 5% 10% 5%。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;demo1&quot;&gt;</div><div class="line">    &lt;div&gt;这个div设置：margin:10% 5%&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<h1 id="CSS代码"><a href="#CSS代码" class="headerlink" title="CSS代码"></a>CSS代码</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">.demo1&#123; height:500px; width:980px; margin:0 auto; background:#EEE; overflow:hidden;&#125;</div><div class="line">.demo1 div&#123;margin:10% 5%; background:#666;&#125;</div></pre></td></tr></table></figure>
+<p>为了方便查看效果，我们还分别为他们设置了不同的背景。</p>
+<p>这里还出现了一个小的hack，就是demo1盒子不会紧挨着body，也就是不会定格布局，而且body元素上面还有一段空白，这段空白的高度刚好是.demo1 div元素的margin-top，demo1和.demo1 div元素都是顶格对其的，只要给demo1元素设置overflow:hidden，即可解决这个问题，点击这里查看示例。</p>
+<p>我们根据以往的理解，<code>.demo1 div</code>的<code>margin</code>应该是：<code>50px 49px 50px 49px</code>，但是运行以后，通过查看盒模型示意图，却发现是：<code>98px 49px 98px 49px</code>，这是怎么回事呢</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>从上面的示例和代码，我们可以发现当margin设置成百分数的时候，其top right bottom left的值是参照父元素盒子的宽度进行计算，在w3c的规范中也是这样描述的：</p>
+<blockquote>
+<p>margin 的百分比值参照其包含块的宽度进行计算，同样的padding如果设置成百分数的话，其盒子模型和margin是一样的。</p>
+<p>这只发生在默认的<code>writing-mode: horizontal-tb;</code>和<code>direction: ltr;</code>的情况下，当书写模式变成纵向的时候，其参照将会变成包含块的高度。</p>
+</blockquote>
+<p>为什么要选择宽度做参照而不是高度呢？</p>
+<p>这其实更多的要从CSS设计意图上去想，因为CSS的基础需求是排版，而通常我们所见的横排文字，其水平宽度一定（仔细回想一下，如果没有显式的定义宽度 或者强制一行显示，都会遇到边界换行，而不是水平延展），垂直方向可以无限延展。但当书写模式为纵向时，其参照就变成了高度而不再是宽度了。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      Margin和Padding是我们在网页设计经常使用到的CSS样式，他们分别是间距和填充，一个作用于盒子外面，一个作用于盒子里面，默认的情况下，这些属性的值都会被计算在盒子的面积里面，在网页开发中的流体布局或者是响应式布局中，经常将Margin和Padding设置成百分数，那么到底这个百分数是多少，他是如何计算的呢？
+    
+    </summary>
+    
+      <category term="CSS" scheme="https://github.com/ChangerHe/categories/CSS/"/>
+    
+    
+      <category term="CSS" scheme="https://github.com/ChangerHe/tags/CSS/"/>
+    
+  </entry>
+  
+  <entry>
     <title>《ES6标准入门》阅读笔记——-对象的扩展</title>
     <link href="https://github.com/ChangerHe/2017/06/30/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%89%A9%E5%B1%95/"/>
     <id>https://github.com/ChangerHe/2017/06/30/《ES6标准入门》阅读笔记——-对象的扩展/</id>
@@ -1258,94 +1294,6 @@
       <category term="Nodejs" scheme="https://github.com/ChangerHe/tags/Nodejs/"/>
     
       <category term="process.nextTick()" scheme="https://github.com/ChangerHe/tags/process-nextTick/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《ES6标准入门》阅读笔记———解构赋值</title>
-    <link href="https://github.com/ChangerHe/2017/06/18/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94%E2%80%94%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC/"/>
-    <id>https://github.com/ChangerHe/2017/06/18/《ES6标准入门》阅读笔记———解构赋值/</id>
-    <published>2017-06-18T13:21:39.000Z</published>
-    <updated>2017-09-18T00:40:26.230Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。</p>
-<p>许多初学ES6, 同时和我一样初次阅读阮老师的这本书的时候, 读第一遍会越发的困惑, 因为阮老师上面说的很多的定义,方法,之前都是没有见过的, 读到后面才发现, 哦~原来是这样.</p>
-<p>有一句话叫做”大神的世界我们不懂”, 所以我在初读第一遍《ES6标准入门》这本书的时候,也是踩了不少坑,读书的时候查阅了不少的资料.</p>
-<p>所以,在这一系列的笔记教程中,我会从一个初学者的角度,向您讲述ES6的相关知识,在后面介绍的知识我会尽量不提前用,即使提前使用,也会同时做好标注,避免了阅读时各种查阅资料的烦恼.</p>
-<p>系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导新手，快速入门ES6，并逐步将其投入到生产实践中。</p>
-<p>同时,在阅读前也提醒您, 为了系统连贯性的学习ES6的基础知识,建议您从我的博客第一章开始阅读,当然,如果您对对应的知识已经有所了解,那么可以跳转到任意章节阅读,每一篇博客名中均有介绍该博客中涉及到的ES6的内容.</p>
-<p>阮一峰老师的这本书是开源的，在其官方博客就可以下载到，但是我强烈建议大家去购买一本书, 一是方便自己查阅ES6中新增的众多API, 二也是表达一下对大神的敬仰.</p>
-<h1 id="什么是解构赋值"><a href="#什么是解构赋值" class="headerlink" title="什么是解构赋值?"></a>什么是解构赋值?</h1><p>ES6允许我们按照一定模式,从数组和对象中提取值,对变量进行赋值,这被称为解构</p>
-<p>解构赋值可将数组的元素或对象的属性赋予给另一个变量，该变量的定义语法与数组字面量或对象字面量很相似。此语法非常简洁，相比于传统的属性访问方式，更加直观清晰。</p>
-<p>在不使用解构赋值的情况下，通常我们这样访问数组中的元素：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var first = arr[0];  </div><div class="line">var second = arr[1];  </div><div class="line">var third = arr[2];</div></pre></td></tr></table></figure>
-<p>使用解构赋值后，代码得到了极大的简化，同时可读性也更强：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var [first, second, third] = arr;</div></pre></td></tr></table></figure>
-<p>以上代码的作用和上面的实例代码是一样的,声明三个变量,存储数组arr中的前三位的内容.</p>
-<h1 id="数组的解构赋值"><a href="#数组的解构赋值" class="headerlink" title="数组的解构赋值"></a>数组的解构赋值</h1><p>我们将数组的对应位置定义好变量,同时在相同位置定义好对应值,就可以完成赋值操作</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">let [foo, [[bar], baz]] = [1,[[2],3]]</div><div class="line">console.log(foo, bar, baz)   // 1 2</div></pre></td></tr></table></figure>
-<p>当我们对变量解构赋值的时候,不想赋值的地方可以使用空数组的键值代替.当需要使用一个变量匹配后面的所有未匹配数组的时候,使用三个点号代替</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">let [head, ...tail] = [1,2,3,4,5,6]</div><div class="line">console.log(head, tail)  // 1  [2,3,4,5,6]</div><div class="line">let [x, y, ...z] = [&apos;a&apos;];</div><div class="line">console.log(x,y,z)  // a undefined []</div></pre></td></tr></table></figure>
-<p>三个点号也是ES6中的新语法, 在阮一峰老师的书中有两种叫法,一个叫做扩展运算符,一个叫做rest参数, 但是我觉得三点运算符好像更加的形象贴切啊哈哈. 当然,这个三点运算符会在数组这一章进行具体讲解.</p>
-<p>解构不成功,表示右边的值不足以匹配左边的值,不完全解构,表示右边的值超出要赋予的左边的值<br>当出现如下情况的时候,f是只能匹配第一个数组元素的</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">let [e,[f],g] = [1,[2,3],4]</div><div class="line">console.log(e,f,g)   //1 2 4</div></pre></td></tr></table></figure>
-<p>需要注意的是,当等号的右边不是数组,或者严格的说,不是可以遍历的结构的时候,是会报错的.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">let [a] = 1  // 报错</div></pre></td></tr></table></figure>
-<p>对于解构赋值,我们可以使用Set结构,也可以使用数组的解构赋值</p>
-<p>那么这里再解释一下啥叫set结构,ES6提供了一种新的数据结构Set,类似于数组,但成员值是唯一的,没有重复值. set本身是一个构造函数,用来生成set数据结构.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">let [h,i,j] = new Set([&apos;a&apos;,&apos;b&apos;,&apos;c&apos;])</div><div class="line">console.log(h,i,j)  // a b c</div></pre></td></tr></table></figure>
-<p>解构赋值也允许使用默认值,所以,当我们为其不传值,或者传值为undefined的时候,是会使用默认值的</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">let [foo = true] = [undefined]</div><div class="line">console.log(foo)  // true</div></pre></td></tr></table></figure>
-<p>但是因为ES6修复了很多之前因为 null == Object 而导致的许多问题,所以,在ES6中,因为其内部的判定机制,如果所属的值不严格等于undefined,那么其值为null的时候,是可以进行赋值的</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">let [foo = true] = [null]</div><div class="line">console.log(foo)</div></pre></td></tr></table></figure>
-<h1 id="对象的解构赋值"><a href="#对象的解构赋值" class="headerlink" title="对象的解构赋值"></a>对象的解构赋值</h1><p>同样的,解构赋值也支持对对象的解构赋值</p>
-<p>对象不同于数组,数组是按次序排列的,但是对象的属性时没有次序的,只能通过查找对象的键值来找到相应的值</p>
-<p>在这里可能很多童鞋就有点懵逼了,为啥对象你写个名字,不赋值都行啊?</p>
-<p>那么这里还是要再补充一下,ES6新增了一种对象的表示方法,  允许在对象之中，直接写变量。这时，属性名为变量名, 属性值为变量的值。也就是说:</p>
-<blockquote>
-<p><code>{bar, foo} === {bar: bar, foo: foo}</code></p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var &#123;bar, foo&#125; = &#123;foo: &apos;aaa&apos;, bar: &apos;bbb&apos;&#125;</div><div class="line">console.log(foo)  // bbb</div><div class="line">console.log(bar)  // aaa</div></pre></td></tr></table></figure>
-<p>需要注意的是,我们给对象进行解构赋值的时候,其实是赋值给了对象的键值,对象的键名是不会改变的.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">let obj = &#123;first: &apos;hello&apos;, last: &apos;world&apos;&#125;;</div><div class="line">let &#123;first: i, last: j&#125; = obj</div><div class="line">console.log(i, j) // hello  world</div></pre></td></tr></table></figure>
-<p>那么还有一个问题就是,进行解构赋值的时候,我们必须将声明和赋值写在一起,不写在一起的话就会报错</p>
-<p>在书写的时候有一个小坑也需要注意一下</p>
-<p>当我们不加圆括号而是直接使用花括号的话,javascript引擎会把{foo}人为是一个语法块,从而不会正常进行语句的解构</p>
-<p>那么解决办法就是将整条语句使用圆括号括起来,从而让引擎正确理解这条语句</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">let foo</div><div class="line">(&#123;foo&#125; = &#123;foo: 1&#125;)</div><div class="line">console.log(foo) // 1</div></pre></td></tr></table></figure>
-<h1 id="使用解构赋值的小技巧"><a href="#使用解构赋值的小技巧" class="headerlink" title="使用解构赋值的小技巧"></a>使用解构赋值的小技巧</h1><p>当我们频繁使用某一个函数或是语句的时候,我们可以使用解构赋值,获得相应的更简便的书写方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">let &#123;logl, sin, cos&#125; = Math;</div><div class="line">console.log(cos(60))</div><div class="line">let &#123;log, dir, debug&#125; = console</div><div class="line">log(log)</div></pre></td></tr></table></figure>
-<p>对应此方法,字符串也可以进行解构赋值,此时字符串被转换成了一个类似数组的对象</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">const str = &apos;abcd&apos;</div><div class="line">const [a, b, c, d] = str;</div><div class="line">const &#123;length: len&#125; = str</div><div class="line">console.log(a,b,c,d) // a b c d</div><div class="line">console.log(len)  // 4</div></pre></td></tr></table></figure>
-<p>当等号右边是数值或布尔值的时候,会转换为对象,因此也拥有了此类的对象相应的方法和属性</p>
-<p>需要注意的是,每个内部类型对象的构造函数中都是拥有toString的方法的</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">const &#123;toString: s&#125; = 123;</div><div class="line">console.log(s === Number.prototype.toString) // true</div><div class="line">console.log(s === Object.prototype.toString) // false</div></pre></td></tr></table></figure>
-<h2 id="变量解构赋值在函数参数中的应用"><a href="#变量解构赋值在函数参数中的应用" class="headerlink" title="变量解构赋值在函数参数中的应用"></a>变量解构赋值在函数参数中的应用</h2><p>函数的参数也是可以参与到解构赋值中的</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">function add([x, y]) &#123;</div><div class="line">	return x + y;</div><div class="line">&#125;</div><div class="line">console.log(add([1,2]))</div></pre></td></tr></table></figure>
-<p>我们可以将函数的返回值作为解构赋值的值来进行使用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function example() &#123;</div><div class="line">	return [1,2,3]</div><div class="line">&#125;</div><div class="line">var [a,b,c] = example()</div><div class="line">console.log(a,b,c)</div></pre></td></tr></table></figure>
-<p>同样的,不仅能使用函数的返回值,还可以使用解构赋值给函数赋值</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">function f([x,y,z])&#123;&#125;</div><div class="line">f([1,2,3])</div><div class="line">function j(&#123;x,y,z&#125;)&#123;&#125;</div><div class="line">j(&#123;x: 1,y: 2, z: 3&#125;)</div></pre></td></tr></table></figure>
-<p>因为解构赋值的特性,因此其对提取json数据有奇效</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var jsonData = &#123;</div><div class="line">	id: 42,</div><div class="line">	status: &apos;OK&apos;,</div><div class="line">	data: [123,432]</div><div class="line">&#125;</div><div class="line">let &#123;id, status, data&#125; = jsonData</div><div class="line">console.log(id, status, data) // 42 OK [123, 432]</div></pre></td></tr></table></figure>
-<p>遍历Map结构</p>
-<p>Map结构也是ES6中定义的新的数据结构,它类似于对象,也是键值对的集合,但是键的范围不限于字符串,各种类型的值都可以当做键</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var map = new Map();</div><div class="line">map.set(&apos;first&apos;, &apos;hello&apos;);</div><div class="line">map.set(&apos;second&apos;, &apos;world&apos;)</div><div class="line">for(let [key, value] of map) &#123;</div><div class="line">	console.log(key + &apos; is &apos; + value)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>(完)</p>
-]]></content>
-    
-    <summary type="html">
-    
-      本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导新手，快速入门ES6，并逐步将其投入到生产实践中。
-    
-    </summary>
-    
-      <category term="ES6标准入门" scheme="https://github.com/ChangerHe/categories/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8/"/>
-    
-    
-      <category term="ES6" scheme="https://github.com/ChangerHe/tags/ES6/"/>
-    
-      <category term="解构赋值" scheme="https://github.com/ChangerHe/tags/%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC/"/>
     
   </entry>
   
