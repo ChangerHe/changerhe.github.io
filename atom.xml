@@ -345,10 +345,10 @@
   
   <entry>
     <title>sass/scss和less的区别</title>
-    <link href="https://github.com/ChangerHe/2017/09/01/sass,scss%E5%92%8Cless%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
-    <id>https://github.com/ChangerHe/2017/09/01/sass,scss和less的区别/</id>
+    <link href="https://github.com/ChangerHe/2017/09/01/sass-scss%E5%92%8Cless%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
+    <id>https://github.com/ChangerHe/2017/09/01/sass-scss和less的区别/</id>
     <published>2017-09-01T15:13:23.000Z</published>
-    <updated>2017-10-26T02:21:25.062Z</updated>
+    <updated>2017-10-26T02:30:24.659Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Sass-Scss、Less是什么"><a href="#Sass-Scss、Less是什么" class="headerlink" title="Sass/Scss、Less是什么?"></a>Sass/Scss、Less是什么?</h1><p>Sass (Syntactically Awesome Stylesheets)是一种动态样式语言，Sass语法属于缩排语法，比css比多出好些功能(如变量、嵌套、运算,混入(Mixin)、继承、颜色处理，函数等)，更容易阅读。</p>
 <h2 id="Sass与Scss是什么关系"><a href="#Sass与Scss是什么关系" class="headerlink" title="Sass与Scss是什么关系?"></a>Sass与Scss是什么关系?</h2><p>Sass的缩排语法，对于写惯css前端的web开发者来说很不直观，也不能将css代码加入到Sass里面，因此sass语法进行了改良，Sass 3就变成了Scss(sassy css)。与原来的语法兼容，只是用{}取代了原来的缩进。</p>

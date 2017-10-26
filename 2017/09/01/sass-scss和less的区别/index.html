@@ -16,17 +16,17 @@
 
 
 
-<meta name="description" content="本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导新手，快速入门ES6，并逐步将其投入到生产实践中。">
-<meta name="keywords" content="ES6,解构赋值">
+<meta name="description" content="Sass (Syntactically Awesome Stylesheets)是一种动态样式语言，Sass语法属于缩排语法，比css比多出好些功能(如变量、嵌套、运算,混入(Mixin)、继承、颜色处理，函数等)，更容易阅读。">
+<meta name="keywords" content="SASS,LESS,SCSS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="《ES6标准入门》阅读笔记———解构赋值">
-<meta property="og:url" content="https://github.com/ChangerHe/2017/06/18/《ES6标准入门》阅读笔记———解构赋值/index.html">
+<meta property="og:title" content="sass&#x2F;scss和less的区别">
+<meta property="og:url" content="https://github.com/ChangerHe/2017/09/01/sass-scss和less的区别/index.html">
 <meta property="og:site_name" content="ChangerHe&#39;s Bolg|何庆畅的个人博客">
-<meta property="og:description" content="本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导新手，快速入门ES6，并逐步将其投入到生产实践中。">
-<meta property="og:updated_time" content="2017-09-18T00:40:26.230Z">
+<meta property="og:description" content="Sass (Syntactically Awesome Stylesheets)是一种动态样式语言，Sass语法属于缩排语法，比css比多出好些功能(如变量、嵌套、运算,混入(Mixin)、继承、颜色处理，函数等)，更容易阅读。">
+<meta property="og:updated_time" content="2017-10-26T02:30:24.659Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="《ES6标准入门》阅读笔记———解构赋值">
-<meta name="twitter:description" content="本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导新手，快速入门ES6，并逐步将其投入到生产实践中。">
+<meta name="twitter:title" content="sass&#x2F;scss和less的区别">
+<meta name="twitter:description" content="Sass (Syntactically Awesome Stylesheets)是一种动态样式语言，Sass语法属于缩排语法，比css比多出好些功能(如变量、嵌套、运算,混入(Mixin)、继承、颜色处理，函数等)，更容易阅读。">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -58,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>《ES6标准入门》阅读笔记———解构赋值 | ChangerHe&#39;s Bolg|何庆畅的个人博客</title>
+<title>sass/scss和less的区别 | ChangerHe&#39;s Bolg|何庆畅的个人博客</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -267,11 +267,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-《ES6标准入门》阅读笔记———解构赋值" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-sass-scss和less的区别" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/06/18/《ES6标准入门》阅读笔记———解构赋值/" class="article-date">
-      <time datetime="2017-06-18T13:21:39.000Z" itemprop="datePublished">2017-06-18</time>
+      <a href="/2017/09/01/sass-scss和less的区别/" class="article-date">
+      <time datetime="2017-09-01T15:13:23.000Z" itemprop="datePublished">2017-09-01</time>
 </a>
 
 
@@ -286,7 +286,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      《ES6标准入门》阅读笔记———解构赋值
+      sass/scss和less的区别
     </h1>
   
 
@@ -295,13 +295,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/ES6标准入门/">ES6标准入门</a>
+    <a class="article-category-link" href="/categories/CSS/">CSS</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/">ES6</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/解构赋值/">解构赋值</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LESS/">LESS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SASS/">SASS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SCSS/">SCSS</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -311,70 +311,25 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。</p>
-<p>许多初学ES6, 同时和我一样初次阅读阮老师的这本书的时候, 读第一遍会越发的困惑, 因为阮老师上面说的很多的定义,方法,之前都是没有见过的, 读到后面才发现, 哦~原来是这样.</p>
-<p>有一句话叫做”大神的世界我们不懂”, 所以我在初读第一遍《ES6标准入门》这本书的时候,也是踩了不少坑,读书的时候查阅了不少的资料.</p>
-<p>所以,在这一系列的笔记教程中,我会从一个初学者的角度,向您讲述ES6的相关知识,在后面介绍的知识我会尽量不提前用,即使提前使用,也会同时做好标注,避免了阅读时各种查阅资料的烦恼.</p>
-<p>系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导新手，快速入门ES6，并逐步将其投入到生产实践中。</p>
-<p>同时,在阅读前也提醒您, 为了系统连贯性的学习ES6的基础知识,建议您从我的博客第一章开始阅读,当然,如果您对对应的知识已经有所了解,那么可以跳转到任意章节阅读,每一篇博客名中均有介绍该博客中涉及到的ES6的内容.</p>
-<p>阮一峰老师的这本书是开源的，在其官方博客就可以下载到，但是我强烈建议大家去购买一本书, 一是方便自己查阅ES6中新增的众多API, 二也是表达一下对大神的敬仰.</p>
-<h1 id="什么是解构赋值"><a href="#什么是解构赋值" class="headerlink" title="什么是解构赋值?"></a>什么是解构赋值?</h1><p>ES6允许我们按照一定模式,从数组和对象中提取值,对变量进行赋值,这被称为解构</p>
-<p>解构赋值可将数组的元素或对象的属性赋予给另一个变量，该变量的定义语法与数组字面量或对象字面量很相似。此语法非常简洁，相比于传统的属性访问方式，更加直观清晰。</p>
-<p>在不使用解构赋值的情况下，通常我们这样访问数组中的元素：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var first = arr[0];  </div><div class="line">var second = arr[1];  </div><div class="line">var third = arr[2];</div></pre></td></tr></table></figure>
-<p>使用解构赋值后，代码得到了极大的简化，同时可读性也更强：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var [first, second, third] = arr;</div></pre></td></tr></table></figure>
-<p>以上代码的作用和上面的实例代码是一样的,声明三个变量,存储数组arr中的前三位的内容.</p>
-<h1 id="数组的解构赋值"><a href="#数组的解构赋值" class="headerlink" title="数组的解构赋值"></a>数组的解构赋值</h1><p>我们将数组的对应位置定义好变量,同时在相同位置定义好对应值,就可以完成赋值操作</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">let [foo, [[bar], baz]] = [1,[[2],3]]</div><div class="line">console.log(foo, bar, baz)   // 1 2</div></pre></td></tr></table></figure>
-<p>当我们对变量解构赋值的时候,不想赋值的地方可以使用空数组的键值代替.当需要使用一个变量匹配后面的所有未匹配数组的时候,使用三个点号代替</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">let [head, ...tail] = [1,2,3,4,5,6]</div><div class="line">console.log(head, tail)  // 1  [2,3,4,5,6]</div><div class="line">let [x, y, ...z] = [&apos;a&apos;];</div><div class="line">console.log(x,y,z)  // a undefined []</div></pre></td></tr></table></figure>
-<p>三个点号也是ES6中的新语法, 在阮一峰老师的书中有两种叫法,一个叫做扩展运算符,一个叫做rest参数, 但是我觉得三点运算符好像更加的形象贴切啊哈哈. 当然,这个三点运算符会在数组这一章进行具体讲解.</p>
-<p>解构不成功,表示右边的值不足以匹配左边的值,不完全解构,表示右边的值超出要赋予的左边的值<br>当出现如下情况的时候,f是只能匹配第一个数组元素的</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">let [e,[f],g] = [1,[2,3],4]</div><div class="line">console.log(e,f,g)   //1 2 4</div></pre></td></tr></table></figure>
-<p>需要注意的是,当等号的右边不是数组,或者严格的说,不是可以遍历的结构的时候,是会报错的.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">let [a] = 1  // 报错</div></pre></td></tr></table></figure>
-<p>对于解构赋值,我们可以使用Set结构,也可以使用数组的解构赋值</p>
-<p>那么这里再解释一下啥叫set结构,ES6提供了一种新的数据结构Set,类似于数组,但成员值是唯一的,没有重复值. set本身是一个构造函数,用来生成set数据结构.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">let [h,i,j] = new Set([&apos;a&apos;,&apos;b&apos;,&apos;c&apos;])</div><div class="line">console.log(h,i,j)  // a b c</div></pre></td></tr></table></figure>
-<p>解构赋值也允许使用默认值,所以,当我们为其不传值,或者传值为undefined的时候,是会使用默认值的</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">let [foo = true] = [undefined]</div><div class="line">console.log(foo)  // true</div></pre></td></tr></table></figure>
-<p>但是因为ES6修复了很多之前因为 null == Object 而导致的许多问题,所以,在ES6中,因为其内部的判定机制,如果所属的值不严格等于undefined,那么其值为null的时候,是可以进行赋值的</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">let [foo = true] = [null]</div><div class="line">console.log(foo)</div></pre></td></tr></table></figure>
-<h1 id="对象的解构赋值"><a href="#对象的解构赋值" class="headerlink" title="对象的解构赋值"></a>对象的解构赋值</h1><p>同样的,解构赋值也支持对对象的解构赋值</p>
-<p>对象不同于数组,数组是按次序排列的,但是对象的属性时没有次序的,只能通过查找对象的键值来找到相应的值</p>
-<p>在这里可能很多童鞋就有点懵逼了,为啥对象你写个名字,不赋值都行啊?</p>
-<p>那么这里还是要再补充一下,ES6新增了一种对象的表示方法,  允许在对象之中，直接写变量。这时，属性名为变量名, 属性值为变量的值。也就是说:</p>
-<blockquote>
-<p><code>{bar, foo} === {bar: bar, foo: foo}</code></p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var &#123;bar, foo&#125; = &#123;foo: &apos;aaa&apos;, bar: &apos;bbb&apos;&#125;</div><div class="line">console.log(foo)  // bbb</div><div class="line">console.log(bar)  // aaa</div></pre></td></tr></table></figure>
-<p>需要注意的是,我们给对象进行解构赋值的时候,其实是赋值给了对象的键值,对象的键名是不会改变的.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">let obj = &#123;first: &apos;hello&apos;, last: &apos;world&apos;&#125;;</div><div class="line">let &#123;first: i, last: j&#125; = obj</div><div class="line">console.log(i, j) // hello  world</div></pre></td></tr></table></figure>
-<p>那么还有一个问题就是,进行解构赋值的时候,我们必须将声明和赋值写在一起,不写在一起的话就会报错</p>
-<p>在书写的时候有一个小坑也需要注意一下</p>
-<p>当我们不加圆括号而是直接使用花括号的话,javascript引擎会把{foo}人为是一个语法块,从而不会正常进行语句的解构</p>
-<p>那么解决办法就是将整条语句使用圆括号括起来,从而让引擎正确理解这条语句</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">let foo</div><div class="line">(&#123;foo&#125; = &#123;foo: 1&#125;)</div><div class="line">console.log(foo) // 1</div></pre></td></tr></table></figure>
-<h1 id="使用解构赋值的小技巧"><a href="#使用解构赋值的小技巧" class="headerlink" title="使用解构赋值的小技巧"></a>使用解构赋值的小技巧</h1><p>当我们频繁使用某一个函数或是语句的时候,我们可以使用解构赋值,获得相应的更简便的书写方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">let &#123;logl, sin, cos&#125; = Math;</div><div class="line">console.log(cos(60))</div><div class="line">let &#123;log, dir, debug&#125; = console</div><div class="line">log(log)</div></pre></td></tr></table></figure>
-<p>对应此方法,字符串也可以进行解构赋值,此时字符串被转换成了一个类似数组的对象</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">const str = &apos;abcd&apos;</div><div class="line">const [a, b, c, d] = str;</div><div class="line">const &#123;length: len&#125; = str</div><div class="line">console.log(a,b,c,d) // a b c d</div><div class="line">console.log(len)  // 4</div></pre></td></tr></table></figure>
-<p>当等号右边是数值或布尔值的时候,会转换为对象,因此也拥有了此类的对象相应的方法和属性</p>
-<p>需要注意的是,每个内部类型对象的构造函数中都是拥有toString的方法的</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">const &#123;toString: s&#125; = 123;</div><div class="line">console.log(s === Number.prototype.toString) // true</div><div class="line">console.log(s === Object.prototype.toString) // false</div></pre></td></tr></table></figure>
-<h2 id="变量解构赋值在函数参数中的应用"><a href="#变量解构赋值在函数参数中的应用" class="headerlink" title="变量解构赋值在函数参数中的应用"></a>变量解构赋值在函数参数中的应用</h2><p>函数的参数也是可以参与到解构赋值中的</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">function add([x, y]) &#123;</div><div class="line">	return x + y;</div><div class="line">&#125;</div><div class="line">console.log(add([1,2]))</div></pre></td></tr></table></figure>
-<p>我们可以将函数的返回值作为解构赋值的值来进行使用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function example() &#123;</div><div class="line">	return [1,2,3]</div><div class="line">&#125;</div><div class="line">var [a,b,c] = example()</div><div class="line">console.log(a,b,c)</div></pre></td></tr></table></figure>
-<p>同样的,不仅能使用函数的返回值,还可以使用解构赋值给函数赋值</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">function f([x,y,z])&#123;&#125;</div><div class="line">f([1,2,3])</div><div class="line">function j(&#123;x,y,z&#125;)&#123;&#125;</div><div class="line">j(&#123;x: 1,y: 2, z: 3&#125;)</div></pre></td></tr></table></figure>
-<p>因为解构赋值的特性,因此其对提取json数据有奇效</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var jsonData = &#123;</div><div class="line">	id: 42,</div><div class="line">	status: &apos;OK&apos;,</div><div class="line">	data: [123,432]</div><div class="line">&#125;</div><div class="line">let &#123;id, status, data&#125; = jsonData</div><div class="line">console.log(id, status, data) // 42 OK [123, 432]</div></pre></td></tr></table></figure>
-<p>遍历Map结构</p>
-<p>Map结构也是ES6中定义的新的数据结构,它类似于对象,也是键值对的集合,但是键的范围不限于字符串,各种类型的值都可以当做键</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var map = new Map();</div><div class="line">map.set(&apos;first&apos;, &apos;hello&apos;);</div><div class="line">map.set(&apos;second&apos;, &apos;world&apos;)</div><div class="line">for(let [key, value] of map) &#123;</div><div class="line">	console.log(key + &apos; is &apos; + value)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>(完)</p>
+        <h1 id="Sass-Scss、Less是什么"><a href="#Sass-Scss、Less是什么" class="headerlink" title="Sass/Scss、Less是什么?"></a>Sass/Scss、Less是什么?</h1><p>Sass (Syntactically Awesome Stylesheets)是一种动态样式语言，Sass语法属于缩排语法，比css比多出好些功能(如变量、嵌套、运算,混入(Mixin)、继承、颜色处理，函数等)，更容易阅读。</p>
+<h2 id="Sass与Scss是什么关系"><a href="#Sass与Scss是什么关系" class="headerlink" title="Sass与Scss是什么关系?"></a>Sass与Scss是什么关系?</h2><p>Sass的缩排语法，对于写惯css前端的web开发者来说很不直观，也不能将css代码加入到Sass里面，因此sass语法进行了改良，Sass 3就变成了Scss(sassy css)。与原来的语法兼容，只是用{}取代了原来的缩进。</p>
+<p>Less也是一种动态样式语言. 对CSS赋予了动态语言的特性，如变量，继承，运算， 函数.  Less 既可以在客户端上运行 (支持IE 6+, Webkit, Firefox)，也可在服务端运行 (借助 Node.js)。</p>
+<h1 id="Sass-Scss与Less区别"><a href="#Sass-Scss与Less区别" class="headerlink" title="Sass/Scss与Less区别"></a>Sass/Scss与Less区别</h1><h2 id="编译环境不一样"><a href="#编译环境不一样" class="headerlink" title="编译环境不一样"></a>编译环境不一样</h2><p>Sass的安装需要Ruby环境，是在服务端处理的，而Less是需要引入less.js来处理Less代码输出css到浏览器，也可以在开发环节使用Less，然后编译成css文件，直接放到项目中，也有 Less.app、SimpleLess、CodeKit.app这样的工具，也有在线编译地址。</p>
+<h2 id="变量符不一样"><a href="#变量符不一样" class="headerlink" title="变量符不一样"></a>变量符不一样</h2><p>Less是@，而Scss是$，而且变量的作用域也不一样。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">// Less-作用域</div><div class="line">@color: #00c; /* 蓝色 */</div><div class="line">#header &#123;</div><div class="line">  @color: #c00; /* red */</div><div class="line">  border: 1px solid @color; /* 红色边框 */</div><div class="line">&#125;</div><div class="line"></div><div class="line">#footer &#123;</div><div class="line">  border: 1px solid @color; /* 蓝色边框 */</div><div class="line">&#125;</div><div class="line"></div><div class="line">// Less-作用域编译后</div><div class="line">#header&#123;border:1px solid #cc0000;&#125;</div><div class="line">#footer&#123;border:1px solid #0000cc;&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">// scss-作用域</div><div class="line">$color: #00c; /* 蓝色 */</div><div class="line"></div><div class="line">#header &#123;</div><div class="line"></div><div class="line">  $color: #c00; /* red */</div><div class="line">  border: 1px solid $color; /* 红色边框 */</div><div class="line">&#125;</div><div class="line"></div><div class="line">#footer &#123;</div><div class="line">  border: 1px solid $color; /* 蓝色边框 */</div><div class="line">&#125;</div><div class="line"></div><div class="line">// Sass-作用域编译后</div><div class="line"></div><div class="line">#header&#123;border:1px solid #c00&#125;</div><div class="line">#footer&#123;border:1px solid #c00&#125;</div></pre></td></tr></table></figure>
+<p>我们可以看出来，less和scss中的变量会随着作用域的变化而不一样。</p>
+<h1 id="输出设置"><a href="#输出设置" class="headerlink" title="输出设置"></a>输出设置</h1><p>Less没有输出设置，Sass提供4中输出选项：nested, compact, compressed 和 expanded。</p>
+<p>输出样式的风格可以有四种选择，默认为nested</p>
+<p>-nested：嵌套缩进的css代码<br>-expanded：展开的多行css代码<br>-compact：简洁格式的css代码<br>-compressed：压缩后的css代码</p>
+<h1 id="条件语句的支持"><a href="#条件语句的支持" class="headerlink" title="条件语句的支持"></a>条件语句的支持</h1><p>Sass支持条件语句，可以使用if{}else{},for{}循环等等。而Less不支持。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">// 简单的if语句</div><div class="line"></div><div class="line">@if lightness($color) &gt; 30% &#123;</div><div class="line"></div><div class="line">&#125; @else &#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">// 简单的for语句</div><div class="line"></div><div class="line">@for $i from 1 to 10 &#123;</div><div class="line">  .border-#&#123;$i&#125; &#123;</div><div class="line">    border: #&#123;$i&#125;px solid blue;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="引用外部CSS文件"><a href="#引用外部CSS文件" class="headerlink" title="引用外部CSS文件"></a>引用外部CSS文件</h1><p>scss引用的外部文件命名必须以_开头, 如下例所示:其中_test1.scss、_test2.scss、<em>test3.scss文件分别设置的h1 h2 h3。文件名如果以下划线</em>开头的话，Sass会认为该文件是一个引用文件，不会将其编译为css文件.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">// 源代码：</div><div class="line">@import &quot;_test1.scss&quot;;</div><div class="line">@import &quot;_test2.scss&quot;;</div><div class="line">@import &quot;_test3.scss&quot;;</div><div class="line"></div><div class="line">// 编译后：</div><div class="line">h1 &#123;</div><div class="line">  font-size: 17px;</div><div class="line">&#125;</div><div class="line"> </div><div class="line">h2 &#123;</div><div class="line">  font-size: 17px;</div><div class="line">&#125;</div><div class="line"> </div><div class="line">h3 &#123;</div><div class="line">  font-size: 17px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Less引用外部文件和css中的@import没什么差异。</p>
+<h1 id="Sass和Less的工具库不同"><a href="#Sass和Less的工具库不同" class="headerlink" title="Sass和Less的工具库不同"></a>Sass和Less的工具库不同</h1><p>Sass有工具库Compass, 简单说，Sass和Compass的关系有点像Javascript和jQuery的关系,Compass是Sass的工具库。在它的基础上，封装了一系列有用的模块和模板，补充强化了Sass的功能。</p>
+<p>Less有UI组件库Bootstrap,Bootstrap是web前端开发中一个比较有名的前端UI组件库，Bootstrap的样式文件部分源码就是采用Less语法编写。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>不管是Sass，还是Less，都可以视为一种基于CSS之上的高级语言，其目的是使得CSS开发更灵活和更强大，Sass的功能比Less强大,基本可以说是一种真正的编程语言了，Less则相对清晰明了,易于上手,对编译环境要求比较宽松。考虑到编译Sass要安装Ruby,而Ruby官网在国内访问不了,个人在实际开发中更倾向于选择Less。</p>
 
       
     </div>
@@ -383,12 +338,12 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/06/18/《ES6标准入门》阅读笔记———解构赋值/">《ES6标准入门》阅读笔记———解构赋值</a></p>
+        <p><span>本文标题:</span><a href="/2017/09/01/sass-scss和less的区别/">sass/scss和less的区别</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">ChangerHe</a></p>
-        <p><span>发布时间:</span>2017-06-18, 21:21:39</p>
+        <p><span>发布时间:</span>2017-09-01, 23:13:23</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/06/18/《ES6标准入门》阅读笔记———解构赋值/" title="《ES6标准入门》阅读笔记———解构赋值">https://github.com/ChangerHe/2017/06/18/《ES6标准入门》阅读笔记———解构赋值/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://github.com/ChangerHe/2017/06/18/《ES6标准入门》阅读笔记———解构赋值/　　作者: ChangerHe" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/09/01/sass-scss和less的区别/" title="sass/scss和less的区别">https://github.com/ChangerHe/2017/09/01/sass-scss和less的区别/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://github.com/ChangerHe/2017/09/01/sass-scss和less的区别/　　作者: ChangerHe" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -401,15 +356,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/06/19/理解Nodejs里的process-nextTick/">
-                    理解Node.js里的process.nextTick()
+                <a href="/2017/09/30/Javascript中隐式类型转换的神坑/">
+                    Javascript中隐式类型转换的神坑
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2017/06/17/《ES6标准入门》阅读笔记——let和const/">
-                    《ES6标准入门》阅读笔记——let和const
+                <a href="/2017/07/21/基于MongoDB-2dSphere索引查找最近的点/">
+                    基于MongoDB 2dSphere索引查找最近的点
                 </a>
             </div>
         
@@ -421,7 +376,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#写在前面"><span class="toc-number">1.</span> <span class="toc-text">写在前面</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#什么是解构赋值"><span class="toc-number">2.</span> <span class="toc-text">什么是解构赋值?</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数组的解构赋值"><span class="toc-number">3.</span> <span class="toc-text">数组的解构赋值</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#对象的解构赋值"><span class="toc-number">4.</span> <span class="toc-text">对象的解构赋值</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用解构赋值的小技巧"><span class="toc-number">5.</span> <span class="toc-text">使用解构赋值的小技巧</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#变量解构赋值在函数参数中的应用"><span class="toc-number">5.1.</span> <span class="toc-text">变量解构赋值在函数参数中的应用</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Sass-Scss、Less是什么"><span class="toc-number">1.</span> <span class="toc-text">Sass/Scss、Less是什么?</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Sass与Scss是什么关系"><span class="toc-number">1.1.</span> <span class="toc-text">Sass与Scss是什么关系?</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Sass-Scss与Less区别"><span class="toc-number">2.</span> <span class="toc-text">Sass/Scss与Less区别</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#编译环境不一样"><span class="toc-number">2.1.</span> <span class="toc-text">编译环境不一样</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#变量符不一样"><span class="toc-number">2.2.</span> <span class="toc-text">变量符不一样</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#输出设置"><span class="toc-number">3.</span> <span class="toc-text">输出设置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#条件语句的支持"><span class="toc-number">4.</span> <span class="toc-text">条件语句的支持</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#引用外部CSS文件"><span class="toc-number">5.</span> <span class="toc-text">引用外部CSS文件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Sass和Less的工具库不同"><span class="toc-number">6.</span> <span class="toc-text">Sass和Less的工具库不同</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">7.</span> <span class="toc-text">总结</span></a></li></ol>
         
     </div>
     <style>
@@ -452,7 +407,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/06/19/理解Nodejs里的process-nextTick/" title="上一篇: 理解Node.js里的process.nextTick()">
+            <a href="/2017/09/30/Javascript中隐式类型转换的神坑/" title="上一篇: Javascript中隐式类型转换的神坑">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -460,7 +415,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/06/17/《ES6标准入门》阅读笔记——let和const/" title="下一篇: 《ES6标准入门》阅读笔记——let和const">
+            <a href="/2017/07/21/基于MongoDB-2dSphere索引查找最近的点/" title="下一篇: 基于MongoDB 2dSphere索引查找最近的点">
                 <i class="fa fa-angle-right"></i>
             </a>
         
