@@ -344,6 +344,51 @@
   </entry>
   
   <entry>
+    <title>sass/scss和less的区别</title>
+    <link href="https://github.com/ChangerHe/2017/09/01/sass,scss%E5%92%8Cless%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
+    <id>https://github.com/ChangerHe/2017/09/01/sass,scss和less的区别/</id>
+    <published>2017-09-01T15:13:23.000Z</published>
+    <updated>2017-10-26T02:21:25.062Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Sass-Scss、Less是什么"><a href="#Sass-Scss、Less是什么" class="headerlink" title="Sass/Scss、Less是什么?"></a>Sass/Scss、Less是什么?</h1><p>Sass (Syntactically Awesome Stylesheets)是一种动态样式语言，Sass语法属于缩排语法，比css比多出好些功能(如变量、嵌套、运算,混入(Mixin)、继承、颜色处理，函数等)，更容易阅读。</p>
+<h2 id="Sass与Scss是什么关系"><a href="#Sass与Scss是什么关系" class="headerlink" title="Sass与Scss是什么关系?"></a>Sass与Scss是什么关系?</h2><p>Sass的缩排语法，对于写惯css前端的web开发者来说很不直观，也不能将css代码加入到Sass里面，因此sass语法进行了改良，Sass 3就变成了Scss(sassy css)。与原来的语法兼容，只是用{}取代了原来的缩进。</p>
+<p>Less也是一种动态样式语言. 对CSS赋予了动态语言的特性，如变量，继承，运算， 函数.  Less 既可以在客户端上运行 (支持IE 6+, Webkit, Firefox)，也可在服务端运行 (借助 Node.js)。</p>
+<h1 id="Sass-Scss与Less区别"><a href="#Sass-Scss与Less区别" class="headerlink" title="Sass/Scss与Less区别"></a>Sass/Scss与Less区别</h1><h2 id="编译环境不一样"><a href="#编译环境不一样" class="headerlink" title="编译环境不一样"></a>编译环境不一样</h2><p>Sass的安装需要Ruby环境，是在服务端处理的，而Less是需要引入less.js来处理Less代码输出css到浏览器，也可以在开发环节使用Less，然后编译成css文件，直接放到项目中，也有 Less.app、SimpleLess、CodeKit.app这样的工具，也有在线编译地址。</p>
+<h2 id="变量符不一样"><a href="#变量符不一样" class="headerlink" title="变量符不一样"></a>变量符不一样</h2><p>Less是@，而Scss是$，而且变量的作用域也不一样。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">// Less-作用域</div><div class="line">@color: #00c; /* 蓝色 */</div><div class="line">#header &#123;</div><div class="line">  @color: #c00; /* red */</div><div class="line">  border: 1px solid @color; /* 红色边框 */</div><div class="line">&#125;</div><div class="line"></div><div class="line">#footer &#123;</div><div class="line">  border: 1px solid @color; /* 蓝色边框 */</div><div class="line">&#125;</div><div class="line"></div><div class="line">// Less-作用域编译后</div><div class="line">#header&#123;border:1px solid #cc0000;&#125;</div><div class="line">#footer&#123;border:1px solid #0000cc;&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">// scss-作用域</div><div class="line">$color: #00c; /* 蓝色 */</div><div class="line"></div><div class="line">#header &#123;</div><div class="line"></div><div class="line">  $color: #c00; /* red */</div><div class="line">  border: 1px solid $color; /* 红色边框 */</div><div class="line">&#125;</div><div class="line"></div><div class="line">#footer &#123;</div><div class="line">  border: 1px solid $color; /* 蓝色边框 */</div><div class="line">&#125;</div><div class="line"></div><div class="line">// Sass-作用域编译后</div><div class="line"></div><div class="line">#header&#123;border:1px solid #c00&#125;</div><div class="line">#footer&#123;border:1px solid #c00&#125;</div></pre></td></tr></table></figure>
+<p>我们可以看出来，less和scss中的变量会随着作用域的变化而不一样。</p>
+<h1 id="输出设置"><a href="#输出设置" class="headerlink" title="输出设置"></a>输出设置</h1><p>Less没有输出设置，Sass提供4中输出选项：nested, compact, compressed 和 expanded。</p>
+<p>输出样式的风格可以有四种选择，默认为nested</p>
+<p>-nested：嵌套缩进的css代码<br>-expanded：展开的多行css代码<br>-compact：简洁格式的css代码<br>-compressed：压缩后的css代码</p>
+<h1 id="条件语句的支持"><a href="#条件语句的支持" class="headerlink" title="条件语句的支持"></a>条件语句的支持</h1><p>Sass支持条件语句，可以使用if{}else{},for{}循环等等。而Less不支持。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">// 简单的if语句</div><div class="line"></div><div class="line">@if lightness($color) &gt; 30% &#123;</div><div class="line"></div><div class="line">&#125; @else &#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">// 简单的for语句</div><div class="line"></div><div class="line">@for $i from 1 to 10 &#123;</div><div class="line">  .border-#&#123;$i&#125; &#123;</div><div class="line">    border: #&#123;$i&#125;px solid blue;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="引用外部CSS文件"><a href="#引用外部CSS文件" class="headerlink" title="引用外部CSS文件"></a>引用外部CSS文件</h1><p>scss引用的外部文件命名必须以_开头, 如下例所示:其中_test1.scss、_test2.scss、<em>test3.scss文件分别设置的h1 h2 h3。文件名如果以下划线</em>开头的话，Sass会认为该文件是一个引用文件，不会将其编译为css文件.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">// 源代码：</div><div class="line">@import &quot;_test1.scss&quot;;</div><div class="line">@import &quot;_test2.scss&quot;;</div><div class="line">@import &quot;_test3.scss&quot;;</div><div class="line"></div><div class="line">// 编译后：</div><div class="line">h1 &#123;</div><div class="line">  font-size: 17px;</div><div class="line">&#125;</div><div class="line"> </div><div class="line">h2 &#123;</div><div class="line">  font-size: 17px;</div><div class="line">&#125;</div><div class="line"> </div><div class="line">h3 &#123;</div><div class="line">  font-size: 17px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Less引用外部文件和css中的@import没什么差异。</p>
+<h1 id="Sass和Less的工具库不同"><a href="#Sass和Less的工具库不同" class="headerlink" title="Sass和Less的工具库不同"></a>Sass和Less的工具库不同</h1><p>Sass有工具库Compass, 简单说，Sass和Compass的关系有点像Javascript和jQuery的关系,Compass是Sass的工具库。在它的基础上，封装了一系列有用的模块和模板，补充强化了Sass的功能。</p>
+<p>Less有UI组件库Bootstrap,Bootstrap是web前端开发中一个比较有名的前端UI组件库，Bootstrap的样式文件部分源码就是采用Less语法编写。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>不管是Sass，还是Less，都可以视为一种基于CSS之上的高级语言，其目的是使得CSS开发更灵活和更强大，Sass的功能比Less强大,基本可以说是一种真正的编程语言了，Less则相对清晰明了,易于上手,对编译环境要求比较宽松。考虑到编译Sass要安装Ruby,而Ruby官网在国内访问不了,个人在实际开发中更倾向于选择Less。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      Sass (Syntactically Awesome Stylesheets)是一种动态样式语言，Sass语法属于缩排语法，比css比多出好些功能(如变量、嵌套、运算,混入(Mixin)、继承、颜色处理，函数等)，更容易阅读。
+    
+    </summary>
+    
+      <category term="CSS" scheme="https://github.com/ChangerHe/categories/CSS/"/>
+    
+    
+      <category term="SASS" scheme="https://github.com/ChangerHe/tags/SASS/"/>
+    
+      <category term="LESS" scheme="https://github.com/ChangerHe/tags/LESS/"/>
+    
+      <category term="SCSS" scheme="https://github.com/ChangerHe/tags/SCSS/"/>
+    
+  </entry>
+  
+  <entry>
     <title>基于MongoDB 2dSphere索引查找最近的点</title>
     <link href="https://github.com/ChangerHe/2017/07/21/%E5%9F%BA%E4%BA%8EMongoDB-2dSphere%E7%B4%A2%E5%BC%95%E6%9F%A5%E6%89%BE%E6%9C%80%E8%BF%91%E7%9A%84%E7%82%B9/"/>
     <id>https://github.com/ChangerHe/2017/07/21/基于MongoDB-2dSphere索引查找最近的点/</id>
@@ -1237,63 +1282,6 @@
       <category term="ES6" scheme="https://github.com/ChangerHe/tags/ES6/"/>
     
       <category term="Unicode" scheme="https://github.com/ChangerHe/tags/Unicode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>理解Node.js里的process.nextTick()</title>
-    <link href="https://github.com/ChangerHe/2017/06/19/%E7%90%86%E8%A7%A3Nodejs%E9%87%8C%E7%9A%84process-nextTick/"/>
-    <id>https://github.com/ChangerHe/2017/06/19/理解Nodejs里的process-nextTick/</id>
-    <published>2017-06-19T12:00:32.000Z</published>
-    <updated>2017-09-17T12:25:37.601Z</updated>
-    
-    <content type="html"><![CDATA[<p>Nodejs的事件驱动,异步IO模型另异步编程变得异常风行,它借助了异步IO模型及V8高性能引擎,突破了单线程的性能瓶颈. 让Jacascript在后端达到了其应有的使用价值. </p>
-<p>另外一方面,它也统一了前后端的javascript编程模型.</p>
-<p>异步编程也给前端程序猿带来了诸多的痛苦和不适应. 这也是我今天着重想提<code>process.nextTick()</code>这个API的原因之一.</p>
-<h1 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h1><p>在过去,我们处理异常一般使用try catch fanily这个语句块进行异常捕获和处理</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">try &#123;</div><div class="line">	JSON.parse(jsonObj)</div><div class="line">&#125; catch(e) &#123;</div><div class="line">	// do something...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>但是这个方法对异步编程而言是并不适用的, 举个很简单的例子,也是我们在日常开发中常常使用的一个小技巧: 当我们想要某个在文档中间的语句块在整个脚本的最后执行的时候,可以使用setTimeout将这个语句块包起来,将延时时间设为0, 那么这个时候它就会等待所有同步的进程全部执行完毕之后再执行.</p>
-<p>在try中,我们进行异步的方式处理JSON.parse的时候,那么它也会被放到文档流的最后执行而try catch先执行了,这就是导致出现这个问题的原因</p>
-<p>那么这个时候,就需要们的主角登场了</p>
-<p>同样的,我们再来一个例子</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function foo() &#123;</div><div class="line">	console.error(&apos;foo&apos;);</div><div class="line">&#125;</div><div class="line">process.nextTick(foo);</div><div class="line">console.error(&apos;bar&apos;);</div></pre></td></tr></table></figure>
-<p>运行上面的代码，你从下面终端打印的信息会看到，”bar”的输出在“foo”的前面。这就验证了上面的说法，foo()是在下一个时间点运行的。</p>
-<p>但在内部的处理机制上，process.nextTick()和setTimeout(fn, 0)是不同的，process.nextTick()不是一个单纯的延时，他有更多的 特性。</p>
-<p>更精确的说，process.nextTick()定义的调用会创建一个新的子堆栈。在当前的栈里，你可以执行任意多的操作。但一旦调用netxTick，函数就必须返回到父堆栈。然后事件轮询机制又重新等待处理新的事件，如果发现nextTick的调用，就会创建一个新的栈。</p>
-<p>下面我们来看看，什么情况下使用process.nextTick()：</p>
-<h1 id="在多个事件里交叉执行CPU运算密集型的任务："><a href="#在多个事件里交叉执行CPU运算密集型的任务：" class="headerlink" title="在多个事件里交叉执行CPU运算密集型的任务："></a>在多个事件里交叉执行CPU运算密集型的任务：</h1><p>在下面的例子里有一个compute()，我们希望这个函数尽可能持续的执行，来进行一些运算密集的任务。</p>
-<p>但与此同时，我们还希望系统不要被这个函数堵塞住，还需要能响应处理别的事件。这个应用模式就像一个单线程的web服务server。在这里我们就可以使用process.nextTick()来交叉执行compute()和正常的事件响应。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var http = require(&apos;http&apos;);</div><div class="line"></div><div class="line">function compute() &#123;</div><div class="line">    // performs complicated calculations continuously</div><div class="line">    // ...</div><div class="line">    process.nextTick(compute);</div><div class="line">&#125;</div><div class="line"> </div><div class="line">http.createServer(function(req, res) &#123;</div><div class="line">     res.writeHead(200, &#123;&apos;Content-Type&apos;: &apos;text/plain&apos;&#125;);</div><div class="line">     res.end(&apos;Hello World&apos;);</div><div class="line">&#125;).listen(5000, &apos;127.0.0.1&apos;);</div><div class="line"> </div><div class="line">compute();</div></pre></td></tr></table></figure>
-<p>在这种模式下，我们不需要递归的调用compute()，我们只需要在事件循环中使用process.nextTick()定义compute()在下一个时间点执行即可。在这个过程中，如果有新的http请求进来，事件循环机制会先处理新的请求，然后再调用compute()。反之，如果你把compute()放在一个递归调用里，那系统就会一直阻塞在compute()里，无法处理新的http请求了。你可以自己试试。</p>
-<p>当然，我们无法通过process.nextTick()来获得多CPU下并行执行的真正好处，这只是模拟同一个应用在CPU上分段执行而已。</p>
-<h1 id="保持回调函数异步执行的原则"><a href="#保持回调函数异步执行的原则" class="headerlink" title="保持回调函数异步执行的原则"></a>保持回调函数异步执行的原则</h1><p>当你给一个函数定义一个回调函数时，你要确保这个回调是被异步执行的。下面我们看一个例子，例子中的回调违反了这一原则：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function asyncFake(data, callback) &#123;  </div><div class="line">    if(data === &apos;foo&apos;) callback(true);</div><div class="line">    else callback(false);</div><div class="line">&#125;</div><div class="line"> </div><div class="line">asyncFake(&apos;bar&apos;, function(result) &#123;</div><div class="line">    // this callback is actually called synchronously!</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>为什么这样不好呢？我们来看Node.js 文档里一段代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var client = net.connect(8124, function() &#123; </div><div class="line">    console.log(&apos;client connected&apos;);</div><div class="line">    client.write(&apos;world!\r\n&apos;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>在上面的代码里，如果因为某种原因，net.connect()变成同步执行的了，回调函数就会被立刻执行，因此回调函数写到客户端的变量就永远不会被初始化了。</p>
-<p>这种情况下我们就可以使用process.nextTick()把上面asyncFake()改成异步执行的：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function asyncReal(data, callback) &#123;</div><div class="line">    process.nextTick(function() &#123;</div><div class="line">        callback(data === &apos;foo&apos;);   </div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h1 id="用在事件触发过程中"><a href="#用在事件触发过程中" class="headerlink" title="用在事件触发过程中"></a>用在事件触发过程中</h1><p>来看一个例子，你想写一个库实现这样的功能：从源文件里读取数据，当读取完毕后，触发一个事件同时传递读取的数据。可能你会这样写：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var EventEmitter = require(&apos;events&apos;).EventEmitter;</div><div class="line"> </div><div class="line">function StreamLibrary(resourceName) &#123; </div><div class="line">    this.emit(&apos;start&apos;);</div><div class="line"> </div><div class="line">    // read from the file, and for every chunk read, do: </div><div class="line">    this.emit(&apos;data&apos;, chunkRead);      </div><div class="line">&#125;</div><div class="line">StreamLibrary.prototype.__proto__ = EventEmitter.prototype;   </div><div class="line">// inherit from EventEmitter</div></pre></td></tr></table></figure>
-<p>下面是一段调用这个库的客户端程序，我们想在程序中监听这些事件：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var stream = new StreamLibrary(&apos;fooResource&apos;);</div><div class="line"> </div><div class="line">stream.on(&apos;start&apos;, function() &#123;</div><div class="line">    console.log(&apos;Reading has started&apos;);</div><div class="line">&#125;);</div><div class="line"> </div><div class="line">stream.on(&apos;data&apos;, function(chunk) &#123;</div><div class="line">    console.log(&apos;Received: &apos; + chunk);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>但是上面的代码中，将永远接收不到“start”事件，因为在这个库实例化的时候，“start”事件会被立刻触发执行，但此时事件的回调函数还没有准备好，所以在客户端根本无法接收到这个事件。同样，我们可以用process.nextTick()来改写事件触发的过程，下面是一个正确的版本：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function StreamLibrary(resourceName) &#123;      </div><div class="line">    var self = this;</div><div class="line"> </div><div class="line">    process.nextTick(function() &#123;</div><div class="line">        self.emit(&apos;start&apos;);</div><div class="line">    &#125;);</div><div class="line"> </div><div class="line">    // read from the file, and for every chunk read, do:</div><div class="line">    this.emit(&apos;data&apos;, chunkRead);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>(文章部分引用了网上内容)</p>
-]]></content>
-    
-    <summary type="html">
-    
-      Nodejs的事件驱动,异步IO模型另异步编程变得异常风行,它借助了异步IO模型及V8高性能引擎,突破了单线程的性能瓶颈. 让Jacascript在后端达到了其应有的使用价值.  另外一方面,它也统一了前后端的javascript编程模型.
-    
-    </summary>
-    
-      <category term="Nodejs学习笔记" scheme="https://github.com/ChangerHe/categories/Nodejs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="Nodejs" scheme="https://github.com/ChangerHe/tags/Nodejs/"/>
-    
-      <category term="process.nextTick()" scheme="https://github.com/ChangerHe/tags/process-nextTick/"/>
     
   </entry>
   
