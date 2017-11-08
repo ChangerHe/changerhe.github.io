@@ -23,7 +23,7 @@
 <meta property="og:url" content="https://github.com/ChangerHe/2017/10/21/微信小程序懒加载的实现/index.html">
 <meta property="og:site_name" content="ChangerHe&#39;s Bolg|何庆畅的个人博客">
 <meta property="og:description" content="近期做了一个微信小程序的项目, 其中涉及到微信小程序的懒加载功能, 第一次做这个功能的感觉真的是让人欲(tou)罢(teng)不(bu)能(yi)啊, 所以在这里做一个小小的总结来分享一下.">
-<meta property="og:updated_time" content="2017-11-08T11:49:07.960Z">
+<meta property="og:updated_time" content="2017-11-08T12:22:54.759Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="微信小程序懒加载的实现">
 <meta name="twitter:description" content="近期做了一个微信小程序的项目, 其中涉及到微信小程序的懒加载功能, 第一次做这个功能的感觉真的是让人欲(tou)罢(teng)不(bu)能(yi)啊, 所以在这里做一个小小的总结来分享一下.">
@@ -344,8 +344,11 @@
 <p>我们将之前的成功回调改写一下</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">// 获取请求到的数据</div><div class="line">var data = res.data</div><div class="line">// 将本身setdata的对象直接拿出来, 然后再放进去</div><div class="line">var dataCon = &#123;&#125;</div><div class="line">// 每产生一次ajax请求, 就要使总和加10, 也就是再请求十条数据</div><div class="line">that.data.totalCount += 10</div><div class="line">var total = &#123;&#125;</div><div class="line">// 如果不是第一次请求数据的话,则将两次的数据相加</div><div class="line">if (!that.data.isEmpty) &#123;</div><div class="line">  total = that.data.dataObj.concat(data)</div><div class="line">&#125; else &#123;</div><div class="line">  total = data</div><div class="line">  // 如果isEmpty为true则将其改为false</div><div class="line">  that.data.isEmpty = false </div><div class="line">&#125;</div><div class="line">dataCon.dataObj = total</div><div class="line">that.setData(dataCon)</div></pre></td></tr></table></figure>
 <p>这里我们设置了一个全局变量isEmpty, 默认为true, 表示默认为空, 当第一次请求的时候, 将数值存入total中,并将isEmpty改写为false, 之后的每一次请求都是在total中加数据, 我们渲染的话就都是用全局的dataObj这个变量来进行渲染, 即可解决之前的问题.</p>
-<p>(完)</p>
+<p>更新:<br>    后面有看到因为scroll-view在页面中是无法触发下拉刷新事件的,但后面微信方给出了解决办法: 不用scroll-view , 玛德坑爹</p>
+<pre><code>现在可以直接使用onReachBottom事件,也就是触底事件来处理和进行懒加载, 相比于之前的方法简单了不少, 页面也更加流畅了
 
+期待小程序能带了更多更好的东西吧
+</code></pre>
       
     </div>
     
