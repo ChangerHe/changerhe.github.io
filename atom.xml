@@ -67,6 +67,65 @@
   </entry>
   
   <entry>
+    <title>微信小程序懒加载的实现</title>
+    <link href="https://github.com/ChangerHe/2017/10/21/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%87%92%E5%8A%A0%E8%BD%BD%E7%9A%84%E5%AE%9E%E7%8E%B0/"/>
+    <id>https://github.com/ChangerHe/2017/10/21/微信小程序懒加载的实现/</id>
+    <published>2017-10-21T14:12:23.000Z</published>
+    <updated>2017-11-08T11:45:49.713Z</updated>
+    
+    <content type="html"><![CDATA[<p>近期做了一个微信小程序的项目, 其中涉及到微信小程序的懒加载功能, 第一次做这个功能的感觉真的是让人欲(tou)罢(teng)不(bu)能(yi)啊, 所以在这里做一个小小的总结来分享一下.</p>
+<p>不同于原始的dom操作项目, 现在的现代框架已经将dom操作高度集成到了api中, 采用数据驱动的方式, 来实现对dom的各种处理.</p>
+<p>现在我们回忆一下当初那个青涩的原始时代, 当有懒加载的需求的时候, 我们可以开心地创建一个ajax请求, 将请求参数发送到后台, 后台反馈给我们参数后, 然后我们再开心地操作dom将数据处理后插到页面上.</p>
+<p>“哎呀, 屁股好疼”           —页面上的某个dom节点如是说</p>
+<p>但是在数据驱动, 高度组件化处理ajax的返回参数的时候, 我们该怎么处理这个需求呢?</p>
+<h1 id="微信小程序的scroll-view组件"><a href="#微信小程序的scroll-view组件" class="headerlink" title="微信小程序的scroll-view组件"></a>微信小程序的scroll-view组件</h1><p>说到懒加载, 那么就必须得提到微信的scroll-view组件, 这玩意儿干啥的呢?</p>
+<p>主要的作用还是作为一个载体, 用于设置载体内的内容滚动, 当然, 如果需要在y轴滚动的话, 页面都是有这个功能的, 但是如果直接使用y轴滚动的功能的话, 就无法成功触发相应的事件了.</p>
+<h2 id="wxml的写入方式"><a href="#wxml的写入方式" class="headerlink" title="wxml的写入方式"></a>wxml的写入方式</h2><p>我们将wxml中需要滚动的view外需要再套一层scroll-view方便让器其滚动触发事件</p>
+<p>有一点需要特别特别注意的是, 微信原生提供了bindscrolltolower和bindscrolltoupper这两个api来专门处理对应的滚动触底(最右边或最下边)及滚动触顶(最左边或最上边)事件.</p>
+<p>但是!!!</p>
+<p>这两个事件的触发, 前提是必须要在对应的scroll-view上设置高度才可以的, 不然事件无法触发生效.</p>
+<p>比如说, 针对不同的设备, 我设置了对应的触发高度</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">@media (min-width: 375px) &#123;</div><div class="line">  .all-movie&#123;</div><div class="line">    height: 1300rpx;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">@media (max-width: 374px) &#123;</div><div class="line">  .all-movie&#123;</div><div class="line">    height: 1000rpx;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="ajax的请求分析"><a href="#ajax的请求分析" class="headerlink" title="ajax的请求分析"></a>ajax的请求分析</h2><p>在这里要特别说明一下, 因为微信不存在dom操作, 所以我们进行懒加载操作的时候, 其实是将整个页面的所有元素都重新加载了一遍的, 因为插不进去啊(#→⌒→).</p>
+<p>那么这个时候ajax的请求就很成问题了, 我们每次加载, 需要传递不同的参数进去</p>
+<p>那么我的思路就是, 通过在data上挂载变量, 每次请求将变量增加, 然后通过这个变量的值的增加, 每次发起的ajax请求就不一样了, 获取到的值会逐次增加</p>
+<p>微信小程序的ajax创建方式这里就不再赘述了, 官网说的很清楚, 使用wx.request对象很容易搞定</p>
+<p>下面是我写在ajax请求success里面的代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">// 获取请求到的数据</div><div class="line">var data = res.data</div><div class="line">// 将本身setdata的对象直接拿出来, 然后再放进去</div><div class="line">var dataCon = &#123;&#125;</div><div class="line">// 每产生一次ajax请求, 就要使总和加10, 也就是再请求十条数据</div><div class="line">that.data.totalCount += 10</div><div class="line">dataCon.dataObj = data</div><div class="line">that.setData(dataCon)</div></pre></td></tr></table></figure>
+<p>注意上面我是设置了一个data的数据名为totalCount, 初始值我设置其为0, 那么每次产生一次ajax 请求, 则其自加10, 通过totalCount, 在拼接上对应的请求url, 就可以成功取到相应的ajax返回值了.</p>
+<p>到这里可能会有同学要问了, 你这里每次都要重新渲染一下页面, 难道不会增大微信小程序的压力吗? 每次请求的数据都会增加, 页面压力会很大啊</p>
+<p>当然, 既然使用数据驱动的方式来进行开发, 对于这样的场景, 产生较大的数据压力是必然的, 但是微信小程序和浏览器一样, 本身是存在缓存的, 之前请求过的数据, 后面服务器会直接返回403, 就不会产生较大的数据流, 最后产生流量的也就是后面那一小部分的文件数据而已.</p>
+<h1 id="对ajax请求的优化"><a href="#对ajax请求的优化" class="headerlink" title="对ajax请求的优化"></a>对ajax请求的优化</h1><p>以上方法可行肯定是可行的, 但是我们每次做ajax请求, 每次的请求数据都会增多, 那么会不会有一种更加的请求方案呢?</p>
+<p>当然, 我们可以考虑和之前操作dom那样, 每次只请求自己需要的那一部分数据, 之前重复的数据是没有必要再到服务器请求一次的</p>
+<p>我们的url可以这样构建</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var nextUrl = this.data.requestUrl + &quot;?start=&quot; + this.data.totalCount + &quot;&amp;count=10&quot;</div></pre></td></tr></table></figure>
+<p>totalCount表示已经请求的数量, 而count表示每次请求的数量</p>
+<p>很好, 一下减少了不少的ajax请求压力</p>
+<h1 id="优化后的bug处理"><a href="#优化后的bug处理" class="headerlink" title="优化后的bug处理"></a>优化后的bug处理</h1><p>ajax请求的压力确实减少了, 但是现在还有一个问题啊, 你每次都反馈给我十条数据, 我用你给的数据渲染, 岂不是把页面懒加载变成了页面刷新了, 每次请求的数据是不一样了, 但是之前的数据已经不存在了呀</p>
+<p>所以, 我们需要使用一个data上面的变量来存储我们之前请求到的值</p>
+<p>我们将之前的成功回调改写一下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">// 获取请求到的数据</div><div class="line">var data = res.data</div><div class="line">// 将本身setdata的对象直接拿出来, 然后再放进去</div><div class="line">var dataCon = &#123;&#125;</div><div class="line">// 每产生一次ajax请求, 就要使总和加10, 也就是再请求十条数据</div><div class="line">that.data.totalCount += 10</div><div class="line">var total = &#123;&#125;</div><div class="line">// 如果不是第一次请求数据的话,则将两次的数据相加</div><div class="line">if (!that.data.isEmpty) &#123;</div><div class="line">  total = that.data.dataObj.concat(data)</div><div class="line">&#125; else &#123;</div><div class="line">  total = data</div><div class="line">  // 如果isEmpty为true则将其改为false</div><div class="line">  that.data.isEmpty = false </div><div class="line">&#125;</div><div class="line">dataCon.dataObj = total</div><div class="line">that.setData(dataCon)</div></pre></td></tr></table></figure>
+<p>这里我们设置了一个全局变量isEmpty, 默认为true, 表示默认为空, 当第一次请求的时候, 将数值存入total中,并将isEmpty改写为false, 之后的每一次请求都是在total中加数据, 我们渲染的话就都是用全局的dataObj这个变量来进行渲染, 即可解决之前的问题.</p>
+<p>(完)</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;近期做了一个微信小程序的项目, 其中涉及到微信小程序的懒加载功能, 第一次做这个功能的感觉真的是让人欲(tou)罢(teng)不(bu)能(yi)啊, 所以在这里做一个小小的总结来分享一下.&lt;/p&gt;
+&lt;p&gt;不同于原始的dom操作项目, 现在的现代框架已经将dom操作高度集成
+    
+    </summary>
+    
+      <category term="微信小程序" scheme="https://github.com/ChangerHe/categories/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+    
+    
+      <category term="微信小程序" scheme="https://github.com/ChangerHe/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+    
+      <category term="WXapplet" scheme="https://github.com/ChangerHe/tags/WXapplet/"/>
+    
+  </entry>
+  
+  <entry>
     <title>处理git无法上传超过100M文件的问题</title>
     <link href="https://github.com/ChangerHe/2017/10/13/%E5%A4%84%E7%90%86git%E6%97%A0%E6%B3%95%E4%B8%8A%E4%BC%A0%E8%B6%85%E8%BF%87100M%E6%96%87%E4%BB%B6%E7%9A%84%E9%97%AE%E9%A2%98/"/>
     <id>https://github.com/ChangerHe/2017/10/13/处理git无法上传超过100M文件的问题/</id>
@@ -1228,60 +1287,6 @@
       <category term="ES6" scheme="https://github.com/ChangerHe/tags/ES6/"/>
     
       <category term="RegExp" scheme="https://github.com/ChangerHe/tags/RegExp/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《ES6标准入门》阅读笔记——-Unicode</title>
-    <link href="https://github.com/ChangerHe/2017/06/19/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-Unicode/"/>
-    <id>https://github.com/ChangerHe/2017/06/19/《ES6标准入门》阅读笔记——-Unicode/</id>
-    <published>2017-06-19T14:11:34.000Z</published>
-    <updated>2017-09-18T00:41:10.344Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。</p>
-<p>许多初学ES6, 同时和我一样初次阅读阮老师的这本书的时候, 读第一遍会越发的困惑, 因为阮老师上面说的很多的定义,方法,之前都是没有见过的, 读到后面才发现, 哦~原来是这样.</p>
-<p>有一句话叫做”大神的世界我们不懂”, 所以我在初读第一遍《ES6标准入门》这本书的时候,也是踩了不少坑,读书的时候查阅了不少的资料.</p>
-<p>所以,在这一系列的笔记教程中,我会从一个初学者的角度,向您讲述ES6的相关知识,在后面介绍的知识我会尽量不提前用,即使提前使用,也会同时做好标注,避免了阅读时各种查阅资料的烦恼.</p>
-<p>系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导新手，快速入门ES6，并逐步将其投入到生产实践中。</p>
-<p>同时,在阅读前也提醒您, 为了系统连贯性的学习ES6的基础知识,建议您从我的博客第一章开始阅读,当然,如果您对对应的知识已经有所了解,那么可以跳转到任意章节阅读,每一篇博客名中均有介绍该博客中涉及到的ES6的内容.</p>
-<p>阮一峰老师的这本书是开源的，在其官方博客就可以下载到，但是我强烈建议大家去购买一本书, 一是方便自己查阅ES6中新增的众多API, 二也是表达一下对大神的敬仰.</p>
-<h1 id="ES6加强了对Unicode的支持-并扩展了字符串对象"><a href="#ES6加强了对Unicode的支持-并扩展了字符串对象" class="headerlink" title="ES6加强了对Unicode的支持,并扩展了字符串对象"></a>ES6加强了对Unicode的支持,并扩展了字符串对象</h1><p>ES6对Unicode的主要的新增支持是,已经开始支持32位的字符了,要知道在之前,32位的字符是会被JS判定为两个字符的.</p>
-<p>codePointAt()方法,可以很方便地判定字符是由2字节还是4字节组成</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">let a = &apos;\uD842\uDFB7&apos;</div><div class="line">console.log(a);  // 𠮷 在ES5中会被判定为两个字符</div><div class="line">let b = &apos;\u20BB7&apos;</div><div class="line">let c = &apos;\u&#123;20BB7&#125;&apos;</div><div class="line">console.log(b) // □7  未被识别</div><div class="line">console.log(c) // 𠮷</div><div class="line">let d = &apos;𠮷a&apos;</div><div class="line">console.log(d.length) // 3 把第一个字符当两个字符了</div><div class="line">console.log(d.charAt(0)) // 乱码</div><div class="line">console.log(d.charAt(1)) // 乱码</div><div class="line">console.log(d.charAt(2)) // a</div><div class="line">console.log(d.charAt(3)) // </div><div class="line">console.log(d.codePointAt(0)) // 134071</div><div class="line">console.log(d.codePointAt(1)) // 57271</div></pre></td></tr></table></figure>
-<p>要知道在之前es5中定义的fromCharCode()方法中,只能够识别16位的字符,并将其转换为相应字符,但是当我们需要进行32位字符码点转换为字符的时候,就无能为力了,这个时候ES6定义了一个新的方法: fromCodePoint()</p>
-<p>在ES6中新定义的for-of循环可以实现识别使用32位编码的字符</p>
-<p>for of 循环也是ES6中新定义的循环方式,可以用来遍历数组,遍历的同时不同于for  in循环,for of循环不会遍历到你定义的原型上的可枚举属性,去除了for in循环的糟粕, 同时也避免了forEach循环不能跳出循环队列的问题,for of是可以随时跳出循环队列的. 同样的for of循环也可以遍历数组,对象等.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">let text = String.fromCodePoint(0x20bb7);</div><div class="line">for (let i = 0; i &lt; text.length; i++) &#123;</div><div class="line">	console.log(text[i])  // 乱码</div><div class="line">	console.log(i)  // 1</div><div class="line">&#125;</div><div class="line">for (let i of text) &#123;</div><div class="line">	console.log(i)  // 𠮷</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>ES5为字符串对象提供了charAt方法,返回给定位置的字符,该方法不能识别码点大于0xFFFF的字符</p>
-<p>因此,ES7定义了at方法,用于识别码点大于0xFFFF的字符</p>
-<p>但是,现在谷歌浏览器暂不支持, 需要通过babel转码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">console.log(&apos;𠮷a&apos;.charAt(0)) // 乱码</div><div class="line">console.log(&apos;𠮷&apos;.at(0))  // 报错</div></pre></td></tr></table></figure>
-<p>ES6新增了一些查找字符串的相应方法</p>
-<blockquote>
-<p>  includes() 返回布尔值,表示是否找到了参数字符串<br>  startsWith() 返回布尔值,表示字符串是否在元字符串的头部<br>  endsWith()  返回布尔值,表示参数自粗换是否在源字符串的头部<br>  repeat()  返回一个新字符串,表示将原字符串重复n次</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var str = &apos;hello&apos;</div><div class="line">console.log(str.startsWith(&apos;he&apos;)) // true</div><div class="line">console.log(str.endsWith(&apos;lo&apos;)) // true</div><div class="line">console.log(str.includes(&apos;lo&apos;)) // true</div><div class="line">console.log(str.repeat(3))  // hellohellohello</div></pre></td></tr></table></figure>
-<h1 id="ES6的模板字符串"><a href="#ES6的模板字符串" class="headerlink" title="ES6的模板字符串"></a>ES6的模板字符串</h1><p>使用变量直接添加到相应的字符串中 用法很简单,添加到相应的字符串中</p>
-<p>需要注意的是,使用模板字符串的时候,需要使用反向引号将整体的字符串引起来,否则是无效的</p>
-<p>模板字符串,其实就是模块化了的,放在${}里面的js代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">let name = &apos;Bob&apos;,</div><div class="line">	time = &apos;today&apos;</div><div class="line">console.log(`hello $&#123;name&#125;, how are you $&#123;time&#125;?`) </div><div class="line">// hello Bob, how are you today?</div><div class="line">console.log(&apos;hello $&#123;name&#125;&apos;) </div><div class="line">// hello $&#123;name&#125;</div></pre></td></tr></table></figure>
-<p>模板字符串还拥有更加灵活的用法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">let a = 1,</div><div class="line">	b = 2;</div><div class="line">console.log(`$&#123;a&#125; + $&#123;b&#125; = $&#123;a+b&#125;`)  // 1 + 2 = 3</div><div class="line"></div><div class="line">function foo() &#123;</div><div class="line">	return &apos;hello&apos;</div><div class="line">&#125;</div><div class="line"></div><div class="line">console.log(`$&#123;foo()&#125; world`) // hello world</div></pre></td></tr></table></figure>
-<p>(完)</p>
-]]></content>
-    
-    <summary type="html">
-    
-      本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导新手，快速入门ES6，并逐步将其投入到生产实践中。
-    
-    </summary>
-    
-      <category term="ES6标准入门" scheme="https://github.com/ChangerHe/categories/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8/"/>
-    
-    
-      <category term="ES6" scheme="https://github.com/ChangerHe/tags/ES6/"/>
-    
-      <category term="Unicode" scheme="https://github.com/ChangerHe/tags/Unicode/"/>
     
   </entry>
   
