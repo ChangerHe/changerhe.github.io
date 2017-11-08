@@ -16,17 +16,17 @@
 
 
 
-<meta name="description" content="近期做了一个微信小程序的项目, 其中涉及到微信小程序的懒加载功能, 第一次做这个功能的感觉真的是让人欲(tou)罢(teng)不(bu)能(yi)啊, 所以在这里做一个小小的总结来分享一下. 不同于原始的dom操作项目, 现在的现代框架已经将dom操作高度集成到了api中, 采用数据驱动的方式, 来实现对dom的各种处理. 现在我们回忆一下当初那个青涩的原始时代, 当有懒加载的需求的时候, 我们可">
+<meta name="description" content="近期做了一个微信小程序的项目, 其中涉及到微信小程序的懒加载功能, 第一次做这个功能的感觉真的是让人欲(tou)罢(teng)不(bu)能(yi)啊, 所以在这里做一个小小的总结来分享一下.">
 <meta name="keywords" content="微信小程序,WXapplet">
 <meta property="og:type" content="article">
 <meta property="og:title" content="微信小程序懒加载的实现">
 <meta property="og:url" content="https://github.com/ChangerHe/2017/10/21/微信小程序懒加载的实现/index.html">
 <meta property="og:site_name" content="ChangerHe&#39;s Bolg|何庆畅的个人博客">
-<meta property="og:description" content="近期做了一个微信小程序的项目, 其中涉及到微信小程序的懒加载功能, 第一次做这个功能的感觉真的是让人欲(tou)罢(teng)不(bu)能(yi)啊, 所以在这里做一个小小的总结来分享一下. 不同于原始的dom操作项目, 现在的现代框架已经将dom操作高度集成到了api中, 采用数据驱动的方式, 来实现对dom的各种处理. 现在我们回忆一下当初那个青涩的原始时代, 当有懒加载的需求的时候, 我们可">
-<meta property="og:updated_time" content="2017-11-08T11:45:49.713Z">
+<meta property="og:description" content="近期做了一个微信小程序的项目, 其中涉及到微信小程序的懒加载功能, 第一次做这个功能的感觉真的是让人欲(tou)罢(teng)不(bu)能(yi)啊, 所以在这里做一个小小的总结来分享一下.">
+<meta property="og:updated_time" content="2017-11-08T11:49:07.960Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="微信小程序懒加载的实现">
-<meta name="twitter:description" content="近期做了一个微信小程序的项目, 其中涉及到微信小程序的懒加载功能, 第一次做这个功能的感觉真的是让人欲(tou)罢(teng)不(bu)能(yi)啊, 所以在这里做一个小小的总结来分享一下. 不同于原始的dom操作项目, 现在的现代框架已经将dom操作高度集成到了api中, 采用数据驱动的方式, 来实现对dom的各种处理. 现在我们回忆一下当初那个青涩的原始时代, 当有懒加载的需求的时候, 我们可">
+<meta name="twitter:description" content="近期做了一个微信小程序的项目, 其中涉及到微信小程序的懒加载功能, 第一次做这个功能的感觉真的是让人欲(tou)罢(teng)不(bu)能(yi)啊, 所以在这里做一个小小的总结来分享一下.">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -318,13 +318,13 @@
 <p>但是在数据驱动, 高度组件化处理ajax的返回参数的时候, 我们该怎么处理这个需求呢?</p>
 <h1 id="微信小程序的scroll-view组件"><a href="#微信小程序的scroll-view组件" class="headerlink" title="微信小程序的scroll-view组件"></a>微信小程序的scroll-view组件</h1><p>说到懒加载, 那么就必须得提到微信的scroll-view组件, 这玩意儿干啥的呢?</p>
 <p>主要的作用还是作为一个载体, 用于设置载体内的内容滚动, 当然, 如果需要在y轴滚动的话, 页面都是有这个功能的, 但是如果直接使用y轴滚动的功能的话, 就无法成功触发相应的事件了.</p>
-<h2 id="wxml的写入方式"><a href="#wxml的写入方式" class="headerlink" title="wxml的写入方式"></a>wxml的写入方式</h2><p>我们将wxml中需要滚动的view外需要再套一层scroll-view方便让器其滚动触发事件</p>
+<h1 id="wxml的写入方式"><a href="#wxml的写入方式" class="headerlink" title="wxml的写入方式"></a>wxml的写入方式</h1><p>我们将wxml中需要滚动的view外需要再套一层scroll-view方便让器其滚动触发事件</p>
 <p>有一点需要特别特别注意的是, 微信原生提供了bindscrolltolower和bindscrolltoupper这两个api来专门处理对应的滚动触底(最右边或最下边)及滚动触顶(最左边或最上边)事件.</p>
 <p>但是!!!</p>
 <p>这两个事件的触发, 前提是必须要在对应的scroll-view上设置高度才可以的, 不然事件无法触发生效.</p>
 <p>比如说, 针对不同的设备, 我设置了对应的触发高度</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">@media (min-width: 375px) &#123;</div><div class="line">  .all-movie&#123;</div><div class="line">    height: 1300rpx;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">@media (max-width: 374px) &#123;</div><div class="line">  .all-movie&#123;</div><div class="line">    height: 1000rpx;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="ajax的请求分析"><a href="#ajax的请求分析" class="headerlink" title="ajax的请求分析"></a>ajax的请求分析</h2><p>在这里要特别说明一下, 因为微信不存在dom操作, 所以我们进行懒加载操作的时候, 其实是将整个页面的所有元素都重新加载了一遍的, 因为插不进去啊(#→⌒→).</p>
+<h1 id="ajax的请求分析"><a href="#ajax的请求分析" class="headerlink" title="ajax的请求分析"></a>ajax的请求分析</h1><p>在这里要特别说明一下, 因为微信不存在dom操作, 所以我们进行懒加载操作的时候, 其实是将整个页面的所有元素都重新加载了一遍的, 因为插不进去啊(#→⌒→).</p>
 <p>那么这个时候ajax的请求就很成问题了, 我们每次加载, 需要传递不同的参数进去</p>
 <p>那么我的思路就是, 通过在data上挂载变量, 每次请求将变量增加, 然后通过这个变量的值的增加, 每次发起的ajax请求就不一样了, 获取到的值会逐次增加</p>
 <p>微信小程序的ajax创建方式这里就不再赘述了, 官网说的很清楚, 使用wx.request对象很容易搞定</p>
@@ -391,7 +391,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#微信小程序的scroll-view组件"><span class="toc-number">1.</span> <span class="toc-text">微信小程序的scroll-view组件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#wxml的写入方式"><span class="toc-number">1.1.</span> <span class="toc-text">wxml的写入方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ajax的请求分析"><span class="toc-number">1.2.</span> <span class="toc-text">ajax的请求分析</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#对ajax请求的优化"><span class="toc-number">2.</span> <span class="toc-text">对ajax请求的优化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#优化后的bug处理"><span class="toc-number">3.</span> <span class="toc-text">优化后的bug处理</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#微信小程序的scroll-view组件"><span class="toc-number">1.</span> <span class="toc-text">微信小程序的scroll-view组件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#wxml的写入方式"><span class="toc-number">2.</span> <span class="toc-text">wxml的写入方式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ajax的请求分析"><span class="toc-number">3.</span> <span class="toc-text">ajax的请求分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#对ajax请求的优化"><span class="toc-number">4.</span> <span class="toc-text">对ajax请求的优化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#优化后的bug处理"><span class="toc-number">5.</span> <span class="toc-text">优化后的bug处理</span></a></li></ol>
         
     </div>
     <style>
