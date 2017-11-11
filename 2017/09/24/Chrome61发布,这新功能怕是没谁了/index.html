@@ -23,7 +23,7 @@
 <meta property="og:url" content="https://github.com/ChangerHe/2017/09/24/Chrome61发布,这新功能怕是没谁了/index.html">
 <meta property="og:site_name" content="ChangerHe&#39;s Bolg|何庆畅的个人博客">
 <meta property="og:description" content="Chrome 61 正式版已于2017年9月6日正式发布，并增加了很多开发者相关的功能。在 Mac、Windows 和 Linux 系统中，Chrome 61 开始支持 WebUSB API，以及 PaymentRequest API。">
-<meta property="og:updated_time" content="2017-11-11T02:28:06.169Z">
+<meta property="og:updated_time" content="2017-11-11T06:03:30.202Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chrome61发布,这新功能怕是没谁了">
 <meta name="twitter:description" content="Chrome 61 正式版已于2017年9月6日正式发布，并增加了很多开发者相关的功能。在 Mac、Windows 和 Linux 系统中，Chrome 61 开始支持 WebUSB API，以及 PaymentRequest API。">
@@ -314,7 +314,7 @@
         <p>Chrome 61 正式版已于2017年9月6日正式发布，并增加了很多开发者相关的功能。在 Mac、Windows 和 Linux 系统中，Chrome 61 开始支持 WebUSB API，以及 PaymentRequest API。</p>
 <p>高级网络平台 API 支持大多数硬件外设，如键盘、鼠标、打印机和游戏手柄。为了使用教育、科学或工业等专用 USB 外设，用户必须使用系统级权限查找和安装可能不安全的驱动程序和软件。</p>
 <p>当然, 最让人激动的是, chrome已经开始支持ES6的module功能, 原生开始支持模块化开发!</p>
-<h1 id="chrome中使用模块化功能"><a href="#chrome中使用模块化功能" class="headerlink" title="chrome中使用模块化功能"></a>chrome中使用模块化功能</h1><p>Chrome 61 加入了对 JavaScript Module <script type="module"> 的原生支持。Chrome 现在可以并行地获取颗粒化的依赖模块，利用浏览器缓存的优势，在多个页面之间共享模块，并且可以保证脚本按照正确地顺序执行。</p>
+<h1 id="chrome中使用模块化功能"><a href="#chrome中使用模块化功能" class="headerlink" title="chrome中使用模块化功能"></a>chrome中使用模块化功能</h1><p>Chrome 61 加入了对 JavaScript Module <code>&lt;script type=&quot;module&quot;&gt;</code>的原生支持。Chrome 现在可以并行地获取颗粒化的依赖模块，利用浏览器缓存的优势，在多个页面之间共享模块，并且可以保证脚本按照正确地顺序执行。</p>
 <p>下面是我直接在html文件中写入, 的代码</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;module&quot;&gt;</div><div class="line">	import utils from &quot;./test.js&quot;</div><div class="line">	utils()</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
 <p>再看一下我所引入的依赖</p>
@@ -329,7 +329,7 @@
 <h1 id="WebUSB"><a href="#WebUSB" class="headerlink" title="WebUSB"></a>WebUSB</h1><p>很多电脑的周边硬件在 Web 平台上都有对应的 API，比如键盘、鼠标、打印机和手柄等等。但是，想要在浏览器中使用某些特殊的用于教育、科研、工业等等 USB 设备很困难，通常需要特殊的驱动才行。</p>
 <p>现在 Chrome 提供了 WebUSB API，在用户授权后，Web 应用可以直接可 USB 设备通信。</p>
 <p>要了解更多, 可登陆google开发者平台了解详情…</p>
-</script></p>
+
       
     </div>
     
@@ -375,7 +375,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#chrome中使用模块化功能"><span class="toc-number">1.</span> <span class="toc-text">chrome中使用模块化功能</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#chrome中使用模块化功能"><span class="toc-number">1.</span> <span class="toc-text">chrome中使用模块化功能</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#web-share-api"><span class="toc-number">2.</span> <span class="toc-text">web share api</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#WebUSB"><span class="toc-number">3.</span> <span class="toc-text">WebUSB</span></a></li></ol>
         
     </div>
     <style>
