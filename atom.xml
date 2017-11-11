@@ -405,6 +405,46 @@
   </entry>
   
   <entry>
+    <title>Chrome61发布,这新功能怕是没谁了</title>
+    <link href="https://github.com/ChangerHe/2017/09/24/Chrome61%E5%8F%91%E5%B8%83,%E8%BF%99%E6%96%B0%E5%8A%9F%E8%83%BD%E6%80%95%E6%98%AF%E6%B2%A1%E8%B0%81%E4%BA%86/"/>
+    <id>https://github.com/ChangerHe/2017/09/24/Chrome61发布,这新功能怕是没谁了/</id>
+    <published>2017-09-24T15:11:42.000Z</published>
+    <updated>2017-11-11T02:28:06.169Z</updated>
+    
+    <content type="html"><![CDATA[<p>Chrome 61 正式版已于2017年9月6日正式发布，并增加了很多开发者相关的功能。在 Mac、Windows 和 Linux 系统中，Chrome 61 开始支持 WebUSB API，以及 PaymentRequest API。</p>
+<p>高级网络平台 API 支持大多数硬件外设，如键盘、鼠标、打印机和游戏手柄。为了使用教育、科学或工业等专用 USB 外设，用户必须使用系统级权限查找和安装可能不安全的驱动程序和软件。</p>
+<p>当然, 最让人激动的是, chrome已经开始支持ES6的module功能, 原生开始支持模块化开发!</p>
+<h1 id="chrome中使用模块化功能"><a href="#chrome中使用模块化功能" class="headerlink" title="chrome中使用模块化功能"></a>chrome中使用模块化功能</h1><p>Chrome 61 加入了对 JavaScript Module <script type="module"> 的原生支持。Chrome 现在可以并行地获取颗粒化的依赖模块，利用浏览器缓存的优势，在多个页面之间共享模块，并且可以保证脚本按照正确地顺序执行。</p>
+<p>下面是我直接在html文件中写入, 的代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;module&quot;&gt;</div><div class="line">	import utils from &quot;./test.js&quot;</div><div class="line">	utils()</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>再看一下我所引入的依赖</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">// 相同目录下的test.js</div><div class="line">function utils() &#123;</div><div class="line">  console.log(1)</div><div class="line">&#125;</div><div class="line"></div><div class="line">export default utils</div></pre></td></tr></table></figure>
+<p>最后, 我们使用编辑器自带的服务器开启运行, 我使用的是VSCode, 当然, 像webstorm, Hbuilder之类的都自带了服务器</p>
+<p>需要注意的是, 不使用服务器而是直接使用双击打开文件的方式是没有办法体验这种功能的</p>
+<p>最后我们可以看到在chrome61+控制台上打印出了1</p>
+<h1 id="web-share-api"><a href="#web-share-api" class="headerlink" title="web share api"></a>web share api</h1><p>为了让用户把他们喜欢的内容分享到网络上，不得把所有的社交按钮在自己的网站上添加一遍。这让页面变得很臃肿，很可能这些分享按钮和网站的视觉不匹配，并且还要添加来自第三方的代码。</p>
+<p>现在，Android 版的 Chrome 新增了 Web Share API，该 API 可以直接调用原生的分享功能，用户可以很方便的将自己喜欢的文本和链接分享到其他原生 App 上了！</p>
+<p>在之后的版本中，这个 API 还能分享到已安装的 web app 中。直接调用 navigator.share 方法，传递相关的参数，就可以发起分享。其他事情系统会帮你搞定。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">navigator.share(&#123;</div><div class="line">  title: document.title, text: &apos;Hello&apos;,</div><div class="line">  url: window.location.href</div><div class="line">&#125;).then(() =&gt; &#123;</div><div class="line">  console.log(&apos;Successful share&apos;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h1 id="WebUSB"><a href="#WebUSB" class="headerlink" title="WebUSB"></a>WebUSB</h1><p>很多电脑的周边硬件在 Web 平台上都有对应的 API，比如键盘、鼠标、打印机和手柄等等。但是，想要在浏览器中使用某些特殊的用于教育、科研、工业等等 USB 设备很困难，通常需要特殊的驱动才行。</p>
+<p>现在 Chrome 提供了 WebUSB API，在用户授权后，Web 应用可以直接可 USB 设备通信。</p>
+<p>要了解更多, 可登陆google开发者平台了解详情…</p>
+</script></p>]]></content>
+    
+    <summary type="html">
+    
+      Chrome 61 正式版已于2017年9月6日正式发布，并增加了很多开发者相关的功能。在 Mac、Windows 和 Linux 系统中，Chrome 61 开始支持 WebUSB API，以及 PaymentRequest API。
+    
+    </summary>
+    
+      <category term="Chrome" scheme="https://github.com/ChangerHe/categories/Chrome/"/>
+    
+    
+      <category term="Chrome" scheme="https://github.com/ChangerHe/tags/Chrome/"/>
+    
+  </entry>
+  
+  <entry>
     <title>sass/scss和less的区别</title>
     <link href="https://github.com/ChangerHe/2017/09/01/sass-scss%E5%92%8Cless%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
     <id>https://github.com/ChangerHe/2017/09/01/sass-scss和less的区别/</id>
@@ -1243,52 +1283,6 @@
       <category term="ES6" scheme="https://github.com/ChangerHe/tags/ES6/"/>
     
       <category term="number" scheme="https://github.com/ChangerHe/tags/number/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《ES6标准入门》阅读笔记——-正则表达式的扩展</title>
-    <link href="https://github.com/ChangerHe/2017/06/20/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E6%89%A9%E5%B1%95/"/>
-    <id>https://github.com/ChangerHe/2017/06/20/《ES6标准入门》阅读笔记——-正则表达式的扩展/</id>
-    <published>2017-06-20T12:45:51.000Z</published>
-    <updated>2017-09-18T00:41:22.071Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。</p>
-<p>许多初学ES6, 同时和我一样初次阅读阮老师的这本书的时候, 读第一遍会越发的困惑, 因为阮老师上面说的很多的定义,方法,之前都是没有见过的, 读到后面才发现, 哦~原来是这样.</p>
-<p>有一句话叫做”大神的世界我们不懂”, 所以我在初读第一遍《ES6标准入门》这本书的时候,也是踩了不少坑,读书的时候查阅了不少的资料.</p>
-<p>所以,在这一系列的笔记教程中,我会从一个初学者的角度,向您讲述ES6的相关知识,在后面介绍的知识我会尽量不提前用,即使提前使用,也会同时做好标注,避免了阅读时各种查阅资料的烦恼.</p>
-<p>系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导新手，快速入门ES6，并逐步将其投入到生产实践中。</p>
-<p>同时,在阅读前也提醒您, 为了系统连贯性的学习ES6的基础知识,建议您从我的博客第一章开始阅读,当然,如果您对对应的知识已经有所了解,那么可以跳转到任意章节阅读,每一篇博客名中均有介绍该博客中涉及到的ES6的内容.</p>
-<p>阮一峰老师的这本书是开源的，在其官方博客就可以下载到，但是我强烈建议大家去购买一本书, 一是方便自己查阅ES6中新增的众多API, 二也是表达一下对大神的敬仰.</p>
-<h1 id="正则表达式的扩展"><a href="#正则表达式的扩展" class="headerlink" title="正则表达式的扩展"></a>正则表达式的扩展</h1><p>在ES6以前,正则表达式的构造函数只能接受字符串作为参数</p>
-<p>但在ES6中,是允许RegExp构造函数使用正则表达式作为参数的,这时候会返回一个原有正则表达式的拷贝</p>
-<p>如果在使用正则表达式的第二个参数时,则它将会使用第二个修饰符而忽略原有的正则表达式修饰符<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var reg = new RegExp(/abc/ig, &apos;g&apos;).flags // .flags表示查找正则表达式的修饰符,如ige等</div><div class="line">console.log(reg) // g</div></pre></td></tr></table></figure></p>
-<p>ES6新增了u修饰符,含义为Unicode模式, 用来正确处理大于\uFFFF 的Unicode字符</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">console.log(/^\ud83d/u.test(&apos;\ud83d\udc2a&apos;))</div><div class="line">console.log(/^\ud83d/.test(&apos;\ud83d\udc2a&apos;)) // 当不使用u操作符的时候,使用utf-16编码的字符无法被正常识别</div></pre></td></tr></table></figure>
-<p>对于点字符,当字符为utf-16编码是,是无法正常被识别的,此时必须加上u修饰符</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">console.log(&apos;\u&#123;20bb7&#125;&apos;)</div><div class="line">var s = &apos;\u&#123;20bb7&#125;&apos;</div><div class="line">console.log(/^.$/.test(s)) // 当正则表达式的标识符不加u时,是不会被识别的,不会被匹配为任意字符,当然,主要原因还是因为它被当成两个字符了</div><div class="line">console.log(/^.$/u.test(s)) // true</div></pre></td></tr></table></figure>
-<p>同时,ES6新增了使用大括号表示Unicode的表示法,这种表示法在正则表达式中必须加上u修饰符才能被识别</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">console.log(/\u&#123;61&#125;/.test(&apos;a&apos;))</div><div class="line"> // 当不使用u作为修饰符时,此正则表达式会被认为是u的61个重复</div><div class="line">console.log(/\u&#123;61&#125;/u.test(&apos;a&apos;))</div><div class="line"> // 使用u修饰符后,所有量词都会正确识别码点大于0xFFFF的Unicode字符</div><div class="line">console.log(/𠮷&#123;2&#125;/u.test(&apos;𠮷𠮷&apos;))</div><div class="line"> // 当我们使用\S(非空格字符)对四字节的字符进行匹配的时候,同样会产生问题:无法正常匹配,原因还是一样,之前ES5将这个字符理解成了两个字符了</div><div class="line">console.log(/^\S$/.test(&apos;𠮷&apos;))</div><div class="line">console.log(/^\S$/u.test(&apos;𠮷&apos;))</div></pre></td></tr></table></figure>
-<p>除了u修饰符,ES6还为正则表达式添加了y修饰符,叫做黏连修饰符(y)</p>
-<p>y修饰符的作用与g修饰符类似,也是全局匹配,后一次的匹配都会从上一次匹配成功的下一个位置开始.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var s = &apos;sss_ss_s&apos;</div><div class="line">var r1 = /s+/g</div><div class="line">var r2 = /s+/yg</div><div class="line">console.log(s.match(r1))</div><div class="line">console.log(s.match(r2)) </div><div class="line">// 我们使用y修饰符进行匹配,因为同样的s是没有连贯性的出现在一起,所以导致后面的就无法匹配了</div><div class="line">var r3 = /s+_/g</div><div class="line">var r4 = /s+_/y</div><div class="line">console.log(s.match(r3))</div><div class="line">console.log(s.match(r4))</div><div class="line">console.log(s.match(r4))</div></pre></td></tr></table></figure>
-<p>ES6为正则表达式提供了flags 和 source 方法,用于返回正则表达式的修饰符 和匹配正文</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var r = /s/igy</div><div class="line">console.log(r.source)</div><div class="line">console.log(r.flags)</div></pre></td></tr></table></figure>
-<p>(完)</p>
-]]></content>
-    
-    <summary type="html">
-    
-      本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导新手，快速入门ES6，并逐步将其投入到生产实践中。
-    
-    </summary>
-    
-      <category term="ES6标准入门" scheme="https://github.com/ChangerHe/categories/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8/"/>
-    
-    
-      <category term="ES6" scheme="https://github.com/ChangerHe/tags/ES6/"/>
-    
-      <category term="RegExp" scheme="https://github.com/ChangerHe/tags/RegExp/"/>
     
   </entry>
   
