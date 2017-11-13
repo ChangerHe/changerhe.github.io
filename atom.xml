@@ -405,6 +405,91 @@
   </entry>
   
   <entry>
+    <title>微信公众平台接口配置信息详解---Nodejs版</title>
+    <link href="https://github.com/ChangerHe/2017/09/24/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%B9%B3%E5%8F%B0%E6%8E%A5%E5%8F%A3%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF%E8%AF%A6%E8%A7%A3---Nodejs%E7%89%88/"/>
+    <id>https://github.com/ChangerHe/2017/09/24/微信公众平台接口配置信息详解---Nodejs版/</id>
+    <published>2017-09-24T15:11:42.000Z</published>
+    <updated>2017-11-13T15:13:37.565Z</updated>
+    
+    <content type="html"><![CDATA[<p>首先,要说明一点的是, 虽然标题有说是: nodejs版, 那么会有其他的版本配置方法详情吗?</p>
+<p>答案是没有, 不过在微信公众平台上有详细说明了PHP为后台的配置版本, 如果有兴趣的童鞋可以过去看一下, 这里就不做赘述了</p>
+<p>那么本篇博客主要写哪些呢, 博客的受众有哪些呢?</p>
+<p>本篇博客主要是针对需要进行微信公众平台进行开发的个人开发者, 因为在个人申请公众号的过程中存在诸多限制, 而微信则比较体贴地提供了针对个人开发者的公众平台测试帐号, 这样就可以无需申请公众帐号就能在测试帐号中体验并测试微信公众平台所有高级接口了. </p>
+<p>而根据微信方的要求, 个人开发者需要有自己的服务器, 并且对微信的加密token能够正确地进行返回数据, 进行一番验证之后才能够享受微信所提供的开发者服务</p>
+<p>那么问题来了, 我没有服务器怎么办啊?</p>
+<p>哎不对, 我也不会正确的接收token和返回token啊! 怎么搞~</p>
+<p>这里根据实际情况, 因为即使你有服务器, 每次还要登陆服务器, 势必会造成很大的麻烦, 那么我们一般会使用到ngrok的内网转发服务</p>
+<p>想必到这里很多人不知道ngrok是什么, 这里从百度百科扒一个词条过来解释一下</p>
+<blockquote>
+<p>ngrok 是一个反向代理，通过在公共的端点和本地运行的 Web 服务器之间建立一个安全的通道。ngrok 可捕获和分析所有通道上的流量，便于后期分析和重放</p>
+</blockquote>
+<p>讲得那么复杂, 简单总结一下, 就是使用这玩意儿就可以将你的本地开启的服务器当做一个外网服务器来使用, 也就是说从微信发过来的验证token, 是可以直接发送到我们的电脑上, 从而成功校验token, 美滋滋~</p>
+<h1 id="ngrok的使用及配置"><a href="#ngrok的使用及配置" class="headerlink" title="ngrok的使用及配置"></a>ngrok的使用及配置</h1><p>ngrok本身是源自美国的公司提供的一项反向代理的服务, 使用它就可以很方便地进行反向代理了.</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><img src="https://ngrok.com/download" alt="官网下载">地址下载, 解压</p>
+<p>将可执行文件ngrok移到任意文件夹内</p>
+<p>如果需要在命令行直接执行, 则需要进行配置全局变量, 这个有些复杂, 就不展开讲了, 如果有不想每次都要找到这个文件双击打开, 而是直接使用CMD的同学, 可以试一下(不过我觉得每次双击打开问价没啥不好的啊)</p>
+<h2 id="注册授权"><a href="#注册授权" class="headerlink" title="注册授权"></a>注册授权</h2><p>现在其实是可以进行正常捕获到请求了, 但是现在有个问题就是, 这一切是不是来的太简单了…</p>
+<p>没错, 还差一步, 就是要官网的一个token</p>
+<p><img src="https://dashboard.ngrok.com/user/signup" alt="sign up for an account in ngrok"> 获取ngrok的授权码,</p>
+<h2 id="进行本机认证-Install-your-authtoken"><a href="#进行本机认证-Install-your-authtoken" class="headerlink" title="进行本机认证 Install your authtoken"></a>进行本机认证 Install your authtoken</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ngrok authtoken &lt;YOUR_AUTHTOKEN&gt;</div></pre></td></tr></table></figure>
+<h2 id="设置外网的访问密码-选做"><a href="#设置外网的访问密码-选做" class="headerlink" title="设置外网的访问密码(选做)"></a>设置外网的访问密码(选做)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// username 用户名 password密码 8080相关的端口</div><div class="line">ngrok http -auth=&quot;username:password&quot; 8080</div></pre></td></tr></table></figure>
+<h2 id="配置妥当"><a href="#配置妥当" class="headerlink" title="配置妥当"></a>配置妥当</h2><p>那么现在我们可以输入以下命令, 启动ngrok了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ngrok http 8080</div></pre></td></tr></table></figure>
+<p>当然, 这个端口可以自己设置, 开心就好</p>
+<p>现在我们到浏览器中输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">localhost:4040</div></pre></td></tr></table></figure>
+<p>即可看到ngrok的监控页面, 上面有为你分配的http和https两个网址,把网址复制到微信公众平台的测试账号申请的接口配置信息中</p>
+<h1 id="离成功还差半步"><a href="#离成功还差半步" class="headerlink" title="离成功还差半步"></a>离成功还差半步</h1><p>那么, 我们成功设置了ngrok了, 现在要准备对接微信的接口了, 微信的access_token每次传输的内容有下面几个:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">signature</td>
+<td style="text-align:center">微信加密签名，signature结合了开发者填写的token参数和请求中的timestamp参数、nonce参数。</td>
+</tr>
+<tr>
+<td style="text-align:center">timestamp</td>
+<td style="text-align:center">时间戳</td>
+</tr>
+<tr>
+<td style="text-align:center">nonce</td>
+<td style="text-align:center">随机数</td>
+</tr>
+<tr>
+<td style="text-align:center">echostr</td>
+<td style="text-align:center">随机字符串</td>
+</tr>
+</tbody>
+</table>
+<p>开发者通过检验signature对请求进行校验（下面有校验方式）。若确认此次GET请求来自微信服务器，请原样返回echostr参数内容，则接入生效，成为开发者成功，否则接入失败。加密/校验流程如下：</p>
+<p>-1）将token、timestamp、nonce三个参数进行字典序排序</p>
+<p>-2）将三个参数字符串拼接成一个字符串进行sha1加密</p>
+<p>-3）开发者获得加密后的字符串可与signature对比，标识该请求来源于微信</p>
+<h1 id="PHP实例代码"><a href="#PHP实例代码" class="headerlink" title="PHP实例代码"></a>PHP实例代码</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">private function checkSignature () &#123;</div><div class="line">	_GET[&quot;signature&quot;];</div><div class="line">	_GET[&quot;timestamp&quot;];</div><div class="line">	_GET[&quot;nonce&quot;];</div><div class="line">        </div><div class="line">	tmpArr = array(timestamp, $nonce);</div><div class="line">	sort($tmpArr, SORT_STRING);</div><div class="line">	$tmpStr = implode( $tmpArr );</div><div class="line">	$tmpStr = sha1( $tmpStr );</div><div class="line"></div><div class="line">	if( signature )&#123;</div><div class="line">		return true;</div><div class="line">	&#125; else &#123;</div><div class="line">		return false;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>以上为微信官网的PHP实例代码, 作为一个会nodejs的小学森, 怎么能不用nodejs呢, 看下nodejs的写法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">const Koa = require(&apos;koa&apos;)</div><div class="line">const sha1 = require(&apos;sha1&apos;)</div><div class="line"></div><div class="line">var config = &#123;</div><div class="line">	wechat: &#123;</div><div class="line">		appId: &apos;***&apos;,</div><div class="line">		appSecret: &apos;***&apos;,</div><div class="line">		token: &apos;***&apos;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var app = new Koa()</div><div class="line"></div><div class="line">app.use(function* (next) &#123;</div><div class="line">	console.log(this.query)</div><div class="line"></div><div class="line">	var token = config.wechat.token</div><div class="line">	var signature = this.query.signature</div><div class="line">	var nonce = this.query.nonce</div><div class="line">	var timestamp = this.query.timestamp</div><div class="line">	var echostr = this.query.echostr</div><div class="line"></div><div class="line">	var str = [token, timestamp, nonce].sort().join(&apos;&apos;)</div><div class="line">	var sha = sha1(str)</div><div class="line">	console.log(sha)</div><div class="line">	if (sha === signature) &#123;</div><div class="line">		this.body = echostr</div><div class="line">	&#125; else &#123;</div><div class="line">		this.body = &apos;wrong&apos;</div><div class="line">	&#125;</div><div class="line">&#125;)</div><div class="line"></div><div class="line">app.listen(8090)</div><div class="line"></div><div class="line">console.log(&apos;listening 8090&apos;)</div></pre></td></tr></table></figure>
+<p>这里用到了koa框架和sha1加密组件, 喜欢其他的方式的童鞋可以使用其他的开发方法, 总体来说都是一样的</p>
+]]></content>
+    
+    <summary type="html">
+    
+      本篇博客主要是针对需要进行微信公众平台进行开发的个人开发者, 因为在个人申请公众号的过程中存在诸多限制, 而微信则比较体贴地提供了针对个人开发者的公众平台测试帐号, 这样就可以无需申请公众帐号就能在测试帐号中体验并测试微信公众平台所有高级接口了. 
+    
+    </summary>
+    
+      <category term="微信公众平台" scheme="https://github.com/ChangerHe/categories/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%B9%B3%E5%8F%B0/"/>
+    
+    
+      <category term="微信公众平台" scheme="https://github.com/ChangerHe/tags/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%B9%B3%E5%8F%B0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Chrome61发布,这新功能怕是没谁了</title>
     <link href="https://github.com/ChangerHe/2017/09/24/Chrome61%E5%8F%91%E5%B8%83,%E8%BF%99%E6%96%B0%E5%8A%9F%E8%83%BD%E6%80%95%E6%98%AF%E6%B2%A1%E8%B0%81%E4%BA%86/"/>
     <id>https://github.com/ChangerHe/2017/09/24/Chrome61发布,这新功能怕是没谁了/</id>
@@ -1219,70 +1304,6 @@
       <category term="ES6" scheme="https://github.com/ChangerHe/tags/ES6/"/>
     
       <category term="Array" scheme="https://github.com/ChangerHe/tags/Array/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《ES6标准入门》阅读笔记——-number类型的扩展</title>
-    <link href="https://github.com/ChangerHe/2017/06/22/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-number%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%89%A9%E5%B1%95/"/>
-    <id>https://github.com/ChangerHe/2017/06/22/《ES6标准入门》阅读笔记——-number类型的扩展/</id>
-    <published>2017-06-22T15:41:23.000Z</published>
-    <updated>2017-09-18T00:41:30.254Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。</p>
-<p>许多初学ES6, 同时和我一样初次阅读阮老师的这本书的时候, 读第一遍会越发的困惑, 因为阮老师上面说的很多的定义,方法,之前都是没有见过的, 读到后面才发现, 哦~原来是这样.</p>
-<p>有一句话叫做”大神的世界我们不懂”, 所以我在初读第一遍《ES6标准入门》这本书的时候,也是踩了不少坑,读书的时候查阅了不少的资料.</p>
-<p>所以,在这一系列的笔记教程中,我会从一个初学者的角度,向您讲述ES6的相关知识,在后面介绍的知识我会尽量不提前用,即使提前使用,也会同时做好标注,避免了阅读时各种查阅资料的烦恼.</p>
-<p>系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导新手，快速入门ES6，并逐步将其投入到生产实践中。</p>
-<p>同时,在阅读前也提醒您, 为了系统连贯性的学习ES6的基础知识,建议您从我的博客第一章开始阅读,当然,如果您对对应的知识已经有所了解,那么可以跳转到任意章节阅读,每一篇博客名中均有介绍该博客中涉及到的ES6的内容.</p>
-<p>阮一峰老师的这本书是开源的，在其官方博客就可以下载到，但是我强烈建议大家去购买一本书, 一是方便自己查阅ES6中新增的众多API, 二也是表达一下对大神的敬仰.</p>
-<h1 id="二进制和八进制的新写法"><a href="#二进制和八进制的新写法" class="headerlink" title="二进制和八进制的新写法"></a>二进制和八进制的新写法</h1><p>ES6的更新同时带来了二进制和八进制数组的新写法, 分别使用0b 和 0o表示</p>
-<p>不同于之前在ES5中,我们使用八进制字面量, 在严格模式下是无效的:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&quot;use strict&quot;</div><div class="line">var octalNum = 070</div><div class="line">console.log(octalNum)</div></pre></td></tr></table></figure>
-<p>(不过经过测试,在ES6环境下,这个语句可以正常运行. 这要归功于ES6带来的强大的性能, 这一点需要说明一下)</p>
-<p>在ES6环境下,我们可以直接使用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">console.log(0o11 === 011)  // true</div><div class="line">&apos;use strict&apos;</div><div class="line">console.log(0o11 === 011)  // true</div><div class="line">console.log(Number(&apos;0b111&apos;))  // 7</div><div class="line">console.log(Number(&apos;0o10&apos;))  // 8</div></pre></td></tr></table></figure>
-<h1 id="Number-isFinite"><a href="#Number-isFinite" class="headerlink" title="Number.isFinite()"></a>Number.isFinite()</h1><p>ES6提供了判断数字是否有穷的方法 Number.isFinite()</p>
-<p>到这里很多同学很惊讶,这个isFinite()方法不是应该是ES5所出现的吗? </p>
-<p>其实是这样的, 在ES6之前,我们调用这个方法是直接在window 上面调用的, 而在ES6中, 将这些数学方法集成到了Number类中. </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">console.log(Number.isFinite(15))  // true</div><div class="line">console.log(Number.isFinite(&apos;15&apos;))  // false</div><div class="line">console.log(Number.isFinite(NaN))  // false</div><div class="line">console.log(Number.isFinite(Infinity))  // false</div></pre></td></tr></table></figure>
-<p>需要注意的是,当我们传入字符串进去的时候,是不会对我们传入值进行隐式类型转换的</p>
-<h1 id="Number-isNaN"><a href="#Number-isNaN" class="headerlink" title="Number.isNaN()"></a>Number.isNaN()</h1><p>同样的, 本来之前在window上面的方法isNaN()也被同时放到了Number类上</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">console.log(Number.isNaN(NaN)) // true</div><div class="line">console.log(Number.isNaN(15)) // false</div><div class="line">console.log(Number.isNaN(&apos;15&apos;)) // false</div><div class="line">console.log(Number.isNaN(&apos;true&apos; / &apos;true&apos;)) // true</div></pre></td></tr></table></figure>
-<h1 id="两种方法的区别"><a href="#两种方法的区别" class="headerlink" title="两种方法的区别"></a>两种方法的区别</h1><p>那么,为了遵循线性增强的规则, ES6中也保留了在ES5中的之前的方法. 但是两种方法是存在区别的, 最大的区别在于, Number类下的方法不会进行隐式类型转换</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">console.log(isFinite(25))  // true</div><div class="line">console.log(isFinite(&apos;25&apos;))  // true</div><div class="line">console.log(Number.isFinite(25))   // true</div><div class="line">console.log(Number.isFinite(&apos;25&apos;)) // 因为不存在隐式类型转换的过程,所以这里打印值为false</div></pre></td></tr></table></figure>
-<p>综上所述, ES6在数值类上的一个创新是,将一些数组类的全局方法逐步转移到Number类型下来,从而达到逐步减少全局方法的目的,实现语言的逐步模块化</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">console.log(Number.parseFloat === parseFloat) // true</div></pre></td></tr></table></figure>
-<h1 id="Number-isInterger"><a href="#Number-isInterger" class="headerlink" title="Number.isInterger()"></a>Number.isInterger()</h1><p>Number.isInterger() 方法,用来判断一个值是否为整数,需要注意的是,在javascript内部,整数和浮点数是采用的相同的存储方法的,所以3 和 3.0 其实是全等的</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">console.log(3 === 3.0)</div><div class="line">console.log(Number.isInteger(3))</div><div class="line">console.log(Number.isInteger(3.0)) // true</div><div class="line">console.log(Number.isInteger(3.1)) // false</div></pre></td></tr></table></figure>
-<h1 id="Number-EPSILON"><a href="#Number-EPSILON" class="headerlink" title="Number.EPSILON"></a>Number.EPSILON</h1><p>Number.EPSILON 是Number对象引入的一个极小的常量,目的在于解决浮点数计算不精确的问题</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">console.log(Number.EPSILON) //2.220446049250313e-16</div><div class="line">// 当两者相减,误差小于Number.EPSILON的时候,我们可以判定两数是完全相等的</div><div class="line">function equal(num1, num2) &#123;</div><div class="line">return Math.abs(num1 - num2) &lt; Number.EPSILON ? true : false;</div><div class="line"></div><div class="line">console.log(equal(.1 + .2, .3))  // true</div></pre></td></tr></table></figure>
-<p>要知道,在这之前, .1 + .2 != .3 因为浮点的运算精度问题,导致出现了一点点的小误差</p>
-<h1 id="安全整数"><a href="#安全整数" class="headerlink" title="安全整数"></a>安全整数</h1><p>javascript可以准确地表示在2的负53次方到2的正53次方之间的整数,超出则无法精确显示</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">console.log(Math.pow(2, 53) === Math.pow(2, 53) - 1) // 返回的是false,书上的有问题</div></pre></td></tr></table></figure>
-<h1 id="数学对象处理的其他方法"><a href="#数学对象处理的其他方法" class="headerlink" title="数学对象处理的其他方法"></a>数学对象处理的其他方法</h1><p>在ES6中,新增了17个对数学对象处理相关的方法</p>
-<blockquote>
-<p>   Math.trunc() 用于取出一个数的小数部分,返回整数部分<br>   Math.sign()  用于判断一个数到底是整数,还是负数,还是零<br>   Math.cbrt()  用于计算一个数的立方根<br>   Math.clz32() 用于返回一个数的32位二进制的数值表示的数,前面有多少个前导零<br>   Math.imul()  返回两个数以32位带符号整数形式相乘的结果,返回的也是一个32位带符号整数<br>   Math.fround()返回数值的单精度浮点数的数值表示,也就是以64位存储的浮点数<br>   Math.hypot() 返回所有参数的平方和的平方根<br>   Math.expm1(x) 返回其相应的指数减一  即 e ^ x -1<br>   Math.log1p(x) 返回 ln(1+x) 等价于 Math.log(1 + x)<br>   Math.log10(x) 返回以10为底的对数<br>   Math.log2()  返回以2为底的对数</p>
-</blockquote>
-<p>下面是打印出来的测试用例</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">console.log(Math.trunc(4.9)) //4</div><div class="line">console.log(Math.trunc(-4.9)) //-4</div><div class="line">console.log(Math.sign(5)) //1  (表示是正数)</div><div class="line">console.log(Math.sign(-0)) //-0 表示是负零</div><div class="line">console.log(Math.sign(0))</div><div class="line">console.log(Math.sign()) //NaN 表示为非数值</div><div class="line">console.log(Math.cbrt(8)) //2</div><div class="line">console.log(Math.clz32(1)) //31  表示1的32位二进制的数值,1前面一共有21个零</div><div class="line">console.log(Math.clz32(1.9)) //31  对于有小数的情况,只返回相应的整数部分</div><div class="line">console.log(Math.clz32(NaN)) //32  此方法有隐式类型转换的机制</div><div class="line">console.log(Math.imul(2, 4)) // 8</div><div class="line">console.log(Math.fround(1.337)) //1.3370000123977661 丧失了精度</div><div class="line">console.log(Math.hypot(3, 4)) //5</div><div class="line">console.log(Math.expm1(0)) //0</div><div class="line">console.log(Math.expm1(1)) //1.718281828459045</div><div class="line">console.log(Math.log10(10)) //1.718281828459045</div><div class="line">console.log(Math.log2(2)) //1.718281828459045</div></pre></td></tr></table></figure>
-<h1 id="指数运算符"><a href="#指数运算符" class="headerlink" title="指数运算符"></a>指数运算符</h1><p>ES7还新增了一个指数运算符,目前babel转码器已经支持</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">console.log(2 ** 2) //4</div><div class="line">console.log(2 ** 3) //8</div><div class="line">	// 同时,指数运算符还可与等号结合,形成一个新的赋值运算符 **=</div><div class="line">let a = 3</div><div class="line">console.log(a **= 2) // 9</div><div class="line">let b = 2</div><div class="line">console.log(b **= 3) // 8</div></pre></td></tr></table></figure>
-<p>(完)</p>
-]]></content>
-    
-    <summary type="html">
-    
-      本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导新手，快速入门ES6，并逐步将其投入到生产实践中。
-    
-    </summary>
-    
-      <category term="ES6标准入门" scheme="https://github.com/ChangerHe/categories/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8/"/>
-    
-    
-      <category term="ES6" scheme="https://github.com/ChangerHe/tags/ES6/"/>
-    
-      <category term="number" scheme="https://github.com/ChangerHe/tags/number/"/>
     
   </entry>
   
