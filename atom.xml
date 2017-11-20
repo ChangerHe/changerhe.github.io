@@ -252,6 +252,43 @@
   </entry>
   
   <entry>
+    <title>利用dpl实现对移动设备的像素实现精准控制</title>
+    <link href="https://github.com/ChangerHe/2017/10/05/%E5%88%A9%E7%94%A8dpl%E5%AE%9E%E7%8E%B0%E5%AF%B9%E7%A7%BB%E5%8A%A8%E8%AE%BE%E5%A4%87%E7%9A%84%E5%83%8F%E7%B4%A0%E5%AE%9E%E7%8E%B0%E7%B2%BE%E5%87%86%E6%8E%A7%E5%88%B6/"/>
+    <id>https://github.com/ChangerHe/2017/10/05/利用dpl实现对移动设备的像素实现精准控制/</id>
+    <published>2017-10-05T14:14:14.000Z</published>
+    <updated>2017-11-20T04:50:12.186Z</updated>
+    
+    <content type="html"><![CDATA[<p>dpl, 全称是device pixel ratio ,表示设备的像素比</p>
+<p>设备在移动端因为物理像素和理论像素的不同而产生了显示的差异, 随着科技的发展, 设备的物理像素与理论像素之比由之前的一比一变成了多比一, 其中比较典型的就是, iphone6的设备像素比是2:1, iphone6 plus是3:1</p>
+<p>因为其显示的差异, 也造成了我们在电脑上做的页面, 在移动端出现了显示异常的情况</p>
+<p>而在js的window对象中有一个属性专门用于表示设备我的像素比例, 名叫devicePixelRatio, 也就是说, 我们可以使用window.devicePixelRatio来显示出当前设备的物理像素和实际像素的比例.</p>
+<p>也同样是因为这个问题, 催生了移动设备一像素的问题, 因为我们在电脑上设置1px, 导致在手机端显示为2px甚至更多, 在需要精细化控制设计图的情况下会使页面非常不美观</p>
+<p>解决这个问题，主要思想是：使用伪元素设置1px的边框，然后使用媒体查询，根据dpr的大小，对边框进行缩放（scaleY）。详细代码如下所示： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">  &lt;div id=&quot;app&quot;&gt;</div><div class="line">    &lt;div class=&quot;tab border-1px&quot;&gt; &lt;!-- !!!!!!! --&gt;</div><div class="line">      &lt;div class=&quot;tab-items&quot;&gt;</div><div class="line">        &lt;router-link  to=&quot;/goods&quot;&gt;商品&lt;/router-link&gt;</div><div class="line">      &lt;/div&gt;</div><div class="line">      &lt;div class=&quot;tab-items&quot;&gt;</div><div class="line">         &lt;router-link  to=&quot;/ratings&quot;&gt;评价&lt;/router-link&gt;</div><div class="line">      &lt;/div&gt;</div><div class="line">      &lt;div class=&quot;tab-items&quot;&gt;</div><div class="line">        &lt;router-link  to=&quot;/seller&quot;&gt;商店&lt;/router-link&gt;</div><div class="line">      &lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">    &lt;div class=&quot;content&quot;&gt;</div><div class="line">      &lt;router-view&gt;&lt;/router-view&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/template&gt;</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">&lt;/script&gt;</div><div class="line"></div><div class="line">&lt;style lang=&quot;stylus&quot; rel=&quot;stylesheet/stylus&quot;&gt;</div><div class="line">@import &quot;./common/stylus/mixin.styl&quot;</div><div class="line">@import &quot;./common/stylus/base.styl&quot;</div><div class="line">#app</div><div class="line">  .tab</div><div class="line">    display: flex</div><div class="line">    width: 100%</div><div class="line">    height: 40px</div><div class="line">    line-height: 40px</div><div class="line">    border-1px(blue)  /*!!!!!!*/</div><div class="line">    .tab-items</div><div class="line">      flex: 1</div><div class="line">      text-align: center</div><div class="line">      font-size: 14px</div><div class="line">      &amp; &gt; a</div><div class="line">        display: block</div><div class="line">        width: 100%</div><div class="line">        color: rgb(77, 85, 93)</div><div class="line">        &amp;.router-link-active</div><div class="line">          color: rgb(240, 20, 20)</div><div class="line">  .seller</div><div class="line">    border-bottom: 1px solid blue  /*用于对比，在移动端实际显示2px*/</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+<p>看过滴滴打车的黄奕老师的vue开发饿了么教程的童鞋可以知道这就是初期构建的商家详情的spa单页骨架雏形哈哈</p>
+<p>可以看到我们使用到了stylus中的mixin对移动端设备一像素问题的解决办法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">border-1px($color)</div><div class="line">    position: relative</div><div class="line">    &amp;::after</div><div class="line">        position: absolute</div><div class="line">        left: 0</div><div class="line">        bottom: 0</div><div class="line">        width: 100%</div><div class="line">        content: &apos; &apos;</div><div class="line">        border-top: 1px solid $color</div><div class="line"></div><div class="line">//图片的mixin，根据图片的不同dpr进行适配下显示高清问题</div><div class="line">bg-image($url) </div><div class="line">  background-image: url($url + &quot;@2x.png&quot;)</div><div class="line">  @media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3)</div><div class="line">    background-image: url($url + &quot;@3x.png&quot;)</div></pre></td></tr></table></figure>
+<p>针对边框一像素问题, 我们使用的是伪类结合子绝父相, 然后将伪类的边框使用css3的transition: scale来进行缩放从而达到效果的</p>
+<p>这里的bg-image($url) 是负责处理图片在不同dpr下显示的问题，原来跟1像素边框问题差不多，不过这里不需要重做，只是根据不同的media query来调用不同的图片显示，而这些图片是需要放在相对应的文件夹的。</p>
+<p>再来看一下base中的内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;!--根据媒体查询@media设置不同的缩放比例(transform 的 scale)来修复1像素边框的问题--&gt;</div><div class="line">@media (-webkit-min-device-pixel-ratio: 1.5),(min-device-pixel-ratio: 1.5)</div><div class="line">    .border-1px</div><div class="line">        &amp;::after</div><div class="line">            -webkit-transform: scaleY(0.7)</div><div class="line">            transform: scaleY(0.7)</div><div class="line"></div><div class="line">@media (-webkit-min-device-pixel-ratio: 2),(min-device-pixel-ratio: 2)</div><div class="line">    .border-1px</div><div class="line">        &amp;::after</div><div class="line">            -webkit-transform: scaleY(0.5)</div><div class="line">            transform: scaleY(0.5)</div></pre></td></tr></table></figure>
+<p>这里的修复1像素边框问题会拆分为2个部分，一个部分是这里的base.styl里面处理缩放，另外一部分是在mixin.styl里面处理重做border。<br>这里是一个base模块文件，只保留了基本的共用的css，需要结合其他的css文件(stylus)来合并理解<br>dpr一般是1或者2，1.5只是为了更精细的去适配1和2之间的手机型号</p>
+]]></content>
+    
+    <summary type="html">
+    
+      一般在移动端，由于dpr（设备像素比）不为1，在PC端显示1像素的边框，在移动端其实显示为2px。解决这个问题，主要思想是：使用伪元素设置1px的边框，然后使用媒体查询，根据dpr的大小，对边框进行缩放（scaleY）。详细代码如下所示：  App.vue:
+    
+    </summary>
+    
+      <category term="移动端" scheme="https://github.com/ChangerHe/categories/%E7%A7%BB%E5%8A%A8%E7%AB%AF/"/>
+    
+    
+      <category term="移动端" scheme="https://github.com/ChangerHe/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Javascript中隐式类型转换的神坑</title>
     <link href="https://github.com/ChangerHe/2017/09/30/Javascript%E4%B8%AD%E9%9A%90%E5%BC%8F%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E7%9A%84%E7%A5%9E%E5%9D%91/"/>
     <id>https://github.com/ChangerHe/2017/09/30/Javascript中隐式类型转换的神坑/</id>
@@ -405,6 +442,46 @@
   </entry>
   
   <entry>
+    <title>Chrome61发布,这新功能怕是没谁了</title>
+    <link href="https://github.com/ChangerHe/2017/09/24/Chrome61%E5%8F%91%E5%B8%83,%E8%BF%99%E6%96%B0%E5%8A%9F%E8%83%BD%E6%80%95%E6%98%AF%E6%B2%A1%E8%B0%81%E4%BA%86/"/>
+    <id>https://github.com/ChangerHe/2017/09/24/Chrome61发布,这新功能怕是没谁了/</id>
+    <published>2017-09-24T15:11:42.000Z</published>
+    <updated>2017-11-11T06:03:30.202Z</updated>
+    
+    <content type="html"><![CDATA[<p>Chrome 61 正式版已于2017年9月6日正式发布，并增加了很多开发者相关的功能。在 Mac、Windows 和 Linux 系统中，Chrome 61 开始支持 WebUSB API，以及 PaymentRequest API。</p>
+<p>高级网络平台 API 支持大多数硬件外设，如键盘、鼠标、打印机和游戏手柄。为了使用教育、科学或工业等专用 USB 外设，用户必须使用系统级权限查找和安装可能不安全的驱动程序和软件。</p>
+<p>当然, 最让人激动的是, chrome已经开始支持ES6的module功能, 原生开始支持模块化开发!</p>
+<h1 id="chrome中使用模块化功能"><a href="#chrome中使用模块化功能" class="headerlink" title="chrome中使用模块化功能"></a>chrome中使用模块化功能</h1><p>Chrome 61 加入了对 JavaScript Module <code>&lt;script type=&quot;module&quot;&gt;</code>的原生支持。Chrome 现在可以并行地获取颗粒化的依赖模块，利用浏览器缓存的优势，在多个页面之间共享模块，并且可以保证脚本按照正确地顺序执行。</p>
+<p>下面是我直接在html文件中写入, 的代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;module&quot;&gt;</div><div class="line">	import utils from &quot;./test.js&quot;</div><div class="line">	utils()</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>再看一下我所引入的依赖</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">// 相同目录下的test.js</div><div class="line">function utils() &#123;</div><div class="line">  console.log(1)</div><div class="line">&#125;</div><div class="line"></div><div class="line">export default utils</div></pre></td></tr></table></figure>
+<p>最后, 我们使用编辑器自带的服务器开启运行, 我使用的是VSCode, 当然, 像webstorm, Hbuilder之类的都自带了服务器</p>
+<p>需要注意的是, 不使用服务器而是直接使用双击打开文件的方式是没有办法体验这种功能的</p>
+<p>最后我们可以看到在chrome61+控制台上打印出了1</p>
+<h1 id="web-share-api"><a href="#web-share-api" class="headerlink" title="web share api"></a>web share api</h1><p>为了让用户把他们喜欢的内容分享到网络上，不得把所有的社交按钮在自己的网站上添加一遍。这让页面变得很臃肿，很可能这些分享按钮和网站的视觉不匹配，并且还要添加来自第三方的代码。</p>
+<p>现在，Android 版的 Chrome 新增了 Web Share API，该 API 可以直接调用原生的分享功能，用户可以很方便的将自己喜欢的文本和链接分享到其他原生 App 上了！</p>
+<p>在之后的版本中，这个 API 还能分享到已安装的 web app 中。直接调用 navigator.share 方法，传递相关的参数，就可以发起分享。其他事情系统会帮你搞定。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">navigator.share(&#123;</div><div class="line">  title: document.title, text: &apos;Hello&apos;,</div><div class="line">  url: window.location.href</div><div class="line">&#125;).then(() =&gt; &#123;</div><div class="line">  console.log(&apos;Successful share&apos;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h1 id="WebUSB"><a href="#WebUSB" class="headerlink" title="WebUSB"></a>WebUSB</h1><p>很多电脑的周边硬件在 Web 平台上都有对应的 API，比如键盘、鼠标、打印机和手柄等等。但是，想要在浏览器中使用某些特殊的用于教育、科研、工业等等 USB 设备很困难，通常需要特殊的驱动才行。</p>
+<p>现在 Chrome 提供了 WebUSB API，在用户授权后，Web 应用可以直接可 USB 设备通信。</p>
+<p>要了解更多, 可登陆google开发者平台了解详情…</p>
+]]></content>
+    
+    <summary type="html">
+    
+      Chrome 61 正式版已于2017年9月6日正式发布，并增加了很多开发者相关的功能。在 Mac、Windows 和 Linux 系统中，Chrome 61 开始支持 WebUSB API，以及 PaymentRequest API。
+    
+    </summary>
+    
+      <category term="Chrome" scheme="https://github.com/ChangerHe/categories/Chrome/"/>
+    
+    
+      <category term="Chrome" scheme="https://github.com/ChangerHe/tags/Chrome/"/>
+    
+  </entry>
+  
+  <entry>
     <title>微信公众平台接口配置信息详解---Nodejs版</title>
     <link href="https://github.com/ChangerHe/2017/09/24/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%B9%B3%E5%8F%B0%E6%8E%A5%E5%8F%A3%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF%E8%AF%A6%E8%A7%A3---Nodejs%E7%89%88/"/>
     <id>https://github.com/ChangerHe/2017/09/24/微信公众平台接口配置信息详解---Nodejs版/</id>
@@ -486,46 +563,6 @@
     
     
       <category term="微信公众平台" scheme="https://github.com/ChangerHe/tags/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%B9%B3%E5%8F%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Chrome61发布,这新功能怕是没谁了</title>
-    <link href="https://github.com/ChangerHe/2017/09/24/Chrome61%E5%8F%91%E5%B8%83,%E8%BF%99%E6%96%B0%E5%8A%9F%E8%83%BD%E6%80%95%E6%98%AF%E6%B2%A1%E8%B0%81%E4%BA%86/"/>
-    <id>https://github.com/ChangerHe/2017/09/24/Chrome61发布,这新功能怕是没谁了/</id>
-    <published>2017-09-24T15:11:42.000Z</published>
-    <updated>2017-11-11T06:03:30.202Z</updated>
-    
-    <content type="html"><![CDATA[<p>Chrome 61 正式版已于2017年9月6日正式发布，并增加了很多开发者相关的功能。在 Mac、Windows 和 Linux 系统中，Chrome 61 开始支持 WebUSB API，以及 PaymentRequest API。</p>
-<p>高级网络平台 API 支持大多数硬件外设，如键盘、鼠标、打印机和游戏手柄。为了使用教育、科学或工业等专用 USB 外设，用户必须使用系统级权限查找和安装可能不安全的驱动程序和软件。</p>
-<p>当然, 最让人激动的是, chrome已经开始支持ES6的module功能, 原生开始支持模块化开发!</p>
-<h1 id="chrome中使用模块化功能"><a href="#chrome中使用模块化功能" class="headerlink" title="chrome中使用模块化功能"></a>chrome中使用模块化功能</h1><p>Chrome 61 加入了对 JavaScript Module <code>&lt;script type=&quot;module&quot;&gt;</code>的原生支持。Chrome 现在可以并行地获取颗粒化的依赖模块，利用浏览器缓存的优势，在多个页面之间共享模块，并且可以保证脚本按照正确地顺序执行。</p>
-<p>下面是我直接在html文件中写入, 的代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;module&quot;&gt;</div><div class="line">	import utils from &quot;./test.js&quot;</div><div class="line">	utils()</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
-<p>再看一下我所引入的依赖</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">// 相同目录下的test.js</div><div class="line">function utils() &#123;</div><div class="line">  console.log(1)</div><div class="line">&#125;</div><div class="line"></div><div class="line">export default utils</div></pre></td></tr></table></figure>
-<p>最后, 我们使用编辑器自带的服务器开启运行, 我使用的是VSCode, 当然, 像webstorm, Hbuilder之类的都自带了服务器</p>
-<p>需要注意的是, 不使用服务器而是直接使用双击打开文件的方式是没有办法体验这种功能的</p>
-<p>最后我们可以看到在chrome61+控制台上打印出了1</p>
-<h1 id="web-share-api"><a href="#web-share-api" class="headerlink" title="web share api"></a>web share api</h1><p>为了让用户把他们喜欢的内容分享到网络上，不得把所有的社交按钮在自己的网站上添加一遍。这让页面变得很臃肿，很可能这些分享按钮和网站的视觉不匹配，并且还要添加来自第三方的代码。</p>
-<p>现在，Android 版的 Chrome 新增了 Web Share API，该 API 可以直接调用原生的分享功能，用户可以很方便的将自己喜欢的文本和链接分享到其他原生 App 上了！</p>
-<p>在之后的版本中，这个 API 还能分享到已安装的 web app 中。直接调用 navigator.share 方法，传递相关的参数，就可以发起分享。其他事情系统会帮你搞定。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">navigator.share(&#123;</div><div class="line">  title: document.title, text: &apos;Hello&apos;,</div><div class="line">  url: window.location.href</div><div class="line">&#125;).then(() =&gt; &#123;</div><div class="line">  console.log(&apos;Successful share&apos;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<h1 id="WebUSB"><a href="#WebUSB" class="headerlink" title="WebUSB"></a>WebUSB</h1><p>很多电脑的周边硬件在 Web 平台上都有对应的 API，比如键盘、鼠标、打印机和手柄等等。但是，想要在浏览器中使用某些特殊的用于教育、科研、工业等等 USB 设备很困难，通常需要特殊的驱动才行。</p>
-<p>现在 Chrome 提供了 WebUSB API，在用户授权后，Web 应用可以直接可 USB 设备通信。</p>
-<p>要了解更多, 可登陆google开发者平台了解详情…</p>
-]]></content>
-    
-    <summary type="html">
-    
-      Chrome 61 正式版已于2017年9月6日正式发布，并增加了很多开发者相关的功能。在 Mac、Windows 和 Linux 系统中，Chrome 61 开始支持 WebUSB API，以及 PaymentRequest API。
-    
-    </summary>
-    
-      <category term="Chrome" scheme="https://github.com/ChangerHe/categories/Chrome/"/>
-    
-    
-      <category term="Chrome" scheme="https://github.com/ChangerHe/tags/Chrome/"/>
     
   </entry>
   
@@ -1203,107 +1240,6 @@
       <category term="ES6" scheme="https://github.com/ChangerHe/tags/ES6/"/>
     
       <category term="Function" scheme="https://github.com/ChangerHe/tags/Function/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《ES6标准入门》阅读笔记——-数组的扩展</title>
-    <link href="https://github.com/ChangerHe/2017/06/25/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-%E6%95%B0%E7%BB%84%E7%9A%84%E6%89%A9%E5%B1%95/"/>
-    <id>https://github.com/ChangerHe/2017/06/25/《ES6标准入门》阅读笔记——-数组的扩展/</id>
-    <published>2017-06-25T14:34:21.000Z</published>
-    <updated>2017-09-18T02:59:23.397Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。</p>
-<p>许多初学ES6, 同时和我一样初次阅读阮老师的这本书的时候, 读第一遍会越发的困惑, 因为阮老师上面说的很多的定义,方法,之前都是没有见过的, 读到后面才发现, 哦~原来是这样.</p>
-<p>有一句话叫做”大神的世界我们不懂”, 所以我在初读第一遍《ES6标准入门》这本书的时候,也是踩了不少坑,读书的时候查阅了不少的资料.</p>
-<p>所以,在这一系列的笔记教程中,我会从一个初学者的角度,向您讲述ES6的相关知识,在后面介绍的知识我会尽量不提前用,即使提前使用,也会同时做好标注,避免了阅读时各种查阅资料的烦恼.</p>
-<p>系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导新手，快速入门ES6，并逐步将其投入到生产实践中。</p>
-<p>同时,在阅读前也提醒您, 为了系统连贯性的学习ES6的基础知识,建议您从我的博客第一章开始阅读,当然,如果您对对应的知识已经有所了解,那么可以跳转到任意章节阅读,每一篇博客名中均有介绍该博客中涉及到的ES6的内容.</p>
-<p>阮一峰老师的这本书是开源的，在其官方博客就可以下载到，但是我强烈建议大家去购买一本书, 一是方便自己查阅ES6中新增的众多API, 二也是表达一下对大神的敬仰.</p>
-<h1 id="新增的API–Array-from"><a href="#新增的API–Array-from" class="headerlink" title="新增的API–Array.from()"></a>新增的API–Array.from()</h1><p>Array.from() 方法将两类对象转为真正的数组:类数组对象和可遍历对象 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">let arrayLike = &#123;</div><div class="line">	&apos;0&apos;: &apos;a&apos;,</div><div class="line">	&apos;1&apos;: &apos;b&apos;,</div><div class="line">	&apos;2&apos;: &apos;c&apos;,</div><div class="line">	length: 3</div><div class="line">&#125;</div><div class="line">var arr1 = Array.prototype.slice.call(arrayLike)</div><div class="line">console.log(arr1)  // [1,2,3]</div><div class="line"></div><div class="line">let arr2 = Array.from(arrayLike)</div><div class="line">console.log(arr2)  // [1,2,3]</div></pre></td></tr></table></figure>
-<p>可见,在将类数组转换为数组的过程中,使用ES6定义的新方法能够更好且更简单地将类数组转换为真正的数组.</p>
-<p>在实际应用中,我们最常见的对象是DOM操作返回的NodeList集合,同样的,使用这个方法就可以实现将相应的类数组对象转换为数组</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">let nameSet = new Set([&apos;a&apos;, &apos;b&apos;])</div><div class="line">var a = Array.from(nameSet)</div><div class="line">console.log(a)  // [&apos;a&apos;, &apos;b&apos;]</div></pre></td></tr></table></figure>
-<p>注: Set是ES6中的新的数据结构, 类似于数组, 但是成员的值都是唯一的, 没有重复的值, 这是Set结构的最大特征.</p>
-<p>如果对象是一个真的数组,那么使用Array.from() 方法会返回一个和原来一模一样的新数组</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">let a = [1, 2, 3]</div><div class="line">let b = Array.from(a)</div><div class="line">a = [3, 2, 1]</div><div class="line">console.log(a) // [3,2,1]</div><div class="line">console.log(b) // [1,2,3]</div></pre></td></tr></table></figure>
-<p>扩展运算符也可以将某些数据结构转为数组<br>那么,我们可以对函数的变量arguments进行相应的处理,让其变成真正的数组</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function foo() &#123;</div><div class="line">	var args = [...arguments]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>那么同样的,我们也可以对HTML的元素对象进行相应的操作</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[...document.querySelectorAll(&apos;div&apos;)]</div></pre></td></tr></table></figure>
-<p>扩展运算符背后调用的是遍历器接口Iterator, 如果一个对象没有部署该接口就无法进行转换, Iterator将在后面详细讲解.</p>
-<p>但是,所有的转换,一个最大的前提条件是,必须要有一个length对象,保存一个数值,没有这个属性的话是没有办法转为数组的</p>
-<p>对于没有部署Array.from() 方法的浏览器,我们可以使用对应的老方法和新方法进行结合模拟</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">const toArray = (() =&gt;</div><div class="line">	Array.from ? Array.from : obj =&gt; [].slice.call(obj)</div><div class="line">)</div></pre></td></tr></table></figure>
-<p>注: 箭头函数也是ES6中新定义的方法, 其实是一种语法糖,方便我们进行编程而已.<br><code>() =&gt; console.log(1)</code>   等价于  <code>function() {console.log(1)}</code></p>
-<p>Array.from 方法还可以接受第二个参数,作用类似于数组的map方法,用来对每个元素进行处理,并将处理后的值放入返回的数组</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">let arrayLike = &#123;</div><div class="line">	&apos;0&apos;: &apos;a&apos;,</div><div class="line">	&apos;1&apos;: &apos;b&apos;,</div><div class="line">	&apos;2&apos;: &apos;c&apos;,</div><div class="line">	length: 3</div><div class="line">&#125;</div><div class="line">Array.from(arrayLike, x =&gt; x * x)</div><div class="line">// 其实上面的方法就等同于下面的方法</div><div class="line">Array.from(arrayLike).map(function(x) &#123;</div><div class="line">	return x * x</div><div class="line">&#125;)</div><div class="line">// 上面是使用ES5的方法所写的方法,我们可以将函数转换为箭头函数的形式</div><div class="line">Array.from(arrayLike).map(x =&gt; x * x)</div></pre></td></tr></table></figure>
-<p>利用这个特性,可以很容易地将数组的空位置零</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">let a = Array.from([1,,2,,5], (x) =&gt; x || 0)</div><div class="line">console.log(a) // [1,0,2,0,5]</div></pre></td></tr></table></figure>
-<h1 id="数组的Array-of-方法"><a href="#数组的Array-of-方法" class="headerlink" title="数组的Array.of()方法"></a>数组的Array.of()方法</h1><p>Array.of() 方法用于将一组值转换为数组</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">console.log(Array.of(1, 8, 3))  // [1,8,3]</div><div class="line">console.log(Array.of(3)) // [3]</div><div class="line">console.log(Array.of()) // []</div></pre></td></tr></table></figure>
-<p>其实这个方法的主要目的,是弥补构造函数Array的不足, 因为参数的不同会导致Array的行为有所差异</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">console.log(Array())  // []</div><div class="line">console.log(Array(3)) // [,,,]</div><div class="line">console.log(1,2,3) // [1,2,3]</div></pre></td></tr></table></figure>
-<p>因此, 不同于直接使用Array方法, 使用Array.of()方法不论你传入的是一个数,还是几个数,其实最后都是返回的数组对象, 而不同于使用Array, 会产生不同的行为.</p>
-<h1 id="数组的copyWithin-方法"><a href="#数组的copyWithin-方法" class="headerlink" title="数组的copyWithin() 方法"></a>数组的copyWithin() 方法</h1><p>数组的copyWithin()方法, 主要的作用是在当前数组内部将指定位置的成员复制到其他位置, 此方法接受三个参数</p>
-<blockquote>
-<p>target 必需值,从该位置开始替换数据, 也就是说, 从这个地方开始要更改数组了<br>atart  可选值,从该位置开始读取数据,默认为0 , 若为负值,则表示倒数, 也就是说, 我要更改数组,总得找个东西替换这些个之前的数组呀. 那么我就从这个位置开始截取数组的值,把它放到要更改的地方<br>end    到该位置前停止读取数据,默认等于数组长度,如果为负值,表示倒数, 也就是说,截取也不能截取个没完嘛,所以需要在这个地方停止截取, 然后就把截取的值丢到target的那个位置了.</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">let a = [1, 2, 3, 4, 5]</div><div class="line">a.copyWithin(3, 1, 2)</div><div class="line">console.log(a)  // [1, 2, 3, 2, 5]</div></pre></td></tr></table></figure>
-<p>由上可见,其实copyWithin()最终更改了, 第四个位置, 也就是a[3] 的值</p>
-<h1 id="数组的find-方法和findIndex-方法"><a href="#数组的find-方法和findIndex-方法" class="headerlink" title="数组的find() 方法和findIndex() 方法"></a>数组的find() 方法和findIndex() 方法</h1><p>数组的find() 方法,用于找出第一个符合条件的数组成员.数组成员依次执行其后的回调函数,直到找出第一个匹配的成员,否则返回undefined</p>
-<p>下面的代码找出了数组中小于0 的成员, 并将其打印出来</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">let a = [1, 2, 3, -4, 3]</div><div class="line">console.log(a.find((x) =&gt; x &lt; 0)) // -4</div></pre></td></tr></table></figure>
-<p>find方法可以接受三个参数, 依次为当前值, 当前位置和原数组.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">let b = [1, 5, 10, 15].find((value, index, arr) =&gt; value &gt; 9)</div><div class="line">console.log(a) // 10</div></pre></td></tr></table></figure>
-<p>数组的findeIndex() 方法返回第一个符合条件的数组成员的位置, 如果所有成员都不符合条件,则返回-1</p>
-<p>这两个方法还可以接受第二个参数,用来绑定回调函数的this对象</p>
-<p>还有重要的一点是,这两个方法都可以发现NaN,弥补了之前NaN支持的不足</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">let a = [NaN].indexOf(NaN)</div><div class="line">console.log(a) // -1</div><div class="line"></div><div class="line">let b = [NaN].findIndex(y =&gt; Object.is(NaN, y))</div><div class="line">console.log(b) // 0</div></pre></td></tr></table></figure>
-<p>注: Object.is() 用来比较两个值是否严格相等. 它与全等运算符表现基本一致, 但增加了NaN的支持.</p>
-<h1 id="数组的fill-方法"><a href="#数组的fill-方法" class="headerlink" title="数组的fill() 方法"></a>数组的fill() 方法</h1><p>数组实例的fill() 该方法使用给定值填充数组</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">console.log([&apos;a&apos;, &apos;b&apos;, &apos;c&apos;].fill(1)) // [1, 1, 1]</div><div class="line">console.log([&apos;a&apos;, &apos;b&apos;, &apos;c&apos;].fill(7, 1, 2)) // [&quot;a&quot;, 7, &quot;c&quot;]</div></pre></td></tr></table></figure>
-<p>这样对数组进行初始化非常的方便,该方法还可接受另外两个可选参数,规定填充的起始和结束位置</p>
-<h1 id="数组遍历"><a href="#数组遍历" class="headerlink" title="数组遍历"></a>数组遍历</h1><p>ES6提供了三个新方法用于遍历数组</p>
-<blockquote>
-<p>keys() 对键名的遍历<br>values() 对键值的遍历<br>entries() 对键值对的遍历</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">for (let index of [&apos;a&apos;, &apos;b&apos;].keys()) &#123;</div><div class="line">	console.log(index) // 0  // 1</div><div class="line">&#125;</div><div class="line">for (let index of [&apos;a&apos;, &apos;b&apos;].values()) &#123;</div><div class="line">	console.log(index) // &apos;a&apos;  // &apos;b&apos;</div><div class="line">&#125;</div><div class="line">for (let index of [&apos;a&apos;, &apos;b&apos;].entries()) &#123;</div><div class="line">	console.log(index) // 0 &apos;a&apos;  // 1 &apos;b&apos;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>注: for…of 遍历也是对循环的一种补充,与for…in类似,但不会枚举出对象上的可枚举属性</p>
-<h1 id="数组的includes"><a href="#数组的includes" class="headerlink" title="数组的includes()"></a>数组的includes()</h1><p>includes() 方法返回一个实例,表示某数组是否包含给定的值</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">let a = [1, 2, 3]</div><div class="line">console.log(a.includes(2)) // true</div><div class="line">console.log(a.includes(4)) // false</div></pre></td></tr></table></figure>
-<p>当浏览器不兼容的时候,可以使用indexOf方法进行替代<br>但是indexOf有一个弊端,原因是indexOf内部使用的是全等操作符进行匹配,所以这个时候当我们判定NaN的时候,是无法判定成功的, 因为NaN!==NaN</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">console.log([NaN].indexOf(NaN)) // -1</div></pre></td></tr></table></figure>
-<h1 id="数组的空位"><a href="#数组的空位" class="headerlink" title="数组的空位"></a>数组的空位</h1><p>ES5在很多情况下,对于数组的空位是直接忽略的,例如forEach filter every some 等方法会跳过空位, map 会跳过空位,但会保留这个值, join 和 toString 会将空位视为undefined 而undefined和null会被处理为字符串</p>
-<p>下面是ES5下的方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">[, &apos;a&apos;].forEach((x, i) =&gt; console.log(i)); </div><div class="line">// 1 因为第零个是空位,被忽略了</div><div class="line">console.log([, &apos;a&apos;].filter((x, i) =&gt; true)); </div><div class="line">// [&quot;a&quot;]  小红书有讲过的方法,使用true将数组的空位去除</div><div class="line">console.log([, &apos;a&apos;].every((x, i) =&gt; x !== undefined)) </div><div class="line">// true</div><div class="line">console.log([, &apos;a&apos;].some((x, i) =&gt; x === undefined)) </div><div class="line">// false</div><div class="line">console.log([, &apos;a&apos;].map((x, i) =&gt; 1));</div><div class="line">// [empty × 1, 1]</div><div class="line">console.log([, &apos;a&apos;, undefined, null].join(&apos;#&apos;)) </div><div class="line">// #a##</div><div class="line"></div><div class="line">`</div></pre></td></tr></table></figure>
-<p>但在ES6中,空位会被明确转为undefined</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">console.log([...[&apos;a&apos;, , &apos;b&apos;]]) </div><div class="line">//[&quot;a&quot;, undefined, &quot;b&quot;]</div></pre></td></tr></table></figure>
-<p>copyWithin()会连空位一起复制</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[, &apos;a&apos;, &apos;b&apos;, ,].copyWithin(2, 0) //[empty × 1, &quot;a&quot;, empty × 1, &quot;a&quot;]</div></pre></td></tr></table></figure>
-<p>fill()会将空位视为正常的数组位置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">new Array(3).fill(&apos;a&apos;) // [&apos;a&apos;, &apos;a&apos;, &apos;a&apos;]</div></pre></td></tr></table></figure>
-<p>for…of循环也会遍历空位, 而map却不会遍历空位</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">let arr = [, ,]</div><div class="line">for(let i of arr) &#123;</div><div class="line">	console.log(1) // 1 // 1</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h1 id="数组推导"><a href="#数组推导" class="headerlink" title="数组推导"></a>数组推导</h1><p>数组推导是ES7中的新方法,允许直接通过现有数组生成新数组.</p>
-<p>本来TC39是计划将其放入ES6的,但TC39仍然想完善它,让其支持所有数组结构. 所以推迟到了ES7.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">let a1 = [1, 2, 3, 4]</div><div class="line">var a2 = [</div><div class="line">	for (i of a1) i * 2</div><div class="line">];</div><div class="line">console.log(a2)  // [2, 4, 6, 8]</div></pre></td></tr></table></figure>
-<p>(完)</p>
-]]></content>
-    
-    <summary type="html">
-    
-      本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导新手，快速入门ES6，并逐步将其投入到生产实践中。
-    
-    </summary>
-    
-      <category term="ES6标准入门" scheme="https://github.com/ChangerHe/categories/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8/"/>
-    
-    
-      <category term="ES6" scheme="https://github.com/ChangerHe/tags/ES6/"/>
-    
-      <category term="Array" scheme="https://github.com/ChangerHe/tags/Array/"/>
     
   </entry>
   
