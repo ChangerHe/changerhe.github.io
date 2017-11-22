@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>ChangerHe&#39;s Bolg|何庆畅的个人博客</title>
-  <subtitle>What doesn&#39;t kill you make you stronger.</subtitle>
+  <subtitle>Keep Hungry, Keep Foolish.</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://github.com/ChangerHe/"/>
+  <link href="http://bolg.changerhe.cb/"/>
   <updated>2017-10-20T09:19:30.190Z</updated>
-  <id>https://github.com/ChangerHe/</id>
+  <id>http://bolg.changerhe.cb/</id>
   
   <author>
     <name>ChangerHe</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>纯CSS实现元素水平垂直居中的方法</title>
-    <link href="https://github.com/ChangerHe/2017/10/30/%E7%BA%AFCSS%E5%AE%9E%E7%8E%B0%E5%85%83%E7%B4%A0%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E7%9A%84%E6%96%B9%E6%B3%95/"/>
-    <id>https://github.com/ChangerHe/2017/10/30/纯CSS实现元素水平垂直居中的方法/</id>
+    <link href="http://bolg.changerhe.cb/2017/10/30/%E7%BA%AFCSS%E5%AE%9E%E7%8E%B0%E5%85%83%E7%B4%A0%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E7%9A%84%E6%96%B9%E6%B3%95/"/>
+    <id>http://bolg.changerhe.cb/2017/10/30/纯CSS实现元素水平垂直居中的方法/</id>
     <published>2017-10-30T11:42:25.000Z</published>
     <updated>2017-10-20T09:19:30.190Z</updated>
     
@@ -59,17 +59,17 @@
     
     </summary>
     
-      <category term="CSS" scheme="https://github.com/ChangerHe/categories/CSS/"/>
+      <category term="CSS" scheme="http://bolg.changerhe.cb/categories/CSS/"/>
     
     
-      <category term="CSS" scheme="https://github.com/ChangerHe/tags/CSS/"/>
+      <category term="CSS" scheme="http://bolg.changerhe.cb/tags/CSS/"/>
     
   </entry>
   
   <entry>
     <title>微信小程序懒加载的实现</title>
-    <link href="https://github.com/ChangerHe/2017/10/21/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%87%92%E5%8A%A0%E8%BD%BD%E7%9A%84%E5%AE%9E%E7%8E%B0/"/>
-    <id>https://github.com/ChangerHe/2017/10/21/微信小程序懒加载的实现/</id>
+    <link href="http://bolg.changerhe.cb/2017/10/21/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%87%92%E5%8A%A0%E8%BD%BD%E7%9A%84%E5%AE%9E%E7%8E%B0/"/>
+    <id>http://bolg.changerhe.cb/2017/10/21/微信小程序懒加载的实现/</id>
     <published>2017-10-21T14:12:23.000Z</published>
     <updated>2017-11-08T12:22:54.759Z</updated>
     
@@ -118,19 +118,19 @@
     
     </summary>
     
-      <category term="微信小程序" scheme="https://github.com/ChangerHe/categories/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+      <category term="微信小程序" scheme="http://bolg.changerhe.cb/categories/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
     
     
-      <category term="微信小程序" scheme="https://github.com/ChangerHe/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+      <category term="微信小程序" scheme="http://bolg.changerhe.cb/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
     
-      <category term="WXapplet" scheme="https://github.com/ChangerHe/tags/WXapplet/"/>
+      <category term="WXapplet" scheme="http://bolg.changerhe.cb/tags/WXapplet/"/>
     
   </entry>
   
   <entry>
     <title>处理git无法上传超过100M文件的问题</title>
-    <link href="https://github.com/ChangerHe/2017/10/13/%E5%A4%84%E7%90%86git%E6%97%A0%E6%B3%95%E4%B8%8A%E4%BC%A0%E8%B6%85%E8%BF%87100M%E6%96%87%E4%BB%B6%E7%9A%84%E9%97%AE%E9%A2%98/"/>
-    <id>https://github.com/ChangerHe/2017/10/13/处理git无法上传超过100M文件的问题/</id>
+    <link href="http://bolg.changerhe.cb/2017/10/13/%E5%A4%84%E7%90%86git%E6%97%A0%E6%B3%95%E4%B8%8A%E4%BC%A0%E8%B6%85%E8%BF%87100M%E6%96%87%E4%BB%B6%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    <id>http://bolg.changerhe.cb/2017/10/13/处理git无法上传超过100M文件的问题/</id>
     <published>2017-10-13T03:26:43.000Z</published>
     <updated>2017-10-13T11:53:08.165Z</updated>
     
@@ -179,19 +179,19 @@
     
     </summary>
     
-      <category term="github" scheme="https://github.com/ChangerHe/categories/github/"/>
+      <category term="github" scheme="http://bolg.changerhe.cb/categories/github/"/>
     
     
-      <category term="Git" scheme="https://github.com/ChangerHe/tags/Git/"/>
+      <category term="Git" scheme="http://bolg.changerhe.cb/tags/Git/"/>
     
-      <category term="github" scheme="https://github.com/ChangerHe/tags/github/"/>
+      <category term="github" scheme="http://bolg.changerhe.cb/tags/github/"/>
     
   </entry>
   
   <entry>
     <title>Angularjs的数据绑定和脏检查</title>
-    <link href="https://github.com/ChangerHe/2017/10/10/Angularjs%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A%E5%92%8C%E8%84%8F%E6%A3%80%E6%9F%A5/"/>
-    <id>https://github.com/ChangerHe/2017/10/10/Angularjs的数据绑定和脏检查/</id>
+    <link href="http://bolg.changerhe.cb/2017/10/10/Angularjs%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A%E5%92%8C%E8%84%8F%E6%A3%80%E6%9F%A5/"/>
+    <id>http://bolg.changerhe.cb/2017/10/10/Angularjs的数据绑定和脏检查/</id>
     <published>2017-10-10T04:53:41.000Z</published>
     <updated>2017-10-13T12:01:38.767Z</updated>
     
@@ -242,19 +242,19 @@
     
     </summary>
     
-      <category term="Angularjs" scheme="https://github.com/ChangerHe/categories/Angularjs/"/>
+      <category term="Angularjs" scheme="http://bolg.changerhe.cb/categories/Angularjs/"/>
     
     
-      <category term="Angularjs" scheme="https://github.com/ChangerHe/tags/Angularjs/"/>
+      <category term="Angularjs" scheme="http://bolg.changerhe.cb/tags/Angularjs/"/>
     
-      <category term="数据绑定" scheme="https://github.com/ChangerHe/tags/%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A/"/>
+      <category term="数据绑定" scheme="http://bolg.changerhe.cb/tags/%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A/"/>
     
   </entry>
   
   <entry>
     <title>利用dpl实现对移动设备的像素实现精准控制</title>
-    <link href="https://github.com/ChangerHe/2017/10/05/%E5%88%A9%E7%94%A8dpl%E5%AE%9E%E7%8E%B0%E5%AF%B9%E7%A7%BB%E5%8A%A8%E8%AE%BE%E5%A4%87%E7%9A%84%E5%83%8F%E7%B4%A0%E5%AE%9E%E7%8E%B0%E7%B2%BE%E5%87%86%E6%8E%A7%E5%88%B6/"/>
-    <id>https://github.com/ChangerHe/2017/10/05/利用dpl实现对移动设备的像素实现精准控制/</id>
+    <link href="http://bolg.changerhe.cb/2017/10/05/%E7%BD%91%E7%AB%99%E7%9A%84https%E8%AF%81%E4%B9%A6%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95/"/>
+    <id>http://bolg.changerhe.cb/2017/10/05/网站的https证书配置方法/</id>
     <published>2017-10-05T14:14:14.000Z</published>
     <updated>2017-11-20T04:50:12.186Z</updated>
     
@@ -281,17 +281,54 @@
     
     </summary>
     
-      <category term="移动端" scheme="https://github.com/ChangerHe/categories/%E7%A7%BB%E5%8A%A8%E7%AB%AF/"/>
+      <category term="移动端" scheme="http://bolg.changerhe.cb/categories/%E7%A7%BB%E5%8A%A8%E7%AB%AF/"/>
     
     
-      <category term="移动端" scheme="https://github.com/ChangerHe/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF/"/>
+      <category term="移动端" scheme="http://bolg.changerhe.cb/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>利用dpl实现对移动设备的像素实现精准控制</title>
+    <link href="http://bolg.changerhe.cb/2017/10/05/%E5%88%A9%E7%94%A8dpl%E5%AE%9E%E7%8E%B0%E5%AF%B9%E7%A7%BB%E5%8A%A8%E8%AE%BE%E5%A4%87%E7%9A%84%E5%83%8F%E7%B4%A0%E5%AE%9E%E7%8E%B0%E7%B2%BE%E5%87%86%E6%8E%A7%E5%88%B6/"/>
+    <id>http://bolg.changerhe.cb/2017/10/05/利用dpl实现对移动设备的像素实现精准控制/</id>
+    <published>2017-10-05T14:14:14.000Z</published>
+    <updated>2017-11-20T04:50:12.186Z</updated>
+    
+    <content type="html"><![CDATA[<p>dpl, 全称是device pixel ratio ,表示设备的像素比</p>
+<p>设备在移动端因为物理像素和理论像素的不同而产生了显示的差异, 随着科技的发展, 设备的物理像素与理论像素之比由之前的一比一变成了多比一, 其中比较典型的就是, iphone6的设备像素比是2:1, iphone6 plus是3:1</p>
+<p>因为其显示的差异, 也造成了我们在电脑上做的页面, 在移动端出现了显示异常的情况</p>
+<p>而在js的window对象中有一个属性专门用于表示设备我的像素比例, 名叫devicePixelRatio, 也就是说, 我们可以使用window.devicePixelRatio来显示出当前设备的物理像素和实际像素的比例.</p>
+<p>也同样是因为这个问题, 催生了移动设备一像素的问题, 因为我们在电脑上设置1px, 导致在手机端显示为2px甚至更多, 在需要精细化控制设计图的情况下会使页面非常不美观</p>
+<p>解决这个问题，主要思想是：使用伪元素设置1px的边框，然后使用媒体查询，根据dpr的大小，对边框进行缩放（scaleY）。详细代码如下所示： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">  &lt;div id=&quot;app&quot;&gt;</div><div class="line">    &lt;div class=&quot;tab border-1px&quot;&gt; &lt;!-- !!!!!!! --&gt;</div><div class="line">      &lt;div class=&quot;tab-items&quot;&gt;</div><div class="line">        &lt;router-link  to=&quot;/goods&quot;&gt;商品&lt;/router-link&gt;</div><div class="line">      &lt;/div&gt;</div><div class="line">      &lt;div class=&quot;tab-items&quot;&gt;</div><div class="line">         &lt;router-link  to=&quot;/ratings&quot;&gt;评价&lt;/router-link&gt;</div><div class="line">      &lt;/div&gt;</div><div class="line">      &lt;div class=&quot;tab-items&quot;&gt;</div><div class="line">        &lt;router-link  to=&quot;/seller&quot;&gt;商店&lt;/router-link&gt;</div><div class="line">      &lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">    &lt;div class=&quot;content&quot;&gt;</div><div class="line">      &lt;router-view&gt;&lt;/router-view&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/template&gt;</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">&lt;/script&gt;</div><div class="line"></div><div class="line">&lt;style lang=&quot;stylus&quot; rel=&quot;stylesheet/stylus&quot;&gt;</div><div class="line">@import &quot;./common/stylus/mixin.styl&quot;</div><div class="line">@import &quot;./common/stylus/base.styl&quot;</div><div class="line">#app</div><div class="line">  .tab</div><div class="line">    display: flex</div><div class="line">    width: 100%</div><div class="line">    height: 40px</div><div class="line">    line-height: 40px</div><div class="line">    border-1px(blue)  /*!!!!!!*/</div><div class="line">    .tab-items</div><div class="line">      flex: 1</div><div class="line">      text-align: center</div><div class="line">      font-size: 14px</div><div class="line">      &amp; &gt; a</div><div class="line">        display: block</div><div class="line">        width: 100%</div><div class="line">        color: rgb(77, 85, 93)</div><div class="line">        &amp;.router-link-active</div><div class="line">          color: rgb(240, 20, 20)</div><div class="line">  .seller</div><div class="line">    border-bottom: 1px solid blue  /*用于对比，在移动端实际显示2px*/</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+<p>看过滴滴打车的黄奕老师的vue开发饿了么教程的童鞋可以知道这就是初期构建的商家详情的spa单页骨架雏形哈哈</p>
+<p>可以看到我们使用到了stylus中的mixin对移动端设备一像素问题的解决办法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">border-1px($color)</div><div class="line">    position: relative</div><div class="line">    &amp;::after</div><div class="line">        position: absolute</div><div class="line">        left: 0</div><div class="line">        bottom: 0</div><div class="line">        width: 100%</div><div class="line">        content: &apos; &apos;</div><div class="line">        border-top: 1px solid $color</div><div class="line"></div><div class="line">//图片的mixin，根据图片的不同dpr进行适配下显示高清问题</div><div class="line">bg-image($url) </div><div class="line">  background-image: url($url + &quot;@2x.png&quot;)</div><div class="line">  @media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3)</div><div class="line">    background-image: url($url + &quot;@3x.png&quot;)</div></pre></td></tr></table></figure>
+<p>针对边框一像素问题, 我们使用的是伪类结合子绝父相, 然后将伪类的边框使用css3的transition: scale来进行缩放从而达到效果的</p>
+<p>这里的bg-image($url) 是负责处理图片在不同dpr下显示的问题，原来跟1像素边框问题差不多，不过这里不需要重做，只是根据不同的media query来调用不同的图片显示，而这些图片是需要放在相对应的文件夹的。</p>
+<p>再来看一下base中的内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;!--根据媒体查询@media设置不同的缩放比例(transform 的 scale)来修复1像素边框的问题--&gt;</div><div class="line">@media (-webkit-min-device-pixel-ratio: 1.5),(min-device-pixel-ratio: 1.5)</div><div class="line">    .border-1px</div><div class="line">        &amp;::after</div><div class="line">            -webkit-transform: scaleY(0.7)</div><div class="line">            transform: scaleY(0.7)</div><div class="line"></div><div class="line">@media (-webkit-min-device-pixel-ratio: 2),(min-device-pixel-ratio: 2)</div><div class="line">    .border-1px</div><div class="line">        &amp;::after</div><div class="line">            -webkit-transform: scaleY(0.5)</div><div class="line">            transform: scaleY(0.5)</div></pre></td></tr></table></figure>
+<p>这里的修复1像素边框问题会拆分为2个部分，一个部分是这里的base.styl里面处理缩放，另外一部分是在mixin.styl里面处理重做border。<br>这里是一个base模块文件，只保留了基本的共用的css，需要结合其他的css文件(stylus)来合并理解<br>dpr一般是1或者2，1.5只是为了更精细的去适配1和2之间的手机型号</p>
+]]></content>
+    
+    <summary type="html">
+    
+      一般在移动端，由于dpr（设备像素比）不为1，在PC端显示1像素的边框，在移动端其实显示为2px。解决这个问题，主要思想是：使用伪元素设置1px的边框，然后使用媒体查询，根据dpr的大小，对边框进行缩放（scaleY）。详细代码如下所示：  App.vue:
+    
+    </summary>
+    
+      <category term="移动端" scheme="http://bolg.changerhe.cb/categories/%E7%A7%BB%E5%8A%A8%E7%AB%AF/"/>
+    
+    
+      <category term="移动端" scheme="http://bolg.changerhe.cb/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF/"/>
     
   </entry>
   
   <entry>
     <title>Javascript中隐式类型转换的神坑</title>
-    <link href="https://github.com/ChangerHe/2017/09/30/Javascript%E4%B8%AD%E9%9A%90%E5%BC%8F%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E7%9A%84%E7%A5%9E%E5%9D%91/"/>
-    <id>https://github.com/ChangerHe/2017/09/30/Javascript中隐式类型转换的神坑/</id>
+    <link href="http://bolg.changerhe.cb/2017/09/30/Javascript%E4%B8%AD%E9%9A%90%E5%BC%8F%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E7%9A%84%E7%A5%9E%E5%9D%91/"/>
+    <id>http://bolg.changerhe.cb/2017/09/30/Javascript中隐式类型转换的神坑/</id>
     <published>2017-09-30T06:16:09.000Z</published>
     <updated>2017-09-30T03:41:50.749Z</updated>
     
@@ -434,57 +471,17 @@
     
     </summary>
     
-      <category term="JavaScript 学习笔记" scheme="https://github.com/ChangerHe/categories/JavaScript-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <category term="JavaScript 学习笔记" scheme="http://bolg.changerhe.cb/categories/JavaScript-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="JavaScript" scheme="https://github.com/ChangerHe/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Chrome61发布,这新功能怕是没谁了</title>
-    <link href="https://github.com/ChangerHe/2017/09/24/Chrome61%E5%8F%91%E5%B8%83,%E8%BF%99%E6%96%B0%E5%8A%9F%E8%83%BD%E6%80%95%E6%98%AF%E6%B2%A1%E8%B0%81%E4%BA%86/"/>
-    <id>https://github.com/ChangerHe/2017/09/24/Chrome61发布,这新功能怕是没谁了/</id>
-    <published>2017-09-24T15:11:42.000Z</published>
-    <updated>2017-11-11T06:03:30.202Z</updated>
-    
-    <content type="html"><![CDATA[<p>Chrome 61 正式版已于2017年9月6日正式发布，并增加了很多开发者相关的功能。在 Mac、Windows 和 Linux 系统中，Chrome 61 开始支持 WebUSB API，以及 PaymentRequest API。</p>
-<p>高级网络平台 API 支持大多数硬件外设，如键盘、鼠标、打印机和游戏手柄。为了使用教育、科学或工业等专用 USB 外设，用户必须使用系统级权限查找和安装可能不安全的驱动程序和软件。</p>
-<p>当然, 最让人激动的是, chrome已经开始支持ES6的module功能, 原生开始支持模块化开发!</p>
-<h1 id="chrome中使用模块化功能"><a href="#chrome中使用模块化功能" class="headerlink" title="chrome中使用模块化功能"></a>chrome中使用模块化功能</h1><p>Chrome 61 加入了对 JavaScript Module <code>&lt;script type=&quot;module&quot;&gt;</code>的原生支持。Chrome 现在可以并行地获取颗粒化的依赖模块，利用浏览器缓存的优势，在多个页面之间共享模块，并且可以保证脚本按照正确地顺序执行。</p>
-<p>下面是我直接在html文件中写入, 的代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;module&quot;&gt;</div><div class="line">	import utils from &quot;./test.js&quot;</div><div class="line">	utils()</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
-<p>再看一下我所引入的依赖</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">// 相同目录下的test.js</div><div class="line">function utils() &#123;</div><div class="line">  console.log(1)</div><div class="line">&#125;</div><div class="line"></div><div class="line">export default utils</div></pre></td></tr></table></figure>
-<p>最后, 我们使用编辑器自带的服务器开启运行, 我使用的是VSCode, 当然, 像webstorm, Hbuilder之类的都自带了服务器</p>
-<p>需要注意的是, 不使用服务器而是直接使用双击打开文件的方式是没有办法体验这种功能的</p>
-<p>最后我们可以看到在chrome61+控制台上打印出了1</p>
-<h1 id="web-share-api"><a href="#web-share-api" class="headerlink" title="web share api"></a>web share api</h1><p>为了让用户把他们喜欢的内容分享到网络上，不得把所有的社交按钮在自己的网站上添加一遍。这让页面变得很臃肿，很可能这些分享按钮和网站的视觉不匹配，并且还要添加来自第三方的代码。</p>
-<p>现在，Android 版的 Chrome 新增了 Web Share API，该 API 可以直接调用原生的分享功能，用户可以很方便的将自己喜欢的文本和链接分享到其他原生 App 上了！</p>
-<p>在之后的版本中，这个 API 还能分享到已安装的 web app 中。直接调用 navigator.share 方法，传递相关的参数，就可以发起分享。其他事情系统会帮你搞定。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">navigator.share(&#123;</div><div class="line">  title: document.title, text: &apos;Hello&apos;,</div><div class="line">  url: window.location.href</div><div class="line">&#125;).then(() =&gt; &#123;</div><div class="line">  console.log(&apos;Successful share&apos;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<h1 id="WebUSB"><a href="#WebUSB" class="headerlink" title="WebUSB"></a>WebUSB</h1><p>很多电脑的周边硬件在 Web 平台上都有对应的 API，比如键盘、鼠标、打印机和手柄等等。但是，想要在浏览器中使用某些特殊的用于教育、科研、工业等等 USB 设备很困难，通常需要特殊的驱动才行。</p>
-<p>现在 Chrome 提供了 WebUSB API，在用户授权后，Web 应用可以直接可 USB 设备通信。</p>
-<p>要了解更多, 可登陆google开发者平台了解详情…</p>
-]]></content>
-    
-    <summary type="html">
-    
-      Chrome 61 正式版已于2017年9月6日正式发布，并增加了很多开发者相关的功能。在 Mac、Windows 和 Linux 系统中，Chrome 61 开始支持 WebUSB API，以及 PaymentRequest API。
-    
-    </summary>
-    
-      <category term="Chrome" scheme="https://github.com/ChangerHe/categories/Chrome/"/>
-    
-    
-      <category term="Chrome" scheme="https://github.com/ChangerHe/tags/Chrome/"/>
+      <category term="JavaScript" scheme="http://bolg.changerhe.cb/tags/JavaScript/"/>
     
   </entry>
   
   <entry>
     <title>微信公众平台接口配置信息详解---Nodejs版</title>
-    <link href="https://github.com/ChangerHe/2017/09/24/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%B9%B3%E5%8F%B0%E6%8E%A5%E5%8F%A3%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF%E8%AF%A6%E8%A7%A3---Nodejs%E7%89%88/"/>
-    <id>https://github.com/ChangerHe/2017/09/24/微信公众平台接口配置信息详解---Nodejs版/</id>
+    <link href="http://bolg.changerhe.cb/2017/09/24/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%B9%B3%E5%8F%B0%E6%8E%A5%E5%8F%A3%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF%E8%AF%A6%E8%A7%A3---Nodejs%E7%89%88/"/>
+    <id>http://bolg.changerhe.cb/2017/09/24/微信公众平台接口配置信息详解---Nodejs版/</id>
     <published>2017-09-24T15:11:42.000Z</published>
     <updated>2017-11-13T15:13:37.565Z</updated>
     
@@ -559,17 +556,57 @@
     
     </summary>
     
-      <category term="微信公众平台" scheme="https://github.com/ChangerHe/categories/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%B9%B3%E5%8F%B0/"/>
+      <category term="微信公众平台" scheme="http://bolg.changerhe.cb/categories/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%B9%B3%E5%8F%B0/"/>
     
     
-      <category term="微信公众平台" scheme="https://github.com/ChangerHe/tags/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%B9%B3%E5%8F%B0/"/>
+      <category term="微信公众平台" scheme="http://bolg.changerhe.cb/tags/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%B9%B3%E5%8F%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Chrome61发布,这新功能怕是没谁了</title>
+    <link href="http://bolg.changerhe.cb/2017/09/24/Chrome61%E5%8F%91%E5%B8%83,%E8%BF%99%E6%96%B0%E5%8A%9F%E8%83%BD%E6%80%95%E6%98%AF%E6%B2%A1%E8%B0%81%E4%BA%86/"/>
+    <id>http://bolg.changerhe.cb/2017/09/24/Chrome61发布,这新功能怕是没谁了/</id>
+    <published>2017-09-24T15:11:42.000Z</published>
+    <updated>2017-11-11T06:03:30.202Z</updated>
+    
+    <content type="html"><![CDATA[<p>Chrome 61 正式版已于2017年9月6日正式发布，并增加了很多开发者相关的功能。在 Mac、Windows 和 Linux 系统中，Chrome 61 开始支持 WebUSB API，以及 PaymentRequest API。</p>
+<p>高级网络平台 API 支持大多数硬件外设，如键盘、鼠标、打印机和游戏手柄。为了使用教育、科学或工业等专用 USB 外设，用户必须使用系统级权限查找和安装可能不安全的驱动程序和软件。</p>
+<p>当然, 最让人激动的是, chrome已经开始支持ES6的module功能, 原生开始支持模块化开发!</p>
+<h1 id="chrome中使用模块化功能"><a href="#chrome中使用模块化功能" class="headerlink" title="chrome中使用模块化功能"></a>chrome中使用模块化功能</h1><p>Chrome 61 加入了对 JavaScript Module <code>&lt;script type=&quot;module&quot;&gt;</code>的原生支持。Chrome 现在可以并行地获取颗粒化的依赖模块，利用浏览器缓存的优势，在多个页面之间共享模块，并且可以保证脚本按照正确地顺序执行。</p>
+<p>下面是我直接在html文件中写入, 的代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;module&quot;&gt;</div><div class="line">	import utils from &quot;./test.js&quot;</div><div class="line">	utils()</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>再看一下我所引入的依赖</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">// 相同目录下的test.js</div><div class="line">function utils() &#123;</div><div class="line">  console.log(1)</div><div class="line">&#125;</div><div class="line"></div><div class="line">export default utils</div></pre></td></tr></table></figure>
+<p>最后, 我们使用编辑器自带的服务器开启运行, 我使用的是VSCode, 当然, 像webstorm, Hbuilder之类的都自带了服务器</p>
+<p>需要注意的是, 不使用服务器而是直接使用双击打开文件的方式是没有办法体验这种功能的</p>
+<p>最后我们可以看到在chrome61+控制台上打印出了1</p>
+<h1 id="web-share-api"><a href="#web-share-api" class="headerlink" title="web share api"></a>web share api</h1><p>为了让用户把他们喜欢的内容分享到网络上，不得把所有的社交按钮在自己的网站上添加一遍。这让页面变得很臃肿，很可能这些分享按钮和网站的视觉不匹配，并且还要添加来自第三方的代码。</p>
+<p>现在，Android 版的 Chrome 新增了 Web Share API，该 API 可以直接调用原生的分享功能，用户可以很方便的将自己喜欢的文本和链接分享到其他原生 App 上了！</p>
+<p>在之后的版本中，这个 API 还能分享到已安装的 web app 中。直接调用 navigator.share 方法，传递相关的参数，就可以发起分享。其他事情系统会帮你搞定。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">navigator.share(&#123;</div><div class="line">  title: document.title, text: &apos;Hello&apos;,</div><div class="line">  url: window.location.href</div><div class="line">&#125;).then(() =&gt; &#123;</div><div class="line">  console.log(&apos;Successful share&apos;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h1 id="WebUSB"><a href="#WebUSB" class="headerlink" title="WebUSB"></a>WebUSB</h1><p>很多电脑的周边硬件在 Web 平台上都有对应的 API，比如键盘、鼠标、打印机和手柄等等。但是，想要在浏览器中使用某些特殊的用于教育、科研、工业等等 USB 设备很困难，通常需要特殊的驱动才行。</p>
+<p>现在 Chrome 提供了 WebUSB API，在用户授权后，Web 应用可以直接可 USB 设备通信。</p>
+<p>要了解更多, 可登陆google开发者平台了解详情…</p>
+]]></content>
+    
+    <summary type="html">
+    
+      Chrome 61 正式版已于2017年9月6日正式发布，并增加了很多开发者相关的功能。在 Mac、Windows 和 Linux 系统中，Chrome 61 开始支持 WebUSB API，以及 PaymentRequest API。
+    
+    </summary>
+    
+      <category term="Chrome" scheme="http://bolg.changerhe.cb/categories/Chrome/"/>
+    
+    
+      <category term="Chrome" scheme="http://bolg.changerhe.cb/tags/Chrome/"/>
     
   </entry>
   
   <entry>
     <title>sass/scss和less的区别</title>
-    <link href="https://github.com/ChangerHe/2017/09/01/sass-scss%E5%92%8Cless%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
-    <id>https://github.com/ChangerHe/2017/09/01/sass-scss和less的区别/</id>
+    <link href="http://bolg.changerhe.cb/2017/09/01/sass-scss%E5%92%8Cless%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
+    <id>http://bolg.changerhe.cb/2017/09/01/sass-scss和less的区别/</id>
     <published>2017-09-01T15:13:23.000Z</published>
     <updated>2017-10-26T02:30:24.659Z</updated>
     
@@ -600,21 +637,21 @@
     
     </summary>
     
-      <category term="CSS" scheme="https://github.com/ChangerHe/categories/CSS/"/>
+      <category term="CSS" scheme="http://bolg.changerhe.cb/categories/CSS/"/>
     
     
-      <category term="SASS" scheme="https://github.com/ChangerHe/tags/SASS/"/>
+      <category term="SASS" scheme="http://bolg.changerhe.cb/tags/SASS/"/>
     
-      <category term="LESS" scheme="https://github.com/ChangerHe/tags/LESS/"/>
+      <category term="LESS" scheme="http://bolg.changerhe.cb/tags/LESS/"/>
     
-      <category term="SCSS" scheme="https://github.com/ChangerHe/tags/SCSS/"/>
+      <category term="SCSS" scheme="http://bolg.changerhe.cb/tags/SCSS/"/>
     
   </entry>
   
   <entry>
     <title>基于MongoDB 2dSphere索引查找最近的点</title>
-    <link href="https://github.com/ChangerHe/2017/07/21/%E5%9F%BA%E4%BA%8EMongoDB-2dSphere%E7%B4%A2%E5%BC%95%E6%9F%A5%E6%89%BE%E6%9C%80%E8%BF%91%E7%9A%84%E7%82%B9/"/>
-    <id>https://github.com/ChangerHe/2017/07/21/基于MongoDB-2dSphere索引查找最近的点/</id>
+    <link href="http://bolg.changerhe.cb/2017/07/21/%E5%9F%BA%E4%BA%8EMongoDB-2dSphere%E7%B4%A2%E5%BC%95%E6%9F%A5%E6%89%BE%E6%9C%80%E8%BF%91%E7%9A%84%E7%82%B9/"/>
+    <id>http://bolg.changerhe.cb/2017/07/21/基于MongoDB-2dSphere索引查找最近的点/</id>
     <published>2017-07-21T15:27:22.000Z</published>
     <updated>2017-09-24T15:35:44.241Z</updated>
     
@@ -645,19 +682,19 @@
     
     </summary>
     
-      <category term="MongoDB学习笔记" scheme="https://github.com/ChangerHe/categories/MongoDB%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <category term="MongoDB学习笔记" scheme="http://bolg.changerhe.cb/categories/MongoDB%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="MongoDB" scheme="https://github.com/ChangerHe/tags/MongoDB/"/>
+      <category term="MongoDB" scheme="http://bolg.changerhe.cb/tags/MongoDB/"/>
     
-      <category term="2dSphere" scheme="https://github.com/ChangerHe/tags/2dSphere/"/>
+      <category term="2dSphere" scheme="http://bolg.changerhe.cb/tags/2dSphere/"/>
     
   </entry>
   
   <entry>
     <title>《ES6标准入门》阅读笔记——-Module</title>
-    <link href="https://github.com/ChangerHe/2017/07/20/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-Module/"/>
-    <id>https://github.com/ChangerHe/2017/07/20/《ES6标准入门》阅读笔记——-Module/</id>
+    <link href="http://bolg.changerhe.cb/2017/07/20/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-Module/"/>
+    <id>http://bolg.changerhe.cb/2017/07/20/《ES6标准入门》阅读笔记——-Module/</id>
     <published>2017-07-19T16:23:13.000Z</published>
     <updated>2017-09-18T00:42:20.342Z</updated>
     
@@ -676,19 +713,19 @@
     
     </summary>
     
-      <category term="ES6标准入门" scheme="https://github.com/ChangerHe/categories/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8/"/>
+      <category term="ES6标准入门" scheme="http://bolg.changerhe.cb/categories/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8/"/>
     
     
-      <category term="ES6" scheme="https://github.com/ChangerHe/tags/ES6/"/>
+      <category term="ES6" scheme="http://bolg.changerhe.cb/tags/ES6/"/>
     
-      <category term="Module" scheme="https://github.com/ChangerHe/tags/Module/"/>
+      <category term="Module" scheme="http://bolg.changerhe.cb/tags/Module/"/>
     
   </entry>
   
   <entry>
     <title>《ES6标准入门》阅读笔记——-Class</title>
-    <link href="https://github.com/ChangerHe/2017/07/16/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-Class/"/>
-    <id>https://github.com/ChangerHe/2017/07/16/《ES6标准入门》阅读笔记——-Class/</id>
+    <link href="http://bolg.changerhe.cb/2017/07/16/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-Class/"/>
+    <id>http://bolg.changerhe.cb/2017/07/16/《ES6标准入门》阅读笔记——-Class/</id>
     <published>2017-07-16T15:52:52.000Z</published>
     <updated>2017-09-18T00:42:14.635Z</updated>
     
@@ -707,19 +744,19 @@
     
     </summary>
     
-      <category term="ES6标准入门" scheme="https://github.com/ChangerHe/categories/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8/"/>
+      <category term="ES6标准入门" scheme="http://bolg.changerhe.cb/categories/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8/"/>
     
     
-      <category term="ES6" scheme="https://github.com/ChangerHe/tags/ES6/"/>
+      <category term="ES6" scheme="http://bolg.changerhe.cb/tags/ES6/"/>
     
-      <category term="Class" scheme="https://github.com/ChangerHe/tags/Class/"/>
+      <category term="Class" scheme="http://bolg.changerhe.cb/tags/Class/"/>
     
   </entry>
   
   <entry>
     <title>记一次简单的Nodejs爬虫</title>
-    <link href="https://github.com/ChangerHe/2017/07/13/%E8%AE%B0%E4%B8%80%E6%AC%A1%E7%AE%80%E5%8D%95%E7%9A%84Nodejs%E7%88%AC%E8%99%AB/"/>
-    <id>https://github.com/ChangerHe/2017/07/13/记一次简单的Nodejs爬虫/</id>
+    <link href="http://bolg.changerhe.cb/2017/07/13/%E8%AE%B0%E4%B8%80%E6%AC%A1%E7%AE%80%E5%8D%95%E7%9A%84Nodejs%E7%88%AC%E8%99%AB/"/>
+    <id>http://bolg.changerhe.cb/2017/07/13/记一次简单的Nodejs爬虫/</id>
     <published>2017-07-13T10:32:57.000Z</published>
     <updated>2017-09-27T09:13:27.086Z</updated>
     
@@ -797,19 +834,19 @@
     
     </summary>
     
-      <category term="Nodejs学习笔记" scheme="https://github.com/ChangerHe/categories/Nodejs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <category term="Nodejs学习笔记" scheme="http://bolg.changerhe.cb/categories/Nodejs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="Nodejs" scheme="https://github.com/ChangerHe/tags/Nodejs/"/>
+      <category term="Nodejs" scheme="http://bolg.changerhe.cb/tags/Nodejs/"/>
     
-      <category term="爬虫" scheme="https://github.com/ChangerHe/tags/%E7%88%AC%E8%99%AB/"/>
+      <category term="爬虫" scheme="http://bolg.changerhe.cb/tags/%E7%88%AC%E8%99%AB/"/>
     
   </entry>
   
   <entry>
     <title>《ES6标准入门》阅读笔记——-Promise</title>
-    <link href="https://github.com/ChangerHe/2017/07/11/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-Promise/"/>
-    <id>https://github.com/ChangerHe/2017/07/11/《ES6标准入门》阅读笔记——-Promise/</id>
+    <link href="http://bolg.changerhe.cb/2017/07/11/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-Promise/"/>
+    <id>http://bolg.changerhe.cb/2017/07/11/《ES6标准入门》阅读笔记——-Promise/</id>
     <published>2017-07-11T14:23:54.000Z</published>
     <updated>2017-09-18T00:42:09.303Z</updated>
     
@@ -828,19 +865,19 @@
     
     </summary>
     
-      <category term="ES6标准入门" scheme="https://github.com/ChangerHe/categories/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8/"/>
+      <category term="ES6标准入门" scheme="http://bolg.changerhe.cb/categories/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8/"/>
     
     
-      <category term="ES6" scheme="https://github.com/ChangerHe/tags/ES6/"/>
+      <category term="ES6" scheme="http://bolg.changerhe.cb/tags/ES6/"/>
     
-      <category term="Promise" scheme="https://github.com/ChangerHe/tags/Promise/"/>
+      <category term="Promise" scheme="http://bolg.changerhe.cb/tags/Promise/"/>
     
   </entry>
   
   <entry>
     <title>《ES6标准入门》阅读笔记——-Iterator和Generator</title>
-    <link href="https://github.com/ChangerHe/2017/07/07/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-Iterator%E5%92%8CGenerator/"/>
-    <id>https://github.com/ChangerHe/2017/07/07/《ES6标准入门》阅读笔记——-Iterator和Generator/</id>
+    <link href="http://bolg.changerhe.cb/2017/07/07/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-Iterator%E5%92%8CGenerator/"/>
+    <id>http://bolg.changerhe.cb/2017/07/07/《ES6标准入门》阅读笔记——-Iterator和Generator/</id>
     <published>2017-07-07T15:11:34.000Z</published>
     <updated>2017-09-18T00:42:03.573Z</updated>
     
@@ -859,21 +896,21 @@
     
     </summary>
     
-      <category term="ES6标准入门" scheme="https://github.com/ChangerHe/categories/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8/"/>
+      <category term="ES6标准入门" scheme="http://bolg.changerhe.cb/categories/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8/"/>
     
     
-      <category term="ES6" scheme="https://github.com/ChangerHe/tags/ES6/"/>
+      <category term="ES6" scheme="http://bolg.changerhe.cb/tags/ES6/"/>
     
-      <category term="Iterator" scheme="https://github.com/ChangerHe/tags/Iterator/"/>
+      <category term="Iterator" scheme="http://bolg.changerhe.cb/tags/Iterator/"/>
     
-      <category term="Generator" scheme="https://github.com/ChangerHe/tags/Generator/"/>
+      <category term="Generator" scheme="http://bolg.changerhe.cb/tags/Generator/"/>
     
   </entry>
   
   <entry>
     <title>《ES6标准入门》阅读笔记——-set和map</title>
-    <link href="https://github.com/ChangerHe/2017/07/03/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-set%E5%92%8Cmap/"/>
-    <id>https://github.com/ChangerHe/2017/07/03/《ES6标准入门》阅读笔记——-set和map/</id>
+    <link href="http://bolg.changerhe.cb/2017/07/03/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-set%E5%92%8Cmap/"/>
+    <id>http://bolg.changerhe.cb/2017/07/03/《ES6标准入门》阅读笔记——-set和map/</id>
     <published>2017-07-03T03:37:44.000Z</published>
     <updated>2017-10-09T09:51:25.926Z</updated>
     
@@ -934,21 +971,21 @@
     
     </summary>
     
-      <category term="ES6标准入门" scheme="https://github.com/ChangerHe/categories/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8/"/>
+      <category term="ES6标准入门" scheme="http://bolg.changerhe.cb/categories/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8/"/>
     
     
-      <category term="ES6" scheme="https://github.com/ChangerHe/tags/ES6/"/>
+      <category term="ES6" scheme="http://bolg.changerhe.cb/tags/ES6/"/>
     
-      <category term="set" scheme="https://github.com/ChangerHe/tags/set/"/>
+      <category term="set" scheme="http://bolg.changerhe.cb/tags/set/"/>
     
-      <category term="map" scheme="https://github.com/ChangerHe/tags/map/"/>
+      <category term="map" scheme="http://bolg.changerhe.cb/tags/map/"/>
     
   </entry>
   
   <entry>
     <title>《ES6标准入门》阅读笔记——-symbol及proxy/reflect</title>
-    <link href="https://github.com/ChangerHe/2017/07/01/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-symbol%E5%8F%8Aproxy-reflect/"/>
-    <id>https://github.com/ChangerHe/2017/07/01/《ES6标准入门》阅读笔记——-symbol及proxy-reflect/</id>
+    <link href="http://bolg.changerhe.cb/2017/07/01/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-symbol%E5%8F%8Aproxy-reflect/"/>
+    <id>http://bolg.changerhe.cb/2017/07/01/《ES6标准入门》阅读笔记——-symbol及proxy-reflect/</id>
     <published>2017-07-01T05:51:28.000Z</published>
     <updated>2017-10-09T09:10:47.950Z</updated>
     
@@ -1017,23 +1054,23 @@
     
     </summary>
     
-      <category term="ES6标准入门" scheme="https://github.com/ChangerHe/categories/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8/"/>
+      <category term="ES6标准入门" scheme="http://bolg.changerhe.cb/categories/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8/"/>
     
     
-      <category term="ES6" scheme="https://github.com/ChangerHe/tags/ES6/"/>
+      <category term="ES6" scheme="http://bolg.changerhe.cb/tags/ES6/"/>
     
-      <category term="symbol" scheme="https://github.com/ChangerHe/tags/symbol/"/>
+      <category term="symbol" scheme="http://bolg.changerhe.cb/tags/symbol/"/>
     
-      <category term="proxy" scheme="https://github.com/ChangerHe/tags/proxy/"/>
+      <category term="proxy" scheme="http://bolg.changerhe.cb/tags/proxy/"/>
     
-      <category term="reflect" scheme="https://github.com/ChangerHe/tags/reflect/"/>
+      <category term="reflect" scheme="http://bolg.changerhe.cb/tags/reflect/"/>
     
   </entry>
   
   <entry>
     <title>Margin和Padding值设置成百分数的布局</title>
-    <link href="https://github.com/ChangerHe/2017/06/30/Margin%E5%92%8CPadding%E5%80%BC%E8%AE%BE%E7%BD%AE%E6%88%90%E7%99%BE%E5%88%86%E6%95%B0%E7%9A%84%E5%B8%83%E5%B1%80/"/>
-    <id>https://github.com/ChangerHe/2017/06/30/Margin和Padding值设置成百分数的布局/</id>
+    <link href="http://bolg.changerhe.cb/2017/06/30/Margin%E5%92%8CPadding%E5%80%BC%E8%AE%BE%E7%BD%AE%E6%88%90%E7%99%BE%E5%88%86%E6%95%B0%E7%9A%84%E5%B8%83%E5%B1%80/"/>
+    <id>http://bolg.changerhe.cb/2017/06/30/Margin和Padding值设置成百分数的布局/</id>
     <published>2017-06-30T11:36:43.000Z</published>
     <updated>2017-10-25T03:51:41.577Z</updated>
     
@@ -1059,17 +1096,17 @@
     
     </summary>
     
-      <category term="CSS" scheme="https://github.com/ChangerHe/categories/CSS/"/>
+      <category term="CSS" scheme="http://bolg.changerhe.cb/categories/CSS/"/>
     
     
-      <category term="CSS" scheme="https://github.com/ChangerHe/tags/CSS/"/>
+      <category term="CSS" scheme="http://bolg.changerhe.cb/tags/CSS/"/>
     
   </entry>
   
   <entry>
     <title>《ES6标准入门》阅读笔记——-对象的扩展</title>
-    <link href="https://github.com/ChangerHe/2017/06/30/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%89%A9%E5%B1%95/"/>
-    <id>https://github.com/ChangerHe/2017/06/30/《ES6标准入门》阅读笔记——-对象的扩展/</id>
+    <link href="http://bolg.changerhe.cb/2017/06/30/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%89%A9%E5%B1%95/"/>
+    <id>http://bolg.changerhe.cb/2017/06/30/《ES6标准入门》阅读笔记——-对象的扩展/</id>
     <published>2017-06-30T05:49:33.000Z</published>
     <updated>2017-09-23T13:50:55.999Z</updated>
     
@@ -1141,105 +1178,12 @@
     
     </summary>
     
-      <category term="ES6标准入门" scheme="https://github.com/ChangerHe/categories/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8/"/>
+      <category term="ES6标准入门" scheme="http://bolg.changerhe.cb/categories/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8/"/>
     
     
-      <category term="ES6" scheme="https://github.com/ChangerHe/tags/ES6/"/>
+      <category term="ES6" scheme="http://bolg.changerhe.cb/tags/ES6/"/>
     
-      <category term="Object" scheme="https://github.com/ChangerHe/tags/Object/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《ES6标准入门》阅读笔记——-函数的扩展</title>
-    <link href="https://github.com/ChangerHe/2017/06/28/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A9%E5%B1%95/"/>
-    <id>https://github.com/ChangerHe/2017/06/28/《ES6标准入门》阅读笔记——-函数的扩展/</id>
-    <published>2017-06-28T13:36:55.000Z</published>
-    <updated>2017-09-23T13:13:22.892Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。</p>
-<p>许多初学ES6, 同时和我一样初次阅读阮老师的这本书的时候, 读第一遍会越发的困惑, 因为阮老师上面说的很多的定义,方法,之前都是没有见过的, 读到后面才发现, 哦~原来是这样.</p>
-<p>有一句话叫做”大神的世界我们不懂”, 所以我在初读第一遍《ES6标准入门》这本书的时候,也是踩了不少坑,读书的时候查阅了不少的资料.</p>
-<p>所以,在这一系列的笔记教程中,我会从一个初学者的角度,向您讲述ES6的相关知识,在后面介绍的知识我会尽量不提前用,即使提前使用,也会同时做好标注,避免了阅读时各种查阅资料的烦恼.</p>
-<p>系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导新手，快速入门ES6，并逐步将其投入到生产实践中。</p>
-<p>同时,在阅读前也提醒您, 为了系统连贯性的学习ES6的基础知识,建议您从我的博客第一章开始阅读,当然,如果您对对应的知识已经有所了解,那么可以跳转到任意章节阅读,每一篇博客名中均有介绍该博客中涉及到的ES6的内容.</p>
-<p>阮一峰老师的这本书是开源的，在其官方博客就可以下载到，但是我强烈建议大家去购买一本书, 一是方便自己查阅ES6中新增的众多API, 二也是表达一下对大神的敬仰.</p>
-<h1 id="函数的默认值"><a href="#函数的默认值" class="headerlink" title="函数的默认值"></a>函数的默认值</h1><p>在ES6之前,函数的默认值只能在函数体内进行判断</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function log(x, y) &#123;</div><div class="line">	y = y || &quot;world&quot;</div><div class="line">	console.log(x, y)</div><div class="line">&#125;</div><div class="line">log(&quot;hello &quot;) // hello world</div><div class="line">// 当我们采用ES5的写法时,是存在问题的,当我们给第二个参数传入布尔值为false的值的时候,实际上并不会使用这个值而是仍然使用默认值.</div><div class="line">log(&quot;hello &quot;, false) // hello world</div><div class="line">log(&quot;hello &quot;, &quot;&quot;) // hello world</div><div class="line">log(&quot;hello &quot;, undefined) // hello world</div></pre></td></tr></table></figure>
-<p>在ES6中就不会有这个烦恼了,ES6允许将参数设置默认值,直接写在参数定义的后面即可</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function log(x, y = &quot;world&quot;) &#123;</div><div class="line">	console.log(x, y)</div><div class="line">&#125;</div><div class="line">log(&quot;hello &quot;) // hello world</div><div class="line">log(&quot;hello &quot;, false) // hello false</div><div class="line">log(&quot;hello &quot;, &quot;&quot;) // hello </div><div class="line">log(&quot;hello &quot;, undefined) // hello world</div></pre></td></tr></table></figure>
-<p>由此可见,ES6的写法比之前更加自然,也更加的语义化了.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function Point(x = 0, y = 0) &#123;</div><div class="line">	this.x = x</div><div class="line">	this.y = y</div><div class="line">&#125;</div><div class="line">var p1 = new Point()</div><div class="line">console.log(p1.x, p1.x) // 0 0</div><div class="line"></div><div class="line">var p2 = new Point(2)</div><div class="line">console.log(p2.x, p2.y) // 2 0</div></pre></td></tr></table></figure>
-<p>因为变量的参数是默认声明的,所以我们在内部重新使用let或const对变量声明的时候,是会报错的</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function foo(x = 5) &#123;</div><div class="line">	let x = 1  // 报错</div><div class="line">	const x = 1  // 报错</div><div class="line">&#125;</div><div class="line"></div><div class="line">## 函数的默认值与解构赋值默认值结合使用</div></pre></td></tr></table></figure>
-<p>function foo({x, y = 5}) {<br>    console.log(x, y)<br>}<br>foo({})  // undefined 5<br>foo({x: 1})  // 1 5<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">在为函数使用解构赋值时,因为有必填的参数,所以这个情况下必须要填需要的参数,否则会报错.</div><div class="line"></div><div class="line">但是当我们在这种情况下,如果不想让它报错的话,可以使用双重解赋值的方法解决此问题</div></pre></td></tr></table></figure></p>
-<p>function fetch(url, {method = “GET”} = {}) {<br>    console.log(method)<br>}<br>fetch(“<a href="http://example.com" target="_blank" rel="external">http://example.com</a>“) // GET<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">## 解构赋值的默认值和函数默认值的区别</div></pre></td></tr></table></figure></p>
-<p>function m1({x = 0, y = 0} = {}) {<br>    return [x, y]<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">以上代码将函数参数默认值设置为空对象, 但设置了对象解构赋值的默认值</div><div class="line"></div><div class="line">我们在来看一下下面的代码</div></pre></td></tr></table></figure></p>
-<p>function m2({x, y} = {x: 0, y: 0}) {<br>    return [x, y]<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">在函数都有参数或都没有参数的情况下,两者是相等的</div></pre></td></tr></table></figure></p>
-<p>m1() // [0, 0]<br>m2() // [0, 0]<br>m1({x: 3, y: 8}) // [3, 8]<br>m2({x: 3, y: 8}) // [3, 8]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">但是在当一个有值,一个没有值的情况下,区别就显现出来了</div></pre></td></tr></table></figure></p>
-<p>m1({x: 3}) // [3, 0]<br>m2({x: 3}) // [3, undefined]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">当我们传入的是不同的对象的时候, m1的默认值为0, 所以, 会输出0, 而因为输入的对象与解构赋值的默认值不匹配,所以会输出undefined</div></pre></td></tr></table></figure></p>
-<p>m1({z: 3})  // [0, 0]<br>m2({z: 3})  // [undefined, undefined]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">当我们将非尾部的参数设置了默认值,那么这个时候这个参数是没有办法省略的</div></pre></td></tr></table></figure></p>
-<p>function f(x = 1, y) {<br>    return [x, y]<br>}<br>console.log(f()) // [1, undefined]<br>console.log(f(1)) // [1, undefined]<br>console.log(f(, 1)) // 报错<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">## 参数默认值的位置</div><div class="line"></div><div class="line">通常情况下,定义了默认值的参数应该是函数的尾参数.</div><div class="line"></div><div class="line">因为这样比较容易看出到底省略了哪些参数,如果非尾部的参数设置默认值实际上这个参数是无法省略的.</div><div class="line"> </div><div class="line">换句话说,就是当中间设置了默认值,如果要给其后的非指定默认值参数设置值的话,必须要给这个参数设置值,或者显式的设置undefined或null, 否则会报错</div></pre></td></tr></table></figure></p>
-<p>function f(x, y = 5, z) {<br>    return [x, y, z]<br>}<br>console.log(f())  // [undefined, 5, undefined]<br>console.log(f(1)) // [1, 5, undefined]<br>console.log(f(1, undefined, 3)) // [1, 5, 3]<br>console.log(f(1, , 2)) // 报错<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">## 函数的length属性</div><div class="line"></div><div class="line">指定了默认值后.函数的length属性将会返回没有指定默认值的参数个数,也就是说,指定了默认值后,length属性将会失真</div><div class="line"></div><div class="line">同时,经过测试,当我们设置默认值在前时,其实显示的形参个数是设置默认值的形参前面的形参个数,后面的形参个数是不计入在内的</div></pre></td></tr></table></figure></p>
-<p>console.log((function(x) {}).length)  // 1<br>console.log((function(x = 90, a, b) {}).length) // 0<br>console.log((function(x, a = 90, b) {}).length) // 1<br>console.log((function(x, a, b = 90) {}).length) // 2<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">同样的,因为rest参数,也就是俗称的三点运算符的特殊性,其长度是不会计入length属性的</div></pre></td></tr></table></figure></p>
-<p>console.log((function(…args){}).length)  // 0<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">## 函数的作用域</div><div class="line"></div><div class="line">一个需要注意的地方是,如果参数默认值是一个变量,则该变量所处的作用域与其他的变量的作用域是一样的,即先是当前函数的作用域,然后才是全局作用域</div></pre></td></tr></table></figure></p>
-<p>let x = 1</p>
-<p>function f(x, y = x) {<br>    console.log(y) // 2<br>}<br>f(2)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">上面的代码中,参数的默认值等于x. 调用时, 由于函数作用域内部的变量x已经生成, 所以y等于参数x而不是全局变量x</div><div class="line"></div><div class="line">但当调用的时候函数作用域内部的变量x没有生成,那么x就会指向全局变量,因为全局变量中没有这个参数,所以y依然指向自身</div><div class="line"></div><div class="line">另外说明一下,这个和阮一峰老师的书中结果是不一致的,经过在chrome59版本下测试,结果为1</div></pre></td></tr></table></figure></p>
-<p>function f1(y = x) {<br>    let x = 2<br>    console.log(y) // 1<br>}<br>f1(1)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">## 函数的参数默认值的小应用</div><div class="line"></div><div class="line">引用参数默认值,可以指定某一个参数不得省略,否则会抛出一个错误</div></pre></td></tr></table></figure></p>
-<p>throwIfMissing = () =&gt; {<br>    throw new Error(‘Missing parameter’)<br>}</p>
-<p>function foo(mustBeProvided = throwIfMissing()) {<br>    return mustBeProvided<br>}</p>
-<p>foo() // Error: Missing parameter<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"># rest参数(三点运算符)</div><div class="line"></div><div class="line">在ES6中引入了rest参数, 用于获取函数的多余参数,这样就不需要使用arguments对象了,rest参数搭配的变量是一个数组,该变量将多余的参数放入其中</div></pre></td></tr></table></figure></p>
-<p>function add(…values) {<br>    let sum = 0<br>    console.log(values) // [2, 3, 4]<br>    for (var val of values) {<br>        sum += val<br>    }<br>    return sum<br>}<br>console.log(add(2, 3, 4)) // 9<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">下面是rest参数代替arguments变量的例子</div></pre></td></tr></table></figure></p>
-<p>//在ES5中<br>const shortNumbers = () =&gt; {<br>    return Array.prototype.slice.call(arguments).sort()<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">// 使用rest参数无疑让写法更加简洁自然了</div></pre></td></tr></table></figure></p>
-<p>const sortNumbers = (…numbers) =&gt; {<br>    return numbers.sort()<br>}</p>
-<h2 id="使用rest参数的特性-可以改写push方法"><a href="#使用rest参数的特性-可以改写push方法" class="headerlink" title="使用rest参数的特性,可以改写push方法"></a>使用rest参数的特性,可以改写push方法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function push(array, ...items) &#123;</div><div class="line">	items.forEach(function(item) &#123;</div><div class="line">		array.push(item)</div><div class="line">	&#125;)</div><div class="line">	return array</div><div class="line">&#125;</div><div class="line">console.log(push([1, 2, 3], 1, 2, 3, 4, 54)) </div><div class="line">// [1, 2, 3, 1, 2, 3, 4, 54]</div></pre></td></tr></table></figure>
-<h1 id="扩展运算符-…"><a href="#扩展运算符-…" class="headerlink" title="扩展运算符  …"></a>扩展运算符  …</h1><p>扩展运算符好比rest参数的逆运算,将一个数组转为用逗号分隔的参数序列</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">console.log(...[1, 2, 3]) // 1 2 3</div><div class="line">console.log(1, ...[2, [[3], 4]], 5) // 1, 2, [[3], 4]], 5</div><div class="line"></div><div class="line">## 扩展运算符的应用</div><div class="line"></div><div class="line">### 替代数组的apply方法</div><div class="line"></div><div class="line">在ES5之前,我们如果需要将数组的值作为函数的参数逐一传进函数的时候,最简便的方法就是使用apply方法</div></pre></td></tr></table></figure>
-<p>function f(x, y, z) {}<br>var args = [1, 2, 3]<br>f.apply(null, args)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">在ES6中,写法是这样的</div></pre></td></tr></table></figure></p>
-<p>function f2(x, y, z) {}<br>var args = [0, 1, 2]<br>f2(…args)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 替代Math.max方法</div><div class="line"></div><div class="line">当我们需要对数组进行最大最小值的判断的时候,在ES5中,用法是这样的</div></pre></td></tr></table></figure></p>
-<p>var a = [1, 2, 4, 12, 3, 5, 1, 12]<br>console.log(Math.max.apply(null, a)) // 12<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">但是在ES6中,我们就不必要这么麻烦了,因为扩展运算符 ... 可以将数组直接转换为普通的单个数字</div></pre></td></tr></table></figure></p>
-<p>var a = [1, 2, 4, 12, 3, 5, 1, 12]<br>console.log(Math.max(…a)) // 12<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 替代push方法</div><div class="line"></div><div class="line">同样的,在ES5中,如果我们需要使用push方法将两个数组连接起来的时候,我们需要这样做</div></pre></td></tr></table></figure></p>
-<p>var a = [1, 2, 3]<br>var b = [4, 5, 6]<br>Array.prototype.push.apply(a, b)<br>console.log(a) // [1, 2, 3, 4, 5, 6]<br>console.log(b) // [4, 5, 6]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">因为最后需要得到扁平化的数组,所以并不能直接使用`a.push(b)`这样的方法,这样会使得到的变成多维数组</div><div class="line"></div><div class="line">同样的,ES6还提供了数组合并的新写法:</div></pre></td></tr></table></figure></p>
-<p>var a = [1, 2, 3]<br>var b = [4, 5, 6]<br>a.push(…b)<br>console.log(a) // [1, 2, 3, 4, 5, 6]<br>console.log(b) // [4, 5, 6]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 替代数组合并方法</div></pre></td></tr></table></figure></p>
-<p>var a = [1, 2, 3]<br>var b = [4, 5, 6]<br>var c = a.concat(b)<br>console.log(c)  // [1, 2, 3, 4, 5, 6]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">在ES6中,因为有了 ... 运算符,那么其实concat是可以省略的</div></pre></td></tr></table></figure></p>
-<p>var a = [1, 2, 3]<br>var b = [4, 5, 6]<br>var d = […a, …b]<br>console.log(d)  // [1, 2, 3, 4, 5, 6]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 与解构赋值结合起来,用于生成数组</div><div class="line"></div><div class="line">那么,我们先来看一下,在ES5中,是怎么做到的</div></pre></td></tr></table></figure></p>
-<p>let a = [1, 2, 3, 4]<br>let b = a[0]<br>let c = a.slice(1)<br>console.log(b, c) // 1 [2, 3, 4]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">那么在ES6中,这样的形式就很容易实现了,通过解构赋值和三点运算符结合的方式</div></pre></td></tr></table></figure></p>
-<p>let a = [1, 2, 3, 4]<br>let [d, …e] = a<br>console.log(d, e) // 1 [2, 3, 4]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">当我们对一个空的数组进行解构赋值的时候,会出现什么情况呢?</div></pre></td></tr></table></figure></p>
-<p>let [f, …g] = []<br>console.log(f, g) //undefined  []<br>let [h, …i] = [‘foo’]<br>console.log(h, i) // foo  []<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">需要注意的是,我们使用扩展运算符,也就是三点运算符,这个运算是必须要放在参数的最后一位的,否则会报错</div></pre></td></tr></table></figure></p>
-<p>let […j, k] = [1, 2, 3, 4]<br>console.log(j, k)<br>//报错,Rest element must be last element<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">## 扩展运算符对字符串的支持</div></pre></td></tr></table></figure></p>
-<p>console.log([…’hello’]) // [“h”, “e”, “l”, “l”, “o”]<br>// 扩展运算符将字符串中的每一个值都拆分成了单个的字符组成的数组<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">当然,这还不是最重要的,重要的是, 扩展运算符对32位Unicode字符的支持</div></pre></td></tr></table></figure></p>
-<p>console.log([…’x\u{20bb7}\u20bb7’].length)  // 4<br>// 可见,两个大括号完美地解决了32位字符这个bug的尴尬<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">对于unicode不太了解的童鞋, 可以先跳转到之前,看下我写的ES6中对Unicode的支持这一章节</div><div class="line"></div><div class="line">括展运算符内部调用的是数据结构的iterator接口,因此只要具有iterator接口的对象,都可以使用扩展运算符</div></pre></td></tr></table></figure></p>
-<p>let map = new Map([<br>    [1, ‘one’],<br>    [2, ‘two’],<br>    [3, ‘three’]<br>])<br>let arr = […map.values()]<br>console.log(arr)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">Generator函数运行后返回一个遍历器对象,因此也可以使用扩展运算符</div></pre></td></tr></table></figure></p>
-<p>var go = function*() {<br>    yield 1<br>    yield 2<br>    yield 3</p>
-<p>}<br>console.log([…go()])<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"># 函数的name属性</div><div class="line"></div><div class="line">函数的name属性返回该函数的函数名</div><div class="line"></div><div class="line">通过bind返回的函数, name属性会加上&apos;bound&apos;前缀</div></pre></td></tr></table></figure></p>
-<p>function foo() {}<br>console.log(foo.name) // foo<br>function foo() {}<br>console.log(foo.bind({}).name) //bound foo<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"># ES6的箭头函数</div><div class="line"></div><div class="line">ES6允许使用箭头定义函数</div><div class="line"></div><div class="line">` var f = v =&gt; v `</div><div class="line"></div><div class="line">上面的箭头其实就等价于</div></pre></td></tr></table></figure></p>
-<p>var f = function(v) {<br>    return v<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">那么,上面是需要参数的情况下,当我们不需要参数的时候怎么办呢?</div><div class="line"></div><div class="line">在这个情况下是可以使用圆括号代替的</div><div class="line"></div><div class="line">`var f = () =&gt; 5`</div><div class="line"></div><div class="line">等价于</div></pre></td></tr></table></figure></p>
-<p>var f = function() {<br>    return 5<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">当存在多个参数的时候</div><div class="line"></div><div class="line">`var f = (num1, num2) =&gt; num1 + num2`</div><div class="line"></div><div class="line">等价于</div></pre></td></tr></table></figure></p>
-<p>var f = function(num1, num2) {<br>    return num1 + num2<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">如果箭头函数的代码块部分多于一条语句, 就要使用大括号将其括起来, 并使用return语句返回</div><div class="line"></div><div class="line">由于大括号被解释为代码块,所以当我们需要箭头函数返回一个对象的时候,需要使用圆括号将对象括起来</div></pre></td></tr></table></figure></p>
-<p>var f = id =&gt; ({<br>    id: id,<br>    name: ‘temp’<br>})<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">还有一点是,箭头函数还可以和解构赋值一起使用</div></pre></td></tr></table></figure></p>
-<p>var full = ({first, last}) =&gt; first + ‘ ‘ + last<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">等价于</div></pre></td></tr></table></figure></p>
-<p>var full = function(person) {<br>    return first + “ “ + last<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">箭头函数的另一个用处就是简化回调函数</div><div class="line"></div><div class="line">`[1, 2, 3].map(x =&gt; x * x)`</div><div class="line"></div><div class="line">等价于</div><div class="line"></div><div class="line">`[1, 2, 3].map(function(x) &#123;return x * x&#125;)`</div><div class="line"></div><div class="line">rest参数的写法</div><div class="line"></div><div class="line">`const headAndTail = (head, ...tail) =&gt; [head, tail]`</div><div class="line"></div><div class="line"># 箭头函数的使用注意点</div><div class="line"></div><div class="line">&gt;函数体内的this对象就是定义的时候所在的对象,而不是使用的时候所在的对象</div><div class="line"></div><div class="line">&gt;不可以拿来当做构造函数,也就是不可以拿来new一下,否则会抛出一个错误</div><div class="line"></div><div class="line">&gt;不可以使用arguments对象,该对象在函数体内是不存在的,如果需要使用,可以使用rest参数将arguments对象转为数组之后使用</div><div class="line"></div><div class="line">&gt;不可以使用yield命令,因此箭头函数不能用作Generator参数</div><div class="line"></div><div class="line"># 箭头函数中的this</div><div class="line"></div><div class="line">this的指向在之前是可变的,但是在箭头函数中是固定的</div></pre></td></tr></table></figure></p>
-<p>function foo() {<br>    setTimeout(() =&gt; {<br>        console.log(‘id:’, this.id) // id: 42<br>    }, 100)<br>}</p>
-<p>foo.call({id: 42})<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">而且不论嵌套多少层,都是没有问题的,朝阳指向调用的对象</div></pre></td></tr></table></figure></p>
-<p>function foo3() {<br>    return () =&gt; {<br>        return () =&gt; {<br>            console.log(‘id: ‘, this.id) // id: 42<br>        }<br>    }<br>}<br>foo3.call({id: 42})()()<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">因为箭头函数没有自己的this, 所以我们在内部绑定this,是不能生效的</div></pre></td></tr></table></figure></p>
-<p>var a = (function() {<br>    return [<br>        (() =&gt; this.x).bind({<br>            x: ‘inner’<br>        })<br>    ]<br>}).call({<br>    x: ‘outer’<br>})<br>console.log(a()) // () =&gt; this.x<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">箭头函数的内部还可以再使用箭头函数</div></pre></td></tr></table></figure></p>
-<p>function insert(value) {<br>    return {<br>        into: function(array) {<br>            return {<br>                after: function(afterValue) {<br>                    array.splice(array.indexOf(afterValue) + 1, 0, value)<br>                }<br>            }<br>        }<br>    }<br>}</p>
-<p>console.log(insert(2).into([1, 3]).after(1)) // [1, 2, 3]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"># 函数绑定</div><div class="line"></div><div class="line">箭头函数可以绑定this对象, 大大减少了显式绑定this对象的写法, 但是因为this在箭头函数中的特殊性,因此其并不适用于所有场合</div><div class="line"></div><div class="line">所以ES7提出了函数绑定的写法, 目前浏览器暂不支持,但babel转码器已经支持</div></pre></td></tr></table></figure></p>
-<p>foo::bar<br>// 等同于<br>bar.bind(foo)<br>```</p>
-]]></content>
-    
-    <summary type="html">
-    
-      本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导新手，快速入门ES6，并逐步将其投入到生产实践中。
-    
-    </summary>
-    
-      <category term="ES6标准入门" scheme="https://github.com/ChangerHe/categories/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8/"/>
-    
-    
-      <category term="ES6" scheme="https://github.com/ChangerHe/tags/ES6/"/>
-    
-      <category term="Function" scheme="https://github.com/ChangerHe/tags/Function/"/>
+      <category term="Object" scheme="http://bolg.changerhe.cb/tags/Object/"/>
     
   </entry>
   
