@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://bolg.changerhe.cb/"/>
-  <updated>2017-10-20T09:19:30.190Z</updated>
+  <updated>2017-11-22T05:36:10.836Z</updated>
   <id>http://bolg.changerhe.cb/</id>
   
   <author>
@@ -16,62 +16,51 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>纯CSS实现元素水平垂直居中的方法</title>
-    <link href="http://bolg.changerhe.cb/2017/10/30/%E7%BA%AFCSS%E5%AE%9E%E7%8E%B0%E5%85%83%E7%B4%A0%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E7%9A%84%E6%96%B9%E6%B3%95/"/>
-    <id>http://bolg.changerhe.cb/2017/10/30/纯CSS实现元素水平垂直居中的方法/</id>
-    <published>2017-10-30T11:42:25.000Z</published>
-    <updated>2017-10-20T09:19:30.190Z</updated>
+    <title>Chrome61发布,这新功能怕是没谁了</title>
+    <link href="http://bolg.changerhe.cb/2017/09/25/Chrome61%E5%8F%91%E5%B8%83,%E8%BF%99%E6%96%B0%E5%8A%9F%E8%83%BD%E6%80%95%E6%98%AF%E6%B2%A1%E8%B0%81%E4%BA%86/"/>
+    <id>http://bolg.changerhe.cb/2017/09/25/Chrome61发布,这新功能怕是没谁了/</id>
+    <published>2017-09-25T15:11:42.000Z</published>
+    <updated>2017-11-22T05:36:10.836Z</updated>
     
-    <content type="html"><![CDATA[<p>垂直居中是布局中十分常见的效果之一，为实现良好的兼容性，PC端实现垂直居中的方法一般是通过绝对定位，table-cell，负边距等方法。有了css3，针对移动端的垂直居中就更加多样化。</p>
-<p>笔者在这里总结了九种使用纯CSS实现水平垂直居中的方法</p>
-<p>OK. Let’s see it!</p>
-<p>最开始, 我们先设置几个盒子, 设置它们的统一样式为以下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">.box &#123;</div><div class="line">	width: 300px;</div><div class="line">	height: 300px;</div><div class="line">	margin: 10px;</div><div class="line">	box-shadow: 2px 3px 4px #000;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h1 id="方法1-table-cell"><a href="#方法1-table-cell" class="headerlink" title="方法1: table-cell"></a>方法1: table-cell</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;!-- HTML --&gt;</div><div class="line">&lt;div class=&quot;box box1&quot;&gt;</div><div class="line">        &lt;span&gt;垂直居中&lt;/span&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
-<p>整体的结构是相当简单的, css直接设置本身的宽高, 然后设置为table-cell,并将对齐方式设置为vertic-align就可以实现水平垂直居中了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">/* CSS */</div><div class="line"></div><div class="line">.box1&#123;</div><div class="line">    display: table-cell;</div><div class="line">    vertical-align: middle;</div><div class="line">    text-align: center;        </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>实际上table-cell的兼容性也是相当不错的, 可兼容至IE8+, 相当于将这个区块设置成了一个td</p>
-<h1 id="方法2-display-flex"><a href="#方法2-display-flex" class="headerlink" title="方法2: display: flex;"></a>方法2: display: flex;</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">.box2&#123;</div><div class="line">    display: flex;</div><div class="line">    justify-content:center;</div><div class="line">    align-items:Center;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>使用flex布局就非常简单了, 只需要设置两个属性即可, 存在的问题就是兼容性很有限, 虽然非常简单, 一般使用在移动端</p>
-<h1 id="方法3-绝对定位和负边距"><a href="#方法3-绝对定位和负边距" class="headerlink" title="方法3 绝对定位和负边距"></a>方法3 绝对定位和负边距</h1><p>这个在以前算是比较中规中矩的办法了, 首先需要将父盒子设置为相对定位, 子盒子设置为绝对定位</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">.box3 &#123;</div><div class="line">	position:relative;</div><div class="line">&#125;</div><div class="line">.box3 span &#123;</div><div class="line">	position: absolute;</div><div class="line">	width:100px;</div><div class="line">	height: 50px;</div><div class="line">	top:50%;</div><div class="line">	left:50%;</div><div class="line">	margin-left:-50px;</div><div class="line">	margin-top:-25px;</div><div class="line">	text-align: center;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>原理也非常简单, 将定位到中间距左部和顶部50%之后,需要减去自身的长宽的一半,就实现居中了</p>
-<h1 id="方法4-绝对定位和0"><a href="#方法4-绝对定位和0" class="headerlink" title="方法4: 绝对定位和0"></a>方法4: 绝对定位和0</h1><p>这种方法常用于做蒙层和遮罩效果</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">.box4 span&#123;</div><div class="line">	width: 50%; </div><div class="line">	height: 50%; </div><div class="line">	background: #000;</div><div class="line">	overflow: auto; </div><div class="line">	margin: auto; </div><div class="line">	position: absolute; </div><div class="line">	top: 0; </div><div class="line">	left: 0; </div><div class="line">	bottom: 0; </div><div class="line">	right: 0; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>利用绝对定位上下左右都设为0, 中间的子盒子设置margin为auto实现</p>
-<p>方法5: translate</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">.box6 &#123;</div><div class="line">	position: relative;</div><div class="line">&#125;</div><div class="line">.box6 span &#123;</div><div class="line">	position: absolute;</div><div class="line">	top:50%;</div><div class="line">	left:50%;</div><div class="line">	width:100%;</div><div class="line">	transform:translate(-50%,-50%);</div><div class="line">	text-align: center;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>利用CSS3的转换效果, 将自身的位置向左上分别移动了50%, 也就是自身的一半, 就实现居中了 </p>
-<h1 id="方法6：display-inline-block"><a href="#方法6：display-inline-block" class="headerlink" title="方法6：display:inline-block"></a>方法6：display:inline-block</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">.box7 &#123;</div><div class="line">  text-align:center;</div><div class="line">  font-size:0;</div><div class="line">&#125;</div><div class="line">.box7 span &#123;</div><div class="line">	vertical-align:middle;</div><div class="line">	display:inline-block;</div><div class="line">	font-size:16px;</div><div class="line">&#125;</div><div class="line">.box7:after &#123;</div><div class="line">	content:&apos;&apos;;</div><div class="line">	width:0;</div><div class="line">	height:100%;</div><div class="line">	display:inline-block;</div><div class="line">	vertical-align:middle;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这个方法就比较复杂一些了, 通过一个没有任何内容但高度为100%的伪类来进行占位, 根据vertical-align的特性, 来进行居中</p>
-<h1 id="方法7：display-flex和margin-auto"><a href="#方法7：display-flex和margin-auto" class="headerlink" title="方法7：display:flex和margin:auto"></a>方法7：display:flex和margin:auto</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">.box8 &#123;</div><div class="line">    display: flex;</div><div class="line">    text-align: center;</div><div class="line">&#125;</div><div class="line">.box8 span &#123;</div><div class="line">	margin: auto;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h1 id="方法8：display-webkit-box"><a href="#方法8：display-webkit-box" class="headerlink" title="方法8：display:-webkit-box"></a>方法8：display:-webkit-box</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">.box9 &#123;</div><div class="line">    display: -webkit-box;</div><div class="line">    -webkit-box-pack:center;</div><div class="line">    -webkit-box-align:center;</div><div class="line">    -webkit-box-orient: vertical;</div><div class="line">    text-align: center</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h1 id="方法9：display-webkit-box"><a href="#方法9：display-webkit-box" class="headerlink" title="方法9：display:-webkit-box"></a>方法9：display:-webkit-box</h1><p>这种方法，在 content 元素外插入一个 div。设置此 div height:50%; margin-bottom:-contentheight;。</p>
-<p>content 清除浮动，并显示在中间。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;floater&quot;&gt;&lt;/div&gt;  </div><div class="line">&lt;div class=&quot;content&quot;&gt; Content here &lt;/div&gt;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">.floater &#123;</div><div class="line">    float:left; </div><div class="line">    height:50%; </div><div class="line">    margin-bottom:-120px;</div><div class="line">&#125;</div><div class="line">.content &#123;</div><div class="line">    clear:both; </div><div class="line">    height:240px; </div><div class="line">    position:relative;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>(后两种居中方法摘自网络)</p>
+    <content type="html"><![CDATA[<p>Chrome 61 正式版已于2017年9月6日正式发布，并增加了很多开发者相关的功能。在 Mac、Windows 和 Linux 系统中，Chrome 61 开始支持 WebUSB API，以及 PaymentRequest API。</p>
+<p>高级网络平台 API 支持大多数硬件外设，如键盘、鼠标、打印机和游戏手柄。为了使用教育、科学或工业等专用 USB 外设，用户必须使用系统级权限查找和安装可能不安全的驱动程序和软件。</p>
+<p>当然, 最让人激动的是, chrome已经开始支持ES6的module功能, 原生开始支持模块化开发!</p>
+<h1 id="chrome中使用模块化功能"><a href="#chrome中使用模块化功能" class="headerlink" title="chrome中使用模块化功能"></a>chrome中使用模块化功能</h1><p>Chrome 61 加入了对 JavaScript Module <code>&lt;script type=&quot;module&quot;&gt;</code>的原生支持。Chrome 现在可以并行地获取颗粒化的依赖模块，利用浏览器缓存的优势，在多个页面之间共享模块，并且可以保证脚本按照正确地顺序执行。</p>
+<p>下面是我直接在html文件中写入, 的代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;module&quot;&gt;</div><div class="line">	import utils from &quot;./test.js&quot;</div><div class="line">	utils()</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>再看一下我所引入的依赖</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">// 相同目录下的test.js</div><div class="line">function utils() &#123;</div><div class="line">  console.log(1)</div><div class="line">&#125;</div><div class="line"></div><div class="line">export default utils</div></pre></td></tr></table></figure>
+<p>最后, 我们使用编辑器自带的服务器开启运行, 我使用的是VSCode, 当然, 像webstorm, Hbuilder之类的都自带了服务器</p>
+<p>需要注意的是, 不使用服务器而是直接使用双击打开文件的方式是没有办法体验这种功能的</p>
+<p>最后我们可以看到在chrome61+控制台上打印出了1</p>
+<h1 id="web-share-api"><a href="#web-share-api" class="headerlink" title="web share api"></a>web share api</h1><p>为了让用户把他们喜欢的内容分享到网络上，不得把所有的社交按钮在自己的网站上添加一遍。这让页面变得很臃肿，很可能这些分享按钮和网站的视觉不匹配，并且还要添加来自第三方的代码。</p>
+<p>现在，Android 版的 Chrome 新增了 Web Share API，该 API 可以直接调用原生的分享功能，用户可以很方便的将自己喜欢的文本和链接分享到其他原生 App 上了！</p>
+<p>在之后的版本中，这个 API 还能分享到已安装的 web app 中。直接调用 navigator.share 方法，传递相关的参数，就可以发起分享。其他事情系统会帮你搞定。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">navigator.share(&#123;</div><div class="line">  title: document.title, text: &apos;Hello&apos;,</div><div class="line">  url: window.location.href</div><div class="line">&#125;).then(() =&gt; &#123;</div><div class="line">  console.log(&apos;Successful share&apos;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h1 id="WebUSB"><a href="#WebUSB" class="headerlink" title="WebUSB"></a>WebUSB</h1><p>很多电脑的周边硬件在 Web 平台上都有对应的 API，比如键盘、鼠标、打印机和手柄等等。但是，想要在浏览器中使用某些特殊的用于教育、科研、工业等等 USB 设备很困难，通常需要特殊的驱动才行。</p>
+<p>现在 Chrome 提供了 WebUSB API，在用户授权后，Web 应用可以直接可 USB 设备通信。</p>
+<p>要了解更多, 可登陆google开发者平台了解详情…</p>
 ]]></content>
     
     <summary type="html">
     
-      垂直居中是布局中十分常见的效果之一，为实现良好的兼容性，PC端实现垂直居中的方法一般是通过绝对定位，table-cell，负边距等方法。有了css3，针对移动端的垂直居中就更加多样化。
+      Chrome 61 正式版已于2017年9月6日正式发布，并增加了很多开发者相关的功能。在 Mac、Windows 和 Linux 系统中，Chrome 61 开始支持 WebUSB API，以及 PaymentRequest API。
     
     </summary>
     
-      <category term="CSS" scheme="http://bolg.changerhe.cb/categories/CSS/"/>
+      <category term="Chrome" scheme="http://bolg.changerhe.cb/categories/Chrome/"/>
     
     
-      <category term="CSS" scheme="http://bolg.changerhe.cb/tags/CSS/"/>
+      <category term="Chrome" scheme="http://bolg.changerhe.cb/tags/Chrome/"/>
     
   </entry>
   
   <entry>
     <title>微信小程序懒加载的实现</title>
-    <link href="http://bolg.changerhe.cb/2017/10/21/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%87%92%E5%8A%A0%E8%BD%BD%E7%9A%84%E5%AE%9E%E7%8E%B0/"/>
-    <id>http://bolg.changerhe.cb/2017/10/21/微信小程序懒加载的实现/</id>
-    <published>2017-10-21T14:12:23.000Z</published>
-    <updated>2017-11-08T12:22:54.759Z</updated>
+    <link href="http://bolg.changerhe.cb/2017/09/21/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%87%92%E5%8A%A0%E8%BD%BD%E7%9A%84%E5%AE%9E%E7%8E%B0/"/>
+    <id>http://bolg.changerhe.cb/2017/09/21/微信小程序懒加载的实现/</id>
+    <published>2017-09-21T14:12:23.000Z</published>
+    <updated>2017-11-22T05:36:57.777Z</updated>
     
     <content type="html"><![CDATA[<p>近期做了一个微信小程序的项目, 其中涉及到微信小程序的懒加载功能, 第一次做这个功能的感觉真的是让人欲(tou)罢(teng)不(bu)能(yi)啊, 所以在这里做一个小小的总结来分享一下.</p>
 <p>不同于原始的dom操作项目, 现在的现代框架已经将dom操作高度集成到了api中, 采用数据驱动的方式, 来实现对dom的各种处理.</p>
@@ -128,72 +117,94 @@
   </entry>
   
   <entry>
-    <title>处理git无法上传超过100M文件的问题</title>
-    <link href="http://bolg.changerhe.cb/2017/10/13/%E5%A4%84%E7%90%86git%E6%97%A0%E6%B3%95%E4%B8%8A%E4%BC%A0%E8%B6%85%E8%BF%87100M%E6%96%87%E4%BB%B6%E7%9A%84%E9%97%AE%E9%A2%98/"/>
-    <id>http://bolg.changerhe.cb/2017/10/13/处理git无法上传超过100M文件的问题/</id>
-    <published>2017-10-13T03:26:43.000Z</published>
-    <updated>2017-10-13T11:53:08.165Z</updated>
+    <title>网站的https证书配置小结</title>
+    <link href="http://bolg.changerhe.cb/2017/09/05/%E7%BD%91%E7%AB%99%E7%9A%84https%E8%AF%81%E4%B9%A6%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95/"/>
+    <id>http://bolg.changerhe.cb/2017/09/05/网站的https证书配置方法/</id>
+    <published>2017-09-05T05:12:13.000Z</published>
+    <updated>2017-11-22T04:45:57.235Z</updated>
     
-    <content type="html"><![CDATA[<p>最近在项目提交分支到github的时候, 出现了一件很尴尬的事情, 文件超过100m, 被github拒绝了</p>
-<p>宝宝心里苦, 但宝宝不说</p>
-<p>当时也没太在意, 但是当我的当前分支提交堆积到12次的时候, 我急了</p>
-<p>卧槽, 要是我以后都不能提交, 那得多尴尬啊</p>
-<p>谁叫我有轻微强迫症呢</p>
-<p>自己搞不定, 那百度啊</p>
-<p>然后, 我百度了一圈, 更换各种搜索词, 从百度的搜索结果的第一页看到第四页, 玛德终于解决了</p>
-<p>所以我响应祖国的号召, 坚持每年3.15打击假冒伪劣的思想, 向大家告知一下, 下面的方法  都!!!!  是!!!!! 不!!!!! 对!!!!! 的!!!!!</p>
-<p>在这里可能有人要说了, 卧槽你整些不对的跟我说干嘛</p>
-<p>没事, 我开心, 结尾也有正确的答案, 不想看过程直接看结果的跳到最后就好</p>
-<h1 id="坑爹的jar包"><a href="#坑爹的jar包" class="headerlink" title="坑爹的jar包"></a>坑爹的jar包</h1><p>首先引用一下前辈的话</p>
-<blockquote>
-<p>如果做了这几步你push的时候还是报和开始的时候一样的错，那说明这个文件你不是最近一次commit时添加的，而是在之前commit过很多次了，这就需要把关于这个文件的所有历史commit记录全部清除掉，这时候我们就需要用到一个叫BFG的工具。我们要到<a href="https://rtyley.github.io/bfg-repo-cleaner/#download这个网站去下载并学习如何使用这个工具。" target="_blank" rel="external">https://rtyley.github.io/bfg-repo-cleaner/#download这个网站去下载并学习如何使用这个工具。</a> —— <a href="https://www.2cto.com/kf/201612/576868.html" target="_blank"> [ 来自某位不知名的大佬 ]</a></p>
-</blockquote>
-<p>我去尝试下下来这个文档, 卧槽原来是一个jar包, 瞬间觉得高大上了</p>
-<p>前辈, 您是想要我学习一下java的运行原理么?</p>
-<p>嗯~ jar包, 可以的, 跟着前辈指示的指令一波操作</p>
-<p>结果: 指令没卵用</p>
-<h1 id="使用git-lfs"><a href="#使用git-lfs" class="headerlink" title="使用git-lfs"></a>使用git-lfs</h1><p>其实这个方法也是可行的, 因为git是专门提供了一个工具来给我们存储大容量文件的, 就是<code>Git Large File Storage</code> 大家有兴趣可以百度或者google一下</p>
-<p>但问题是, 搞这个玩意儿又要下另一个版本的git, 神烦, 故跳转到下一百度词条了, 毕竟以后很少用到, 学习成本太高</p>
-<p>这里也一样, 贴上前辈的文章链接, 有兴趣的可以学习一下</p>
-<blockquote>
-<p>—— <a href="http://www.liuxiao.org/2017/02/git-%E5%A4%84%E7%90%86-github-%E4%B8%8D%E5%85%81%E8%AE%B8%E4%B8%8A%E4%BC%A0%E8%B6%85%E8%BF%87-100mb-%E6%96%87%E4%BB%B6%E7%9A%84%E9%97%AE%E9%A2%98/" target="_blank"> [ [Git] 处理 github 不允许上传超过 100MB 文件的问题 ]</a></p>
-</blockquote>
-<h1 id="修正错误"><a href="#修正错误" class="headerlink" title="修正错误?"></a>修正错误?</h1><p>还有某前辈建议这样做</p>
-<blockquote>
-<p>第一步输入命令 cd /Users/Dora/Desktop/XXX（cd后面的这个路径要换成你自己项目的路径），然后第二步输入命令 git rm –cached /Users/Dora/Desktop/XXX/XXX/IJKMediaFramework（加下划线部分是你自己的要移除的文件的路径），第三步输入命令 git commit –amend -CHEAD，执行完这步后，这个大文件将会从你的commit记录里移除，并且以后commit都将不会再把它commit了，这时候就可以git push把本地代码push到github上了。</p>
-<p>—— <a href="http://www.cnblogs.com/akiha/p/5705505.html" target="_blank"> [ Github 修正上传时“this exceeds GitHub’s file size limit of 100 MB”错误 ]</a></p>
-</blockquote>
-<p>似乎~ 还是不行</p>
-<h1 id="正确的做法"><a href="#正确的做法" class="headerlink" title="正确的做法"></a>正确的做法</h1><p>其实就代码来说, 很简单</p>
-<p>注意一点就是, 记得在你当前本地仓库的根目录下打开git bash 否则是无效的, 别问我怎么知道的, 蓝瘦香菇</p>
-<p>代码就只有三行, 复制粘贴就好了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">git filter-branch --force --index-filter &quot;git rm --cached --ignore-unmatch ***&quot;  --prune-empty --tag-name-filter cat -- --all</div><div class="line"></div><div class="line">git commit --amend -CHEAD</div><div class="line"></div><div class="line">git push origin master</div></pre></td></tr></table></figure>
-<p>代码第一行中的三个*, 将它换为你之前不要提交的文件的相对路径, 然后会看到一堆的代码校验, 最后会在分支中删除掉你提交这个大文件的记录</p>
-<p>那么最后使用git push就可以提交了, 全部搞定, 大吉大利, 今晚吃鸡</p>
-<p>(完)</p>
+    <content type="html"><![CDATA[<p>HTTPS（全称：Hyper Text Transfer Protocol over Secure Socket Layer），是以安全为目标的HTTP通道，简单讲是HTTP的安全版。即HTTP下加入SSL层，HTTPS的安全基础是SSL，因此加密的详细内容就需要SSL。 它是一个URI scheme（抽象标识符体系），句法类同http:体系。用于安全的HTTP数据传输。https:URL表明它使用了HTTP，但HTTPS存在不同于HTTP的默认端口及一个加密/身份验证层（在HTTP与TCP之间）。这个系统的最初研发由网景公司(Netscape)进行，并内置于其浏览器Netscape Navigator中，提供了身份验证与加密通讯方法。现在它被广泛用于万维网上安全敏感的通讯，例如交易支付方面。</p>
+<pre><code>----引自百度百科
+</code></pre><p>那么, https对于提升网站的安全性方面是卓有成效的, 但是这对于我们来说有啥作用呢?</p>
+<p>自2014年以来, 百度就开始宣布, 优先支持对https站点的支持与收录了, 也就是说, 我们使用https的网站会被百度的蜘蛛引擎优先收录, 从而实现百度的搜索排行了.</p>
+<p>还有更重要的一点是, 开发微信小程序和微信公众号的时候, 腾讯的马爸爸不允许我们使用http作为协议传输数据啊, 而且还只能使用默认端口传输数据啊.</p>
+<p>所以, 这样说来, 整一个https证书还是挺有必要的</p>
+<h1 id="话不多说开始干"><a href="#话不多说开始干" class="headerlink" title="话不多说开始干"></a>话不多说开始干</h1><p>首先我们需要到对应的https证书上那边获取到https的证书, 像我这么穷的人自然是买不起大几千的企业版https证书的了, 那么得想办法啊</p>
+<h2 id="踩坑第一步"><a href="#踩坑第一步" class="headerlink" title="踩坑第一步"></a>踩坑第一步</h2><p>雀氏纸尿裤?</p>
+<p>咳咳……</p>
+<p>首先我百度了一下https的证书, 大家都在极力推荐又拍云啊, 然后我去看了看, 我擦还真有</p>
+<p>但是整个流程走下来, 我最想吐槽的就是又拍云的页面混乱的链接了, 控制台不知道在整些什么玩意, 重要的东西完全没有分类好, 申请的话需要各种认证</p>
+<p>先是直接手机验证之后申请, 告诉我申请失败, 也不告知原因, 几次下来我就窝火了, 遂写了个工单上去, 处理工单的工程师告诉我是没有实名认证</p>
+<p>好, 去实名认证呗, 来来回回花了7-8天时间, 总算是申请下来了</p>
+<p>但是!</p>
+<p>我发现淘宝的马爸爸的阿里云也可以申请证书啊</p>
+<p>链接在<img src="https://common-buy.aliyun.com/?spm=5176.2020520163.cas.55.cf9c783W4XZMe&amp;commodityCode=cas#/buy" alt="这里"></p>
+<p>因为是我直接复制的url, 路径可能会失效, 可以依照:</p>
+<p>阿里云控制台 &gt; CA证书服务 &gt; 右上角购买证书</p>
+<p>这这个流程进行证书的申购</p>
+<p>关键是, 在又拍云每次申请要一天时间, 驳回之后又是要一天, 但是阿里云上面申请只需要一分钟左右就下来了, 部署的时候还有贴心的程序猿小哥哥录的视频告诉你配置和部署的姿势</p>
+<h1 id="申请好了-准备部署"><a href="#申请好了-准备部署" class="headerlink" title="申请好了, 准备部署"></a>申请好了, 准备部署</h1><p>部署的话我是直接使用的nginx进行部署的, 部署也很简单, 到nginx官网下载自己对应版本的包, 解压到自己的服务器任意文件夹</p>
+<p>还是在CA证书服务中, 将证书下载下来, 复制到nginx的conf文件夹中, 在文件夹中新建一个文件cert, 然后将两个证书复制进去</p>
+<p>回到nginx.exe文件目录下, 双击重启一下nginx服务, 一切ok</p>
+<p>然后, 我们就可以直接使用https访问我们的网站了, 美滋滋啊美滋滋</p>
 ]]></content>
     
     <summary type="html">
     
-      最近在项目提交分支到github的时候, 出现了一件很尴尬的事情, 文件超过100m, 被github拒绝了
+      HTTPS（全称：Hyper Text Transfer Protocol over Secure Socket Layer），是以安全为目标的HTTP通道，简单讲是HTTP的安全版。
     
     </summary>
     
-      <category term="github" scheme="http://bolg.changerhe.cb/categories/github/"/>
+      <category term="HTTPS" scheme="http://bolg.changerhe.cb/categories/HTTPS/"/>
     
     
-      <category term="Git" scheme="http://bolg.changerhe.cb/tags/Git/"/>
+      <category term="HTTPS" scheme="http://bolg.changerhe.cb/tags/HTTPS/"/>
     
-      <category term="github" scheme="http://bolg.changerhe.cb/tags/github/"/>
+  </entry>
+  
+  <entry>
+    <title>利用dpl实现对移动设备的像素实现精准控制</title>
+    <link href="http://bolg.changerhe.cb/2017/08/05/%E5%88%A9%E7%94%A8dpl%E5%AE%9E%E7%8E%B0%E5%AF%B9%E7%A7%BB%E5%8A%A8%E8%AE%BE%E5%A4%87%E7%9A%84%E5%83%8F%E7%B4%A0%E5%AE%9E%E7%8E%B0%E7%B2%BE%E5%87%86%E6%8E%A7%E5%88%B6/"/>
+    <id>http://bolg.changerhe.cb/2017/08/05/利用dpl实现对移动设备的像素实现精准控制/</id>
+    <published>2017-08-05T14:14:14.000Z</published>
+    <updated>2017-11-22T05:36:30.999Z</updated>
+    
+    <content type="html"><![CDATA[<p>dpl, 全称是device pixel ratio ,表示设备的像素比</p>
+<p>设备在移动端因为物理像素和理论像素的不同而产生了显示的差异, 随着科技的发展, 设备的物理像素与理论像素之比由之前的一比一变成了多比一, 其中比较典型的就是, iphone6的设备像素比是2:1, iphone6 plus是3:1</p>
+<p>因为其显示的差异, 也造成了我们在电脑上做的页面, 在移动端出现了显示异常的情况</p>
+<p>而在js的window对象中有一个属性专门用于表示设备我的像素比例, 名叫devicePixelRatio, 也就是说, 我们可以使用window.devicePixelRatio来显示出当前设备的物理像素和实际像素的比例.</p>
+<p>也同样是因为这个问题, 催生了移动设备一像素的问题, 因为我们在电脑上设置1px, 导致在手机端显示为2px甚至更多, 在需要精细化控制设计图的情况下会使页面非常不美观</p>
+<p>解决这个问题，主要思想是：使用伪元素设置1px的边框，然后使用媒体查询，根据dpr的大小，对边框进行缩放（scaleY）。详细代码如下所示： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">  &lt;div id=&quot;app&quot;&gt;</div><div class="line">    &lt;div class=&quot;tab border-1px&quot;&gt; &lt;!-- !!!!!!! --&gt;</div><div class="line">      &lt;div class=&quot;tab-items&quot;&gt;</div><div class="line">        &lt;router-link  to=&quot;/goods&quot;&gt;商品&lt;/router-link&gt;</div><div class="line">      &lt;/div&gt;</div><div class="line">      &lt;div class=&quot;tab-items&quot;&gt;</div><div class="line">         &lt;router-link  to=&quot;/ratings&quot;&gt;评价&lt;/router-link&gt;</div><div class="line">      &lt;/div&gt;</div><div class="line">      &lt;div class=&quot;tab-items&quot;&gt;</div><div class="line">        &lt;router-link  to=&quot;/seller&quot;&gt;商店&lt;/router-link&gt;</div><div class="line">      &lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">    &lt;div class=&quot;content&quot;&gt;</div><div class="line">      &lt;router-view&gt;&lt;/router-view&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/template&gt;</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">&lt;/script&gt;</div><div class="line"></div><div class="line">&lt;style lang=&quot;stylus&quot; rel=&quot;stylesheet/stylus&quot;&gt;</div><div class="line">@import &quot;./common/stylus/mixin.styl&quot;</div><div class="line">@import &quot;./common/stylus/base.styl&quot;</div><div class="line">#app</div><div class="line">  .tab</div><div class="line">    display: flex</div><div class="line">    width: 100%</div><div class="line">    height: 40px</div><div class="line">    line-height: 40px</div><div class="line">    border-1px(blue)  /*!!!!!!*/</div><div class="line">    .tab-items</div><div class="line">      flex: 1</div><div class="line">      text-align: center</div><div class="line">      font-size: 14px</div><div class="line">      &amp; &gt; a</div><div class="line">        display: block</div><div class="line">        width: 100%</div><div class="line">        color: rgb(77, 85, 93)</div><div class="line">        &amp;.router-link-active</div><div class="line">          color: rgb(240, 20, 20)</div><div class="line">  .seller</div><div class="line">    border-bottom: 1px solid blue  /*用于对比，在移动端实际显示2px*/</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+<p>看过滴滴打车的黄奕老师的vue开发饿了么教程的童鞋可以知道这就是初期构建的商家详情的spa单页骨架雏形哈哈</p>
+<p>可以看到我们使用到了stylus中的mixin对移动端设备一像素问题的解决办法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">border-1px($color)</div><div class="line">    position: relative</div><div class="line">    &amp;::after</div><div class="line">        position: absolute</div><div class="line">        left: 0</div><div class="line">        bottom: 0</div><div class="line">        width: 100%</div><div class="line">        content: &apos; &apos;</div><div class="line">        border-top: 1px solid $color</div><div class="line"></div><div class="line">//图片的mixin，根据图片的不同dpr进行适配下显示高清问题</div><div class="line">bg-image($url) </div><div class="line">  background-image: url($url + &quot;@2x.png&quot;)</div><div class="line">  @media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3)</div><div class="line">    background-image: url($url + &quot;@3x.png&quot;)</div></pre></td></tr></table></figure>
+<p>针对边框一像素问题, 我们使用的是伪类结合子绝父相, 然后将伪类的边框使用css3的transition: scale来进行缩放从而达到效果的</p>
+<p>这里的bg-image($url) 是负责处理图片在不同dpr下显示的问题，原来跟1像素边框问题差不多，不过这里不需要重做，只是根据不同的media query来调用不同的图片显示，而这些图片是需要放在相对应的文件夹的。</p>
+<p>再来看一下base中的内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;!--根据媒体查询@media设置不同的缩放比例(transform 的 scale)来修复1像素边框的问题--&gt;</div><div class="line">@media (-webkit-min-device-pixel-ratio: 1.5),(min-device-pixel-ratio: 1.5)</div><div class="line">    .border-1px</div><div class="line">        &amp;::after</div><div class="line">            -webkit-transform: scaleY(0.7)</div><div class="line">            transform: scaleY(0.7)</div><div class="line"></div><div class="line">@media (-webkit-min-device-pixel-ratio: 2),(min-device-pixel-ratio: 2)</div><div class="line">    .border-1px</div><div class="line">        &amp;::after</div><div class="line">            -webkit-transform: scaleY(0.5)</div><div class="line">            transform: scaleY(0.5)</div></pre></td></tr></table></figure>
+<p>这里的修复1像素边框问题会拆分为2个部分，一个部分是这里的base.styl里面处理缩放，另外一部分是在mixin.styl里面处理重做border。<br>这里是一个base模块文件，只保留了基本的共用的css，需要结合其他的css文件(stylus)来合并理解<br>dpr一般是1或者2，1.5只是为了更精细的去适配1和2之间的手机型号</p>
+]]></content>
+    
+    <summary type="html">
+    
+      一般在移动端，由于dpr（设备像素比）不为1，在PC端显示1像素的边框，在移动端其实显示为2px。解决这个问题，主要思想是：使用伪元素设置1px的边框，然后使用媒体查询，根据dpr的大小，对边框进行缩放（scaleY）。详细代码如下所示：  App.vue:
+    
+    </summary>
+    
+      <category term="移动端" scheme="http://bolg.changerhe.cb/categories/%E7%A7%BB%E5%8A%A8%E7%AB%AF/"/>
+    
+    
+      <category term="移动端" scheme="http://bolg.changerhe.cb/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF/"/>
     
   </entry>
   
   <entry>
     <title>Angularjs的数据绑定和脏检查</title>
-    <link href="http://bolg.changerhe.cb/2017/10/10/Angularjs%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A%E5%92%8C%E8%84%8F%E6%A3%80%E6%9F%A5/"/>
-    <id>http://bolg.changerhe.cb/2017/10/10/Angularjs的数据绑定和脏检查/</id>
-    <published>2017-10-10T04:53:41.000Z</published>
-    <updated>2017-10-13T12:01:38.767Z</updated>
+    <link href="http://bolg.changerhe.cb/2017/07/20/Angularjs%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A%E5%92%8C%E8%84%8F%E6%A3%80%E6%9F%A5/"/>
+    <id>http://bolg.changerhe.cb/2017/07/20/Angularjs的数据绑定和脏检查/</id>
+    <published>2017-07-20T04:53:41.000Z</published>
+    <updated>2017-11-22T05:36:01.486Z</updated>
     
     <content type="html"><![CDATA[<p>接触Angular也有一段时间了，时常问自己一些问题, 如果是我实现它，会在哪些方面选择跟它相同的道路, 哪些方面不同。为此，记录了一些思考，给自己回顾，也供他人参考。</p>
 <p>本篇博客将分下面几个方面进行讲解</p>
@@ -252,408 +263,11 @@
   </entry>
   
   <entry>
-    <title>利用dpl实现对移动设备的像素实现精准控制</title>
-    <link href="http://bolg.changerhe.cb/2017/10/05/%E7%BD%91%E7%AB%99%E7%9A%84https%E8%AF%81%E4%B9%A6%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95/"/>
-    <id>http://bolg.changerhe.cb/2017/10/05/网站的https证书配置方法/</id>
-    <published>2017-10-05T14:14:14.000Z</published>
-    <updated>2017-11-20T04:50:12.186Z</updated>
-    
-    <content type="html"><![CDATA[<p>dpl, 全称是device pixel ratio ,表示设备的像素比</p>
-<p>设备在移动端因为物理像素和理论像素的不同而产生了显示的差异, 随着科技的发展, 设备的物理像素与理论像素之比由之前的一比一变成了多比一, 其中比较典型的就是, iphone6的设备像素比是2:1, iphone6 plus是3:1</p>
-<p>因为其显示的差异, 也造成了我们在电脑上做的页面, 在移动端出现了显示异常的情况</p>
-<p>而在js的window对象中有一个属性专门用于表示设备我的像素比例, 名叫devicePixelRatio, 也就是说, 我们可以使用window.devicePixelRatio来显示出当前设备的物理像素和实际像素的比例.</p>
-<p>也同样是因为这个问题, 催生了移动设备一像素的问题, 因为我们在电脑上设置1px, 导致在手机端显示为2px甚至更多, 在需要精细化控制设计图的情况下会使页面非常不美观</p>
-<p>解决这个问题，主要思想是：使用伪元素设置1px的边框，然后使用媒体查询，根据dpr的大小，对边框进行缩放（scaleY）。详细代码如下所示： </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">  &lt;div id=&quot;app&quot;&gt;</div><div class="line">    &lt;div class=&quot;tab border-1px&quot;&gt; &lt;!-- !!!!!!! --&gt;</div><div class="line">      &lt;div class=&quot;tab-items&quot;&gt;</div><div class="line">        &lt;router-link  to=&quot;/goods&quot;&gt;商品&lt;/router-link&gt;</div><div class="line">      &lt;/div&gt;</div><div class="line">      &lt;div class=&quot;tab-items&quot;&gt;</div><div class="line">         &lt;router-link  to=&quot;/ratings&quot;&gt;评价&lt;/router-link&gt;</div><div class="line">      &lt;/div&gt;</div><div class="line">      &lt;div class=&quot;tab-items&quot;&gt;</div><div class="line">        &lt;router-link  to=&quot;/seller&quot;&gt;商店&lt;/router-link&gt;</div><div class="line">      &lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">    &lt;div class=&quot;content&quot;&gt;</div><div class="line">      &lt;router-view&gt;&lt;/router-view&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/template&gt;</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">&lt;/script&gt;</div><div class="line"></div><div class="line">&lt;style lang=&quot;stylus&quot; rel=&quot;stylesheet/stylus&quot;&gt;</div><div class="line">@import &quot;./common/stylus/mixin.styl&quot;</div><div class="line">@import &quot;./common/stylus/base.styl&quot;</div><div class="line">#app</div><div class="line">  .tab</div><div class="line">    display: flex</div><div class="line">    width: 100%</div><div class="line">    height: 40px</div><div class="line">    line-height: 40px</div><div class="line">    border-1px(blue)  /*!!!!!!*/</div><div class="line">    .tab-items</div><div class="line">      flex: 1</div><div class="line">      text-align: center</div><div class="line">      font-size: 14px</div><div class="line">      &amp; &gt; a</div><div class="line">        display: block</div><div class="line">        width: 100%</div><div class="line">        color: rgb(77, 85, 93)</div><div class="line">        &amp;.router-link-active</div><div class="line">          color: rgb(240, 20, 20)</div><div class="line">  .seller</div><div class="line">    border-bottom: 1px solid blue  /*用于对比，在移动端实际显示2px*/</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
-<p>看过滴滴打车的黄奕老师的vue开发饿了么教程的童鞋可以知道这就是初期构建的商家详情的spa单页骨架雏形哈哈</p>
-<p>可以看到我们使用到了stylus中的mixin对移动端设备一像素问题的解决办法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">border-1px($color)</div><div class="line">    position: relative</div><div class="line">    &amp;::after</div><div class="line">        position: absolute</div><div class="line">        left: 0</div><div class="line">        bottom: 0</div><div class="line">        width: 100%</div><div class="line">        content: &apos; &apos;</div><div class="line">        border-top: 1px solid $color</div><div class="line"></div><div class="line">//图片的mixin，根据图片的不同dpr进行适配下显示高清问题</div><div class="line">bg-image($url) </div><div class="line">  background-image: url($url + &quot;@2x.png&quot;)</div><div class="line">  @media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3)</div><div class="line">    background-image: url($url + &quot;@3x.png&quot;)</div></pre></td></tr></table></figure>
-<p>针对边框一像素问题, 我们使用的是伪类结合子绝父相, 然后将伪类的边框使用css3的transition: scale来进行缩放从而达到效果的</p>
-<p>这里的bg-image($url) 是负责处理图片在不同dpr下显示的问题，原来跟1像素边框问题差不多，不过这里不需要重做，只是根据不同的media query来调用不同的图片显示，而这些图片是需要放在相对应的文件夹的。</p>
-<p>再来看一下base中的内容</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;!--根据媒体查询@media设置不同的缩放比例(transform 的 scale)来修复1像素边框的问题--&gt;</div><div class="line">@media (-webkit-min-device-pixel-ratio: 1.5),(min-device-pixel-ratio: 1.5)</div><div class="line">    .border-1px</div><div class="line">        &amp;::after</div><div class="line">            -webkit-transform: scaleY(0.7)</div><div class="line">            transform: scaleY(0.7)</div><div class="line"></div><div class="line">@media (-webkit-min-device-pixel-ratio: 2),(min-device-pixel-ratio: 2)</div><div class="line">    .border-1px</div><div class="line">        &amp;::after</div><div class="line">            -webkit-transform: scaleY(0.5)</div><div class="line">            transform: scaleY(0.5)</div></pre></td></tr></table></figure>
-<p>这里的修复1像素边框问题会拆分为2个部分，一个部分是这里的base.styl里面处理缩放，另外一部分是在mixin.styl里面处理重做border。<br>这里是一个base模块文件，只保留了基本的共用的css，需要结合其他的css文件(stylus)来合并理解<br>dpr一般是1或者2，1.5只是为了更精细的去适配1和2之间的手机型号</p>
-]]></content>
-    
-    <summary type="html">
-    
-      一般在移动端，由于dpr（设备像素比）不为1，在PC端显示1像素的边框，在移动端其实显示为2px。解决这个问题，主要思想是：使用伪元素设置1px的边框，然后使用媒体查询，根据dpr的大小，对边框进行缩放（scaleY）。详细代码如下所示：  App.vue:
-    
-    </summary>
-    
-      <category term="移动端" scheme="http://bolg.changerhe.cb/categories/%E7%A7%BB%E5%8A%A8%E7%AB%AF/"/>
-    
-    
-      <category term="移动端" scheme="http://bolg.changerhe.cb/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>利用dpl实现对移动设备的像素实现精准控制</title>
-    <link href="http://bolg.changerhe.cb/2017/10/05/%E5%88%A9%E7%94%A8dpl%E5%AE%9E%E7%8E%B0%E5%AF%B9%E7%A7%BB%E5%8A%A8%E8%AE%BE%E5%A4%87%E7%9A%84%E5%83%8F%E7%B4%A0%E5%AE%9E%E7%8E%B0%E7%B2%BE%E5%87%86%E6%8E%A7%E5%88%B6/"/>
-    <id>http://bolg.changerhe.cb/2017/10/05/利用dpl实现对移动设备的像素实现精准控制/</id>
-    <published>2017-10-05T14:14:14.000Z</published>
-    <updated>2017-11-20T04:50:12.186Z</updated>
-    
-    <content type="html"><![CDATA[<p>dpl, 全称是device pixel ratio ,表示设备的像素比</p>
-<p>设备在移动端因为物理像素和理论像素的不同而产生了显示的差异, 随着科技的发展, 设备的物理像素与理论像素之比由之前的一比一变成了多比一, 其中比较典型的就是, iphone6的设备像素比是2:1, iphone6 plus是3:1</p>
-<p>因为其显示的差异, 也造成了我们在电脑上做的页面, 在移动端出现了显示异常的情况</p>
-<p>而在js的window对象中有一个属性专门用于表示设备我的像素比例, 名叫devicePixelRatio, 也就是说, 我们可以使用window.devicePixelRatio来显示出当前设备的物理像素和实际像素的比例.</p>
-<p>也同样是因为这个问题, 催生了移动设备一像素的问题, 因为我们在电脑上设置1px, 导致在手机端显示为2px甚至更多, 在需要精细化控制设计图的情况下会使页面非常不美观</p>
-<p>解决这个问题，主要思想是：使用伪元素设置1px的边框，然后使用媒体查询，根据dpr的大小，对边框进行缩放（scaleY）。详细代码如下所示： </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">  &lt;div id=&quot;app&quot;&gt;</div><div class="line">    &lt;div class=&quot;tab border-1px&quot;&gt; &lt;!-- !!!!!!! --&gt;</div><div class="line">      &lt;div class=&quot;tab-items&quot;&gt;</div><div class="line">        &lt;router-link  to=&quot;/goods&quot;&gt;商品&lt;/router-link&gt;</div><div class="line">      &lt;/div&gt;</div><div class="line">      &lt;div class=&quot;tab-items&quot;&gt;</div><div class="line">         &lt;router-link  to=&quot;/ratings&quot;&gt;评价&lt;/router-link&gt;</div><div class="line">      &lt;/div&gt;</div><div class="line">      &lt;div class=&quot;tab-items&quot;&gt;</div><div class="line">        &lt;router-link  to=&quot;/seller&quot;&gt;商店&lt;/router-link&gt;</div><div class="line">      &lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">    &lt;div class=&quot;content&quot;&gt;</div><div class="line">      &lt;router-view&gt;&lt;/router-view&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/template&gt;</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">&lt;/script&gt;</div><div class="line"></div><div class="line">&lt;style lang=&quot;stylus&quot; rel=&quot;stylesheet/stylus&quot;&gt;</div><div class="line">@import &quot;./common/stylus/mixin.styl&quot;</div><div class="line">@import &quot;./common/stylus/base.styl&quot;</div><div class="line">#app</div><div class="line">  .tab</div><div class="line">    display: flex</div><div class="line">    width: 100%</div><div class="line">    height: 40px</div><div class="line">    line-height: 40px</div><div class="line">    border-1px(blue)  /*!!!!!!*/</div><div class="line">    .tab-items</div><div class="line">      flex: 1</div><div class="line">      text-align: center</div><div class="line">      font-size: 14px</div><div class="line">      &amp; &gt; a</div><div class="line">        display: block</div><div class="line">        width: 100%</div><div class="line">        color: rgb(77, 85, 93)</div><div class="line">        &amp;.router-link-active</div><div class="line">          color: rgb(240, 20, 20)</div><div class="line">  .seller</div><div class="line">    border-bottom: 1px solid blue  /*用于对比，在移动端实际显示2px*/</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
-<p>看过滴滴打车的黄奕老师的vue开发饿了么教程的童鞋可以知道这就是初期构建的商家详情的spa单页骨架雏形哈哈</p>
-<p>可以看到我们使用到了stylus中的mixin对移动端设备一像素问题的解决办法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">border-1px($color)</div><div class="line">    position: relative</div><div class="line">    &amp;::after</div><div class="line">        position: absolute</div><div class="line">        left: 0</div><div class="line">        bottom: 0</div><div class="line">        width: 100%</div><div class="line">        content: &apos; &apos;</div><div class="line">        border-top: 1px solid $color</div><div class="line"></div><div class="line">//图片的mixin，根据图片的不同dpr进行适配下显示高清问题</div><div class="line">bg-image($url) </div><div class="line">  background-image: url($url + &quot;@2x.png&quot;)</div><div class="line">  @media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3)</div><div class="line">    background-image: url($url + &quot;@3x.png&quot;)</div></pre></td></tr></table></figure>
-<p>针对边框一像素问题, 我们使用的是伪类结合子绝父相, 然后将伪类的边框使用css3的transition: scale来进行缩放从而达到效果的</p>
-<p>这里的bg-image($url) 是负责处理图片在不同dpr下显示的问题，原来跟1像素边框问题差不多，不过这里不需要重做，只是根据不同的media query来调用不同的图片显示，而这些图片是需要放在相对应的文件夹的。</p>
-<p>再来看一下base中的内容</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;!--根据媒体查询@media设置不同的缩放比例(transform 的 scale)来修复1像素边框的问题--&gt;</div><div class="line">@media (-webkit-min-device-pixel-ratio: 1.5),(min-device-pixel-ratio: 1.5)</div><div class="line">    .border-1px</div><div class="line">        &amp;::after</div><div class="line">            -webkit-transform: scaleY(0.7)</div><div class="line">            transform: scaleY(0.7)</div><div class="line"></div><div class="line">@media (-webkit-min-device-pixel-ratio: 2),(min-device-pixel-ratio: 2)</div><div class="line">    .border-1px</div><div class="line">        &amp;::after</div><div class="line">            -webkit-transform: scaleY(0.5)</div><div class="line">            transform: scaleY(0.5)</div></pre></td></tr></table></figure>
-<p>这里的修复1像素边框问题会拆分为2个部分，一个部分是这里的base.styl里面处理缩放，另外一部分是在mixin.styl里面处理重做border。<br>这里是一个base模块文件，只保留了基本的共用的css，需要结合其他的css文件(stylus)来合并理解<br>dpr一般是1或者2，1.5只是为了更精细的去适配1和2之间的手机型号</p>
-]]></content>
-    
-    <summary type="html">
-    
-      一般在移动端，由于dpr（设备像素比）不为1，在PC端显示1像素的边框，在移动端其实显示为2px。解决这个问题，主要思想是：使用伪元素设置1px的边框，然后使用媒体查询，根据dpr的大小，对边框进行缩放（scaleY）。详细代码如下所示：  App.vue:
-    
-    </summary>
-    
-      <category term="移动端" scheme="http://bolg.changerhe.cb/categories/%E7%A7%BB%E5%8A%A8%E7%AB%AF/"/>
-    
-    
-      <category term="移动端" scheme="http://bolg.changerhe.cb/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Javascript中隐式类型转换的神坑</title>
-    <link href="http://bolg.changerhe.cb/2017/09/30/Javascript%E4%B8%AD%E9%9A%90%E5%BC%8F%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E7%9A%84%E7%A5%9E%E5%9D%91/"/>
-    <id>http://bolg.changerhe.cb/2017/09/30/Javascript中隐式类型转换的神坑/</id>
-    <published>2017-09-30T06:16:09.000Z</published>
-    <updated>2017-09-30T03:41:50.749Z</updated>
-    
-    <content type="html"><![CDATA[<p>开篇之前, 大家先思考一个问题, 下面这段代码运行出来之后的结果是多少</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">++[[]][+[]]+[+[]]</div></pre></td></tr></table></figure>
-<p>首先, 不得不说, 发现并提出这个问题的人是个天才，他怎么会遇到这样的一个问题。 </p>
-<p>其次，回答这个问题的人更是一个天才，我难以想象他会回答这个问题，更难以想象的是，他的回答是如此的详细和丰富和完整，真正称得上诲人不倦。</p>
-<p>不卖关子了, 这道题的答案是10, String类型的, 10</p>
-<p>那么, 这个问题怎么解呢? 下面跟着我一起把小车开起来~</p>
-<h1 id="回归本源"><a href="#回归本源" class="headerlink" title="回归本源"></a>回归本源</h1><p>我们先复习一下: JS中有两种数据类型: 基本数据类型, 复杂数据类型</p>
-<p>基本数据类型存储在栈空间中, 类型加上ES6新增的Symbol一共六种</p>
-<blockquote>
-<p>string</p>
-<p>number</p>
-<p>boolean</p>
-<p>undefined</p>
-<p>null</p>
-<p>symbol</p>
-</blockquote>
-<p>复杂数据类型存储在堆空间中,包含以下三种</p>
-<blockquote>
-<p>function</p>
-<p>object</p>
-<p>array</p>
-</blockquote>
-<p>但是听说最近爆出了Chrome的61版本存在的安全漏洞的问题</p>
-<p>因为V8团队之前做的一个优化,将函数中的内部复杂数据类型直接存储在栈空间了, 导致V8对ES6的解构, for…of,rest参数的解析功能会变慢, 当然, 这又是另外一回事了.</p>
-<h1 id="当我们执行加法操作时-JS在想什么"><a href="#当我们执行加法操作时-JS在想什么" class="headerlink" title="当我们执行加法操作时,JS在想什么"></a>当我们执行加法操作时,JS在想什么</h1><p>首先还是申明一下,下面的解释是在网上查阅资料, 加上我自己的实践得出的结果, 可能和准确值存在偏差. 欢迎指正</p>
-<h2 id="加法运算的隐式转换的执行顺序"><a href="#加法运算的隐式转换的执行顺序" class="headerlink" title="加法运算的隐式转换的执行顺序"></a>加法运算的隐式转换的执行顺序</h2><p>加法运算符会触发三种类型转换：</p>
-<blockquote>
-<p>转换为原始值</p>
-<p>转换为数字</p>
-<p>转换为字符串</p>
-</blockquote>
-<h2 id="通过-ToPrimitive-将值转换为原始值"><a href="#通过-ToPrimitive-将值转换为原始值" class="headerlink" title="通过 ToPrimitive() 将值转换为原始值"></a>通过 ToPrimitive() 将值转换为原始值</h2><p>如果操作值是个原始值，则直接返回它。</p>
-<p>否则，如果操作值是一个对象。则调用 obj.valueOf() 方法。 如果返回值是一个原始值，则返回这个原始值。</p>
-<p>否则，调用 obj.toString() 方法。 如果返回值是一个原始值，则返回这个原始值。</p>
-<p>否则，抛出 TypeError 异常。</p>
-<h2 id="通过-ToNumber-将值转换为数字"><a href="#通过-ToNumber-将值转换为数字" class="headerlink" title="通过 ToNumber() 将值转换为数字"></a>通过 ToNumber() 将值转换为数字</h2><p>下面的表格解释了 ToNumber() 是如何将原始值转换成数字的</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">参数</th>
-<th style="text-align:center">结果</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">undefined</td>
-<td style="text-align:center">NaN</td>
-</tr>
-<tr>
-<td style="text-align:center">null</td>
-<td style="text-align:center">+0</td>
-</tr>
-<tr>
-<td style="text-align:center">boolean</td>
-<td style="text-align:center">true被转换为1,false转换为+0</td>
-</tr>
-<tr>
-<td style="text-align:center">number</td>
-<td style="text-align:center">无需转换</td>
-</tr>
-<tr>
-<td style="text-align:center">string</td>
-<td style="text-align:center">由字符串解析为数字。例如，”324”被转换为324</td>
-</tr>
-</tbody>
-</table>
-<h2 id="通过ToString-将值转换为字符串"><a href="#通过ToString-将值转换为字符串" class="headerlink" title="通过ToString()将值转换为字符串"></a>通过ToString()将值转换为字符串</h2><p>下面的表格解释了 ToString() 是如何将原始值转换成字符串的</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">参数</th>
-<th style="text-align:center">结果</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">undefined</td>
-<td style="text-align:center">“undefined”</td>
-</tr>
-<tr>
-<td style="text-align:center">null</td>
-<td style="text-align:center">“null”</td>
-</tr>
-<tr>
-<td style="text-align:center">boolean</td>
-<td style="text-align:center">“true” 或者 “false”</td>
-</tr>
-<tr>
-<td style="text-align:center">number</td>
-<td style="text-align:center">数字作为字符串。比如，”1.765”</td>
-</tr>
-<tr>
-<td style="text-align:center">string</td>
-<td style="text-align:center">无需转换</td>
-</tr>
-</tbody>
-</table>
-<h1 id="小小的总结一下"><a href="#小小的总结一下" class="headerlink" title="小小的总结一下"></a>小小的总结一下</h1><p>其实说这么多, 最后想表达的还是一个重要思想</p>
-<p>对于JS中的加法, 流程是这样的</p>
-<ul>
-<li><p>判断两边的值是否都为普通的String或Number类型, 如果是,则直接进行数学相加或字符串的拼接操作</p>
-</li>
-<li><p>如果两边并非都为数字或字符串,那么首先会对相加值中的复杂数据类型进行valueOf()操作, 首先确定一下这个复杂数据类型能否通过求值来返回一个简单数据类型, 然后将求值结果与另一个值进行相加. </p>
-</li>
-<li><p>如果结果不是一个原始值, 则会调用toString()方法,将复杂类型直接转为字符串,进行拼接操作.</p>
-</li>
-</ul>
-<p>码完了, 好累啊, 那么下面我们做一些简单的测试, 对应上面列出的几条语法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">6 + &#123; valueOf: function () &#123; return 2 &#125; &#125;  // 8</div></pre></td></tr></table></figure>
-<p>上面的代码中,我们把valueOf()转为了直接返回2, 所以因为在加法运算时会直接运行所以返回了2</p>
-<p>没看懂? 没事儿咱们还有一个例子来说明这个问题,再来看一个好玩的</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Number.prototype.valueOf = function() &#123;</div><div class="line">	return 3</div><div class="line">&#125;</div><div class="line"></div><div class="line">new Number(2) == 3 // true</div></pre></td></tr></table></figure>
-<p>接下来看个简单的</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[] + [] // &quot;&quot;</div></pre></td></tr></table></figure>
-<p>为什么返回空值呢? 因为[]的valueOf值就是空值啊</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[] + &#123;&#125; // &apos;&apos;[object Object]&apos;&apos;</div></pre></td></tr></table></figure>
-<p>同样的,因为{} 的valueOf()返回的是<code>[object Object]</code>, 加上前面的<code>`, 所以返回了</code>[object Object]`</p>
-<h1 id="开始的结果解析"><a href="#开始的结果解析" class="headerlink" title="开始的结果解析"></a>开始的结果解析</h1><p>看完这些之后,我们再看一下开始的代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">++[[]][+[]]+[+[]]</div></pre></td></tr></table></figure>
-<p>其实这样就很好解释了</p>
-<p>根据优先级,会先计算括号内的元素</p>
-<p><code>[[]]</code> 变成了 <code>[&#39;&#39;]</code></p>
-<p><code>[+[]]</code> 变成了 <code>[0]</code></p>
-<p>上面的代码可以简化为</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">++[&apos;&apos;][0] + [0]</div></pre></td></tr></table></figure>
-<p>而<code>[&#39;&#39;][0]</code> , 数组的第零位,也就是<code>&#39;&#39;</code>, 进行自加操作时进行上述的隐式类型转换, 变成了0, 自加1, 所以变成了1</p>
-<p>同样的 <code>[0]</code> 会被转换为 0 , 注意是字符类型的 0</p>
-<p>所以最后的结果是</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">1 + &quot;0&quot;</div></pre></td></tr></table></figure>
-<p>所以答案是 ‘10’</p>
-<p>(完)</p>
-]]></content>
-    
-    <summary type="html">
-    
-      开篇之前, 大家先思考一个问题, 下面这段代码运行出来之后的结果是多少 ++[[]][+[]]+[+[]]   
-    
-    </summary>
-    
-      <category term="JavaScript 学习笔记" scheme="http://bolg.changerhe.cb/categories/JavaScript-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="JavaScript" scheme="http://bolg.changerhe.cb/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>微信公众平台接口配置信息详解---Nodejs版</title>
-    <link href="http://bolg.changerhe.cb/2017/09/24/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%B9%B3%E5%8F%B0%E6%8E%A5%E5%8F%A3%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF%E8%AF%A6%E8%A7%A3---Nodejs%E7%89%88/"/>
-    <id>http://bolg.changerhe.cb/2017/09/24/微信公众平台接口配置信息详解---Nodejs版/</id>
-    <published>2017-09-24T15:11:42.000Z</published>
-    <updated>2017-11-13T15:13:37.565Z</updated>
-    
-    <content type="html"><![CDATA[<p>首先,要说明一点的是, 虽然标题有说是: nodejs版, 那么会有其他的版本配置方法详情吗?</p>
-<p>答案是没有, 不过在微信公众平台上有详细说明了PHP为后台的配置版本, 如果有兴趣的童鞋可以过去看一下, 这里就不做赘述了</p>
-<p>那么本篇博客主要写哪些呢, 博客的受众有哪些呢?</p>
-<p>本篇博客主要是针对需要进行微信公众平台进行开发的个人开发者, 因为在个人申请公众号的过程中存在诸多限制, 而微信则比较体贴地提供了针对个人开发者的公众平台测试帐号, 这样就可以无需申请公众帐号就能在测试帐号中体验并测试微信公众平台所有高级接口了. </p>
-<p>而根据微信方的要求, 个人开发者需要有自己的服务器, 并且对微信的加密token能够正确地进行返回数据, 进行一番验证之后才能够享受微信所提供的开发者服务</p>
-<p>那么问题来了, 我没有服务器怎么办啊?</p>
-<p>哎不对, 我也不会正确的接收token和返回token啊! 怎么搞~</p>
-<p>这里根据实际情况, 因为即使你有服务器, 每次还要登陆服务器, 势必会造成很大的麻烦, 那么我们一般会使用到ngrok的内网转发服务</p>
-<p>想必到这里很多人不知道ngrok是什么, 这里从百度百科扒一个词条过来解释一下</p>
-<blockquote>
-<p>ngrok 是一个反向代理，通过在公共的端点和本地运行的 Web 服务器之间建立一个安全的通道。ngrok 可捕获和分析所有通道上的流量，便于后期分析和重放</p>
-</blockquote>
-<p>讲得那么复杂, 简单总结一下, 就是使用这玩意儿就可以将你的本地开启的服务器当做一个外网服务器来使用, 也就是说从微信发过来的验证token, 是可以直接发送到我们的电脑上, 从而成功校验token, 美滋滋~</p>
-<h1 id="ngrok的使用及配置"><a href="#ngrok的使用及配置" class="headerlink" title="ngrok的使用及配置"></a>ngrok的使用及配置</h1><p>ngrok本身是源自美国的公司提供的一项反向代理的服务, 使用它就可以很方便地进行反向代理了.</p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><img src="https://ngrok.com/download" alt="官网下载">地址下载, 解压</p>
-<p>将可执行文件ngrok移到任意文件夹内</p>
-<p>如果需要在命令行直接执行, 则需要进行配置全局变量, 这个有些复杂, 就不展开讲了, 如果有不想每次都要找到这个文件双击打开, 而是直接使用CMD的同学, 可以试一下(不过我觉得每次双击打开问价没啥不好的啊)</p>
-<h2 id="注册授权"><a href="#注册授权" class="headerlink" title="注册授权"></a>注册授权</h2><p>现在其实是可以进行正常捕获到请求了, 但是现在有个问题就是, 这一切是不是来的太简单了…</p>
-<p>没错, 还差一步, 就是要官网的一个token</p>
-<p><img src="https://dashboard.ngrok.com/user/signup" alt="sign up for an account in ngrok"> 获取ngrok的授权码,</p>
-<h2 id="进行本机认证-Install-your-authtoken"><a href="#进行本机认证-Install-your-authtoken" class="headerlink" title="进行本机认证 Install your authtoken"></a>进行本机认证 Install your authtoken</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ngrok authtoken &lt;YOUR_AUTHTOKEN&gt;</div></pre></td></tr></table></figure>
-<h2 id="设置外网的访问密码-选做"><a href="#设置外网的访问密码-选做" class="headerlink" title="设置外网的访问密码(选做)"></a>设置外网的访问密码(选做)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// username 用户名 password密码 8080相关的端口</div><div class="line">ngrok http -auth=&quot;username:password&quot; 8080</div></pre></td></tr></table></figure>
-<h2 id="配置妥当"><a href="#配置妥当" class="headerlink" title="配置妥当"></a>配置妥当</h2><p>那么现在我们可以输入以下命令, 启动ngrok了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ngrok http 8080</div></pre></td></tr></table></figure>
-<p>当然, 这个端口可以自己设置, 开心就好</p>
-<p>现在我们到浏览器中输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">localhost:4040</div></pre></td></tr></table></figure>
-<p>即可看到ngrok的监控页面, 上面有为你分配的http和https两个网址,把网址复制到微信公众平台的测试账号申请的接口配置信息中</p>
-<h1 id="离成功还差半步"><a href="#离成功还差半步" class="headerlink" title="离成功还差半步"></a>离成功还差半步</h1><p>那么, 我们成功设置了ngrok了, 现在要准备对接微信的接口了, 微信的access_token每次传输的内容有下面几个:</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">参数</th>
-<th style="text-align:center">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">signature</td>
-<td style="text-align:center">微信加密签名，signature结合了开发者填写的token参数和请求中的timestamp参数、nonce参数。</td>
-</tr>
-<tr>
-<td style="text-align:center">timestamp</td>
-<td style="text-align:center">时间戳</td>
-</tr>
-<tr>
-<td style="text-align:center">nonce</td>
-<td style="text-align:center">随机数</td>
-</tr>
-<tr>
-<td style="text-align:center">echostr</td>
-<td style="text-align:center">随机字符串</td>
-</tr>
-</tbody>
-</table>
-<p>开发者通过检验signature对请求进行校验（下面有校验方式）。若确认此次GET请求来自微信服务器，请原样返回echostr参数内容，则接入生效，成为开发者成功，否则接入失败。加密/校验流程如下：</p>
-<p>-1）将token、timestamp、nonce三个参数进行字典序排序</p>
-<p>-2）将三个参数字符串拼接成一个字符串进行sha1加密</p>
-<p>-3）开发者获得加密后的字符串可与signature对比，标识该请求来源于微信</p>
-<h1 id="PHP实例代码"><a href="#PHP实例代码" class="headerlink" title="PHP实例代码"></a>PHP实例代码</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">private function checkSignature () &#123;</div><div class="line">	_GET[&quot;signature&quot;];</div><div class="line">	_GET[&quot;timestamp&quot;];</div><div class="line">	_GET[&quot;nonce&quot;];</div><div class="line">        </div><div class="line">	tmpArr = array(timestamp, $nonce);</div><div class="line">	sort($tmpArr, SORT_STRING);</div><div class="line">	$tmpStr = implode( $tmpArr );</div><div class="line">	$tmpStr = sha1( $tmpStr );</div><div class="line"></div><div class="line">	if( signature )&#123;</div><div class="line">		return true;</div><div class="line">	&#125; else &#123;</div><div class="line">		return false;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>以上为微信官网的PHP实例代码, 作为一个会nodejs的小学森, 怎么能不用nodejs呢, 看下nodejs的写法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">const Koa = require(&apos;koa&apos;)</div><div class="line">const sha1 = require(&apos;sha1&apos;)</div><div class="line"></div><div class="line">var config = &#123;</div><div class="line">	wechat: &#123;</div><div class="line">		appId: &apos;***&apos;,</div><div class="line">		appSecret: &apos;***&apos;,</div><div class="line">		token: &apos;***&apos;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var app = new Koa()</div><div class="line"></div><div class="line">app.use(function* (next) &#123;</div><div class="line">	console.log(this.query)</div><div class="line"></div><div class="line">	var token = config.wechat.token</div><div class="line">	var signature = this.query.signature</div><div class="line">	var nonce = this.query.nonce</div><div class="line">	var timestamp = this.query.timestamp</div><div class="line">	var echostr = this.query.echostr</div><div class="line"></div><div class="line">	var str = [token, timestamp, nonce].sort().join(&apos;&apos;)</div><div class="line">	var sha = sha1(str)</div><div class="line">	console.log(sha)</div><div class="line">	if (sha === signature) &#123;</div><div class="line">		this.body = echostr</div><div class="line">	&#125; else &#123;</div><div class="line">		this.body = &apos;wrong&apos;</div><div class="line">	&#125;</div><div class="line">&#125;)</div><div class="line"></div><div class="line">app.listen(8090)</div><div class="line"></div><div class="line">console.log(&apos;listening 8090&apos;)</div></pre></td></tr></table></figure>
-<p>这里用到了koa框架和sha1加密组件, 喜欢其他的方式的童鞋可以使用其他的开发方法, 总体来说都是一样的</p>
-]]></content>
-    
-    <summary type="html">
-    
-      本篇博客主要是针对需要进行微信公众平台进行开发的个人开发者, 因为在个人申请公众号的过程中存在诸多限制, 而微信则比较体贴地提供了针对个人开发者的公众平台测试帐号, 这样就可以无需申请公众帐号就能在测试帐号中体验并测试微信公众平台所有高级接口了. 
-    
-    </summary>
-    
-      <category term="微信公众平台" scheme="http://bolg.changerhe.cb/categories/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%B9%B3%E5%8F%B0/"/>
-    
-    
-      <category term="微信公众平台" scheme="http://bolg.changerhe.cb/tags/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%B9%B3%E5%8F%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Chrome61发布,这新功能怕是没谁了</title>
-    <link href="http://bolg.changerhe.cb/2017/09/24/Chrome61%E5%8F%91%E5%B8%83,%E8%BF%99%E6%96%B0%E5%8A%9F%E8%83%BD%E6%80%95%E6%98%AF%E6%B2%A1%E8%B0%81%E4%BA%86/"/>
-    <id>http://bolg.changerhe.cb/2017/09/24/Chrome61发布,这新功能怕是没谁了/</id>
-    <published>2017-09-24T15:11:42.000Z</published>
-    <updated>2017-11-11T06:03:30.202Z</updated>
-    
-    <content type="html"><![CDATA[<p>Chrome 61 正式版已于2017年9月6日正式发布，并增加了很多开发者相关的功能。在 Mac、Windows 和 Linux 系统中，Chrome 61 开始支持 WebUSB API，以及 PaymentRequest API。</p>
-<p>高级网络平台 API 支持大多数硬件外设，如键盘、鼠标、打印机和游戏手柄。为了使用教育、科学或工业等专用 USB 外设，用户必须使用系统级权限查找和安装可能不安全的驱动程序和软件。</p>
-<p>当然, 最让人激动的是, chrome已经开始支持ES6的module功能, 原生开始支持模块化开发!</p>
-<h1 id="chrome中使用模块化功能"><a href="#chrome中使用模块化功能" class="headerlink" title="chrome中使用模块化功能"></a>chrome中使用模块化功能</h1><p>Chrome 61 加入了对 JavaScript Module <code>&lt;script type=&quot;module&quot;&gt;</code>的原生支持。Chrome 现在可以并行地获取颗粒化的依赖模块，利用浏览器缓存的优势，在多个页面之间共享模块，并且可以保证脚本按照正确地顺序执行。</p>
-<p>下面是我直接在html文件中写入, 的代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;module&quot;&gt;</div><div class="line">	import utils from &quot;./test.js&quot;</div><div class="line">	utils()</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
-<p>再看一下我所引入的依赖</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">// 相同目录下的test.js</div><div class="line">function utils() &#123;</div><div class="line">  console.log(1)</div><div class="line">&#125;</div><div class="line"></div><div class="line">export default utils</div></pre></td></tr></table></figure>
-<p>最后, 我们使用编辑器自带的服务器开启运行, 我使用的是VSCode, 当然, 像webstorm, Hbuilder之类的都自带了服务器</p>
-<p>需要注意的是, 不使用服务器而是直接使用双击打开文件的方式是没有办法体验这种功能的</p>
-<p>最后我们可以看到在chrome61+控制台上打印出了1</p>
-<h1 id="web-share-api"><a href="#web-share-api" class="headerlink" title="web share api"></a>web share api</h1><p>为了让用户把他们喜欢的内容分享到网络上，不得把所有的社交按钮在自己的网站上添加一遍。这让页面变得很臃肿，很可能这些分享按钮和网站的视觉不匹配，并且还要添加来自第三方的代码。</p>
-<p>现在，Android 版的 Chrome 新增了 Web Share API，该 API 可以直接调用原生的分享功能，用户可以很方便的将自己喜欢的文本和链接分享到其他原生 App 上了！</p>
-<p>在之后的版本中，这个 API 还能分享到已安装的 web app 中。直接调用 navigator.share 方法，传递相关的参数，就可以发起分享。其他事情系统会帮你搞定。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">navigator.share(&#123;</div><div class="line">  title: document.title, text: &apos;Hello&apos;,</div><div class="line">  url: window.location.href</div><div class="line">&#125;).then(() =&gt; &#123;</div><div class="line">  console.log(&apos;Successful share&apos;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<h1 id="WebUSB"><a href="#WebUSB" class="headerlink" title="WebUSB"></a>WebUSB</h1><p>很多电脑的周边硬件在 Web 平台上都有对应的 API，比如键盘、鼠标、打印机和手柄等等。但是，想要在浏览器中使用某些特殊的用于教育、科研、工业等等 USB 设备很困难，通常需要特殊的驱动才行。</p>
-<p>现在 Chrome 提供了 WebUSB API，在用户授权后，Web 应用可以直接可 USB 设备通信。</p>
-<p>要了解更多, 可登陆google开发者平台了解详情…</p>
-]]></content>
-    
-    <summary type="html">
-    
-      Chrome 61 正式版已于2017年9月6日正式发布，并增加了很多开发者相关的功能。在 Mac、Windows 和 Linux 系统中，Chrome 61 开始支持 WebUSB API，以及 PaymentRequest API。
-    
-    </summary>
-    
-      <category term="Chrome" scheme="http://bolg.changerhe.cb/categories/Chrome/"/>
-    
-    
-      <category term="Chrome" scheme="http://bolg.changerhe.cb/tags/Chrome/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>sass/scss和less的区别</title>
-    <link href="http://bolg.changerhe.cb/2017/09/01/sass-scss%E5%92%8Cless%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
-    <id>http://bolg.changerhe.cb/2017/09/01/sass-scss和less的区别/</id>
-    <published>2017-09-01T15:13:23.000Z</published>
-    <updated>2017-10-26T02:30:24.659Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Sass-Scss、Less是什么"><a href="#Sass-Scss、Less是什么" class="headerlink" title="Sass/Scss、Less是什么?"></a>Sass/Scss、Less是什么?</h1><p>Sass (Syntactically Awesome Stylesheets)是一种动态样式语言，Sass语法属于缩排语法，比css比多出好些功能(如变量、嵌套、运算,混入(Mixin)、继承、颜色处理，函数等)，更容易阅读。</p>
-<h2 id="Sass与Scss是什么关系"><a href="#Sass与Scss是什么关系" class="headerlink" title="Sass与Scss是什么关系?"></a>Sass与Scss是什么关系?</h2><p>Sass的缩排语法，对于写惯css前端的web开发者来说很不直观，也不能将css代码加入到Sass里面，因此sass语法进行了改良，Sass 3就变成了Scss(sassy css)。与原来的语法兼容，只是用{}取代了原来的缩进。</p>
-<p>Less也是一种动态样式语言. 对CSS赋予了动态语言的特性，如变量，继承，运算， 函数.  Less 既可以在客户端上运行 (支持IE 6+, Webkit, Firefox)，也可在服务端运行 (借助 Node.js)。</p>
-<h1 id="Sass-Scss与Less区别"><a href="#Sass-Scss与Less区别" class="headerlink" title="Sass/Scss与Less区别"></a>Sass/Scss与Less区别</h1><h2 id="编译环境不一样"><a href="#编译环境不一样" class="headerlink" title="编译环境不一样"></a>编译环境不一样</h2><p>Sass的安装需要Ruby环境，是在服务端处理的，而Less是需要引入less.js来处理Less代码输出css到浏览器，也可以在开发环节使用Less，然后编译成css文件，直接放到项目中，也有 Less.app、SimpleLess、CodeKit.app这样的工具，也有在线编译地址。</p>
-<h2 id="变量符不一样"><a href="#变量符不一样" class="headerlink" title="变量符不一样"></a>变量符不一样</h2><p>Less是@，而Scss是$，而且变量的作用域也不一样。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">// Less-作用域</div><div class="line">@color: #00c; /* 蓝色 */</div><div class="line">#header &#123;</div><div class="line">  @color: #c00; /* red */</div><div class="line">  border: 1px solid @color; /* 红色边框 */</div><div class="line">&#125;</div><div class="line"></div><div class="line">#footer &#123;</div><div class="line">  border: 1px solid @color; /* 蓝色边框 */</div><div class="line">&#125;</div><div class="line"></div><div class="line">// Less-作用域编译后</div><div class="line">#header&#123;border:1px solid #cc0000;&#125;</div><div class="line">#footer&#123;border:1px solid #0000cc;&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">// scss-作用域</div><div class="line">$color: #00c; /* 蓝色 */</div><div class="line"></div><div class="line">#header &#123;</div><div class="line"></div><div class="line">  $color: #c00; /* red */</div><div class="line">  border: 1px solid $color; /* 红色边框 */</div><div class="line">&#125;</div><div class="line"></div><div class="line">#footer &#123;</div><div class="line">  border: 1px solid $color; /* 蓝色边框 */</div><div class="line">&#125;</div><div class="line"></div><div class="line">// Sass-作用域编译后</div><div class="line"></div><div class="line">#header&#123;border:1px solid #c00&#125;</div><div class="line">#footer&#123;border:1px solid #c00&#125;</div></pre></td></tr></table></figure>
-<p>我们可以看出来，less和scss中的变量会随着作用域的变化而不一样。</p>
-<h1 id="输出设置"><a href="#输出设置" class="headerlink" title="输出设置"></a>输出设置</h1><p>Less没有输出设置，Sass提供4中输出选项：nested, compact, compressed 和 expanded。</p>
-<p>输出样式的风格可以有四种选择，默认为nested</p>
-<p>-nested：嵌套缩进的css代码<br>-expanded：展开的多行css代码<br>-compact：简洁格式的css代码<br>-compressed：压缩后的css代码</p>
-<h1 id="条件语句的支持"><a href="#条件语句的支持" class="headerlink" title="条件语句的支持"></a>条件语句的支持</h1><p>Sass支持条件语句，可以使用if{}else{},for{}循环等等。而Less不支持。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">// 简单的if语句</div><div class="line"></div><div class="line">@if lightness($color) &gt; 30% &#123;</div><div class="line"></div><div class="line">&#125; @else &#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">// 简单的for语句</div><div class="line"></div><div class="line">@for $i from 1 to 10 &#123;</div><div class="line">  .border-#&#123;$i&#125; &#123;</div><div class="line">    border: #&#123;$i&#125;px solid blue;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h1 id="引用外部CSS文件"><a href="#引用外部CSS文件" class="headerlink" title="引用外部CSS文件"></a>引用外部CSS文件</h1><p>scss引用的外部文件命名必须以_开头, 如下例所示:其中_test1.scss、_test2.scss、<em>test3.scss文件分别设置的h1 h2 h3。文件名如果以下划线</em>开头的话，Sass会认为该文件是一个引用文件，不会将其编译为css文件.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">// 源代码：</div><div class="line">@import &quot;_test1.scss&quot;;</div><div class="line">@import &quot;_test2.scss&quot;;</div><div class="line">@import &quot;_test3.scss&quot;;</div><div class="line"></div><div class="line">// 编译后：</div><div class="line">h1 &#123;</div><div class="line">  font-size: 17px;</div><div class="line">&#125;</div><div class="line"> </div><div class="line">h2 &#123;</div><div class="line">  font-size: 17px;</div><div class="line">&#125;</div><div class="line"> </div><div class="line">h3 &#123;</div><div class="line">  font-size: 17px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>Less引用外部文件和css中的@import没什么差异。</p>
-<h1 id="Sass和Less的工具库不同"><a href="#Sass和Less的工具库不同" class="headerlink" title="Sass和Less的工具库不同"></a>Sass和Less的工具库不同</h1><p>Sass有工具库Compass, 简单说，Sass和Compass的关系有点像Javascript和jQuery的关系,Compass是Sass的工具库。在它的基础上，封装了一系列有用的模块和模板，补充强化了Sass的功能。</p>
-<p>Less有UI组件库Bootstrap,Bootstrap是web前端开发中一个比较有名的前端UI组件库，Bootstrap的样式文件部分源码就是采用Less语法编写。</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>不管是Sass，还是Less，都可以视为一种基于CSS之上的高级语言，其目的是使得CSS开发更灵活和更强大，Sass的功能比Less强大,基本可以说是一种真正的编程语言了，Less则相对清晰明了,易于上手,对编译环境要求比较宽松。考虑到编译Sass要安装Ruby,而Ruby官网在国内访问不了,个人在实际开发中更倾向于选择Less。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      Sass (Syntactically Awesome Stylesheets)是一种动态样式语言，Sass语法属于缩排语法，比css比多出好些功能(如变量、嵌套、运算,混入(Mixin)、继承、颜色处理，函数等)，更容易阅读。
-    
-    </summary>
-    
-      <category term="CSS" scheme="http://bolg.changerhe.cb/categories/CSS/"/>
-    
-    
-      <category term="SASS" scheme="http://bolg.changerhe.cb/tags/SASS/"/>
-    
-      <category term="LESS" scheme="http://bolg.changerhe.cb/tags/LESS/"/>
-    
-      <category term="SCSS" scheme="http://bolg.changerhe.cb/tags/SCSS/"/>
-    
-  </entry>
-  
-  <entry>
     <title>基于MongoDB 2dSphere索引查找最近的点</title>
-    <link href="http://bolg.changerhe.cb/2017/07/21/%E5%9F%BA%E4%BA%8EMongoDB-2dSphere%E7%B4%A2%E5%BC%95%E6%9F%A5%E6%89%BE%E6%9C%80%E8%BF%91%E7%9A%84%E7%82%B9/"/>
-    <id>http://bolg.changerhe.cb/2017/07/21/基于MongoDB-2dSphere索引查找最近的点/</id>
-    <published>2017-07-21T15:27:22.000Z</published>
-    <updated>2017-09-24T15:35:44.241Z</updated>
+    <link href="http://bolg.changerhe.cb/2017/07/05/%E5%9F%BA%E4%BA%8EMongoDB-2dSphere%E7%B4%A2%E5%BC%95%E6%9F%A5%E6%89%BE%E6%9C%80%E8%BF%91%E7%9A%84%E7%82%B9/"/>
+    <id>http://bolg.changerhe.cb/2017/07/05/基于MongoDB-2dSphere索引查找最近的点/</id>
+    <published>2017-07-05T15:27:22.000Z</published>
+    <updated>2017-11-22T05:35:48.912Z</updated>
     
     <content type="html"><![CDATA[<p>在移动端普及的今天，LBS应用需求也越来越大。比如查找附近的人，最近的餐厅等。面对这些需求，MongoDB提供了功能完备的解决方案。下面通过一个案例来解释一下MongoDB的2dSphere</p>
 <p><img src="http://img.blog.csdn.net/20160923111644414" alt=""></p>
@@ -692,11 +306,228 @@
   </entry>
   
   <entry>
+    <title>使用Nodejs实现简单的自动化构建</title>
+    <link href="http://bolg.changerhe.cb/2017/06/27/%E4%BD%BF%E7%94%A8Nodejs%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E6%9E%84%E5%BB%BA/"/>
+    <id>http://bolg.changerhe.cb/2017/06/27/使用Nodejs实现简单的自动化构建/</id>
+    <published>2017-06-27T15:56:30.000Z</published>
+    <updated>2017-11-22T05:35:28.351Z</updated>
+    
+    <content type="html"><![CDATA[<p>自动化构建是现代前端基本都需要的东西,说起这个,大家自然会想到 Glup/Grount这些自动化的构建工具.</p>
+<p>当然,本文只是从最最基础的角度,使用Node的fs模块进行了简单的文档的写入操作.</p>
+<p>首先,我们先定义一个JSON,用于存放我们想要预先定义的文件夹的内容,比如说,我想要我的文件夹名称为<code>ProjectModule</code> ,里面的文件夹有 <code>css</code> / <code>js</code> / <code>img</code> 还有一个 <code>index.html</code>,同时定义好index文件中的内容</p>
+<p>那么我的JSON结构可以这样写</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">var projectData = &#123;</div><div class="line">    &apos;name&apos; : &apos;ProjectModule&apos;,</div><div class="line">    &apos;fileData&apos;: [</div><div class="line">        &#123;</div><div class="line">            &apos;name&apos;: &apos;css&apos;,</div><div class="line">            &apos;type&apos;: &apos;dir&apos;</div><div class="line">        &#125;,</div><div class="line">        &#123;</div><div class="line">            &apos;name&apos;: &apos;js&apos;,</div><div class="line">            &apos;type&apos;: &apos;dir&apos;</div><div class="line">        &#125;,</div><div class="line">        &#123;</div><div class="line">            &apos;name&apos;: &apos;img&apos;,</div><div class="line">            &apos;type&apos;: &apos;dir&apos;</div><div class="line">        &#125;,</div><div class="line">        &#123;</div><div class="line">            &apos;name&apos;: &apos;index.html&apos;,</div><div class="line">            &apos;type&apos;: &apos;file&apos;,</div><div class="line">            &apos;content&apos;: &apos;&lt;html&gt;\n\t&lt;head&gt;\n\t&lt;title&gt;MyProject&lt;/title&gt;\n\t&lt;/head&gt;\n\t&lt;body&gt;\n\t&lt;/body&gt;\n&lt;/html&gt;&apos;</div><div class="line">        &#125;</div><div class="line">    ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>接下来,就是引入fs模块</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var fs = require(&apos;fs&apos;)</div></pre></td></tr></table></figure>
+<p>因为这里是要实时创建的,我们可以直接使用同步的操作,就省去了异步需要使用回调函数的麻烦</p>
+<p>当然,开始之前,要先确定一下,JSON是否有正常的给出文件夹的名称</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">if(projectData.name) &#123;</div><div class="line"></div><div class="line">    fs.mkdirSync(projectData.name)</div><div class="line"></div><div class="line">    var fileData = projectData.fileData</div><div class="line"></div><div class="line">    fileData.forEach(function(f) &#123;</div><div class="line"></div><div class="line">        f.content = f.content? f.content : &apos;&apos;</div><div class="line"></div><div class="line">        f.path = projectData.name + &apos;/&apos; + f.name</div><div class="line"></div><div class="line">        switch (f.type) &#123;</div><div class="line">            </div><div class="line">            case &apos;dir&apos;:</div><div class="line">                fs.mkdirSync(f.path)</div><div class="line">                break;</div><div class="line">            case &apos;file&apos;:</div><div class="line">                fs.writeFileSync(f.path, f.content)</div><div class="line">                break;</div><div class="line">            default:</div><div class="line">                break;</div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果使用的是webstorm, 那么直接使用ctrl+f9, 让你的node程序跑起来吧~</p>
+]]></content>
+    
+    <summary type="html">
+    
+      自动化构建是现代前端基本都需要的东西,说起这个,大家自然会想到 Glup/Grount这些自动化的构建工具.
+当然,本文只是从最最基础的角度,使用Node的fs模块进行了简单的文档的写入操作.
+    
+    </summary>
+    
+      <category term="Nodejs学习笔记" scheme="http://bolg.changerhe.cb/categories/Nodejs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="Nodejs学习笔记" scheme="http://bolg.changerhe.cb/tags/Nodejs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ES6中的遍历器接口Iterator</title>
+    <link href="http://bolg.changerhe.cb/2017/06/25/ES6%E4%B8%AD%E7%9A%84%E9%81%8D%E5%8E%86%E5%99%A8%E6%8E%A5%E5%8F%A3Iterator/"/>
+    <id>http://bolg.changerhe.cb/2017/06/25/ES6中的遍历器接口Iterator/</id>
+    <published>2017-06-25T15:34:18.000Z</published>
+    <updated>2017-11-22T05:35:19.586Z</updated>
+    
+    <content type="html"><![CDATA[<p>初读阮一峰老师的这本书,简直如发现了新世界一般.原来ES6的语法是如此的清奇.</p>
+<p>随着ES6, ES7, 到今年七月份的ES8. 我们会发现,javascript这门最初被定义在客户端的’玩具语言’已经变得越发的强壮和标准,这也是我们作为前端ers 所希望看到的,毕竟,这涉及到以后的饭碗呢哈哈.</p>
+<p>阮一峰老师的文笔还是不错的,但是随着后面的阅读,会发现有一些后面的知识,被直接不明就里的拿到前面来用了,这就导致我这个新手小白就有点懵逼了.</p>
+<p>比如说: 箭头函数,当然,这个比较好理解,有固定的语法</p>
+<p>但是,阮老师一直有提到的iterator接口,到底是个啥? 估计初学ES6的新手小白自然会有着和我一样的困惑.</p>
+<p>那么,下面就综合我的搜索和总结,对iterator接口的相关知识,做一个分享,也算是对自己所学的一个总结</p>
+<h1 id="iterator接口是什么"><a href="#iterator接口是什么" class="headerlink" title="iterator接口是什么"></a>iterator接口是什么</h1><p>不知大家碰到此问题的时候是不是和我一样马上选择了百度(毕竟英语不够好,不能随随便便Google一下啊),泪奔~</p>
+<p>百度上面会告诉你, Java的iterator很好用巴拉巴拉</p>
+<p>那么,在javascript中,iterator接口到底是个神马东西呢?</p>
+<p>iterator, 其实就是一个迭代器,或者说,是一个迭代器</p>
+<p>在es6中，能表示“集合”概念的数据类型大致有四种:Array,Object,Map,Set</p>
+<p>既然是集合，那遍历便是一种基本需求。而Iterator就是为了提供一种统一的接口机制。任何的数据结构，只要部署了Iterator接口，便可以使用类似的方式完成遍历操作。</p>
+<p>当然，Iterator还有2个作用，它使数据结构的成员按某种次序排列，其次，es6有一种新的遍历方式，前面也说过，for…of，而Iterator的主要作用，就是支持此操作。</p>
+<h2 id="Iteartor的遍历过程是这样的"><a href="#Iteartor的遍历过程是这样的" class="headerlink" title="Iteartor的遍历过程是这样的"></a>Iteartor的遍历过程是这样的</h2><blockquote>
+<p>创建一个指向数据结构起始位置的指针。(起始位置不是第一个成员的位置，起始位置使一个单独的标志位。)</p>
+<p>当调用next()方法，指针就向后移动一个位置，并返回当前位置上的成员，直到指针指向数据结构的结束位置为止。</p>
+</blockquote>
+<p>第二步中，js语言返回的的成员信息是两个，value和done，value不用介绍，done是一个表示遍历是否结束的布尔值。</p>
+<h1 id="部署接口"><a href="#部署接口" class="headerlink" title="部署接口"></a>部署接口</h1><p>上面我们说到的部署接口，那js怎么部署接口呢。其实我们之前已经说到过，在Symbol一节中，介绍了很多es6内置的Symbol值，这些就是接口。</p>
+<p>es6中有三类结构生来就具有Iterator接口：数组、类数组对象、Map和Set结构。</p>
+<p>当然,如果你和我一样,现在看到第八章的话,暂时是没有学到Map和Set结构的,这个看下就好</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var arr = [1,2,3,4];</div><div class="line">let iterator = arr[Symbol.iterator]();</div><div class="line"></div><div class="line">console.log(iterator.next());  //&#123; value: 1, done: false &#125;</div><div class="line">console.log(iterator.next());  //&#123; value: 2, done: false &#125;</div><div class="line">console.log(iterator.next());  //&#123; value: 3, done: false &#125;</div><div class="line">console.log(iterator.next());  //&#123; value: 4, done: false &#125;</div><div class="line">console.log(iterator.next());  //&#123; value: undefined, done: true &#125;</div></pre></td></tr></table></figure>
+<p>数组，Map等结构中的成员都是有顺序的，即都是线性的结构，而对象，各成员并没有一个确定的顺序，所以遍历时先遍历谁后遍历谁并不确定。所以，给一个对象部署iterator接口，其实就是对该对象做一种线性转换。</p>
+<p>如果有需要，可以手动给对象部署iterator接口</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">let obj = &#123;</div><div class="line">    data: [ &apos;hello&apos;, &apos;world&apos; ],</div><div class="line">    [Symbol.iterator]() &#123;</div><div class="line">        const self = this;</div><div class="line">        let index = 0;</div><div class="line">        return &#123;</div><div class="line">            next() &#123;</div><div class="line">                if (index &lt; self.data.length) &#123;</div><div class="line">                    return &#123;</div><div class="line">                        value: self.data[index++],</div><div class="line">                        done: false</div><div class="line">                    &#125;;</div><div class="line">                &#125; else &#123;</div><div class="line">                    return &#123; value: undefined, done: true &#125;;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>可以看到，Symbol.iterator会返回一个对象，这就是一个遍历器对象，而作为遍历器对象，其必须具备的特征就是必须具备next()方法。</p>
+<p>至于可以使用Array.from转换成数组的类数组对象，部署iterator有一种很简单的方法，即直接使用数组的[Symbol.iterator]接口。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fakeArray.prototype[Symbol.iterator] = Array.prototype[Symbol.iterator];</div></pre></td></tr></table></figure>
+<p>用Generator函数来实现Symbol.iterator接口，事半功倍。</p>
+<p>这也是看到第八章我要出来百度的原因,因为影响到了我正常的往下阅读了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var yieldIterator = &#123;&#125;;</div><div class="line">yieldIterator[Symbol.iterator] = function* () &#123;</div><div class="line">    yield 1;</div><div class="line">    yield 2;</div><div class="line">    yield 3;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">[...yieldIterator] // [1, 2, 3]</div></pre></td></tr></table></figure>
+<p>注意，yield* 后面跟的是一个可遍历的结构，它会调用该结构的遍历器接口。</p>
+<p>　　其次，其它调用到遍历器的操作还有解构赋值、扩展操作符、其它任何接受数组作为参数的场合，如：</p>
+<blockquote>
+<p>for…of<br>Array.from()<br>Map(), Set(), WeakMap(), WeakSet()（比如）<br>Promise.all()<br>Promise.race()</p>
+</blockquote>
+<p>一旦当你给你的结构部署了iterator接口，那么恭喜你，你可以使用for…of来遍历你的结构了！</p>
+<p>遍历器对象除了必须布置next方法以外，还有2个可选方法。return()和throw()。当一个解构在遍历的时候异常提前退出(比如break,continue或者出错)的时候，就会调用return方法，其次，return方法必须返回一个对象。</p>
+<p>至于throw方法，则是用于抛出错误，Generator.prototype.throw</p>
+<p>for of循环有很多优点，比如不像for…in一样只遍历键名（甚至包括原型链上的键），而且不像foreach不能跳出循环。并且for…of为各种数据结构提供了一个统一的遍历方法。所以，尽量使用它吧~</p>
+]]></content>
+    
+    <summary type="html">
+    
+      初读阮一峰老师的这本书,简直如发现了新世界一般.原来ES6的语法是如此的清奇.
+随着ES6, ES7, 到今年七月份的ES8. 我们会发现,javascript这门最初被定义在客户端的&#39;玩具语言&#39;已经变得越发的强壮和标准,这也是我们作为前端ers 所希望看到的,毕竟,这涉及到以后的饭碗呢哈哈.
+    
+    </summary>
+    
+      <category term="ES6标准入门阅读笔记" scheme="http://bolg.changerhe.cb/categories/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="ES6标准入门阅读笔记" scheme="http://bolg.changerhe.cb/tags/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>理解Node.js里的process.nextTick()</title>
+    <link href="http://bolg.changerhe.cb/2017/06/18/%E7%90%86%E8%A7%A3Nodejs%E9%87%8C%E7%9A%84process-nextTick/"/>
+    <id>http://bolg.changerhe.cb/2017/06/18/理解Nodejs里的process-nextTick/</id>
+    <published>2017-06-18T12:00:32.000Z</published>
+    <updated>2017-11-22T05:35:00.881Z</updated>
+    
+    <content type="html"><![CDATA[<p>Nodejs的事件驱动,异步IO模型另异步编程变得异常风行,它借助了异步IO模型及V8高性能引擎,突破了单线程的性能瓶颈. 让Jacascript在后端达到了其应有的使用价值. </p>
+<p>另外一方面,它也统一了前后端的javascript编程模型.</p>
+<p>异步编程也给前端程序猿带来了诸多的痛苦和不适应. 这也是我今天着重想提<code>process.nextTick()</code>这个API的原因之一.</p>
+<h1 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h1><p>在过去,我们处理异常一般使用try catch fanily这个语句块进行异常捕获和处理</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">try &#123;</div><div class="line">	JSON.parse(jsonObj)</div><div class="line">&#125; catch(e) &#123;</div><div class="line">	// do something...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>但是这个方法对异步编程而言是并不适用的, 举个很简单的例子,也是我们在日常开发中常常使用的一个小技巧: 当我们想要某个在文档中间的语句块在整个脚本的最后执行的时候,可以使用setTimeout将这个语句块包起来,将延时时间设为0, 那么这个时候它就会等待所有同步的进程全部执行完毕之后再执行.</p>
+<p>在try中,我们进行异步的方式处理JSON.parse的时候,那么它也会被放到文档流的最后执行而try catch先执行了,这就是导致出现这个问题的原因</p>
+<p>那么这个时候,就需要们的主角登场了</p>
+<p>同样的,我们再来一个例子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function foo() &#123;</div><div class="line">	console.error(&apos;foo&apos;);</div><div class="line">&#125;</div><div class="line">process.nextTick(foo);</div><div class="line">console.error(&apos;bar&apos;);</div></pre></td></tr></table></figure>
+<p>运行上面的代码，你从下面终端打印的信息会看到，”bar”的输出在“foo”的前面。这就验证了上面的说法，foo()是在下一个时间点运行的。</p>
+<p>但在内部的处理机制上，process.nextTick()和setTimeout(fn, 0)是不同的，process.nextTick()不是一个单纯的延时，他有更多的 特性。</p>
+<p>更精确的说，process.nextTick()定义的调用会创建一个新的子堆栈。在当前的栈里，你可以执行任意多的操作。但一旦调用netxTick，函数就必须返回到父堆栈。然后事件轮询机制又重新等待处理新的事件，如果发现nextTick的调用，就会创建一个新的栈。</p>
+<p>下面我们来看看，什么情况下使用process.nextTick()：</p>
+<h1 id="在多个事件里交叉执行CPU运算密集型的任务："><a href="#在多个事件里交叉执行CPU运算密集型的任务：" class="headerlink" title="在多个事件里交叉执行CPU运算密集型的任务："></a>在多个事件里交叉执行CPU运算密集型的任务：</h1><p>在下面的例子里有一个compute()，我们希望这个函数尽可能持续的执行，来进行一些运算密集的任务。</p>
+<p>但与此同时，我们还希望系统不要被这个函数堵塞住，还需要能响应处理别的事件。这个应用模式就像一个单线程的web服务server。在这里我们就可以使用process.nextTick()来交叉执行compute()和正常的事件响应。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var http = require(&apos;http&apos;);</div><div class="line"></div><div class="line">function compute() &#123;</div><div class="line">    // performs complicated calculations continuously</div><div class="line">    // ...</div><div class="line">    process.nextTick(compute);</div><div class="line">&#125;</div><div class="line"> </div><div class="line">http.createServer(function(req, res) &#123;</div><div class="line">     res.writeHead(200, &#123;&apos;Content-Type&apos;: &apos;text/plain&apos;&#125;);</div><div class="line">     res.end(&apos;Hello World&apos;);</div><div class="line">&#125;).listen(5000, &apos;127.0.0.1&apos;);</div><div class="line"> </div><div class="line">compute();</div></pre></td></tr></table></figure>
+<p>在这种模式下，我们不需要递归的调用compute()，我们只需要在事件循环中使用process.nextTick()定义compute()在下一个时间点执行即可。在这个过程中，如果有新的http请求进来，事件循环机制会先处理新的请求，然后再调用compute()。反之，如果你把compute()放在一个递归调用里，那系统就会一直阻塞在compute()里，无法处理新的http请求了。你可以自己试试。</p>
+<p>当然，我们无法通过process.nextTick()来获得多CPU下并行执行的真正好处，这只是模拟同一个应用在CPU上分段执行而已。</p>
+<h1 id="保持回调函数异步执行的原则"><a href="#保持回调函数异步执行的原则" class="headerlink" title="保持回调函数异步执行的原则"></a>保持回调函数异步执行的原则</h1><p>当你给一个函数定义一个回调函数时，你要确保这个回调是被异步执行的。下面我们看一个例子，例子中的回调违反了这一原则：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function asyncFake(data, callback) &#123;  </div><div class="line">    if(data === &apos;foo&apos;) callback(true);</div><div class="line">    else callback(false);</div><div class="line">&#125;</div><div class="line"> </div><div class="line">asyncFake(&apos;bar&apos;, function(result) &#123;</div><div class="line">    // this callback is actually called synchronously!</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>为什么这样不好呢？我们来看Node.js 文档里一段代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var client = net.connect(8124, function() &#123; </div><div class="line">    console.log(&apos;client connected&apos;);</div><div class="line">    client.write(&apos;world!\r\n&apos;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>在上面的代码里，如果因为某种原因，net.connect()变成同步执行的了，回调函数就会被立刻执行，因此回调函数写到客户端的变量就永远不会被初始化了。</p>
+<p>这种情况下我们就可以使用process.nextTick()把上面asyncFake()改成异步执行的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function asyncReal(data, callback) &#123;</div><div class="line">    process.nextTick(function() &#123;</div><div class="line">        callback(data === &apos;foo&apos;);   </div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="用在事件触发过程中"><a href="#用在事件触发过程中" class="headerlink" title="用在事件触发过程中"></a>用在事件触发过程中</h1><p>来看一个例子，你想写一个库实现这样的功能：从源文件里读取数据，当读取完毕后，触发一个事件同时传递读取的数据。可能你会这样写：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var EventEmitter = require(&apos;events&apos;).EventEmitter;</div><div class="line"> </div><div class="line">function StreamLibrary(resourceName) &#123; </div><div class="line">    this.emit(&apos;start&apos;);</div><div class="line"> </div><div class="line">    // read from the file, and for every chunk read, do: </div><div class="line">    this.emit(&apos;data&apos;, chunkRead);      </div><div class="line">&#125;</div><div class="line">StreamLibrary.prototype.__proto__ = EventEmitter.prototype;   </div><div class="line">// inherit from EventEmitter</div></pre></td></tr></table></figure>
+<p>下面是一段调用这个库的客户端程序，我们想在程序中监听这些事件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var stream = new StreamLibrary(&apos;fooResource&apos;);</div><div class="line"> </div><div class="line">stream.on(&apos;start&apos;, function() &#123;</div><div class="line">    console.log(&apos;Reading has started&apos;);</div><div class="line">&#125;);</div><div class="line"> </div><div class="line">stream.on(&apos;data&apos;, function(chunk) &#123;</div><div class="line">    console.log(&apos;Received: &apos; + chunk);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>但是上面的代码中，将永远接收不到“start”事件，因为在这个库实例化的时候，“start”事件会被立刻触发执行，但此时事件的回调函数还没有准备好，所以在客户端根本无法接收到这个事件。同样，我们可以用process.nextTick()来改写事件触发的过程，下面是一个正确的版本：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function StreamLibrary(resourceName) &#123;      </div><div class="line">    var self = this;</div><div class="line"> </div><div class="line">    process.nextTick(function() &#123;</div><div class="line">        self.emit(&apos;start&apos;);</div><div class="line">    &#125;);</div><div class="line"> </div><div class="line">    // read from the file, and for every chunk read, do:</div><div class="line">    this.emit(&apos;data&apos;, chunkRead);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>(文章部分引用了网上内容)</p>
+]]></content>
+    
+    <summary type="html">
+    
+      Nodejs的事件驱动,异步IO模型另异步编程变得异常风行,它借助了异步IO模型及V8高性能引擎,突破了单线程的性能瓶颈. 让Jacascript在后端达到了其应有的使用价值.  另外一方面,它也统一了前后端的javascript编程模型.
+    
+    </summary>
+    
+      <category term="Nodejs学习笔记" scheme="http://bolg.changerhe.cb/categories/Nodejs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="Nodejs" scheme="http://bolg.changerhe.cb/tags/Nodejs/"/>
+    
+      <category term="process.nextTick()" scheme="http://bolg.changerhe.cb/tags/process-nextTick/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Nodejs的require()模块源码解读</title>
+    <link href="http://bolg.changerhe.cb/2017/06/06/Nodejs%E7%9A%84require-%E6%A8%A1%E5%9D%97%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/"/>
+    <id>http://bolg.changerhe.cb/2017/06/06/Nodejs的require-模块源码解读/</id>
+    <published>2017-06-06T11:44:27.000Z</published>
+    <updated>2017-11-22T05:34:50.925Z</updated>
+    
+    <content type="html"><![CDATA[<p>2009年, nodejs项目诞生,所有模块一律为commonjs格式.</p>
+<p>时至今日,Nodejs的包管理npm仓库,已经存放了十万百万级的模块,其中绝大部分都是使用的commonjs格式.</p>
+<p>这种格式的核心就是require语句, 模块通过它进行加载.</p>
+<h1 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h1><p>以下内容翻译自《Node使用手册》</p>
+<p>当 Node 遇到 require(X) 时，按下面的顺序处理。</p>
+<blockquote>
+<p>（1）如果 X 是内置模块（比如 require(‘http’）)<br>　　a. 返回该模块。<br>　　b. 不再继续执行。<br>（2）如果 X 以 “./“ 或者 “/“ 或者 “../“ 开头<br>　　a. 根据 X 所在的父模块，确定 X 的绝对路径。<br>　　b. 将 X 当成文件，依次查找<code>X</code>,找不到之后会查找<code>X .js</code>,再找不到则找<code>X .json</code>,还找不到则找<code>X .node</code>，只要其中有一个存在，就返回该文件，不再继续执行。<br>　　c. 将 X 当成目录，依次查找<code>X /package.json</code>,找不到之后会查找<code>X /index.js</code>,再找不到则找<code>X /index.json</code>,还找不到则找<code>X /index.node</code>，只要其中有一个存在，就返回该文件，不再继续执行。<br>（3）如果 X 不带路径<br>　　a. 根据 X 所在的父模块，确定 X 可能的安装目录。<br>　　b. 依次在每个目录中，将 X 当成文件名或目录名加载。<br>（4） 抛出 “not found”</p>
+</blockquote>
+<h1 id="Module构造函数"><a href="#Module构造函数" class="headerlink" title="Module构造函数"></a>Module构造函数</h1><p>Module构造函数的部分源码是这样的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function Module(id, parent) &#123;</div><div class="line">  this.id = id;</div><div class="line">  this.exports = &#123;&#125;;</div><div class="line">  this.parent = parent;</div><div class="line">  this.filename = null;</div><div class="line">  this.loaded = false;</div><div class="line">  this.children = [];</div><div class="line">&#125;</div><div class="line"></div><div class="line">module.exports = Module;</div><div class="line"></div><div class="line">var module = new Module(filename, parent);</div></pre></td></tr></table></figure>
+<p>上面代码中，Node 定义了一个构造函数 Module，所有的模块都是 Module 的实例。可以看到，当前模块（module.js）也是 Module 的一个实例。<br>每个实例都有自己的属性。下面通过一个例子，看看这些属性的值是什么。新建一个脚本文件 a.js 。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">// a.js</div><div class="line"></div><div class="line">console.log(&apos;module.id: &apos;, module.id);  //.</div><div class="line">console.log(&apos;module.exports: &apos;, module.exports); // &#123;&#125;</div><div class="line">console.log(&apos;module.parent: &apos;, module.parent); // null</div><div class="line">console.log(&apos;module.filename: &apos;, module.filename); // 当前文件路径</div><div class="line">console.log(&apos;module.loaded: &apos;, module.loaded); // false</div><div class="line">console.log(&apos;module.children: &apos;, module.children); //</div><div class="line">console.log(&apos;module.paths: &apos;, module.paths);</div></pre></td></tr></table></figure>
+<p>可以看到，如果没有父模块，直接调用当前模块，parent 属性就是 null，id 属性就是一个点。filename 属性是模块的绝对路径，path 属性是一个数组，包含了模块可能的位置。另外，输出这些内容时，模块还没有全部加载，所以 loaded 属性为 false 。<br>新建另一个脚本文件 b.js，让其调用 a.js 。</p>
+<p>上面代码中，由于 a.js 被 b.js 调用，所以 parent 属性指向 b.js 模块，id 属性和 filename 属性一致，都是模块的绝对路径。</p>
+<h1 id="模块实例的-require-方法"><a href="#模块实例的-require-方法" class="headerlink" title="模块实例的 require 方法"></a>模块实例的 require 方法</h1><p>每个模块实例都有一个 require 方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Module.prototype.require = function(path) &#123;</div><div class="line">return Module._load(path, this);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>由此可知，require 并不是全局性命令，而是每个模块提供的一个内部方法，也就是说，只有在模块内部才能使用 require 命令（唯一的例外是 REPL 环境）。另外，require 其实内部调用 Module._load 方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">Module._load = function(request, parent, isMain) &#123;</div><div class="line"></div><div class="line">//  计算绝对路径</div><div class="line">var filename = Module._resolveFilename(request, parent);</div><div class="line"></div><div class="line">//  第一步：如果有缓存，取出缓存</div><div class="line">var cachedModule = Module._cache[filename];</div><div class="line">if (cachedModule) &#123;</div><div class="line">return cachedModule.exports;</div><div class="line"></div><div class="line">// 第二步：是否为内置模块</div><div class="line">if (NativeModule.exists(filename)) &#123;</div><div class="line">return NativeModule.require(filename);</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 第三步：生成模块实例，存入缓存</div><div class="line">var module = new Module(filename, parent);</div><div class="line">Module._cache[filename] = module;</div><div class="line"></div><div class="line">// 第四步：加载模块</div><div class="line">try &#123;</div><div class="line">module.load(filename);</div><div class="line">hadException = false;</div><div class="line">&#125; finally &#123;</div><div class="line">if (hadException) &#123;</div><div class="line">delete Module._cache[filename];</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 第五步：输出模块的exports属性</div><div class="line">return module.exports;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>上面代码中，首先解析出模块的绝对路径（filename），以它作为模块的识别符。然后，如果模块已经在缓存中，就从缓存取出；如果不在缓存中，就加载模块。</p>
+<p>因此，Module._load 的关键步骤是两个。</p>
+<p>Module._resolveFilename() ：确定模块的绝对路径<br>module.load()：加载模块</p>
+<h1 id="模块的绝对路径"><a href="#模块的绝对路径" class="headerlink" title="模块的绝对路径"></a>模块的绝对路径</h1><p>下面是 Module._resolveFilename 方法的源码。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">Module._resolveFilename = function(request, parent) &#123;</div><div class="line"></div><div class="line">// 第一步：如果是内置模块，不含路径返回</div><div class="line">if (NativeModule.exists(request)) &#123;</div><div class="line">return request;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 第二步：确定所有可能的路径</div><div class="line">var resolvedModule = Module._resolveLookupPaths(request, parent);</div><div class="line">var id = resolvedModule[0];</div><div class="line">var paths = resolvedModule[1];</div><div class="line"></div><div class="line">// 第三步：确定哪一个路径为真</div><div class="line">var filename = Module._findPath(request, paths);</div><div class="line">if (!filename) &#123;</div><div class="line">var err = new Error(&quot;Cannot find module &apos;&quot; + request + &quot;&apos;&quot;);</div><div class="line">err.code = &apos;MODULE_NOT_FOUND&apos;;</div><div class="line">throw err;</div><div class="line">&#125;</div><div class="line">return filename;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>上面代码中，在 Module.resolveFilename 方法内部，又调用了两个方法 Module.resolveLookupPaths() 和 Module._findPath() ，前者用来列出可能的路径，后者用来确认哪一个路径为真。<br>为了简洁起见，这里只给出 Module._resolveLookupPaths() 的运行结果。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">[   &apos;/home/ruanyf/tmp/node_modules&apos;,</div><div class="line">&apos;/home/ruanyf/node_modules&apos;,</div><div class="line">&apos;/home/node_modules&apos;,</div><div class="line">&apos;/node_modules&apos;</div><div class="line">&apos;/home/ruanyf/.node_modules&apos;,</div><div class="line">&apos;/home/ruanyf/.node_libraries&apos;，</div><div class="line">&apos;$Prefix/lib/node&apos; ]</div></pre></td></tr></table></figure>
+<p>上面的数组，就是模块所有可能的路径。基本上是，从当前路径开始一级级向上寻找 node_modules 子目录。最后那三个路径，主要是为了历史原因保持兼容，实际上已经很少用了。<br>有了可能的路径以后，下面就是 Module._findPath() 的源码，用来确定到底哪一个是正确路径。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line">Module._findPath = function(request, paths) &#123;</div><div class="line"></div><div class="line">// 列出所有可能的后缀名：.js，.json, .node</div><div class="line">var exts = Object.keys(Module._extensions);</div><div class="line"></div><div class="line">// 如果是绝对路径，就不再搜索</div><div class="line">if (request.charAt(0) === &apos;/&apos;) &#123;</div><div class="line">paths = [&apos;&apos;];</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 是否有后缀的目录斜杠</div><div class="line">var trailingSlash = (request.slice(-1) === &apos;/&apos;);</div><div class="line"></div><div class="line">// 第一步：如果当前路径已在缓存中，就直接返回缓存</div><div class="line">var cacheKey = JSON.stringify(&#123;request: request, paths: paths&#125;);</div><div class="line">if (Module._pathCache[cacheKey]) &#123;</div><div class="line">return Module._pathCache[cacheKey];</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 第二步：依次遍历所有路径</div><div class="line">for (var i = 0, PL = paths.length; i &lt; PL; i++) &#123;</div><div class="line">var basePath = path.resolve(paths[i], request);</div><div class="line">var filename;</div><div class="line"></div><div class="line">if (!trailingSlash) &#123;</div><div class="line">// 第三步：是否存在该模块文件</div><div class="line">filename = tryFile(basePath);</div><div class="line"></div><div class="line">if (!filename &amp;&amp; !trailingSlash) &#123;</div><div class="line">// 第四步：该模块文件加上后缀名，是否存在</div><div class="line">filename = tryExtensions(basePath, exts);</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 第五步：目录中是否存在 package.json</div><div class="line">if (!filename) &#123;</div><div class="line">filename = tryPackage(basePath, exts);</div><div class="line">&#125;</div><div class="line"></div><div class="line">if (!filename) &#123;</div><div class="line">// 第六步：是否存在目录名 + index + 后缀名</div><div class="line">filename = tryExtensions(path.resolve(basePath, &apos;index&apos;), exts);</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 第七步：将找到的文件路径存入返回缓存，然后返回</div><div class="line">if (filename) &#123;</div><div class="line">Module._pathCache[cacheKey] = filename;</div><div class="line">return filename;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 第八步：没有找到文件，返回false</div><div class="line">return false;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>经过上面代码，就可以找到模块的绝对路径了。<br>有时在项目代码中，需要调用模块的绝对路径，那么除了 module.filename ，Node 还提供一个 require.resolve 方法，供外部调用，用于从模块名取到绝对路径。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">require.resolve = function(request) &#123;</div><div class="line">return Module._resolveFilename(request, self);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">// 用法</div><div class="line">require.resolve(&apos;a.js&apos;)</div><div class="line">// 返回 /home/ruanyf/tmp/a.js</div></pre></td></tr></table></figure>
+<h1 id="加载模块"><a href="#加载模块" class="headerlink" title="加载模块"></a>加载模块</h1><p>有了模块的绝对路径，就可以加载该模块了。下面是 module.load 方法的源码。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Module.prototype.load = function(filename) &#123;</div><div class="line">var extension = path.extname(filename) || &apos;.js&apos;;</div><div class="line">if (!Module._extensions[extension]) extension = &apos;.js&apos;;</div><div class="line">Module._extensions[extension](this, filename);</div><div class="line">this.loaded = true;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>上面代码中，首先确定模块的后缀名，不同的后缀名对应不同的加载方法。下面是 .js 和 .json 后缀名对应的处理方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">Module._extensions[&apos;.js&apos;] = function(module, filename) &#123;</div><div class="line">var content = fs.readFileSync(filename, &apos;utf8&apos;);</div><div class="line">module._compile(stripBOM(content), filename);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">Module._extensions[&apos;.json&apos;] = function(module, filename) &#123;</div><div class="line">var content = fs.readFileSync(filename, &apos;utf8&apos;);</div><div class="line">try &#123;</div><div class="line">module.exports = JSON.parse(stripBOM(content));</div><div class="line">&#125; catch (err) &#123;</div><div class="line">err.message = filename + &apos;: &apos; + err.message;</div><div class="line">throw err;</div><div class="line">&#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>这里只讨论 js 文件的加载。首先，将模块文件读取成字符串，然后剥离 utf8 编码特有的BOM文件头，最后编译该模块。<br>module._compile 方法用于模块的编译。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Module.prototype._compile = function(content, filename) &#123;</div><div class="line">var self = this;</div><div class="line">var args = [self.exports, require, self, filename, dirname];</div><div class="line">return compiledWrapper.apply(self.exports, args);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>上面的代码基本等同于下面的形式。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">(function (exports, require, module, __filename, __dirname) &#123;</div><div class="line">// 模块源码</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>也就是说，模块的加载实质上就是，注入exports、require、module三个全局变量，然后执行模块的源码，然后将模块的 exports 变量的值输出。</p>
+<p>(以上文章转载自阮一峰博客)</p>
+]]></content>
+    
+    <summary type="html">
+    
+      Nodejs的require()模块源码解读
+    
+    </summary>
+    
+      <category term="Nodejs学习笔记" scheme="http://bolg.changerhe.cb/categories/Nodejs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="Nodejs" scheme="http://bolg.changerhe.cb/tags/Nodejs/"/>
+    
+      <category term="require" scheme="http://bolg.changerhe.cb/tags/require/"/>
+    
+  </entry>
+  
+  <entry>
     <title>《ES6标准入门》阅读笔记——-Module</title>
-    <link href="http://bolg.changerhe.cb/2017/07/20/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-Module/"/>
-    <id>http://bolg.changerhe.cb/2017/07/20/《ES6标准入门》阅读笔记——-Module/</id>
-    <published>2017-07-19T16:23:13.000Z</published>
-    <updated>2017-09-18T00:42:20.342Z</updated>
+    <link href="http://bolg.changerhe.cb/2017/05/20/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-Module/"/>
+    <id>http://bolg.changerhe.cb/2017/05/20/《ES6标准入门》阅读笔记——-Module/</id>
+    <published>2017-05-19T16:23:13.000Z</published>
+    <updated>2017-11-22T05:34:40.648Z</updated>
     
     <content type="html"><![CDATA[<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。</p>
 <p>许多初学ES6, 同时和我一样初次阅读阮老师的这本书的时候, 读第一遍会越发的困惑, 因为阮老师上面说的很多的定义,方法,之前都是没有见过的, 读到后面才发现, 哦~原来是这样.</p>
@@ -724,10 +555,10 @@
   
   <entry>
     <title>《ES6标准入门》阅读笔记——-Class</title>
-    <link href="http://bolg.changerhe.cb/2017/07/16/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-Class/"/>
-    <id>http://bolg.changerhe.cb/2017/07/16/《ES6标准入门》阅读笔记——-Class/</id>
-    <published>2017-07-16T15:52:52.000Z</published>
-    <updated>2017-09-18T00:42:14.635Z</updated>
+    <link href="http://bolg.changerhe.cb/2017/05/06/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-Class/"/>
+    <id>http://bolg.changerhe.cb/2017/05/06/《ES6标准入门》阅读笔记——-Class/</id>
+    <published>2017-05-06T15:52:52.000Z</published>
+    <updated>2017-11-22T05:34:35.294Z</updated>
     
     <content type="html"><![CDATA[<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。</p>
 <p>许多初学ES6, 同时和我一样初次阅读阮老师的这本书的时候, 读第一遍会越发的困惑, 因为阮老师上面说的很多的定义,方法,之前都是没有见过的, 读到后面才发现, 哦~原来是这样.</p>
@@ -754,101 +585,11 @@
   </entry>
   
   <entry>
-    <title>记一次简单的Nodejs爬虫</title>
-    <link href="http://bolg.changerhe.cb/2017/07/13/%E8%AE%B0%E4%B8%80%E6%AC%A1%E7%AE%80%E5%8D%95%E7%9A%84Nodejs%E7%88%AC%E8%99%AB/"/>
-    <id>http://bolg.changerhe.cb/2017/07/13/记一次简单的Nodejs爬虫/</id>
-    <published>2017-07-13T10:32:57.000Z</published>
-    <updated>2017-09-27T09:13:27.086Z</updated>
-    
-    <content type="html"><![CDATA[<p>作为初学nodejs的小学森, 不玩一把爬虫真的都不好意思说自己学过nodejs</p>
-<p>所以, 本次教程本着严谨的教学角度, 向大家传授一下严谨的老司机绝技</p>
-<p>学完之后, 自己写点儿小程序, 爬一爬某些不可描述的小图片啊, 小电影啊什么的, 也是可以的</p>
-<p>所以我要在这里再次重申一下啊, 这真的是一篇严谨的教学博客</p>
-<p>一入*门深似海, 从此节操是路人</p>
-<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><p>看到这篇博客时, 默认您已经掌握了nodejs的基本知识以及模块化的相关理念, 以及npm包管理的简单使用方法(也就一个cmd命令, npm i),所以基本上是看一遍之后就可以非常简单的上手的.</p>
-<p>本次的数据库是直接使用的mongoDB, 简单上手,值得拥有.</p>
-<h2 id="mongoDB的配置"><a href="#mongoDB的配置" class="headerlink" title="mongoDB的配置"></a>mongoDB的配置</h2><p>这个下载就不用说了吧, 老司机都知道上度娘.</p>
-<p>关键是配置这块, 安装好之后,我们在项目的文件夹下创建一个db文件夹, 当然,项目文件夹是要存储你待会儿写的代码用的,新建一个就好</p>
-<p>下好之后, 可以启动cmd(win + r, 然后回车) 输入mongo</p>
-<p>输完了吗? 是不是没有看到结果? </p>
-<p>没有结果就对了,因为我没教你配置环境变量啊</p>
-<h3 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h3><p>首先,进入安装目录的bin文件夹,比如我是直接在安装的时候全部点的下一步,所以我的安装目录在<code>C:\Program Files\MongoDB\Server\3.2\bin</code>, 找到这个地方之后,在地址栏, 将这个文件路径复制下来,粘贴到环境变量的对应地方</p>
-<p>环境变量的位置在: 我的电脑右键&gt; 属性 &gt; 高级系统设置 &gt; 环境变量 &gt; 管理员的用户变量</p>
-<p>注意不要动系统变量,不然一旦操作不慎是会造成系统宕机的. </p>
-<p>我们在用户变量的PATH中,鼠标光标点到最后,在它后面插上一个小分号</p>
-<p>哎, 怎么有了一种邪恶的感觉</p>
-<p>咳咳~ 插进去之后, 将我们之前bin目录的文件路径复制上去,然后确定</p>
-<p>现在我们要做一下简单的配置让mongoDB启动起来:</p>
-<p><code>mongod  --storageEngine mmapv1 --dbpath &quot;d:\mongodb\db&quot; --logpath &quot;d:\mongodb\log\MongoDB.log</code></p>
-<p>下面详细讲一下配置的参数:</p>
-<blockquote>
-<p><code>mongod</code> mongoDB的命令,这个不用说</p>
-<p><code>--storageEngine mmapv1</code> 这是一个比较老的mongoDB的存储引擎, 32位系统的童鞋需要有这条命令, 64位系统的可以不用, </p>
-<p><code>--dbpath &quot;d:\mongodb\db&quot;</code> 数据库路径,找到项目文件夹, 把自己的项目文件夹的db路径替换掉上面的路径</p>
-<p><code>--logpath &quot;d:\mongodb\log\MongoDB.log</code> 日志路径,一般我们会放在和db一起, 也是一样的, 把自己的log文件夹的路径替换掉上面的路径,因为刚开始是没有MongoDB.log这个文件的,所以需要新建一个.</p>
-</blockquote>
-<p>执行成功之后,如果没有看到ERROR的提示, 那么恭喜你,mongo的服务已经成功启动了, 报错的可以再往上翻一下是不是有步骤遗漏, 因为我也是纯手工码字, 难免可能自己也有遗漏的地方, 确实不懂的地方也可以度娘或google</p>
-<p>以上,mongo的配置就搞定了,mongo服务默认跑在27017端口, 如果不需要长期使用, 保持cmd挂起服务就正常运行的, 记住不能关掉哦</p>
-<p>如果需要长期使用mongo服务的, 可以将mongo服务设置为系统服务,开机即启动, 可以在cmd中执行以下代码, 用于创建mongo服务进程</p>
-<p><code>mongod  --storageEngine mmapv1 --dbpath &quot;d:\mongodb\db&quot; --logpath &quot;d:\mongodb\log\MongoDB.log&quot; --install --serviceName &quot;MongoDB&quot;</code></p>
-<p>这个是mongo的指令,所以要在cmd状态下,不要在mongo的交互状态下执行这个命令,否则会报错的</p>
-<p>完成以上指令, 就已经成功创建了系统服务了, 我们现在来启动它, 在cmd中输入:</p>
-<p><code>NET START MongoDB</code></p>
-<p>提示服务器启动成功, bongo~</p>
-<h1 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h1><p>进入项目文件夹, 在cmd中输入<code>npm init</code> 创建一个json文件, 然后使用<code>npm i *</code> 一次安装express, cheerio, mongoose, superagent这几个依赖, 所以需要将指令中的<code>*</code>改为以上的依赖名称</p>
-<p>万事俱备只欠东风了, 我们新建一个app.js文件, 并引入刚刚安装的依赖</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var express = require(&apos;express&apos;)</div><div class="line">var cheerio = require(&apos;cheerio&apos;)</div><div class="line">var superagent = require(&apos;superagent&apos;)</div><div class="line">var mongoose = require(&apos;mongoose&apos;)</div></pre></td></tr></table></figure>
-<p>下面来大概说明一下这几个模块的作用</p>
-<blockquote>
-<p>express: 一个极简快速灵活的web开发框架, 用来快速搭建web服务器的</p>
-<p>cheerio: nodejs中的jQuery</p>
-<p>superagent 用来做客户端请求代理的, 直接点儿说就是代我们上网站拉网页代码的</p>
-<p>mongoose: 用来连接mongoDB和处理mongo的请求</p>
-</blockquote>
-<p>好了解完之后,我们要正式开始写代码了</p>
-<p>首先一步,还是连接mongo数据库, 不然我们趴下来的数据就没地儿存了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">// 连接到mongoDB数据库,端口是27017, 我们将内容存储在cnodejs这个数据库中</div><div class="line">mongoose.connect(&apos;mongodb://localhost:27017/cnodejs&apos;,function(err) &#123;</div><div class="line">    if(err) &#123;</div><div class="line">        throw err</div><div class="line">    &#125; else &#123;</div><div class="line">        console.log(&apos;服务器连接成功...&apos;)</div><div class="line">    &#125;</div><div class="line">&#125;)</div><div class="line"></div><div class="line">// 实例化一个骨架,定义我们要传入的内容的键名及键值</div><div class="line">var schema = new mongoose.Schema(&#123;</div><div class="line">    title: String,</div><div class="line">    href: String</div><div class="line">&#125;)</div><div class="line"></div><div class="line">// 定义一个模型变量, 我们将模型名称定义为List, 将爬取的内容存储在list这个文档中</div><div class="line">var model = mongoose.model(&apos;List&apos;, schema, &apos;list&apos;)</div></pre></td></tr></table></figure>
-<p>然后,我们再实例一个express, 方便我们进行操作</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var app = express()</div></pre></td></tr></table></figure>
-<p>使用代码来进行抓取</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">app.get(&apos;/&apos;, function(req, res, next)&#123;</div><div class="line">    // 使用superagent去抓取https://cnodejs.org的内容</div><div class="line">    superagent.get(&apos;https://cnodejs.org/&apos;).end(function(err, sres)&#123;</div><div class="line">        // 常规的错误处理</div><div class="line">        if(err) return next(err)</div><div class="line">		</div><div class="line">        // sres.text里面存储着网页的html内容, 将它传给cheerio.load之后</div><div class="line">		//就可以得到一个实现了jQuery接口的变量,我们习惯性将其命名为 &apos;$&apos;</div><div class="line">        var $ = cheerio.load(sres.text)</div><div class="line">		</div><div class="line">        var items = []</div><div class="line"></div><div class="line">        // 使用cheerio获取到爬取到的东西的内容</div><div class="line">        $(&apos;#topic_list .topic_title&apos;).each((idx, element)=&gt; &#123;</div><div class="line">		</div><div class="line">            // 预定义一个变量,从而提升整体的程序性能</div><div class="line">            var $element = $(element);</div><div class="line">			</div><div class="line">            var listModel = new model()</div><div class="line">			</div><div class="line">            listModel.title = $element.attr(&apos;title&apos;)</div><div class="line">			</div><div class="line">            listModel.href = $element.attr(&apos;href&apos;)</div><div class="line">			</div><div class="line">			// 将内容保存到数据库</div><div class="line">            listModel.save((err) =&gt; &#123;</div><div class="line">                if(err) &#123;</div><div class="line">                    throw err</div><div class="line">                &#125; else &#123;</div><div class="line">                    console.log(&apos;保存成功...&apos;)</div><div class="line">                &#125;</div><div class="line">            &#125;)</div><div class="line">        &#125;)</div><div class="line">    &#125;)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>最后一步, 指定服务器的监听端口</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">app.listen(8090, function(err) &#123;</div><div class="line">	if(err) &#123;</div><div class="line">		throw err</div><div class="line">	&#125; else &#123;</div><div class="line">		console.log(&apos;服务器启动成功.. &apos;)	</div><div class="line">	&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>全部搞定,我们使用cmd输入命令 node app 或者使用webstorm的ctrl + f9启动一下</p>
-<p>到浏览器中,输入刚刚设置的本地服务器加端口号: <code>localhost:8090</code> </p>
-<p>回来一看,我靠,好多的保存成功啊</p>
-<p>至此,我们的爬取工作就已经全部完成了, 看下成果呗:</p>
-<h1 id="在mongoDB中查看自己的爬取结果"><a href="#在mongoDB中查看自己的爬取结果" class="headerlink" title="在mongoDB中查看自己的爬取结果"></a>在mongoDB中查看自己的爬取结果</h1><p>如果不想麻烦的话, 可以直接安装一个ROBO 3T, 傻瓜式操作</p>
-<p>也可以自己输入指令查看</p>
-<p>在cmd中输入mongo, 进入mongo的交互</p>
-<p>输入指令: <code>use cnodejs</code> 转到我们的cnodejs这个数据库中</p>
-<p>然后输入指令: ‘db.list.find().pretty()’ 爬取的结果就都出来了</p>
-<h1 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h1><p>爬取的过程至此圆满结束</p>
-<p>当然, 作为一个负责任的老司机, 怎么可能会不告诉你, 爬取出来的小电影小图片怎么看呢.</p>
-<p>很简单, 使用ejs或者handlebars这类的模板引擎, 将数据库的内容渲染出来就好了</p>
-]]></content>
-    
-    <summary type="html">
-    
-      作为初学nodejs的小学森, 不玩一把爬虫真的都不好意思说自己学过nodejs. 所以, 本次教程本着严谨的教学角度, 向大家传授一下严谨的老司机绝技
-    
-    </summary>
-    
-      <category term="Nodejs学习笔记" scheme="http://bolg.changerhe.cb/categories/Nodejs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="Nodejs" scheme="http://bolg.changerhe.cb/tags/Nodejs/"/>
-    
-      <category term="爬虫" scheme="http://bolg.changerhe.cb/tags/%E7%88%AC%E8%99%AB/"/>
-    
-  </entry>
-  
-  <entry>
     <title>《ES6标准入门》阅读笔记——-Promise</title>
-    <link href="http://bolg.changerhe.cb/2017/07/11/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-Promise/"/>
-    <id>http://bolg.changerhe.cb/2017/07/11/《ES6标准入门》阅读笔记——-Promise/</id>
-    <published>2017-07-11T14:23:54.000Z</published>
-    <updated>2017-09-18T00:42:09.303Z</updated>
+    <link href="http://bolg.changerhe.cb/2017/04/30/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-Promise/"/>
+    <id>http://bolg.changerhe.cb/2017/04/30/《ES6标准入门》阅读笔记——-Promise/</id>
+    <published>2017-04-30T14:23:54.000Z</published>
+    <updated>2017-11-22T05:34:26.336Z</updated>
     
     <content type="html"><![CDATA[<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。</p>
 <p>许多初学ES6, 同时和我一样初次阅读阮老师的这本书的时候, 读第一遍会越发的困惑, 因为阮老师上面说的很多的定义,方法,之前都是没有见过的, 读到后面才发现, 哦~原来是这样.</p>
@@ -876,10 +617,10 @@
   
   <entry>
     <title>《ES6标准入门》阅读笔记——-Iterator和Generator</title>
-    <link href="http://bolg.changerhe.cb/2017/07/07/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-Iterator%E5%92%8CGenerator/"/>
-    <id>http://bolg.changerhe.cb/2017/07/07/《ES6标准入门》阅读笔记——-Iterator和Generator/</id>
-    <published>2017-07-07T15:11:34.000Z</published>
-    <updated>2017-09-18T00:42:03.573Z</updated>
+    <link href="http://bolg.changerhe.cb/2017/04/15/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-Iterator%E5%92%8CGenerator/"/>
+    <id>http://bolg.changerhe.cb/2017/04/15/《ES6标准入门》阅读笔记——-Iterator和Generator/</id>
+    <published>2017-04-15T15:11:34.000Z</published>
+    <updated>2017-11-22T05:34:15.852Z</updated>
     
     <content type="html"><![CDATA[<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。</p>
 <p>许多初学ES6, 同时和我一样初次阅读阮老师的这本书的时候, 读第一遍会越发的困惑, 因为阮老师上面说的很多的定义,方法,之前都是没有见过的, 读到后面才发现, 哦~原来是这样.</p>
@@ -909,10 +650,10 @@
   
   <entry>
     <title>《ES6标准入门》阅读笔记——-set和map</title>
-    <link href="http://bolg.changerhe.cb/2017/07/03/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-set%E5%92%8Cmap/"/>
-    <id>http://bolg.changerhe.cb/2017/07/03/《ES6标准入门》阅读笔记——-set和map/</id>
-    <published>2017-07-03T03:37:44.000Z</published>
-    <updated>2017-10-09T09:51:25.926Z</updated>
+    <link href="http://bolg.changerhe.cb/2017/04/03/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-set%E5%92%8Cmap/"/>
+    <id>http://bolg.changerhe.cb/2017/04/03/《ES6标准入门》阅读笔记——-set和map/</id>
+    <published>2017-04-03T03:37:44.000Z</published>
+    <updated>2017-11-22T05:33:55.948Z</updated>
     
     <content type="html"><![CDATA[<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。</p>
 <p>许多初学ES6, 同时和我一样初次阅读阮老师的这本书的时候, 读第一遍会越发的困惑, 因为阮老师上面说的很多的定义,方法,之前都是没有见过的, 读到后面才发现, 哦~原来是这样.</p>
@@ -984,10 +725,10 @@
   
   <entry>
     <title>《ES6标准入门》阅读笔记——-symbol及proxy/reflect</title>
-    <link href="http://bolg.changerhe.cb/2017/07/01/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-symbol%E5%8F%8Aproxy-reflect/"/>
-    <id>http://bolg.changerhe.cb/2017/07/01/《ES6标准入门》阅读笔记——-symbol及proxy-reflect/</id>
-    <published>2017-07-01T05:51:28.000Z</published>
-    <updated>2017-10-09T09:10:47.950Z</updated>
+    <link href="http://bolg.changerhe.cb/2017/04/01/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-symbol%E5%8F%8Aproxy-reflect/"/>
+    <id>http://bolg.changerhe.cb/2017/04/01/《ES6标准入门》阅读笔记——-symbol及proxy-reflect/</id>
+    <published>2017-04-01T05:51:28.000Z</published>
+    <updated>2017-11-22T05:33:49.057Z</updated>
     
     <content type="html"><![CDATA[<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。</p>
 <p>许多初学ES6, 同时和我一样初次阅读阮老师的这本书的时候, 读第一遍会越发的困惑, 因为阮老师上面说的很多的定义,方法,之前都是没有见过的, 读到后面才发现, 哦~原来是这样.</p>
@@ -1068,47 +809,96 @@
   </entry>
   
   <entry>
-    <title>Margin和Padding值设置成百分数的布局</title>
-    <link href="http://bolg.changerhe.cb/2017/06/30/Margin%E5%92%8CPadding%E5%80%BC%E8%AE%BE%E7%BD%AE%E6%88%90%E7%99%BE%E5%88%86%E6%95%B0%E7%9A%84%E5%B8%83%E5%B1%80/"/>
-    <id>http://bolg.changerhe.cb/2017/06/30/Margin和Padding值设置成百分数的布局/</id>
-    <published>2017-06-30T11:36:43.000Z</published>
-    <updated>2017-10-25T03:51:41.577Z</updated>
+    <title>微信公众平台接口配置信息详解---Nodejs版</title>
+    <link href="http://bolg.changerhe.cb/2017/03/24/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%B9%B3%E5%8F%B0%E6%8E%A5%E5%8F%A3%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF%E8%AF%A6%E8%A7%A3---Nodejs%E7%89%88/"/>
+    <id>http://bolg.changerhe.cb/2017/03/24/微信公众平台接口配置信息详解---Nodejs版/</id>
+    <published>2017-03-24T15:11:42.000Z</published>
+    <updated>2017-11-22T05:33:31.663Z</updated>
     
-    <content type="html"><![CDATA[<p>Margin和Padding是我们在网页设计经常使用到的CSS样式，他们分别是间距和填充，一个作用于盒子外面，一个作用于盒子里面，默认的情况下，这些属性的值都会被计算在盒子的面积里面，在网页开发中的流体布局或者是响应式布局中，经常将Margin和Padding设置成百分数，那么到底这个百分数是多少，他是如何计算的呢？</p>
-<h1 id="Margin"><a href="#Margin" class="headerlink" title="Margin"></a>Margin</h1><p>假设我们有这样的一段HTML代码，外面一个DIV宽度980px，高度500px，里面有一个子元素DIV，宽度和高度都不设置，然后给他设置margin:10% 5%，这个属性相当于margin:10% 5% 10% 5%。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;demo1&quot;&gt;</div><div class="line">    &lt;div&gt;这个div设置：margin:10% 5%&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
-<h1 id="CSS代码"><a href="#CSS代码" class="headerlink" title="CSS代码"></a>CSS代码</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">.demo1&#123; height:500px; width:980px; margin:0 auto; background:#EEE; overflow:hidden;&#125;</div><div class="line">.demo1 div&#123;margin:10% 5%; background:#666;&#125;</div></pre></td></tr></table></figure>
-<p>为了方便查看效果，我们还分别为他们设置了不同的背景。</p>
-<p>这里还出现了一个小的hack，就是demo1盒子不会紧挨着body，也就是不会定格布局，而且body元素上面还有一段空白，这段空白的高度刚好是.demo1 div元素的margin-top，demo1和.demo1 div元素都是顶格对其的，只要给demo1元素设置overflow:hidden，即可解决这个问题，点击这里查看示例。</p>
-<p>我们根据以往的理解，<code>.demo1 div</code>的<code>margin</code>应该是：<code>50px 49px 50px 49px</code>，但是运行以后，通过查看盒模型示意图，却发现是：<code>98px 49px 98px 49px</code>，这是怎么回事呢</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>从上面的示例和代码，我们可以发现当margin设置成百分数的时候，其top right bottom left的值是参照父元素盒子的宽度进行计算，在w3c的规范中也是这样描述的：</p>
+    <content type="html"><![CDATA[<p>首先,要说明一点的是, 虽然标题有说是: nodejs版, 那么会有其他的版本配置方法详情吗?</p>
+<p>答案是没有, 不过在微信公众平台上有详细说明了PHP为后台的配置版本, 如果有兴趣的童鞋可以过去看一下, 这里就不做赘述了</p>
+<p>那么本篇博客主要写哪些呢, 博客的受众有哪些呢?</p>
+<p>本篇博客主要是针对需要进行微信公众平台进行开发的个人开发者, 因为在个人申请公众号的过程中存在诸多限制, 而微信则比较体贴地提供了针对个人开发者的公众平台测试帐号, 这样就可以无需申请公众帐号就能在测试帐号中体验并测试微信公众平台所有高级接口了. </p>
+<p>而根据微信方的要求, 个人开发者需要有自己的服务器, 并且对微信的加密token能够正确地进行返回数据, 进行一番验证之后才能够享受微信所提供的开发者服务</p>
+<p>那么问题来了, 我没有服务器怎么办啊?</p>
+<p>哎不对, 我也不会正确的接收token和返回token啊! 怎么搞~</p>
+<p>这里根据实际情况, 因为即使你有服务器, 每次还要登陆服务器, 势必会造成很大的麻烦, 那么我们一般会使用到ngrok的内网转发服务</p>
+<p>想必到这里很多人不知道ngrok是什么, 这里从百度百科扒一个词条过来解释一下</p>
 <blockquote>
-<p>margin 的百分比值参照其包含块的宽度进行计算，同样的padding如果设置成百分数的话，其盒子模型和margin是一样的。</p>
-<p>这只发生在默认的<code>writing-mode: horizontal-tb;</code>和<code>direction: ltr;</code>的情况下，当书写模式变成纵向的时候，其参照将会变成包含块的高度。</p>
+<p>ngrok 是一个反向代理，通过在公共的端点和本地运行的 Web 服务器之间建立一个安全的通道。ngrok 可捕获和分析所有通道上的流量，便于后期分析和重放</p>
 </blockquote>
-<p>为什么要选择宽度做参照而不是高度呢？</p>
-<p>这其实更多的要从CSS设计意图上去想，因为CSS的基础需求是排版，而通常我们所见的横排文字，其水平宽度一定（仔细回想一下，如果没有显式的定义宽度 或者强制一行显示，都会遇到边界换行，而不是水平延展），垂直方向可以无限延展。但当书写模式为纵向时，其参照就变成了高度而不再是宽度了。</p>
+<p>讲得那么复杂, 简单总结一下, 就是使用这玩意儿就可以将你的本地开启的服务器当做一个外网服务器来使用, 也就是说从微信发过来的验证token, 是可以直接发送到我们的电脑上, 从而成功校验token, 美滋滋~</p>
+<h1 id="ngrok的使用及配置"><a href="#ngrok的使用及配置" class="headerlink" title="ngrok的使用及配置"></a>ngrok的使用及配置</h1><p>ngrok本身是源自美国的公司提供的一项反向代理的服务, 使用它就可以很方便地进行反向代理了.</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><img src="https://ngrok.com/download" alt="官网下载">地址下载, 解压</p>
+<p>将可执行文件ngrok移到任意文件夹内</p>
+<p>如果需要在命令行直接执行, 则需要进行配置全局变量, 这个有些复杂, 就不展开讲了, 如果有不想每次都要找到这个文件双击打开, 而是直接使用CMD的同学, 可以试一下(不过我觉得每次双击打开问价没啥不好的啊)</p>
+<h2 id="注册授权"><a href="#注册授权" class="headerlink" title="注册授权"></a>注册授权</h2><p>现在其实是可以进行正常捕获到请求了, 但是现在有个问题就是, 这一切是不是来的太简单了…</p>
+<p>没错, 还差一步, 就是要官网的一个token</p>
+<p><img src="https://dashboard.ngrok.com/user/signup" alt="sign up for an account in ngrok"> 获取ngrok的授权码,</p>
+<h2 id="进行本机认证-Install-your-authtoken"><a href="#进行本机认证-Install-your-authtoken" class="headerlink" title="进行本机认证 Install your authtoken"></a>进行本机认证 Install your authtoken</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ngrok authtoken &lt;YOUR_AUTHTOKEN&gt;</div></pre></td></tr></table></figure>
+<h2 id="设置外网的访问密码-选做"><a href="#设置外网的访问密码-选做" class="headerlink" title="设置外网的访问密码(选做)"></a>设置外网的访问密码(选做)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// username 用户名 password密码 8080相关的端口</div><div class="line">ngrok http -auth=&quot;username:password&quot; 8080</div></pre></td></tr></table></figure>
+<h2 id="配置妥当"><a href="#配置妥当" class="headerlink" title="配置妥当"></a>配置妥当</h2><p>那么现在我们可以输入以下命令, 启动ngrok了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ngrok http 8080</div></pre></td></tr></table></figure>
+<p>当然, 这个端口可以自己设置, 开心就好</p>
+<p>现在我们到浏览器中输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">localhost:4040</div></pre></td></tr></table></figure>
+<p>即可看到ngrok的监控页面, 上面有为你分配的http和https两个网址,把网址复制到微信公众平台的测试账号申请的接口配置信息中</p>
+<h1 id="离成功还差半步"><a href="#离成功还差半步" class="headerlink" title="离成功还差半步"></a>离成功还差半步</h1><p>那么, 我们成功设置了ngrok了, 现在要准备对接微信的接口了, 微信的access_token每次传输的内容有下面几个:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">signature</td>
+<td style="text-align:center">微信加密签名，signature结合了开发者填写的token参数和请求中的timestamp参数、nonce参数。</td>
+</tr>
+<tr>
+<td style="text-align:center">timestamp</td>
+<td style="text-align:center">时间戳</td>
+</tr>
+<tr>
+<td style="text-align:center">nonce</td>
+<td style="text-align:center">随机数</td>
+</tr>
+<tr>
+<td style="text-align:center">echostr</td>
+<td style="text-align:center">随机字符串</td>
+</tr>
+</tbody>
+</table>
+<p>开发者通过检验signature对请求进行校验（下面有校验方式）。若确认此次GET请求来自微信服务器，请原样返回echostr参数内容，则接入生效，成为开发者成功，否则接入失败。加密/校验流程如下：</p>
+<p>-1）将token、timestamp、nonce三个参数进行字典序排序</p>
+<p>-2）将三个参数字符串拼接成一个字符串进行sha1加密</p>
+<p>-3）开发者获得加密后的字符串可与signature对比，标识该请求来源于微信</p>
+<h1 id="PHP实例代码"><a href="#PHP实例代码" class="headerlink" title="PHP实例代码"></a>PHP实例代码</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">private function checkSignature () &#123;</div><div class="line">	_GET[&quot;signature&quot;];</div><div class="line">	_GET[&quot;timestamp&quot;];</div><div class="line">	_GET[&quot;nonce&quot;];</div><div class="line">        </div><div class="line">	tmpArr = array(timestamp, $nonce);</div><div class="line">	sort($tmpArr, SORT_STRING);</div><div class="line">	$tmpStr = implode( $tmpArr );</div><div class="line">	$tmpStr = sha1( $tmpStr );</div><div class="line"></div><div class="line">	if( signature )&#123;</div><div class="line">		return true;</div><div class="line">	&#125; else &#123;</div><div class="line">		return false;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>以上为微信官网的PHP实例代码, 作为一个会nodejs的小学森, 怎么能不用nodejs呢, 看下nodejs的写法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">const Koa = require(&apos;koa&apos;)</div><div class="line">const sha1 = require(&apos;sha1&apos;)</div><div class="line"></div><div class="line">var config = &#123;</div><div class="line">	wechat: &#123;</div><div class="line">		appId: &apos;***&apos;,</div><div class="line">		appSecret: &apos;***&apos;,</div><div class="line">		token: &apos;***&apos;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var app = new Koa()</div><div class="line"></div><div class="line">app.use(function* (next) &#123;</div><div class="line">	console.log(this.query)</div><div class="line"></div><div class="line">	var token = config.wechat.token</div><div class="line">	var signature = this.query.signature</div><div class="line">	var nonce = this.query.nonce</div><div class="line">	var timestamp = this.query.timestamp</div><div class="line">	var echostr = this.query.echostr</div><div class="line"></div><div class="line">	var str = [token, timestamp, nonce].sort().join(&apos;&apos;)</div><div class="line">	var sha = sha1(str)</div><div class="line">	console.log(sha)</div><div class="line">	if (sha === signature) &#123;</div><div class="line">		this.body = echostr</div><div class="line">	&#125; else &#123;</div><div class="line">		this.body = &apos;wrong&apos;</div><div class="line">	&#125;</div><div class="line">&#125;)</div><div class="line"></div><div class="line">app.listen(8090)</div><div class="line"></div><div class="line">console.log(&apos;listening 8090&apos;)</div></pre></td></tr></table></figure>
+<p>这里用到了koa框架和sha1加密组件, 喜欢其他的方式的童鞋可以使用其他的开发方法, 总体来说都是一样的</p>
 ]]></content>
     
     <summary type="html">
     
-      Margin和Padding是我们在网页设计经常使用到的CSS样式，他们分别是间距和填充，一个作用于盒子外面，一个作用于盒子里面，默认的情况下，这些属性的值都会被计算在盒子的面积里面，在网页开发中的流体布局或者是响应式布局中，经常将Margin和Padding设置成百分数，那么到底这个百分数是多少，他是如何计算的呢？
+      本篇博客主要是针对需要进行微信公众平台进行开发的个人开发者, 因为在个人申请公众号的过程中存在诸多限制, 而微信则比较体贴地提供了针对个人开发者的公众平台测试帐号, 这样就可以无需申请公众帐号就能在测试帐号中体验并测试微信公众平台所有高级接口了. 
     
     </summary>
     
-      <category term="CSS" scheme="http://bolg.changerhe.cb/categories/CSS/"/>
+      <category term="微信公众平台" scheme="http://bolg.changerhe.cb/categories/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%B9%B3%E5%8F%B0/"/>
     
     
-      <category term="CSS" scheme="http://bolg.changerhe.cb/tags/CSS/"/>
+      <category term="微信公众平台" scheme="http://bolg.changerhe.cb/tags/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%B9%B3%E5%8F%B0/"/>
     
   </entry>
   
   <entry>
     <title>《ES6标准入门》阅读笔记——-对象的扩展</title>
-    <link href="http://bolg.changerhe.cb/2017/06/30/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%89%A9%E5%B1%95/"/>
-    <id>http://bolg.changerhe.cb/2017/06/30/《ES6标准入门》阅读笔记——-对象的扩展/</id>
-    <published>2017-06-30T05:49:33.000Z</published>
-    <updated>2017-09-23T13:50:55.999Z</updated>
+    <link href="http://bolg.changerhe.cb/2017/03/15/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%89%A9%E5%B1%95/"/>
+    <id>http://bolg.changerhe.cb/2017/03/15/《ES6标准入门》阅读笔记——-对象的扩展/</id>
+    <published>2017-03-15T05:49:33.000Z</published>
+    <updated>2017-11-22T05:32:56.137Z</updated>
     
     <content type="html"><![CDATA[<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。</p>
 <p>许多初学ES6, 同时和我一样初次阅读阮老师的这本书的时候, 读第一遍会越发的困惑, 因为阮老师上面说的很多的定义,方法,之前都是没有见过的, 读到后面才发现, 哦~原来是这样.</p>
@@ -1184,6 +974,200 @@
       <category term="ES6" scheme="http://bolg.changerhe.cb/tags/ES6/"/>
     
       <category term="Object" scheme="http://bolg.changerhe.cb/tags/Object/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《ES6标准入门》阅读笔记——-函数的扩展</title>
+    <link href="http://bolg.changerhe.cb/2017/02/28/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A9%E5%B1%95/"/>
+    <id>http://bolg.changerhe.cb/2017/02/28/《ES6标准入门》阅读笔记——-函数的扩展/</id>
+    <published>2017-02-28T13:36:55.000Z</published>
+    <updated>2017-11-22T05:32:48.025Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。</p>
+<p>许多初学ES6, 同时和我一样初次阅读阮老师的这本书的时候, 读第一遍会越发的困惑, 因为阮老师上面说的很多的定义,方法,之前都是没有见过的, 读到后面才发现, 哦~原来是这样.</p>
+<p>有一句话叫做”大神的世界我们不懂”, 所以我在初读第一遍《ES6标准入门》这本书的时候,也是踩了不少坑,读书的时候查阅了不少的资料.</p>
+<p>所以,在这一系列的笔记教程中,我会从一个初学者的角度,向您讲述ES6的相关知识,在后面介绍的知识我会尽量不提前用,即使提前使用,也会同时做好标注,避免了阅读时各种查阅资料的烦恼.</p>
+<p>系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导新手，快速入门ES6，并逐步将其投入到生产实践中。</p>
+<p>同时,在阅读前也提醒您, 为了系统连贯性的学习ES6的基础知识,建议您从我的博客第一章开始阅读,当然,如果您对对应的知识已经有所了解,那么可以跳转到任意章节阅读,每一篇博客名中均有介绍该博客中涉及到的ES6的内容.</p>
+<p>阮一峰老师的这本书是开源的，在其官方博客就可以下载到，但是我强烈建议大家去购买一本书, 一是方便自己查阅ES6中新增的众多API, 二也是表达一下对大神的敬仰.</p>
+<h1 id="函数的默认值"><a href="#函数的默认值" class="headerlink" title="函数的默认值"></a>函数的默认值</h1><p>在ES6之前,函数的默认值只能在函数体内进行判断</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function log(x, y) &#123;</div><div class="line">	y = y || &quot;world&quot;</div><div class="line">	console.log(x, y)</div><div class="line">&#125;</div><div class="line">log(&quot;hello &quot;) // hello world</div><div class="line">// 当我们采用ES5的写法时,是存在问题的,当我们给第二个参数传入布尔值为false的值的时候,实际上并不会使用这个值而是仍然使用默认值.</div><div class="line">log(&quot;hello &quot;, false) // hello world</div><div class="line">log(&quot;hello &quot;, &quot;&quot;) // hello world</div><div class="line">log(&quot;hello &quot;, undefined) // hello world</div></pre></td></tr></table></figure>
+<p>在ES6中就不会有这个烦恼了,ES6允许将参数设置默认值,直接写在参数定义的后面即可</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function log(x, y = &quot;world&quot;) &#123;</div><div class="line">	console.log(x, y)</div><div class="line">&#125;</div><div class="line">log(&quot;hello &quot;) // hello world</div><div class="line">log(&quot;hello &quot;, false) // hello false</div><div class="line">log(&quot;hello &quot;, &quot;&quot;) // hello </div><div class="line">log(&quot;hello &quot;, undefined) // hello world</div></pre></td></tr></table></figure>
+<p>由此可见,ES6的写法比之前更加自然,也更加的语义化了.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function Point(x = 0, y = 0) &#123;</div><div class="line">	this.x = x</div><div class="line">	this.y = y</div><div class="line">&#125;</div><div class="line">var p1 = new Point()</div><div class="line">console.log(p1.x, p1.x) // 0 0</div><div class="line"></div><div class="line">var p2 = new Point(2)</div><div class="line">console.log(p2.x, p2.y) // 2 0</div></pre></td></tr></table></figure>
+<p>因为变量的参数是默认声明的,所以我们在内部重新使用let或const对变量声明的时候,是会报错的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function foo(x = 5) &#123;</div><div class="line">	let x = 1  // 报错</div><div class="line">	const x = 1  // 报错</div><div class="line">&#125;</div><div class="line"></div><div class="line">## 函数的默认值与解构赋值默认值结合使用</div></pre></td></tr></table></figure>
+<p>function foo({x, y = 5}) {<br>    console.log(x, y)<br>}<br>foo({})  // undefined 5<br>foo({x: 1})  // 1 5<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">在为函数使用解构赋值时,因为有必填的参数,所以这个情况下必须要填需要的参数,否则会报错.</div><div class="line"></div><div class="line">但是当我们在这种情况下,如果不想让它报错的话,可以使用双重解赋值的方法解决此问题</div></pre></td></tr></table></figure></p>
+<p>function fetch(url, {method = “GET”} = {}) {<br>    console.log(method)<br>}<br>fetch(“<a href="http://example.com" target="_blank" rel="external">http://example.com</a>“) // GET<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">## 解构赋值的默认值和函数默认值的区别</div></pre></td></tr></table></figure></p>
+<p>function m1({x = 0, y = 0} = {}) {<br>    return [x, y]<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">以上代码将函数参数默认值设置为空对象, 但设置了对象解构赋值的默认值</div><div class="line"></div><div class="line">我们在来看一下下面的代码</div></pre></td></tr></table></figure></p>
+<p>function m2({x, y} = {x: 0, y: 0}) {<br>    return [x, y]<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">在函数都有参数或都没有参数的情况下,两者是相等的</div></pre></td></tr></table></figure></p>
+<p>m1() // [0, 0]<br>m2() // [0, 0]<br>m1({x: 3, y: 8}) // [3, 8]<br>m2({x: 3, y: 8}) // [3, 8]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">但是在当一个有值,一个没有值的情况下,区别就显现出来了</div></pre></td></tr></table></figure></p>
+<p>m1({x: 3}) // [3, 0]<br>m2({x: 3}) // [3, undefined]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">当我们传入的是不同的对象的时候, m1的默认值为0, 所以, 会输出0, 而因为输入的对象与解构赋值的默认值不匹配,所以会输出undefined</div></pre></td></tr></table></figure></p>
+<p>m1({z: 3})  // [0, 0]<br>m2({z: 3})  // [undefined, undefined]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">当我们将非尾部的参数设置了默认值,那么这个时候这个参数是没有办法省略的</div></pre></td></tr></table></figure></p>
+<p>function f(x = 1, y) {<br>    return [x, y]<br>}<br>console.log(f()) // [1, undefined]<br>console.log(f(1)) // [1, undefined]<br>console.log(f(, 1)) // 报错<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">## 参数默认值的位置</div><div class="line"></div><div class="line">通常情况下,定义了默认值的参数应该是函数的尾参数.</div><div class="line"></div><div class="line">因为这样比较容易看出到底省略了哪些参数,如果非尾部的参数设置默认值实际上这个参数是无法省略的.</div><div class="line"> </div><div class="line">换句话说,就是当中间设置了默认值,如果要给其后的非指定默认值参数设置值的话,必须要给这个参数设置值,或者显式的设置undefined或null, 否则会报错</div></pre></td></tr></table></figure></p>
+<p>function f(x, y = 5, z) {<br>    return [x, y, z]<br>}<br>console.log(f())  // [undefined, 5, undefined]<br>console.log(f(1)) // [1, 5, undefined]<br>console.log(f(1, undefined, 3)) // [1, 5, 3]<br>console.log(f(1, , 2)) // 报错<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">## 函数的length属性</div><div class="line"></div><div class="line">指定了默认值后.函数的length属性将会返回没有指定默认值的参数个数,也就是说,指定了默认值后,length属性将会失真</div><div class="line"></div><div class="line">同时,经过测试,当我们设置默认值在前时,其实显示的形参个数是设置默认值的形参前面的形参个数,后面的形参个数是不计入在内的</div></pre></td></tr></table></figure></p>
+<p>console.log((function(x) {}).length)  // 1<br>console.log((function(x = 90, a, b) {}).length) // 0<br>console.log((function(x, a = 90, b) {}).length) // 1<br>console.log((function(x, a, b = 90) {}).length) // 2<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">同样的,因为rest参数,也就是俗称的三点运算符的特殊性,其长度是不会计入length属性的</div></pre></td></tr></table></figure></p>
+<p>console.log((function(…args){}).length)  // 0<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">## 函数的作用域</div><div class="line"></div><div class="line">一个需要注意的地方是,如果参数默认值是一个变量,则该变量所处的作用域与其他的变量的作用域是一样的,即先是当前函数的作用域,然后才是全局作用域</div></pre></td></tr></table></figure></p>
+<p>let x = 1</p>
+<p>function f(x, y = x) {<br>    console.log(y) // 2<br>}<br>f(2)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">上面的代码中,参数的默认值等于x. 调用时, 由于函数作用域内部的变量x已经生成, 所以y等于参数x而不是全局变量x</div><div class="line"></div><div class="line">但当调用的时候函数作用域内部的变量x没有生成,那么x就会指向全局变量,因为全局变量中没有这个参数,所以y依然指向自身</div><div class="line"></div><div class="line">另外说明一下,这个和阮一峰老师的书中结果是不一致的,经过在chrome59版本下测试,结果为1</div></pre></td></tr></table></figure></p>
+<p>function f1(y = x) {<br>    let x = 2<br>    console.log(y) // 1<br>}<br>f1(1)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">## 函数的参数默认值的小应用</div><div class="line"></div><div class="line">引用参数默认值,可以指定某一个参数不得省略,否则会抛出一个错误</div></pre></td></tr></table></figure></p>
+<p>throwIfMissing = () =&gt; {<br>    throw new Error(‘Missing parameter’)<br>}</p>
+<p>function foo(mustBeProvided = throwIfMissing()) {<br>    return mustBeProvided<br>}</p>
+<p>foo() // Error: Missing parameter<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"># rest参数(三点运算符)</div><div class="line"></div><div class="line">在ES6中引入了rest参数, 用于获取函数的多余参数,这样就不需要使用arguments对象了,rest参数搭配的变量是一个数组,该变量将多余的参数放入其中</div></pre></td></tr></table></figure></p>
+<p>function add(…values) {<br>    let sum = 0<br>    console.log(values) // [2, 3, 4]<br>    for (var val of values) {<br>        sum += val<br>    }<br>    return sum<br>}<br>console.log(add(2, 3, 4)) // 9<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">下面是rest参数代替arguments变量的例子</div></pre></td></tr></table></figure></p>
+<p>//在ES5中<br>const shortNumbers = () =&gt; {<br>    return Array.prototype.slice.call(arguments).sort()<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">// 使用rest参数无疑让写法更加简洁自然了</div></pre></td></tr></table></figure></p>
+<p>const sortNumbers = (…numbers) =&gt; {<br>    return numbers.sort()<br>}</p>
+<h2 id="使用rest参数的特性-可以改写push方法"><a href="#使用rest参数的特性-可以改写push方法" class="headerlink" title="使用rest参数的特性,可以改写push方法"></a>使用rest参数的特性,可以改写push方法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function push(array, ...items) &#123;</div><div class="line">	items.forEach(function(item) &#123;</div><div class="line">		array.push(item)</div><div class="line">	&#125;)</div><div class="line">	return array</div><div class="line">&#125;</div><div class="line">console.log(push([1, 2, 3], 1, 2, 3, 4, 54)) </div><div class="line">// [1, 2, 3, 1, 2, 3, 4, 54]</div></pre></td></tr></table></figure>
+<h1 id="扩展运算符-…"><a href="#扩展运算符-…" class="headerlink" title="扩展运算符  …"></a>扩展运算符  …</h1><p>扩展运算符好比rest参数的逆运算,将一个数组转为用逗号分隔的参数序列</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">console.log(...[1, 2, 3]) // 1 2 3</div><div class="line">console.log(1, ...[2, [[3], 4]], 5) // 1, 2, [[3], 4]], 5</div><div class="line"></div><div class="line">## 扩展运算符的应用</div><div class="line"></div><div class="line">### 替代数组的apply方法</div><div class="line"></div><div class="line">在ES5之前,我们如果需要将数组的值作为函数的参数逐一传进函数的时候,最简便的方法就是使用apply方法</div></pre></td></tr></table></figure>
+<p>function f(x, y, z) {}<br>var args = [1, 2, 3]<br>f.apply(null, args)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">在ES6中,写法是这样的</div></pre></td></tr></table></figure></p>
+<p>function f2(x, y, z) {}<br>var args = [0, 1, 2]<br>f2(…args)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 替代Math.max方法</div><div class="line"></div><div class="line">当我们需要对数组进行最大最小值的判断的时候,在ES5中,用法是这样的</div></pre></td></tr></table></figure></p>
+<p>var a = [1, 2, 4, 12, 3, 5, 1, 12]<br>console.log(Math.max.apply(null, a)) // 12<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">但是在ES6中,我们就不必要这么麻烦了,因为扩展运算符 ... 可以将数组直接转换为普通的单个数字</div></pre></td></tr></table></figure></p>
+<p>var a = [1, 2, 4, 12, 3, 5, 1, 12]<br>console.log(Math.max(…a)) // 12<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 替代push方法</div><div class="line"></div><div class="line">同样的,在ES5中,如果我们需要使用push方法将两个数组连接起来的时候,我们需要这样做</div></pre></td></tr></table></figure></p>
+<p>var a = [1, 2, 3]<br>var b = [4, 5, 6]<br>Array.prototype.push.apply(a, b)<br>console.log(a) // [1, 2, 3, 4, 5, 6]<br>console.log(b) // [4, 5, 6]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">因为最后需要得到扁平化的数组,所以并不能直接使用`a.push(b)`这样的方法,这样会使得到的变成多维数组</div><div class="line"></div><div class="line">同样的,ES6还提供了数组合并的新写法:</div></pre></td></tr></table></figure></p>
+<p>var a = [1, 2, 3]<br>var b = [4, 5, 6]<br>a.push(…b)<br>console.log(a) // [1, 2, 3, 4, 5, 6]<br>console.log(b) // [4, 5, 6]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 替代数组合并方法</div></pre></td></tr></table></figure></p>
+<p>var a = [1, 2, 3]<br>var b = [4, 5, 6]<br>var c = a.concat(b)<br>console.log(c)  // [1, 2, 3, 4, 5, 6]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">在ES6中,因为有了 ... 运算符,那么其实concat是可以省略的</div></pre></td></tr></table></figure></p>
+<p>var a = [1, 2, 3]<br>var b = [4, 5, 6]<br>var d = […a, …b]<br>console.log(d)  // [1, 2, 3, 4, 5, 6]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 与解构赋值结合起来,用于生成数组</div><div class="line"></div><div class="line">那么,我们先来看一下,在ES5中,是怎么做到的</div></pre></td></tr></table></figure></p>
+<p>let a = [1, 2, 3, 4]<br>let b = a[0]<br>let c = a.slice(1)<br>console.log(b, c) // 1 [2, 3, 4]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">那么在ES6中,这样的形式就很容易实现了,通过解构赋值和三点运算符结合的方式</div></pre></td></tr></table></figure></p>
+<p>let a = [1, 2, 3, 4]<br>let [d, …e] = a<br>console.log(d, e) // 1 [2, 3, 4]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">当我们对一个空的数组进行解构赋值的时候,会出现什么情况呢?</div></pre></td></tr></table></figure></p>
+<p>let [f, …g] = []<br>console.log(f, g) //undefined  []<br>let [h, …i] = [‘foo’]<br>console.log(h, i) // foo  []<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">需要注意的是,我们使用扩展运算符,也就是三点运算符,这个运算是必须要放在参数的最后一位的,否则会报错</div></pre></td></tr></table></figure></p>
+<p>let […j, k] = [1, 2, 3, 4]<br>console.log(j, k)<br>//报错,Rest element must be last element<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">## 扩展运算符对字符串的支持</div></pre></td></tr></table></figure></p>
+<p>console.log([…’hello’]) // [“h”, “e”, “l”, “l”, “o”]<br>// 扩展运算符将字符串中的每一个值都拆分成了单个的字符组成的数组<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">当然,这还不是最重要的,重要的是, 扩展运算符对32位Unicode字符的支持</div></pre></td></tr></table></figure></p>
+<p>console.log([…’x\u{20bb7}\u20bb7’].length)  // 4<br>// 可见,两个大括号完美地解决了32位字符这个bug的尴尬<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">对于unicode不太了解的童鞋, 可以先跳转到之前,看下我写的ES6中对Unicode的支持这一章节</div><div class="line"></div><div class="line">括展运算符内部调用的是数据结构的iterator接口,因此只要具有iterator接口的对象,都可以使用扩展运算符</div></pre></td></tr></table></figure></p>
+<p>let map = new Map([<br>    [1, ‘one’],<br>    [2, ‘two’],<br>    [3, ‘three’]<br>])<br>let arr = […map.values()]<br>console.log(arr)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">Generator函数运行后返回一个遍历器对象,因此也可以使用扩展运算符</div></pre></td></tr></table></figure></p>
+<p>var go = function*() {<br>    yield 1<br>    yield 2<br>    yield 3</p>
+<p>}<br>console.log([…go()])<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"># 函数的name属性</div><div class="line"></div><div class="line">函数的name属性返回该函数的函数名</div><div class="line"></div><div class="line">通过bind返回的函数, name属性会加上&apos;bound&apos;前缀</div></pre></td></tr></table></figure></p>
+<p>function foo() {}<br>console.log(foo.name) // foo<br>function foo() {}<br>console.log(foo.bind({}).name) //bound foo<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"># ES6的箭头函数</div><div class="line"></div><div class="line">ES6允许使用箭头定义函数</div><div class="line"></div><div class="line">` var f = v =&gt; v `</div><div class="line"></div><div class="line">上面的箭头其实就等价于</div></pre></td></tr></table></figure></p>
+<p>var f = function(v) {<br>    return v<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">那么,上面是需要参数的情况下,当我们不需要参数的时候怎么办呢?</div><div class="line"></div><div class="line">在这个情况下是可以使用圆括号代替的</div><div class="line"></div><div class="line">`var f = () =&gt; 5`</div><div class="line"></div><div class="line">等价于</div></pre></td></tr></table></figure></p>
+<p>var f = function() {<br>    return 5<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">当存在多个参数的时候</div><div class="line"></div><div class="line">`var f = (num1, num2) =&gt; num1 + num2`</div><div class="line"></div><div class="line">等价于</div></pre></td></tr></table></figure></p>
+<p>var f = function(num1, num2) {<br>    return num1 + num2<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">如果箭头函数的代码块部分多于一条语句, 就要使用大括号将其括起来, 并使用return语句返回</div><div class="line"></div><div class="line">由于大括号被解释为代码块,所以当我们需要箭头函数返回一个对象的时候,需要使用圆括号将对象括起来</div></pre></td></tr></table></figure></p>
+<p>var f = id =&gt; ({<br>    id: id,<br>    name: ‘temp’<br>})<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">还有一点是,箭头函数还可以和解构赋值一起使用</div></pre></td></tr></table></figure></p>
+<p>var full = ({first, last}) =&gt; first + ‘ ‘ + last<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">等价于</div></pre></td></tr></table></figure></p>
+<p>var full = function(person) {<br>    return first + “ “ + last<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">箭头函数的另一个用处就是简化回调函数</div><div class="line"></div><div class="line">`[1, 2, 3].map(x =&gt; x * x)`</div><div class="line"></div><div class="line">等价于</div><div class="line"></div><div class="line">`[1, 2, 3].map(function(x) &#123;return x * x&#125;)`</div><div class="line"></div><div class="line">rest参数的写法</div><div class="line"></div><div class="line">`const headAndTail = (head, ...tail) =&gt; [head, tail]`</div><div class="line"></div><div class="line"># 箭头函数的使用注意点</div><div class="line"></div><div class="line">&gt;函数体内的this对象就是定义的时候所在的对象,而不是使用的时候所在的对象</div><div class="line"></div><div class="line">&gt;不可以拿来当做构造函数,也就是不可以拿来new一下,否则会抛出一个错误</div><div class="line"></div><div class="line">&gt;不可以使用arguments对象,该对象在函数体内是不存在的,如果需要使用,可以使用rest参数将arguments对象转为数组之后使用</div><div class="line"></div><div class="line">&gt;不可以使用yield命令,因此箭头函数不能用作Generator参数</div><div class="line"></div><div class="line"># 箭头函数中的this</div><div class="line"></div><div class="line">this的指向在之前是可变的,但是在箭头函数中是固定的</div></pre></td></tr></table></figure></p>
+<p>function foo() {<br>    setTimeout(() =&gt; {<br>        console.log(‘id:’, this.id) // id: 42<br>    }, 100)<br>}</p>
+<p>foo.call({id: 42})<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">而且不论嵌套多少层,都是没有问题的,朝阳指向调用的对象</div></pre></td></tr></table></figure></p>
+<p>function foo3() {<br>    return () =&gt; {<br>        return () =&gt; {<br>            console.log(‘id: ‘, this.id) // id: 42<br>        }<br>    }<br>}<br>foo3.call({id: 42})()()<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">因为箭头函数没有自己的this, 所以我们在内部绑定this,是不能生效的</div></pre></td></tr></table></figure></p>
+<p>var a = (function() {<br>    return [<br>        (() =&gt; this.x).bind({<br>            x: ‘inner’<br>        })<br>    ]<br>}).call({<br>    x: ‘outer’<br>})<br>console.log(a()) // () =&gt; this.x<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">箭头函数的内部还可以再使用箭头函数</div></pre></td></tr></table></figure></p>
+<p>function insert(value) {<br>    return {<br>        into: function(array) {<br>            return {<br>                after: function(afterValue) {<br>                    array.splice(array.indexOf(afterValue) + 1, 0, value)<br>                }<br>            }<br>        }<br>    }<br>}</p>
+<p>console.log(insert(2).into([1, 3]).after(1)) // [1, 2, 3]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"># 函数绑定</div><div class="line"></div><div class="line">箭头函数可以绑定this对象, 大大减少了显式绑定this对象的写法, 但是因为this在箭头函数中的特殊性,因此其并不适用于所有场合</div><div class="line"></div><div class="line">所以ES7提出了函数绑定的写法, 目前浏览器暂不支持,但babel转码器已经支持</div></pre></td></tr></table></figure></p>
+<p>foo::bar<br>// 等同于<br>bar.bind(foo)<br>```</p>
+]]></content>
+    
+    <summary type="html">
+    
+      本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导新手，快速入门ES6，并逐步将其投入到生产实践中。
+    
+    </summary>
+    
+      <category term="ES6标准入门" scheme="http://bolg.changerhe.cb/categories/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8/"/>
+    
+    
+      <category term="ES6" scheme="http://bolg.changerhe.cb/tags/ES6/"/>
+    
+      <category term="Function" scheme="http://bolg.changerhe.cb/tags/Function/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《ES6标准入门》阅读笔记——-数组的扩展</title>
+    <link href="http://bolg.changerhe.cb/2017/02/25/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-%E6%95%B0%E7%BB%84%E7%9A%84%E6%89%A9%E5%B1%95/"/>
+    <id>http://bolg.changerhe.cb/2017/02/25/《ES6标准入门》阅读笔记——-数组的扩展/</id>
+    <published>2017-02-25T14:34:21.000Z</published>
+    <updated>2017-11-22T05:32:43.283Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。</p>
+<p>许多初学ES6, 同时和我一样初次阅读阮老师的这本书的时候, 读第一遍会越发的困惑, 因为阮老师上面说的很多的定义,方法,之前都是没有见过的, 读到后面才发现, 哦~原来是这样.</p>
+<p>有一句话叫做”大神的世界我们不懂”, 所以我在初读第一遍《ES6标准入门》这本书的时候,也是踩了不少坑,读书的时候查阅了不少的资料.</p>
+<p>所以,在这一系列的笔记教程中,我会从一个初学者的角度,向您讲述ES6的相关知识,在后面介绍的知识我会尽量不提前用,即使提前使用,也会同时做好标注,避免了阅读时各种查阅资料的烦恼.</p>
+<p>系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导新手，快速入门ES6，并逐步将其投入到生产实践中。</p>
+<p>同时,在阅读前也提醒您, 为了系统连贯性的学习ES6的基础知识,建议您从我的博客第一章开始阅读,当然,如果您对对应的知识已经有所了解,那么可以跳转到任意章节阅读,每一篇博客名中均有介绍该博客中涉及到的ES6的内容.</p>
+<p>阮一峰老师的这本书是开源的，在其官方博客就可以下载到，但是我强烈建议大家去购买一本书, 一是方便自己查阅ES6中新增的众多API, 二也是表达一下对大神的敬仰.</p>
+<h1 id="新增的API–Array-from"><a href="#新增的API–Array-from" class="headerlink" title="新增的API–Array.from()"></a>新增的API–Array.from()</h1><p>Array.from() 方法将两类对象转为真正的数组:类数组对象和可遍历对象 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">let arrayLike = &#123;</div><div class="line">	&apos;0&apos;: &apos;a&apos;,</div><div class="line">	&apos;1&apos;: &apos;b&apos;,</div><div class="line">	&apos;2&apos;: &apos;c&apos;,</div><div class="line">	length: 3</div><div class="line">&#125;</div><div class="line">var arr1 = Array.prototype.slice.call(arrayLike)</div><div class="line">console.log(arr1)  // [1,2,3]</div><div class="line"></div><div class="line">let arr2 = Array.from(arrayLike)</div><div class="line">console.log(arr2)  // [1,2,3]</div></pre></td></tr></table></figure>
+<p>可见,在将类数组转换为数组的过程中,使用ES6定义的新方法能够更好且更简单地将类数组转换为真正的数组.</p>
+<p>在实际应用中,我们最常见的对象是DOM操作返回的NodeList集合,同样的,使用这个方法就可以实现将相应的类数组对象转换为数组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">let nameSet = new Set([&apos;a&apos;, &apos;b&apos;])</div><div class="line">var a = Array.from(nameSet)</div><div class="line">console.log(a)  // [&apos;a&apos;, &apos;b&apos;]</div></pre></td></tr></table></figure>
+<p>注: Set是ES6中的新的数据结构, 类似于数组, 但是成员的值都是唯一的, 没有重复的值, 这是Set结构的最大特征.</p>
+<p>如果对象是一个真的数组,那么使用Array.from() 方法会返回一个和原来一模一样的新数组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">let a = [1, 2, 3]</div><div class="line">let b = Array.from(a)</div><div class="line">a = [3, 2, 1]</div><div class="line">console.log(a) // [3,2,1]</div><div class="line">console.log(b) // [1,2,3]</div></pre></td></tr></table></figure>
+<p>扩展运算符也可以将某些数据结构转为数组<br>那么,我们可以对函数的变量arguments进行相应的处理,让其变成真正的数组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function foo() &#123;</div><div class="line">	var args = [...arguments]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>那么同样的,我们也可以对HTML的元素对象进行相应的操作</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[...document.querySelectorAll(&apos;div&apos;)]</div></pre></td></tr></table></figure>
+<p>扩展运算符背后调用的是遍历器接口Iterator, 如果一个对象没有部署该接口就无法进行转换, Iterator将在后面详细讲解.</p>
+<p>但是,所有的转换,一个最大的前提条件是,必须要有一个length对象,保存一个数值,没有这个属性的话是没有办法转为数组的</p>
+<p>对于没有部署Array.from() 方法的浏览器,我们可以使用对应的老方法和新方法进行结合模拟</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">const toArray = (() =&gt;</div><div class="line">	Array.from ? Array.from : obj =&gt; [].slice.call(obj)</div><div class="line">)</div></pre></td></tr></table></figure>
+<p>注: 箭头函数也是ES6中新定义的方法, 其实是一种语法糖,方便我们进行编程而已.<br><code>() =&gt; console.log(1)</code>   等价于  <code>function() {console.log(1)}</code></p>
+<p>Array.from 方法还可以接受第二个参数,作用类似于数组的map方法,用来对每个元素进行处理,并将处理后的值放入返回的数组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">let arrayLike = &#123;</div><div class="line">	&apos;0&apos;: &apos;a&apos;,</div><div class="line">	&apos;1&apos;: &apos;b&apos;,</div><div class="line">	&apos;2&apos;: &apos;c&apos;,</div><div class="line">	length: 3</div><div class="line">&#125;</div><div class="line">Array.from(arrayLike, x =&gt; x * x)</div><div class="line">// 其实上面的方法就等同于下面的方法</div><div class="line">Array.from(arrayLike).map(function(x) &#123;</div><div class="line">	return x * x</div><div class="line">&#125;)</div><div class="line">// 上面是使用ES5的方法所写的方法,我们可以将函数转换为箭头函数的形式</div><div class="line">Array.from(arrayLike).map(x =&gt; x * x)</div></pre></td></tr></table></figure>
+<p>利用这个特性,可以很容易地将数组的空位置零</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">let a = Array.from([1,,2,,5], (x) =&gt; x || 0)</div><div class="line">console.log(a) // [1,0,2,0,5]</div></pre></td></tr></table></figure>
+<h1 id="数组的Array-of-方法"><a href="#数组的Array-of-方法" class="headerlink" title="数组的Array.of()方法"></a>数组的Array.of()方法</h1><p>Array.of() 方法用于将一组值转换为数组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">console.log(Array.of(1, 8, 3))  // [1,8,3]</div><div class="line">console.log(Array.of(3)) // [3]</div><div class="line">console.log(Array.of()) // []</div></pre></td></tr></table></figure>
+<p>其实这个方法的主要目的,是弥补构造函数Array的不足, 因为参数的不同会导致Array的行为有所差异</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">console.log(Array())  // []</div><div class="line">console.log(Array(3)) // [,,,]</div><div class="line">console.log(1,2,3) // [1,2,3]</div></pre></td></tr></table></figure>
+<p>因此, 不同于直接使用Array方法, 使用Array.of()方法不论你传入的是一个数,还是几个数,其实最后都是返回的数组对象, 而不同于使用Array, 会产生不同的行为.</p>
+<h1 id="数组的copyWithin-方法"><a href="#数组的copyWithin-方法" class="headerlink" title="数组的copyWithin() 方法"></a>数组的copyWithin() 方法</h1><p>数组的copyWithin()方法, 主要的作用是在当前数组内部将指定位置的成员复制到其他位置, 此方法接受三个参数</p>
+<blockquote>
+<p>target 必需值,从该位置开始替换数据, 也就是说, 从这个地方开始要更改数组了<br>atart  可选值,从该位置开始读取数据,默认为0 , 若为负值,则表示倒数, 也就是说, 我要更改数组,总得找个东西替换这些个之前的数组呀. 那么我就从这个位置开始截取数组的值,把它放到要更改的地方<br>end    到该位置前停止读取数据,默认等于数组长度,如果为负值,表示倒数, 也就是说,截取也不能截取个没完嘛,所以需要在这个地方停止截取, 然后就把截取的值丢到target的那个位置了.</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">let a = [1, 2, 3, 4, 5]</div><div class="line">a.copyWithin(3, 1, 2)</div><div class="line">console.log(a)  // [1, 2, 3, 2, 5]</div></pre></td></tr></table></figure>
+<p>由上可见,其实copyWithin()最终更改了, 第四个位置, 也就是a[3] 的值</p>
+<h1 id="数组的find-方法和findIndex-方法"><a href="#数组的find-方法和findIndex-方法" class="headerlink" title="数组的find() 方法和findIndex() 方法"></a>数组的find() 方法和findIndex() 方法</h1><p>数组的find() 方法,用于找出第一个符合条件的数组成员.数组成员依次执行其后的回调函数,直到找出第一个匹配的成员,否则返回undefined</p>
+<p>下面的代码找出了数组中小于0 的成员, 并将其打印出来</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">let a = [1, 2, 3, -4, 3]</div><div class="line">console.log(a.find((x) =&gt; x &lt; 0)) // -4</div></pre></td></tr></table></figure>
+<p>find方法可以接受三个参数, 依次为当前值, 当前位置和原数组.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">let b = [1, 5, 10, 15].find((value, index, arr) =&gt; value &gt; 9)</div><div class="line">console.log(a) // 10</div></pre></td></tr></table></figure>
+<p>数组的findeIndex() 方法返回第一个符合条件的数组成员的位置, 如果所有成员都不符合条件,则返回-1</p>
+<p>这两个方法还可以接受第二个参数,用来绑定回调函数的this对象</p>
+<p>还有重要的一点是,这两个方法都可以发现NaN,弥补了之前NaN支持的不足</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">let a = [NaN].indexOf(NaN)</div><div class="line">console.log(a) // -1</div><div class="line"></div><div class="line">let b = [NaN].findIndex(y =&gt; Object.is(NaN, y))</div><div class="line">console.log(b) // 0</div></pre></td></tr></table></figure>
+<p>注: Object.is() 用来比较两个值是否严格相等. 它与全等运算符表现基本一致, 但增加了NaN的支持.</p>
+<h1 id="数组的fill-方法"><a href="#数组的fill-方法" class="headerlink" title="数组的fill() 方法"></a>数组的fill() 方法</h1><p>数组实例的fill() 该方法使用给定值填充数组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">console.log([&apos;a&apos;, &apos;b&apos;, &apos;c&apos;].fill(1)) // [1, 1, 1]</div><div class="line">console.log([&apos;a&apos;, &apos;b&apos;, &apos;c&apos;].fill(7, 1, 2)) // [&quot;a&quot;, 7, &quot;c&quot;]</div></pre></td></tr></table></figure>
+<p>这样对数组进行初始化非常的方便,该方法还可接受另外两个可选参数,规定填充的起始和结束位置</p>
+<h1 id="数组遍历"><a href="#数组遍历" class="headerlink" title="数组遍历"></a>数组遍历</h1><p>ES6提供了三个新方法用于遍历数组</p>
+<blockquote>
+<p>keys() 对键名的遍历<br>values() 对键值的遍历<br>entries() 对键值对的遍历</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">for (let index of [&apos;a&apos;, &apos;b&apos;].keys()) &#123;</div><div class="line">	console.log(index) // 0  // 1</div><div class="line">&#125;</div><div class="line">for (let index of [&apos;a&apos;, &apos;b&apos;].values()) &#123;</div><div class="line">	console.log(index) // &apos;a&apos;  // &apos;b&apos;</div><div class="line">&#125;</div><div class="line">for (let index of [&apos;a&apos;, &apos;b&apos;].entries()) &#123;</div><div class="line">	console.log(index) // 0 &apos;a&apos;  // 1 &apos;b&apos;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>注: for…of 遍历也是对循环的一种补充,与for…in类似,但不会枚举出对象上的可枚举属性</p>
+<h1 id="数组的includes"><a href="#数组的includes" class="headerlink" title="数组的includes()"></a>数组的includes()</h1><p>includes() 方法返回一个实例,表示某数组是否包含给定的值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">let a = [1, 2, 3]</div><div class="line">console.log(a.includes(2)) // true</div><div class="line">console.log(a.includes(4)) // false</div></pre></td></tr></table></figure>
+<p>当浏览器不兼容的时候,可以使用indexOf方法进行替代<br>但是indexOf有一个弊端,原因是indexOf内部使用的是全等操作符进行匹配,所以这个时候当我们判定NaN的时候,是无法判定成功的, 因为NaN!==NaN</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">console.log([NaN].indexOf(NaN)) // -1</div></pre></td></tr></table></figure>
+<h1 id="数组的空位"><a href="#数组的空位" class="headerlink" title="数组的空位"></a>数组的空位</h1><p>ES5在很多情况下,对于数组的空位是直接忽略的,例如forEach filter every some 等方法会跳过空位, map 会跳过空位,但会保留这个值, join 和 toString 会将空位视为undefined 而undefined和null会被处理为字符串</p>
+<p>下面是ES5下的方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">[, &apos;a&apos;].forEach((x, i) =&gt; console.log(i)); </div><div class="line">// 1 因为第零个是空位,被忽略了</div><div class="line">console.log([, &apos;a&apos;].filter((x, i) =&gt; true)); </div><div class="line">// [&quot;a&quot;]  小红书有讲过的方法,使用true将数组的空位去除</div><div class="line">console.log([, &apos;a&apos;].every((x, i) =&gt; x !== undefined)) </div><div class="line">// true</div><div class="line">console.log([, &apos;a&apos;].some((x, i) =&gt; x === undefined)) </div><div class="line">// false</div><div class="line">console.log([, &apos;a&apos;].map((x, i) =&gt; 1));</div><div class="line">// [empty × 1, 1]</div><div class="line">console.log([, &apos;a&apos;, undefined, null].join(&apos;#&apos;)) </div><div class="line">// #a##</div><div class="line"></div><div class="line">`</div></pre></td></tr></table></figure>
+<p>但在ES6中,空位会被明确转为undefined</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">console.log([...[&apos;a&apos;, , &apos;b&apos;]]) </div><div class="line">//[&quot;a&quot;, undefined, &quot;b&quot;]</div></pre></td></tr></table></figure>
+<p>copyWithin()会连空位一起复制</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[, &apos;a&apos;, &apos;b&apos;, ,].copyWithin(2, 0) //[empty × 1, &quot;a&quot;, empty × 1, &quot;a&quot;]</div></pre></td></tr></table></figure>
+<p>fill()会将空位视为正常的数组位置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">new Array(3).fill(&apos;a&apos;) // [&apos;a&apos;, &apos;a&apos;, &apos;a&apos;]</div></pre></td></tr></table></figure>
+<p>for…of循环也会遍历空位, 而map却不会遍历空位</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">let arr = [, ,]</div><div class="line">for(let i of arr) &#123;</div><div class="line">	console.log(1) // 1 // 1</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="数组推导"><a href="#数组推导" class="headerlink" title="数组推导"></a>数组推导</h1><p>数组推导是ES7中的新方法,允许直接通过现有数组生成新数组.</p>
+<p>本来TC39是计划将其放入ES6的,但TC39仍然想完善它,让其支持所有数组结构. 所以推迟到了ES7.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">let a1 = [1, 2, 3, 4]</div><div class="line">var a2 = [</div><div class="line">	for (i of a1) i * 2</div><div class="line">];</div><div class="line">console.log(a2)  // [2, 4, 6, 8]</div></pre></td></tr></table></figure>
+<p>(完)</p>
+]]></content>
+    
+    <summary type="html">
+    
+      本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导新手，快速入门ES6，并逐步将其投入到生产实践中。
+    
+    </summary>
+    
+      <category term="ES6标准入门" scheme="http://bolg.changerhe.cb/categories/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8/"/>
+    
+    
+      <category term="ES6" scheme="http://bolg.changerhe.cb/tags/ES6/"/>
+    
+      <category term="Array" scheme="http://bolg.changerhe.cb/tags/Array/"/>
     
   </entry>
   

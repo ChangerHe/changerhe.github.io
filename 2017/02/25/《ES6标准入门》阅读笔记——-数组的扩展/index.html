@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="description" content="何庆畅|何庆畅的个人博客|ChangerHe&#39;s Bolg" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="何庆畅|ChangerHe" />
+
+
+
+<meta name="description" content="本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导新手，快速入门ES6，并逐步将其投入到生产实践中。">
+<meta name="keywords" content="ES6,Array">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《ES6标准入门》阅读笔记——-数组的扩展">
+<meta property="og:url" content="http://bolg.changerhe.cb/2017/02/25/《ES6标准入门》阅读笔记——-数组的扩展/index.html">
+<meta property="og:site_name" content="ChangerHe&#39;s Bolg|何庆畅的个人博客">
+<meta property="og:description" content="本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导新手，快速入门ES6，并逐步将其投入到生产实践中。">
+<meta property="og:updated_time" content="2017-11-22T05:32:43.283Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《ES6标准入门》阅读笔记——-数组的扩展">
+<meta name="twitter:description" content="本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。 系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导新手，快速入门ES6，并逐步将其投入到生产实践中。">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="ChangerHe&#39;s Bolg|何庆畅的个人博客" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>《ES6标准入门》阅读笔记——-数组的扩展 | ChangerHe&#39;s Bolg|何庆畅的个人博客</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: undefined
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?dfac40c3a2e8f0af4127ebbb645d4a78";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">ChangerHe</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">Keep Hungry, Keep Foolish.</p>
+        
+
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                            <li><a href="/demos/">个人作品</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ZFZQUFNXU1VSViQVFUoHCwk" title="Email"></a>
+                            
+                                <a class="fa 新浪微博" href="http://weibo.com/ChangerHe" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/ChangerHe" title="GitHub"></a>
+                            
+                                <a class="fa QQ" href="http://wpa.qq.com/msgrd?v=3&uin=244737162&site=qq&menu=yes" title="QQ"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/2dSphere/">2dSphere</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angularjs/">Angularjs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array/">Array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS样式书写规范/">CSS样式书写规范</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Canvas学习笔记/">Canvas学习笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Chrome/">Chrome</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Class/">Class</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6标准入门阅读笔记/">ES6标准入门阅读笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Function/">Function</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Generator/">Generator</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/">GitHub</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HEXO/">HEXO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML-CSS/">HTML & CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTPS/">HTTPS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP相关知识/">HTTP相关知识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Iterator/">Iterator</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/">JAVA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA-JavaScript/">JAVA & JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA-学习笔记/">JAVA 学习笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScriptDOM编程艺术/">JavaScriptDOM编程艺术</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript框架模式/">JavaScript框架模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript模块化编程/">JavaScript模块化编程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript笔试面试题/">JavaScript笔试面试题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript躲坑指南/">JavaScript躲坑指南</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LESS/">LESS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Module/">Module</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MongoDB/">MongoDB</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nodejs/">Nodejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nodejs学习笔记/">Nodejs学习笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Object/">Object</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Promise/">Promise</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RegExp/">RegExp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SASS/">SASS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SCSS/">SCSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unicode/">Unicode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WXapplet/">WXapplet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/What-is-Flex/">What is Flex?</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XML/">XML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/const/">const</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/let/">let</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/map/">map</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/number/">number</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/process-nextTick/">process.nextTick()</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/proxy/">proxy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reflect/">reflect</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/require/">require</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/set/">set</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/symbol/">symbol</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/微信公众平台/">微信公众平台</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/微信小程序/">微信小程序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据绑定/">数据绑定</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/爬虫/">爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/移动端/">移动端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/解构赋值/">解构赋值</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/调试/">调试</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">ChangerHe</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">ChangerHe</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">Keep Hungry, Keep Foolish.</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                    <li><a href="/demos/">个人作品</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ZFZQUFNXU1VSViQVFUoHCwk" title="Email"></a>
+                            
+                                <a class="fa 新浪微博" target="_blank" href="http://weibo.com/ChangerHe" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/ChangerHe" title="GitHub"></a>
+                            
+                                <a class="fa QQ" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=244737162&site=qq&menu=yes" title="QQ"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-《ES6标准入门》阅读笔记——-数组的扩展" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/02/25/《ES6标准入门》阅读笔记——-数组的扩展/" class="article-date">
+      <time datetime="2017-02-25T14:34:21.000Z" itemprop="datePublished">2017-02-25</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      《ES6标准入门》阅读笔记——-数组的扩展
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/ES6标准入门/">ES6标准入门</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Array/">Array</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/">ES6</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>本系列为在我读完阮一峰老师的《ES6标准入门》第二版之后，所做的阅读笔记的整理。</p>
+<p>许多初学ES6, 同时和我一样初次阅读阮老师的这本书的时候, 读第一遍会越发的困惑, 因为阮老师上面说的很多的定义,方法,之前都是没有见过的, 读到后面才发现, 哦~原来是这样.</p>
+<p>有一句话叫做”大神的世界我们不懂”, 所以我在初读第一遍《ES6标准入门》这本书的时候,也是踩了不少坑,读书的时候查阅了不少的资料.</p>
+<p>所以,在这一系列的笔记教程中,我会从一个初学者的角度,向您讲述ES6的相关知识,在后面介绍的知识我会尽量不提前用,即使提前使用,也会同时做好标注,避免了阅读时各种查阅资料的烦恼.</p>
+<p>系列博客将采用一个一个的样例，来说明书中的精华部分（当然，这只是我认为的），同时引导新手，快速入门ES6，并逐步将其投入到生产实践中。</p>
+<p>同时,在阅读前也提醒您, 为了系统连贯性的学习ES6的基础知识,建议您从我的博客第一章开始阅读,当然,如果您对对应的知识已经有所了解,那么可以跳转到任意章节阅读,每一篇博客名中均有介绍该博客中涉及到的ES6的内容.</p>
+<p>阮一峰老师的这本书是开源的，在其官方博客就可以下载到，但是我强烈建议大家去购买一本书, 一是方便自己查阅ES6中新增的众多API, 二也是表达一下对大神的敬仰.</p>
+<h1 id="新增的API–Array-from"><a href="#新增的API–Array-from" class="headerlink" title="新增的API–Array.from()"></a>新增的API–Array.from()</h1><p>Array.from() 方法将两类对象转为真正的数组:类数组对象和可遍历对象 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">let arrayLike = &#123;</div><div class="line">	&apos;0&apos;: &apos;a&apos;,</div><div class="line">	&apos;1&apos;: &apos;b&apos;,</div><div class="line">	&apos;2&apos;: &apos;c&apos;,</div><div class="line">	length: 3</div><div class="line">&#125;</div><div class="line">var arr1 = Array.prototype.slice.call(arrayLike)</div><div class="line">console.log(arr1)  // [1,2,3]</div><div class="line"></div><div class="line">let arr2 = Array.from(arrayLike)</div><div class="line">console.log(arr2)  // [1,2,3]</div></pre></td></tr></table></figure>
+<p>可见,在将类数组转换为数组的过程中,使用ES6定义的新方法能够更好且更简单地将类数组转换为真正的数组.</p>
+<p>在实际应用中,我们最常见的对象是DOM操作返回的NodeList集合,同样的,使用这个方法就可以实现将相应的类数组对象转换为数组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">let nameSet = new Set([&apos;a&apos;, &apos;b&apos;])</div><div class="line">var a = Array.from(nameSet)</div><div class="line">console.log(a)  // [&apos;a&apos;, &apos;b&apos;]</div></pre></td></tr></table></figure>
+<p>注: Set是ES6中的新的数据结构, 类似于数组, 但是成员的值都是唯一的, 没有重复的值, 这是Set结构的最大特征.</p>
+<p>如果对象是一个真的数组,那么使用Array.from() 方法会返回一个和原来一模一样的新数组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">let a = [1, 2, 3]</div><div class="line">let b = Array.from(a)</div><div class="line">a = [3, 2, 1]</div><div class="line">console.log(a) // [3,2,1]</div><div class="line">console.log(b) // [1,2,3]</div></pre></td></tr></table></figure>
+<p>扩展运算符也可以将某些数据结构转为数组<br>那么,我们可以对函数的变量arguments进行相应的处理,让其变成真正的数组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function foo() &#123;</div><div class="line">	var args = [...arguments]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>那么同样的,我们也可以对HTML的元素对象进行相应的操作</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[...document.querySelectorAll(&apos;div&apos;)]</div></pre></td></tr></table></figure>
+<p>扩展运算符背后调用的是遍历器接口Iterator, 如果一个对象没有部署该接口就无法进行转换, Iterator将在后面详细讲解.</p>
+<p>但是,所有的转换,一个最大的前提条件是,必须要有一个length对象,保存一个数值,没有这个属性的话是没有办法转为数组的</p>
+<p>对于没有部署Array.from() 方法的浏览器,我们可以使用对应的老方法和新方法进行结合模拟</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">const toArray = (() =&gt;</div><div class="line">	Array.from ? Array.from : obj =&gt; [].slice.call(obj)</div><div class="line">)</div></pre></td></tr></table></figure>
+<p>注: 箭头函数也是ES6中新定义的方法, 其实是一种语法糖,方便我们进行编程而已.<br><code>() =&gt; console.log(1)</code>   等价于  <code>function() {console.log(1)}</code></p>
+<p>Array.from 方法还可以接受第二个参数,作用类似于数组的map方法,用来对每个元素进行处理,并将处理后的值放入返回的数组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">let arrayLike = &#123;</div><div class="line">	&apos;0&apos;: &apos;a&apos;,</div><div class="line">	&apos;1&apos;: &apos;b&apos;,</div><div class="line">	&apos;2&apos;: &apos;c&apos;,</div><div class="line">	length: 3</div><div class="line">&#125;</div><div class="line">Array.from(arrayLike, x =&gt; x * x)</div><div class="line">// 其实上面的方法就等同于下面的方法</div><div class="line">Array.from(arrayLike).map(function(x) &#123;</div><div class="line">	return x * x</div><div class="line">&#125;)</div><div class="line">// 上面是使用ES5的方法所写的方法,我们可以将函数转换为箭头函数的形式</div><div class="line">Array.from(arrayLike).map(x =&gt; x * x)</div></pre></td></tr></table></figure>
+<p>利用这个特性,可以很容易地将数组的空位置零</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">let a = Array.from([1,,2,,5], (x) =&gt; x || 0)</div><div class="line">console.log(a) // [1,0,2,0,5]</div></pre></td></tr></table></figure>
+<h1 id="数组的Array-of-方法"><a href="#数组的Array-of-方法" class="headerlink" title="数组的Array.of()方法"></a>数组的Array.of()方法</h1><p>Array.of() 方法用于将一组值转换为数组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">console.log(Array.of(1, 8, 3))  // [1,8,3]</div><div class="line">console.log(Array.of(3)) // [3]</div><div class="line">console.log(Array.of()) // []</div></pre></td></tr></table></figure>
+<p>其实这个方法的主要目的,是弥补构造函数Array的不足, 因为参数的不同会导致Array的行为有所差异</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">console.log(Array())  // []</div><div class="line">console.log(Array(3)) // [,,,]</div><div class="line">console.log(1,2,3) // [1,2,3]</div></pre></td></tr></table></figure>
+<p>因此, 不同于直接使用Array方法, 使用Array.of()方法不论你传入的是一个数,还是几个数,其实最后都是返回的数组对象, 而不同于使用Array, 会产生不同的行为.</p>
+<h1 id="数组的copyWithin-方法"><a href="#数组的copyWithin-方法" class="headerlink" title="数组的copyWithin() 方法"></a>数组的copyWithin() 方法</h1><p>数组的copyWithin()方法, 主要的作用是在当前数组内部将指定位置的成员复制到其他位置, 此方法接受三个参数</p>
+<blockquote>
+<p>target 必需值,从该位置开始替换数据, 也就是说, 从这个地方开始要更改数组了<br>atart  可选值,从该位置开始读取数据,默认为0 , 若为负值,则表示倒数, 也就是说, 我要更改数组,总得找个东西替换这些个之前的数组呀. 那么我就从这个位置开始截取数组的值,把它放到要更改的地方<br>end    到该位置前停止读取数据,默认等于数组长度,如果为负值,表示倒数, 也就是说,截取也不能截取个没完嘛,所以需要在这个地方停止截取, 然后就把截取的值丢到target的那个位置了.</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">let a = [1, 2, 3, 4, 5]</div><div class="line">a.copyWithin(3, 1, 2)</div><div class="line">console.log(a)  // [1, 2, 3, 2, 5]</div></pre></td></tr></table></figure>
+<p>由上可见,其实copyWithin()最终更改了, 第四个位置, 也就是a[3] 的值</p>
+<h1 id="数组的find-方法和findIndex-方法"><a href="#数组的find-方法和findIndex-方法" class="headerlink" title="数组的find() 方法和findIndex() 方法"></a>数组的find() 方法和findIndex() 方法</h1><p>数组的find() 方法,用于找出第一个符合条件的数组成员.数组成员依次执行其后的回调函数,直到找出第一个匹配的成员,否则返回undefined</p>
+<p>下面的代码找出了数组中小于0 的成员, 并将其打印出来</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">let a = [1, 2, 3, -4, 3]</div><div class="line">console.log(a.find((x) =&gt; x &lt; 0)) // -4</div></pre></td></tr></table></figure>
+<p>find方法可以接受三个参数, 依次为当前值, 当前位置和原数组.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">let b = [1, 5, 10, 15].find((value, index, arr) =&gt; value &gt; 9)</div><div class="line">console.log(a) // 10</div></pre></td></tr></table></figure>
+<p>数组的findeIndex() 方法返回第一个符合条件的数组成员的位置, 如果所有成员都不符合条件,则返回-1</p>
+<p>这两个方法还可以接受第二个参数,用来绑定回调函数的this对象</p>
+<p>还有重要的一点是,这两个方法都可以发现NaN,弥补了之前NaN支持的不足</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">let a = [NaN].indexOf(NaN)</div><div class="line">console.log(a) // -1</div><div class="line"></div><div class="line">let b = [NaN].findIndex(y =&gt; Object.is(NaN, y))</div><div class="line">console.log(b) // 0</div></pre></td></tr></table></figure>
+<p>注: Object.is() 用来比较两个值是否严格相等. 它与全等运算符表现基本一致, 但增加了NaN的支持.</p>
+<h1 id="数组的fill-方法"><a href="#数组的fill-方法" class="headerlink" title="数组的fill() 方法"></a>数组的fill() 方法</h1><p>数组实例的fill() 该方法使用给定值填充数组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">console.log([&apos;a&apos;, &apos;b&apos;, &apos;c&apos;].fill(1)) // [1, 1, 1]</div><div class="line">console.log([&apos;a&apos;, &apos;b&apos;, &apos;c&apos;].fill(7, 1, 2)) // [&quot;a&quot;, 7, &quot;c&quot;]</div></pre></td></tr></table></figure>
+<p>这样对数组进行初始化非常的方便,该方法还可接受另外两个可选参数,规定填充的起始和结束位置</p>
+<h1 id="数组遍历"><a href="#数组遍历" class="headerlink" title="数组遍历"></a>数组遍历</h1><p>ES6提供了三个新方法用于遍历数组</p>
+<blockquote>
+<p>keys() 对键名的遍历<br>values() 对键值的遍历<br>entries() 对键值对的遍历</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">for (let index of [&apos;a&apos;, &apos;b&apos;].keys()) &#123;</div><div class="line">	console.log(index) // 0  // 1</div><div class="line">&#125;</div><div class="line">for (let index of [&apos;a&apos;, &apos;b&apos;].values()) &#123;</div><div class="line">	console.log(index) // &apos;a&apos;  // &apos;b&apos;</div><div class="line">&#125;</div><div class="line">for (let index of [&apos;a&apos;, &apos;b&apos;].entries()) &#123;</div><div class="line">	console.log(index) // 0 &apos;a&apos;  // 1 &apos;b&apos;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>注: for…of 遍历也是对循环的一种补充,与for…in类似,但不会枚举出对象上的可枚举属性</p>
+<h1 id="数组的includes"><a href="#数组的includes" class="headerlink" title="数组的includes()"></a>数组的includes()</h1><p>includes() 方法返回一个实例,表示某数组是否包含给定的值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">let a = [1, 2, 3]</div><div class="line">console.log(a.includes(2)) // true</div><div class="line">console.log(a.includes(4)) // false</div></pre></td></tr></table></figure>
+<p>当浏览器不兼容的时候,可以使用indexOf方法进行替代<br>但是indexOf有一个弊端,原因是indexOf内部使用的是全等操作符进行匹配,所以这个时候当我们判定NaN的时候,是无法判定成功的, 因为NaN!==NaN</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">console.log([NaN].indexOf(NaN)) // -1</div></pre></td></tr></table></figure>
+<h1 id="数组的空位"><a href="#数组的空位" class="headerlink" title="数组的空位"></a>数组的空位</h1><p>ES5在很多情况下,对于数组的空位是直接忽略的,例如forEach filter every some 等方法会跳过空位, map 会跳过空位,但会保留这个值, join 和 toString 会将空位视为undefined 而undefined和null会被处理为字符串</p>
+<p>下面是ES5下的方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">[, &apos;a&apos;].forEach((x, i) =&gt; console.log(i)); </div><div class="line">// 1 因为第零个是空位,被忽略了</div><div class="line">console.log([, &apos;a&apos;].filter((x, i) =&gt; true)); </div><div class="line">// [&quot;a&quot;]  小红书有讲过的方法,使用true将数组的空位去除</div><div class="line">console.log([, &apos;a&apos;].every((x, i) =&gt; x !== undefined)) </div><div class="line">// true</div><div class="line">console.log([, &apos;a&apos;].some((x, i) =&gt; x === undefined)) </div><div class="line">// false</div><div class="line">console.log([, &apos;a&apos;].map((x, i) =&gt; 1));</div><div class="line">// [empty × 1, 1]</div><div class="line">console.log([, &apos;a&apos;, undefined, null].join(&apos;#&apos;)) </div><div class="line">// #a##</div><div class="line"></div><div class="line">`</div></pre></td></tr></table></figure>
+<p>但在ES6中,空位会被明确转为undefined</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">console.log([...[&apos;a&apos;, , &apos;b&apos;]]) </div><div class="line">//[&quot;a&quot;, undefined, &quot;b&quot;]</div></pre></td></tr></table></figure>
+<p>copyWithin()会连空位一起复制</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[, &apos;a&apos;, &apos;b&apos;, ,].copyWithin(2, 0) //[empty × 1, &quot;a&quot;, empty × 1, &quot;a&quot;]</div></pre></td></tr></table></figure>
+<p>fill()会将空位视为正常的数组位置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">new Array(3).fill(&apos;a&apos;) // [&apos;a&apos;, &apos;a&apos;, &apos;a&apos;]</div></pre></td></tr></table></figure>
+<p>for…of循环也会遍历空位, 而map却不会遍历空位</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">let arr = [, ,]</div><div class="line">for(let i of arr) &#123;</div><div class="line">	console.log(1) // 1 // 1</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="数组推导"><a href="#数组推导" class="headerlink" title="数组推导"></a>数组推导</h1><p>数组推导是ES7中的新方法,允许直接通过现有数组生成新数组.</p>
+<p>本来TC39是计划将其放入ES6的,但TC39仍然想完善它,让其支持所有数组结构. 所以推迟到了ES7.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">let a1 = [1, 2, 3, 4]</div><div class="line">var a2 = [</div><div class="line">	for (i of a1) i * 2</div><div class="line">];</div><div class="line">console.log(a2)  // [2, 4, 6, 8]</div></pre></td></tr></table></figure>
+<p>(完)</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/02/25/《ES6标准入门》阅读笔记——-数组的扩展/">《ES6标准入门》阅读笔记——-数组的扩展</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">ChangerHe</a></p>
+        <p><span>发布时间:</span>2017-02-25, 22:34:21</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/02/25/《ES6标准入门》阅读笔记——-数组的扩展/" title="《ES6标准入门》阅读笔记——-数组的扩展">http://bolg.changerhe.cb/2017/02/25/《ES6标准入门》阅读笔记——-数组的扩展/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://bolg.changerhe.cb/2017/02/25/《ES6标准入门》阅读笔记——-数组的扩展/　　作者: ChangerHe" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2017/02/28/《ES6标准入门》阅读笔记——-函数的扩展/">
+                    《ES6标准入门》阅读笔记——-函数的扩展
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2017/02/22/《ES6标准入门》阅读笔记——-number类型的扩展/">
+                    《ES6标准入门》阅读笔记——-number类型的扩展
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#写在前面"><span class="toc-number">1.</span> <span class="toc-text">写在前面</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#新增的API–Array-from"><span class="toc-number">2.</span> <span class="toc-text">新增的API–Array.from()</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数组的Array-of-方法"><span class="toc-number">3.</span> <span class="toc-text">数组的Array.of()方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数组的copyWithin-方法"><span class="toc-number">4.</span> <span class="toc-text">数组的copyWithin() 方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数组的find-方法和findIndex-方法"><span class="toc-number">5.</span> <span class="toc-text">数组的find() 方法和findIndex() 方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数组的fill-方法"><span class="toc-number">6.</span> <span class="toc-text">数组的fill() 方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数组遍历"><span class="toc-number">7.</span> <span class="toc-text">数组遍历</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数组的includes"><span class="toc-number">8.</span> <span class="toc-text">数组的includes()</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数组的空位"><span class="toc-number">9.</span> <span class="toc-text">数组的空位</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数组推导"><span class="toc-number">10.</span> <span class="toc-text">数组推导</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2017/02/28/《ES6标准入门》阅读笔记——-函数的扩展/" title="上一篇: 《ES6标准入门》阅读笔记——-函数的扩展">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2017/02/22/《ES6标准入门》阅读笔记——-number类型的扩展/" title="下一篇: 《ES6标准入门》阅读笔记——-number类型的扩展">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/09/25/Chrome61发布,这新功能怕是没谁了/">Chrome61发布,这新功能怕是没谁了</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/21/微信小程序懒加载的实现/">微信小程序懒加载的实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/05/网站的https证书配置方法/">网站的https证书配置小结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/05/利用dpl实现对移动设备的像素实现精准控制/">利用dpl实现对移动设备的像素实现精准控制</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/20/Angularjs的数据绑定和脏检查/">Angularjs的数据绑定和脏检查</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/05/基于MongoDB-2dSphere索引查找最近的点/">基于MongoDB 2dSphere索引查找最近的点</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/27/使用Nodejs实现简单的自动化构建/">使用Nodejs实现简单的自动化构建</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/25/ES6中的遍历器接口Iterator/">ES6中的遍历器接口Iterator</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/18/理解Nodejs里的process-nextTick/">理解Node.js里的process.nextTick()</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/06/Nodejs的require-模块源码解读/">Nodejs的require()模块源码解读</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/20/《ES6标准入门》阅读笔记——-Module/">《ES6标准入门》阅读笔记——-Module</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/06/《ES6标准入门》阅读笔记——-Class/">《ES6标准入门》阅读笔记——-Class</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/30/《ES6标准入门》阅读笔记——-Promise/">《ES6标准入门》阅读笔记——-Promise</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/15/《ES6标准入门》阅读笔记——-Iterator和Generator/">《ES6标准入门》阅读笔记——-Iterator和Generator</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/03/《ES6标准入门》阅读笔记——-set和map/">《ES6标准入门》阅读笔记——-set和map</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/01/《ES6标准入门》阅读笔记——-symbol及proxy-reflect/">《ES6标准入门》阅读笔记——-symbol及proxy/reflect</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/24/微信公众平台接口配置信息详解---Nodejs版/">微信公众平台接口配置信息详解---Nodejs版</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/15/《ES6标准入门》阅读笔记——-对象的扩展/">《ES6标准入门》阅读笔记——-对象的扩展</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/28/《ES6标准入门》阅读笔记——-函数的扩展/">《ES6标准入门》阅读笔记——-函数的扩展</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/25/《ES6标准入门》阅读笔记——-数组的扩展/">《ES6标准入门》阅读笔记——-数组的扩展</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/22/《ES6标准入门》阅读笔记——-number类型的扩展/">《ES6标准入门》阅读笔记——-number类型的扩展</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/13/记一次简单的Nodejs爬虫/">记一次简单的Nodejs爬虫</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/04/《ES6标准入门》阅读笔记——-正则表达式的扩展/">《ES6标准入门》阅读笔记——-正则表达式的扩展</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/19/《ES6标准入门》阅读笔记——-Unicode/">《ES6标准入门》阅读笔记——-Unicode</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/18/《ES6标准入门》阅读笔记———解构赋值/">《ES6标准入门》阅读笔记———解构赋值</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/17/《ES6标准入门》阅读笔记——let和const/">《ES6标准入门》阅读笔记——let和const</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/10/纯CSS实现元素水平垂直居中的方法/">纯CSS实现元素水平垂直居中的方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/24/浅谈框架模式的MVC-MVP-MVVM/">浅谈框架模式的MVC/MVP/MVVM</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/23/JavaScript模块化编程-commonjs和AMD及CMD/">JavaScript模块化编程-commonjs和AMD及CMD</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/15/JavaScript笔试面试题收集（五）/">JavaScript笔试面试题收集（五）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/01/sass-scss和less的区别/">sass/scss和less的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/24/SASS学习进阶/">SASS学习进阶</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/15/SASS学习笔记/">SASS学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/30/Javascript中隐式类型转换的神坑/">Javascript中隐式类型转换的神坑</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/16/CSS样式书写规范/">CSS样式书写规范</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/11/JavaScript笔试面试题收集（四）/">JavaScript笔试面试题收集（四）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/05/JavaScript笔试面试题收集（三）/">JavaScript笔试面试题收集（三）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/03/JavaScript深入浅出-call-apply/">JavaScript深入浅出-call/apply</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/28/JavaScript高级程序设计复习笔记（三）/">JavaScript高级程序设计复习笔记（三）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/27/JavaScript高级程序设计复习笔记（二）/">JavaScript高级程序设计复习笔记（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/25/JavaScript高级程序设计复习笔记（一）/">JavaScript高级程序设计复习笔记（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/18/JavaScript深入浅出-表达式和运算符/">JavaScript深入浅出-表达式和运算符</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/12/深入理解JavaScript构造函数和原型对象/">深入理解JavaScript构造函数和原型对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/04/JavaScript笔试面试题收集（二）/"> JavaScript笔试面试题收集（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/23/JavaScript躲坑指南（二）/">JavaScript躲坑指南（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/15/JavaScript躲坑指南（一）/">JavaScript躲坑指南（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/12/JavaScript深入浅出-闭包及解决办法/">JavaScript深入浅出-闭包及闭包问题的解决办法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/05/JavaScript笔试面试题收集（一）/">JavaScript笔试面试题收集（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/25/JavaScipt中sort-方法的底层原理及妙用/">JavaScipt中sort()方法的底层原理及妙用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/15/调试Javascript-断点设置/">调试Javascript-断点设置</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/29/JavaScriptDOM编程艺术查漏补缺(三)/">JavaScriptDOM编程艺术查漏补缺(三)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/23/处理git无法上传超过100M文件的问题/">处理git无法上传超过100M文件的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/15/JavaScriptDOM编程艺术查漏补缺(二)/">JavaScriptDOM编程艺术查漏补缺(二)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/07/jQuery-extend和jQuery-fn-extend的区别/">jQuery.extend和jQuery.fn.extend的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/29/JavaScriptDOM编程艺术查漏补缺(一)/">JavaScriptDOM编程艺术查漏补缺(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/25/jQuery查漏补缺/">jQuery 学习笔记——Review</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/18/jQuery学习笔记——属性与样式/">jQuery 学习笔记——属性与样式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/14/jQuery-学习笔记/">jQuery 学习笔记——选择器</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/HTTP相关知识/">HTTP相关知识（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/26/代码执行顺序解析/">JAVA代码执行顺序解析</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/19/JavaScript计时器的优化/">JavaScript计时器的优化</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/11/XML学习笔记/">XML学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/06/PHP菜鸟入门笔记/">PHP菜鸟入门不完全指南</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/27/基本算法的JavaScript实现/">基本算法的JavaScript实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/21/使用Canvas绘制七巧板/">使用Canvas绘制七巧板</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/14/接口和抽象类的区别/">接口和抽象类的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/28/实现某节点子节点的倒序排列/">实现某节点子节点的倒序排列</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/23/Margin和Padding值设置成百分数的布局/">Margin和Padding值设置成百分数的布局</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/14/GIT配置不需密码即可push的方法/">GIT配置不需密码即可push的方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/10/在GitHub账户中搭建静态博客的同时另开一个代码展示页面的方法/">在GitHub账户中搭建静态博客的同时另开一个代码展示页面的方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/03/杨辉三角的JAVA实现/">杨辉三角的JAVA实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/30/不同排序算法的JAVA实现及性能比较/">不同排序算法的JAVA实现及性能比较</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/19/What-is-Flex/">What is Flex?</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/14/The-Usages-Of-Iconfont/">阿里妈妈iconfont矢量图标字体的用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/05/The-Data-Type-Differences-of-JavaScript-and-Java/">JavaScript 和 JAVA 在数据类型方面的异同</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/28/nine-block-mission/">九宫格自适应布局的页面重构</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/25/Java-Learning/">斐波那契数列和九九乘法表在JAVA中的实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/19/Position属性知多少/">Position属性知多少</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/16/hexo博客必备-MarkDown语法总结/">hexo博客必备-MarkDown语法总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/14/hexo/">HEXO使用小结</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016-2017 ChangerHe
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/ChangerHe/ChangerHe.github.io" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by ChangerHe <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+
+<script>
+    // Open in New Window
+    
+        $("a[target=_blank]").removeAttr("target");
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
