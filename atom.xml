@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>ChangerHe&#39;s Bolg|何庆畅的个人博客</title>
+  <title>何庆畅的个人博客|ChangerHe&#39;s Blog</title>
   <subtitle>Keep Hungry, Keep Foolish.</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://bolg.changerhe.cb/"/>
+  <link href="http://blog.changerhe.cn/"/>
   <updated>2017-11-22T05:36:10.836Z</updated>
-  <id>http://bolg.changerhe.cb/</id>
+  <id>http://blog.changerhe.cn/</id>
   
   <author>
     <name>ChangerHe</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>Chrome61发布,这新功能怕是没谁了</title>
-    <link href="http://bolg.changerhe.cb/2017/09/25/Chrome61%E5%8F%91%E5%B8%83,%E8%BF%99%E6%96%B0%E5%8A%9F%E8%83%BD%E6%80%95%E6%98%AF%E6%B2%A1%E8%B0%81%E4%BA%86/"/>
-    <id>http://bolg.changerhe.cb/2017/09/25/Chrome61发布,这新功能怕是没谁了/</id>
+    <link href="http://blog.changerhe.cn/2017/09/25/Chrome61%E5%8F%91%E5%B8%83,%E8%BF%99%E6%96%B0%E5%8A%9F%E8%83%BD%E6%80%95%E6%98%AF%E6%B2%A1%E8%B0%81%E4%BA%86/"/>
+    <id>http://blog.changerhe.cn/2017/09/25/Chrome61发布,这新功能怕是没谁了/</id>
     <published>2017-09-25T15:11:42.000Z</published>
     <updated>2017-11-22T05:36:10.836Z</updated>
     
@@ -48,17 +48,17 @@
     
     </summary>
     
-      <category term="Chrome" scheme="http://bolg.changerhe.cb/categories/Chrome/"/>
+      <category term="Chrome" scheme="http://blog.changerhe.cn/categories/Chrome/"/>
     
     
-      <category term="Chrome" scheme="http://bolg.changerhe.cb/tags/Chrome/"/>
+      <category term="Chrome" scheme="http://blog.changerhe.cn/tags/Chrome/"/>
     
   </entry>
   
   <entry>
     <title>微信小程序懒加载的实现</title>
-    <link href="http://bolg.changerhe.cb/2017/09/21/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%87%92%E5%8A%A0%E8%BD%BD%E7%9A%84%E5%AE%9E%E7%8E%B0/"/>
-    <id>http://bolg.changerhe.cb/2017/09/21/微信小程序懒加载的实现/</id>
+    <link href="http://blog.changerhe.cn/2017/09/21/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%87%92%E5%8A%A0%E8%BD%BD%E7%9A%84%E5%AE%9E%E7%8E%B0/"/>
+    <id>http://blog.changerhe.cn/2017/09/21/微信小程序懒加载的实现/</id>
     <published>2017-09-21T14:12:23.000Z</published>
     <updated>2017-11-22T05:36:57.777Z</updated>
     
@@ -107,19 +107,19 @@
     
     </summary>
     
-      <category term="微信小程序" scheme="http://bolg.changerhe.cb/categories/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+      <category term="微信小程序" scheme="http://blog.changerhe.cn/categories/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
     
     
-      <category term="微信小程序" scheme="http://bolg.changerhe.cb/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+      <category term="微信小程序" scheme="http://blog.changerhe.cn/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
     
-      <category term="WXapplet" scheme="http://bolg.changerhe.cb/tags/WXapplet/"/>
+      <category term="WXapplet" scheme="http://blog.changerhe.cn/tags/WXapplet/"/>
     
   </entry>
   
   <entry>
     <title>网站的https证书配置小结</title>
-    <link href="http://bolg.changerhe.cb/2017/09/05/%E7%BD%91%E7%AB%99%E7%9A%84https%E8%AF%81%E4%B9%A6%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95/"/>
-    <id>http://bolg.changerhe.cb/2017/09/05/网站的https证书配置方法/</id>
+    <link href="http://blog.changerhe.cn/2017/09/05/%E7%BD%91%E7%AB%99%E7%9A%84https%E8%AF%81%E4%B9%A6%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95/"/>
+    <id>http://blog.changerhe.cn/2017/09/05/网站的https证书配置方法/</id>
     <published>2017-09-05T05:12:13.000Z</published>
     <updated>2017-11-22T04:45:57.235Z</updated>
     
@@ -155,17 +155,17 @@
     
     </summary>
     
-      <category term="HTTPS" scheme="http://bolg.changerhe.cb/categories/HTTPS/"/>
+      <category term="HTTPS" scheme="http://blog.changerhe.cn/categories/HTTPS/"/>
     
     
-      <category term="HTTPS" scheme="http://bolg.changerhe.cb/tags/HTTPS/"/>
+      <category term="HTTPS" scheme="http://blog.changerhe.cn/tags/HTTPS/"/>
     
   </entry>
   
   <entry>
     <title>利用dpl实现对移动设备的像素实现精准控制</title>
-    <link href="http://bolg.changerhe.cb/2017/08/05/%E5%88%A9%E7%94%A8dpl%E5%AE%9E%E7%8E%B0%E5%AF%B9%E7%A7%BB%E5%8A%A8%E8%AE%BE%E5%A4%87%E7%9A%84%E5%83%8F%E7%B4%A0%E5%AE%9E%E7%8E%B0%E7%B2%BE%E5%87%86%E6%8E%A7%E5%88%B6/"/>
-    <id>http://bolg.changerhe.cb/2017/08/05/利用dpl实现对移动设备的像素实现精准控制/</id>
+    <link href="http://blog.changerhe.cn/2017/08/05/%E5%88%A9%E7%94%A8dpl%E5%AE%9E%E7%8E%B0%E5%AF%B9%E7%A7%BB%E5%8A%A8%E8%AE%BE%E5%A4%87%E7%9A%84%E5%83%8F%E7%B4%A0%E5%AE%9E%E7%8E%B0%E7%B2%BE%E5%87%86%E6%8E%A7%E5%88%B6/"/>
+    <id>http://blog.changerhe.cn/2017/08/05/利用dpl实现对移动设备的像素实现精准控制/</id>
     <published>2017-08-05T14:14:14.000Z</published>
     <updated>2017-11-22T05:36:30.999Z</updated>
     
@@ -192,17 +192,17 @@
     
     </summary>
     
-      <category term="移动端" scheme="http://bolg.changerhe.cb/categories/%E7%A7%BB%E5%8A%A8%E7%AB%AF/"/>
+      <category term="移动端" scheme="http://blog.changerhe.cn/categories/%E7%A7%BB%E5%8A%A8%E7%AB%AF/"/>
     
     
-      <category term="移动端" scheme="http://bolg.changerhe.cb/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF/"/>
+      <category term="移动端" scheme="http://blog.changerhe.cn/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF/"/>
     
   </entry>
   
   <entry>
     <title>Angularjs的数据绑定和脏检查</title>
-    <link href="http://bolg.changerhe.cb/2017/07/20/Angularjs%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A%E5%92%8C%E8%84%8F%E6%A3%80%E6%9F%A5/"/>
-    <id>http://bolg.changerhe.cb/2017/07/20/Angularjs的数据绑定和脏检查/</id>
+    <link href="http://blog.changerhe.cn/2017/07/20/Angularjs%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A%E5%92%8C%E8%84%8F%E6%A3%80%E6%9F%A5/"/>
+    <id>http://blog.changerhe.cn/2017/07/20/Angularjs的数据绑定和脏检查/</id>
     <published>2017-07-20T04:53:41.000Z</published>
     <updated>2017-11-22T05:36:01.486Z</updated>
     
@@ -253,19 +253,19 @@
     
     </summary>
     
-      <category term="Angularjs" scheme="http://bolg.changerhe.cb/categories/Angularjs/"/>
+      <category term="Angularjs" scheme="http://blog.changerhe.cn/categories/Angularjs/"/>
     
     
-      <category term="Angularjs" scheme="http://bolg.changerhe.cb/tags/Angularjs/"/>
+      <category term="Angularjs" scheme="http://blog.changerhe.cn/tags/Angularjs/"/>
     
-      <category term="数据绑定" scheme="http://bolg.changerhe.cb/tags/%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A/"/>
+      <category term="数据绑定" scheme="http://blog.changerhe.cn/tags/%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A/"/>
     
   </entry>
   
   <entry>
     <title>基于MongoDB 2dSphere索引查找最近的点</title>
-    <link href="http://bolg.changerhe.cb/2017/07/05/%E5%9F%BA%E4%BA%8EMongoDB-2dSphere%E7%B4%A2%E5%BC%95%E6%9F%A5%E6%89%BE%E6%9C%80%E8%BF%91%E7%9A%84%E7%82%B9/"/>
-    <id>http://bolg.changerhe.cb/2017/07/05/基于MongoDB-2dSphere索引查找最近的点/</id>
+    <link href="http://blog.changerhe.cn/2017/07/05/%E5%9F%BA%E4%BA%8EMongoDB-2dSphere%E7%B4%A2%E5%BC%95%E6%9F%A5%E6%89%BE%E6%9C%80%E8%BF%91%E7%9A%84%E7%82%B9/"/>
+    <id>http://blog.changerhe.cn/2017/07/05/基于MongoDB-2dSphere索引查找最近的点/</id>
     <published>2017-07-05T15:27:22.000Z</published>
     <updated>2017-11-22T05:35:48.912Z</updated>
     
@@ -296,19 +296,19 @@
     
     </summary>
     
-      <category term="MongoDB学习笔记" scheme="http://bolg.changerhe.cb/categories/MongoDB%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <category term="MongoDB学习笔记" scheme="http://blog.changerhe.cn/categories/MongoDB%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="MongoDB" scheme="http://bolg.changerhe.cb/tags/MongoDB/"/>
+      <category term="MongoDB" scheme="http://blog.changerhe.cn/tags/MongoDB/"/>
     
-      <category term="2dSphere" scheme="http://bolg.changerhe.cb/tags/2dSphere/"/>
+      <category term="2dSphere" scheme="http://blog.changerhe.cn/tags/2dSphere/"/>
     
   </entry>
   
   <entry>
     <title>使用Nodejs实现简单的自动化构建</title>
-    <link href="http://bolg.changerhe.cb/2017/06/27/%E4%BD%BF%E7%94%A8Nodejs%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E6%9E%84%E5%BB%BA/"/>
-    <id>http://bolg.changerhe.cb/2017/06/27/使用Nodejs实现简单的自动化构建/</id>
+    <link href="http://blog.changerhe.cn/2017/06/27/%E4%BD%BF%E7%94%A8Nodejs%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E6%9E%84%E5%BB%BA/"/>
+    <id>http://blog.changerhe.cn/2017/06/27/使用Nodejs实现简单的自动化构建/</id>
     <published>2017-06-27T15:56:30.000Z</published>
     <updated>2017-11-22T05:35:28.351Z</updated>
     
@@ -332,17 +332,17 @@
     
     </summary>
     
-      <category term="Nodejs学习笔记" scheme="http://bolg.changerhe.cb/categories/Nodejs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <category term="Nodejs学习笔记" scheme="http://blog.changerhe.cn/categories/Nodejs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="Nodejs学习笔记" scheme="http://bolg.changerhe.cb/tags/Nodejs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <category term="Nodejs学习笔记" scheme="http://blog.changerhe.cn/tags/Nodejs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>ES6中的遍历器接口Iterator</title>
-    <link href="http://bolg.changerhe.cb/2017/06/25/ES6%E4%B8%AD%E7%9A%84%E9%81%8D%E5%8E%86%E5%99%A8%E6%8E%A5%E5%8F%A3Iterator/"/>
-    <id>http://bolg.changerhe.cb/2017/06/25/ES6中的遍历器接口Iterator/</id>
+    <link href="http://blog.changerhe.cn/2017/06/25/ES6%E4%B8%AD%E7%9A%84%E9%81%8D%E5%8E%86%E5%99%A8%E6%8E%A5%E5%8F%A3Iterator/"/>
+    <id>http://blog.changerhe.cn/2017/06/25/ES6中的遍历器接口Iterator/</id>
     <published>2017-06-25T15:34:18.000Z</published>
     <updated>2017-11-22T05:35:19.586Z</updated>
     
@@ -395,17 +395,17 @@
     
     </summary>
     
-      <category term="ES6标准入门阅读笔记" scheme="http://bolg.changerhe.cb/categories/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+      <category term="ES6标准入门阅读笔记" scheme="http://blog.changerhe.cn/categories/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="ES6标准入门阅读笔记" scheme="http://bolg.changerhe.cb/tags/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+      <category term="ES6标准入门阅读笔记" scheme="http://blog.changerhe.cn/tags/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>理解Node.js里的process.nextTick()</title>
-    <link href="http://bolg.changerhe.cb/2017/06/18/%E7%90%86%E8%A7%A3Nodejs%E9%87%8C%E7%9A%84process-nextTick/"/>
-    <id>http://bolg.changerhe.cb/2017/06/18/理解Nodejs里的process-nextTick/</id>
+    <link href="http://blog.changerhe.cn/2017/06/18/%E7%90%86%E8%A7%A3Nodejs%E9%87%8C%E7%9A%84process-nextTick/"/>
+    <id>http://blog.changerhe.cn/2017/06/18/理解Nodejs里的process-nextTick/</id>
     <published>2017-06-18T12:00:32.000Z</published>
     <updated>2017-11-22T05:35:00.881Z</updated>
     
@@ -450,19 +450,19 @@
     
     </summary>
     
-      <category term="Nodejs学习笔记" scheme="http://bolg.changerhe.cb/categories/Nodejs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <category term="Nodejs学习笔记" scheme="http://blog.changerhe.cn/categories/Nodejs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="Nodejs" scheme="http://bolg.changerhe.cb/tags/Nodejs/"/>
+      <category term="Nodejs" scheme="http://blog.changerhe.cn/tags/Nodejs/"/>
     
-      <category term="process.nextTick()" scheme="http://bolg.changerhe.cb/tags/process-nextTick/"/>
+      <category term="process.nextTick()" scheme="http://blog.changerhe.cn/tags/process-nextTick/"/>
     
   </entry>
   
   <entry>
     <title>Nodejs的require()模块源码解读</title>
-    <link href="http://bolg.changerhe.cb/2017/06/06/Nodejs%E7%9A%84require-%E6%A8%A1%E5%9D%97%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/"/>
-    <id>http://bolg.changerhe.cb/2017/06/06/Nodejs的require-模块源码解读/</id>
+    <link href="http://blog.changerhe.cn/2017/06/06/Nodejs%E7%9A%84require-%E6%A8%A1%E5%9D%97%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/"/>
+    <id>http://blog.changerhe.cn/2017/06/06/Nodejs的require-模块源码解读/</id>
     <published>2017-06-06T11:44:27.000Z</published>
     <updated>2017-11-22T05:34:50.925Z</updated>
     
@@ -513,19 +513,19 @@
     
     </summary>
     
-      <category term="Nodejs学习笔记" scheme="http://bolg.changerhe.cb/categories/Nodejs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <category term="Nodejs学习笔记" scheme="http://blog.changerhe.cn/categories/Nodejs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="Nodejs" scheme="http://bolg.changerhe.cb/tags/Nodejs/"/>
+      <category term="Nodejs" scheme="http://blog.changerhe.cn/tags/Nodejs/"/>
     
-      <category term="require" scheme="http://bolg.changerhe.cb/tags/require/"/>
+      <category term="require" scheme="http://blog.changerhe.cn/tags/require/"/>
     
   </entry>
   
   <entry>
     <title>《ES6标准入门》阅读笔记——-Module</title>
-    <link href="http://bolg.changerhe.cb/2017/05/20/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-Module/"/>
-    <id>http://bolg.changerhe.cb/2017/05/20/《ES6标准入门》阅读笔记——-Module/</id>
+    <link href="http://blog.changerhe.cn/2017/05/20/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-Module/"/>
+    <id>http://blog.changerhe.cn/2017/05/20/《ES6标准入门》阅读笔记——-Module/</id>
     <published>2017-05-19T16:23:13.000Z</published>
     <updated>2017-11-22T05:34:40.648Z</updated>
     
@@ -544,19 +544,19 @@
     
     </summary>
     
-      <category term="ES6标准入门" scheme="http://bolg.changerhe.cb/categories/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8/"/>
+      <category term="ES6标准入门" scheme="http://blog.changerhe.cn/categories/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8/"/>
     
     
-      <category term="ES6" scheme="http://bolg.changerhe.cb/tags/ES6/"/>
+      <category term="ES6" scheme="http://blog.changerhe.cn/tags/ES6/"/>
     
-      <category term="Module" scheme="http://bolg.changerhe.cb/tags/Module/"/>
+      <category term="Module" scheme="http://blog.changerhe.cn/tags/Module/"/>
     
   </entry>
   
   <entry>
     <title>《ES6标准入门》阅读笔记——-Class</title>
-    <link href="http://bolg.changerhe.cb/2017/05/06/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-Class/"/>
-    <id>http://bolg.changerhe.cb/2017/05/06/《ES6标准入门》阅读笔记——-Class/</id>
+    <link href="http://blog.changerhe.cn/2017/05/06/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-Class/"/>
+    <id>http://blog.changerhe.cn/2017/05/06/《ES6标准入门》阅读笔记——-Class/</id>
     <published>2017-05-06T15:52:52.000Z</published>
     <updated>2017-11-22T05:34:35.294Z</updated>
     
@@ -575,19 +575,19 @@
     
     </summary>
     
-      <category term="ES6标准入门" scheme="http://bolg.changerhe.cb/categories/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8/"/>
+      <category term="ES6标准入门" scheme="http://blog.changerhe.cn/categories/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8/"/>
     
     
-      <category term="ES6" scheme="http://bolg.changerhe.cb/tags/ES6/"/>
+      <category term="ES6" scheme="http://blog.changerhe.cn/tags/ES6/"/>
     
-      <category term="Class" scheme="http://bolg.changerhe.cb/tags/Class/"/>
+      <category term="Class" scheme="http://blog.changerhe.cn/tags/Class/"/>
     
   </entry>
   
   <entry>
     <title>《ES6标准入门》阅读笔记——-Promise</title>
-    <link href="http://bolg.changerhe.cb/2017/04/30/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-Promise/"/>
-    <id>http://bolg.changerhe.cb/2017/04/30/《ES6标准入门》阅读笔记——-Promise/</id>
+    <link href="http://blog.changerhe.cn/2017/04/30/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-Promise/"/>
+    <id>http://blog.changerhe.cn/2017/04/30/《ES6标准入门》阅读笔记——-Promise/</id>
     <published>2017-04-30T14:23:54.000Z</published>
     <updated>2017-11-22T05:34:26.336Z</updated>
     
@@ -606,19 +606,19 @@
     
     </summary>
     
-      <category term="ES6标准入门" scheme="http://bolg.changerhe.cb/categories/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8/"/>
+      <category term="ES6标准入门" scheme="http://blog.changerhe.cn/categories/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8/"/>
     
     
-      <category term="ES6" scheme="http://bolg.changerhe.cb/tags/ES6/"/>
+      <category term="ES6" scheme="http://blog.changerhe.cn/tags/ES6/"/>
     
-      <category term="Promise" scheme="http://bolg.changerhe.cb/tags/Promise/"/>
+      <category term="Promise" scheme="http://blog.changerhe.cn/tags/Promise/"/>
     
   </entry>
   
   <entry>
     <title>《ES6标准入门》阅读笔记——-Iterator和Generator</title>
-    <link href="http://bolg.changerhe.cb/2017/04/15/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-Iterator%E5%92%8CGenerator/"/>
-    <id>http://bolg.changerhe.cb/2017/04/15/《ES6标准入门》阅读笔记——-Iterator和Generator/</id>
+    <link href="http://blog.changerhe.cn/2017/04/15/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-Iterator%E5%92%8CGenerator/"/>
+    <id>http://blog.changerhe.cn/2017/04/15/《ES6标准入门》阅读笔记——-Iterator和Generator/</id>
     <published>2017-04-15T15:11:34.000Z</published>
     <updated>2017-11-22T05:34:15.852Z</updated>
     
@@ -637,21 +637,21 @@
     
     </summary>
     
-      <category term="ES6标准入门" scheme="http://bolg.changerhe.cb/categories/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8/"/>
+      <category term="ES6标准入门" scheme="http://blog.changerhe.cn/categories/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8/"/>
     
     
-      <category term="ES6" scheme="http://bolg.changerhe.cb/tags/ES6/"/>
+      <category term="ES6" scheme="http://blog.changerhe.cn/tags/ES6/"/>
     
-      <category term="Iterator" scheme="http://bolg.changerhe.cb/tags/Iterator/"/>
+      <category term="Iterator" scheme="http://blog.changerhe.cn/tags/Iterator/"/>
     
-      <category term="Generator" scheme="http://bolg.changerhe.cb/tags/Generator/"/>
+      <category term="Generator" scheme="http://blog.changerhe.cn/tags/Generator/"/>
     
   </entry>
   
   <entry>
     <title>《ES6标准入门》阅读笔记——-set和map</title>
-    <link href="http://bolg.changerhe.cb/2017/04/03/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-set%E5%92%8Cmap/"/>
-    <id>http://bolg.changerhe.cb/2017/04/03/《ES6标准入门》阅读笔记——-set和map/</id>
+    <link href="http://blog.changerhe.cn/2017/04/03/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-set%E5%92%8Cmap/"/>
+    <id>http://blog.changerhe.cn/2017/04/03/《ES6标准入门》阅读笔记——-set和map/</id>
     <published>2017-04-03T03:37:44.000Z</published>
     <updated>2017-11-22T05:33:55.948Z</updated>
     
@@ -712,21 +712,21 @@
     
     </summary>
     
-      <category term="ES6标准入门" scheme="http://bolg.changerhe.cb/categories/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8/"/>
+      <category term="ES6标准入门" scheme="http://blog.changerhe.cn/categories/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8/"/>
     
     
-      <category term="ES6" scheme="http://bolg.changerhe.cb/tags/ES6/"/>
+      <category term="ES6" scheme="http://blog.changerhe.cn/tags/ES6/"/>
     
-      <category term="set" scheme="http://bolg.changerhe.cb/tags/set/"/>
+      <category term="set" scheme="http://blog.changerhe.cn/tags/set/"/>
     
-      <category term="map" scheme="http://bolg.changerhe.cb/tags/map/"/>
+      <category term="map" scheme="http://blog.changerhe.cn/tags/map/"/>
     
   </entry>
   
   <entry>
     <title>《ES6标准入门》阅读笔记——-symbol及proxy/reflect</title>
-    <link href="http://bolg.changerhe.cb/2017/04/01/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-symbol%E5%8F%8Aproxy-reflect/"/>
-    <id>http://bolg.changerhe.cb/2017/04/01/《ES6标准入门》阅读笔记——-symbol及proxy-reflect/</id>
+    <link href="http://blog.changerhe.cn/2017/04/01/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-symbol%E5%8F%8Aproxy-reflect/"/>
+    <id>http://blog.changerhe.cn/2017/04/01/《ES6标准入门》阅读笔记——-symbol及proxy-reflect/</id>
     <published>2017-04-01T05:51:28.000Z</published>
     <updated>2017-11-22T05:33:49.057Z</updated>
     
@@ -795,23 +795,23 @@
     
     </summary>
     
-      <category term="ES6标准入门" scheme="http://bolg.changerhe.cb/categories/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8/"/>
+      <category term="ES6标准入门" scheme="http://blog.changerhe.cn/categories/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8/"/>
     
     
-      <category term="ES6" scheme="http://bolg.changerhe.cb/tags/ES6/"/>
+      <category term="ES6" scheme="http://blog.changerhe.cn/tags/ES6/"/>
     
-      <category term="symbol" scheme="http://bolg.changerhe.cb/tags/symbol/"/>
+      <category term="symbol" scheme="http://blog.changerhe.cn/tags/symbol/"/>
     
-      <category term="proxy" scheme="http://bolg.changerhe.cb/tags/proxy/"/>
+      <category term="proxy" scheme="http://blog.changerhe.cn/tags/proxy/"/>
     
-      <category term="reflect" scheme="http://bolg.changerhe.cb/tags/reflect/"/>
+      <category term="reflect" scheme="http://blog.changerhe.cn/tags/reflect/"/>
     
   </entry>
   
   <entry>
     <title>微信公众平台接口配置信息详解---Nodejs版</title>
-    <link href="http://bolg.changerhe.cb/2017/03/24/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%B9%B3%E5%8F%B0%E6%8E%A5%E5%8F%A3%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF%E8%AF%A6%E8%A7%A3---Nodejs%E7%89%88/"/>
-    <id>http://bolg.changerhe.cb/2017/03/24/微信公众平台接口配置信息详解---Nodejs版/</id>
+    <link href="http://blog.changerhe.cn/2017/03/24/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%B9%B3%E5%8F%B0%E6%8E%A5%E5%8F%A3%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF%E8%AF%A6%E8%A7%A3---Nodejs%E7%89%88/"/>
+    <id>http://blog.changerhe.cn/2017/03/24/微信公众平台接口配置信息详解---Nodejs版/</id>
     <published>2017-03-24T15:11:42.000Z</published>
     <updated>2017-11-22T05:33:31.663Z</updated>
     
@@ -886,17 +886,17 @@
     
     </summary>
     
-      <category term="微信公众平台" scheme="http://bolg.changerhe.cb/categories/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%B9%B3%E5%8F%B0/"/>
+      <category term="微信公众平台" scheme="http://blog.changerhe.cn/categories/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%B9%B3%E5%8F%B0/"/>
     
     
-      <category term="微信公众平台" scheme="http://bolg.changerhe.cb/tags/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%B9%B3%E5%8F%B0/"/>
+      <category term="微信公众平台" scheme="http://blog.changerhe.cn/tags/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%B9%B3%E5%8F%B0/"/>
     
   </entry>
   
   <entry>
     <title>《ES6标准入门》阅读笔记——-对象的扩展</title>
-    <link href="http://bolg.changerhe.cb/2017/03/15/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%89%A9%E5%B1%95/"/>
-    <id>http://bolg.changerhe.cb/2017/03/15/《ES6标准入门》阅读笔记——-对象的扩展/</id>
+    <link href="http://blog.changerhe.cn/2017/03/15/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%89%A9%E5%B1%95/"/>
+    <id>http://blog.changerhe.cn/2017/03/15/《ES6标准入门》阅读笔记——-对象的扩展/</id>
     <published>2017-03-15T05:49:33.000Z</published>
     <updated>2017-11-22T05:32:56.137Z</updated>
     
@@ -968,19 +968,19 @@
     
     </summary>
     
-      <category term="ES6标准入门" scheme="http://bolg.changerhe.cb/categories/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8/"/>
+      <category term="ES6标准入门" scheme="http://blog.changerhe.cn/categories/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8/"/>
     
     
-      <category term="ES6" scheme="http://bolg.changerhe.cb/tags/ES6/"/>
+      <category term="ES6" scheme="http://blog.changerhe.cn/tags/ES6/"/>
     
-      <category term="Object" scheme="http://bolg.changerhe.cb/tags/Object/"/>
+      <category term="Object" scheme="http://blog.changerhe.cn/tags/Object/"/>
     
   </entry>
   
   <entry>
     <title>《ES6标准入门》阅读笔记——-函数的扩展</title>
-    <link href="http://bolg.changerhe.cb/2017/02/28/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A9%E5%B1%95/"/>
-    <id>http://bolg.changerhe.cb/2017/02/28/《ES6标准入门》阅读笔记——-函数的扩展/</id>
+    <link href="http://blog.changerhe.cn/2017/02/28/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A9%E5%B1%95/"/>
+    <id>http://blog.changerhe.cn/2017/02/28/《ES6标准入门》阅读笔记——-函数的扩展/</id>
     <published>2017-02-28T13:36:55.000Z</published>
     <updated>2017-11-22T05:32:48.025Z</updated>
     
@@ -1061,19 +1061,19 @@
     
     </summary>
     
-      <category term="ES6标准入门" scheme="http://bolg.changerhe.cb/categories/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8/"/>
+      <category term="ES6标准入门" scheme="http://blog.changerhe.cn/categories/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8/"/>
     
     
-      <category term="ES6" scheme="http://bolg.changerhe.cb/tags/ES6/"/>
+      <category term="ES6" scheme="http://blog.changerhe.cn/tags/ES6/"/>
     
-      <category term="Function" scheme="http://bolg.changerhe.cb/tags/Function/"/>
+      <category term="Function" scheme="http://blog.changerhe.cn/tags/Function/"/>
     
   </entry>
   
   <entry>
     <title>《ES6标准入门》阅读笔记——-数组的扩展</title>
-    <link href="http://bolg.changerhe.cb/2017/02/25/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-%E6%95%B0%E7%BB%84%E7%9A%84%E6%89%A9%E5%B1%95/"/>
-    <id>http://bolg.changerhe.cb/2017/02/25/《ES6标准入门》阅读笔记——-数组的扩展/</id>
+    <link href="http://blog.changerhe.cn/2017/02/25/%E3%80%8AES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94-%E6%95%B0%E7%BB%84%E7%9A%84%E6%89%A9%E5%B1%95/"/>
+    <id>http://blog.changerhe.cn/2017/02/25/《ES6标准入门》阅读笔记——-数组的扩展/</id>
     <published>2017-02-25T14:34:21.000Z</published>
     <updated>2017-11-22T05:32:43.283Z</updated>
     
@@ -1162,12 +1162,12 @@
     
     </summary>
     
-      <category term="ES6标准入门" scheme="http://bolg.changerhe.cb/categories/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8/"/>
+      <category term="ES6标准入门" scheme="http://blog.changerhe.cn/categories/ES6%E6%A0%87%E5%87%86%E5%85%A5%E9%97%A8/"/>
     
     
-      <category term="ES6" scheme="http://bolg.changerhe.cb/tags/ES6/"/>
+      <category term="ES6" scheme="http://blog.changerhe.cn/tags/ES6/"/>
     
-      <category term="Array" scheme="http://bolg.changerhe.cb/tags/Array/"/>
+      <category term="Array" scheme="http://blog.changerhe.cn/tags/Array/"/>
     
   </entry>
   
