@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.changerhe.cn//404.html</loc>
+    
+    <lastmod>2017-11-24T11:50:04.609Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.changerhe.cn/2017/09/21/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%87%92%E5%8A%A0%E8%BD%BD%E7%9A%84%E5%AE%9E%E7%8E%B0/</loc>
     
     <lastmod>2017-11-22T05:36:57.777Z</lastmod>
@@ -565,13 +572,6 @@
     <loc>http://blog.changerhe.cn/about/index.html</loc>
     
     <lastmod>2017-11-13T12:15:33.591Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.changerhe.cn//404.html</loc>
-    
-    <lastmod>2017-11-12T10:22:01.000Z</lastmod>
     
   </url>
   
