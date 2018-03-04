@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.changerhe.cn/2018/03/04/testForMac/</loc>
+    
+    <lastmod>2018-03-04T11:40:10.039Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.changerhe.cn/2017/09/21/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%87%92%E5%8A%A0%E8%BD%BD%E7%9A%84%E5%AE%9E%E7%8E%B0/</loc>
     
     <lastmod>2017-11-22T05:36:57.777Z</lastmod>
@@ -215,13 +222,6 @@
     <loc>http://blog.changerhe.cn/2016/10/24/SASS%E5%AD%A6%E4%B9%A0%E8%BF%9B%E9%98%B6/</loc>
     
     <lastmod>2017-11-22T05:26:46.272Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.changerhe.cn/2016/10/15/testForMac/</loc>
-    
-    <lastmod>2017-11-22T05:26:41.370Z</lastmod>
     
   </url>
   
