@@ -16,18 +16,17 @@
 
 
 
-<meta name="description" content="本系列将会写一些在正常工作中会遇到的一些坑,然后分析它们的产生原因及解决办法.本文的内容主要来自">
-<meta name="keywords" content="JavaScript躲坑指南">
+<meta name="description" content="objective-c是乔帮主所开发出来的一种类似于c的面向对象编程语言, 拥有诸多c的优点且支持面相对象的编程方式, 是ios开发的一大利器 环境准备要开发ios是有门槛的, 前提是你必须拥有一台mac电脑, 准确的说, 你的设备必须能够跑得了macos 在上面的基础上, 还必须要安装好开发所需软件xcode hello world依照惯例, 我们在电脑上面输出一下oc的hello world程">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript躲坑指南（一）">
-<meta property="og:url" content="http://blog.changerhe.cn/2016/07/15/JavaScript躲坑指南（一）/index.html">
+<meta property="og:title" content="Objective-c基础学习">
+<meta property="og:url" content="http://blog.changerhe.cn/2018/03/07/Objective-c基础学习/index.html">
 <meta property="og:site_name" content="何庆畅的个人博客|ChangerHe&#39;s Blog">
-<meta property="og:description" content="本系列将会写一些在正常工作中会遇到的一些坑,然后分析它们的产生原因及解决办法.本文的内容主要来自">
+<meta property="og:description" content="objective-c是乔帮主所开发出来的一种类似于c的面向对象编程语言, 拥有诸多c的优点且支持面相对象的编程方式, 是ios开发的一大利器 环境准备要开发ios是有门槛的, 前提是你必须拥有一台mac电脑, 准确的说, 你的设备必须能够跑得了macos 在上面的基础上, 还必须要安装好开发所需软件xcode hello world依照惯例, 我们在电脑上面输出一下oc的hello world程">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-22T05:19:37.702Z">
+<meta property="og:updated_time" content="2018-03-07T15:41:11.104Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript躲坑指南（一）">
-<meta name="twitter:description" content="本系列将会写一些在正常工作中会遇到的一些坑,然后分析它们的产生原因及解决办法.本文的内容主要来自">
+<meta name="twitter:title" content="Objective-c基础学习">
+<meta name="twitter:description" content="objective-c是乔帮主所开发出来的一种类似于c的面向对象编程语言, 拥有诸多c的优点且支持面相对象的编程方式, 是ios开发的一大利器 环境准备要开发ios是有门槛的, 前提是你必须拥有一台mac电脑, 准确的说, 你的设备必须能够跑得了macos 在上面的基础上, 还必须要安装好开发所需软件xcode hello world依照惯例, 我们在电脑上面输出一下oc的hello world程">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -59,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>JavaScript躲坑指南（一） | 何庆畅的个人博客|ChangerHe&#39;s Blog</title>
+<title>Objective-c基础学习 | 何庆畅的个人博客|ChangerHe&#39;s Blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -268,11 +267,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-JavaScript躲坑指南（一）" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Objective-c基础学习" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/07/15/JavaScript躲坑指南（一）/" class="article-date">
-      <time datetime="2016-07-15T15:03:29.000Z" itemprop="datePublished">2016-07-15</time>
+      <a href="/2018/03/07/Objective-c基础学习/" class="article-date">
+      <time datetime="2018-03-07T13:13:58.000Z" itemprop="datePublished">2018-03-07</time>
 </a>
 
 
@@ -287,7 +286,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      JavaScript躲坑指南（一）
+      Objective-c基础学习
     </h1>
   
 
@@ -295,16 +294,8 @@
       
       <div class="article-info article-info-post">
         
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/JavaScript躲坑指南/">JavaScript躲坑指南</a>
-    </div>
-
 
         
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript躲坑指南/">JavaScript躲坑指南</a></li></ul>
-    </div>
-
         <div class="clearfix"></div>
       </div>
       
@@ -312,30 +303,28 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>本系列将会写一些在正常工作中会遇到的一些坑,然后分析它们的产生原因及解决办法.本文的内容主要来自&lt;you don’t know JS&gt;及日常工作的问题的一些总结.</p>
-<h1 id="坑一-关于parseInt-方法转换字符串的问题-神坑"><a href="#坑一-关于parseInt-方法转换字符串的问题-神坑" class="headerlink" title="坑一: 关于parseInt()方法转换字符串的问题,神坑!"></a>坑一: 关于parseInt()方法转换字符串的问题,神坑!</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">console.log(parseInt(1/0, 19));  //18</span><br><span class="line">//原因:1/0得到的结果是Infinity,而得到的Infinity本身其实也是一个字符串,所以parseInt会以19进制对其进行类型转换,首字母为I,则其结果则为18了.</span><br><span class="line">console.log(parseInt(.000009))    //0</span><br><span class="line">console.log(parseInt(.0000009))   //9</span><br><span class="line">console.log(parseInt(false, 16))  //250,判定&apos;false&apos;的字符串的&apos;fa&apos;为十六进制了</span><br><span class="line">console.log(parseInt(parseInt, 16))  //15</span><br><span class="line">//结果为15的原因是因为parseInt为函数,所以会被typeof为function,</span><br></pre></td></tr></table></figure>
-<h1 id="坑二-位运算符-的妙用"><a href="#坑二-位运算符-的妙用" class="headerlink" title="坑二: 位运算符~的妙用:"></a>坑二: 位运算符~的妙用:</h1><p>在许多编程语言中,查找值或函数执行过程中,大于等于0的值表示查找或执行成功,返回-1则表示查找或执行失败.因此当失败时,可以直接使用位运算符~进行判定,当为-1时, -(-1 + 1) 即为零,因此就可以直接进行布尔运算了.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var a = &quot;hello world&quot;;</span><br><span class="line">if(~a.indexof(&quot;lo&quot;))&#123;</span><br><span class="line">	//查找不到值,则执行函数体中的内容</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>位运算的另一个巧妙用法:将值截除为一个32位整数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">console.log(Math.floor(-.1))  //-1</span><br><span class="line">console.log(Math.floor(.1))  //0</span><br><span class="line">console.log(~~-.1)   // 0</span><br><span class="line">console.log(~~.1)    //0</span><br></pre></td></tr></table></figure>
-<h1 id="坑三-对于稀疏数组的输出差异"><a href="#坑三-对于稀疏数组的输出差异" class="headerlink" title="坑三: 对于稀疏数组的输出差异"></a>坑三: 对于稀疏数组的输出差异</h1><p>在谷歌浏览器中,对于长度为三,无内容的稀疏数组显示为undefined*3,对于长度为三,但内容都赋值为undefined的数组,显示为[undefined, undefined, undefined].但是此情况在IE浏览器中显示的内容都是两个等号!不过在火狐中相对比较正常,输出的是文字”三个空的数组”和[undefined, undefined, undefined]</p>
-<h1 id="坑四-JSON-stringify的妙用"><a href="#坑四-JSON-stringify的妙用" class="headerlink" title="坑四: JSON.stringify的妙用:"></a>坑四: JSON.stringify的妙用:</h1><p>在序列化为JSON对象时,将该对象选择性输出,以得到想要的值;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var a = &#123;</span><br><span class="line">    b: 42,</span><br><span class="line">    c: &apos;41&apos;,</span><br><span class="line">    d: [1,2,3]</span><br><span class="line">&#125;</span><br><span class="line">console.log(JSON.stringify(a, [&apos;b&apos;,&apos;d&apos;]))   //&#123;&quot;b&quot;:42,&quot;d&quot;:[1,2,3]&#125;</span><br></pre></td></tr></table></figure>
-<p>当然,这个时候stringify还可以传递一个函数进去进行判断.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var a = &#123;</span><br><span class="line">    b: 42,</span><br><span class="line">    c: &apos;41&apos;,</span><br><span class="line">    d: [1,2,3]</span><br><span class="line">&#125;</span><br><span class="line">console.log(JSON.stringify(a, function(k, v)&#123;</span><br><span class="line">	if(k !== &apos;c&apos;) return v;</span><br><span class="line">&#125;))   //&#123;&quot;b&quot;:42,&quot;d&quot;:[1,2,3]&#125;</span><br></pre></td></tr></table></figure>
-<p>JSON.stringify()还有一个参数space,用来指定输出的缩进格式,space为数值时表示缩进的字符数,还可以是字符串,为字符串时最前面的十个字符用于每一级的缩进:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var a = &#123;</span><br><span class="line">    b: 42,</span><br><span class="line">    c: &apos;41&apos;,</span><br><span class="line">    d: [1,2,3]</span><br><span class="line">&#125;</span><br><span class="line">console.log(JSON.stringify(a, null, &quot;------------------&quot;));</span><br><span class="line">//&#123;</span><br><span class="line">//----------&quot;b&quot;: 42,</span><br><span class="line">//----------&quot;c&quot;: &quot;41&quot;,</span><br><span class="line">//----------&quot;d&quot;: [</span><br><span class="line">//--------------------1,</span><br><span class="line">//--------------------2,</span><br><span class="line">//--------------------3</span><br><span class="line">//----------]</span><br><span class="line">//&#125;</span><br></pre></td></tr></table></figure>
-<p>从上面来看,使用位运算得到的值和Math.floor() 的值不尽相同,使用位运算相当于直接去掉了数字的小数点.</p>
-<h1 id="坑五-当在函数内部为变量指定新值后-并不影响传参的值"><a href="#坑五-当在函数内部为变量指定新值后-并不影响传参的值" class="headerlink" title="坑五: 当在函数内部为变量指定新值后,并不影响传参的值."></a>坑五: 当在函数内部为变量指定新值后,并不影响传参的值.</h1><p>当函数内部制定了变量值后,输出的值是不一样的,我们来看一下例子:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function foo(x) &#123;</span><br><span class="line">	x.push(4);</span><br><span class="line">	console.log(x);   //输出的是[1,2,3,4],没毛病</span><br><span class="line">	x = [4,5,6];</span><br><span class="line">	x.push(7);</span><br><span class="line">	console.log(x);   //输出[4,5,6,7]这个没毛病</span><br><span class="line">&#125;</span><br><span class="line">var a = [1,2,3];</span><br><span class="line">foo(a);</span><br><span class="line">console.log(a);     //这个情况下,a的值其实是[1,2,3,4];</span><br></pre></td></tr></table></figure>
-<p>其实主要的原因是这样的,当我们的a作为参数传到foo函数中的时候,foo中的参数x其实是获得了一个到a数组的指针,当x进行相应的数值处理操作的时候,会直接作用到a上面,但是当x的指针改变了,也就是x被重新赋值的时候,x的指针就指向新的[4,5,6]数组了,这个时候其实后面的push(7)的操作已经是对于新的数组,并没有对a数组进行相应的操作,故最后返回的a的值只是[1,2,3,4]</p>
-<h1 id="坑六-为变量赋予常量值的问题"><a href="#坑六-为变量赋予常量值的问题" class="headerlink" title="坑六: 为变量赋予常量值的问题"></a>坑六: 为变量赋予常量值的问题</h1><p>一个很小的问题(其实涉及到的知识点和上面是类似的),当我为一个变量赋予了一个常量值,但通过函数对这个常量值进行更改,那么更改会不会体现到这个常量值中呢?<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function foo(x) &#123;</span><br><span class="line">	x = x + 1;</span><br><span class="line">	console.log(x);</span><br><span class="line">&#125;</span><br><span class="line">var a = 2;</span><br><span class="line">foo(a);</span><br><span class="line">console.log(a);  //此时a还是为2</span><br></pre></td></tr></table></figure></p>
-<h1 id="坑七-关于浅复制的一些小技巧-也是对上面问题的另一种出理方案"><a href="#坑七-关于浅复制的一些小技巧-也是对上面问题的另一种出理方案" class="headerlink" title="坑七: 关于浅复制的一些小技巧(也是对上面问题的另一种出理方案)"></a>坑七: 关于浅复制的一些小技巧(也是对上面问题的另一种出理方案)</h1><p>使用slice()方法对变量进行浅复制,达到不影响变量原来的值的目的.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">foo(slice() )</span><br></pre></td></tr></table></figure>
-<h1 id="坑八-new出的对象"><a href="#坑八-new出的对象" class="headerlink" title="坑八: new出的对象"></a>坑八: new出的对象</h1><p>使用new方法new出来的变量都是属于对象,因此进行类型检测时都会显示为object型.</p>
-<h1 id="坑九-关于隐式类型转换"><a href="#坑九-关于隐式类型转换" class="headerlink" title="坑九: 关于隐式类型转换"></a>坑九: 关于隐式类型转换</h1><p>对new出来的对象来讲,对其进行判断会有一个自动的隐式类型转换过程,自动调用数组中的valueof()方法,因此就有了以下这样的奇葩现象:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var a = 2;</span><br><span class="line">Number.prototype.valueOf = function() &#123;</span><br><span class="line">    return a++;</span><br><span class="line">&#125;</span><br><span class="line">var b = new Number(2);</span><br><span class="line">if(b == 2 &amp;&amp; b ==3) &#123;</span><br><span class="line">    console.log(&apos;WTF?&apos;)   //WTF?</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>其实这个问题很好解释,每次对b进行判断都是会调用其valueof方法,而valueof方法中a会自增1,因此会有b又等于2,又等于3的情况.</p>
+        <p>objective-c是乔帮主所开发出来的一种类似于c的面向对象编程语言, 拥有诸多c的优点且支持面相对象的编程方式, 是ios开发的一大利器</p>
+<h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><p>要开发ios是有门槛的, 前提是你必须拥有一台mac电脑, 准确的说, 你的设备必须能够跑得了macos</p>
+<p>在上面的基础上, 还必须要安装好开发所需软件xcode</p>
+<h2 id="hello-world"><a href="#hello-world" class="headerlink" title="hello world"></a>hello world</h2><p>依照惯例, 我们在电脑上面输出一下oc的hello world程序</p>
+<p>首先, 打开xcode, 新建项目, 存储到本机的一个位置上</p>
+<p>然后, 打开这个项目, 点击项目的主文件(main.m)并按住command + r进行编辑, 就可以看到控制台输出了一个hello world啦</p>
+<p>我们可以看到, 代码的整体的骨架是这样子的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// 导入mac所提供的库</span><br><span class="line">#import &lt;Foundation/Foundation.h&gt;</span><br><span class="line"></span><br><span class="line">// 程序的主函数, 所有函数都要从这里开始执行</span><br><span class="line">int main(int argc, const char * argv[]) &#123;</span><br><span class="line">@autoreleasepool &#123;</span><br><span class="line">// 所有的代码写在这里</span><br><span class="line">&#125;</span><br><span class="line">return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="oc的变量和表达式"><a href="#oc的变量和表达式" class="headerlink" title="oc的变量和表达式"></a>oc的变量和表达式</h2><p>声明变量的方法和js不同, 变量类型必须要声明对应的类型, 声明类型之后如果没有赋值, 则为默认值</p>
+<p>如, 当我们声明了int类型的a, 并不对其赋值, 最后打印出a的值就是0</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">int a;</span><br><span class="line">int b = 0;</span><br><span class="line">a = 5;</span><br><span class="line">b = 3;</span><br><span class="line">int c = (a + b) * 2</span><br><span class="line">NSLog(@&quot;变量a + 变量b的值是: %d&quot;, c)</span><br></pre></td></tr></table></figure>
+<h2 id="oc的基本数据类型"><a href="#oc的基本数据类型" class="headerlink" title="oc的基本数据类型"></a>oc的基本数据类型</h2><p>int  整型, 数值不超过32位, 也就是大概从-21亿到21亿<br>float 浮点型, 声明的时候建议即使为整数, 也应写上小数点后面的值<br>double 64位浮点型<br>char 8位字符串, 只能包含一个字符<br>NSString: @”Hello world” nsstring类型</p>
+<h2 id="限定词"><a href="#限定词" class="headerlink" title="限定词"></a>限定词</h2><p>long int a 长整型a 32位(在c中原来int是16位, 只能存储数值为五位数左右的数)<br>long long int a 长长整型 64位整形<br>short 等于或小于16位整数<br>unsigned 无符号整形<br>signed 有符号整形<br>指针类型<br>自定义类型<br>万能类型</p>
+<h2 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if () &#123;&#125; else &#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>if中的条件可以为布尔值, 可以为数字</p>
+<p>goto语句, 当条件成立的时候, 跳转到某个地方</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">int i = 0;</span><br><span class="line">a: &#123;</span><br><span class="line">    i++;</span><br><span class="line">    NSLog(@&quot;i的值为%d&quot;, i);</span><br><span class="line">&#125;</span><br><span class="line">if(i &lt; 5) &#123;</span><br><span class="line">goto a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上例可导出四次五次打印值</p>
+<h2 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h2><p>当需要多次执行某段代码的时候, 可以使用循环语句</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">int i - 0;</span><br><span class="line">while(i &lt; 5) &#123;</span><br><span class="line">    i++;</span><br><span class="line">    NSLog(@&quot;hello world&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for(int i; i &lt; 10; i++) &#123;</span><br><span class="line">    NSLog(@&quot;i = %d&quot;, i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">do &#123;</span><br><span class="line">    NSLog(@&quot;我至少打印一次&quot;);</span><br><span class="line">&#125; while(0) &#123;&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -344,12 +333,12 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/07/15/JavaScript躲坑指南（一）/">JavaScript躲坑指南（一）</a></p>
+        <p><span>本文标题:</span><a href="/2018/03/07/Objective-c基础学习/">Objective-c基础学习</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">ChangerHe</a></p>
-        <p><span>发布时间:</span>2016-07-15, 23:03:29</p>
+        <p><span>发布时间:</span>2018-03-07, 21:13:58</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/07/15/JavaScript躲坑指南（一）/" title="JavaScript躲坑指南（一）">http://blog.changerhe.cn/2016/07/15/JavaScript躲坑指南（一）/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://blog.changerhe.cn/2016/07/15/JavaScript躲坑指南（一）/　　作者: ChangerHe" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/03/07/Objective-c基础学习/" title="Objective-c基础学习">http://blog.changerhe.cn/2018/03/07/Objective-c基础学习/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://blog.changerhe.cn/2018/03/07/Objective-c基础学习/　　作者: ChangerHe" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -361,16 +350,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/07/23/JavaScript躲坑指南（二）/">
-                    JavaScript躲坑指南（二）
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/07/12/JavaScript深入浅出-闭包及解决办法/">
-                    JavaScript深入浅出-闭包及闭包问题的解决办法
+                <a href="/2018/03/05/ReactNative的mac初始环境配置/">
+                    ReactNative的mac初始环境配置
                 </a>
             </div>
         
@@ -382,7 +365,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#坑一-关于parseInt-方法转换字符串的问题-神坑"><span class="toc-number">1.</span> <span class="toc-text">坑一: 关于parseInt()方法转换字符串的问题,神坑!</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#坑二-位运算符-的妙用"><span class="toc-number">2.</span> <span class="toc-text">坑二: 位运算符~的妙用:</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#坑三-对于稀疏数组的输出差异"><span class="toc-number">3.</span> <span class="toc-text">坑三: 对于稀疏数组的输出差异</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#坑四-JSON-stringify的妙用"><span class="toc-number">4.</span> <span class="toc-text">坑四: JSON.stringify的妙用:</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#坑五-当在函数内部为变量指定新值后-并不影响传参的值"><span class="toc-number">5.</span> <span class="toc-text">坑五: 当在函数内部为变量指定新值后,并不影响传参的值.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#坑六-为变量赋予常量值的问题"><span class="toc-number">6.</span> <span class="toc-text">坑六: 为变量赋予常量值的问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#坑七-关于浅复制的一些小技巧-也是对上面问题的另一种出理方案"><span class="toc-number">7.</span> <span class="toc-text">坑七: 关于浅复制的一些小技巧(也是对上面问题的另一种出理方案)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#坑八-new出的对象"><span class="toc-number">8.</span> <span class="toc-text">坑八: new出的对象</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#坑九-关于隐式类型转换"><span class="toc-number">9.</span> <span class="toc-text">坑九: 关于隐式类型转换</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#环境准备"><span class="toc-number">1.</span> <span class="toc-text">环境准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hello-world"><span class="toc-number">2.</span> <span class="toc-text">hello world</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#oc的变量和表达式"><span class="toc-number">3.</span> <span class="toc-text">oc的变量和表达式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#oc的基本数据类型"><span class="toc-number">4.</span> <span class="toc-text">oc的基本数据类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#限定词"><span class="toc-number">5.</span> <span class="toc-text">限定词</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#逻辑运算符"><span class="toc-number">6.</span> <span class="toc-text">逻辑运算符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#循环"><span class="toc-number">7.</span> <span class="toc-text">循环</span></a></li></ol>
         
     </div>
     <style>
@@ -413,15 +396,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/07/23/JavaScript躲坑指南（二）/" title="上一篇: JavaScript躲坑指南（二）">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/07/12/JavaScript深入浅出-闭包及解决办法/" title="下一篇: JavaScript深入浅出-闭包及闭包问题的解决办法">
+            <a href="/2018/03/05/ReactNative的mac初始环境配置/" title="下一篇: ReactNative的mac初始环境配置">
                 <i class="fa fa-angle-right"></i>
             </a>
         
