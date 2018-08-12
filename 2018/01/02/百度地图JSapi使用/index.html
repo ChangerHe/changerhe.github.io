@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="description" content="何庆畅|何庆畅的个人博客|ChangerHe&#39;s Bolg" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="何庆畅|ChangerHe" />
+
+
+
+<meta name="description" content="百度地图JSai是我们在日常开发中最常用的地图JSapi之一, 详细使用总结如下">
+<meta property="og:type" content="article">
+<meta property="og:title" content="百度地图JSapi使用总结">
+<meta property="og:url" content="http://blog.changerhe.cn/2018/01/02/百度地图JSapi使用/index.html">
+<meta property="og:site_name" content="何庆畅的个人博客|ChangerHe&#39;s Blog">
+<meta property="og:description" content="百度地图JSai是我们在日常开发中最常用的地图JSapi之一, 详细使用总结如下">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://mapopen-pub-jsapi.bj.bcebos.com/img/jsimg5.jpg">
+<meta property="og:updated_time" content="2018-08-12T10:52:52.970Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="百度地图JSapi使用总结">
+<meta name="twitter:description" content="百度地图JSai是我们在日常开发中最常用的地图JSapi之一, 详细使用总结如下">
+<meta name="twitter:image" content="http://mapopen-pub-jsapi.bj.bcebos.com/img/jsimg5.jpg">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="何庆畅的个人博客|ChangerHe&#39;s Blog" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>百度地图JSapi使用总结 | 何庆畅的个人博客|ChangerHe&#39;s Blog</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: undefined
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?dfac40c3a2e8f0af4127ebbb645d4a78";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">ChangerHe</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">Keep Hungry, Keep Foolish.</p>
+        
+
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                            <li><a href="/demos/">个人作品</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ZFZQUFNXU1VSViQVFUoHCwk" title="Email"></a>
+                            
+                                <a class="fa 新浪微博" href="http://weibo.com/ChangerHe" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/ChangerHe" title="GitHub"></a>
+                            
+                                <a class="fa QQ" href="http://wpa.qq.com/msgrd?v=3&uin=244737162&site=qq&menu=yes" title="QQ"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/2dSphere/">2dSphere</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angularjs/">Angularjs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array/">Array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS样式书写规范/">CSS样式书写规范</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Canvas学习笔记/">Canvas学习笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Charles/">Charles</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Chrome/">Chrome</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Class/">Class</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6标准入门阅读笔记/">ES6标准入门阅读笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Eslint/">Eslint</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Function/">Function</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Generator/">Generator</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/">GitHub</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HEXO/">HEXO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML-CSS/">HTML & CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTPS/">HTTPS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP相关知识/">HTTP相关知识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Iterator/">Iterator</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/">JAVA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA-JavaScript/">JAVA & JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA-学习笔记/">JAVA 学习笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScriptDOM编程艺术/">JavaScriptDOM编程艺术</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript框架模式/">JavaScript框架模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript模块化编程/">JavaScript模块化编程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript笔试面试题/">JavaScript笔试面试题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript躲坑指南/">JavaScript躲坑指南</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LESS/">LESS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Module/">Module</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MongoDB/">MongoDB</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nodejs/">Nodejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nodejs学习笔记/">Nodejs学习笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Object/">Object</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Promise/">Promise</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-Native/">React-Native</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RegExp/">RegExp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SASS/">SASS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SCSS/">SCSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unicode/">Unicode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WXapplet/">WXapplet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/What-is-Flex/">What is Flex?</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XML/">XML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/const/">const</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kafka/">kafka</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/let/">let</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/map/">map</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/number/">number</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/process-nextTick/">process.nextTick()</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/proxy/">proxy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reflect/">reflect</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/require/">require</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/set/">set</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/symbol/">symbol</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/微信公众平台/">微信公众平台</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/微信小程序/">微信小程序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据绑定/">数据绑定</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/爬虫/">爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/移动端/">移动端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/解构赋值/">解构赋值</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/调试/">调试</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">ChangerHe</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">ChangerHe</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">Keep Hungry, Keep Foolish.</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                    <li><a href="/demos/">个人作品</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ZFZQUFNXU1VSViQVFUoHCwk" title="Email"></a>
+                            
+                                <a class="fa 新浪微博" target="_blank" href="http://weibo.com/ChangerHe" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/ChangerHe" title="GitHub"></a>
+                            
+                                <a class="fa QQ" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=244737162&site=qq&menu=yes" title="QQ"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-百度地图JSapi使用" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/01/02/百度地图JSapi使用/" class="article-date">
+      <time datetime="2018-01-02T14:55:12.000Z" itemprop="datePublished">2018-01-02</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      百度地图JSapi使用总结
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="百度地图的基本使用"><a href="#百度地图的基本使用" class="headerlink" title="百度地图的基本使用"></a>百度地图的基本使用</h1><blockquote>
+<p>注册百度账号</p>
+</blockquote>
+<blockquote>
+<p>申请成为百度开发者</p>
+</blockquote>
+<blockquote>
+<p>获取服务密钥(ak)</p>
+</blockquote>
+<p>注意: 百度对外接口的坐标系为BD09坐标系，并不是GPS采集的真实经纬度，在使用百度地图JavaScript API服务前，需先将非百度坐标通过坐标转换接口转换成百度坐标。 坐标转换、批量坐标转换示例详见JavaScript API示例。</p>
+<h1 id="添加地图控件"><a href="#添加地图控件" class="headerlink" title="添加地图控件"></a>添加地图控件</h1><table>
+<thead>
+<tr>
+<th>控件</th>
+<th>类名</th>
+<th>简介</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>抽象基类</td>
+<td>Control</td>
+<td>所有控件均继承此类的方法、属性。通过此类您可实现自定义控件</td>
+</tr>
+<tr>
+<td>平移缩放控件</td>
+<td>NavigationControl</td>
+<td>PC端默认位于地图左上方，它包含控制地图的平移和缩放的功能。移动端提供缩放控件，默认位于地图右下方</td>
+</tr>
+<tr>
+<td>缩略地图</td>
+<td>OverviewMapControl</td>
+<td>默认位于地图右下方，是一个可折叠的缩略地图</td>
+</tr>
+<tr>
+<td>比例尺</td>
+<td>ScaleControl</td>
+<td>默认位于地图左下方，显示地图的比例关系</td>
+</tr>
+<tr>
+<td>地图类型</td>
+<td>MapTypeControl</td>
+<td>默认位于地图右上方</td>
+</tr>
+<tr>
+<td>定位</td>
+<td>GeolocationControl</td>
+<td>针对移动端开发，默认位于地图左下方</td>
+</tr>
+</tbody>
+</table>
+<p>可以使用Map.addControl()方法向地图添加控件。<br>可以使用Map.removeControl()方法为地图移除控件。</p>
+<h2 id="地图初始化"><a href="#地图初始化" class="headerlink" title="地图初始化"></a>地图初始化</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// 传入对应的dom节点标签id名称, 用于挂在对应的百度地图显示区块</span><br><span class="line">var map = new BMap.Map(&quot;container&quot;);    </span><br><span class="line">// 传入中心点及基础缩放比例</span><br><span class="line">map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);    </span><br><span class="line">// 增加地图控件</span><br><span class="line">map.addControl(new BMap.NavigationControl());  // 平移缩放控件</span><br><span class="line">map.addControl(new BMap.ScaleControl());    // 比例尺控件</span><br><span class="line">map.addControl(new BMap.OverviewMapControl());    // 缩略图控件</span><br><span class="line">map.addControl(new BMap.MapTypeControl());    </span><br><span class="line">map.setCurrentCity(&quot;北京&quot;); // 仅当设置城市信息时，MapTypeControl的切换功能才能可用</span><br></pre></td></tr></table></figure>
+<h2 id="控制控件位置"><a href="#控制控件位置" class="headerlink" title="控制控件位置"></a>控制控件位置</h2><p>初始化控件时，可提供一个可选参数，其中的anchor和offset属性共同控制控件在地图上的位置。 anchor表示控件的停靠位置，即控件停靠在地图的哪个角。当地图尺寸发生变化时，控件会根据停靠位置的不同来调整自己的位置。</p>
+<table>
+<thead>
+<tr>
+<th>anchor值</th>
+<th>位置说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BMAP_ANCHOR_TOP_LEFT</td>
+<td>表示控件定位于地图的左上角</td>
+</tr>
+<tr>
+<td>BMAP_ANCHOR_TOP_RIGHT</td>
+<td>表示控件定位于地图的右上角</td>
+</tr>
+<tr>
+<td>BMAP_ANCHOR_BOTTOM_LEFT</td>
+<td>表示控件定位于地图的左下角</td>
+</tr>
+<tr>
+<td>BMAP_ANCHOR_BOTTOM_RIGHT</td>
+<td>表示控件定位于地图的右下角</td>
+</tr>
+</tbody>
+</table>
+<h2 id="控件位置偏移"><a href="#控件位置偏移" class="headerlink" title="控件位置偏移"></a>控件位置偏移</h2><p>除了指定停靠位置外，还可以通过偏移量来指示控件距离地图边界有多少像素。如果两个控件的停靠位置相同，那么控件可能会重叠在一起，这时就可以通过偏移值使二者分开显示。</p>
+<p>如下示例为：将比例尺放置在地图的左下角，由于API默认会有版权信息，因此需要添加一些偏移值以防止控件重叠。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var opts = &#123;offset: new BMap.Size(150, 5)&#125;</span><br><span class="line">map.addControl(new BMap.ScaleControl(opts));</span><br></pre></td></tr></table></figure>
+<p>除此之外, 控件外观也是可以更改的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var opts = &#123;type: BMAP_NAVIGATION_CONTROL_SMALL&#125;    </span><br><span class="line">map.addControl(new BMap.NavigationControl(opts));  // 调整平移缩放控件为显示小型平移缩放控件</span><br></pre></td></tr></table></figure>
+<h2 id="自定义控件"><a href="#自定义控件" class="headerlink" title="自定义控件"></a>自定义控件</h2><h3 id="定义一个自定义控件的构造函数并继承Control"><a href="#定义一个自定义控件的构造函数并继承Control" class="headerlink" title="定义一个自定义控件的构造函数并继承Control"></a>定义一个自定义控件的构造函数并继承Control</h3><p>定义自定义控件的构造函数，并在构造函数中提供defaultAnchor和defaultOffset两个属性，以便API正确定位控件位置，接着让其继承于Control。在下面的示例中我们定义一个名为ZoomControl的控件，每一次点击将地图放大两个级别。它具有文本标识，而不是平移缩放控件中使用的图形图标。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 定义一个控件类，即function    </span><br><span class="line">function ZoomControl()&#123;    </span><br><span class="line">    // 设置默认停靠位置和偏移量  </span><br><span class="line">    this.defaultAnchor = BMAP_ANCHOR_TOP_LEFT;    </span><br><span class="line">    this.defaultOffset = new BMap.Size(10, 10);    </span><br><span class="line">&#125;    </span><br><span class="line">// 通过JavaScript的prototype属性继承于BMap.Control   </span><br><span class="line">ZoomControl.prototype = new BMap.Control();</span><br></pre></td></tr></table></figure>
+<h3 id="初始化自定义控件"><a href="#初始化自定义控件" class="headerlink" title="初始化自定义控件"></a>初始化自定义控件</h3><p>设置自定义控件构造函数的prototype属性为Control的实例，以便继承控件基类。</p>
+<p>当调用map.addControl()方法添加自定义控件时，API会调用该对象的initialize()方法用来初始化控件，您需要实现此方法并在其中创建控件所需的DOM元素，并添加DOM事件。所有自定义控件中的DOM元素最终都应该添加到地图容器（即地图所在的DOM元素）中去，地图容器可以通过map.getContainer()方法获得。最后initialize()方法需要返回控件容器的DOM元素。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">// 自定义控件必须实现initialize方法，并且将控件的DOM元素返回   </span><br><span class="line">// 在本方法中创建个div元素作为控件的容器，并将其添加到地图容器中   </span><br><span class="line">ZoomControl.prototype.initialize = function(map)&#123;    </span><br><span class="line">    // 创建一个DOM元素   </span><br><span class="line">    var div = document.createElement(&quot;div&quot;);    </span><br><span class="line">    // 添加文字说明    </span><br><span class="line">    div.appendChild(document.createTextNode(&quot;放大2级&quot;));    </span><br><span class="line">    // 设置样式    </span><br><span class="line">    div.style.cursor = &quot;pointer&quot;;    </span><br><span class="line">    div.style.border = &quot;1px solid gray&quot;;    </span><br><span class="line">    div.style.backgroundColor = &quot;white&quot;;    </span><br><span class="line">    // 绑定事件，点击一次放大两级    </span><br><span class="line">    div.onclick = function(e)&#123;  </span><br><span class="line">        map.zoomTo(map.getZoom() + 2);    </span><br><span class="line">    &#125;    </span><br><span class="line">    // 添加DOM元素到地图中   </span><br><span class="line">    map.getContainer().appendChild(div);    </span><br><span class="line">    // 将DOM元素返回  </span><br><span class="line">    return div;    </span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="添加自定义控件"><a href="#添加自定义控件" class="headerlink" title="添加自定义控件"></a>添加自定义控件</h3><p>添加自定义控件与添加其他控件方法一致，调用map.addControl()方法即可。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 创建控件实例    </span><br><span class="line">var myZoomCtrl = new ZoomControl();    </span><br><span class="line">// 添加到地图当中    </span><br><span class="line">map.addControl(myZoomCtrl);</span><br></pre></td></tr></table></figure>
+<h1 id="个性化地图配置"><a href="#个性化地图配置" class="headerlink" title="个性化地图配置"></a>个性化地图配置</h1><p>目前地图的样式个性化可以通过官方的默认样式进行设置, 也可以通过个性地图编辑工具对地图的样式进行编辑, 然后生成地图的样式json, 后通过JavaScript api的方法调用生效</p>
+<h2 id="模版选择方式"><a href="#模版选择方式" class="headerlink" title="模版选择方式"></a>模版选择方式</h2><blockquote>
+<p>选择模板: 从开放平台选择各种不同的风格模板之一</p>
+</blockquote>
+<blockquote>
+<p>设置地图样式</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var mapStyle=&#123;  style : &quot;*模板英文名称*&quot; &#125;  </span><br><span class="line">map.setMapStyle(mapStyle);</span><br></pre></td></tr></table></figure>
+<p>如下图, 当我们需要设置下图的风格</p>
+<p><img src="http://mapopen-pub-jsapi.bj.bcebos.com/img/jsimg5.jpg" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var mapStyle=&#123;  style : &quot;mapbox&quot; &#125;  </span><br><span class="line">map.setMapStyle(mapStyle);</span><br></pre></td></tr></table></figure>
+<h2 id="个性化编辑方式"><a href="#个性化编辑方式" class="headerlink" title="个性化编辑方式"></a>个性化编辑方式</h2><p>见百度地图开发文档</p>
+<h1 id="在地图上进行标注"><a href="#在地图上进行标注" class="headerlink" title="在地图上进行标注"></a>在地图上进行标注</h1><p>所有叠加或覆盖到地图的内容，我们统称为地图覆盖物。覆盖物拥有自己的地理坐标，当拖动或缩放地图时，它们会相应的移动。</p>
+<p>覆盖物主要分为：标注（点标注、矢量图形（包括折线、多边形、圆））、信息窗口、图层。</p>
+<h2 id="提供的覆盖物"><a href="#提供的覆盖物" class="headerlink" title="提供的覆盖物"></a>提供的覆盖物</h2><p>可以使用map.addOverlay方法向地图添加覆盖物，使用map.removeOverlay方法移除覆盖物，注意此方法不适用于InfoWindow。</p>
+<table>
+<thead>
+<tr>
+<th>覆盖物</th>
+<th>类名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>抽象基类</td>
+<td>Overlay</td>
+<td>所有的覆盖物均继承此类的方法</td>
+</tr>
+<tr>
+<td>点</td>
+<td>Marker</td>
+<td>表示地图上的点，可自定义标注的图标</td>
+</tr>
+<tr>
+<td>文本</td>
+<td>Label</td>
+<td>表示地图上的文本标注，您可以自定义标注的文本内容</td>
+</tr>
+<tr>
+<td>折线</td>
+<td>Polyline</td>
+<td>表示地图上的折线</td>
+</tr>
+<tr>
+<td>多边形</td>
+<td>Polygon</td>
+<td>表示地图上的多边形。多边形类似于闭合的折线，另外您也可以为其添加填充颜色</td>
+</tr>
+<tr>
+<td>圆</td>
+<td>Circle</td>
+<td>表示地图上的圆</td>
+</tr>
+<tr>
+<td>信息窗口</td>
+<td>InfoWindow</td>
+<td>信息窗口也是一种特殊的覆盖物，它可以展示更为丰富的文字和多媒体信息。注意：同一时刻只能有一个信息窗口在地图上打开</td>
+</tr>
+<tr>
+<td>地面叠加层</td>
+<td>GoundOverlay</td>
+<td>表示叠加在地图上的图片，图片的链接、大小、位置等属性可以自定义</td>
+</tr>
+<tr>
+<td>海量点</td>
+<td>PointCollection</td>
+<td>针对点的数量很大的情况，可以使用海量点进行展示</td>
+</tr>
+<tr>
+<td>自定义覆盖物</td>
+<td>自定义</td>
+<td>支持通过继承覆盖物基类Overlay，自定义覆盖物</td>
+</tr>
+</tbody>
+</table>
+<h2 id="标注点"><a href="#标注点" class="headerlink" title="标注点"></a>标注点</h2><p>Marker是一个用来往地图上添加点标记的类。使用它将任何你希望用户看到的兴趣点标注在地图上。</p>
+<p>API提供了默认图标样式，也可以通过Icon类来指定自定义图标。Marker的构造函数的参数为Point和MarkerOptions（可选）。</p>
+<p>注意：当使用自定义图标时，标注的地理坐标点将位于标注所用图标的中心位置，可通过Icon的offset属性修改标定位置。</p>
+<h3 id="向地图添加标注"><a href="#向地图添加标注" class="headerlink" title="向地图添加标注"></a>向地图添加标注</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var map = new BMap.Map(&quot;container&quot;);    </span><br><span class="line">var point = new BMap.Point(116.404, 39.915);    </span><br><span class="line">map.centerAndZoom(point, 15);    </span><br><span class="line">var marker = new BMap.Marker(point);        // 创建标注    </span><br><span class="line">map.addOverlay(marker);                     // 将标注添加到地图中</span><br></pre></td></tr></table></figure>
+<h3 id="定义标注图标"><a href="#定义标注图标" class="headerlink" title="定义标注图标"></a>定义标注图标</h3><p>通过Icon类可实现自定义标注的图标，下面示例通过参数MarkerOptions的icon属性进行设置，您也可以使用marker.setIcon()方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">var map = new BMap.Map(&quot;container&quot;);    </span><br><span class="line">var point = new BMap.Point(116.404, 39.915);    </span><br><span class="line">map.centerAndZoom(point, 15);  // 编写自定义函数，创建标注   </span><br><span class="line">function addMarker(point, index)&#123;  // 创建图标对象   </span><br><span class="line">    var myIcon = new BMap.Icon(&quot;markers.png&quot;, new BMap.Size(23, 25), &#123;    </span><br><span class="line">        // 指定定位位置。   </span><br><span class="line">        // 当标注显示在地图上时，其所指向的地理位置距离图标左上    </span><br><span class="line">        // 角各偏移10像素和25像素。您可以看到在本例中该位置即是   </span><br><span class="line">        // 图标中央下端的尖角位置。    </span><br><span class="line">        anchor: new BMap.Size(10, 25),    </span><br><span class="line">        // 设置图片偏移。   </span><br><span class="line">        // 当您需要从一幅较大的图片中截取某部分作为标注图标时，您   </span><br><span class="line">        // 需要指定大图的偏移位置，此做法与css sprites技术类似。    </span><br><span class="line">        imageOffset: new BMap.Size(0, 0 - index * 25)   // 设置图片偏移    </span><br><span class="line">    &#125;);      </span><br><span class="line">    // 创建标注对象并添加到地图   </span><br><span class="line">    var marker = new BMap.Marker(point, &#123;icon: myIcon&#125;);    </span><br><span class="line">    map.addOverlay(marker);    </span><br><span class="line">&#125;    </span><br><span class="line">// 随机向地图添加10个标注    </span><br><span class="line">var bounds = map.getBounds();    </span><br><span class="line">var lngSpan = bounds.maxX - bounds.minX;    </span><br><span class="line">var latSpan = bounds.maxY - bounds.minY;    </span><br><span class="line">for (var i = 0; i &lt; 10; i ++) &#123;    </span><br><span class="line">    var point = new BMap.Point(bounds.minX + lngSpan * (Math.random() * 0.7 + 0.15),    </span><br><span class="line">                                  bounds.minY + latSpan * (Math.random() * 0.7 + 0.15));    </span><br><span class="line">    addMarker(point, i);    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="监听标注事件"><a href="#监听标注事件" class="headerlink" title="监听标注事件"></a>监听标注事件</h3><p>事件方法与Map事件机制相同。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">marker.addEventListener(&quot;click&quot;, function()&#123;    </span><br><span class="line">    alert(&quot;您点击了标注&quot;);    </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="可拖拽的标注"><a href="#可拖拽的标注" class="headerlink" title="可拖拽的标注"></a>可拖拽的标注</h3><p><code>marker</code>的<code>enableDragging</code>和<code>disableDragging</code>方法可用来开启和关闭标注的拖拽功能。默认情况下标注不支持拖拽，您需要调用marker.enableDragging()方法来开启拖拽功能。在标注开启拖拽功能后，您可以监听标注的dragend事件来捕获拖拽后标注的最新位置。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">marker.enableDragging();    </span><br><span class="line">marker.addEventListener(&quot;dragend&quot;, function(e)&#123;    </span><br><span class="line">    alert(&quot;当前位置：&quot; + e.point.lng + &quot;, &quot; + e.point.lat);    </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="标注折线"><a href="#标注折线" class="headerlink" title="标注折线"></a>标注折线</h2><p>Polyline表示地图上的折线覆盖物。它包含一组点，并将这些点连接起来形成折线。 Polyline使用详情请见类参考。</p>
+<h3 id="添加折线"><a href="#添加折线" class="headerlink" title="添加折线"></a>添加折线</h3><p>折线在地图上绘制为一系列直线段。可以自定义这些线段的颜色、粗细和透明度。颜色可以是十六进制数字形式（比如：#ff0000）或者是颜色关键字（比如：red）。<br>Polyline的绘制需要浏览器支持矢量绘制功能。在Internet Explorer中，地图使用VML绘制折线；在其他浏览器中使用SVG或者Canvas。</p>
+<p>以下代码段会在两点之间创建6像素宽的蓝色折线：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var polyline = new BMap.Polyline([</span><br><span class="line">    new BMap.Point(116.399, 39.910),</span><br><span class="line">    new BMap.Point(116.405, 39.920)</span><br><span class="line">    ],</span><br><span class="line">    &#123;strokeColor:&quot;blue&quot;, strokeWeight:6, strokeOpacity:0.5&#125;</span><br><span class="line">    );</span><br><span class="line">map.addOverlay(polyline);</span><br></pre></td></tr></table></figure>
+<h1 id="增加信息窗口"><a href="#增加信息窗口" class="headerlink" title="增加信息窗口"></a>增加信息窗口</h1><p>所有叠加或覆盖到地图的内容，我们统称为地图覆盖物。覆盖物拥有自己的地理坐标，当您拖动或缩放地图时，它们会相应的移动。</p>
+<p>覆盖物主要分为：标注（点标注、矢量图形（包括折线、多边形、圆））、信息窗口、图层。</p>
+<h2 id="提供的信息窗口"><a href="#提供的信息窗口" class="headerlink" title="提供的信息窗口"></a>提供的信息窗口</h2><p>InfoWindow：信息窗口。也是一种特殊的覆盖物，它可以展示更为丰富的文字和多媒体信息。</p>
+<p>注意：同一时刻只能有一个信息窗口在地图上打开。</p>
+<h2 id="添加信息窗口"><a href="#添加信息窗口" class="headerlink" title="添加信息窗口"></a>添加信息窗口</h2><p>信息窗口在地图上方的浮动显示HTML内容。</p>
+<p>信息窗口可直接在地图上的任意位置打开，也可以在标注对象上打开（此时信息窗口的坐标与标注的坐标一致）。</p>
+<p>您可以使用InfoWindow来创建一个信息窗实例，</p>
+<p>注意同一时刻地图上只能有一个信息窗口处于打开状态。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var opts = &#123;    </span><br><span class="line">    width : 250,     // 信息窗口宽度    </span><br><span class="line">    height: 100,     // 信息窗口高度    </span><br><span class="line">    title : &quot;Hello&quot;  // 信息窗口标题   </span><br><span class="line">&#125;    </span><br><span class="line">var infoWindow = new BMap.InfoWindow(&quot;World&quot;, opts);  // 创建信息窗口对象    </span><br><span class="line">map.openInfoWindow(infoWindow, map.getCenter());      // 打开信息窗口</span><br></pre></td></tr></table></figure>
+<h2 id="提供的自定义信息窗口工具"><a href="#提供的自定义信息窗口工具" class="headerlink" title="提供的自定义信息窗口工具"></a>提供的自定义信息窗口工具</h2><p>infoBox：自定义信息窗口工具。类似于infoWindow，比infoWindow更有灵活性，比如可以定制border，关闭按钮样式等。</p>
+<h1 id="叠加图层"><a href="#叠加图层" class="headerlink" title="叠加图层"></a>叠加图层</h1><p>地图可以包含一个或多个图层，每个图层在每个级别都是由若干张图块组成的，它们覆盖了地球的整个表面。例如您所看到包括街道、兴趣点、学校、公园等内容的地图展现就是一个图层，另外交通流量的展现也是通过图层来实现的。</p>
+<h2 id="提供的图层"><a href="#提供的图层" class="headerlink" title="提供的图层"></a>提供的图层</h2><p>TrafficLayer：交通流量图层。</p>
+<h2 id="添加和移除图层"><a href="#添加和移除图层" class="headerlink" title="添加和移除图层"></a>添加和移除图层</h2><p>通过map.addTileLayer方法可向地图添加图层，例如下面代码将显示北京市的交通流量。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var map = new BMap.Map(&quot;l-map&quot;);         // 创建地图实例      </span><br><span class="line">var point = new BMap.Point(116.404, 39.915);  // 创建点坐标     </span><br><span class="line">map.centerAndZoom(point, 15);                 // 初始化地图，设置中心点坐标和地图级别     </span><br><span class="line">var traffic = new BMap.TrafficLayer();        // 创建交通流量图层实例      </span><br><span class="line">map.addTileLayer(traffic);                    // 将图层添加到地图上</span><br></pre></td></tr></table></figure>
+<p>若要从地图上移除图层，需要调用map.removeTileLayer方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">map.removeTileLayer(traffic);                // 将图层移除</span><br></pre></td></tr></table></figure>
+<h1 id="事件处理"><a href="#事件处理" class="headerlink" title="事件处理"></a>事件处理</h1><p>浏览器中的JavaScript是“事件驱动的”，这表示JavaScript通过生成事件来响应交互，并期望程序能够“监听”感兴趣的活动。例如，在浏览器中，用户的鼠标和键盘交互可以创建在DOM内传播的事件。对某些事件感兴趣的程序会为这些事件注册JavaScript事件监听器，并在接收这些事件时执行代码。</p>
+<p>百度地图API拥有一个自己的事件模型，程序员可监听地图API对象的自定义事件，使用方法和DOM事件类似。但请注意，地图API事件是独立的，与标准DOM事件不同。</p>
+<h2 id="事件监听"><a href="#事件监听" class="headerlink" title="事件监听"></a>事件监听</h2><p>百度地图API中的大部分对象都含有addEventListener方法，您可以通过该方法来监听对象事件。例如，BMap.Map包含click、dblclick等事件。在特定环境下这些事件会被触发，同时监听函数会得到相应的事件参数e，比如当用户点击地图时，e参数会包含鼠标所对应的地理位置point。</p>
+<h3 id="弹窗事件"><a href="#弹窗事件" class="headerlink" title="弹窗事件"></a>弹窗事件</h3><p>addEventListener方法有两个参数：监听的事件名称和事件触发时调用的函数。<br>如下示例中，每当用户点击地图时，会弹出一个警告框：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var map = new BMap.Map(&quot;container&quot;);    </span><br><span class="line">map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);    </span><br><span class="line">map.addEventListener(&quot;click&quot;, function()&#123;    </span><br><span class="line">    alert(&quot;您点击了地图。&quot;);    </span><br><span class="line">&#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h3 id="捕获状态"><a href="#捕获状态" class="headerlink" title="捕获状态"></a>捕获状态</h3><p>通过监听事件还可以捕获事件触发后的状态。<br>如下示例，显示用户拖动地图后地图中心的经纬度信息：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var map = new BMap.Map(&quot;container&quot;);    </span><br><span class="line">map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);    </span><br><span class="line">map.addEventListener(&quot;dragend&quot;, function()&#123;    </span><br><span class="line">    var center = map.getCenter();    </span><br><span class="line">    alert(&quot;地图中心点变更为：&quot; + center.lng + &quot;, &quot; + center.lat);    </span><br><span class="line">&#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h3 id="事件参数和this"><a href="#事件参数和this" class="headerlink" title="事件参数和this"></a>事件参数和this</h3><p>在标准的DOM事件模型中（DOM Level 2 Events），监听函数会得到一个事件对象e，在e中可以获取有关该事件的信息。同时在监听函数中this会指向触发该事件的DOM元素。</p>
+<p>百度地图API的事件模型与此类似，在事件监听函数中传递事件对象e，每个e参数至少包含事件类型（type）和触发该事件的对象（target）。</p>
+<p>API还保证函数内的this指向触发（同时也是绑定）事件的API对象。</p>
+<h4 id="事件参数e获取有关信息"><a href="#事件参数e获取有关信息" class="headerlink" title="事件参数e获取有关信息"></a>事件参数e获取有关信息</h4><p>例如，通过参数e得到点击的经纬度坐标：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var map = new BMap.Map(&quot;container&quot;);    </span><br><span class="line">map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);    </span><br><span class="line">map.addEventListener(&quot;click&quot;, function(e)&#123;    </span><br><span class="line">    alert(e.point.lng + &quot;, &quot; + e.point.lat);    </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="this指向DOM元素"><a href="#this指向DOM元素" class="headerlink" title="this指向DOM元素"></a>this指向DOM元素</h4><p>监听函数中this会指向触发该事件的DOM元素。<br>如下示例，通过this得到地图缩放后的级别：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var map = new BMap.Map(&quot;container&quot;);    </span><br><span class="line">map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);    </span><br><span class="line">map.addEventListener(&quot;zoomend&quot;, function()&#123;    </span><br><span class="line">    alert(&quot;地图缩放至：&quot; + this.getZoom() + &quot;级&quot;);    </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="移除监听事件"><a href="#移除监听事件" class="headerlink" title="移除监听事件"></a>移除监听事件</h3><p>当您不再希望监听事件时，可以将事件监听进行移除。每个API对象提供了removeEventListener用来移除事件监听函数。</p>
+<p>如下示例中，用户第一次点击地图会触发事件监听函数，在函数内部对事件监听进行了移除，因此后续的点击操作则不会触发监听函数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var map = new BMap.Map(&quot;container&quot;);    </span><br><span class="line">map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);    </span><br><span class="line">function showInfo(e)&#123;    </span><br><span class="line">    alert(e.point.lng + &quot;, &quot; + e.point.lat);    </span><br><span class="line">    map.removeEventListener(&quot;click&quot;, showInfo);    </span><br><span class="line">&#125;    </span><br><span class="line">map.addEventListener(&quot;click&quot;, showInfo);</span><br></pre></td></tr></table></figure>
+<h1 id="地图数据获取"><a href="#地图数据获取" class="headerlink" title="地图数据获取"></a>地图数据获取</h1><h2 id="检索POI"><a href="#检索POI" class="headerlink" title="检索POI"></a>检索POI</h2><p>检索服务提供某一特定地区的兴趣点位置查询服务（POI：Point of Interest，感兴趣点）。允许设置检索城市、检索圆形区域内POI、检索矩形区域内POI、检索结果详情。</p>
+<h2 id="提供的检索服务"><a href="#提供的检索服务" class="headerlink" title="提供的检索服务"></a>提供的检索服务</h2><p>LocalSearch：本地搜索，提供某一特定地区的位置搜索服务，比如在北京市搜索“公园”。目前支持城市检索、圆形检索、矩形检索。</p>
+<p>说明：BMap.LocalSearch提供本地搜索服务，在使用本地搜索时需要为其设置一个检索区域，检索区域可以是BMap.Map对象、BMap.Point对象或者是省市名称（比如：”北京市”）的字符串。BMap.LocalSearch构造函数的第二个参数是可选的，您可以在其中指定结果的呈现。BMap.RenderOptions类提供了若干控制呈现的属性，其中map指定了结果所展现的地图实例，panel指定了结果列表的容器元素。</p>
+<h2 id="检索POI方法"><a href="#检索POI方法" class="headerlink" title="检索POI方法"></a>检索POI方法</h2><p>检索POI服务提供三种检索方法：城市检索、圆形区域检索、矩形区域检索。</p>
+<h3 id="城市检索"><a href="#城市检索" class="headerlink" title="城市检索"></a>城市检索</h3><p>search方法提供根据关键字检索特定POI信息服务。 如下示例，为根据关键字“天安门”检索POI：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var map = new BMap.Map(&quot;container&quot;);      </span><br><span class="line">map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);      </span><br><span class="line">var local = new BMap.LocalSearch(map, &#123;      </span><br><span class="line">    renderOptions:&#123;map: map&#125;      </span><br><span class="line">&#125;);      </span><br><span class="line">local.search(&quot;天安门&quot;);</span><br></pre></td></tr></table></figure>
+<h3 id="圆形区域检索"><a href="#圆形区域检索" class="headerlink" title="圆形区域检索"></a>圆形区域检索</h3><p>searchNearby方法提供圆形区域检索服务。您可以在某个地点附近进行搜索，也可以在某一个特定结果点周围进行搜索。 下面示例展示如何在前门附近搜索小吃：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var map = new BMap.Map(&quot;container&quot;);         </span><br><span class="line">map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);      </span><br><span class="line">var local = new BMap.LocalSearch(map,   </span><br><span class="line">              &#123; renderOptions:&#123;map: map, autoViewport: true&#125;&#125;);      </span><br><span class="line">local.searchNearby(&quot;小吃&quot;, &quot;前门&quot;);</span><br></pre></td></tr></table></figure>
+<h3 id="矩形区域检索"><a href="#矩形区域检索" class="headerlink" title="矩形区域检索"></a>矩形区域检索</h3><p>searchInBounds方法提供矩形区域检索服务。矩形范围搜索将根据您提供的视野范围提供搜索结果。<br>注意：当搜索范围过大时可能会出现无结果的情况。</p>
+<p>如下示例，展示在当前地图视野范围内搜索银行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var map = new BMap.Map(&quot;container&quot;);        </span><br><span class="line">map.centerAndZoom(new BMap.Point(116.404, 39.915), 14);      </span><br><span class="line">var local = new BMap.LocalSearch(map,   </span><br><span class="line">              &#123; renderOptions:&#123;map: map&#125;&#125;);      </span><br><span class="line">local.searchInBounds(&quot;银行&quot;, map.getBounds());</span><br></pre></td></tr></table></figure>
+<h3 id="配置搜索"><a href="#配置搜索" class="headerlink" title="配置搜索"></a>配置搜索</h3><p>BMap.LocalSearch提供了若干配置方法，通过它们可以自定义搜索服务的行为以满足您的需求。</p>
+<p>如下示例中，我们调整每页显示8个结果，并且根据结果点位置自动调整地图视野，不显示第一条结果的信息窗口：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var map = new BMap.Map(&quot;container&quot;);    </span><br><span class="line">map.centerAndZoom(new BMap.Point(116.404, 39.915), 14);  </span><br><span class="line">var local = new BMap.LocalSearch(&quot;北京市&quot;,   </span><br><span class="line">            &#123;renderOptions: &#123;map: map,autoViewport: true&#125;,pageCapacity: 8&#125;);      </span><br><span class="line">local.search(&quot;中关村&quot;);</span><br></pre></td></tr></table></figure>
+<h3 id="结果面板"><a href="#结果面板" class="headerlink" title="结果面板"></a>结果面板</h3><p>通过设置BMap.LocalSearchOptions.renderOptions.panel属性，可以为本地搜索对象提供一个结果列表容器，搜索结果会自动添加到容器元素中。</p>
+<p>如下示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var map = new BMap.Map(&quot;container&quot;);     </span><br><span class="line">map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);  </span><br><span class="line">var local = new BMap.LocalSearch(map,   </span><br><span class="line">            &#123;renderOptions: &#123;map: map,panel: &quot;results&quot;&#125;);      </span><br><span class="line">local.search(&quot;中关村&quot;);</span><br></pre></td></tr></table></figure>
+<h3 id="数据接口"><a href="#数据接口" class="headerlink" title="数据接口"></a>数据接口</h3><p>除了搜索结果会自动添加到地图和列表外，您还可以通过数据接口获得详细的数据信息，结合地图API您可以自行向地图添加标注和信息窗口。</p>
+<p>BMap.LocalSearch和BMap.LocalSearchOptions类提供了若干设置回调函数的接口，通过它们可得到搜索结果的数据信息。 例如，通过onSearchComplete回调函数参数可以获得BMap.LocalResult对象实例，它包含了每一次搜索结果的数据信息。 当回调函数被执行时，您可以使用BMap.LocalSearch.getStatus()方法来确认搜索是否成功或者得到错误的详细信息。</p>
+<p>在下面这个示例中，通过onSearchComplete回调函数得到第一页每条结果的标题和地址信息，并输出到页面上：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">var map = new BMap.Map(&quot;container&quot;);          </span><br><span class="line">map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);      </span><br><span class="line">var options = &#123;      </span><br><span class="line">    onSearchComplete: function(results)&#123;      </span><br><span class="line">        if (local.getStatus() == BMAP_STATUS_SUCCESS)&#123;      </span><br><span class="line">            // 判断状态是否正确      </span><br><span class="line">            var s = [];      </span><br><span class="line">            for (var i = 0; i &lt; results.getCurrentNumPois(); i ++)&#123;      </span><br><span class="line">                s.push(results.getPoi(i).title + &quot;, &quot; + results.getPoi(i).address);      </span><br><span class="line">            &#125;      </span><br><span class="line">            document.getElementById(&quot;log&quot;).innerHTML = s.join(&quot;&lt;br&gt;&quot;);      </span><br><span class="line">        &#125;      </span><br><span class="line">    &#125;      </span><br><span class="line"> &#125;;      </span><br><span class="line">var local = new BMap.LocalSearch(map, options);      </span><br><span class="line">local.search(&quot;公园&quot;);</span><br></pre></td></tr></table></figure>
+<h2 id="地址解析"><a href="#地址解析" class="headerlink" title="地址解析"></a>地址解析</h2><p>地址解析服务提供从地址转换到经纬度的服务，反之，逆地址解析则提供从经纬度坐标转换到地址的转换功能。</p>
+<h3 id="提供的转换类"><a href="#提供的转换类" class="headerlink" title="提供的转换类"></a>提供的转换类</h3><p>Geocoder：逆/地址解析，用于坐标与地址间的相互转换。</p>
+<h3 id="地址解析服务"><a href="#地址解析服务" class="headerlink" title="地址解析服务"></a>地址解析服务</h3><p>根据地址描述获得坐标信息。</p>
+<p>百度地图API提供Geocoder类进行地址解析，您可以通过Geocoder.getPoint()方法来将一段地址描述转换为一个坐标。</p>
+<p>如下示例，我们将地址“北京市海淀区上地10街10号”转换获取该位置的地理经纬度坐标，并在这个位置上添加一个标注。 注意:在调用Geocoder.getPoint()方法时您需要提供地址解析所在的城市（本例为“北京市”）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var map = new BMap.Map(&quot;l-map&quot;);      </span><br><span class="line">map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);      </span><br><span class="line">// 创建地址解析器实例     </span><br><span class="line">var myGeo = new BMap.Geocoder();      </span><br><span class="line">// 将地址解析结果显示在地图上，并调整地图视野    </span><br><span class="line">myGeo.getPoint(&quot;北京市海淀区上地10街10号&quot;, function(point)&#123;      </span><br><span class="line">    if (point) &#123;      </span><br><span class="line">        map.centerAndZoom(point, 16);      </span><br><span class="line">        map.addOverlay(new BMap.Marker(point));      </span><br><span class="line">    &#125;      </span><br><span class="line"> &#125;, </span><br><span class="line">&quot;北京市&quot;);</span><br></pre></td></tr></table></figure>
+<h3 id="逆地址解析服务"><a href="#逆地址解析服务" class="headerlink" title="逆地址解析服务"></a>逆地址解析服务</h3><p>根据坐标点获得该地点的地址描述，是地址解析的逆向转换。</p>
+<p>您可以通过Geocoder.getLocation()方法获得地址描述。当解析工作完成后，您提供的回调函数将会被触发。如果解析成功，则回调函数的参数为GeocoderResult对象，否则为null。</p>
+<h4 id="指定经纬度获取地址"><a href="#指定经纬度获取地址" class="headerlink" title="指定经纬度获取地址"></a>指定经纬度获取地址</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var map = new BMap.Map(&quot;l-map&quot;);      </span><br><span class="line">map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);      </span><br><span class="line">// 创建地理编码实例      </span><br><span class="line">var myGeo = new BMap.Geocoder();      </span><br><span class="line">// 根据坐标得到地址描述    </span><br><span class="line">myGeo.getLocation(new BMap.Point(116.364, 39.993), function(result)&#123;      </span><br><span class="line">    if (result)&#123;      </span><br><span class="line">    alert(result.address);      </span><br><span class="line">    &#125;      </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="鼠标点击地图获取地址"><a href="#鼠标点击地图获取地址" class="headerlink" title="鼠标点击地图获取地址"></a>鼠标点击地图获取地址</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var map = new BMap.Map(&quot;allmap&quot;);</span><br><span class="line">var point = new BMap.Point(116.331398,39.897445);</span><br><span class="line">map.centerAndZoom(point,12);</span><br><span class="line">var geoc = new BMap.Geocoder();    </span><br><span class="line">map.addEventListener(&quot;click&quot;, function(e)&#123;        </span><br><span class="line">    var pt = e.point;</span><br><span class="line">    geoc.getLocation(pt, function(rs)&#123;</span><br><span class="line">        var addComp = rs.addressComponents;</span><br><span class="line">        alert(addComp.province + &quot;, &quot; + addComp.city + &quot;, &quot; + addComp.district + &quot;, &quot; + addComp.street + &quot;, &quot; + addComp.streetNumber);</span><br><span class="line">    &#125;);        </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="出行路线规划"><a href="#出行路线规划" class="headerlink" title="出行路线规划"></a>出行路线规划</h2><p>提供的出行方式包括公交、驾车、步行。开发者可以使用我们提供的默认展示效果，也可通过结果面板或数据接口获取返回结果，自己编写实现界面。图片支持自定义。</p>
+<h3 id="提供的路线规划方式"><a href="#提供的路线规划方式" class="headerlink" title="提供的路线规划方式"></a>提供的路线规划方式</h3><table>
+<thead>
+<tr>
+<th>路线规划方式</th>
+<th>类名</th>
+<th>简介</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>公交</td>
+<td>TransitRoute</td>
+<td>提供公交路线规划搜索服务</td>
+</tr>
+<tr>
+<td>驾车</td>
+<td>DrivingRoute</td>
+<td>提供驾车路线规划服务</td>
+</tr>
+<tr>
+<td>步行</td>
+<td>WalkingRoute</td>
+<td>提供步行路线规划服务</td>
+</tr>
+</tbody>
+</table>
+<h3 id="驾车路线规划"><a href="#驾车路线规划" class="headerlink" title="驾车路线规划"></a>驾车路线规划</h3><p>BMap.DrivingRoute提供驾车导航服务。与公交导航不同的是，驾车导航的搜索范围可以设置为省。</p>
+<h4 id="使用服务示例"><a href="#使用服务示例" class="headerlink" title="使用服务示例"></a>使用服务示例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var map = new BMap.Map(&quot;container&quot;);    </span><br><span class="line">map.centerAndZoom(new BMap.Point(116.404, 39.915), 14);    </span><br><span class="line">var driving = new BMap.DrivingRoute(map, &#123;    </span><br><span class="line">    renderOptions: &#123;    </span><br><span class="line">        map: map,    </span><br><span class="line">        autoViewport: true    </span><br><span class="line">    &#125;    </span><br><span class="line">&#125;);    </span><br><span class="line">driving.search(&quot;中关村&quot;, &quot;天安门&quot;);</span><br></pre></td></tr></table></figure>
+<h4 id="结果面板-1"><a href="#结果面板-1" class="headerlink" title="结果面板"></a>结果面板</h4><p>下面示例中，我们提供了结果面板参数，方案描述会自动展示到页面上。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var map = new BMap.Map(&quot;container&quot;);    </span><br><span class="line">map.centerAndZoom(new BMap.Point(116.404, 39.915), 14);    </span><br><span class="line">var driving = new BMap.DrivingRoute(map, &#123;    </span><br><span class="line">    renderOptions: &#123;    </span><br><span class="line">        map   : map,     </span><br><span class="line">        panel : &quot;results&quot;,    </span><br><span class="line">        autoViewport: true    </span><br><span class="line">    &#125;    </span><br><span class="line">&#125;);    </span><br><span class="line">driving.search(&quot;中关村&quot;, &quot;天安门&quot;);</span><br></pre></td></tr></table></figure>
+<h4 id="数据接口-1"><a href="#数据接口-1" class="headerlink" title="数据接口"></a>数据接口</h4><p>驾车导航服务也提供了丰富的数据接口，通过onSearchComplete回调函数可以得到BMap.DrivingRouteResult对象，它包含了驾车导航结果数据信息。<br>结果会包含若干驾车方案（目前仅提供一条方案），每条方案中包含了若干驾车线路（如果导航方案只包含一个目的地，那么驾车线路的个数就为1，如果方案包含若干个目的地，则驾车线路的个数会大于1。目前API尚不支持多个目的地的驾车导航）。<br>每条驾车线路又会包含一系列的关键步骤（BMap.Step），关键步骤描述了具体驾车行驶方案，可通过BMap.Step.getDescription()方法获得。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">var map = new BMap.Map(&quot;container&quot;);    </span><br><span class="line">map.centerAndZoom(new BMap.Point(116.404, 39.915), 14);    </span><br><span class="line">var options = &#123;    </span><br><span class="line">    onSearchComplete: function(results)&#123;    </span><br><span class="line">        if (driving.getStatus() == BMAP_STATUS_SUCCESS)&#123;    </span><br><span class="line">            // 获取第一条方案   </span><br><span class="line">            var plan = results.getPlan(0);      </span><br><span class="line">            // 获取方案的驾车线路   </span><br><span class="line">            var route = plan.getRoute(0);      </span><br><span class="line">            // 获取每个关键步骤，并输出到页面   </span><br><span class="line">            var s = [];    </span><br><span class="line">            for (var i = 0; i &lt; route.getNumSteps(); i ++)&#123;    </span><br><span class="line">                var step = route.getStep(i);    </span><br><span class="line">                s.push((i + 1) + &quot;. &quot; + step.getDescription());    </span><br><span class="line">            &#125;    </span><br><span class="line">            document.getElementById(&quot;log&quot;).innerHTML = s.join(&quot;&lt;br&gt;&quot;);    </span><br><span class="line">        &#125;    </span><br><span class="line">    &#125;    </span><br><span class="line">&#125;;    </span><br><span class="line">var driving = new BMap.DrivingRoute(map, options); </span><br><span class="line">driving.search(&quot;中关村&quot;,&quot;天安门&quot;);</span><br></pre></td></tr></table></figure>
+<h3 id="步行路线规划"><a href="#步行路线规划" class="headerlink" title="步行路线规划"></a>步行路线规划</h3><p>BMap.WalkingRoute提供步行线路规划服务。基本用法和驾车线路规划类似。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var map = new BMap.Map(&quot;container&quot;);    </span><br><span class="line">    map.centerAndZoom(new BMap.Point(116.404, 39.915), 14);    </span><br><span class="line">    var walk = new BMap.WalkingRoute(map, &#123;    </span><br><span class="line">        renderOptions: &#123;map: map&#125;    </span><br><span class="line">    &#125;);    </span><br><span class="line">walk.search(&quot;王府井&quot;, &quot;西单&quot;);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2018/01/02/百度地图JSapi使用/">百度地图JSapi使用总结</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">ChangerHe</a></p>
+        <p><span>发布时间:</span>2018-01-02, 22:55:12</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2018/01/02/百度地图JSapi使用/" title="百度地图JSapi使用总结">http://blog.changerhe.cn/2018/01/02/百度地图JSapi使用/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://blog.changerhe.cn/2018/01/02/百度地图JSapi使用/　　作者: ChangerHe" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2018/02/06/Charles抓包工具的基本使用/">
+                    Charles抓包工具的基本使用
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2017/12/23/MySQL的基本使用/">
+                    MySQL的基本使用
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#百度地图的基本使用"><span class="toc-number">1.</span> <span class="toc-text">百度地图的基本使用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#添加地图控件"><span class="toc-number">2.</span> <span class="toc-text">添加地图控件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#地图初始化"><span class="toc-number">2.1.</span> <span class="toc-text">地图初始化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#控制控件位置"><span class="toc-number">2.2.</span> <span class="toc-text">控制控件位置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#控件位置偏移"><span class="toc-number">2.3.</span> <span class="toc-text">控件位置偏移</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自定义控件"><span class="toc-number">2.4.</span> <span class="toc-text">自定义控件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#定义一个自定义控件的构造函数并继承Control"><span class="toc-number">2.4.1.</span> <span class="toc-text">定义一个自定义控件的构造函数并继承Control</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#初始化自定义控件"><span class="toc-number">2.4.2.</span> <span class="toc-text">初始化自定义控件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加自定义控件"><span class="toc-number">2.4.3.</span> <span class="toc-text">添加自定义控件</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#个性化地图配置"><span class="toc-number">3.</span> <span class="toc-text">个性化地图配置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#模版选择方式"><span class="toc-number">3.1.</span> <span class="toc-text">模版选择方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#个性化编辑方式"><span class="toc-number">3.2.</span> <span class="toc-text">个性化编辑方式</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#在地图上进行标注"><span class="toc-number">4.</span> <span class="toc-text">在地图上进行标注</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#提供的覆盖物"><span class="toc-number">4.1.</span> <span class="toc-text">提供的覆盖物</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#标注点"><span class="toc-number">4.2.</span> <span class="toc-text">标注点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#向地图添加标注"><span class="toc-number">4.2.1.</span> <span class="toc-text">向地图添加标注</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#定义标注图标"><span class="toc-number">4.2.2.</span> <span class="toc-text">定义标注图标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#监听标注事件"><span class="toc-number">4.2.3.</span> <span class="toc-text">监听标注事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#可拖拽的标注"><span class="toc-number">4.2.4.</span> <span class="toc-text">可拖拽的标注</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#标注折线"><span class="toc-number">4.3.</span> <span class="toc-text">标注折线</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#添加折线"><span class="toc-number">4.3.1.</span> <span class="toc-text">添加折线</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#增加信息窗口"><span class="toc-number">5.</span> <span class="toc-text">增加信息窗口</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#提供的信息窗口"><span class="toc-number">5.1.</span> <span class="toc-text">提供的信息窗口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加信息窗口"><span class="toc-number">5.2.</span> <span class="toc-text">添加信息窗口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#提供的自定义信息窗口工具"><span class="toc-number">5.3.</span> <span class="toc-text">提供的自定义信息窗口工具</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#叠加图层"><span class="toc-number">6.</span> <span class="toc-text">叠加图层</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#提供的图层"><span class="toc-number">6.1.</span> <span class="toc-text">提供的图层</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加和移除图层"><span class="toc-number">6.2.</span> <span class="toc-text">添加和移除图层</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#事件处理"><span class="toc-number">7.</span> <span class="toc-text">事件处理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#事件监听"><span class="toc-number">7.1.</span> <span class="toc-text">事件监听</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#弹窗事件"><span class="toc-number">7.1.1.</span> <span class="toc-text">弹窗事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#捕获状态"><span class="toc-number">7.1.2.</span> <span class="toc-text">捕获状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#事件参数和this"><span class="toc-number">7.1.3.</span> <span class="toc-text">事件参数和this</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#事件参数e获取有关信息"><span class="toc-number">7.1.3.1.</span> <span class="toc-text">事件参数e获取有关信息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#this指向DOM元素"><span class="toc-number">7.1.3.2.</span> <span class="toc-text">this指向DOM元素</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#移除监听事件"><span class="toc-number">7.1.4.</span> <span class="toc-text">移除监听事件</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#地图数据获取"><span class="toc-number">8.</span> <span class="toc-text">地图数据获取</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#检索POI"><span class="toc-number">8.1.</span> <span class="toc-text">检索POI</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#提供的检索服务"><span class="toc-number">8.2.</span> <span class="toc-text">提供的检索服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#检索POI方法"><span class="toc-number">8.3.</span> <span class="toc-text">检索POI方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#城市检索"><span class="toc-number">8.3.1.</span> <span class="toc-text">城市检索</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#圆形区域检索"><span class="toc-number">8.3.2.</span> <span class="toc-text">圆形区域检索</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#矩形区域检索"><span class="toc-number">8.3.3.</span> <span class="toc-text">矩形区域检索</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置搜索"><span class="toc-number">8.3.4.</span> <span class="toc-text">配置搜索</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#结果面板"><span class="toc-number">8.3.5.</span> <span class="toc-text">结果面板</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据接口"><span class="toc-number">8.3.6.</span> <span class="toc-text">数据接口</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#地址解析"><span class="toc-number">8.4.</span> <span class="toc-text">地址解析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#提供的转换类"><span class="toc-number">8.4.1.</span> <span class="toc-text">提供的转换类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#地址解析服务"><span class="toc-number">8.4.2.</span> <span class="toc-text">地址解析服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#逆地址解析服务"><span class="toc-number">8.4.3.</span> <span class="toc-text">逆地址解析服务</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#指定经纬度获取地址"><span class="toc-number">8.4.3.1.</span> <span class="toc-text">指定经纬度获取地址</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#鼠标点击地图获取地址"><span class="toc-number">8.4.3.2.</span> <span class="toc-text">鼠标点击地图获取地址</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#出行路线规划"><span class="toc-number">8.5.</span> <span class="toc-text">出行路线规划</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#提供的路线规划方式"><span class="toc-number">8.5.1.</span> <span class="toc-text">提供的路线规划方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#驾车路线规划"><span class="toc-number">8.5.2.</span> <span class="toc-text">驾车路线规划</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#使用服务示例"><span class="toc-number">8.5.2.1.</span> <span class="toc-text">使用服务示例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#结果面板-1"><span class="toc-number">8.5.2.2.</span> <span class="toc-text">结果面板</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#数据接口-1"><span class="toc-number">8.5.2.3.</span> <span class="toc-text">数据接口</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#步行路线规划"><span class="toc-number">8.5.3.</span> <span class="toc-text">步行路线规划</span></a></li></ol></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2018/02/06/Charles抓包工具的基本使用/" title="上一篇: Charles抓包工具的基本使用">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2017/12/23/MySQL的基本使用/" title="下一篇: MySQL的基本使用">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/08/02/kafka的基本概念和安装步骤/">kafka的基本概念和安装步骤</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/20/React-Native之工程打包/">React-Native之工程打包</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/19/React-Native之react-navigation(v2)/">React-Native之react-navigation(v2)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/15/Eslint配置条件参考/">Eslint配置条件参考</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/02/React-Native之动画/">React-Native之动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/05/ReactNative的mac初始环境配置/">ReactNative的mac初始环境配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/04/testForMac/">SASS学习进阶</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/06/Charles抓包工具的基本使用/">Charles抓包工具的基本使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/02/百度地图JSapi使用/">百度地图JSapi使用总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/23/MySQL的基本使用/">MySQL的基本使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/07/Objective-c基础学习/">Objective-c基础学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/25/Chrome61发布,这新功能怕是没谁了/">Chrome61发布,这新功能怕是没谁了</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/21/微信小程序懒加载的实现/">微信小程序懒加载的实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/05/网站的https证书配置方法/">网站的https证书配置小结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/05/利用dpl实现对移动设备的像素实现精准控制/">利用dpl实现对移动设备的像素实现精准控制</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/20/Angularjs的数据绑定和脏检查/">Angularjs的数据绑定和脏检查</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/05/基于MongoDB-2dSphere索引查找最近的点/">基于MongoDB 2dSphere索引查找最近的点</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/27/使用Nodejs实现简单的自动化构建/">使用Nodejs实现简单的自动化构建</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/25/ES6中的遍历器接口Iterator/">ES6中的遍历器接口Iterator</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/18/理解Nodejs里的process-nextTick/">理解Node.js里的process.nextTick()</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/06/Nodejs的require-模块源码解读/">Nodejs的require()模块源码解读</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/20/《ES6标准入门》阅读笔记——-Module/">《ES6标准入门》阅读笔记——-Module</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/06/《ES6标准入门》阅读笔记——-Class/">《ES6标准入门》阅读笔记——-Class</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/30/《ES6标准入门》阅读笔记——-Promise/">《ES6标准入门》阅读笔记——-Promise</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/15/《ES6标准入门》阅读笔记——-Iterator和Generator/">《ES6标准入门》阅读笔记——-Iterator和Generator</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/05/微信小程序开发笔记/">微信小程序开发笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/03/《ES6标准入门》阅读笔记——-set和map/">《ES6标准入门》阅读笔记——-set和map</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/01/《ES6标准入门》阅读笔记——-symbol及proxy-reflect/">《ES6标准入门》阅读笔记——-symbol及proxy/reflect</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/24/微信公众平台接口配置信息详解---Nodejs版/">微信公众平台接口配置信息详解---Nodejs版</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/15/《ES6标准入门》阅读笔记——-对象的扩展/">《ES6标准入门》阅读笔记——-对象的扩展</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/28/《ES6标准入门》阅读笔记——-函数的扩展/">《ES6标准入门》阅读笔记——-函数的扩展</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/25/《ES6标准入门》阅读笔记——-数组的扩展/">《ES6标准入门》阅读笔记——-数组的扩展</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/22/《ES6标准入门》阅读笔记——-number类型的扩展/">《ES6标准入门》阅读笔记——-number类型的扩展</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/13/记一次简单的Nodejs爬虫/">记一次简单的Nodejs爬虫</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/04/《ES6标准入门》阅读笔记——-正则表达式的扩展/">《ES6标准入门》阅读笔记——-正则表达式的扩展</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/19/《ES6标准入门》阅读笔记——-Unicode/">《ES6标准入门》阅读笔记——-Unicode</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/18/《ES6标准入门》阅读笔记———解构赋值/">《ES6标准入门》阅读笔记———解构赋值</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/17/《ES6标准入门》阅读笔记——let和const/">《ES6标准入门》阅读笔记——let和const</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/10/纯CSS实现元素水平垂直居中的方法/">纯CSS实现元素水平垂直居中的方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/24/浅谈框架模式的MVC-MVP-MVVM/">浅谈框架模式的MVC/MVP/MVVM</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/23/JavaScript模块化编程-commonjs和AMD及CMD/">JavaScript模块化编程-commonjs和AMD及CMD</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/15/JavaScript笔试面试题收集（五）/">JavaScript笔试面试题收集（五）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/01/sass-scss和less的区别/">sass/scss和less的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/15/SASS学习笔记/">SASS学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/30/Javascript中隐式类型转换的神坑/">Javascript中隐式类型转换的神坑</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/16/CSS样式书写规范/">CSS样式书写规范</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/11/JavaScript笔试面试题收集（四）/">JavaScript笔试面试题收集（四）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/05/JavaScript笔试面试题收集（三）/">JavaScript笔试面试题收集（三）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/03/JavaScript深入浅出-call-apply/">JavaScript深入浅出-call/apply</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/28/JavaScript高级程序设计复习笔记（三）/">JavaScript高级程序设计复习笔记（三）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/27/JavaScript高级程序设计复习笔记（二）/">JavaScript高级程序设计复习笔记（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/25/JavaScript高级程序设计复习笔记（一）/">JavaScript高级程序设计复习笔记（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/18/JavaScript深入浅出-表达式和运算符/">JavaScript深入浅出-表达式和运算符</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/12/深入理解JavaScript构造函数和原型对象/">深入理解JavaScript构造函数和原型对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/04/JavaScript笔试面试题收集（二）/"> JavaScript笔试面试题收集（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/23/JavaScript躲坑指南（二）/">JavaScript躲坑指南（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/15/JavaScript躲坑指南（一）/">JavaScript躲坑指南（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/12/JavaScript深入浅出-闭包及解决办法/">JavaScript深入浅出-闭包及闭包问题的解决办法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/05/JavaScript笔试面试题收集（一）/">JavaScript笔试面试题收集（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/25/JavaScipt中sort-方法的底层原理及妙用/">JavaScipt中sort()方法的底层原理及妙用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/15/调试Javascript-断点设置/">调试Javascript-断点设置</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/29/JavaScriptDOM编程艺术查漏补缺(三)/">JavaScriptDOM编程艺术查漏补缺(三)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/23/处理git无法上传超过100M文件的问题/">处理git无法上传超过100M文件的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/15/JavaScriptDOM编程艺术查漏补缺(二)/">JavaScriptDOM编程艺术查漏补缺(二)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/07/jQuery-extend和jQuery-fn-extend的区别/">jQuery.extend和jQuery.fn.extend的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/29/JavaScriptDOM编程艺术查漏补缺(一)/">JavaScriptDOM编程艺术查漏补缺(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/25/jQuery查漏补缺/">jQuery 学习笔记——Review</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/18/jQuery学习笔记——属性与样式/">jQuery 学习笔记——属性与样式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/14/jQuery-学习笔记/">jQuery 学习笔记——选择器</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/HTTP相关知识/">HTTP相关知识（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/26/代码执行顺序解析/">JAVA代码执行顺序解析</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/24/SASS学习进阶/">SASS学习进阶</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/19/JavaScript计时器的优化/">JavaScript计时器的优化</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/11/XML学习笔记/">XML学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/06/PHP菜鸟入门笔记/">PHP菜鸟入门不完全指南</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/27/基本算法的JavaScript实现/">基本算法的JavaScript实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/21/使用Canvas绘制七巧板/">使用Canvas绘制七巧板</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/14/接口和抽象类的区别/">接口和抽象类的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/28/实现某节点子节点的倒序排列/">实现某节点子节点的倒序排列</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/23/Margin和Padding值设置成百分数的布局/">Margin和Padding值设置成百分数的布局</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/14/GIT配置不需密码即可push的方法/">GIT配置不需密码即可push的方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/10/在GitHub账户中搭建静态博客的同时另开一个代码展示页面的方法/">在GitHub账户中搭建静态博客的同时另开一个代码展示页面的方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/03/杨辉三角的JAVA实现/">杨辉三角的JAVA实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/30/不同排序算法的JAVA实现及性能比较/">不同排序算法的JAVA实现及性能比较</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/19/What-is-Flex/">What is Flex?</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/14/The-Usages-Of-Iconfont/">阿里妈妈iconfont矢量图标字体的用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/05/The-Data-Type-Differences-of-JavaScript-and-Java/">JavaScript 和 JAVA 在数据类型方面的异同</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/28/nine-block-mission/">九宫格自适应布局的页面重构</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/25/Java-Learning/">斐波那契数列和九九乘法表在JAVA中的实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/19/Position属性知多少/">Position属性知多少</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/16/hexo博客必备-MarkDown语法总结/">hexo博客必备-MarkDown语法总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/14/hexo/">HEXO使用小结</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016-2018 ChangerHe
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/ChangerHe/ChangerHe.github.io" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by ChangerHe <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+
+<script>
+    // Open in New Window
+    
+        $("a[target=_blank]").removeAttr("target");
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https'){
+   bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else{
+  bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+  </div>
+</body>
+</html>

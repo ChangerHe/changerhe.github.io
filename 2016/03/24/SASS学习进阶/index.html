@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="description" content="何庆畅|何庆畅的个人博客|ChangerHe&#39;s Bolg" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="何庆畅|ChangerHe" />
+
+
+
+<meta name="description" content="sass学习进阶 @if语句 @if是一个SassScript，它可以根据条件来处理样式快，如果条件为true则返回一个样式块，反之false返回另一个样式块。在sass中除了@if单独使用以外，还可以配合@else if 和@else 一起使用。">
+<meta name="keywords" content="SASS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SASS学习进阶">
+<meta property="og:url" content="http://blog.changerhe.cn/2016/03/24/SASS学习进阶/index.html">
+<meta property="og:site_name" content="何庆畅的个人博客|ChangerHe&#39;s Blog">
+<meta property="og:description" content="sass学习进阶 @if语句 @if是一个SassScript，它可以根据条件来处理样式快，如果条件为true则返回一个样式块，反之false返回另一个样式块。在sass中除了@if单独使用以外，还可以配合@else if 和@else 一起使用。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-08-12T10:53:33.188Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SASS学习进阶">
+<meta name="twitter:description" content="sass学习进阶 @if语句 @if是一个SassScript，它可以根据条件来处理样式快，如果条件为true则返回一个样式块，反之false返回另一个样式块。在sass中除了@if单独使用以外，还可以配合@else if 和@else 一起使用。">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="何庆畅的个人博客|ChangerHe&#39;s Blog" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>SASS学习进阶 | 何庆畅的个人博客|ChangerHe&#39;s Blog</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: undefined
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?dfac40c3a2e8f0af4127ebbb645d4a78";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">ChangerHe</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">Keep Hungry, Keep Foolish.</p>
+        
+
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                            <li><a href="/demos/">个人作品</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ZFZQUFNXU1VSViQVFUoHCwk" title="Email"></a>
+                            
+                                <a class="fa 新浪微博" href="http://weibo.com/ChangerHe" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/ChangerHe" title="GitHub"></a>
+                            
+                                <a class="fa QQ" href="http://wpa.qq.com/msgrd?v=3&uin=244737162&site=qq&menu=yes" title="QQ"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/2dSphere/">2dSphere</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angularjs/">Angularjs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array/">Array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS样式书写规范/">CSS样式书写规范</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Canvas学习笔记/">Canvas学习笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Charles/">Charles</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Chrome/">Chrome</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Class/">Class</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6标准入门阅读笔记/">ES6标准入门阅读笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Eslint/">Eslint</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Function/">Function</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Generator/">Generator</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/">GitHub</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HEXO/">HEXO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML-CSS/">HTML & CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTPS/">HTTPS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP相关知识/">HTTP相关知识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Iterator/">Iterator</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/">JAVA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA-JavaScript/">JAVA & JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA-学习笔记/">JAVA 学习笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScriptDOM编程艺术/">JavaScriptDOM编程艺术</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript框架模式/">JavaScript框架模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript模块化编程/">JavaScript模块化编程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript笔试面试题/">JavaScript笔试面试题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript躲坑指南/">JavaScript躲坑指南</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LESS/">LESS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Module/">Module</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MongoDB/">MongoDB</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nodejs/">Nodejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nodejs学习笔记/">Nodejs学习笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Object/">Object</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Promise/">Promise</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-Native/">React-Native</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RegExp/">RegExp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SASS/">SASS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SCSS/">SCSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unicode/">Unicode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WXapplet/">WXapplet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/What-is-Flex/">What is Flex?</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XML/">XML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/const/">const</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kafka/">kafka</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/let/">let</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/map/">map</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/number/">number</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/process-nextTick/">process.nextTick()</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/proxy/">proxy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reflect/">reflect</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/require/">require</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/set/">set</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/symbol/">symbol</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/微信公众平台/">微信公众平台</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/微信小程序/">微信小程序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据绑定/">数据绑定</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/爬虫/">爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/移动端/">移动端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/解构赋值/">解构赋值</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/调试/">调试</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">ChangerHe</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">ChangerHe</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">Keep Hungry, Keep Foolish.</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                    <li><a href="/demos/">个人作品</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ZFZQUFNXU1VSViQVFUoHCwk" title="Email"></a>
+                            
+                                <a class="fa 新浪微博" target="_blank" href="http://weibo.com/ChangerHe" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/ChangerHe" title="GitHub"></a>
+                            
+                                <a class="fa QQ" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=244737162&site=qq&menu=yes" title="QQ"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-SASS学习进阶" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/24/SASS学习进阶/" class="article-date">
+      <time datetime="2016-03-24T11:37:41.000Z" itemprop="datePublished">2016-03-24</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      SASS学习进阶
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/SASS-学习笔记/">SASS 学习笔记</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SASS/">SASS</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="sass学习进阶"><a href="#sass学习进阶" class="headerlink" title="sass学习进阶"></a>sass学习进阶</h1><h2 id="if语句"><a href="#if语句" class="headerlink" title="@if语句"></a>@if语句</h2><p>@if是一个SassScript，它可以根据条件来处理样式快，如果条件为true则返回一个样式块，反之false返回另一个样式块。在sass中除了@if单独使用以外，还可以配合@else if 和@else 一起使用。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">@mixin blockOrHidden($boolean: true)&#123;</span><br><span class="line">	@if $boolean&#123;</span><br><span class="line">		@debug &quot;$boolean is #&#123;$boolean&#125;&quot;;  //@debug指令用于调试</span><br><span class="line">		display: block;</span><br><span class="line">	&#125;</span><br><span class="line">	@else &#123;</span><br><span class="line">		@debug &quot;$boolean is #&#123;$boolean&#125;&quot;;  //@debug指令用于调试</span><br><span class="line">		display: none;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">.block &#123;</span><br><span class="line">	@include blockOrHidden;</span><br><span class="line">&#125;</span><br><span class="line">.hidden &#123;</span><br><span class="line">	@include blockOrHidden(false);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>编译出的css为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.block &#123;</span><br><span class="line">	display: block;</span><br><span class="line">&#125;</span><br><span class="line">.hidden &#123;</span><br><span class="line">	display: none;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h2><p>在制作网格系统的时候，我们都需要使用到.col1~.col12这样的类名，在css中需要一个个去写，但是在sass 中可以很容易地使用@for循环来完成。<br>for循环有两种实现方式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@for $i from &lt;start&gt; through &lt;end&gt;   </span><br><span class="line">//$i表示变量 start表示起始值 end表示结束值</span><br><span class="line">@for $i form &lt;start&gt; to &lt;end&gt;  </span><br><span class="line">//二者区别是，关键字through表示包括end这个数，而to表示不包括end这个数</span><br></pre></td></tr></table></figure></p>
+<p>@for循环在网格系统生成每个格子的class代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">$grid-prefix: span;</span><br><span class="line">$grid-width: 60px;</span><br><span class="line">$grid-gutter: 20px;</span><br><span class="line">%grid &#123;</span><br><span class="line">	float: left;</span><br><span class="line">	margin-left: $grid-gutter /2;</span><br><span class="line">	margin-right: $grid-gutter /2;</span><br><span class="line">&#125;</span><br><span class="line">@for $i form 1 through 12 &#123;</span><br><span class="line">	.#&#123;$grid-prefix&#125;#&#123;$i&#125;&#123;</span><br><span class="line">		width: $grid-width * $i + $grid-gutter * ($i - 1);</span><br><span class="line">		@extend %grid;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>编译出的css为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">.span1, .span2, .span3, .span4, .span5, .span6, .span7, .span8, .span9, .span10, .span11, .span12 &#123;</span><br><span class="line">  float: left;</span><br><span class="line">  margin-left: 10px;</span><br><span class="line">  margin-right: 10px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.span1 &#123;</span><br><span class="line">  width: 60px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.span2 &#123;</span><br><span class="line">  width: 140px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.span3 &#123;</span><br><span class="line">  width: 220px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.span4 &#123;</span><br><span class="line">  width: 300px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.span5 &#123;</span><br><span class="line">  width: 380px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.span6 &#123;</span><br><span class="line">  width: 460px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.span7 &#123;</span><br><span class="line">  width: 540px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.span8 &#123;</span><br><span class="line">  width: 620px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.span9 &#123;</span><br><span class="line">  width: 700px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.span10 &#123;</span><br><span class="line">  width: 780px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.span11 &#123;</span><br><span class="line">  width: 860px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.span12 &#123;</span><br><span class="line">  width: 940px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>将上面的实例做一些修改，将@for through方式换成@for to：：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@for $i from 1 to 13 &#123;</span><br><span class="line">	.#&#123;$grid-prefix&#125;#&#123;$i&#125;&#123;</span><br><span class="line">		width: $grid-width * $i + $grid-gutter * ($i - 1);</span><br><span class="line">		@extend %grid;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="while循环"><a href="#while循环" class="headerlink" title="@while循环"></a>@while循环</h2><p>@while指令也需要SassScript表达式，并且会生成不同的代码块，直到表达式值为false时停止循环。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$types: 4;</span><br><span class="line">$type-width: 20px;</span><br><span class="line">@while $types &gt; 0&#123;      //等价于while( types = 4 , types &gt; 0);</span><br><span class="line">	.while-#&#123;$types&#125;&#123;   //等价于.while-types&#123;</span><br><span class="line">		width: $types-width + $types; //等价于width： 20px - types；</span><br><span class="line">	&#125;</span><br><span class="line">	$types: $types - 1;  //等价于  4--；</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="each循环"><a href="#each循环" class="headerlink" title="@each循环"></a>@each循环</h2><p>@each循环就是去遍历一个列表，然后从列表中取出对应的值。<br>@each命令的形式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@each $var in &lt;list&gt;</span><br></pre></td></tr></table></figure></p>
+<p>$var 是一个变量名，list是一个列表，用于进行引用。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">$list: adam john wynn mason kuroir; //列出列表，供下面进行引用</span><br><span class="line">@mixin author-images &#123;</span><br><span class="line">	@each $author in $list &#123;</span><br><span class="line">		.photo-#&#123;$author&#125;&#123;</span><br><span class="line">			background: url(&quot;images/avatars/#&#123;$author&#125;.png&quot;) no-repeat;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">.author-bio &#123;</span><br><span class="line">	@include author-images;</span><br><span class="line">&#125;</span><br><span class="line">//编译出的css为</span><br><span class="line">.author-bio .photo-adam &#123;</span><br><span class="line">  background: url(&quot;/images/avatars/adam.png&quot;) no-repeat; &#125;</span><br><span class="line">.author-bio .photo-john &#123;</span><br><span class="line">  background: url(&quot;/images/avatars/john.png&quot;) no-repeat; &#125;</span><br><span class="line">.author-bio .photo-wynn &#123;</span><br><span class="line">  background: url(&quot;/images/avatars/wynn.png&quot;) no-repeat; &#125;</span><br><span class="line">.author-bio .photo-mason &#123;</span><br><span class="line">  background: url(&quot;/images/avatars/mason.png&quot;) no-repeat; &#125;</span><br><span class="line">.author-bio .photo-kuroir &#123;</span><br><span class="line">  background: url(&quot;/images/avatars/kuroir.png&quot;) no-repeat; &#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="sass函数"><a href="#sass函数" class="headerlink" title="sass函数"></a>sass函数</h1><h2 id="字符串函数"><a href="#字符串函数" class="headerlink" title="字符串函数"></a>字符串函数</h2><p>sass的字符串函数主要包括两个<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">unquote($string); </span><br><span class="line">//删除字符串中的引号，如果字符串中没有引号，将返回原始字符串。注：unquote()函数只能删除字符串最前和最后的引号，无法删除字符串中间的引号。</span><br><span class="line">quote($string);  </span><br><span class="line">//给字符串添加引号，如果字符串中间有引号或空格时，需要用单引号或者双引号括起，否则编译时会报错。</span><br></pre></td></tr></table></figure></p>
+<h2 id="字符串函数To-upper-case-和To-lower-case"><a href="#字符串函数To-upper-case-和To-lower-case" class="headerlink" title="字符串函数To-upper-case()和To-lower-case()"></a>字符串函数To-upper-case()和To-lower-case()</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">To-upper-case():将字符串的小写字母转换成大写字母</span><br><span class="line">To-lower-case():将字符串的啊写字母转换成小写字母</span><br></pre></td></tr></table></figure>
+<h2 id="数字函数"><a href="#数字函数" class="headerlink" title="数字函数"></a>数字函数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">percentage($value)：将一个不带单位的数转换成百分比值；</span><br><span class="line">round($value)：将数值四舍五入，转换成一个最接近的整数； 0.4999视为0</span><br><span class="line">ceil($value)：将大于自己的小数转换成下一位整数；  0.0001视为1</span><br><span class="line">floor($value)：将一个数去除他的小数部分；   0.0001视为0</span><br><span class="line">abs($value)：返回一个数的绝对值；   </span><br><span class="line">min($numbers…)：找出几个数值之间的最小值；</span><br><span class="line">max($numbers…)：找出几个数值之间的最大值；</span><br><span class="line">random(): 获取随机数</span><br></pre></td></tr></table></figure>
+<h2 id="列表函数"><a href="#列表函数" class="headerlink" title="列表函数"></a>列表函数</h2><p>列表函数主要包括一些对列表参数的函数使用，主要包括以下几种：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">length($list)：返回一个列表的长度值； //括号内的值算一个</span><br><span class="line">nth($list, $n)：返回一个列表中指定的某个标签值，$n表示第几个</span><br><span class="line">join($list1, $list2, [$separator])：将两个列给连接在一起，变成一个列表；</span><br><span class="line">append($list1, $val, [$separator])：将某个值放在列表的最后；</span><br><span class="line">zip($lists…)：将几个列表结合成一个多维的列表；</span><br><span class="line">index($list, $value)：返回一个值在列表中的位置值。以1开始</span><br></pre></td></tr></table></figure></p>
+<h2 id="Introspection函数"><a href="#Introspection函数" class="headerlink" title="Introspection函数"></a>Introspection函数</h2><p>Introspection函数包括了几个判断型函数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">type-of($value)：返回一个值的类型</span><br><span class="line">unit($number)：返回一个值的单位</span><br><span class="line">unitless($number)：判断一个值是否带有单位</span><br><span class="line">comparable($number-1, $number-2)：判断两个值是否可以做加、减和合并</span><br></pre></td></tr></table></figure></p>
+<h2 id="sass-Maps函数"><a href="#sass-Maps函数" class="headerlink" title="sass Maps函数"></a>sass Maps函数</h2><p>借助于map功能，为同一量下，多个有名字的变量进行处理。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">map-get($map,$key)：根据给定的 key 值，返回 map 中相关的值。</span><br><span class="line">map-merge($map1,$map2)：将两个 map 合并成一个新的 map。</span><br><span class="line">map-remove($map,$key)：从 map 中删除一个 key，返回一个新 map。</span><br><span class="line">map-keys($map)：返回 map 中所有的 key。</span><br><span class="line">map-values($map)：返回 map 中所有的 value。</span><br><span class="line">map-has-key($map,$key)：根据给定的 key 值判断 map 是否有对应的 value 值，如果有返回 true，否则返回 false。</span><br><span class="line">keywords($args)：返回一个函数的参数，这个参数可以动态的设置 key 和 value。</span><br></pre></td></tr></table></figure></p>
+<h1 id="sass的-规则"><a href="#sass的-规则" class="headerlink" title="sass的@规则"></a>sass的@规则</h1><p>sass支持所有css3的@规则，以及一些sass专属的规则，也被成为指令。这些规则在sass 中具有不同的功效。</p>
+<h2 id="import规则"><a href="#import规则" class="headerlink" title="@import规则"></a>@import规则</h2><p>sass扩展了css的@import规则，使其能够引入scss和sass文件。所有引入的scss文件和sass文件都会被合并输出一个单一的css文件。被导入的文件中所定义的变量或mixins都可以在主文件中使用。<br>sass会在当前目录下寻找其他sass文件，也可以通过:load_paths选项或在命令行中使用–load-path 选项来制定额外的搜索目录。<br>@import根据文件名引入。默认情况下，它会寻找sass文件并直接引入，但是在少数几种情况下，它会被编译成css的@import规则：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">如果文件的扩展名是 .css。</span><br><span class="line">如果文件名以 http:// 开头。</span><br><span class="line">如果文件名是 url()。</span><br><span class="line">如果 @import 包含了任何媒体查询（media queries）。</span><br></pre></td></tr></table></figure></p>
+<p>如果上述情况都没有出现，且扩展名是.sass或者是.scss，则该名称的sass<br>或scss文件就会被引入。</p>
+<h2 id="media规则"><a href="#media规则" class="headerlink" title="@media规则"></a>@media规则</h2><p>sass中的@media规则和css中的使用规则类似，但它有另外一个功能，可以嵌套在css规则中。有点类似于JS中的冒泡功能一样。如果使用@media指令，他将冒泡到外面。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">.sidebar &#123;</span><br><span class="line">	width: 300px;</span><br><span class="line">	@media screen and (orientation: landscape)&#123;</span><br><span class="line">		width: 500px;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">//编译结果</span><br><span class="line">.sidebar &#123;</span><br><span class="line">	width: 300px;</span><br><span class="line">	@media screen and (orientation: landscape)&#123;</span><br><span class="line">		.sidebar&#123;</span><br><span class="line">			width: 500px;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="extend规则"><a href="#extend规则" class="headerlink" title="@extend规则"></a>@extend规则</h2><p>sass中的@extend是用来扩展选择器或占位符（类似于继承）</p>
+<h2 id="at-root规则"><a href="#at-root规则" class="headerlink" title="@at-root规则"></a>@at-root规则</h2><p>@at-root规则从字面上解释就是跳出根元素。当你选择器嵌套多层之后，想让某个选择器跳出，此时就可以使用@at-root。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">.a &#123;</span><br><span class="line">	color: red;</span><br><span class="line">	.b &#123;</span><br><span class="line">		color: orange;</span><br><span class="line">		.c &#123;</span><br><span class="line">			color:yellow;</span><br><span class="line">			@at-root .d &#123;</span><br><span class="line">				color: green;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">//编译之后</span><br><span class="line">.a &#123;</span><br><span class="line">	color: red;</span><br><span class="line">&#125;</span><br><span class="line">.a .b&#123;</span><br><span class="line">	color: orange;</span><br><span class="line">&#125;</span><br><span class="line">.a .b .c &#123;</span><br><span class="line">	color:yellow;</span><br><span class="line">&#125;</span><br><span class="line">.d &#123;</span><br><span class="line">	color: green;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="debug规则"><a href="#debug规则" class="headerlink" title="@debug规则"></a>@debug规则</h2><p>@debug在sass中是用来调试的，当你在sass的源码中使用了@debug规则之后，sass代码在编译出错时，在命令终端会输出你设置的提示bug：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@debug 10em + 12em;</span><br><span class="line">//输出内容</span><br><span class="line">Line 1 DEBUG: 22em;</span><br></pre></td></tr></table></figure></p>
+<h2 id="warn规则"><a href="#warn规则" class="headerlink" title="@warn规则"></a>@warn规则</h2><p>@warn 和@debug 类似，用来帮助我们很好的调试sass。</p>
+<h2 id="error"><a href="#error" class="headerlink" title="@error"></a>@error</h2><p>@error 和@debug、@warn 类似，用来帮助我们很好的调试sass。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016/03/24/SASS学习进阶/">SASS学习进阶</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">ChangerHe</a></p>
+        <p><span>发布时间:</span>2016-03-24, 19:37:41</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016/03/24/SASS学习进阶/" title="SASS学习进阶">http://blog.changerhe.cn/2016/03/24/SASS学习进阶/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://blog.changerhe.cn/2016/03/24/SASS学习进阶/　　作者: ChangerHe" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2016/03/26/代码执行顺序解析/">
+                    JAVA代码执行顺序解析
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/03/19/JavaScript计时器的优化/">
+                    JavaScript计时器的优化
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#sass学习进阶"><span class="toc-number">1.</span> <span class="toc-text">sass学习进阶</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#if语句"><span class="toc-number">1.1.</span> <span class="toc-text">@if语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#for循环"><span class="toc-number">1.2.</span> <span class="toc-text">for循环</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#while循环"><span class="toc-number">1.3.</span> <span class="toc-text">@while循环</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#each循环"><span class="toc-number">1.4.</span> <span class="toc-text">@each循环</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#sass函数"><span class="toc-number">2.</span> <span class="toc-text">sass函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#字符串函数"><span class="toc-number">2.1.</span> <span class="toc-text">字符串函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字符串函数To-upper-case-和To-lower-case"><span class="toc-number">2.2.</span> <span class="toc-text">字符串函数To-upper-case()和To-lower-case()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数字函数"><span class="toc-number">2.3.</span> <span class="toc-text">数字函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#列表函数"><span class="toc-number">2.4.</span> <span class="toc-text">列表函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Introspection函数"><span class="toc-number">2.5.</span> <span class="toc-text">Introspection函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sass-Maps函数"><span class="toc-number">2.6.</span> <span class="toc-text">sass Maps函数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#sass的-规则"><span class="toc-number">3.</span> <span class="toc-text">sass的@规则</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#import规则"><span class="toc-number">3.1.</span> <span class="toc-text">@import规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#media规则"><span class="toc-number">3.2.</span> <span class="toc-text">@media规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#extend规则"><span class="toc-number">3.3.</span> <span class="toc-text">@extend规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#at-root规则"><span class="toc-number">3.4.</span> <span class="toc-text">@at-root规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#debug规则"><span class="toc-number">3.5.</span> <span class="toc-text">@debug规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#warn规则"><span class="toc-number">3.6.</span> <span class="toc-text">@warn规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#error"><span class="toc-number">3.7.</span> <span class="toc-text">@error</span></a></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2016/03/26/代码执行顺序解析/" title="上一篇: JAVA代码执行顺序解析">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/03/19/JavaScript计时器的优化/" title="下一篇: JavaScript计时器的优化">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/08/02/kafka的基本概念和安装步骤/">kafka的基本概念和安装步骤</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/20/React-Native之工程打包/">React-Native之工程打包</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/19/React-Native之react-navigation(v2)/">React-Native之react-navigation(v2)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/15/Eslint配置条件参考/">Eslint配置条件参考</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/02/React-Native之动画/">React-Native之动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/05/ReactNative的mac初始环境配置/">ReactNative的mac初始环境配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/04/testForMac/">SASS学习进阶</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/06/Charles抓包工具的基本使用/">Charles抓包工具的基本使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/02/百度地图JSapi使用/">百度地图JSapi使用总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/23/MySQL的基本使用/">MySQL的基本使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/07/Objective-c基础学习/">Objective-c基础学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/25/Chrome61发布,这新功能怕是没谁了/">Chrome61发布,这新功能怕是没谁了</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/21/微信小程序懒加载的实现/">微信小程序懒加载的实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/05/网站的https证书配置方法/">网站的https证书配置小结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/05/利用dpl实现对移动设备的像素实现精准控制/">利用dpl实现对移动设备的像素实现精准控制</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/20/Angularjs的数据绑定和脏检查/">Angularjs的数据绑定和脏检查</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/05/基于MongoDB-2dSphere索引查找最近的点/">基于MongoDB 2dSphere索引查找最近的点</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/27/使用Nodejs实现简单的自动化构建/">使用Nodejs实现简单的自动化构建</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/25/ES6中的遍历器接口Iterator/">ES6中的遍历器接口Iterator</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/18/理解Nodejs里的process-nextTick/">理解Node.js里的process.nextTick()</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/06/Nodejs的require-模块源码解读/">Nodejs的require()模块源码解读</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/20/《ES6标准入门》阅读笔记——-Module/">《ES6标准入门》阅读笔记——-Module</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/06/《ES6标准入门》阅读笔记——-Class/">《ES6标准入门》阅读笔记——-Class</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/30/《ES6标准入门》阅读笔记——-Promise/">《ES6标准入门》阅读笔记——-Promise</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/15/《ES6标准入门》阅读笔记——-Iterator和Generator/">《ES6标准入门》阅读笔记——-Iterator和Generator</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/05/微信小程序开发笔记/">微信小程序开发笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/03/《ES6标准入门》阅读笔记——-set和map/">《ES6标准入门》阅读笔记——-set和map</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/01/《ES6标准入门》阅读笔记——-symbol及proxy-reflect/">《ES6标准入门》阅读笔记——-symbol及proxy/reflect</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/24/微信公众平台接口配置信息详解---Nodejs版/">微信公众平台接口配置信息详解---Nodejs版</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/15/《ES6标准入门》阅读笔记——-对象的扩展/">《ES6标准入门》阅读笔记——-对象的扩展</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/28/《ES6标准入门》阅读笔记——-函数的扩展/">《ES6标准入门》阅读笔记——-函数的扩展</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/25/《ES6标准入门》阅读笔记——-数组的扩展/">《ES6标准入门》阅读笔记——-数组的扩展</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/22/《ES6标准入门》阅读笔记——-number类型的扩展/">《ES6标准入门》阅读笔记——-number类型的扩展</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/13/记一次简单的Nodejs爬虫/">记一次简单的Nodejs爬虫</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/04/《ES6标准入门》阅读笔记——-正则表达式的扩展/">《ES6标准入门》阅读笔记——-正则表达式的扩展</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/19/《ES6标准入门》阅读笔记——-Unicode/">《ES6标准入门》阅读笔记——-Unicode</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/18/《ES6标准入门》阅读笔记———解构赋值/">《ES6标准入门》阅读笔记———解构赋值</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/17/《ES6标准入门》阅读笔记——let和const/">《ES6标准入门》阅读笔记——let和const</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/10/纯CSS实现元素水平垂直居中的方法/">纯CSS实现元素水平垂直居中的方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/24/浅谈框架模式的MVC-MVP-MVVM/">浅谈框架模式的MVC/MVP/MVVM</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/23/JavaScript模块化编程-commonjs和AMD及CMD/">JavaScript模块化编程-commonjs和AMD及CMD</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/15/JavaScript笔试面试题收集（五）/">JavaScript笔试面试题收集（五）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/01/sass-scss和less的区别/">sass/scss和less的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/15/SASS学习笔记/">SASS学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/30/Javascript中隐式类型转换的神坑/">Javascript中隐式类型转换的神坑</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/16/CSS样式书写规范/">CSS样式书写规范</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/11/JavaScript笔试面试题收集（四）/">JavaScript笔试面试题收集（四）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/05/JavaScript笔试面试题收集（三）/">JavaScript笔试面试题收集（三）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/03/JavaScript深入浅出-call-apply/">JavaScript深入浅出-call/apply</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/28/JavaScript高级程序设计复习笔记（三）/">JavaScript高级程序设计复习笔记（三）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/27/JavaScript高级程序设计复习笔记（二）/">JavaScript高级程序设计复习笔记（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/25/JavaScript高级程序设计复习笔记（一）/">JavaScript高级程序设计复习笔记（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/18/JavaScript深入浅出-表达式和运算符/">JavaScript深入浅出-表达式和运算符</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/12/深入理解JavaScript构造函数和原型对象/">深入理解JavaScript构造函数和原型对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/04/JavaScript笔试面试题收集（二）/"> JavaScript笔试面试题收集（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/23/JavaScript躲坑指南（二）/">JavaScript躲坑指南（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/15/JavaScript躲坑指南（一）/">JavaScript躲坑指南（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/12/JavaScript深入浅出-闭包及解决办法/">JavaScript深入浅出-闭包及闭包问题的解决办法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/05/JavaScript笔试面试题收集（一）/">JavaScript笔试面试题收集（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/25/JavaScipt中sort-方法的底层原理及妙用/">JavaScipt中sort()方法的底层原理及妙用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/15/调试Javascript-断点设置/">调试Javascript-断点设置</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/29/JavaScriptDOM编程艺术查漏补缺(三)/">JavaScriptDOM编程艺术查漏补缺(三)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/23/处理git无法上传超过100M文件的问题/">处理git无法上传超过100M文件的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/15/JavaScriptDOM编程艺术查漏补缺(二)/">JavaScriptDOM编程艺术查漏补缺(二)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/07/jQuery-extend和jQuery-fn-extend的区别/">jQuery.extend和jQuery.fn.extend的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/29/JavaScriptDOM编程艺术查漏补缺(一)/">JavaScriptDOM编程艺术查漏补缺(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/25/jQuery查漏补缺/">jQuery 学习笔记——Review</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/18/jQuery学习笔记——属性与样式/">jQuery 学习笔记——属性与样式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/14/jQuery-学习笔记/">jQuery 学习笔记——选择器</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/HTTP相关知识/">HTTP相关知识（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/26/代码执行顺序解析/">JAVA代码执行顺序解析</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/24/SASS学习进阶/">SASS学习进阶</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/19/JavaScript计时器的优化/">JavaScript计时器的优化</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/11/XML学习笔记/">XML学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/06/PHP菜鸟入门笔记/">PHP菜鸟入门不完全指南</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/27/基本算法的JavaScript实现/">基本算法的JavaScript实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/21/使用Canvas绘制七巧板/">使用Canvas绘制七巧板</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/14/接口和抽象类的区别/">接口和抽象类的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/28/实现某节点子节点的倒序排列/">实现某节点子节点的倒序排列</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/23/Margin和Padding值设置成百分数的布局/">Margin和Padding值设置成百分数的布局</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/14/GIT配置不需密码即可push的方法/">GIT配置不需密码即可push的方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/10/在GitHub账户中搭建静态博客的同时另开一个代码展示页面的方法/">在GitHub账户中搭建静态博客的同时另开一个代码展示页面的方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/03/杨辉三角的JAVA实现/">杨辉三角的JAVA实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/30/不同排序算法的JAVA实现及性能比较/">不同排序算法的JAVA实现及性能比较</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/19/What-is-Flex/">What is Flex?</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/14/The-Usages-Of-Iconfont/">阿里妈妈iconfont矢量图标字体的用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/05/The-Data-Type-Differences-of-JavaScript-and-Java/">JavaScript 和 JAVA 在数据类型方面的异同</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/28/nine-block-mission/">九宫格自适应布局的页面重构</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/25/Java-Learning/">斐波那契数列和九九乘法表在JAVA中的实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/19/Position属性知多少/">Position属性知多少</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/16/hexo博客必备-MarkDown语法总结/">hexo博客必备-MarkDown语法总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/14/hexo/">HEXO使用小结</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016-2018 ChangerHe
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/ChangerHe/ChangerHe.github.io" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by ChangerHe <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+
+<script>
+    // Open in New Window
+    
+        $("a[target=_blank]").removeAttr("target");
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https'){
+   bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else{
+  bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+  </div>
+</body>
+</html>

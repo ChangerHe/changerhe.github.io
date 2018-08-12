@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="description" content="何庆畅|何庆畅的个人博客|ChangerHe&#39;s Bolg" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="何庆畅|ChangerHe" />
+
+
+
+<meta name="description" content="微信小程序开发笔记">
+<meta name="keywords" content="微信小程序">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微信小程序开发笔记">
+<meta property="og:url" content="http://blog.changerhe.cn/2017/04/05/微信小程序开发笔记/index.html">
+<meta property="og:site_name" content="何庆畅的个人博客|ChangerHe&#39;s Blog">
+<meta property="og:description" content="微信小程序开发笔记">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-08-12T10:57:55.418Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="微信小程序开发笔记">
+<meta name="twitter:description" content="微信小程序开发笔记">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="何庆畅的个人博客|ChangerHe&#39;s Blog" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>微信小程序开发笔记 | 何庆畅的个人博客|ChangerHe&#39;s Blog</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: undefined
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?dfac40c3a2e8f0af4127ebbb645d4a78";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">ChangerHe</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">Keep Hungry, Keep Foolish.</p>
+        
+
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                            <li><a href="/demos/">个人作品</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ZFZQUFNXU1VSViQVFUoHCwk" title="Email"></a>
+                            
+                                <a class="fa 新浪微博" href="http://weibo.com/ChangerHe" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/ChangerHe" title="GitHub"></a>
+                            
+                                <a class="fa QQ" href="http://wpa.qq.com/msgrd?v=3&uin=244737162&site=qq&menu=yes" title="QQ"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/2dSphere/">2dSphere</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angularjs/">Angularjs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array/">Array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS样式书写规范/">CSS样式书写规范</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Canvas学习笔记/">Canvas学习笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Charles/">Charles</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Chrome/">Chrome</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Class/">Class</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6标准入门阅读笔记/">ES6标准入门阅读笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Eslint/">Eslint</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Function/">Function</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Generator/">Generator</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/">GitHub</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HEXO/">HEXO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML-CSS/">HTML & CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTPS/">HTTPS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP相关知识/">HTTP相关知识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Iterator/">Iterator</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/">JAVA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA-JavaScript/">JAVA & JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA-学习笔记/">JAVA 学习笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScriptDOM编程艺术/">JavaScriptDOM编程艺术</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript框架模式/">JavaScript框架模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript模块化编程/">JavaScript模块化编程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript笔试面试题/">JavaScript笔试面试题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript躲坑指南/">JavaScript躲坑指南</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LESS/">LESS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Module/">Module</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MongoDB/">MongoDB</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nodejs/">Nodejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nodejs学习笔记/">Nodejs学习笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Object/">Object</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Promise/">Promise</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-Native/">React-Native</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RegExp/">RegExp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SASS/">SASS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SCSS/">SCSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unicode/">Unicode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WXapplet/">WXapplet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/What-is-Flex/">What is Flex?</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XML/">XML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/const/">const</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kafka/">kafka</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/let/">let</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/map/">map</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/number/">number</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/process-nextTick/">process.nextTick()</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/proxy/">proxy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reflect/">reflect</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/require/">require</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/set/">set</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/symbol/">symbol</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/微信公众平台/">微信公众平台</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/微信小程序/">微信小程序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据绑定/">数据绑定</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/爬虫/">爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/移动端/">移动端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/解构赋值/">解构赋值</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/调试/">调试</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">ChangerHe</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">ChangerHe</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">Keep Hungry, Keep Foolish.</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                    <li><a href="/demos/">个人作品</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ZFZQUFNXU1VSViQVFUoHCwk" title="Email"></a>
+                            
+                                <a class="fa 新浪微博" target="_blank" href="http://weibo.com/ChangerHe" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/ChangerHe" title="GitHub"></a>
+                            
+                                <a class="fa QQ" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=244737162&site=qq&menu=yes" title="QQ"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-微信小程序开发笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/04/05/微信小程序开发笔记/" class="article-date">
+      <time datetime="2017-04-05T14:14:14.000Z" itemprop="datePublished">2017-04-05</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      微信小程序开发笔记
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/微信小程序/">微信小程序</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>app.json中可以配置的东西有</p>
+<p>pages: 配置页面的相关链接信息, 所有的页面都需要在微信小程序的pages中注明才能够被正常调用</p>
+<p>window: 可以配置页面中的整体风格, 默认页面的窗口表现, 如配置页面的标题文字, 页面顶部的颜色<br>    需要注意的时, 目前页面的window对象可以配置页面的导航栏的信息了<br>        配置navigationStyle为custom, 即可配置页面中顶部导航栏的信息</p>
+<p>tabbar: 配置底部的tab的表现, 可以为tab配置小图标及配置文字等</p>
+<p>networkTimeout: 配置网络超时的时间, 匹配对应的网络请求的相应超时时间</p>
+<p>debug: 是否开启debug的模式, 打印内容会在页面的控制台实时显示</p>
+<h2 id="app对象的相关生命周期函数"><a href="#app对象的相关生命周期函数" class="headerlink" title="app对象的相关生命周期函数"></a>app对象的相关生命周期函数</h2><p>onLaunch: 监听小程序的chushihua,初始化完成的时候, 会触发一次onLaunch, 全局只触发一次</p>
+<p>onShow: 监听小程序的显示, 当小程序启动或动后台进入前台显示, 就会触发一次onShow</p>
+<p>onHide: 监听小程序的隐藏, 当小程序从前台进入后台就会触发一次onHide</p>
+<p>onError: 兼容小程序的脚本错误</p>
+<p>注意下小程序的销毁:  当用户从扫一扫、转发等入口(场景值为1007, 1008, 1011, 1025)进入小程序，且没有置顶小程序的情况下退出，小程序会被销毁。 其他情况只会退出到后台</p>
+<p>我们使用getApp()方法, 可以在其他地方获取到小程序的实例, 从而可以实现在小程序内页调用全局中的方法的能力</p>
+<h2 id="Page-函数"><a href="#Page-函数" class="headerlink" title="Page() 函数"></a>Page() 函数</h2><p>Page函数用来注册一个页面, 接收一个object参数, 使用它类指定页面的初始数据, 生命周期函数, 事件处理函数等</p>
+<p>Page()函数的主要的参数有这些</p>
+<p>data: 挂载页面的初始数据</p>
+<p>onLoad: 生命周期函数, 监听页面的加载</p>
+<p>onReady: 生命周期函数, 监听页面的初次渲染完成</p>
+<p>onShow: 生命周期函数, 监听页面的显示</p>
+<p>onHide: 生命周期函数, 监听页面的隐藏</p>
+<p>onUnload: 生命周期函数, 监听页面卸载, 当redirectTo或navigateBack的时候调用。</p>
+<p>onPullDownRefresh: 页面相关时间处理函数, 监听用户的下拉动作</p>
+<p>onReachBottom: 页面上拉触底时间的处理函数</p>
+<p>onShareAppMessage: 用户点击右上角转发</p>
+<p>onPageScroll: 页面滚动触发事件的处理函数</p>
+<p>onTabItemTap: 当前是tab页的时候, 点击tab时触发, 此方法仅在点击当前的tab的时候会触发, 点击其他tab则直接进行跳转</p>
+<h3 id="page实例下的事件处理函数"><a href="#page实例下的事件处理函数" class="headerlink" title="page实例下的事件处理函数"></a>page实例下的事件处理函数</h3><p>Page.prorotype.route: 获取当前页面的路径(使用)</p>
+<p>Page.prototype.setData: 传入对象, 用于将数据从逻辑层发送到视图层, 需要注意的时这个操作和react一样是异步的, 同时我们可以在第二个参数中传入一个callback来实现当data设置之后的回调函数</p>
+<p>注意:<br>    直接修改this.data而不调用this.setData是无法改变页面的状态的<br>    单次设置的数据不能超过1m, 尽量避免一次设置过多的数据</p>
+<p>getCurrentPages(): 函数用户获取当前页面栈的实例, 以数组形式按栈的顺序给出, 第一个元素为首页, 最后一个元素为当前页面</p>
+<h3 id="列表渲染"><a href="#列表渲染" class="headerlink" title="列表渲染"></a>列表渲染</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;view wx:for=&quot;&#123;&#123;array&#125;&#125;&quot;&gt; &#123;&#123;item&#125;&#125; &lt;/view&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="条件渲染"><a href="#条件渲染" class="headerlink" title="条件渲染"></a>条件渲染</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;view wx:if=&quot;&#123;&#123;view == &apos;WEBVIEW&apos;&#125;&#125;&quot;&gt; WEBVIEW &lt;/view&gt;</span><br><span class="line">&lt;view wx:elif=&quot;&#123;&#123;view == &apos;APP&apos;&#125;&#125;&quot;&gt; APP &lt;/view&gt;</span><br><span class="line">&lt;view wx:else=&quot;&#123;&#123;view == &apos;MINA&apos;&#125;&#125;&quot;&gt; MINA &lt;/view&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="模板及调用方法"><a href="#模板及调用方法" class="headerlink" title="模板及调用方法"></a>模板及调用方法</h3><p>模版的不同文件调用, 需要特别注意的是, 即使是import标签, 也需要有一个闭合标签, 否则会报错<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;import src=&quot;./staffName/staffName.wxml&quot;/&gt;</span><br></pre></td></tr></table></figure></p>
+<h4 id="import-的作用域"><a href="#import-的作用域" class="headerlink" title="import 的作用域"></a>import 的作用域</h4><p>C import B，B import A，在C中可以使用B定义的template，在B中可以使用A定义的template，但是C不能使用A定义的template。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--wxml--&gt;</span><br><span class="line">&lt;template name=&quot;staffName&quot;&gt;</span><br><span class="line">  &lt;view&gt;</span><br><span class="line">    FirstName: &#123;&#123;firstName&#125;&#125;, LastName: &#123;&#123;lastName&#125;&#125;</span><br><span class="line">  &lt;/view&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;template is=&quot;staffName&quot; data=&quot;&#123;&#123;...staffA&#125;&#125;&quot;&gt;&lt;/template&gt;</span><br><span class="line">&lt;template is=&quot;staffName&quot; data=&quot;&#123;&#123;...staffB&#125;&#125;&quot;&gt;&lt;/template&gt;</span><br><span class="line">&lt;template is=&quot;staffName&quot; data=&quot;&#123;&#123;...staffC&#125;&#125;&quot;&gt;&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="include"><a href="#include" class="headerlink" title="include"></a>include</h3><p>include 可以将目标文件除了 <template> <wxs> 外的整个代码引入，相当于是拷贝到 include 位置，如：</wxs></template></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;include src=&quot;header.wxml&quot;/&gt;</span><br><span class="line">&lt;view&gt; body &lt;/view&gt;</span><br><span class="line">&lt;include src=&quot;footer.wxml&quot;/&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="数据绑定"><a href="#数据绑定" class="headerlink" title="数据绑定"></a>数据绑定</h3><p>绑定数据中的id, 从而实现类似于  item + 数据中的id的效果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;view id=&quot;item-&#123;&#123;id&#125;&#125;&quot;&gt; &lt;/view&gt;</span><br></pre></td></tr></table></figure></p>
+<p>data中的值也可以用来进行操作判断</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;view wx:if=&quot;&#123;&#123;condition&#125;&#125;&quot;&gt; &lt;/view&gt;</span><br></pre></td></tr></table></figure>
+<p>当我们需要关键字的时候, 需要将关键字放在双引号之内</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;checkbox checked=&quot;&#123;&#123;false&#125;&#125;&quot;&gt; &lt;/checkbox&gt;</span><br></pre></td></tr></table></figure>
+<p>不要直接写 checked=”false”，其计算结果是一个字符串，转成 boolean 类型后代表真值。</p>
+<p>三元运算<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;view hidden=&quot;&#123;&#123;flag ? true : false&#125;&#125;&quot;&gt; Hidden &lt;/view&gt;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;view wx:if=&quot;&#123;&#123;length &gt; 5&#125;&#125;&quot;&gt; &lt;/view&gt;</span><br></pre></td></tr></table></figure>
+<p>对象的参数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;template is=&quot;objectCombine&quot; data=&quot;&#123;&#123;for: a, bar: b&#125;&#125;&quot;&gt;&lt;/template&gt;</span><br></pre></td></tr></table></figure></p>
+<p>使用此方法可以从data实例中取出a和b的值, 分别赋予给for和bar</p>
+<p>使用扩展运算符<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;template is=&quot;objectCombine&quot; data=&quot;&#123;&#123;...obj1, ...obj2, e: 5&#125;&#125;&quot;&gt;&lt;/template&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="列表渲染-1"><a href="#列表渲染-1" class="headerlink" title="列表渲染"></a>列表渲染</h3><p>在组件上使用 wx:for 控制属性绑定一个数组，即可使用数组中各项的数据重复渲染该组件。</p>
+<p>默认数组的当前项的下标变量名默认为 index，数组当前项的变量名默认为 item</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;view wx:for=&quot;&#123;&#123;array&#125;&#125;&quot;&gt;</span><br><span class="line">  &#123;&#123;index&#125;&#125;: &#123;&#123;item.message&#125;&#125;</span><br><span class="line">&lt;/view&gt;</span><br></pre></td></tr></table></figure>
+<p>使用 wx:for-item 可以指定数组当前元素的变量名，</p>
+<p>使用 wx:for-index 可以指定数组当前下标的变量名：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;view wx:for=&quot;&#123;&#123;array&#125;&#125;&quot; wx:for-index=&quot;idx&quot; wx:for-item=&quot;itemName&quot;&gt;</span><br><span class="line">  &#123;&#123;idx&#125;&#125;: &#123;&#123;itemName.message&#125;&#125;</span><br><span class="line">&lt;/view&gt;</span><br></pre></td></tr></table></figure>
+<p>列表循环当我们循环的内容中有空格的时候, 会被循环渲染为字符串, 这点需要注意<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;block wx:for=&quot;&#123;&#123;[1, 2, 3]&#125;&#125; &quot;&gt;  // 这里多了一个空格</span><br><span class="line">&lt;text&gt; &#123;&#123;index&#125;&#125;: &lt;/text&gt;</span><br><span class="line">&lt;text&gt; &#123;&#123;item&#125;&#125; &lt;/text&gt;</span><br><span class="line">&lt;/block&gt;  // 编译之后会变成逐一解析字符串</span><br></pre></td></tr></table></figure></p>
+<h3 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h3><p>touchstart: 手指触摸动作开始<br>touchmove: 手指触摸后移动<br>touchcancel: 手指触摸动作被打断<br>touchend: 手指触摸动作结束<br>tap: 手指触摸后马上离开<br>longpress: 手指触摸后抄错350ms再厉害, 如果制定了事件回调函数并触发了这个事件, tap事件将不会触发<br>transitionend: 在再wxss transition或 wx.createAnimation动画结束后触发<br>transitionstart: 再一个wxss animation动画开始时触发<br>animationiteration: 在一个 WXSS animation 一次迭代结束时触发<br>animationend: 在一个 WXSS animation 动画完成时触发</p>
+<h4 id="事件的绑定"><a href="#事件的绑定" class="headerlink" title="事件的绑定"></a>事件的绑定</h4><p>目前实现了两种方法, 一个是bind, 一个是catch</p>
+<p>bind事件绑定不会阻止冒泡事件向上冒泡<br>catch事件绑定可以阻止冒泡事件向上冒泡</p>
+<h4 id="事件的捕获"><a href="#事件的捕获" class="headerlink" title="事件的捕获"></a>事件的捕获</h4><p>自基础库版本 1.5.0 起，触摸类事件支持捕获阶段。捕获阶段位于冒泡阶段之前，且在捕获阶段中，事件到达节点的顺序与冒泡阶段恰好相反。需要在捕获阶段监听事件时，可以采用capture-bind、capture-catch关键字，后者将中断捕获阶段和取消冒泡阶段。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;view id=&quot;outer&quot; bind:touchstart=&quot;handleTap1&quot; capture-bind:touchstart=&quot;handleTap2&quot;&gt;</span><br><span class="line">  outer view</span><br><span class="line">  &lt;view id=&quot;inner&quot; bind:touchstart=&quot;handleTap3&quot; capture-bind:touchstart=&quot;handleTap4&quot;&gt;</span><br><span class="line">    inner view</span><br><span class="line">  &lt;/view&gt;</span><br><span class="line">&lt;/view&gt;</span><br></pre></td></tr></table></figure>
+<p>在上面的代码中，点击 inner view 会先后调用handleTap2、handleTap4、handleTap3、handleTap1。</p>
+<h2 id="wxs模块"><a href="#wxs模块" class="headerlink" title="wxs模块"></a>wxs模块</h2><p>每一个wxs文件和wxs标签都是一个单独的模块</p>
+<p>每个模块都有自己独立的作用域</p>
+<p>可以使用module.exports来暴露需要在wxs外使用的模块或变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;wxs src=&quot;./index.wxs&quot; module=&quot;tools&quot; /&gt; // module表示当前标签的模块名, 必填</span><br><span class="line">&lt;view&gt; &#123;&#123;tools.msg&#125;&#125; &lt;/view&gt;</span><br><span class="line">&lt;view&gt; &#123;&#123;tools.bar(tools.FOO)&#125;&#125; &lt;/view&gt;</span><br></pre></td></tr></table></figure>
+<p>如上, 我们在index.wxs中暴露出了msg和bar, FOO这几个方法, 暴露出来之后就可以在引入了这个wxs标签的wxml文件中使用了</p>
+<h3 id="require函数"><a href="#require函数" class="headerlink" title="require函数"></a>require函数</h3><p>在.wxs模块中引用其他 wxs 文件模块，可以使用 require 函数。</p>
+<p>在引用的时候, 需要注意下面几点</p>
+<ol>
+<li><p>只能引用wxs文件模块. 而且必须使用绝对路径</p>
+</li>
+<li><p>wxs会自动初始化为单例对象</p>
+</li>
+<li><p>如果一个wxs模块在定义之后没有被引用, 则这个模块不会被解析与运行</p>
+</li>
+</ol>
+<h3 id="module属性"><a href="#module属性" class="headerlink" title="module属性"></a>module属性</h3><p>module 属性是当前 <wxs> 标签的模块名。在单个 wxml 文件内，建议其值唯一。有重复模块名则按照先后顺序覆盖（后者覆盖前者）。不同文件之间的 wxs 模块名不会相互覆盖。</wxs></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;wxs module=&quot;foo&quot;&gt;</span><br><span class="line">	var some_msg = &quot;hello world&quot;;</span><br><span class="line">	module.exports = &#123;</span><br><span class="line">		msg : some_msg,</span><br><span class="line">	&#125;</span><br><span class="line">&lt;/wxs&gt;</span><br><span class="line">&lt;view&gt; &#123;&#123;foo.msg&#125;&#125; &lt;/view&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="wxss样式"><a href="#wxss样式" class="headerlink" title="wxss样式"></a>wxss样式</h2><p>样式导入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@import &quot;common.wxss&quot;;</span><br><span class="line">.middle-p &#123;</span><br><span class="line">  padding:15px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>内联样式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;view style=&quot;color:&#123;&#123;color&#125;&#125;;&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<p>这样就可以通过js去控制color的颜色了</p>
+<p>选择器</p>
+<p>目前支持的选择器有: 类选择器, id选择器, tagname选择器, 组合选择器, before, after伪类选择器</p>
+<p>全局样式和局部样式</p>
+<p>定义在app.wxss中的是全局样式, 定义在每个页面的wxss文件中的样式为局部样式</p>
+<h2 id="组件模板和样式"><a href="#组件模板和样式" class="headerlink" title="组件模板和样式"></a>组件模板和样式</h2><p>组件模版的写法与页面模板相同。组件模版与组件数据结合后生成的节点树，将被插入到组件的引用位置上。</p>
+<p>在组件模板中可以提供一个 <slot> 节点，用于承载组件引用时提供的子节点。</slot></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 组件模板 --&gt;</span><br><span class="line">&lt;view class=&quot;wrapper&quot;&gt;</span><br><span class="line">  &lt;view&gt;这里是组件的内部节点&lt;/view&gt;</span><br><span class="line">  &lt;slot&gt;&lt;/slot&gt;</span><br><span class="line">&lt;/view&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 引用组件的页面模版 --&gt;</span><br><span class="line">&lt;view&gt;</span><br><span class="line">  &lt;component-tag-name&gt;</span><br><span class="line">    &lt;!-- 这部分内容将被放置在组件 &lt;slot&gt; 的位置上 --&gt;</span><br><span class="line">    &lt;view&gt;这里是插入到组件slot中的内容&lt;/view&gt;</span><br><span class="line">  &lt;/component-tag-name&gt;</span><br><span class="line">&lt;/view&gt;</span><br></pre></td></tr></table></figure>
+<p>默认情况下，一个组件的wxml中只能有一个slot。需要使用多slot时，可以在组件js中声明启用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Component(&#123;</span><br><span class="line">  options: &#123;</span><br><span class="line">    multipleSlots: true // 在组件定义时的选项中启用多slot支持</span><br><span class="line">  &#125;,</span><br><span class="line">  properties: &#123; /* ... */ &#125;,</span><br><span class="line">  methods: &#123; /* ... */ &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>此时，可以在这个组件的wxml中使用多个slot，以不同的 name 来区分。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 组件模板 --&gt;</span><br><span class="line">&lt;view class=&quot;wrapper&quot;&gt;</span><br><span class="line">  &lt;slot name=&quot;before&quot;&gt;&lt;/slot&gt;</span><br><span class="line">  &lt;view&gt;这里是组件的内部细节&lt;/view&gt;</span><br><span class="line">  &lt;slot name=&quot;after&quot;&gt;&lt;/slot&gt;</span><br><span class="line">&lt;/view&gt;</span><br></pre></td></tr></table></figure>
+<p>使用时，用 slot 属性来将节点插入到不同的slot上。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 引用组件的页面模版 --&gt;</span><br><span class="line">&lt;view&gt;</span><br><span class="line">  &lt;component-tag-name&gt;</span><br><span class="line">    &lt;!-- 这部分内容将被放置在组件 &lt;slot name=&quot;before&quot;&gt; 的位置上 --&gt;</span><br><span class="line">    &lt;view slot=&quot;before&quot;&gt;这里是插入到组件slot name=&quot;before&quot;中的内容&lt;/view&gt;</span><br><span class="line">    &lt;!-- 这部分内容将被放置在组件 &lt;slot name=&quot;after&quot;&gt; 的位置上 --&gt;</span><br><span class="line">    &lt;view slot=&quot;after&quot;&gt;这里是插入到组件slot name=&quot;after&quot;中的内容&lt;/view&gt;</span><br><span class="line">  &lt;/component-tag-name&gt;</span><br><span class="line">&lt;/view&gt;</span><br></pre></td></tr></table></figure>
+<p>组件的基本使用方法</p>
+<ol>
+<li><p>右键, 新建一个component, 之后就会自动新建一个component的组件模板</p>
+</li>
+<li><p>需要使用多个插槽的时候, 可以在Component函数中传入参数options, 并设置multipleSlot为true, 标志支持多个插槽</p>
+</li>
+</ol>
+<p>3.在对应的json文件中, 默认是有 component参数 为 true, usingComponents传入一个对象, 表示这个组件所使用的组件情况</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/04/05/微信小程序开发笔记/">微信小程序开发笔记</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">ChangerHe</a></p>
+        <p><span>发布时间:</span>2017-04-05, 22:14:14</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/04/05/微信小程序开发笔记/" title="微信小程序开发笔记">http://blog.changerhe.cn/2017/04/05/微信小程序开发笔记/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://blog.changerhe.cn/2017/04/05/微信小程序开发笔记/　　作者: ChangerHe" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2017/04/15/《ES6标准入门》阅读笔记——-Iterator和Generator/">
+                    《ES6标准入门》阅读笔记——-Iterator和Generator
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2017/04/03/《ES6标准入门》阅读笔记——-set和map/">
+                    《ES6标准入门》阅读笔记——-set和map
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#配置"><span class="toc-number">1.</span> <span class="toc-text">配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#app对象的相关生命周期函数"><span class="toc-number">2.</span> <span class="toc-text">app对象的相关生命周期函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Page-函数"><span class="toc-number">3.</span> <span class="toc-text">Page() 函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#page实例下的事件处理函数"><span class="toc-number">3.1.</span> <span class="toc-text">page实例下的事件处理函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#列表渲染"><span class="toc-number">3.2.</span> <span class="toc-text">列表渲染</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#条件渲染"><span class="toc-number">3.3.</span> <span class="toc-text">条件渲染</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模板及调用方法"><span class="toc-number">3.4.</span> <span class="toc-text">模板及调用方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#import-的作用域"><span class="toc-number">3.4.1.</span> <span class="toc-text">import 的作用域</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#include"><span class="toc-number">3.5.</span> <span class="toc-text">include</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据绑定"><span class="toc-number">3.6.</span> <span class="toc-text">数据绑定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#列表渲染-1"><span class="toc-number">3.7.</span> <span class="toc-text">列表渲染</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#事件"><span class="toc-number">3.8.</span> <span class="toc-text">事件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#事件的绑定"><span class="toc-number">3.8.1.</span> <span class="toc-text">事件的绑定</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#事件的捕获"><span class="toc-number">3.8.2.</span> <span class="toc-text">事件的捕获</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#wxs模块"><span class="toc-number">4.</span> <span class="toc-text">wxs模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#require函数"><span class="toc-number">4.1.</span> <span class="toc-text">require函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#module属性"><span class="toc-number">4.2.</span> <span class="toc-text">module属性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#wxss样式"><span class="toc-number">5.</span> <span class="toc-text">wxss样式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#组件模板和样式"><span class="toc-number">6.</span> <span class="toc-text">组件模板和样式</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2017/04/15/《ES6标准入门》阅读笔记——-Iterator和Generator/" title="上一篇: 《ES6标准入门》阅读笔记——-Iterator和Generator">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2017/04/03/《ES6标准入门》阅读笔记——-set和map/" title="下一篇: 《ES6标准入门》阅读笔记——-set和map">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/08/02/kafka的基本概念和安装步骤/">kafka的基本概念和安装步骤</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/20/React-Native之工程打包/">React-Native之工程打包</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/19/React-Native之react-navigation(v2)/">React-Native之react-navigation(v2)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/15/Eslint配置条件参考/">Eslint配置条件参考</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/02/React-Native之动画/">React-Native之动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/05/ReactNative的mac初始环境配置/">ReactNative的mac初始环境配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/04/testForMac/">SASS学习进阶</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/06/Charles抓包工具的基本使用/">Charles抓包工具的基本使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/02/百度地图JSapi使用/">百度地图JSapi使用总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/23/MySQL的基本使用/">MySQL的基本使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/07/Objective-c基础学习/">Objective-c基础学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/25/Chrome61发布,这新功能怕是没谁了/">Chrome61发布,这新功能怕是没谁了</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/21/微信小程序懒加载的实现/">微信小程序懒加载的实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/05/网站的https证书配置方法/">网站的https证书配置小结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/05/利用dpl实现对移动设备的像素实现精准控制/">利用dpl实现对移动设备的像素实现精准控制</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/20/Angularjs的数据绑定和脏检查/">Angularjs的数据绑定和脏检查</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/05/基于MongoDB-2dSphere索引查找最近的点/">基于MongoDB 2dSphere索引查找最近的点</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/27/使用Nodejs实现简单的自动化构建/">使用Nodejs实现简单的自动化构建</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/25/ES6中的遍历器接口Iterator/">ES6中的遍历器接口Iterator</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/18/理解Nodejs里的process-nextTick/">理解Node.js里的process.nextTick()</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/06/Nodejs的require-模块源码解读/">Nodejs的require()模块源码解读</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/20/《ES6标准入门》阅读笔记——-Module/">《ES6标准入门》阅读笔记——-Module</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/06/《ES6标准入门》阅读笔记——-Class/">《ES6标准入门》阅读笔记——-Class</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/30/《ES6标准入门》阅读笔记——-Promise/">《ES6标准入门》阅读笔记——-Promise</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/15/《ES6标准入门》阅读笔记——-Iterator和Generator/">《ES6标准入门》阅读笔记——-Iterator和Generator</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/05/微信小程序开发笔记/">微信小程序开发笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/03/《ES6标准入门》阅读笔记——-set和map/">《ES6标准入门》阅读笔记——-set和map</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/01/《ES6标准入门》阅读笔记——-symbol及proxy-reflect/">《ES6标准入门》阅读笔记——-symbol及proxy/reflect</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/24/微信公众平台接口配置信息详解---Nodejs版/">微信公众平台接口配置信息详解---Nodejs版</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/15/《ES6标准入门》阅读笔记——-对象的扩展/">《ES6标准入门》阅读笔记——-对象的扩展</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/28/《ES6标准入门》阅读笔记——-函数的扩展/">《ES6标准入门》阅读笔记——-函数的扩展</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/25/《ES6标准入门》阅读笔记——-数组的扩展/">《ES6标准入门》阅读笔记——-数组的扩展</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/22/《ES6标准入门》阅读笔记——-number类型的扩展/">《ES6标准入门》阅读笔记——-number类型的扩展</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/13/记一次简单的Nodejs爬虫/">记一次简单的Nodejs爬虫</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/04/《ES6标准入门》阅读笔记——-正则表达式的扩展/">《ES6标准入门》阅读笔记——-正则表达式的扩展</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/19/《ES6标准入门》阅读笔记——-Unicode/">《ES6标准入门》阅读笔记——-Unicode</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/18/《ES6标准入门》阅读笔记———解构赋值/">《ES6标准入门》阅读笔记———解构赋值</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/17/《ES6标准入门》阅读笔记——let和const/">《ES6标准入门》阅读笔记——let和const</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/10/纯CSS实现元素水平垂直居中的方法/">纯CSS实现元素水平垂直居中的方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/24/浅谈框架模式的MVC-MVP-MVVM/">浅谈框架模式的MVC/MVP/MVVM</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/23/JavaScript模块化编程-commonjs和AMD及CMD/">JavaScript模块化编程-commonjs和AMD及CMD</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/15/JavaScript笔试面试题收集（五）/">JavaScript笔试面试题收集（五）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/01/sass-scss和less的区别/">sass/scss和less的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/15/SASS学习笔记/">SASS学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/30/Javascript中隐式类型转换的神坑/">Javascript中隐式类型转换的神坑</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/16/CSS样式书写规范/">CSS样式书写规范</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/11/JavaScript笔试面试题收集（四）/">JavaScript笔试面试题收集（四）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/05/JavaScript笔试面试题收集（三）/">JavaScript笔试面试题收集（三）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/03/JavaScript深入浅出-call-apply/">JavaScript深入浅出-call/apply</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/28/JavaScript高级程序设计复习笔记（三）/">JavaScript高级程序设计复习笔记（三）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/27/JavaScript高级程序设计复习笔记（二）/">JavaScript高级程序设计复习笔记（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/25/JavaScript高级程序设计复习笔记（一）/">JavaScript高级程序设计复习笔记（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/18/JavaScript深入浅出-表达式和运算符/">JavaScript深入浅出-表达式和运算符</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/12/深入理解JavaScript构造函数和原型对象/">深入理解JavaScript构造函数和原型对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/04/JavaScript笔试面试题收集（二）/"> JavaScript笔试面试题收集（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/23/JavaScript躲坑指南（二）/">JavaScript躲坑指南（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/15/JavaScript躲坑指南（一）/">JavaScript躲坑指南（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/12/JavaScript深入浅出-闭包及解决办法/">JavaScript深入浅出-闭包及闭包问题的解决办法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/05/JavaScript笔试面试题收集（一）/">JavaScript笔试面试题收集（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/25/JavaScipt中sort-方法的底层原理及妙用/">JavaScipt中sort()方法的底层原理及妙用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/15/调试Javascript-断点设置/">调试Javascript-断点设置</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/29/JavaScriptDOM编程艺术查漏补缺(三)/">JavaScriptDOM编程艺术查漏补缺(三)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/23/处理git无法上传超过100M文件的问题/">处理git无法上传超过100M文件的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/15/JavaScriptDOM编程艺术查漏补缺(二)/">JavaScriptDOM编程艺术查漏补缺(二)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/07/jQuery-extend和jQuery-fn-extend的区别/">jQuery.extend和jQuery.fn.extend的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/29/JavaScriptDOM编程艺术查漏补缺(一)/">JavaScriptDOM编程艺术查漏补缺(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/25/jQuery查漏补缺/">jQuery 学习笔记——Review</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/18/jQuery学习笔记——属性与样式/">jQuery 学习笔记——属性与样式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/14/jQuery-学习笔记/">jQuery 学习笔记——选择器</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/HTTP相关知识/">HTTP相关知识（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/26/代码执行顺序解析/">JAVA代码执行顺序解析</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/24/SASS学习进阶/">SASS学习进阶</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/19/JavaScript计时器的优化/">JavaScript计时器的优化</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/11/XML学习笔记/">XML学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/06/PHP菜鸟入门笔记/">PHP菜鸟入门不完全指南</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/27/基本算法的JavaScript实现/">基本算法的JavaScript实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/21/使用Canvas绘制七巧板/">使用Canvas绘制七巧板</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/14/接口和抽象类的区别/">接口和抽象类的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/28/实现某节点子节点的倒序排列/">实现某节点子节点的倒序排列</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/23/Margin和Padding值设置成百分数的布局/">Margin和Padding值设置成百分数的布局</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/14/GIT配置不需密码即可push的方法/">GIT配置不需密码即可push的方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/10/在GitHub账户中搭建静态博客的同时另开一个代码展示页面的方法/">在GitHub账户中搭建静态博客的同时另开一个代码展示页面的方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/03/杨辉三角的JAVA实现/">杨辉三角的JAVA实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/30/不同排序算法的JAVA实现及性能比较/">不同排序算法的JAVA实现及性能比较</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/19/What-is-Flex/">What is Flex?</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/14/The-Usages-Of-Iconfont/">阿里妈妈iconfont矢量图标字体的用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/05/The-Data-Type-Differences-of-JavaScript-and-Java/">JavaScript 和 JAVA 在数据类型方面的异同</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/28/nine-block-mission/">九宫格自适应布局的页面重构</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/25/Java-Learning/">斐波那契数列和九九乘法表在JAVA中的实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/19/Position属性知多少/">Position属性知多少</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/16/hexo博客必备-MarkDown语法总结/">hexo博客必备-MarkDown语法总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/14/hexo/">HEXO使用小结</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016-2018 ChangerHe
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/ChangerHe/ChangerHe.github.io" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by ChangerHe <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+
+<script>
+    // Open in New Window
+    
+        $("a[target=_blank]").removeAttr("target");
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https'){
+   bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else{
+  bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+  </div>
+</body>
+</html>

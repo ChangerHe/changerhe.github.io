@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="description" content="何庆畅|何庆畅的个人博客|ChangerHe&#39;s Bolg" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="何庆畅|ChangerHe" />
+
+
+
+<meta name="description" content="MySQL的基本使用">
+<meta name="keywords" content="MySQL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL的基本使用">
+<meta property="og:url" content="http://blog.changerhe.cn/2017/12/23/MySQL的基本使用/index.html">
+<meta property="og:site_name" content="何庆畅的个人博客|ChangerHe&#39;s Blog">
+<meta property="og:description" content="MySQL的基本使用">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-08-12T11:09:10.451Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MySQL的基本使用">
+<meta name="twitter:description" content="MySQL的基本使用">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="何庆畅的个人博客|ChangerHe&#39;s Blog" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>MySQL的基本使用 | 何庆畅的个人博客|ChangerHe&#39;s Blog</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: undefined
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?dfac40c3a2e8f0af4127ebbb645d4a78";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">ChangerHe</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">Keep Hungry, Keep Foolish.</p>
+        
+
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                            <li><a href="/demos/">个人作品</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ZFZQUFNXU1VSViQVFUoHCwk" title="Email"></a>
+                            
+                                <a class="fa 新浪微博" href="http://weibo.com/ChangerHe" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/ChangerHe" title="GitHub"></a>
+                            
+                                <a class="fa QQ" href="http://wpa.qq.com/msgrd?v=3&uin=244737162&site=qq&menu=yes" title="QQ"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/2dSphere/">2dSphere</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angularjs/">Angularjs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array/">Array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS样式书写规范/">CSS样式书写规范</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Canvas学习笔记/">Canvas学习笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Charles/">Charles</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Chrome/">Chrome</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Class/">Class</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6标准入门阅读笔记/">ES6标准入门阅读笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Eslint/">Eslint</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Function/">Function</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Generator/">Generator</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/">GitHub</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HEXO/">HEXO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML-CSS/">HTML & CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTPS/">HTTPS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP相关知识/">HTTP相关知识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Iterator/">Iterator</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/">JAVA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA-JavaScript/">JAVA & JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA-学习笔记/">JAVA 学习笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScriptDOM编程艺术/">JavaScriptDOM编程艺术</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript框架模式/">JavaScript框架模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript模块化编程/">JavaScript模块化编程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript笔试面试题/">JavaScript笔试面试题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript躲坑指南/">JavaScript躲坑指南</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LESS/">LESS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Module/">Module</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MongoDB/">MongoDB</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nodejs/">Nodejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nodejs学习笔记/">Nodejs学习笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Object/">Object</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Promise/">Promise</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-Native/">React-Native</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RegExp/">RegExp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SASS/">SASS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SCSS/">SCSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unicode/">Unicode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WXapplet/">WXapplet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/What-is-Flex/">What is Flex?</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XML/">XML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/const/">const</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kafka/">kafka</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/let/">let</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/map/">map</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/number/">number</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/process-nextTick/">process.nextTick()</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/proxy/">proxy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reflect/">reflect</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/require/">require</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/set/">set</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/symbol/">symbol</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/微信公众平台/">微信公众平台</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/微信小程序/">微信小程序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据绑定/">数据绑定</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/爬虫/">爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/移动端/">移动端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/解构赋值/">解构赋值</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/调试/">调试</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">ChangerHe</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">ChangerHe</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">Keep Hungry, Keep Foolish.</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                    <li><a href="/demos/">个人作品</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ZFZQUFNXU1VSViQVFUoHCwk" title="Email"></a>
+                            
+                                <a class="fa 新浪微博" target="_blank" href="http://weibo.com/ChangerHe" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/ChangerHe" title="GitHub"></a>
+                            
+                                <a class="fa QQ" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=244737162&site=qq&menu=yes" title="QQ"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-MySQL的基本使用" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/12/23/MySQL的基本使用/" class="article-date">
+      <time datetime="2017-12-23T11:36:43.000Z" itemprop="datePublished">2017-12-23</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      MySQL的基本使用
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/MySQL/">MySQL</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/">MySQL</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="登陆"><a href="#登陆" class="headerlink" title="登陆"></a>登陆</h2><p><code>mysql -u root -p</code></p>
+<h2 id="显示所有数据库信息"><a href="#显示所有数据库信息" class="headerlink" title="显示所有数据库信息"></a>显示所有数据库信息</h2><p><code>show databases</code></p>
+<h2 id="创建数据库的同时记得同步设置其编码格式-否则默认为utf8"><a href="#创建数据库的同时记得同步设置其编码格式-否则默认为utf8" class="headerlink" title="创建数据库的同时记得同步设置其编码格式, 否则默认为utf8"></a>创建数据库的同时记得同步设置其编码格式, 否则默认为utf8</h2><p><code>create database &lt;数据库名&gt; character set utf8;</code></p>
+<h2 id="查看数据库的编码方式"><a href="#查看数据库的编码方式" class="headerlink" title="查看数据库的编码方式"></a>查看数据库的编码方式</h2><p><code>show variables like &quot;%char%&quot;</code></p>
+<h2 id="切换数据库"><a href="#切换数据库" class="headerlink" title="切换数据库"></a>切换数据库</h2><p><code>use 数据库名</code></p>
+<h2 id="创建数据表"><a href="#创建数据表" class="headerlink" title="创建数据表"></a>创建数据表</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">create table [if not exists] table_name (</span><br><span class="line">    column_name data_type</span><br><span class="line">    ...</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h2 id="查看数据表"><a href="#查看数据表" class="headerlink" title="查看数据表"></a>查看数据表</h2><p><code>show tables</code></p>
+<p><code>show tables from mysql</code>: 查看mysql中所有的数据表</p>
+<h2 id="查看表的列"><a href="#查看表的列" class="headerlink" title="查看表的列"></a>查看表的列</h2><p><code>show cloumns from 表名</code></p>
+<h2 id="查看表结构"><a href="#查看表结构" class="headerlink" title="查看表结构"></a>查看表结构</h2><p><code>desc 表名</code></p>
+<h2 id="向数据表中写入记录"><a href="#向数据表中写入记录" class="headerlink" title="向数据表中写入记录"></a>向数据表中写入记录</h2><p><code>insert [into] 表名 [列名列表] values(值)</code></p>
+<p>当需要为列的部分数据写入记录的时候,i 需要在表名中指定需要插入的对应列名称</p>
+<p><code>insert tb1(username, age) values(&#39;Changer&#39;, 18);</code></p>
+<h2 id="查看数据记录"><a href="#查看数据记录" class="headerlink" title="查看数据记录"></a>查看数据记录</h2><p><code>select 表达式 from 表名</code></p>
+<p>在tb1表中查看所有记录: <code>select * from tb1</code></p>
+<h2 id="设置字段的值为空值或者非空"><a href="#设置字段的值为空值或者非空" class="headerlink" title="设置字段的值为空值或者非空"></a>设置字段的值为空值或者非空</h2><p>在创建表的时候设置表的列的属性为not null或 为null, 这两个是成对出现的</p>
+<p><code>null</code> / <code>not null</code></p>
+<h2 id="设置字段的值自增"><a href="#设置字段的值自增" class="headerlink" title="设置字段的值自增"></a>设置字段的值自增</h2><p>设置字段的值自增时, 每个表只能设置一个, 并且需要将该值设置为主键(主键约束)</p>
+<p><code>auto_increment</code></p>
+<h2 id="约束"><a href="#约束" class="headerlink" title="约束"></a>约束</h2><h3 id="唯一约束"><a href="#唯一约束" class="headerlink" title="唯一约束"></a>唯一约束</h3><p>唯一约束可以保证记录的唯一性</p>
+<p>唯一约束的字段可以为空值</p>
+<p>每张数据表可以有多个唯一约束, 但是只能有一个主键约束</p>
+<p><code>unique key</code></p>
+<h3 id="默认约束"><a href="#默认约束" class="headerlink" title="默认约束"></a>默认约束</h3><p>也就是默认值</p>
+<p>当插入记录时, 如果没有明确为字段赋值, 则自动服务默认值</p>
+<p><code>default 默认值</code></p>
+<p>约束保证数据的完整性和一致性</p>
+<p>约束分为表级约束和列级约束</p>
+<p>约束类型包括: 非空约束, 主键约束, 唯一约束, 默认约束, 外键约束</p>
+<h3 id="外键约束"><a href="#外键约束" class="headerlink" title="外键约束"></a>外键约束</h3><p>保证数据的唯一性, 实现一对一或一对多的关系</p>
+<p>外键约束的要求:</p>
+<ol>
+<li>父表和子表必须使用相同的存储引擎(InnoDB)</li>
+<li>外键列和参照列必须具有相似的数据类型, 其中数字的长度或是否有符号位必须相同, 而字符的长度则可以不同</li>
+<li>外键列和参照列必须创建索引, 如果外键列不存在索引的话, mysql将会自动创建索引</li>
+</ol>
+<p><code>foreign key (当前表的字段名) references 关联的表 (关联的表字段)</code></p>
+<h2 id="修改数据表"><a href="#修改数据表" class="headerlink" title="修改数据表"></a>修改数据表</h2><h3 id="添加单列-为表结构中插入一个列"><a href="#添加单列-为表结构中插入一个列" class="headerlink" title="添加单列(为表结构中插入一个列)"></a>添加单列(为表结构中插入一个列)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table tbl_name add col_name col_type [first / after col_name];</span><br></pre></td></tr></table></figure>
+<p>插入单列, 添加时指定该列的类型, 并指定其位于首行(first) 或者在某行之后(after)</p>
+<h3 id="删除单列"><a href="#删除单列" class="headerlink" title="删除单列"></a>删除单列</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">aleter table tbl_name drop col_name;</span><br></pre></td></tr></table></figure>
+<p>删除单列上面这一整列的内容</p>
+<h3 id="删除和增加列的主键约束-外键约束"><a href="#删除和增加列的主键约束-外键约束" class="headerlink" title="删除和增加列的主键约束, 外键约束"></a>删除和增加列的主键约束, 外键约束</h3><p>略</p>
+<h3 id="修改列定义"><a href="#修改列定义" class="headerlink" title="修改列定义"></a>修改列定义</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table tbl_name modify col_name  col_type [first / after col_name];</span><br></pre></td></tr></table></figure>
+<p>注意, 修改列定义的时候, 由大修改为小的, 有可能会造成数据丢失</p>
+<h3 id="修改列名称"><a href="#修改列名称" class="headerlink" title="修改列名称"></a>修改列名称</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table tbl_name change old_col_name new_col_name new_col_type [first / after col_name];</span><br></pre></td></tr></table></figure>
+<h3 id="修改数据表名"><a href="#修改数据表名" class="headerlink" title="修改数据表名"></a>修改数据表名</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter  table tbl_name rename new_tbl_name;</span><br></pre></td></tr></table></figure>
+<h2 id="插入记录"><a href="#插入记录" class="headerlink" title="插入记录"></a>插入记录</h2><p>对于插入内容中的自增数据, 当我们传一个<code>null</code>或者传一个<code>default</code>的时候, 其内容会产生一个自增的数据, 但是不能不传, 不传的话会产生报错</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">create table users(</span><br><span class="line">    id smallint unsigned primary key auto_increment,</span><br><span class="line">    username varchar(20) not null,</span><br><span class="line">    password varchar(32) not null,</span><br><span class="line">    age tinyint unsigned not null,</span><br><span class="line">    sex boolean</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>对于上面的结构, 我们进行数据插入的时候, 如果需要其内容自增, 可以直接使用<code>null</code>或者传一个<code>default</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">insert users values(null, &apos;John&apos;, &apos;123&apos;, 15, 1);</span><br></pre></td></tr></table></figure>
+<p>上段命令用于插入一个自增的数据, username为John, password为123, age为15, 性别为1</p>
+<p>所以同样的, 我们是用default替代null, 也能得到相同的结果</p>
+<p>对于tinyint字段, 我们可以使用数学表达式来进行输入, mysql将会把内容计算之后插入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">insert users values(null, &apos;John&apos;, &apos;345&apos;, 3*7-5, 0);</span><br></pre></td></tr></table></figure>
+<p>通过在插入前进行加密, 可以直接在数据库中插入对应数据的加密值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">insert users values(null, &apos;Changer&apos;, md5(&apos;123&apos;), 18, 0);</span><br></pre></td></tr></table></figure>
+<h3 id="set-select"><a href="#set-select" class="headerlink" title="set-select"></a>set-select</h3><p>与前一种方式的区别在于, 此方法可以使用子查询</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">insert tb_name set key_1=&apos;value_1&apos; key_2=&apos;value2&apos;;</span><br></pre></td></tr></table></figure>
+<p>另外, 还可以使用insert select语句来将查询结果插入到指定数据表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">insert tb_name [col_name] select</span><br></pre></td></tr></table></figure>
+<h3 id="单表更新记录"><a href="#单表更新记录" class="headerlink" title="单表更新记录"></a>单表更新记录</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update [low_primarity] [ignore] table_reference set col_name1=&#123;expr1|default&#125;[,col_name2=&#123;expr2|default&#125;]... [where where_condition]</span><br></pre></td></tr></table></figure>
+<p>例子:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update users set age = age + 5;</span><br></pre></td></tr></table></figure>
+<p>为没个数据的年龄字段全部加上5</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update users set age = age - id, sex = 0;</span><br></pre></td></tr></table></figure>
+<p>为没个数据的年龄等于源年龄减id, 所有sex都是0</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update users set age = age + 10 where id % 2 = 0;</span><br></pre></td></tr></table></figure>
+<p>为所有id能被2整除的字段的年龄加10</p>
+<h3 id="单表删除操作"><a href="#单表删除操作" class="headerlink" title="单表删除操作"></a>单表删除操作</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">delete from table_name [where where_condition];</span><br></pre></td></tr></table></figure>
+<p>删除数据表中的内容, 不加where时会被全部删除</p>
+<h3 id="删除行操作"><a href="#删除行操作" class="headerlink" title="删除行操作"></a>删除行操作</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DELETE FROM 表名称 WHERE 列名称 = 值</span><br></pre></td></tr></table></figure>
+<p>注, 当有外键约束在其中的时候, 该行是无法删除的</p>
+<h2 id="select语句"><a href="#select语句" class="headerlink" title="select语句"></a>select语句</h2><ul>
+<li>select中字段名的出现顺序将会影响输出的结果顺序</li>
+<li>select中的字段别名将会影响输出的结果名</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select users.id,users.username from users;</span><br></pre></td></tr></table></figure>
+<p>可以在输出的select选择时加上前缀, 以免出现重复的情况</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select id as userId, username as uname from users;</span><br></pre></td></tr></table></figure>
+<p>可以将输出的结果的列名设置一个别名来进行输出</p>
+<h3 id="group-by-分组"><a href="#group-by-分组" class="headerlink" title="group by 分组"></a>group by 分组</h3><p>将select中的查询条件进行分组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select sex from users group by sex;</span><br></pre></td></tr></table></figure>
+<p>group by也允许在后面传递一个数字, 表示以select所选择的第几个字作为分组条件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select sex from users group by 1;</span><br></pre></td></tr></table></figure>
+<p>得到的结果与上一表达式相同</p>
+<p>但是需要注意的是, group by后面跟的条件是不能设置为之前select中没有的内容的, 如果需要设置为之前没有的内容, 应该使用函数的方式进行书写</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select sex from users group by 1 having count(id) &lt;= 2;</span><br></pre></td></tr></table></figure>
+<h3 id="order-by-对结果进行排序"><a href="#order-by-对结果进行排序" class="headerlink" title="order by 对结果进行排序"></a>order by 对结果进行排序</h3><p>通过在select语句后加上order by的方式可以实现输出内容的顺序排序, 默认为由低向高排序, 可加desc来进行由高向低排序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from users order by age desc;</span><br></pre></td></tr></table></figure>
+<p>对于输出排序结果相同的情况, 我们则需要增加一个排序条件, 排序条件可直接以逗号分隔</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from users order by age desc, id;</span><br></pre></td></tr></table></figure>
+<p>上段语句的意思是, 显示所有users表中内容, 其中输出结果以age从高向低排列, 当age相同时, 以id排序, 从低向高排列</p>
+<h3 id="限制查询limit"><a href="#限制查询limit" class="headerlink" title="限制查询limit"></a>限制查询limit</h3><p>可以进行限制, 每次返回几条数据, 从第几条开始</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from users limit 0, 2;</span><br></pre></td></tr></table></figure>
+<p>以上表示返回两条数据, 从第0条开始</p>
+<p>需要注意的是, 每次返回会以表中的默认排序顺序进行排序</p>
+<h3 id="创建新表-并将原来表的内容输入到新表"><a href="#创建新表-并将原来表的内容输入到新表" class="headerlink" title="创建新表, 并将原来表的内容输入到新表"></a>创建新表, 并将原来表的内容输入到新表</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">insert test(username) select username from users where age &gt;= 20;</span><br></pre></td></tr></table></figure>
+<p>上个语句的意思是, 为test中的username字段, 插入users表中age大于等于20的所有内容</p>
+<h2 id="子查询"><a href="#子查询" class="headerlink" title="子查询"></a>子查询</h2><p>求平均值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select avg(goods_price) from tdb_goods;</span><br></pre></td></tr></table></figure>
+<p>求平均值, 并将值省略小数点后两位</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select round(avg(goods_price), 2) from tdb_goods;</span><br></pre></td></tr></table></figure>
+<p>输出符合条件的, 需要的内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">selct goods_id,goods_name,goods_price from tdb_goods where goods_price &gt;= 5636;</span><br></pre></td></tr></table></figure>
+<p>上面的查询语句输出<code>goods_id</code>, <code>goods_name</code>, <code>goods_price</code>三个字段, 输出的条件是, <code>goods_price</code>的值大于等于5636</p>
+<p>所以同样的, 因为上面的方法我们是分开两个方法来执行了, 当我们需要作为一条语句执行的时候, 可以将两条语句合并起来</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select goods_id,goods_name,goods_price from tdb_goods where goods_price &gt;= (select round(avg(goods_price),2) from tdb_goods);</span><br></pre></td></tr></table></figure>
+<h3 id="使用any-some-all来修饰的比较运算符"><a href="#使用any-some-all来修饰的比较运算符" class="headerlink" title="使用any, some, all来修饰的比较运算符"></a>使用any, some, all来修饰的比较运算符</h3><h3 id="联合使用select和insert语句将原表的分类导入到另一张表"><a href="#联合使用select和insert语句将原表的分类导入到另一张表" class="headerlink" title="联合使用select和insert语句将原表的分类导入到另一张表"></a>联合使用select和insert语句将原表的分类导入到另一张表</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">insert ttb_goods_cates(cate_name) selct goods_cate from tdb_goods order by goods_cate;</span><br></pre></td></tr></table></figure>
+<p>上个语句的意思是, 将<code>tdb_goods</code>表中的<code>goods_cate</code>的分类导出到<code>ttb_goods_cates</code>表中的<code>cate_name</code>字段中去</p>
+<h3 id="表连接"><a href="#表连接" class="headerlink" title="表连接"></a>表连接</h3><p>连接两表, 并将原表中的各种分类导出到另一张表之后, 我们暂时还没有办法去将原表的内容与导出的表的分类的对应id进行匹配, 那么可以使用多表更新的方式, 使两表产生一个连接的关系</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update tdb_goods inner join tdb_goods_cates on goods_cate = cate_name set goods_cate = cate_id;</span><br></pre></td></tr></table></figure>
+<p>上个语句的意思是, 将<code>tdb_goods</code>这个表, 设置<code>tdb_goods_cates</code>作为其子表, 并更新<code>goods_cate</code>的内容为<code>cate_id</code>前提是<code>good_cate = cate_name</code></p>
+<h3 id="创建表的同时将内容插入数据表"><a href="#创建表的同时将内容插入数据表" class="headerlink" title="创建表的同时将内容插入数据表"></a>创建表的同时将内容插入数据表</h3><p>在创建表的同时, 可以将表的内容进行填充, 使用select语句</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">create table tdb_goods_brands (</span><br><span class="line">    brand_id smallint unsigned primary key auto_increment,</span><br><span class="line">    brand_name varchar(40) not null</span><br><span class="line">)</span><br><span class="line">select brand_name from tdb_goods group by brand_name;</span><br></pre></td></tr></table></figure>
+<p>同样的, 我们需要在处理完成之后, 根据分类对原表进行更新</p>
+<p>此时要注意的是, 我们在两个表中都有<code>brand_name</code>这个字段, 因此我们使用时, mysql并不知道我们两个字段指得是谁的, 所以一般通用的做法是, 做一个别名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update tdb_goods as a inner join tdb_goods_brands as b on a.brand_name = b.brand_name set a.brand_name = brand_id;</span><br></pre></td></tr></table></figure>
+<p>通过别名的方式, 可以是mysql对相应的字段进行操作</p>
+<p>但是此时我们虽然改了原表中的内容, 但是现在还存在一个问题, 就是我们原表的数据中是用的<code>varchar</code>进行存储的, 自然会浪费比较多的空间, 此时我们可以使用<code>alter</code>来对表内容中的字段名称和类型进行一下更改</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">alter table tdb_goods</span><br><span class="line">change goods_cate cate_id smallint unsigned not null,</span><br><span class="line">change brand_name brand_id smallint unsigned not null;</span><br></pre></td></tr></table></figure>
+<h2 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h2><h2 id="无限极分类表设计"><a href="#无限极分类表设计" class="headerlink" title="无限极分类表设计"></a>无限极分类表设计</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">create table tdb_goods_types(</span><br><span class="line">    type_id smallint unsigned primary key auto_increment,</span><br><span class="line">    type_name varchar(20) not null,</span><br><span class="line">    parent_id smallint unsigned not null default 0</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>此时我们插入一些数据, <code>parent_id</code>对应了同表中的<code>type_id</code>字段</p>
+<p>因此我们可以在这种情况下, 直接使用这个表来连接其表本身</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select s.type_id,s.type_name,p.type_name from tdb_goods_types as s join tdb_goods_types as p</span><br><span class="line">on s.parent_id = p.type_id;</span><br></pre></td></tr></table></figure>
+<h2 id="字符函数"><a href="#字符函数" class="headerlink" title="字符函数"></a>字符函数</h2><h3 id="concat"><a href="#concat" class="headerlink" title="concat"></a>concat</h3><p>连接两个或多个字符串</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select concat(&apos;a&apos;, &apos;b&apos;, &apos;c&apos;); // abc</span><br></pre></td></tr></table></figure>
+<h3 id="concat-ws"><a href="#concat-ws" class="headerlink" title="concat_ws()"></a>concat_ws()</h3><p>使用指定字符串连接后面的字符串</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select concat_ws(&apos;-&apos;, &apos;a&apos;, &apos;b&apos;, &apos;c&apos;); // a-b-c</span><br></pre></td></tr></table></figure>
+<h3 id="format"><a href="#format" class="headerlink" title="format"></a>format</h3><p>数字格式化, 会将数字加上千分位, 并省略到小数点后某位</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select format(123456.456, 2);  // 123,456.46</span><br></pre></td></tr></table></figure>
+<h3 id="lower"><a href="#lower" class="headerlink" title="lower"></a>lower</h3><p>转换为小写</p>
+<h3 id="upper"><a href="#upper" class="headerlink" title="upper"></a>upper</h3><p>转换为大写</p>
+<h3 id="left"><a href="#left" class="headerlink" title="left"></a>left</h3><p>获取左侧字符</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select lower(left(&apos;MySQL&apos;), 2);  // my</span><br></pre></td></tr></table></figure>
+<h3 id="right"><a href="#right" class="headerlink" title="right"></a>right</h3><p>获取右侧字符</p>
+<h3 id="length"><a href="#length" class="headerlink" title="length"></a>length</h3><p>获取字符串长度</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select length(&apos;my sql&apos;); // 6</span><br></pre></td></tr></table></figure>
+<h3 id="ltrim"><a href="#ltrim" class="headerlink" title="ltrim"></a>ltrim</h3><p>去掉前导空格</p>
+<h3 id="rtrim"><a href="#rtrim" class="headerlink" title="rtrim"></a>rtrim</h3><p>取消后导空格</p>
+<h3 id="trim"><a href="#trim" class="headerlink" title="trim"></a>trim</h3><p>去掉前后空格</p>
+<p>除删除空格外, 还可以删除掉某些特定字符串</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select trim(leading &apos;?&apos; from &apos;???mysql????&apos;); // mysql????</span><br></pre></td></tr></table></figure>
+<p>去掉左边的问号</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select trim(trailing &apos;?&apos; from &apos;???mysql????&apos;); // ???mysql</span><br></pre></td></tr></table></figure>
+<p>去掉右边的问号</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select trim(both &apos;?&apos; from &apos;???mysql????&apos;);  // mysql</span><br></pre></td></tr></table></figure>
+<p>去掉左右两边的问号</p>
+<h3 id="replace"><a href="#replace" class="headerlink" title="replace"></a>replace</h3><p>为字符串中的a字符替换为b字符</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select replace(&apos;??mysq?l&apos;, &apos;!&apos;); // !!mysq!l</span><br></pre></td></tr></table></figure>
+<h3 id="substring"><a href="#substring" class="headerlink" title="substring"></a>substring</h3><p>字符串截取, 需要注意的是字符串从1开始截取, 第二个参数为截取的字符串长度</p>
+<p>如果只传一位数时, 是从该位开始, 往后</p>
+<p>第一位数可以传负数, 如传-1表示从倒数第一位开始</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select substring(&apos;mysql&apos;, 1, 2); // my</span><br></pre></td></tr></table></figure>
+<h3 id="查找类似值"><a href="#查找类似值" class="headerlink" title="查找类似值"></a>查找类似值</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from test where first_name like &apos;%1%&apos;;</span><br></pre></td></tr></table></figure>
+<p>需要注意的是, %代表任意个字符, 但是_代表的是任意个字符, 当我们需要查找这两种字符本身的时候, 需要使用escape方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from test where first_name like &apos;%1%%&apos; escape &apos;1&apos;;</span><br></pre></td></tr></table></figure>
+<h2 id="数值运算符"><a href="#数值运算符" class="headerlink" title="数值运算符"></a>数值运算符</h2><h3 id="ceil"><a href="#ceil" class="headerlink" title="ceil"></a>ceil</h3><p>进一取整</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select ceil(3.01); // 4</span><br></pre></td></tr></table></figure>
+<h3 id="floor"><a href="#floor" class="headerlink" title="floor"></a>floor</h3><p>舍一取整</p>
+<h3 id="div"><a href="#div" class="headerlink" title="div"></a>div</h3><p>整数除法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select 3 div 4; // 0</span><br></pre></td></tr></table></figure>
+<h3 id="mod"><a href="#mod" class="headerlink" title="mod"></a>mod</h3><p>取余数, 和%等价</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select 3 mod 4; // 3</span><br><span class="line">select 3 % 4; // 3</span><br></pre></td></tr></table></figure>
+<h3 id="power"><a href="#power" class="headerlink" title="power"></a>power</h3><p>幂运算</p>
+<h3 id="round"><a href="#round" class="headerlink" title="round"></a>round</h3><p>四舍五入</p>
+<h3 id="truncate"><a href="#truncate" class="headerlink" title="truncate"></a>truncate</h3><p>数字截取, 不同于四舍五入, 是将该位上的内容拿掉, 传负数代表是整数位</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select truncate(1234.321, -1); // 1230</span><br></pre></td></tr></table></figure>
+<h2 id="从外部导入mysql表"><a href="#从外部导入mysql表" class="headerlink" title="从外部导入mysql表"></a>从外部导入mysql表</h2><p>导入的方式应为, 先导入schema表, 用于创建sql语句的表头结构, 然后再导入data内容</p>
+<ul>
+<li><p>在MYSQL 命令下： SOURCE 下载路径/sakila-schema.sql #建立表结构</p>
+</li>
+<li><p>在MYSQL 命令下： SOURCE 下载路径/sakila-data.sql #插入数据</p>
+</li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/12/23/MySQL的基本使用/">MySQL的基本使用</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">ChangerHe</a></p>
+        <p><span>发布时间:</span>2017-12-23, 19:36:43</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/12/23/MySQL的基本使用/" title="MySQL的基本使用">http://blog.changerhe.cn/2017/12/23/MySQL的基本使用/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://blog.changerhe.cn/2017/12/23/MySQL的基本使用/　　作者: ChangerHe" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2018/01/02/百度地图JSapi使用/">
+                    百度地图JSapi使用总结
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2017/10/07/Objective-c基础学习/">
+                    Objective-c基础学习
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#登陆"><span class="toc-number">1.</span> <span class="toc-text">登陆</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#显示所有数据库信息"><span class="toc-number">2.</span> <span class="toc-text">显示所有数据库信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建数据库的同时记得同步设置其编码格式-否则默认为utf8"><span class="toc-number">3.</span> <span class="toc-text">创建数据库的同时记得同步设置其编码格式, 否则默认为utf8</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看数据库的编码方式"><span class="toc-number">4.</span> <span class="toc-text">查看数据库的编码方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#切换数据库"><span class="toc-number">5.</span> <span class="toc-text">切换数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建数据表"><span class="toc-number">6.</span> <span class="toc-text">创建数据表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看数据表"><span class="toc-number">7.</span> <span class="toc-text">查看数据表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看表的列"><span class="toc-number">8.</span> <span class="toc-text">查看表的列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看表结构"><span class="toc-number">9.</span> <span class="toc-text">查看表结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#向数据表中写入记录"><span class="toc-number">10.</span> <span class="toc-text">向数据表中写入记录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看数据记录"><span class="toc-number">11.</span> <span class="toc-text">查看数据记录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置字段的值为空值或者非空"><span class="toc-number">12.</span> <span class="toc-text">设置字段的值为空值或者非空</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置字段的值自增"><span class="toc-number">13.</span> <span class="toc-text">设置字段的值自增</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#约束"><span class="toc-number">14.</span> <span class="toc-text">约束</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#唯一约束"><span class="toc-number">14.1.</span> <span class="toc-text">唯一约束</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#默认约束"><span class="toc-number">14.2.</span> <span class="toc-text">默认约束</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#外键约束"><span class="toc-number">14.3.</span> <span class="toc-text">外键约束</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改数据表"><span class="toc-number">15.</span> <span class="toc-text">修改数据表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#添加单列-为表结构中插入一个列"><span class="toc-number">15.1.</span> <span class="toc-text">添加单列(为表结构中插入一个列)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除单列"><span class="toc-number">15.2.</span> <span class="toc-text">删除单列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除和增加列的主键约束-外键约束"><span class="toc-number">15.3.</span> <span class="toc-text">删除和增加列的主键约束, 外键约束</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改列定义"><span class="toc-number">15.4.</span> <span class="toc-text">修改列定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改列名称"><span class="toc-number">15.5.</span> <span class="toc-text">修改列名称</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改数据表名"><span class="toc-number">15.6.</span> <span class="toc-text">修改数据表名</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#插入记录"><span class="toc-number">16.</span> <span class="toc-text">插入记录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#set-select"><span class="toc-number">16.1.</span> <span class="toc-text">set-select</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#单表更新记录"><span class="toc-number">16.2.</span> <span class="toc-text">单表更新记录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#单表删除操作"><span class="toc-number">16.3.</span> <span class="toc-text">单表删除操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除行操作"><span class="toc-number">16.4.</span> <span class="toc-text">删除行操作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#select语句"><span class="toc-number">17.</span> <span class="toc-text">select语句</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#group-by-分组"><span class="toc-number">17.1.</span> <span class="toc-text">group by 分组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#order-by-对结果进行排序"><span class="toc-number">17.2.</span> <span class="toc-text">order by 对结果进行排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#限制查询limit"><span class="toc-number">17.3.</span> <span class="toc-text">限制查询limit</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建新表-并将原来表的内容输入到新表"><span class="toc-number">17.4.</span> <span class="toc-text">创建新表, 并将原来表的内容输入到新表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#子查询"><span class="toc-number">18.</span> <span class="toc-text">子查询</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用any-some-all来修饰的比较运算符"><span class="toc-number">18.1.</span> <span class="toc-text">使用any, some, all来修饰的比较运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#联合使用select和insert语句将原表的分类导入到另一张表"><span class="toc-number">18.2.</span> <span class="toc-text">联合使用select和insert语句将原表的分类导入到另一张表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#表连接"><span class="toc-number">18.3.</span> <span class="toc-text">表连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建表的同时将内容插入数据表"><span class="toc-number">18.4.</span> <span class="toc-text">创建表的同时将内容插入数据表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#连接"><span class="toc-number">19.</span> <span class="toc-text">连接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#无限极分类表设计"><span class="toc-number">20.</span> <span class="toc-text">无限极分类表设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字符函数"><span class="toc-number">21.</span> <span class="toc-text">字符函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#concat"><span class="toc-number">21.1.</span> <span class="toc-text">concat</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#concat-ws"><span class="toc-number">21.2.</span> <span class="toc-text">concat_ws()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#format"><span class="toc-number">21.3.</span> <span class="toc-text">format</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lower"><span class="toc-number">21.4.</span> <span class="toc-text">lower</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#upper"><span class="toc-number">21.5.</span> <span class="toc-text">upper</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#left"><span class="toc-number">21.6.</span> <span class="toc-text">left</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#right"><span class="toc-number">21.7.</span> <span class="toc-text">right</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#length"><span class="toc-number">21.8.</span> <span class="toc-text">length</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ltrim"><span class="toc-number">21.9.</span> <span class="toc-text">ltrim</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rtrim"><span class="toc-number">21.10.</span> <span class="toc-text">rtrim</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#trim"><span class="toc-number">21.11.</span> <span class="toc-text">trim</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#replace"><span class="toc-number">21.12.</span> <span class="toc-text">replace</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#substring"><span class="toc-number">21.13.</span> <span class="toc-text">substring</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查找类似值"><span class="toc-number">21.14.</span> <span class="toc-text">查找类似值</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数值运算符"><span class="toc-number">22.</span> <span class="toc-text">数值运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ceil"><span class="toc-number">22.1.</span> <span class="toc-text">ceil</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#floor"><span class="toc-number">22.2.</span> <span class="toc-text">floor</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#div"><span class="toc-number">22.3.</span> <span class="toc-text">div</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mod"><span class="toc-number">22.4.</span> <span class="toc-text">mod</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#power"><span class="toc-number">22.5.</span> <span class="toc-text">power</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#round"><span class="toc-number">22.6.</span> <span class="toc-text">round</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#truncate"><span class="toc-number">22.7.</span> <span class="toc-text">truncate</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#从外部导入mysql表"><span class="toc-number">23.</span> <span class="toc-text">从外部导入mysql表</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2018/01/02/百度地图JSapi使用/" title="上一篇: 百度地图JSapi使用总结">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2017/10/07/Objective-c基础学习/" title="下一篇: Objective-c基础学习">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/08/02/kafka的基本概念和安装步骤/">kafka的基本概念和安装步骤</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/20/React-Native之工程打包/">React-Native之工程打包</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/19/React-Native之react-navigation(v2)/">React-Native之react-navigation(v2)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/15/Eslint配置条件参考/">Eslint配置条件参考</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/02/React-Native之动画/">React-Native之动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/05/ReactNative的mac初始环境配置/">ReactNative的mac初始环境配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/04/testForMac/">SASS学习进阶</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/06/Charles抓包工具的基本使用/">Charles抓包工具的基本使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/02/百度地图JSapi使用/">百度地图JSapi使用总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/23/MySQL的基本使用/">MySQL的基本使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/07/Objective-c基础学习/">Objective-c基础学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/25/Chrome61发布,这新功能怕是没谁了/">Chrome61发布,这新功能怕是没谁了</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/21/微信小程序懒加载的实现/">微信小程序懒加载的实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/05/网站的https证书配置方法/">网站的https证书配置小结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/05/利用dpl实现对移动设备的像素实现精准控制/">利用dpl实现对移动设备的像素实现精准控制</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/20/Angularjs的数据绑定和脏检查/">Angularjs的数据绑定和脏检查</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/05/基于MongoDB-2dSphere索引查找最近的点/">基于MongoDB 2dSphere索引查找最近的点</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/27/使用Nodejs实现简单的自动化构建/">使用Nodejs实现简单的自动化构建</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/25/ES6中的遍历器接口Iterator/">ES6中的遍历器接口Iterator</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/18/理解Nodejs里的process-nextTick/">理解Node.js里的process.nextTick()</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/06/Nodejs的require-模块源码解读/">Nodejs的require()模块源码解读</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/20/《ES6标准入门》阅读笔记——-Module/">《ES6标准入门》阅读笔记——-Module</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/06/《ES6标准入门》阅读笔记——-Class/">《ES6标准入门》阅读笔记——-Class</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/30/《ES6标准入门》阅读笔记——-Promise/">《ES6标准入门》阅读笔记——-Promise</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/15/《ES6标准入门》阅读笔记——-Iterator和Generator/">《ES6标准入门》阅读笔记——-Iterator和Generator</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/05/微信小程序开发笔记/">微信小程序开发笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/03/《ES6标准入门》阅读笔记——-set和map/">《ES6标准入门》阅读笔记——-set和map</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/01/《ES6标准入门》阅读笔记——-symbol及proxy-reflect/">《ES6标准入门》阅读笔记——-symbol及proxy/reflect</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/24/微信公众平台接口配置信息详解---Nodejs版/">微信公众平台接口配置信息详解---Nodejs版</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/15/《ES6标准入门》阅读笔记——-对象的扩展/">《ES6标准入门》阅读笔记——-对象的扩展</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/28/《ES6标准入门》阅读笔记——-函数的扩展/">《ES6标准入门》阅读笔记——-函数的扩展</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/25/《ES6标准入门》阅读笔记——-数组的扩展/">《ES6标准入门》阅读笔记——-数组的扩展</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/22/《ES6标准入门》阅读笔记——-number类型的扩展/">《ES6标准入门》阅读笔记——-number类型的扩展</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/13/记一次简单的Nodejs爬虫/">记一次简单的Nodejs爬虫</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/04/《ES6标准入门》阅读笔记——-正则表达式的扩展/">《ES6标准入门》阅读笔记——-正则表达式的扩展</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/19/《ES6标准入门》阅读笔记——-Unicode/">《ES6标准入门》阅读笔记——-Unicode</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/18/《ES6标准入门》阅读笔记———解构赋值/">《ES6标准入门》阅读笔记———解构赋值</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/17/《ES6标准入门》阅读笔记——let和const/">《ES6标准入门》阅读笔记——let和const</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/10/纯CSS实现元素水平垂直居中的方法/">纯CSS实现元素水平垂直居中的方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/24/浅谈框架模式的MVC-MVP-MVVM/">浅谈框架模式的MVC/MVP/MVVM</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/23/JavaScript模块化编程-commonjs和AMD及CMD/">JavaScript模块化编程-commonjs和AMD及CMD</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/15/JavaScript笔试面试题收集（五）/">JavaScript笔试面试题收集（五）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/01/sass-scss和less的区别/">sass/scss和less的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/15/SASS学习笔记/">SASS学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/30/Javascript中隐式类型转换的神坑/">Javascript中隐式类型转换的神坑</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/16/CSS样式书写规范/">CSS样式书写规范</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/11/JavaScript笔试面试题收集（四）/">JavaScript笔试面试题收集（四）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/05/JavaScript笔试面试题收集（三）/">JavaScript笔试面试题收集（三）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/03/JavaScript深入浅出-call-apply/">JavaScript深入浅出-call/apply</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/28/JavaScript高级程序设计复习笔记（三）/">JavaScript高级程序设计复习笔记（三）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/27/JavaScript高级程序设计复习笔记（二）/">JavaScript高级程序设计复习笔记（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/25/JavaScript高级程序设计复习笔记（一）/">JavaScript高级程序设计复习笔记（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/18/JavaScript深入浅出-表达式和运算符/">JavaScript深入浅出-表达式和运算符</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/12/深入理解JavaScript构造函数和原型对象/">深入理解JavaScript构造函数和原型对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/04/JavaScript笔试面试题收集（二）/"> JavaScript笔试面试题收集（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/23/JavaScript躲坑指南（二）/">JavaScript躲坑指南（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/15/JavaScript躲坑指南（一）/">JavaScript躲坑指南（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/12/JavaScript深入浅出-闭包及解决办法/">JavaScript深入浅出-闭包及闭包问题的解决办法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/05/JavaScript笔试面试题收集（一）/">JavaScript笔试面试题收集（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/25/JavaScipt中sort-方法的底层原理及妙用/">JavaScipt中sort()方法的底层原理及妙用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/15/调试Javascript-断点设置/">调试Javascript-断点设置</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/29/JavaScriptDOM编程艺术查漏补缺(三)/">JavaScriptDOM编程艺术查漏补缺(三)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/23/处理git无法上传超过100M文件的问题/">处理git无法上传超过100M文件的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/15/JavaScriptDOM编程艺术查漏补缺(二)/">JavaScriptDOM编程艺术查漏补缺(二)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/07/jQuery-extend和jQuery-fn-extend的区别/">jQuery.extend和jQuery.fn.extend的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/29/JavaScriptDOM编程艺术查漏补缺(一)/">JavaScriptDOM编程艺术查漏补缺(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/25/jQuery查漏补缺/">jQuery 学习笔记——Review</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/18/jQuery学习笔记——属性与样式/">jQuery 学习笔记——属性与样式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/14/jQuery-学习笔记/">jQuery 学习笔记——选择器</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/HTTP相关知识/">HTTP相关知识（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/26/代码执行顺序解析/">JAVA代码执行顺序解析</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/24/SASS学习进阶/">SASS学习进阶</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/19/JavaScript计时器的优化/">JavaScript计时器的优化</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/11/XML学习笔记/">XML学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/06/PHP菜鸟入门笔记/">PHP菜鸟入门不完全指南</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/27/基本算法的JavaScript实现/">基本算法的JavaScript实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/21/使用Canvas绘制七巧板/">使用Canvas绘制七巧板</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/14/接口和抽象类的区别/">接口和抽象类的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/28/实现某节点子节点的倒序排列/">实现某节点子节点的倒序排列</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/23/Margin和Padding值设置成百分数的布局/">Margin和Padding值设置成百分数的布局</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/14/GIT配置不需密码即可push的方法/">GIT配置不需密码即可push的方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/10/在GitHub账户中搭建静态博客的同时另开一个代码展示页面的方法/">在GitHub账户中搭建静态博客的同时另开一个代码展示页面的方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/03/杨辉三角的JAVA实现/">杨辉三角的JAVA实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/30/不同排序算法的JAVA实现及性能比较/">不同排序算法的JAVA实现及性能比较</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/19/What-is-Flex/">What is Flex?</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/14/The-Usages-Of-Iconfont/">阿里妈妈iconfont矢量图标字体的用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/05/The-Data-Type-Differences-of-JavaScript-and-Java/">JavaScript 和 JAVA 在数据类型方面的异同</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/28/nine-block-mission/">九宫格自适应布局的页面重构</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/25/Java-Learning/">斐波那契数列和九九乘法表在JAVA中的实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/19/Position属性知多少/">Position属性知多少</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/16/hexo博客必备-MarkDown语法总结/">hexo博客必备-MarkDown语法总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/14/hexo/">HEXO使用小结</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016-2018 ChangerHe
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/ChangerHe/ChangerHe.github.io" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by ChangerHe <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+
+<script>
+    // Open in New Window
+    
+        $("a[target=_blank]").removeAttr("target");
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https'){
+   bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else{
+  bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+  </div>
+</body>
+</html>
